@@ -48,36 +48,18 @@
 <body class="antialiased">
     <div class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
 
-        <!-- Header Section -->
-        <header class="flex flex-col md:flex-row items-center justify-start mb-12">
-            <!-- Profile Image -->
-            <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
-                <img src="Perfil-Uade-Blanco.png" alt="Foto de perfil de Mariano Gobea Alcoba" class="w-60 h-60 rounded-full object-cover border-4 border-sky-400 shadow-lg">
-            </div>
-
-            <!-- Text and Socials container -->
-            <div class="flex flex-col items-center md:items-start flex-grow">
-                <div class="text-center md:text-left">
-                    <h1 class="text-4xl sm:text-5xl font-bold text-white">Mariano Gobea Alcoba</h1>
-                    <h2 class="text-xl sm:text-2xl text-sky-400 mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
-                    <p class="text-gray-400 mt-3 max-w-xl">Impulsando la transformación digital y la democratización del comercio en LATAM a través de datos e inteligencia artificial.</p>
-                </div>
-                 <div class="flex items-center space-x-6 mt-6">
-                    <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Mgobeaalcoba" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/MGobeaAlcoba" target="_blank" class="text-gray-400 icon-link">
-                        <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-            <!-- Left Column -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12">
+        
+            <!-- ========== LEFT COLUMN ========== -->
             <div class="lg:col-span-1 space-y-8">
+                
+                <!-- Profile Image -->
+                <div class="flex justify-center lg:justify-start">
+                    <div class="w-48 h-48 rounded-full border-4 border-sky-400 shadow-lg" 
+                         style="background-image: url('Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
+                    </div>
+                </div>
+
                 <!-- Contact -->
                 <section class="p-6 glass-effect rounded-xl">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Contacto</h3>
@@ -116,6 +98,16 @@
                             <p class="text-sm text-gray-500">2025 - 2026</p>
                         </li>
                         <li>
+                            <p class="font-semibold text-white">Licenciatura, Gestión de TI</p>
+                            <p class="text-gray-400">UADE</p>
+                            <p class="text-sm text-gray-500">2020 - 2021</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold text-white">Profesorado, Sociología</p>
+                            <p class="text-gray-400">Universidad de Buenos Aires</p>
+                            <p class="text-sm text-gray-500">2014 - 2015</p>
+                        </li>
+                        <li>
                             <p class="font-semibold text-white">Licenciatura, Sociología</p>
                             <p class="text-gray-400">Universidad de Buenos Aires</p>
                             <p class="text-sm text-gray-500">2007 - 2014</p>
@@ -129,10 +121,26 @@
                 </section>
             </div>
 
-            <!-- Right Column -->
-            <div class="lg:col-span-2">
+            <!-- ========== RIGHT COLUMN ========== -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <!-- Header Text -->
+                <header>
+                    <h1 class="text-4xl sm:text-5xl font-bold text-white">Mariano Gobea Alcoba</h1>
+                    <h2 class="text-xl sm:text-2xl text-sky-400 mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
+                    <div class="flex items-center space-x-6 mt-6">
+                       <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
+                       <a href="https://github.com/Mgobeaalcoba" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-github"></i></a>
+                       <a href="https://x.com/MGobeaAlcoba" target="_blank" class="text-gray-400 icon-link">
+                           <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
+                           </svg>
+                       </a>
+                   </div>
+                </header>
+
                 <!-- About Me -->
-                <section class="p-6 glass-effect rounded-xl mb-8">
+                <section class="p-6 glass-effect rounded-xl">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Sobre mí</h3>
                     <p class="text-gray-300 leading-relaxed">
                         Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
@@ -144,7 +152,7 @@
                     <h3 class="text-2xl font-semibold text-white mb-6 border-b border-gray-600 pb-2">Experiencia</h3>
                     <div class="space-y-8">
                         
-                        <!-- Job 1 -->
+                        <!-- Job -->
                         <div class="relative pl-8 border-l-2 border-sky-500">
                              <div class="absolute w-4 h-4 bg-sky-500 rounded-full -left-2 top-1.5"></div>
                             <p class="text-sm text-sky-400">Enero 2025 - Presente</p>
@@ -152,58 +160,133 @@
                             <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
                                 <li>Lideré equipos de +6 analistas, aumentando un 30% la adopción de soluciones de IA.</li>
-                                <li>Alineé la estrategia de Data & Analytics con objetivos corporativos, mejorando la eficiencia en un 20%.</li>
-                                <li>Implementé arquitecturas RAG y modelos fine-tuned (BERT, GPT) para optimizar procesos.</li>
-                                 <li>Generé +USD 500K en impacto anual estimado a través de proyectos de transformación de datos.</li>
+                                <li>Generé +USD 500K en impacto anual estimado a través de proyectos de transformación de datos.</li>
                             </ul>
                         </div>
                         
-                        <!-- Job 2 -->
+                        <!-- Job -->
                          <div class="relative pl-8 border-l-2 border-gray-600">
                               <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                             <p class="text-sm text-gray-500">Diciembre 2023 - Febrero 2025</p>
                             <h4 class="text-xl font-bold text-white mt-1">Sr Data & Analytics Engineer</h4>
                             <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
                              <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                <li>Diseñé y mantuve el modelo de datos de login, asegurando su disponibilidad y confiabilidad.</li>
-                                <li>Desarrollé dashboards estratégicos y automaticé la actualización de modelos de datos.</li>
-                                <li>Lideré la migración de Amazon Athena a Google BigQuery, mejorando escalabilidad y velocidad.</li>
+                                <li>Diseñé y mantuve el modelo de datos de login.</li>
+                                <li>Lideré la migración de Amazon Athena a Google BigQuery.</li>
                             </ul>
                         </div>
 
-                         <!-- Job 3 -->
+                         <!-- Job -->
                          <div class="relative pl-8 border-l-2 border-gray-600">
                               <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                             <p class="text-sm text-gray-500">Junio 2022 - Diciembre 2023</p>
                             <h4 class="text-xl font-bold text-white mt-1">Shipping Product Owner</h4>
                             <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
                              <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Definí la estrategia y roadmap del producto, colaborando con equipos de desarrollo y negocio.</li>
-                                <li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad.</li>
-                                <li>Monitoreé métricas clave de negocio y producto para impulsar la optimización.</li>
+                                 <li>Definí la estrategia y roadmap del producto.</li>
+                                <li>Gestioné el backlog priorizando funcionalidades.</li>
                             </ul>
                         </div>
                         
-                        <!-- Job 4 -->
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Enero 2021 - Junio 2022</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Sr Analyst</h4>
+                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Estandaricé KPIs y reportes a nivel regional.</li>
+                                 <li>Lideré iniciativas de mejora continua en operaciones.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Agosto 2020 - Enero 2021</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Ssr Analyst</h4>
+                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Monitoreé y analicé KPIs operativos (Out On Time, NPS).</li>
+                                 <li>Detecté oportunidades de mejora en procesos.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Mayo 2019 - Agosto 2020</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Team Leader</h4>
+                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Lideré equipos operativos en inbound, sorting y outbound.</li>
+                                 <li>Fomenté una cultura de trabajo motivadora.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Job -->
                          <div class="relative pl-8 border-l-2 border-gray-600">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                             <p class="text-sm text-gray-500">Diciembre 2024 - Presente</p>
                             <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Expert</h4>
                             <p class="font-semibold text-gray-300 mb-2">Henry</p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Liderazgo académico en Data & Analytics y diseño de experiencias educativas.</li>
-                                 <li>Creación de proyectos integradores y materiales didácticos de alta calidad.</li>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Liderazgo académico y diseño de experiencias educativas.</li>
                             </ul>
                         </div>
-                         <!-- Job 5 -->
+
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Mayo 2024 - Presente</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Data Analytics Instructor</h4>
+                            <p class="font-semibold text-gray-300 mb-2">Henry</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Instructor de Data Analytics con foco en Python.</li>
+                            </ul>
+                        </div>
+                        
+                         <!-- Job -->
                          <div class="relative pl-8 border-l-2 border-gray-600">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                             <p class="text-sm text-gray-500">Julio 2024 - Presente</p>
                             <h4 class="text-xl font-bold text-white mt-1">Adjunct Professor</h4>
                             <p class="font-semibold text-gray-300 mb-2">UADE</p>
                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                <li>Docente de programación en nivel universitario, enseñando fundamentos clave.</li>
-                                <li>Diseño y actualización del plan académico del Taller de Programación I.</li>
+                                <li>Docente de programación en nivel universitario.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Diciembre 2011 - Abril 2019</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Warehouse Supervisor</h4>
+                            <p class="font-semibold text-gray-300 mb-2">El Portugues</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Supervisión operativa de centro logístico.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Enero 2010 - Febrero 2011</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Backoffice Analyst</h4>
+                            <p class="font-semibold text-gray-300 mb-2">SOLDA-LIMP S.R.L.</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Gestión integral de ventas y facturación.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Job -->
+                         <div class="relative pl-8 border-l-2 border-gray-600">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                            <p class="text-sm text-gray-500">Febrero 2009 - Diciembre 2009</p>
+                            <h4 class="text-xl font-bold text-white mt-1">Customer Services Representative</h4>
+                            <p class="font-semibold text-gray-300 mb-2">UBICAR ARGENTINA</p>
+                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                 <li>Atención al cliente especializada en sistemas de rastreo.</li>
                             </ul>
                         </div>
 
@@ -211,7 +294,8 @@
                     </div>
                 </section>
             </div>
-        </main>
+
+        </div>
 
         <footer class="text-center text-gray-500 mt-16">
             <p>&copy; 2025 Mariano Gobea Alcoba. Diseñado con <i class="fas fa-heart text-red-500"></i> en Buenos Aires.</p>
