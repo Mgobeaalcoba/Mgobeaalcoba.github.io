@@ -79,25 +79,46 @@
         .chevron-icon.rotate {
             transform: rotate(180deg);
         }
+        /* PDF Export Helper Class */
+        .avoid-break {
+            break-inside: avoid;
+        }
     </style>
 </head>
 <body class="antialiased">
     <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12">
-        
+        <!-- HEADER BLOCK -->
+        <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12">
+            <!-- Header Left: Profile Image -->
+            <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                 <div class="w-48 h-48 rounded-full border-4 border-sky-400 shadow-lg" 
+                         style="background-image: url('Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
+                </div>
+            </div>
+
+            <!-- Header Right: Name, Title, Socials -->
+            <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white">Mariano Gobea Alcoba</h1>
+                <h2 class="text-xl sm:text-2xl text-sky-400 mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
+                <div class="flex items-center space-x-6 mt-6">
+                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
+                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-github"></i></a>
+                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="text-gray-400 icon-link">
+                       <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
+                       </svg>
+                   </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT GRID -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8">
             <!-- ========== LEFT COLUMN ========== -->
             <div class="lg:col-span-1 space-y-8">
-                
-                <!-- Profile Image -->
-                <div class="flex justify-center lg:justify-start">
-                    <div class="w-48 h-48 rounded-full border-4 border-sky-400 shadow-lg" 
-                         style="background-image: url('Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
-                    </div>
-                </div>
-
                 <!-- Contact -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl avoid-break">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Contacto</h3>
                     <ul class="space-y-4 text-gray-300">
                         <li><i class="fas fa-map-marker-alt w-5 mr-2 text-sky-400"></i> Buenos Aires, Argentina</li>
@@ -113,7 +134,7 @@
                 </section>
                 
                 <!-- Skills -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl avoid-break">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Habilidades</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Generative AI</span>
@@ -131,7 +152,7 @@
                 </section>
 
                 <!-- Education -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl avoid-break">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Educación</h3>
                     <ul class="space-y-4">
                         <li>
@@ -165,24 +186,8 @@
 
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
-                
-                <!-- Header Text -->
-                <header>
-                    <h1 class="text-4xl sm:text-5xl font-bold text-white">Mariano Gobea Alcoba</h1>
-                    <h2 class="text-xl sm:text-2xl text-sky-400 mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
-                    <div class="flex items-center space-x-6 mt-6">
-                       <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
-                       <a href="https://github.com/Mgobeaalcoba" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-github"></i></a>
-                       <a href="https://x.com/MGobeaAlcoba" target="_blank" class="text-gray-400 icon-link">
-                           <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-                               <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
-                           </svg>
-                       </a>
-                   </div>
-                </header>
-
                 <!-- About Me -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl avoid-break">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Sobre mí</h3>
                     <p class="text-gray-300 leading-relaxed">
                         Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
@@ -190,12 +195,12 @@
                 </section>
 
                 <!-- Experience -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl avoid-break">
                     <h3 class="text-2xl font-semibold text-white mb-6 border-b border-gray-600 pb-2">Experiencia</h3>
                     <div class="space-y-4">
                         
                         <!-- Job: Data & Analytics Technical Leader -->
-                        <div class="relative pl-8 border-l-2 border-sky-500 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-sky-500 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-sky-500 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -216,7 +221,7 @@
                         </div>
 
                         <!-- Job: Sr Data & Analytics Engineer -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -236,7 +241,7 @@
                         </div>
                         
                         <!-- Job: Shipping Product Owner -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -256,7 +261,7 @@
                         </div>
 
                         <!-- Job: Cross Docking Sr Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -276,7 +281,7 @@
                         </div>
                         
                         <!-- Job: Cross Docking Ssr Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -296,7 +301,7 @@
                         </div>
 
                         <!-- Job: Cross Docking Team Leader -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -316,7 +321,7 @@
                         </div>
 
                         <!-- Job: Data & Analytics Expert -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -336,7 +341,7 @@
                         </div>
 
                         <!-- Job: Data Analytics Instructor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -356,7 +361,7 @@
                         </div>
 
                         <!-- Job: Adjunct Professor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -376,7 +381,7 @@
                         </div>
                         
                         <!-- Job: Warehouse Supervisor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -396,7 +401,7 @@
                         </div>
 
                         <!-- Job: Backoffice Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -416,7 +421,7 @@
                         </div>
 
                         <!-- Job: Customer Services Representative -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
@@ -439,9 +444,9 @@
                 </section>
             </div>
 
-        </div>
+        </main>
 
-        <footer class="text-center text-gray-500 mt-16">
+        <footer id="page-footer" class="text-center text-gray-500 mt-16">
             <p>&copy; 2025 Mariano Gobea Alcoba. Diseñado con <i class="fas fa-heart text-red-500"></i> en Buenos Aires.</p>
         </footer>
 
@@ -463,6 +468,7 @@
             const downloadBtn = document.getElementById('download-btn');
             const downloadText = document.getElementById('download-text');
             const downloadIcon = document.getElementById('download-icon');
+            const pageFooter = document.getElementById('page-footer');
 
             downloadBtn.addEventListener('click', () => {
                 // Set loading state
@@ -471,6 +477,7 @@
                 downloadBtn.disabled = true;
 
                 const element = document.getElementById('page-content');
+                pageFooter.classList.remove('mt-16');
                 
                 // Temporarily expand all experience sections for capture
                 const allDetails = document.querySelectorAll('.experience-details');
@@ -507,7 +514,7 @@
                         heightLeft -= pdfHeight;
 
                         while (heightLeft > 0) {
-                            position = heightLeft - imgHeight;
+                            position -= pdfHeight;
                             pdf.addPage();
                             pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                             heightLeft -= pdfHeight;
@@ -519,9 +526,14 @@
                         downloadText.textContent = 'Descargar CV';
                         downloadIcon.className = 'fas fa-download w-5 mr-2';
                         downloadBtn.disabled = false;
+                        pageFooter.classList.add('mt-16');
 
                         // Collapse sections back to original state
-                        allDetails.forEach(detail => detail.classList.remove('show'));
+                        allDetails.forEach(detail => {
+                            // We only remove 'show' if it was not there initially.
+                            // But since we are forcing all open, we just close all.
+                            detail.classList.remove('show');
+                        });
                         allIcons.forEach(icon => icon.classList.remove('rotate'));
                     });
                 }, 500); // 500ms timeout
