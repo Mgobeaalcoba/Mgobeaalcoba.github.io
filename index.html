@@ -82,7 +82,7 @@
         .chevron-icon { transition: transform 0.4s ease; }
         .chevron-icon.rotate { transform: rotate(180deg); }
         .avoid-break { break-inside: avoid; }
-        #theme-switcher { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; }
+        
         .tag {
             background-color: #374151;
             color: #d1d5db;
@@ -103,27 +103,47 @@
             background-color: #d1d5db;
         }
         /* Custom scrollbar for project and cert lists */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: var(--scrollbar-track); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--primary-color); }
+        
+        /* Theme and Language Switcher */
+        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; display: flex; gap: 0.5rem;}
+        .control-btn {
+            background-color: var(--card-bg-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border-color);
+            color: var(--text-color);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: var(--scrollbar-track);
-            border-radius: 10px;
+        .control-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-thumb);
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
+        .control-btn:not(.active):hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- THEME SWITCHER -->
-    <div id="theme-switcher">
-        <button id="theme-toggle" class="p-2 rounded-full text-white backdrop-blur-sm" style="background-color: var(--card-bg-color);">
+    <!-- CONTROLS -->
+    <div class="top-controls">
+        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+            <button id="lang-es" class="control-btn" data-lang="es">ES</button>
+            <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+        </div>
+        <button id="theme-toggle" class="control-btn">
             <i class="fas fa-sun hidden" id="dark-icon"></i>
             <i class="fas fa-moon" id="light-icon"></i>
         </button>
@@ -139,7 +159,7 @@
             </div>
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
                 <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
-                <h2 class="text-xl sm:text-2xl mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
+                <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data & Analytics Technical Leader en Mercado Libre</h2>
                 <div class="flex items-center space-x-6 mt-6">
                    <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
                    <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl"><i class="fab fa-github"></i></a>
@@ -158,7 +178,7 @@
             <div class="lg:col-span-1 space-y-8">
                 <!-- Contact -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Contacto</h3>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="contact_title">Contacto</h3>
                     <ul class="space-y-4 text-secondary">
                         <li><i class="fas fa-map-marker-alt w-5 mr-2" style="color: var(--primary-color);"></i> Buenos Aires, Argentina</li>
                         <li><i class="fas fa-phone w-5 mr-2" style="color: var(--primary-color);"></i> 01127475569</li>
@@ -166,7 +186,7 @@
                         <li>
                             <button id="download-btn" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 <i id="download-icon" class="fas fa-download w-5 mr-2"></i>
-                                <span id="download-text">Descargar CV</span>
+                                <span id="download-text" data-translate="download_btn">Descargar CV</span>
                             </button>
                         </li>
                     </ul>
@@ -174,22 +194,22 @@
                 
                 <!-- Tech Stack -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Stack Tecnológico</h3>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="stack_title">Stack Tecnológico</h3>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Backend & Datos</h4>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_backend">Backend & Datos</h4>
                              <div class="flex flex-wrap gap-2">
                                 <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">Go</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Firebase</span><span class="tag">SQLite</span>
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Machine Learning</h4>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_ml">Machine Learning</h4>
                              <div class="flex flex-wrap gap-2">
                                 <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">PyTorch</span><span class="tag">Caret</span>
                             </div>
                         </div>
                         <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">IA & Automatización</h4>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_ai">IA & Automatización</h4>
                              <div class="flex flex-wrap gap-2">
                                 <span class="tag">Generative AI</span><span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">GitHub Copilot</span><span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">Windsurf</span><span class="tag">Cursor</span>
                             </div>
@@ -201,13 +221,13 @@
                              </div>
                         </div>
                          <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Business Intelligence</h4>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_bi">Business Intelligence</h4>
                              <div class="flex flex-wrap gap-2">
                                 <span class="tag">Looker</span><span class="tag">Looker Studio</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">DataFlow</span><span class="tag">DataMesh</span><span class="tag">Pandas</span><span class="tag">Numpy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Plotly</span><span class="tag">Geopandas</span><span class="tag">Dplyr</span><span class="tag">Ggplot2</span><span class="tag">Canvas</span>
                              </div>
                         </div>
                         <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Productividad</h4>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_productivity">Productividad</h4>
                              <div class="flex flex-wrap gap-2">
                                 <span class="tag">Jira</span><span class="tag">Notion</span><span class="tag">Monday</span><span class="tag">Google Suite</span><span class="tag">Microsoft Office</span>
                              </div>
@@ -217,50 +237,63 @@
                 
                  <!-- Education -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Educación</h3>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="education_title">Educación</h3>
                     <ul class="space-y-4 text-secondary">
                         <li>
-                            <p class="font-semibold" style="color: var(--text-color);">Postgraduate Degree, Ingeniería de Software</p>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu1_title">Postgraduate Degree, Ingeniería de Software</p>
                             <p>UAI - Universidad Abierta Interamericana</p>
                             <p class="text-sm">2025 - 2026</p>
                         </li>
                         <li>
-                            <p class="font-semibold" style="color: var(--text-color);">Licenciatura, Gestión de TI</p>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu2_title">Licenciatura, Gestión de TI</p>
                             <p>UADE</p>
                             <p class="text-sm">2020 - 2021</p>
                         </li>
                         <li>
-                            <p class="font-semibold" style="color: var(--text-color);">Profesorado, Sociología</p>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu3_title">Profesorado, Sociología</p>
                             <p>Universidad de Buenos Aires</p>
                             <p class="text-sm">2014 - 2015</p>
                         </li>
                         <li>
-                            <p class="font-semibold" style="color: var(--text-color);">Licenciatura, Sociología</p>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu4_title">Licenciatura, Sociología</p>
                             <p>Universidad de Buenos Aires</p>
                             <p class="text-sm">2007 - 2014</p>
                         </li>
                          <li>
-                            <p class="font-semibold" style="color: var(--text-color);">Python Backend Engineer</p>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu5_title">Python Backend Engineer</p>
+                             <p data-translate="edu5_subtitle">Ciencias de la computación</p>
                             <p>Platzi</p>
                             <p class="text-sm">2022 - 2023</p>
+                        </li>
+                         <li>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu6_title">Data Analyst</p>
+                             <p data-translate="edu6_subtitle">Ciencias de la computación</p>
+                            <p>Platzi</p>
+                            <p class="text-sm">2021 - 2022</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold" style="color: var(--text-color);" data-translate="edu7_title">Bachiller en Administración y Gestión de las Organizaciones</p>
+                             <p data-translate="edu7_subtitle">Administración y gestión de empresas, general</p>
+                            <p>Instituto Parroquial Fundador Don Francisco de Merlo</p>
+                            <p class="text-sm">2003 - 2006</p>
                         </li>
                     </ul>
                 </section>
 
                  <!-- Certifications & Languages -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Certificaciones e Idiomas</h3>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="cert_lang_title">Certificaciones e Idiomas</h3>
                     <div class="space-y-4">
                         <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Idiomas</h4>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="languages_title">Idiomas</h4>
                              <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                 <li>Español (Nativo)</li>
-                                 <li>Inglés (C1 - Avanzado)</li>
+                                 <li data-translate="lang_es">Español (Nativo)</li>
+                                 <li data-translate="lang_en">Inglés (C1 - Avanzado)</li>
                              </ul>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Formación Complementaria</h4>
-                            <div class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="cert_title">Formación Complementaria</h4>
+                            <div class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar" data-translate="cert_list">
                                 <p>GenAl for Champions</p><p>Curso de N8N</p><p>Introducción a Jira para gestión de proyectos con Kanban</p><p>Curso de Unit Testing en Python</p><p>Hacking con Python</p><p>Curso de Manejo de Datos Faltantes</p><p>Dataiku Core Designer</p><p>Enseñanza de inglés como lengua extranjera (TEFL)</p><p>Data Champions | BigQuery and LookML</p><p>5 minutos al dia para mejorar tu Ingles</p><p>Curso de Análisis Exploratorio de Datos</p><p>Curso de Estadistica Inferencial para Data Science</p><p>Curso de Ética y Manejo de Datos para Data Science</p><p>Python TOTAL - Programador Avanzado</p><p>Curso Básico de Django</p><p>Curso de Desarrollo Backend</p><p>Curso de Django Intermedio</p><p>Curso de FastAPI: Modularización, Datos y Errores</p><p>Curso de Flask</p><p>Principios SOLID y Clean Code</p><p>Curso Práctico de Python: Creación de un CRUD</p><p>Curso de Complejidad Algoritmica con Python</p><p>Curso de Estructuras de Datos Lineales con Python</p><p>Curso de FastAPI: Fundamentos</p><p>Curso de Pensamiento Computacional con Python</p><p>Curso de Python: PIP y Entornos Virtuales</p><p>Curso de Selenium con Python</p><p>Android Completo con Kotlin</p><p>Curso de Fundamentos de Python</p><p>Curso de Python: Comprehensions, Funciones y Manejo de Errores</p><p>Curso de Kotlin desde Cero</p><p>GOLANG: Curso profesional de Go</p><p>Problem Solving</p><p>Curso de Webpack</p><p>Diseño de interfaz (UI) con Figma</p><p>Curso Básico de JavaScript</p><p>Curso Práctico de Frontend Developer</p><p>Curso de Asincronismo con JavaScript</p><p>Curso de ECMAScript</p><p>Curso de Frontend Developer</p><p>Curso de NPM: Gestión de Paquetes</p><p>Introducción a la Programación con Kotlin</p><p>Nuevo Curso Gratis de Programación Básica</p><p>Curso Práctico de Product Owner</p><p>Curso de Prework: Configuración de Entorno</p><p>Nuevo Curso de Pensamiento Lógico</p><p>Curso de Fundamentos de R</p><p>Data Analyst</p><p>Curso de Digital Project Management</p><p>Curso de Manipulación y Transformación de Datos con Pandas y NumPy</p><p>Curso de PostgreSQL Aplicado a Ciencia de Datos</p><p>Curso de Visualización de Datos con Matplotlib y Seaborn</p><p>Proyecto del #PlatziChallenge Datacademy 2022</p><p>Curso Práctico de SQL</p><p>Cómo y Por Qué Aprender Data Science</p><p>Datacademy</p><p>Curso de Análisis de Datos con Power BI</p><p>Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos</p><p>Curso de Cómo Dar y Recibir Feedback</p><p>Curso de Funciones Matemáticas para Data Science</p><p>Curso de PostgreSQL</p><p>Curso sobre la Neurociencia del Feedback</p><p>Curso de Programación Orientada a Objetos: POO</p><p>Curso Fundamentos de Product Management</p><p>Curso de Filosofía para Managers</p><p>Curso de Herramientas para el Crecimiento Personal</p><p>Curso de Historia de Bitcoin y Criptomonedas</p><p>Curso de Motivación para Equipos de Trabajo</p><p>Curso para Desbloquear tu Creatividad</p><p>Learning Path Shipping</p><p>Curso Profesional de Python</p><p>Curso de Google Data Studio</p><p>Python Challenge</p><p>Curso de Business Intelligence: Utilidad y Áreas de Oportunidad</p><p>Curso de Excel Básico</p><p>Curso de Fundamentos de Bases de Datos</p><p>Curso de Introducción a Business Intelligence con Power BI</p><p>Curso de Introduccion al Algebra Lineal: Vectores</p><p>Curso de Principios de Visualización de Datos para Business Intelligence</p><p>Curso de Tableau: Visualización de Datos y Storytelling</p><p>Curso Práctico de Regresión Lineal con Python</p><p>Curso de Entorno de Trabajo para Ciencia de Datos</p><p>Curso de Fundamentos de Álgebra Lineal con Python</p><p>Curso de Google Suite</p><p>Curso de Inglés para Principiantes</p><p>Curso de Matemáticas para Data Science: Cálculo Básico</p><p>Curso de Matemáticas para Data Science: Estadística Descriptiva</p><p>Curso de Matemáticas para Data Science: Probabilidad</p><p>Curso de Python Intermedio</p><p>Taller de Inglés para Principiantes</p><p>Curso Profesional de Git y GitHub</p><p>Curso de Comunicación Efectiva</p><p>Curso de Fundamentos de Matemáticas</p><p>Curso de Gestión Efectiva del Tiempo</p><p>Curso de Inteligencia Emocional</p><p>Curso de Introducción a la Terminal y Línea de Comandos</p><p>Curso Básico de Python</p><p>Curso de Análisis de Negocios para Ciencia de Datos</p><p>Curso de Estrategias para Aprender Inglés Online</p><p>Data Explorer</p><p>MicroStrategy</p><p>Looker</p><p>SQL</p><p>Tableau</p><p>Modelos logísticos para e-commerce</p><p>SQL Foundamentals</p>
                             </div>
                         </div>
@@ -271,366 +304,117 @@
             <div class="lg:col-span-2 space-y-8">
                 <!-- About Me -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Sobre mí</h3>
-                    <p class="leading-relaxed">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="about_title">Sobre mí</h3>
+                    <p class="leading-relaxed" data-translate="about_text">
                         Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
                     </p>
                 </section>
-
+                
                 <!-- Featured Projects -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Proyectos Destacados</h3>
-                    <div class="space-y-6 max-h-[28rem] overflow-y-auto custom-scrollbar pr-2">
-                        <!-- Project 1 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Pandas] Missing-mga Pandas API extends PyPI package</h4>
-                            <p class="text-secondary text-sm mb-2">Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.</p>
-                            <a href="https://github.com/Mgobeaalcoba/missing_mga" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 2 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Django] Web App for my personal professional project</h4>
-                            <p class="text-secondary text-sm mb-2">Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints y administración de bases de datos.</p>
-                             <a href="https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 3 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Kaggle] Kaggle Downloader Package</h4>
-                            <p class="text-secondary text-sm mb-2">Una clase de Python que simplifica la interacción con Kaggle para la búsqueda y descarga de datasets.</p>
-                             <a href="https://github.com/Mgobeaalcoba/kaggle_downloader_package" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 4 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Package] Argendolar PyPi package</h4>
-                            <p class="text-secondary text-sm mb-2">Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.</p>
-                             <a href="https://github.com/Mgobeaalcoba/argendolar" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 5 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python - FastApi] Quasar Fire Project</h4>
-                            <p class="text-secondary text-sm mb-2">API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.</p>
-                             <a href="https://github.com/Mgobeaalcoba/quasar-fire" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 6 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Django] To Do List Web App</h4>
-                            <p class="text-secondary text-sm mb-2">Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.</p>
-                             <a href="https://github.com/Mgobeaalcoba/django_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 7 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-FaceRecognition] Face Assistance Validator</h4>
-                            <p class="text-secondary text-sm mb-2">App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.</p>
-                             <a href="https://github.com/Mgobeaalcoba/face_assistance_validator" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 8 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Pygame] Space Invasion Videogame</h4>
-                            <p class="text-secondary text-sm mb-2">Juego "Space Invasion" creado 100% con Pygame y Python, aplicando POO y patrones de diseño.</p>
-                             <a href="https://github.com/Mgobeaalcoba/pygame_space_invasion" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 9 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Scikit Learn] Survival Predictor On The Titanic</h4>
-                            <p class="text-secondary text-sm mb-2">Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.</p>
-                             <a href="https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                         <!-- Project 10 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python - SpeechRecognition] Voice Assistant</h4>
-                            <p class="text-secondary text-sm mb-2">Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.</p>
-                             <a href="https://github.com/Mgobeaalcoba/voice_assistant" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 11 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python - Tkinter] Restaurant Desktop Software</h4>
-                            <p class="text-secondary text-sm mb-2">Software de escritorio versátil construido con Python y la librería Tkinter GUI.</p>
-                             <a href="https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 12 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[R-Shiny] Programming Languages EDA Shiny App</h4>
-                            <p class="text-secondary text-sm mb-2">App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.</p>
-                             <a href="https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 13 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Kotlin-Spring] Api Rest Trilateration</h4>
-                            <p class="text-secondary text-sm mb-2">Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.</p>
-                             <a href="https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 14 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python-Django] Web App Model</h4>
-                            <p class="text-secondary text-sm mb-2">App en Django que permite registro, login, y gestión de tareas pendientes.</p>
-                             <a href="https://github.com/Mgobeaalcoba/django_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 15 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python - Flask] CRUD App</h4>
-                            <p class="text-secondary text-sm mb-2">Una app hecha con Python y Flask que no es más que un software CRUD.</p>
-                             <a href="https://github.com/Mgobeaalcoba/flask_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
-                        <!-- Project 16 -->
-                        <div class="avoid-break">
-                            <h4 class="text-lg font-bold">[Python - Pandas] Datacademy</h4>
-                            <p class="text-secondary text-sm mb-2">Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.</p>
-                             <a href="https://github.com/Mgobeaalcoba/datacademy" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
-                        </div>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
+                    <div id="projects-container" class="space-y-6 max-h-[36rem] overflow-y-auto custom-scrollbar pr-2">
+                        <!-- Projects will be dynamically inserted here by JS -->
                     </div>
                 </section>
 
                 <!-- Experience -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold mb-6 border-b pb-2 border-bottom">Experiencia</h3>
-                    <div class="space-y-4">
-                        
-                        <!-- Job: Data & Analytics Technical Leader -->
-                        <div class="relative pl-8 border-l-2 experience-toggle avoid-break" style="border-color: var(--primary-color);" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--primary-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm" style="color: var(--primary-color);">Enero 2025 - Presente</p>
-                                    <h4 class="text-xl font-bold mt-1">Data & Analytics Technical Leader</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon" style="color: var(--primary-color);"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Lideré un equipo de +6 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li>
-                                    <li>Alineé la estrategia de Data & Analytics con los objetivos corporativos, priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li>
-                                    <li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li>
-                                    <li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                         <!-- All other jobs follow here -->
-                         <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Diciembre 2023 - Febrero 2025</p>
-                                    <h4 class="text-xl font-bold mt-1">Sr Data & Analytics Engineer</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li>
-                                    <li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li>
-                                    <li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad.</li>
-                                </ul>
-                             </div>
-                        </div>
-                        
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Junio 2022 - Diciembre 2023</p>
-                                    <h4 class="text-xl font-bold mt-1">Shipping Product Owner</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Colaboré con equipos de desarrollo y negocio para definir la estrategia y roadmap del producto.</li>
-                                    <li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad.</li>
-                                    <li>Monitoreé métricas clave de negocio y producto para impulsar decisiones de optimización.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Enero 2021 - Junio 2022</p>
-                                    <h4 class="text-xl font-bold mt-1">Cross Docking Sr Analyst</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave.</li>
-                                    <li>Implementé un sistema de monitoreo de indicadores operativos críticos.</li>
-                                    <li>Lideré iniciativas de mejora continua en operaciones de cross docking.</li>
-                                </ul>
-                             </div>
-                        </div>
-                        
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Agosto 2020 - Enero 2021</p>
-                                    <h4 class="text-xl font-bold mt-1">Cross Docking Ssr Analyst</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS.</li>
-                                    <li>Detecté oportunidades de mejora a través del análisis de procesos operativos.</li>
-                                    <li>Diseñé e implementé planes de capacitación para equipos operativos.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Mayo 2019 - Agosto 2020</p>
-                                    <h4 class="text-xl font-bold mt-1">Cross Docking Team Leader</h4>
-                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch.</li>
-                                    <li>Fomenté una cultura de trabajo motivadora, equilibrando metas y bienestar.</li>
-                                    <li>Implementé procesos de feedback y planes de desarrollo.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Diciembre 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold mt-1">Data & Analytics Expert</h4>
-                                    <p class="font-semibold text-secondary mb-2">Henry</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Liderazgo académico en Data & Analytics y diseño de experiencias educativas.</li>
-                                    <li>Creación de proyectos integradores y materiales didácticos de alta calidad.</li>
-                                    <li>Planificación académica estratégica y compromiso con la excelencia educativa.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Mayo 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold mt-1">Data Analytics Instructor</h4>
-                                    <p class="font-semibold text-secondary mb-2">Henry</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Instructor de Data Analytics con foco en Python, facilitando clases teóricas y prácticas.</li>
-                                    <li>Desarrollo de contenido educativo de alto impacto.</li>
-                                    <li>Acompañamiento personalizado al estudiante y feedback individualizado.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Julio 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold mt-1">Adjunct Professor</h4>
-                                    <p class="font-semibold text-secondary mb-2">UADE</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Docente de programación en nivel universitario, liderando la formación en Taller de Programación I.</li>
-                                    <li>Diseño y actualización de programas de estudio.</li>
-                                    <li>Enfoque en pensamiento lógico y resolución de problemas.</li>
-                                </ul>
-                             </div>
-                        </div>
-                        
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Diciembre 2011 - Abril 2019</p>
-                                    <h4 class="text-xl font-bold mt-1">Warehouse Supervisor</h4>
-                                    <p class="font-semibold text-secondary mb-2">El Portugues</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Supervisión operativa de centro logístico de 3.500 posiciones.</li>
-                                    <li>Coordinación de recepción, almacenamiento, preparación y despacho.</li>
-                                    <li>Atención a clientes de primera línea como Arcor, La Anónima, y PepsiCo.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Enero 2010 - Febrero 2011</p>
-                                    <h4 class="text-xl font-bold mt-1">Backoffice Analyst</h4>
-                                    <p class="font-semibold text-secondary mb-2">SOLDA-LIMP S.R.L.</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Gestión integral del proceso de facturación de ventas.</li>
-                                    <li>Operación con cheques, tarjetas de crédito y efectivo.</li>
-                                    <li>Uso del sistema de gestión Tango y dominio de Microsoft Office.</li>
-                                </ul>
-                             </div>
-                        </div>
-
-                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
-                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
-                             <div class="flex justify-between items-center pr-4 py-2">
-                                <div>
-                                    <p class="text-sm text-secondary">Febrero 2009 - Diciembre 2009</p>
-                                    <h4 class="text-xl font-bold mt-1">Customer Services Representative</h4>
-                                    <p class="font-semibold text-secondary mb-2">UBICAR ARGENTINA</p>
-                                </div>
-                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
-                             </div>
-                             <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
-                                    <li>Atención al cliente especializada para sistemas de rastreo satelital.</li>
-                                    <li>Coordinación operativa y asignación de turnos para instalaciones.</li>
-                                    <li>Soporte en back office y configuración de cuentas.</li>
-                                </ul>
-                             </div>
-                        </div>
+                    <h3 class="text-2xl font-semibold mb-6 border-b pb-2 border-bottom" data-translate="experience_title">Experiencia</h3>
+                    <div id="experience-container" class="space-y-4">
+                        <!-- Experience items will be dynamically inserted here by JS -->
                     </div>
                 </section>
             </div>
         </main>
 
         <footer id="page-footer" class="text-center text-secondary mt-16">
-            <p>&copy; 2025 Mariano Gobea Alcoba. Diseñado con <i class="fas fa-heart text-red-500"></i> en Buenos Aires.</p>
+            <p>&copy; 2025 Mariano Gobea Alcoba. <span data-translate="footer_design">Diseñado con</span> <i class="fas fa-heart text-red-500"></i> <span data-translate="footer_location">en Buenos Aires</span>.</p>
         </footer>
     </div>
 
     <script>
-        // --- Theme Switcher ---
+        // --- DATA ---
+        const projectsData = [
+            { id: 1, title: { es: "[Python-Pandas] Paquete PyPI Missing-mga", en: "[Python-Pandas] Missing-mga Pandas API extends PyPI package" }, description: { es: "Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.", en: "This package extends Pandas DataFrame functionality by introducing a Missing Methods class, enabling intuitive handling of missing values." }, link: "https://github.com/Mgobeaalcoba/missing_mga" },
+            { id: 2, title: { es: "[Python-Django] Web App para mi proyecto profesional personal", en: "[Python-Django] Web App for my personal professional project" }, description: { es: "Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints, administración de bases de datos y conexión con servicios externos.", en: "Fullstack Web App created with Django combining front and back skills, including endpoints, database administration, and connection with external services." }, link: "https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" },
+            { id: 3, title: { es: "[Python-Kaggle] Paquete Kaggle Downloader", en: "[Python-Kaggle] Kaggle Downloader Package" }, description: { es: "Una clase de Python que simplifica la interacción con Kaggle para la búsqueda, descarga y extracción de datasets.", en: "A Python class that simplifies interaction with Kaggle for searching, downloading, and extracting datasets." }, link: "https://github.com/Mgobeaalcoba/kaggle_downloader_package" },
+            { id: 4, title: { es: "[Python-Package] Paquete PyPi Argendolar", en: "[Python-Package] Argendolar PyPi package" }, description: { es: "Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.", en: "Python package that facilitates obtaining exchange rates for the Argentine peso using APIs like DolarApi." }, link: "https://github.com/Mgobeaalcoba/argendolar" },
+            { id: 5, title: { es: "[Python - FastApi] Proyecto Quasar Fire", en: "[Python - FastApi] Quasar Fire Project" }, description: { es: "API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.", en: "RESTful API to determine the location of a distress signal in space through trilateration." }, link: "https://github.com/Mgobeaalcoba/quasar-fire" },
+            { id: 6, title: { es: "[Python-Django] App Web de Lista de Tareas", en: "[Python-Django] To Do List Web App" }, description: { es: "Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.", en: "Web application in Django to efficiently manage tasks and to-do lists." }, link: "https://github.com/Mgobeaalcoba/django_python" },
+            { id: 7, title: { es: "[Python-FaceRecognition] Validador de Asistencia Facial", en: "[Python-FaceRecognition] Face Assistance Validator" }, description: { es: "App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.", en: "Facial verification and access control app using Python, OpenCV, and Face-recognition." }, link: "https://github.com/Mgobeaalcoba/face_assistance_validator" },
+            { id: 8, title: { es: "[Python-Pygame] Videojuego Space Invasion", en: "[Python-Pygame] Space Invasion Videogame" }, description: { es: "Juego 'Space Invasion' creado 100% con Pygame y Python, aplicando POO y patrones de diseño.", en: "'Space Invasion' game created 100% with Pygame and Python, applying OOP and design patterns." }, link: "https://github.com/Mgobeaalcoba/pygame_space_invasion" },
+            { id: 9, title: { es: "[Python-Scikit Learn] Predictor de Supervivencia en el Titanic", en: "[Python-Scikit Learn] Survival Predictor On The Titanic" }, description: { es: "Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.", en: "Machine Learning model and analysis to predict passenger survival on the Titanic." }, link: "https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" },
+            { id: 10, title: { es: "[Python - SpeechRecognition] Asistente de Voz", en: "[Python - SpeechRecognition] Voice Assistant" }, description: { es: "Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.", en: "Python-based voice assistant using NLP and speech recognition libraries." }, link: "https://github.com/Mgobeaalcoba/voice_assistant" },
+            { id: 11, title: { es: "[Python - Tkinter] Software de Escritorio para Restaurante", en: "[Python - Tkinter] Restaurant Desktop Software" }, description: { es: "Software de escritorio versátil construido con Python y la librería Tkinter GUI.", en: "Versatile desktop software built with Python and the Tkinter GUI library." }, link: "https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" },
+            { id: 12, title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" },
+            { id: 13, title: { es: "[Kotlin-Spring] Api Rest Trilateración", en: "[Kotlin-Spring] Api Rest Trilateration" }, description: { es: "Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.", en: "Rest Api built on GCP as part of an internal challenge at Mercado Libre, using Kotlin and Spring." }, link: "https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" },
+            { id: 14, title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" },
+            { id: 15, title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
+            { id: 16, title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
+        ];
+
+        const experienceData = [
+            { id: 1, date: { es: "Enero 2025 - Presente", en: "January 2025 - Present" }, title: { es: "Data & Analytics Technical Leader", en: "Data & Analytics Technical Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré un equipo de +6 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li><li>Alineé la estrategia de Data & Analytics con los objetivos corporativos, priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li><li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li><li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li>`, en: `<li>Led a team of +6 analysts and data scientists, fostering a culture of innovation that increased the adoption of AI solutions in key business areas by 30%.</li><li>Aligned the Data & Analytics strategy with corporate objectives, prioritizing high-impact initiatives that contributed to a 20% increase in operational efficiency.</li><li>Fostered a high-performance culture through mentoring, upskilling programs, and agile methodologies, raising the team's eNPS by over 25 points in less than a year.</li><li>Implemented analytical solutions that reduced data analysis time by 40% through predictive models, dynamic dashboards, and report automation.</li>` } },
+            { id: 2, date: { es: "Diciembre 2023 - Febrero 2025", en: "December 2023 - February 2025" }, title: { es: "Sr Data & Analytics Engineer", en: "Sr. Data & Analytics Engineer" }, company: "Mercado Libre", description: { es: `<li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li><li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li><li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad.</li>`, en: `<li>Designed, built, and maintained the login data model (MP, ML, ME), ensuring its availability and reliability at an organizational level.</li><li>Developed strategic dashboards to monitor key metrics such as login conversion, account recovery, and use of authentication factors.</li><li>Led the migration of the authentication model from Amazon Athena to Google BigQuery, improving scalability, speed, and maintainability.</li>` } },
+            { id: 3, date: { es: "Junio 2022 - Diciembre 2023", en: "June 2022 - December 2023" }, title: { es: "Shipping Product Owner", en: "Shipping Product Owner" }, company: "Mercado Libre", description: { es: `<li>Colaboré con equipos de desarrollo y negocio para definir la estrategia y roadmap del producto.</li><li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad.</li><li>Monitoreé métricas clave de negocio y producto para impulsar decisiones de optimización.</li>`, en: `<li>Collaborated with development and business teams to define the product strategy and roadmap.</li><li>Managed the backlog by prioritizing features based on impact and feasibility.</li><li>Monitored key business and product metrics to drive optimization decisions.</li>` } },
+            { id: 4, date: { es: "Enero 2021 - Junio 2022", en: "January 2021 - June 2022" }, title: { es: "Cross Docking Sr Analyst", en: "Sr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave.</li><li>Implementé un sistema de monitoreo de indicadores operativos críticos.</li><li>Lideré iniciativas de mejora continua en operaciones de cross docking.</li>`, en: `<li>Standardized KPIs and reports at a regional level, defining key metrics.</li><li>Implemented a monitoring system for critical operational indicators.</li><li>Led continuous improvement initiatives in cross-docking operations.</li>` } },
+            { id: 5, date: { es: "Agosto 2020 - Enero 2021", en: "August 2020 - January 2021" }, title: { es: "Cross Docking Ssr Analyst", en: "Ssr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS.</li><li>Detecté oportunidades de mejora a través del análisis de procesos operativos.</li><li>Diseñé e implementé planes de capacitación para equipos operativos.</li>`, en: `<li>Monitored and analyzed operational KPIs such as Out On Time, In On Time, and NPS.</li><li>Identified opportunities for improvement through the analysis of operational processes.</li><li>Designed and implemented training plans for operational teams.</li>` } },
+            { id: 6, date: { es: "Mayo 2019 - Agosto 2020", en: "May 2019 - August 2020" }, title: { es: "Cross Docking Team Leader", en: "Cross Docking Team Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch.</li><li>Fomenté una cultura de trabajo motivadora, equilibrando metas y bienestar.</li><li>Implementé procesos de feedback y planes de desarrollo.</li>`, en: `<li>Led and coordinated operational teams in inbound, sorting, outbound, and dispatch.</li><li>Fostered a motivating work culture, balancing goals and well-being.</li><li>Implemented feedback processes and development plans.</li>` } },
+            { id: 7, date: { es: "Diciembre 2024 - Presente", en: "December 2024 - Present" }, title: { es: "Data & Analytics Expert", en: "Data & Analytics Expert" }, company: "Henry", description: { es: `<li>Liderazgo académico en Data & Analytics y diseño de experiencias educativas.</li><li>Creación de proyectos integradores y materiales didácticos de alta calidad.</li><li>Planificación académica estratégica y compromiso con la excelencia educativa.</li>`, en: `<li>Academic leadership in Data & Analytics and design of educational experiences.</li><li>Creation of integrative projects and high-quality teaching materials.</li><li>Strategic academic planning and commitment to educational excellence.</li>` } },
+            { id: 8, date: { es: "Mayo 2024 - Presente", en: "May 2024 - Present" }, title: { es: "Data Analytics Instructor", en: "Data Analytics Instructor" }, company: "Henry", description: { es: `<li>Instructor de Data Analytics con foco en Python, facilitando clases teóricas y prácticas.</li><li>Desarrollo de contenido educativo de alto impacto.</li><li>Acompañamiento personalizado al estudiante y feedback individualizado.</li>`, en: `<li>Data Analytics instructor with a focus on Python, facilitating theoretical and practical classes.</li><li>Development of high-impact educational content.</li><li>Personalized student support and individualized feedback.</li>` } },
+            { id: 9, date: { es: "Julio 2024 - Presente", en: "July 2024 - Present" }, title: { es: "Adjunct Professor", en: "Adjunct Professor" }, company: "UADE", description: { es: `<li>Docente de programación en nivel universitario, liderando la formación en Taller de Programación I.</li><li>Diseño y actualización de programas de estudio.</li><li>Enfoque en pensamiento lógico y resolución de problemas.</li>`, en: `<li>University-level programming instructor, leading training in Programming Workshop I.</li><li>Design and update of study programs.</li><li>Focus on logical thinking and problem-solving.</li>` } },
+            { id: 10, date: { es: "Diciembre 2011 - Abril 2019", en: "December 2011 - April 2019" }, title: { es: "Warehouse Supervisor", en: "Warehouse Supervisor" }, company: "El Portugues", description: { es: `<li>Supervisión operativa de centro logístico de 3.500 posiciones.</li><li>Coordinación de recepción, almacenamiento, preparación y despacho.</li><li>Atención a clientes de primera línea como Arcor, La Anónima, y PepsiCo.</li>`, en: `<li>Operational supervision of a 3,500-position logistics center.</li><li>Coordination of reception, storage, preparation, and dispatch.</li><li>Service to top-tier clients such as Arcor, La Anónima, and PepsiCo.</li>` } },
+            { id: 11, date: { es: "Enero 2010 - Febrero 2011", en: "January 2010 - February 2011" }, title: { es: "Backoffice Analyst", en: "Backoffice Analyst" }, company: "SOLDA-LIMP S.R.L.", description: { es: `<li>Gestión integral del proceso de facturación de ventas.</li><li>Operación con cheques, tarjetas de crédito y efectivo.</li><li>Uso del sistema de gestión Tango y dominio de Microsoft Office.</li>`, en: `<li>Comprehensive management of the sales invoicing process.</li><li>Operation with checks, credit cards, and cash.</li><li>Use of the Tango management system and proficiency in Microsoft Office.</li>` } },
+            { id: 12, date: { es: "Febrero 2009 - Diciembre 2009", en: "February 2009 - December 2009" }, title: { es: "Customer Services Representative", en: "Customer Services Representative" }, company: "UBICAR ARGENTINA", description: { es: `<li>Atención al cliente especializada para sistemas de rastreo satelital.</li><li>Coordinación operativa y asignación de turnos para instalaciones.</li><li>Soporte en back office y configuración de cuentas.</li>`, en: `<li>Specialized customer service for satellite tracking systems.</li><li>Operational coordination and scheduling of installation appointments.</li><li>Back-office support and account configuration.</li>` } }
+        ];
+
+        // --- GLOBAL TRANSLATION OBJECT ---
+        const translations = {
+            job_title: { es: "Data & Analytics Technical Leader en Mercado Libre", en: "Data & Analytics Technical Leader at Mercado Libre" },
+            contact_title: { es: "Contacto", en: "Contact" },
+            download_btn: { es: "Descargar CV", en: "Download CV" },
+            stack_title: { es: "Stack Tecnológico", en: "Tech Stack" },
+            stack_backend: { es: "Backend & Datos", en: "Backend & Data" },
+            stack_ml: { es: "Machine Learning", en: "Machine Learning" },
+            stack_ai: { es: "IA & Automatización", en: "AI & Automation" },
+            stack_bi: { es: "Business Intelligence", en: "Business Intelligence" },
+            stack_productivity: { es: "Productividad", en: "Productivity" },
+            education_title: { es: "Educación", en: "Education" },
+            edu1_title: { es: "Postgraduate Degree, Ingeniería de Software", en: "Postgraduate Degree, Software Engineering"},
+            edu2_title: { es: "Licenciatura, Gestión de TI", en: "Bachelor's Degree, IT Management"},
+            edu3_title: { es: "Profesorado, Sociología", en: "Teaching Degree, Sociology"},
+            edu4_title: { es: "Licenciatura, Sociología", en: "Bachelor's Degree, Sociology"},
+            edu5_title: { es: "Python Backend Engineer", en: "Python Backend Engineer"},
+            edu5_subtitle: { es: "Ciencias de la computación", en: "Computer Science"},
+            edu6_title: { es: "Data Analyst", en: "Data Analyst"},
+            edu6_subtitle: { es: "Ciencias de la computación", en: "Computer Science"},
+            edu7_title: { es: "Bachiller en Administración y Gestión de las Organizaciones", en: "High School Diploma in Business Administration and Management"},
+            edu7_subtitle: { es: "Administración y gestión de empresas, general", en: "Business Administration and Management, General"},
+            cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"},
+            languages_title: { es: "Idiomas", en: "Languages"},
+            lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"},
+            lang_en: { es: "Inglés (C1 - Avanzado)", en: "English (C1 - Advanced)"},
+            cert_title: { es: "Formación Complementaria", en: "Complementary Training"},
+            about_title: { es: "Sobre mí", en: "About Me"},
+            about_text: {
+                es: `Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.`,
+                en: `Technical leader with over 6 years of experience at Mercado Libre, focused on Data & Analytics. Passionate about leading high-performance teams to solve complex business challenges through innovation and technology. Expert in aligning data strategies with corporate objectives to drive efficiency and growth. My goal is to continue democratizing commerce and financial services in Latin America, transforming the lives of millions.`
+            },
+            projects_title: { es: "Proyectos Destacados", en: "Featured Projects"},
+            experience_title: { es: "Experiencia", en: "Experience"},
+            view_repo: { es: "Ver Repositorio", en: "View Repository" },
+            footer_design: { es: "Diseñado con", en: "Designed with"},
+            footer_location: { es: "en Buenos Aires", en: "in Buenos Aires"},
+        };
+        
+        // --- DOMContentLoaded LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('theme-toggle');
             const darkIcon = document.getElementById('dark-icon');
             const lightIcon = document.getElementById('light-icon');
+            const langEsBtn = document.getElementById('lang-es');
+            const langEnBtn = document.getElementById('lang-en');
 
             const applyTheme = (theme) => {
                 if (theme === 'dark') {
@@ -643,7 +427,22 @@
                     lightIcon.classList.add('hidden');
                 }
             };
-
+            
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                document.querySelectorAll('[data-translate]').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[key] && translations[key][lang]) {
+                        el.innerHTML = translations[key][lang];
+                    }
+                });
+                populateProjects(lang);
+                populateExperience(lang);
+                localStorage.setItem('language', lang);
+                langEsBtn.classList.toggle('active', lang === 'es');
+                langEnBtn.classList.toggle('active', lang === 'en');
+            };
+            
             themeToggle.addEventListener('click', () => {
                 const isLight = document.documentElement.classList.contains('light-mode');
                 const newTheme = isLight ? 'dark' : 'light';
@@ -651,12 +450,56 @@
                 applyTheme(newTheme);
             });
             
+            langEsBtn.addEventListener('click', () => setLanguage('es'));
+            langEnBtn.addEventListener('click', () => setLanguage('en'));
+            
             const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedLang = localStorage.getItem('language') || 'es';
+            
             applyTheme(savedTheme);
+            setLanguage(savedLang);
         });
 
+        // --- DYNAMIC CONTENT POPULATION ---
+        function populateProjects(lang) {
+            const container = document.getElementById('projects-container');
+            container.innerHTML = '';
+            projectsData.forEach(project => {
+                 container.innerHTML += `
+                    <div class="avoid-break">
+                        <h4 class="text-lg font-bold">${project.title[lang]}</h4>
+                        <p class="text-secondary text-sm mb-2">${project.description[lang]}</p>
+                        <a href="${project.link}" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> <span data-translate="view_repo">${translations.view_repo[lang]}</span></a>
+                    </div>
+                `;
+            });
+        }
 
-        // --- Collapsible sections logic ---
+        function populateExperience(lang) {
+            const container = document.getElementById('experience-container');
+            container.innerHTML = '';
+            experienceData.forEach((job, index) => {
+                const isPrimary = index === 0;
+                const itemHTML = `
+                    <div class="relative pl-8 border-l-2 ${isPrimary ? 'border-sky-500' : 'border-bottom'} experience-toggle avoid-break" onclick="toggleExperience(this)">
+                         <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: ${isPrimary ? 'var(--primary-color)' : 'var(--secondary-text-color)'};"></div>
+                         <div class="flex justify-between items-center pr-4 py-2">
+                            <div>
+                                <p class="text-sm" style="color: ${isPrimary ? 'var(--primary-color)' : 'var(--secondary-text-color)'};">${job.date[lang]}</p>
+                                <h4 class="text-xl font-bold mt-1">${job.title[lang]}</h4>
+                                <p class="font-semibold text-secondary mb-2">${job.company}</p>
+                            </div>
+                            <i class="fas fa-chevron-down chevron-icon" style="color: ${isPrimary ? 'var(--primary-color)' : 'var(--secondary-text-color)'};"></i>
+                         </div>
+                         <div class="experience-details pt-2">
+                            <ul class="list-disc list-inside text-secondary space-y-1 text-sm">${job.description[lang]}</ul>
+                         </div>
+                    </div>
+                `;
+                container.innerHTML += itemHTML;
+            });
+        }
+
         function toggleExperience(element) {
             const details = element.querySelector('.experience-details');
             const icon = element.querySelector('.chevron-icon');
@@ -677,7 +520,7 @@
                 downloadBtn.disabled = true;
 
                 const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
-                document.documentElement.classList.add('light-mode'); // Force light for PDF
+                document.documentElement.classList.add('light-mode');
                 
                 const element = document.getElementById('page-content');
                 pageFooter.classList.remove('mt-16');
