@@ -17,6 +17,11 @@
             background: rgba(31, 41, 55, 0.5);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         .tag {
             background-color: #374151;
@@ -25,6 +30,10 @@
             border-radius: 9999px;
             font-size: 0.875rem;
             font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .tag:hover {
+            background-color: #4b5563;
         }
         .icon-link {
             transition: color 0.3s ease, transform 0.3s ease;
@@ -42,6 +51,30 @@
         }
         .icon-link:hover .x-logo {
              fill: #38bdf8; /* sky-400 on hover */
+        }
+        /* Styles for collapsible experience */
+        .experience-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        .experience-details.show {
+            max-height: 1000px; /* Adjust as needed */
+            opacity: 1;
+        }
+        .experience-toggle {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .experience-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .chevron-icon {
+            transition: transform 0.4s ease;
+        }
+        .chevron-icon.rotate {
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -63,10 +96,16 @@
                 <!-- Contact -->
                 <section class="p-6 glass-effect rounded-xl">
                     <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Contacto</h3>
-                    <ul class="space-y-3 text-gray-300">
+                    <ul class="space-y-4 text-gray-300">
                         <li><i class="fas fa-map-marker-alt w-5 mr-2 text-sky-400"></i> Buenos Aires, Argentina</li>
                         <li><i class="fas fa-phone w-5 mr-2 text-sky-400"></i> 01127475569</li>
                         <li><i class="fas fa-envelope w-5 mr-2 text-sky-400"></i> gobeamariano@gmail.com</li>
+                        <li>
+                            <a href="Profile-1.pdf" download="CV-MarianoGobeaAlcoba.pdf" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300">
+                                <i class="fas fa-download w-5 mr-2"></i>
+                                Descargar CV
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 
@@ -150,146 +189,248 @@
                 <!-- Experience -->
                 <section class="p-6 glass-effect rounded-xl">
                     <h3 class="text-2xl font-semibold text-white mb-6 border-b border-gray-600 pb-2">Experiencia</h3>
-                    <div class="space-y-8">
+                    <div class="space-y-4">
                         
-                        <!-- Job -->
-                        <div class="relative pl-8 border-l-2 border-sky-500">
+                        <!-- Job: Data & Analytics Technical Leader -->
+                        <div class="relative pl-8 border-l-2 border-sky-500 experience-toggle" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-sky-500 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-sky-400">Enero 2025 - Presente</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Technical Leader</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                <li>Lideré equipos de +6 analistas, aumentando un 30% la adopción de soluciones de IA.</li>
-                                <li>Generé +USD 500K en impacto anual estimado a través de proyectos de transformación de datos.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Diciembre 2023 - Febrero 2025</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Sr Data & Analytics Engineer</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                <li>Diseñé y mantuve el modelo de datos de login.</li>
-                                <li>Lideré la migración de Amazon Athena a Google BigQuery.</li>
-                            </ul>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-sky-400">Enero 2025 - Presente</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Technical Leader</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-sky-400"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Lideré un equipo de +6 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li>
+                                    <li>Alineé la estrategia de Data & Analytics con los objetivos corporativos, priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li>
+                                    <li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li>
+                                    <li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li>
+                                </ul>
+                             </div>
                         </div>
 
-                         <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Junio 2022 - Diciembre 2023</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Shipping Product Owner</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Definí la estrategia y roadmap del producto.</li>
-                                <li>Gestioné el backlog priorizando funcionalidades.</li>
-                            </ul>
+                        <!-- Job: Sr Data & Analytics Engineer -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Diciembre 2023 - Febrero 2025</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Sr Data & Analytics Engineer</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li>
+                                    <li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li>
+                                    <li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad.</li>
+                                </ul>
+                             </div>
                         </div>
                         
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Enero 2021 - Junio 2022</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Sr Analyst</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Estandaricé KPIs y reportes a nivel regional.</li>
-                                 <li>Lideré iniciativas de mejora continua en operaciones.</li>
-                            </ul>
+                        <!-- Job: Shipping Product Owner -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Junio 2022 - Diciembre 2023</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Shipping Product Owner</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Colaboré con equipos de desarrollo y negocio para definir la estrategia y roadmap del producto.</li>
+                                    <li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad.</li>
+                                    <li>Monitoreé métricas clave de negocio y producto para impulsar decisiones de optimización.</li>
+                                </ul>
+                             </div>
                         </div>
 
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Agosto 2020 - Enero 2021</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Ssr Analyst</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Monitoreé y analicé KPIs operativos (Out On Time, NPS).</li>
-                                 <li>Detecté oportunidades de mejora en procesos.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Mayo 2019 - Agosto 2020</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Cross Docking Team Leader</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Lideré equipos operativos en inbound, sorting y outbound.</li>
-                                 <li>Fomenté una cultura de trabajo motivadora.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
+                        <!-- Job: Cross Docking Sr Analyst -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Diciembre 2024 - Presente</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Expert</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Henry</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Liderazgo académico y diseño de experiencias educativas.</li>
-                            </ul>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Enero 2021 - Junio 2022</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Sr Analyst</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave.</li>
+                                    <li>Implementé un sistema de monitoreo de indicadores operativos críticos.</li>
+                                    <li>Lideré iniciativas de mejora continua en operaciones de cross docking.</li>
+                                </ul>
+                             </div>
+                        </div>
+                        
+                        <!-- Job: Cross Docking Ssr Analyst -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Agosto 2020 - Enero 2021</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Ssr Analyst</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS.</li>
+                                    <li>Detecté oportunidades de mejora a través del análisis de procesos operativos.</li>
+                                    <li>Diseñé e implementé planes de capacitación para equipos operativos.</li>
+                                </ul>
+                             </div>
                         </div>
 
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
+                        <!-- Job: Cross Docking Team Leader -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
                              <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Mayo 2024 - Presente</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Data Analytics Instructor</h4>
-                            <p class="font-semibold text-gray-300 mb-2">Henry</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Instructor de Data Analytics con foco en Python.</li>
-                            </ul>
-                        </div>
-                        
-                         <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Julio 2024 - Presente</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Adjunct Professor</h4>
-                            <p class="font-semibold text-gray-300 mb-2">UADE</p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                <li>Docente de programación en nivel universitario.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Diciembre 2011 - Abril 2019</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Warehouse Supervisor</h4>
-                            <p class="font-semibold text-gray-300 mb-2">El Portugues</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Supervisión operativa de centro logístico.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Enero 2010 - Febrero 2011</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Backoffice Analyst</h4>
-                            <p class="font-semibold text-gray-300 mb-2">SOLDA-LIMP S.R.L.</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Gestión integral de ventas y facturación.</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Job -->
-                         <div class="relative pl-8 border-l-2 border-gray-600">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
-                            <p class="text-sm text-gray-500">Febrero 2009 - Diciembre 2009</p>
-                            <h4 class="text-xl font-bold text-white mt-1">Customer Services Representative</h4>
-                            <p class="font-semibold text-gray-300 mb-2">UBICAR ARGENTINA</p>
-                             <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
-                                 <li>Atención al cliente especializada en sistemas de rastreo.</li>
-                            </ul>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Mayo 2019 - Agosto 2020</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Team Leader</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch.</li>
+                                    <li>Fomenté una cultura de trabajo motivadora, equilibrando metas y bienestar.</li>
+                                    <li>Implementé procesos de feedback y planes de desarrollo.</li>
+                                </ul>
+                             </div>
                         </div>
 
+                        <!-- Job: Data & Analytics Expert -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Diciembre 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Expert</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Henry</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Liderazgo académico en Data & Analytics y diseño de experiencias educativas.</li>
+                                    <li>Creación de proyectos integradores y materiales didácticos de alta calidad.</li>
+                                    <li>Planificación académica estratégica y compromiso con la excelencia educativa.</li>
+                                </ul>
+                             </div>
+                        </div>
+
+                        <!-- Job: Data Analytics Instructor -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Mayo 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Data Analytics Instructor</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">Henry</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Instructor de Data Analytics con foco en Python, facilitando clases teóricas y prácticas.</li>
+                                    <li>Desarrollo de contenido educativo de alto impacto.</li>
+                                    <li>Acompañamiento personalizado al estudiante y feedback individualizado.</li>
+                                </ul>
+                             </div>
+                        </div>
+
+                        <!-- Job: Adjunct Professor -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Julio 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Adjunct Professor</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">UADE</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Docente de programación en nivel universitario, liderando la formación en Taller de Programación I.</li>
+                                    <li>Diseño y actualización de programas de estudio.</li>
+                                    <li>Enfoque en pensamiento lógico y resolución de problemas.</li>
+                                </ul>
+                             </div>
+                        </div>
+                        
+                        <!-- Job: Warehouse Supervisor -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Diciembre 2011 - Abril 2019</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Warehouse Supervisor</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">El Portugues</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Supervisión operativa de centro logístico de 3.500 posiciones.</li>
+                                    <li>Coordinación de recepción, almacenamiento, preparación y despacho.</li>
+                                    <li>Atención a clientes de primera línea como Arcor, La Anónima, y PepsiCo.</li>
+                                </ul>
+                             </div>
+                        </div>
+
+                        <!-- Job: Backoffice Analyst -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Enero 2010 - Febrero 2011</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Backoffice Analyst</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">SOLDA-LIMP S.R.L.</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Gestión integral del proceso de facturación de ventas.</li>
+                                    <li>Operación con cheques, tarjetas de crédito y efectivo.</li>
+                                    <li>Uso del sistema de gestión Tango y dominio de Microsoft Office.</li>
+                                </ul>
+                             </div>
+                        </div>
+
+                        <!-- Job: Customer Services Representative -->
+                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                             <div class="flex justify-between items-center pr-4 py-2">
+                                <div>
+                                    <p class="text-sm text-gray-500">Febrero 2009 - Diciembre 2009</p>
+                                    <h4 class="text-xl font-bold text-white mt-1">Customer Services Representative</h4>
+                                    <p class="font-semibold text-gray-300 mb-2">UBICAR ARGENTINA</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                             </div>
+                             <div class="experience-details pt-2">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                    <li>Atención al cliente especializada para sistemas de rastreo satelital.</li>
+                                    <li>Coordinación operativa y asignación de turnos para instalaciones.</li>
+                                    <li>Soporte en back office y configuración de cuentas.</li>
+                                </ul>
+                             </div>
+                        </div>
 
                     </div>
                 </section>
@@ -302,5 +443,16 @@
         </footer>
 
     </div>
+
+    <script>
+        function toggleExperience(element) {
+            const details = element.querySelector('.experience-details');
+            const icon = element.querySelector('.chevron-icon');
+            
+            // Toggle the 'show' class to trigger CSS transition
+            details.classList.toggle('show');
+            icon.classList.toggle('rotate');
+        }
+    </script>
 </body>
 </html>
