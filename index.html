@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariano Gobea Alcoba - CV</title>
+    
+    <!-- SEO and Social Sharing Meta Tags -->
+    <meta name="description" content="CV interactivo de Mariano Gobea Alcoba, Data & Analytics Technical Leader en Mercado Libre. Explora mi experiencia, proyectos y stack tecnológico.">
+    <meta name="author" content="Mariano Gobea Alcoba">
+    <meta property="og:title" content="Mariano Gobea Alcoba - CV Interactivo">
+    <meta property="og:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png">
+    <meta property="og:url" content="https://mgobeaalcoba.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mariano Gobea Alcoba - CV Interactivo">
+    <meta name="twitter:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,7 +68,7 @@
             border: 1px solid var(--card-border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
-        .timeline-item.glass-effect:hover {
+        .timeline-item.glass-effect:hover, .project-item:hover, .glass-effect.interactive:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
@@ -92,17 +105,30 @@
             border-radius: 9999px;
             font-size: 0.875rem;
             font-weight: 500;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
         html.light-mode .tag {
             background-color: #e5e7eb;
             color: #374151;
         }
+        .tag:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .tag.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        html.light-mode .tag.active {
+             color: #1f2937;
+        }
         
         .custom-scrollbar::-webkit-scrollbar { width: 8px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: var(--scrollbar-track); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--primary-color); }
         
         /* --- Theme and Language Switcher --- */
         .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.5rem;}
@@ -150,9 +176,7 @@
             gap: 0.3rem;
             pointer-events: none;
         }
-        .timeline-item:hover .see-more-indicator {
-            opacity: 1;
-        }
+        .timeline-item:hover .see-more-indicator { opacity: 1; }
 
         @media screen and (max-width: 768px) {
             .timeline::after { left: 20px; }
@@ -179,10 +203,7 @@
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
         .modal-content {
             padding: 2.5rem;
             border-radius: 1rem;
@@ -194,25 +215,30 @@
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
-        .modal-overlay.show .modal-content {
-            transform: scale(1);
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--secondary-text-color);
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        .modal-close-btn:hover {
-            color: var(--primary-color);
-            transform: rotate(90deg);
-        }
+        .modal-overlay.show .modal-content { transform: scale(1); }
+        .modal-close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-text-color); transition: color 0.3s ease, transform 0.3s ease; }
+        .modal-close-btn:hover { color: var(--primary-color); transform: rotate(90deg); }
 
+        @media (max-width: 640px) {
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 95%;
+                max-height: 95vh;
+            }
+        }
+        /* --- END: Modal/Pop-up Styles --- */
+
+        /* --- START: Scroll Animation --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* --- END: Scroll Animation --- */
     </style>
 </head>
 <body class="antialiased">
@@ -233,7 +259,7 @@
     <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
 
         <!-- HEADER BLOCK -->
-        <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12">
+        <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 animate-on-scroll">
             <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
                  <div class="w-48 h-48 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
                 </div>
@@ -257,7 +283,7 @@
         </header>
 
         <!-- ABOUT ME - FULL WIDTH -->
-        <section class="p-6 glass-effect rounded-xl mb-8">
+        <section class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
             <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="about_title">Sobre mí</h3>
             <p class="leading-relaxed" data-translate="about_text">
                 Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
@@ -270,7 +296,7 @@
             <!-- ========== LEFT COLUMN ========== -->
             <div class="lg:col-span-1 space-y-8">
                 <!-- Contact -->
-                <section class="p-6 glass-effect rounded-xl avoid-break">
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="contact_title">Contacto</h3>
                     <ul class="space-y-4 text-secondary">
                         <li><i class="fas fa-map-marker-alt w-5 mr-2" style="color: var(--primary-color);"></i> Buenos Aires, Argentina</li>
@@ -286,50 +312,15 @@
                 </section>
                 
                 <!-- Tech Stack -->
-                <section class="p-6 glass-effect rounded-xl avoid-break">
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="stack_title">Stack Tecnológico</h3>
-                    <div class="space-y-4">
-                         <div>
-                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_backend">Backend & Datos</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">Go</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Firebase</span><span class="tag">SQLite</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_ml">Machine Learning</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">PyTorch</span><span class="tag">Caret</span>
-                            </div>
-                        </div>
-                        <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_ai">IA & Automatización</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Generative AI</span><span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">GitHub Copilot</span><span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">Windsurf</span><span class="tag">Cursor</span>
-                            </div>
-                        </div>
-                        <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Cloud</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Google Cloud</span><span class="tag">AWS</span><span class="tag">Azure</span>
-                             </div>
-                        </div>
-                         <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_bi">Business Intelligence</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Looker</span><span class="tag">Looker Studio</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">DataFlow</span><span class="tag">DataMesh</span><span class="tag">Pandas</span><span class="tag">Numpy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Plotly</span><span class="tag">Geopandas</span><span class="tag">Dplyr</span><span class="tag">Ggplot2</span><span class="tag">Canvas</span>
-                             </div>
-                        </div>
-                        <div>
-                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="stack_productivity">Productividad</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <span class="tag">Jira</span><span class="tag">Notion</span><span class="tag">Monday</span><span class="tag">Google Suite</span><span class="tag">Microsoft Office</span>
-                             </div>
-                        </div>
+                    <div id="tech-stack-container" class="space-y-4">
+                         <!-- Tags will be dynamically populated here -->
                     </div>
                 </section>
                 
                  <!-- Education -->
-                <section class="p-6 glass-effect rounded-xl avoid-break">
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="education_title">Educación</h3>
                     <ul id="education-list" class="space-y-4 text-secondary">
                         <!-- Education items inserted by JS -->
@@ -337,7 +328,7 @@
                 </section>
 
                 <!-- Certifications & Languages -->
-                <section class="p-6 glass-effect rounded-xl avoid-break">
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="cert_lang_title">Certificaciones e Idiomas</h3>
                     <div class="space-y-4">
                         <div>
@@ -360,15 +351,15 @@
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Featured Projects -->
-                <section class="p-6 glass-effect rounded-xl avoid-break">
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
-                    <div id="projects-container" class="space-y-6 max-h-[36rem] overflow-y-auto custom-scrollbar pr-2">
+                    <div id="projects-container" class="space-y-6 max-h-[40rem] overflow-y-auto custom-scrollbar pr-2">
                         <!-- Projects will be dynamically inserted here by JS -->
                     </div>
                 </section>
                 
                  <!-- Experience Timeline -->
-                <section class="p-6 glass-effect rounded-xl">
+                <section class="p-6 glass-effect rounded-xl animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-8 border-b pb-2 border-bottom" data-translate="experience_title">Experiencia Profesional</h3>
                     <div id="experience-timeline" class="timeline">
                         <!-- Experience items will be dynamically inserted here by JS -->
@@ -378,7 +369,7 @@
             </div>
         </main>
 
-        <footer id="page-footer" class="text-center text-secondary mt-16">
+        <footer id="page-footer" class="text-center text-secondary mt-16 animate-on-scroll">
             <p>&copy; 2025 Mariano Gobea Alcoba. <span data-translate="footer_design">Diseñado con</span> <i class="fas fa-heart text-red-500"></i> <span data-translate="footer_location">en Buenos Aires</span>.</p>
         </footer>
 
@@ -401,23 +392,31 @@
 
     <script>
         // --- DATA ---
+        const techStackData = {
+            "Backend & Datos": ["Python", "Java", "Kotlin", "Go", "R", "SQL", "MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Firebase", "SQLite"],
+            "Machine Learning": ["Scikit-learn", "TensorFlow", "Keras", "PyTorch", "Caret"],
+            "IA & Automatización": ["Generative AI", "LLM", "RAG", "GitHub Copilot", "n8n", "Zapier", "Windsurf", "Cursor"],
+            "Cloud": ["Google Cloud", "AWS", "Azure"],
+            "Business Intelligence": ["Looker", "Looker Studio", "Power BI", "Tableau", "DataFlow", "DataMesh", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Geopandas", "Dplyr", "Ggplot2", "Canvas"],
+            "Productividad": ["Jira", "Notion", "Monday", "Google Suite", "Microsoft Office"]
+        };
         const projectsData = [
-            { id: 1, title: { es: "[Python-Pandas] Paquete PyPI Missing-mga", en: "[Python-Pandas] Missing-mga Pandas API extends PyPI package" }, description: { es: "Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.", en: "This package extends Pandas DataFrame functionality by introducing a Missing Methods class, enabling intuitive handling of missing values." }, link: "https://github.com/Mgobeaalcoba/missing_mga" },
-            { id: 2, title: { es: "[Python-Django] Web App para mi proyecto profesional personal", en: "[Python-Django] Web App for my personal professional project" }, description: { es: "Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints, administración de bases de datos y conexión con servicios externos.", en: "Fullstack Web App created with Django combining front and back skills, including endpoints, database administration, and connection with external services." }, link: "https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" },
-            { id: 3, title: { es: "[Python-Kaggle] Paquete Kaggle Downloader", en: "[Python-Kaggle] Kaggle Downloader Package" }, description: { es: "Una clase de Python que simplifica la interacción con Kaggle para la búsqueda, descarga y extracción de datasets.", en: "A Python class that simplifies interaction with Kaggle for searching, downloading, and extracting datasets." }, link: "https://github.com/Mgobeaalcoba/kaggle_downloader_package" },
-            { id: 4, title: { es: "[Python-Package] Paquete PyPi Argendolar", en: "[Python-Package] Argendolar PyPi package" }, description: { es: "Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.", en: "Python package that facilitates obtaining exchange rates for the Argentine peso using APIs like DolarApi." }, link: "https://github.com/Mgobeaalcoba/argendolar" },
-            { id: 5, title: { es: "[Python - FastApi] Proyecto Quasar Fire", en: "[Python - FastApi] Quasar Fire Project" }, description: { es: "API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.", en: "RESTful API to determine the location of a distress signal in space through trilateration." }, link: "https://github.com/Mgobeaalcoba/quasar-fire" },
-            { id: 6, title: { es: "[Python-Django] App Web de Lista de Tareas", en: "[Python-Django] To Do List Web App" }, description: { es: "Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.", en: "Web application in Django to efficiently manage tasks and to-do lists." }, link: "https://github.com/Mgobeaalcoba/django_python" },
-            { id: 7, title: { es: "[Python-FaceRecognition] Validador de Asistencia Facial", en: "[Python-FaceRecognition] Face Assistance Validator" }, description: { es: "App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.", en: "Facial verification and access control app using Python, OpenCV, and Face-recognition." }, link: "https://github.com/Mgobeaalcoba/face_assistance_validator" },
-            { id: 8, title: { es: "[Python-Pygame] Videojuego Space Invasion", en: "[Python-Pygame] Space Invasion Videogame" }, description: { es: "Juego 'Space Invasion' creado 100% con Pygame y Python, aplicando POO y patrones de diseño.", en: "'Space Invasion' game created 100% with Pygame and Python, applying OOP and design patterns." }, link: "https://github.com/Mgobeaalcoba/pygame_space_invasion" },
-            { id: 9, title: { es: "[Python-Scikit Learn] Predictor de Supervivencia en el Titanic", en: "[Python-Scikit Learn] Survival Predictor On The Titanic" }, description: { es: "Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.", en: "Machine Learning model and analysis to predict passenger survival on the Titanic." }, link: "https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" },
-            { id: 10, title: { es: "[Python - SpeechRecognition] Asistente de Voz", en: "[Python - SpeechRecognition] Voice Assistant" }, description: { es: "Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.", en: "Python-based voice assistant using NLP and speech recognition libraries." }, link: "https://github.com/Mgobeaalcoba/voice_assistant" },
-            { id: 11, title: { es: "[Python - Tkinter] Software de Escritorio para Restaurante", en: "[Python - Tkinter] Restaurant Desktop Software" }, description: { es: "Software de escritorio versátil construido con Python y la librería Tkinter GUI.", en: "Versatile desktop software built with Python and the Tkinter GUI library." }, link: "https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" },
-            { id: 12, title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" },
-            { id: 13, title: { es: "[Kotlin-Spring] Api Rest Trilateración", en: "[Kotlin-Spring] Api Rest Trilateration" }, description: { es: "Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.", en: "Rest Api built on GCP as part of an internal challenge at Mercado Libre, using Kotlin and Spring." }, link: "https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" },
-            { id: 14, title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" },
-            { id: 15, title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
-            { id: 16, title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
+            { id: 1, tags: ['Python', 'Pandas'], title: { es: "[Python-Pandas] Paquete PyPI Missing-mga", en: "[Python-Pandas] Missing-mga Pandas API extends PyPI package" }, description: { es: "Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.", en: "This package extends Pandas DataFrame functionality by introducing a Missing Methods class, enabling intuitive handling of missing values." }, link: "https://github.com/Mgobeaalcoba/missing_mga" },
+            { id: 2, tags: ['Python', 'Django'], title: { es: "[Python-Django] Web App para mi proyecto profesional personal", en: "[Python-Django] Web App for my personal professional project" }, description: { es: "Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints, administración de bases de datos y conexión con servicios externos.", en: "Fullstack Web App created with Django combining front and back skills, including endpoints, database administration, and connection with external services." }, link: "https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" },
+            { id: 3, tags: ['Python'], title: { es: "[Python-Kaggle] Paquete Kaggle Downloader", en: "[Python-Kaggle] Kaggle Downloader Package" }, description: { es: "Una clase de Python que simplifica la interacción con Kaggle para la búsqueda, descarga y extracción de datasets.", en: "A Python class that simplifies interaction with Kaggle for searching, downloading, and extracting datasets." }, link: "https://github.com/Mgobeaalcoba/kaggle_downloader_package" },
+            { id: 4, tags: ['Python'], title: { es: "[Python-Package] Paquete PyPi Argendolar", en: "[Python-Package] Argendolar PyPi package" }, description: { es: "Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.", en: "Python package that facilitates obtaining exchange rates for the Argentine peso using APIs like DolarApi." }, link: "https://github.com/Mgobeaalcoba/argendolar" },
+            { id: 5, tags: ['Python', 'FastAPI'], title: { es: "[Python - FastApi] Proyecto Quasar Fire", en: "[Python - FastApi] Quasar Fire Project" }, description: { es: "API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.", en: "RESTful API to determine the location of a distress signal in space through trilateration." }, link: "https://github.com/Mgobeaalcoba/quasar-fire" },
+            { id: 6, tags: ['Python', 'Django'], title: { es: "[Python-Django] App Web de Lista de Tareas", en: "[Python-Django] To Do List Web App" }, description: { es: "Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.", en: "Web application in Django to efficiently manage tasks and to-do lists." }, link: "https://github.com/Mgobeaalcoba/django_python" },
+            { id: 7, tags: ['Python'], title: { es: "[Python-FaceRecognition] Validador de Asistencia Facial", en: "[Python-FaceRecognition] Face Assistance Validator" }, description: { es: "App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.", en: "Facial verification and access control app using Python, OpenCV, and Face-recognition." }, link: "https://github.com/Mgobeaalcoba/face_assistance_validator" },
+            { id: 8, tags: ['Python'], title: { es: "[Python-Pygame] Videojuego Space Invasion", en: "[Python-Pygame] Space Invasion Videogame" }, description: { es: "Juego 'Space Invasion' creado 100% con Pygame y Python, aplicando POO y patrones de diseño.", en: "'Space Invasion' game created 100% with Pygame and Python, applying OOP and design patterns." }, link: "https://github.com/Mgobeaalcoba/pygame_space_invasion" },
+            { id: 9, tags: ['Python', 'Scikit-learn'], title: { es: "[Python-Scikit Learn] Predictor de Supervivencia en el Titanic", en: "[Python-Scikit Learn] Survival Predictor On The Titanic" }, description: { es: "Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.", en: "Machine Learning model and analysis to predict passenger survival on the Titanic." }, link: "https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" },
+            { id: 10, tags: ['Python'], title: { es: "[Python - SpeechRecognition] Asistente de Voz", en: "[Python - SpeechRecognition] Voice Assistant" }, description: { es: "Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.", en: "Python-based voice assistant using NLP and speech recognition libraries." }, link: "https://github.com/Mgobeaalcoba/voice_assistant" },
+            { id: 11, tags: ['Python'], title: { es: "[Python - Tkinter] Software de Escritorio para Restaurante", en: "[Python - Tkinter] Restaurant Desktop Software" }, description: { es: "Software de escritorio versátil construido con Python y la librería Tkinter GUI.", en: "Versatile desktop software built with Python and the Tkinter GUI library." }, link: "https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" },
+            { id: 12, tags: ['R'], title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" },
+            { id: 13, tags: ['Kotlin', 'Go'], title: { es: "[Kotlin-Spring] Api Rest Trilateración", en: "[Kotlin-Spring] Api Rest Trilateration" }, description: { es: "Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.", en: "Rest Api built on GCP as part of an internal challenge at Mercado Libre, using Kotlin and Spring." }, link: "https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" },
+            { id: 14, tags: ['Python', 'Django'], title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" },
+            { id: 15, tags: ['Python', 'Flask'], title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
+            { id: 16, tags: ['Python', 'Pandas'], title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
         ];
 
         const experienceData = [
@@ -618,6 +617,7 @@
                 populateExperience(lang);
                 populateEducation(lang);
                 populateCerts();
+                populateTechStack(lang);
                 localStorage.setItem('language', lang);
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
@@ -638,16 +638,59 @@
             
             applyTheme(savedTheme);
             setLanguage(savedLang);
+
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
         });
 
         // --- DYNAMIC CONTENT POPULATION ---
-        function populateProjects(lang) {
-            const container = document.getElementById('projects-container');
+        function populateTechStack(lang) {
+            const container = document.getElementById('tech-stack-container');
             if(!container) return;
             container.innerHTML = '';
-            projectsData.forEach(project => {
+            for (const category in techStackData) {
+                const categoryKey = `stack_${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`;
+                let tagsHTML = '';
+                techStackData[category].forEach(tag => {
+                    tagsHTML += `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`;
+                });
+
+                container.innerHTML += `
+                    <div>
+                        <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="${categoryKey}">${translations[categoryKey] ? translations[categoryKey][lang] : category}</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${tagsHTML}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function populateProjects(lang, filterTag = null) {
+            const container = document.getElementById('projects-container');
+            if (!container) return;
+
+            const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
+            
+            if (filteredProjects.length === 0 && filterTag) {
+                 container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="populateProjects(localStorage.getItem('language') || 'es'); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
+                 return;
+            }
+
+            container.innerHTML = '';
+            filteredProjects.forEach(project => {
                  container.innerHTML += `
-                    <div class="avoid-break">
+                    <div class="project-item avoid-break p-4 rounded-lg glass-effect interactive">
                         <h4 class="text-lg font-bold">${project.title[lang]}</h4>
                         <p class="text-secondary text-sm mb-2">${project.description[lang]}</p>
                         <a href="${project.link}" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> <span>${translations.view_repo[lang]}</span></a>
@@ -663,7 +706,7 @@
             experienceData.forEach((job, index) => {
                 const side = index % 2 === 0 ? 'left' : 'right';
                 const itemHTML = `
-                    <div class="timeline-container ${side}">
+                    <div class="timeline-container ${side} animate-on-scroll">
                         <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
                             <div class="see-more-indicator">
                                 <span data-translate="see_more">${translations.see_more[lang]}</span>
@@ -707,6 +750,22 @@
             });
         }
         
+        // --- FILTERING LOGIC ---
+        let currentFilter = null;
+        function filterProjects(tag) {
+            const lang = localStorage.getItem('language') || 'es';
+            if (currentFilter === tag) {
+                currentFilter = null; // Unselect if the same tag is clicked again
+                document.querySelectorAll('#tech-stack-container .tag').forEach(t => t.classList.remove('active'));
+            } else {
+                currentFilter = tag;
+                document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
+                    t.classList.toggle('active', t.textContent === tag);
+                });
+            }
+            populateProjects(lang, currentFilter);
+        }
+
         // --- MODAL LOGIC ---
         function openExperienceModal(jobId) {
             const lang = localStorage.getItem('language') || 'es';
