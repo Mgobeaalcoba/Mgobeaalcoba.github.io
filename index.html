@@ -20,6 +20,8 @@
             --primary-color: #38bdf8;
             --secondary-text-color: #9ca3af;
             --border-color: #374151;
+            --scrollbar-thumb: #4b5563;
+            --scrollbar-track: #374151;
         }
 
         html.light-mode {
@@ -30,6 +32,8 @@
             --primary-color: #0ea5e9;
             --secondary-text-color: #4b5563;
             --border-color: #e5e7eb;
+            --scrollbar-thumb: #d1d5db;
+            --scrollbar-track: #e5e7eb;
         }
 
         body {
@@ -97,6 +101,21 @@
         }
         html.light-mode .tag:hover {
             background-color: #d1d5db;
+        }
+        /* Custom scrollbar for project and cert lists */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
         }
     </style>
 </head>
@@ -241,113 +260,8 @@
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Formación Complementaria</h4>
-                            <div class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2">
-                                <p>GenAl for Champions</p>
-                                <p>Curso de N8N</p>
-                                <p>Introducción a Jira para gestión de proyectos con Kanban</p>
-                                <p>Curso de Unit Testing en Python</p>
-                                <p>Hacking con Python</p>
-                                <p>Curso de Manejo de Datos Faltantes</p>
-                                <p>Dataiku Core Designer</p>
-                                <p>Enseñanza de inglés como lengua extranjera (TEFL)</p>
-                                <p>Data Champions | BigQuery and LookML</p>
-                                <p>5 minutos al dia para mejorar tu Ingles</p>
-                                <p>Curso de Análisis Exploratorio de Datos</p>
-                                <p>Curso de Estadistica Inferencial para Data Science</p>
-                                <p>Curso de Ética y Manejo de Datos para Data Science</p>
-                                <p>Python TOTAL - Programador Avanzado</p>
-                                <p>Curso Básico de Django</p>
-                                <p>Curso de Desarrollo Backend</p>
-                                <p>Curso de Django Intermedio</p>
-                                <p>Curso de FastAPI: Modularización, Datos y Errores</p>
-                                <p>Curso de Flask</p>
-                                <p>Principios SOLID y Clean Code</p>
-                                <p>Curso Práctico de Python: Creación de un CRUD</p>
-                                <p>Curso de Complejidad Algoritmica con Python</p>
-                                <p>Curso de Estructuras de Datos Lineales con Python</p>
-                                <p>Curso de FastAPI: Fundamentos</p>
-                                <p>Curso de Pensamiento Computacional con Python</p>
-                                <p>Curso de Python: PIP y Entornos Virtuales</p>
-                                <p>Curso de Selenium con Python</p>
-                                <p>Android Completo con Kotlin</p>
-                                <p>Curso de Fundamentos de Python</p>
-                                <p>Curso de Python: Comprehensions, Funciones y Manejo de Errores</p>
-                                <p>Curso de Kotlin desde Cero</p>
-                                <p>GOLANG: Curso profesional de Go</p>
-                                <p>Problem Solving</p>
-                                <p>Curso de Webpack</p>
-                                <p>Diseño de interfaz (UI) con Figma</p>
-                                <p>Curso Básico de JavaScript</p>
-                                <p>Curso Práctico de Frontend Developer</p>
-                                <p>Curso de Asincronismo con JavaScript</p>
-                                <p>Curso de ECMAScript</p>
-                                <p>Curso de Frontend Developer</p>
-                                <p>Curso de NPM: Gestión de Paquetes</p>
-                                <p>Introducción a la Programación con Kotlin</p>
-                                <p>Nuevo Curso Gratis de Programación Básica</p>
-                                <p>Curso Práctico de Product Owner</p>
-                                <p>Curso de Prework: Configuración de Entorno</p>
-                                <p>Nuevo Curso de Pensamiento Lógico</p>
-                                <p>Curso de Fundamentos de R</p>
-                                <p>Data Analyst</p>
-                                <p>Curso de Digital Project Management</p>
-                                <p>Curso de Manipulación y Transformación de Datos con Pandas y NumPy</p>
-                                <p>Curso de PostgreSQL Aplicado a Ciencia de Datos</p>
-                                <p>Curso de Visualización de Datos con Matplotlib y Seaborn</p>
-                                <p>Proyecto del #PlatziChallenge Datacademy 2022</p>
-                                <p>Curso Práctico de SQL</p>
-                                <p>Cómo y Por Qué Aprender Data Science</p>
-                                <p>Datacademy</p>
-                                <p>Curso de Análisis de Datos con Power BI</p>
-                                <p>Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos</p>
-                                <p>Curso de Cómo Dar y Recibir Feedback</p>
-                                <p>Curso de Funciones Matemáticas para Data Science</p>
-                                <p>Curso de PostgreSQL</p>
-                                <p>Curso sobre la Neurociencia del Feedback</p>
-                                <p>Curso de Programación Orientada a Objetos: POO</p>
-                                <p>Curso Fundamentos de Product Management</p>
-                                <p>Curso de Filosofía para Managers</p>
-                                <p>Curso de Herramientas para el Crecimiento Personal</p>
-                                <p>Curso de Historia de Bitcoin y Criptomonedas</p>
-                                <p>Curso de Motivación para Equipos de Trabajo</p>
-                                <p>Curso para Desbloquear tu Creatividad</p>
-                                <p>Learning Path Shipping</p>
-                                <p>Curso Profesional de Python</p>
-                                <p>Curso de Google Data Studio</p>
-                                <p>Python Challenge</p>
-                                <p>Curso de Business Intelligence: Utilidad y Áreas de Oportunidad</p>
-                                <p>Curso de Excel Básico</p>
-                                <p>Curso de Fundamentos de Bases de Datos</p>
-                                <p>Curso de Introducción a Business Intelligence con Power BI</p>
-                                <p>Curso de Introduccion al Algebra Lineal: Vectores</p>
-                                <p>Curso de Principios de Visualización de Datos para Business Intelligence</p>
-                                <p>Curso de Tableau: Visualización de Datos y Storytelling</p>
-                                <p>Curso Práctico de Regresión Lineal con Python</p>
-                                <p>Curso de Entorno de Trabajo para Ciencia de Datos</p>
-                                <p>Curso de Fundamentos de Álgebra Lineal con Python</p>
-                                <p>Curso de Google Suite</p>
-                                <p>Curso de Inglés para Principiantes</p>
-                                <p>Curso de Matemáticas para Data Science: Cálculo Básico</p>
-                                <p>Curso de Matemáticas para Data Science: Estadística Descriptiva</p>
-                                <p>Curso de Matemáticas para Data Science: Probabilidad</p>
-                                <p>Curso de Python Intermedio</p>
-                                <p>Taller de Inglés para Principiantes</p>
-                                <p>Curso Profesional de Git y GitHub</p>
-                                <p>Curso de Comunicación Efectiva</p>
-                                <p>Curso de Fundamentos de Matemáticas</p>
-                                <p>Curso de Gestión Efectiva del Tiempo</p>
-                                <p>Curso de Inteligencia Emocional</p>
-                                <p>Curso de Introducción a la Terminal y Línea de Comandos</p>
-                                <p>Curso Básico de Python</p>
-                                <p>Curso de Análisis de Negocios para Ciencia de Datos</p>
-                                <p>Curso de Estrategias para Aprender Inglés Online</p>
-                                <p>Data Explorer</p>
-                                <p>MicroStrategy</p>
-                                <p>Looker</p>
-                                <p>SQL</p>
-                                <p>Tableau</p>
-                                <p>Modelos logísticos para e-commerce</p>
-                                <p>SQL Foundamentals</p>
+                            <div class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                                <p>GenAl for Champions</p><p>Curso de N8N</p><p>Introducción a Jira para gestión de proyectos con Kanban</p><p>Curso de Unit Testing en Python</p><p>Hacking con Python</p><p>Curso de Manejo de Datos Faltantes</p><p>Dataiku Core Designer</p><p>Enseñanza de inglés como lengua extranjera (TEFL)</p><p>Data Champions | BigQuery and LookML</p><p>5 minutos al dia para mejorar tu Ingles</p><p>Curso de Análisis Exploratorio de Datos</p><p>Curso de Estadistica Inferencial para Data Science</p><p>Curso de Ética y Manejo de Datos para Data Science</p><p>Python TOTAL - Programador Avanzado</p><p>Curso Básico de Django</p><p>Curso de Desarrollo Backend</p><p>Curso de Django Intermedio</p><p>Curso de FastAPI: Modularización, Datos y Errores</p><p>Curso de Flask</p><p>Principios SOLID y Clean Code</p><p>Curso Práctico de Python: Creación de un CRUD</p><p>Curso de Complejidad Algoritmica con Python</p><p>Curso de Estructuras de Datos Lineales con Python</p><p>Curso de FastAPI: Fundamentos</p><p>Curso de Pensamiento Computacional con Python</p><p>Curso de Python: PIP y Entornos Virtuales</p><p>Curso de Selenium con Python</p><p>Android Completo con Kotlin</p><p>Curso de Fundamentos de Python</p><p>Curso de Python: Comprehensions, Funciones y Manejo de Errores</p><p>Curso de Kotlin desde Cero</p><p>GOLANG: Curso profesional de Go</p><p>Problem Solving</p><p>Curso de Webpack</p><p>Diseño de interfaz (UI) con Figma</p><p>Curso Básico de JavaScript</p><p>Curso Práctico de Frontend Developer</p><p>Curso de Asincronismo con JavaScript</p><p>Curso de ECMAScript</p><p>Curso de Frontend Developer</p><p>Curso de NPM: Gestión de Paquetes</p><p>Introducción a la Programación con Kotlin</p><p>Nuevo Curso Gratis de Programación Básica</p><p>Curso Práctico de Product Owner</p><p>Curso de Prework: Configuración de Entorno</p><p>Nuevo Curso de Pensamiento Lógico</p><p>Curso de Fundamentos de R</p><p>Data Analyst</p><p>Curso de Digital Project Management</p><p>Curso de Manipulación y Transformación de Datos con Pandas y NumPy</p><p>Curso de PostgreSQL Aplicado a Ciencia de Datos</p><p>Curso de Visualización de Datos con Matplotlib y Seaborn</p><p>Proyecto del #PlatziChallenge Datacademy 2022</p><p>Curso Práctico de SQL</p><p>Cómo y Por Qué Aprender Data Science</p><p>Datacademy</p><p>Curso de Análisis de Datos con Power BI</p><p>Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos</p><p>Curso de Cómo Dar y Recibir Feedback</p><p>Curso de Funciones Matemáticas para Data Science</p><p>Curso de PostgreSQL</p><p>Curso sobre la Neurociencia del Feedback</p><p>Curso de Programación Orientada a Objetos: POO</p><p>Curso Fundamentos de Product Management</p><p>Curso de Filosofía para Managers</p><p>Curso de Herramientas para el Crecimiento Personal</p><p>Curso de Historia de Bitcoin y Criptomonedas</p><p>Curso de Motivación para Equipos de Trabajo</p><p>Curso para Desbloquear tu Creatividad</p><p>Learning Path Shipping</p><p>Curso Profesional de Python</p><p>Curso de Google Data Studio</p><p>Python Challenge</p><p>Curso de Business Intelligence: Utilidad y Áreas de Oportunidad</p><p>Curso de Excel Básico</p><p>Curso de Fundamentos de Bases de Datos</p><p>Curso de Introducción a Business Intelligence con Power BI</p><p>Curso de Introduccion al Algebra Lineal: Vectores</p><p>Curso de Principios de Visualización de Datos para Business Intelligence</p><p>Curso de Tableau: Visualización de Datos y Storytelling</p><p>Curso Práctico de Regresión Lineal con Python</p><p>Curso de Entorno de Trabajo para Ciencia de Datos</p><p>Curso de Fundamentos de Álgebra Lineal con Python</p><p>Curso de Google Suite</p><p>Curso de Inglés para Principiantes</p><p>Curso de Matemáticas para Data Science: Cálculo Básico</p><p>Curso de Matemáticas para Data Science: Estadística Descriptiva</p><p>Curso de Matemáticas para Data Science: Probabilidad</p><p>Curso de Python Intermedio</p><p>Taller de Inglés para Principiantes</p><p>Curso Profesional de Git y GitHub</p><p>Curso de Comunicación Efectiva</p><p>Curso de Fundamentos de Matemáticas</p><p>Curso de Gestión Efectiva del Tiempo</p><p>Curso de Inteligencia Emocional</p><p>Curso de Introducción a la Terminal y Línea de Comandos</p><p>Curso Básico de Python</p><p>Curso de Análisis de Negocios para Ciencia de Datos</p><p>Curso de Estrategias para Aprender Inglés Online</p><p>Data Explorer</p><p>MicroStrategy</p><p>Looker</p><p>SQL</p><p>Tableau</p><p>Modelos logísticos para e-commerce</p><p>SQL Foundamentals</p>
                             </div>
                         </div>
                     </div>
@@ -361,6 +275,109 @@
                     <p class="leading-relaxed">
                         Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
                     </p>
+                </section>
+
+                <!-- Featured Projects -->
+                <section class="p-6 glass-effect rounded-xl avoid-break">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Proyectos Destacados</h3>
+                    <div class="space-y-6 max-h-[28rem] overflow-y-auto custom-scrollbar pr-2">
+                        <!-- Project 1 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Pandas] Missing-mga Pandas API extends PyPI package</h4>
+                            <p class="text-secondary text-sm mb-2">Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.</p>
+                            <a href="https://github.com/Mgobeaalcoba/missing_mga" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 2 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Django] Web App for my personal professional project</h4>
+                            <p class="text-secondary text-sm mb-2">Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints y administración de bases de datos.</p>
+                             <a href="https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 3 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Kaggle] Kaggle Downloader Package</h4>
+                            <p class="text-secondary text-sm mb-2">Una clase de Python que simplifica la interacción con Kaggle para la búsqueda y descarga de datasets.</p>
+                             <a href="https://github.com/Mgobeaalcoba/kaggle_downloader_package" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 4 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Package] Argendolar PyPi package</h4>
+                            <p class="text-secondary text-sm mb-2">Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.</p>
+                             <a href="https://github.com/Mgobeaalcoba/argendolar" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 5 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python - FastApi] Quasar Fire Project</h4>
+                            <p class="text-secondary text-sm mb-2">API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.</p>
+                             <a href="https://github.com/Mgobeaalcoba/quasar-fire" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 6 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Django] To Do List Web App</h4>
+                            <p class="text-secondary text-sm mb-2">Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.</p>
+                             <a href="https://github.com/Mgobeaalcoba/django_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 7 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-FaceRecognition] Face Assistance Validator</h4>
+                            <p class="text-secondary text-sm mb-2">App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.</p>
+                             <a href="https://github.com/Mgobeaalcoba/face_assistance_validator" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 8 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Pygame] Space Invasion Videogame</h4>
+                            <p class="text-secondary text-sm mb-2">Juego "Space Invasion" creado 100% con Pygame y Python, aplicando POO y patrones de diseño.</p>
+                             <a href="https://github.com/Mgobeaalcoba/pygame_space_invasion" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 9 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Scikit Learn] Survival Predictor On The Titanic</h4>
+                            <p class="text-secondary text-sm mb-2">Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.</p>
+                             <a href="https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                         <!-- Project 10 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python - SpeechRecognition] Voice Assistant</h4>
+                            <p class="text-secondary text-sm mb-2">Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.</p>
+                             <a href="https://github.com/Mgobeaalcoba/voice_assistant" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 11 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python - Tkinter] Restaurant Desktop Software</h4>
+                            <p class="text-secondary text-sm mb-2">Software de escritorio versátil construido con Python y la librería Tkinter GUI.</p>
+                             <a href="https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 12 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[R-Shiny] Programming Languages EDA Shiny App</h4>
+                            <p class="text-secondary text-sm mb-2">App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.</p>
+                             <a href="https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 13 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Kotlin-Spring] Api Rest Trilateration</h4>
+                            <p class="text-secondary text-sm mb-2">Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.</p>
+                             <a href="https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 14 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python-Django] Web App Model</h4>
+                            <p class="text-secondary text-sm mb-2">App en Django que permite registro, login, y gestión de tareas pendientes.</p>
+                             <a href="https://github.com/Mgobeaalcoba/django_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 15 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python - Flask] CRUD App</h4>
+                            <p class="text-secondary text-sm mb-2">Una app hecha con Python y Flask que no es más que un software CRUD.</p>
+                             <a href="https://github.com/Mgobeaalcoba/flask_python" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                        <!-- Project 16 -->
+                        <div class="avoid-break">
+                            <h4 class="text-lg font-bold">[Python - Pandas] Datacademy</h4>
+                            <p class="text-secondary text-sm mb-2">Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.</p>
+                             <a href="https://github.com/Mgobeaalcoba/datacademy" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> Ver Repositorio</a>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Experience -->
