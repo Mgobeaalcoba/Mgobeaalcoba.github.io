@@ -55,7 +55,7 @@
             border: 1px solid var(--card-border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
-        .glass-effect:hover {
+        .timeline-item.glass-effect:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
@@ -138,11 +138,17 @@
         .timeline-item { cursor: pointer; padding: 20px; position: relative; border-radius: 8px; }
         .see-more-indicator {
             position: absolute;
-            top: 1rem;
+            top: 0.75rem;
             right: 1rem;
             opacity: 0;
             transition: opacity 0.3s ease;
             color: var(--primary-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            pointer-events: none;
         }
         .timeline-item:hover .see-more-indicator {
             opacity: 1;
@@ -577,6 +583,7 @@
             footer_design: { es: "Diseñado con", en: "Designed with"},
             footer_location: { es: "en Buenos Aires", en: "in Buenos Aires"},
             calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" },
+            see_more: { es: "Ver más", en: "See more" }
         };
         
         // --- DOMContentLoaded LOGIC ---
@@ -658,6 +665,10 @@
                 const itemHTML = `
                     <div class="timeline-container ${side}">
                         <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
+                            <div class="see-more-indicator">
+                                <span data-translate="see_more">${translations.see_more[lang]}</span>
+                                <i class="fas fa-external-link-alt fa-xs"></i>
+                            </div>
                              <div>
                                  <p class="font-semibold" style="color: var(--primary-color);">${job.date[lang]}</p>
                                  <h4 class="text-xl font-bold mt-1">${job.title[lang]}</h4>
