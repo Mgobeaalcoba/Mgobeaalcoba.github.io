@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -79,7 +82,7 @@
     </style>
 </head>
 <body class="antialiased">
-    <div class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
+    <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12">
         
@@ -101,10 +104,10 @@
                         <li><i class="fas fa-phone w-5 mr-2 text-sky-400"></i> 01127475569</li>
                         <li><i class="fas fa-envelope w-5 mr-2 text-sky-400"></i> gobeamariano@gmail.com</li>
                         <li>
-                            <a href="Profile-1.pdf" download="CV-MarianoGobeaAlcoba.pdf" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300">
-                                <i class="fas fa-download w-5 mr-2"></i>
-                                Descargar CV
-                            </a>
+                            <button id="download-btn" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i id="download-icon" class="fas fa-download w-5 mr-2"></i>
+                                <span id="download-text">Descargar CV</span>
+                            </button>
                         </li>
                     </ul>
                 </section>
@@ -445,6 +448,7 @@
     </div>
 
     <script>
+        // --- Collapsible sections logic ---
         function toggleExperience(element) {
             const details = element.querySelector('.experience-details');
             const icon = element.querySelector('.chevron-icon');
@@ -452,6 +456,76 @@
             // Toggle the 'show' class to trigger CSS transition
             details.classList.toggle('show');
             icon.classList.toggle('rotate');
+        }
+
+        // --- PDF Generation logic ---
+        window.onload = function() {
+            const downloadBtn = document.getElementById('download-btn');
+            const downloadText = document.getElementById('download-text');
+            const downloadIcon = document.getElementById('download-icon');
+
+            downloadBtn.addEventListener('click', () => {
+                // Set loading state
+                downloadText.textContent = 'Generando...';
+                downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
+                downloadBtn.disabled = true;
+
+                const element = document.getElementById('page-content');
+                
+                // Temporarily expand all experience sections for capture
+                const allDetails = document.querySelectorAll('.experience-details');
+                allDetails.forEach(detail => detail.classList.add('show'));
+                
+                const allIcons = document.querySelectorAll('.chevron-icon');
+                allIcons.forEach(icon => icon.classList.add('rotate'));
+
+                // Use a timeout to allow the DOM to update before capturing
+                setTimeout(() => {
+                    html2canvas(element, {
+                        scale: 2, // Improve quality
+                        backgroundColor: '#111827' // Match body background
+                    }).then(canvas => {
+                        const imgData = canvas.toDataURL('image/png');
+                        const { jsPDF } = window.jspdf;
+                        
+                        // A4 paper size: 210 x 297 mm
+                        const pdf = new jsPDF('p', 'mm', 'a4');
+                        const pdfWidth = pdf.internal.pageSize.getWidth();
+                        const pdfHeight = pdf.internal.pageSize.getHeight();
+                        
+                        const canvasWidth = canvas.width;
+                        const canvasHeight = canvas.height;
+                        const ratio = canvasWidth / canvasHeight;
+
+                        const imgWidth = pdfWidth;
+                        const imgHeight = pdfWidth / ratio;
+                        
+                        let heightLeft = imgHeight;
+                        let position = 0;
+
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pdfHeight;
+
+                        while (heightLeft > 0) {
+                            position = heightLeft - imgHeight;
+                            pdf.addPage();
+                            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                            heightLeft -= pdfHeight;
+                        }
+                        
+                        pdf.save('CV-MarianoGobeaAlcoba.pdf');
+                        
+                        // Restore button state
+                        downloadText.textContent = 'Descargar CV';
+                        downloadIcon.className = 'fas fa-download w-5 mr-2';
+                        downloadBtn.disabled = false;
+
+                        // Collapse sections back to original state
+                        allDetails.forEach(detail => detail.classList.remove('show'));
+                        allIcons.forEach(icon => icon.classList.remove('rotate'));
+                    });
+                }, 500); // 500ms timeout
+            });
         }
     </script>
 </body>
