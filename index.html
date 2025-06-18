@@ -167,7 +167,7 @@
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
                 <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
                 <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data & Analytics Technical Leader en Mercado Libre</h2>
-                <div class="flex items-center space-x-6 mt-6">
+                <div class="flex items-center flex-wrap gap-4 mt-6">
                    <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
                    <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl"><i class="fab fa-github"></i></a>
                    <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link">
@@ -175,9 +175,9 @@
                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
                        </svg>
                    </a>
-                   <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="icon-link text-3xl">
-                       <i class="fas fa-calendar-days"></i>
-                   </a>
+                   <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
+                       <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
+                   </button>
                 </div>
             </div>
         </header>
@@ -416,6 +416,7 @@
             view_repo: { es: "Ver Repositorio", en: "View Repository" },
             footer_design: { es: "Diseñado con", en: "Designed with"},
             footer_location: { es: "en Buenos Aires", en: "in Buenos Aires"},
+            calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" },
         };
         
         // --- DOMContentLoaded LOGIC ---
