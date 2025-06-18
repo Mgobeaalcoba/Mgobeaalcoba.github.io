@@ -614,7 +614,7 @@
                         el.innerHTML = translations[key][lang];
                     }
                 });
-                populateProjects(lang);
+                populateProjects(lang, currentFilter); // Repopulate with current filter
                 populateExperience(lang);
                 populateEducation(lang);
                 populateCerts();
@@ -622,6 +622,19 @@
                 localStorage.setItem('language', lang);
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
+                
+                // Re-initialize observer after content is re-populated
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
             };
             
             themeToggle.addEventListener('click', () => {
@@ -639,19 +652,6 @@
             
             applyTheme(savedTheme);
             setLanguage(savedLang);
-
-            // Scroll Animation Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
         });
 
         // --- DYNAMIC CONTENT POPULATION ---
