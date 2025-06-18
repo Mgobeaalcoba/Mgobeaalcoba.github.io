@@ -11,21 +11,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
+        /* CSS Variables for theming */
+        :root {
+            --bg-color: #111827;
+            --text-color: #d1d5db;
+            --card-bg-color: rgba(31, 41, 55, 0.5);
+            --card-border-color: rgba(255, 255, 255, 0.1);
+            --primary-color: #38bdf8;
+            --secondary-text-color: #9ca3af;
+            --border-color: #374151;
+        }
+
+        html.light-mode {
+            --bg-color: #f9fafb;
+            --text-color: #1f2937;
+            --card-bg-color: rgba(255, 255, 255, 0.7);
+            --card-border-color: rgba(0, 0, 0, 0.1);
+            --primary-color: #0ea5e9;
+            --secondary-text-color: #4b5563;
+            --border-color: #e5e7eb;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827;
-            color: #d1d5db;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .glass-effect {
-            background: rgba(31, 41, 55, 0.5);
+            background: var(--card-bg-color);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--card-border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
         .glass-effect:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+        h1, h2, h3, h4 { color: var(--text-color); }
+        h2 { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-text-color); }
+        .border-bottom { border-color: var(--border-color); }
+        
+        .icon-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            color: var(--secondary-text-color);
+        }
+        .icon-link:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .x-logo {
+            width: 28px;
+            height: 28px;
+            fill: var(--secondary-text-color);
+            transition: fill 0.3s ease;
+        }
+        .icon-link:hover .x-logo {
+             fill: var(--primary-color);
+        }
+        .experience-details { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out; }
+        .experience-details.show { max-height: 1000px; opacity: 1; }
+        .experience-toggle { cursor: pointer; transition: background-color 0.3s ease; }
+        .experience-toggle:hover { background-color: rgba(127, 127, 127, 0.1); }
+        .chevron-icon { transition: transform 0.4s ease; }
+        .chevron-icon.rotate { transform: rotate(180deg); }
+        .avoid-break { break-inside: avoid; }
+        #theme-switcher { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50; }
         .tag {
             background-color: #374151;
             color: #d1d5db;
@@ -35,76 +88,43 @@
             font-weight: 500;
             transition: background-color 0.3s ease;
         }
+        html.light-mode .tag {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
         .tag:hover {
             background-color: #4b5563;
         }
-        .icon-link {
-            transition: color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-        .icon-link:hover {
-            color: #38bdf8; /* sky-400 */
-            transform: scale(1.1);
-        }
-        .x-logo {
-            width: 28px;
-            height: 28px;
-            fill: #d1d5db; /* Default color */
-            transition: fill 0.3s ease;
-        }
-        .icon-link:hover .x-logo {
-             fill: #38bdf8; /* sky-400 on hover */
-        }
-        /* Styles for collapsible experience */
-        .experience-details {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
-        }
-        .experience-details.show {
-            max-height: 1000px; /* Adjust as needed */
-            opacity: 1;
-        }
-        .experience-toggle {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .experience-toggle:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        .chevron-icon {
-            transition: transform 0.4s ease;
-        }
-        .chevron-icon.rotate {
-            transform: rotate(180deg);
-        }
-        /* PDF Export Helper Class */
-        .avoid-break {
-            break-inside: avoid;
+        html.light-mode .tag:hover {
+            background-color: #d1d5db;
         }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- THEME SWITCHER -->
+    <div id="theme-switcher">
+        <button id="theme-toggle" class="p-2 rounded-full text-white backdrop-blur-sm" style="background-color: var(--card-bg-color);">
+            <i class="fas fa-sun hidden" id="dark-icon"></i>
+            <i class="fas fa-moon" id="light-icon"></i>
+        </button>
+    </div>
+
     <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
 
         <!-- HEADER BLOCK -->
         <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12">
-            <!-- Header Left: Profile Image -->
             <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
-                 <div class="w-48 h-48 rounded-full border-4 border-sky-400 shadow-lg" 
-                         style="background-image: url('Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
+                 <div class="w-48 h-48 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
                 </div>
             </div>
-
-            <!-- Header Right: Name, Title, Socials -->
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
-                <h1 class="text-4xl sm:text-5xl font-bold text-white">Mariano Gobea Alcoba</h1>
-                <h2 class="text-xl sm:text-2xl text-sky-400 mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
+                <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
+                <h2 class="text-xl sm:text-2xl mt-2">Data & Analytics Technical Leader at Mercado Libre</h2>
                 <div class="flex items-center space-x-6 mt-6">
-                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
-                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="text-gray-400 icon-link text-3xl"><i class="fab fa-github"></i></a>
-                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="text-gray-400 icon-link">
+                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
+                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl"><i class="fab fa-github"></i></a>
+                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link">
                        <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
                        </svg>
@@ -119,11 +139,11 @@
             <div class="lg:col-span-1 space-y-8">
                 <!-- Contact -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Contacto</h3>
-                    <ul class="space-y-4 text-gray-300">
-                        <li><i class="fas fa-map-marker-alt w-5 mr-2 text-sky-400"></i> Buenos Aires, Argentina</li>
-                        <li><i class="fas fa-phone w-5 mr-2 text-sky-400"></i> 01127475569</li>
-                        <li><i class="fas fa-envelope w-5 mr-2 text-sky-400"></i> gobeamariano@gmail.com</li>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Contacto</h3>
+                    <ul class="space-y-4 text-secondary">
+                        <li><i class="fas fa-map-marker-alt w-5 mr-2" style="color: var(--primary-color);"></i> Buenos Aires, Argentina</li>
+                        <li><i class="fas fa-phone w-5 mr-2" style="color: var(--primary-color);"></i> 01127475569</li>
+                        <li><i class="fas fa-envelope w-5 mr-2" style="color: var(--primary-color);"></i> gobeamariano@gmail.com</li>
                         <li>
                             <button id="download-btn" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 <i id="download-icon" class="fas fa-download w-5 mr-2"></i>
@@ -133,85 +153,150 @@
                     </ul>
                 </section>
                 
-                <!-- Skills -->
+                <!-- Tech Stack -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Habilidades</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Generative AI</span>
-                        <span class="tag">Automatización</span>
-                        <span class="tag">Liderazgo de Equipos</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Data & Analytics</span>
-                        <span class="tag">MLOps</span>
-                        <span class="tag">Vector DBs</span>
-                        <span class="tag">LLMs</span>
-                        <span class="tag">BigQuery</span>
-                        <span class="tag">Product Ownership</span>
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Stack Tecnológico</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Backend & Datos</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Python</span>
+                                <span class="tag">Java</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">Go</span>
+                                <span class="tag">R</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">MariaDB</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">SQLite</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Machine Learning</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Scikit-learn</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Keras</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">Caret</span>
+                            </div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">IA & Automatización</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Generative AI</span>
+                                <span class="tag">LLM</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">GitHub Copilot</span>
+                                <span class="tag">n8n</span>
+                                <span class="tag">Zapier</span>
+                                <span class="tag">Windsurf</span>
+                                <span class="tag">Cursor</span>
+                            </div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Cloud</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Google Cloud</span>
+                                <span class="tag">AWS</span>
+                                <span class="tag">Azure</span>
+                             </div>
+                        </div>
+                         <div>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Business Intelligence</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Looker</span>
+                                <span class="tag">Looker Studio</span>
+                                <span class="tag">Power BI</span>
+                                <span class="tag">Tableau</span>
+                                <span class="tag">DataFlow</span>
+                                <span class="tag">DataMesh</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">Numpy</span>
+                                <span class="tag">Matplotlib</span>
+                                <span class="tag">Seaborn</span>
+                                <span class="tag">Plotly</span>
+                                <span class="tag">Geopandas</span>
+                                <span class="tag">Dplyr</span>
+                                <span class="tag">Ggplot2</span>
+                                <span class="tag">Canvas</span>
+                             </div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2">Productividad</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="tag">Jira</span>
+                                <span class="tag">Notion</span>
+                                <span class="tag">Monday</span>
+                                <span class="tag">Google Suite</span>
+                                <span class="tag">Microsoft Office</span>
+                             </div>
+                        </div>
                     </div>
                 </section>
-
-                <!-- Education -->
+                 <!-- Education -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Educación</h3>
-                    <ul class="space-y-4">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Educación</h3>
+                    <ul class="space-y-4 text-secondary">
                         <li>
-                            <p class="font-semibold text-white">Postgraduate Degree, Ingeniería de Software</p>
-                            <p class="text-gray-400">UAI - Universidad Abierta Interamericana</p>
-                            <p class="text-sm text-gray-500">2025 - 2026</p>
+                            <p class="font-semibold" style="color: var(--text-color);">Postgraduate Degree, Ingeniería de Software</p>
+                            <p>UAI - Universidad Abierta Interamericana</p>
+                            <p class="text-sm">2025 - 2026</p>
                         </li>
                         <li>
-                            <p class="font-semibold text-white">Licenciatura, Gestión de TI</p>
-                            <p class="text-gray-400">UADE</p>
-                            <p class="text-sm text-gray-500">2020 - 2021</p>
+                            <p class="font-semibold" style="color: var(--text-color);">Licenciatura, Gestión de TI</p>
+                            <p>UADE</p>
+                            <p class="text-sm">2020 - 2021</p>
                         </li>
                         <li>
-                            <p class="font-semibold text-white">Profesorado, Sociología</p>
-                            <p class="text-gray-400">Universidad de Buenos Aires</p>
-                            <p class="text-sm text-gray-500">2014 - 2015</p>
+                            <p class="font-semibold" style="color: var(--text-color);">Profesorado, Sociología</p>
+                            <p>Universidad de Buenos Aires</p>
+                            <p class="text-sm">2014 - 2015</p>
                         </li>
                         <li>
-                            <p class="font-semibold text-white">Licenciatura, Sociología</p>
-                            <p class="text-gray-400">Universidad de Buenos Aires</p>
-                            <p class="text-sm text-gray-500">2007 - 2014</p>
+                            <p class="font-semibold" style="color: var(--text-color);">Licenciatura, Sociología</p>
+                            <p>Universidad de Buenos Aires</p>
+                            <p class="text-sm">2007 - 2014</p>
                         </li>
                          <li>
-                            <p class="font-semibold text-white">Python Backend Engineer</p>
-                            <p class="text-gray-400">Platzi</p>
-                            <p class="text-sm text-gray-500">2022 - 2023</p>
+                            <p class="font-semibold" style="color: var(--text-color);">Python Backend Engineer</p>
+                            <p>Platzi</p>
+                            <p class="text-sm">2022 - 2023</p>
                         </li>
                     </ul>
                 </section>
             </div>
-
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- About Me -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-600 pb-2">Sobre mí</h3>
-                    <p class="text-gray-300 leading-relaxed">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Sobre mí</h3>
+                    <p class="leading-relaxed">
                         Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
                     </p>
                 </section>
 
                 <!-- Experience -->
                 <section class="p-6 glass-effect rounded-xl avoid-break">
-                    <h3 class="text-2xl font-semibold text-white mb-6 border-b border-gray-600 pb-2">Experiencia</h3>
+                    <h3 class="text-2xl font-semibold mb-6 border-b pb-2 border-bottom">Experiencia</h3>
                     <div class="space-y-4">
                         
                         <!-- Job: Data & Analytics Technical Leader -->
-                        <div class="relative pl-8 border-l-2 border-sky-500 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-sky-500 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 experience-toggle avoid-break" style="border-color: var(--primary-color);" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--primary-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-sky-400">Enero 2025 - Presente</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Technical Leader</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm" style="color: var(--primary-color);">Enero 2025 - Presente</p>
+                                    <h4 class="text-xl font-bold mt-1">Data & Analytics Technical Leader</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-sky-400"></i>
+                                <i class="fas fa-chevron-down chevron-icon" style="color: var(--primary-color);"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Lideré un equipo de +6 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li>
                                     <li>Alineé la estrategia de Data & Analytics con los objetivos corporativos, priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li>
                                     <li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li>
@@ -220,19 +305,19 @@
                              </div>
                         </div>
 
-                        <!-- Job: Sr Data & Analytics Engineer -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                         <!-- All other jobs follow here -->
+                         <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Diciembre 2023 - Febrero 2025</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Sr Data & Analytics Engineer</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm text-secondary">Diciembre 2023 - Febrero 2025</p>
+                                    <h4 class="text-xl font-bold mt-1">Sr Data & Analytics Engineer</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li>
                                     <li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li>
                                     <li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad.</li>
@@ -240,19 +325,18 @@
                              </div>
                         </div>
                         
-                        <!-- Job: Shipping Product Owner -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Junio 2022 - Diciembre 2023</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Shipping Product Owner</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm text-secondary">Junio 2022 - Diciembre 2023</p>
+                                    <h4 class="text-xl font-bold mt-1">Shipping Product Owner</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Colaboré con equipos de desarrollo y negocio para definir la estrategia y roadmap del producto.</li>
                                     <li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad.</li>
                                     <li>Monitoreé métricas clave de negocio y producto para impulsar decisiones de optimización.</li>
@@ -260,19 +344,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Cross Docking Sr Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Enero 2021 - Junio 2022</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Sr Analyst</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm text-secondary">Enero 2021 - Junio 2022</p>
+                                    <h4 class="text-xl font-bold mt-1">Cross Docking Sr Analyst</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave.</li>
                                     <li>Implementé un sistema de monitoreo de indicadores operativos críticos.</li>
                                     <li>Lideré iniciativas de mejora continua en operaciones de cross docking.</li>
@@ -280,19 +363,18 @@
                              </div>
                         </div>
                         
-                        <!-- Job: Cross Docking Ssr Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Agosto 2020 - Enero 2021</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Ssr Analyst</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm text-secondary">Agosto 2020 - Enero 2021</p>
+                                    <h4 class="text-xl font-bold mt-1">Cross Docking Ssr Analyst</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS.</li>
                                     <li>Detecté oportunidades de mejora a través del análisis de procesos operativos.</li>
                                     <li>Diseñé e implementé planes de capacitación para equipos operativos.</li>
@@ -300,19 +382,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Cross Docking Team Leader -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Mayo 2019 - Agosto 2020</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Cross Docking Team Leader</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Mercado Libre</p>
+                                    <p class="text-sm text-secondary">Mayo 2019 - Agosto 2020</p>
+                                    <h4 class="text-xl font-bold mt-1">Cross Docking Team Leader</h4>
+                                    <p class="font-semibold text-secondary mb-2">Mercado Libre</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch.</li>
                                     <li>Fomenté una cultura de trabajo motivadora, equilibrando metas y bienestar.</li>
                                     <li>Implementé procesos de feedback y planes de desarrollo.</li>
@@ -320,19 +401,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Data & Analytics Expert -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Diciembre 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Data & Analytics Expert</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Henry</p>
+                                    <p class="text-sm text-secondary">Diciembre 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold mt-1">Data & Analytics Expert</h4>
+                                    <p class="font-semibold text-secondary mb-2">Henry</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Liderazgo académico en Data & Analytics y diseño de experiencias educativas.</li>
                                     <li>Creación de proyectos integradores y materiales didácticos de alta calidad.</li>
                                     <li>Planificación académica estratégica y compromiso con la excelencia educativa.</li>
@@ -340,19 +420,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Data Analytics Instructor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Mayo 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Data Analytics Instructor</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">Henry</p>
+                                    <p class="text-sm text-secondary">Mayo 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold mt-1">Data Analytics Instructor</h4>
+                                    <p class="font-semibold text-secondary mb-2">Henry</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Instructor de Data Analytics con foco en Python, facilitando clases teóricas y prácticas.</li>
                                     <li>Desarrollo de contenido educativo de alto impacto.</li>
                                     <li>Acompañamiento personalizado al estudiante y feedback individualizado.</li>
@@ -360,19 +439,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Adjunct Professor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Julio 2024 - Presente</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Adjunct Professor</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">UADE</p>
+                                    <p class="text-sm text-secondary">Julio 2024 - Presente</p>
+                                    <h4 class="text-xl font-bold mt-1">Adjunct Professor</h4>
+                                    <p class="font-semibold text-secondary mb-2">UADE</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Docente de programación en nivel universitario, liderando la formación en Taller de Programación I.</li>
                                     <li>Diseño y actualización de programas de estudio.</li>
                                     <li>Enfoque en pensamiento lógico y resolución de problemas.</li>
@@ -380,19 +458,18 @@
                              </div>
                         </div>
                         
-                        <!-- Job: Warehouse Supervisor -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                             <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Diciembre 2011 - Abril 2019</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Warehouse Supervisor</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">El Portugues</p>
+                                    <p class="text-sm text-secondary">Diciembre 2011 - Abril 2019</p>
+                                    <h4 class="text-xl font-bold mt-1">Warehouse Supervisor</h4>
+                                    <p class="font-semibold text-secondary mb-2">El Portugues</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Supervisión operativa de centro logístico de 3.500 posiciones.</li>
                                     <li>Coordinación de recepción, almacenamiento, preparación y despacho.</li>
                                     <li>Atención a clientes de primera línea como Arcor, La Anónima, y PepsiCo.</li>
@@ -400,19 +477,18 @@
                              </div>
                         </div>
 
-                        <!-- Job: Backoffice Analyst -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Enero 2010 - Febrero 2011</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Backoffice Analyst</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">SOLDA-LIMP S.R.L.</p>
+                                    <p class="text-sm text-secondary">Enero 2010 - Febrero 2011</p>
+                                    <h4 class="text-xl font-bold mt-1">Backoffice Analyst</h4>
+                                    <p class="font-semibold text-secondary mb-2">SOLDA-LIMP S.R.L.</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Gestión integral del proceso de facturación de ventas.</li>
                                     <li>Operación con cheques, tarjetas de crédito y efectivo.</li>
                                     <li>Uso del sistema de gestión Tango y dominio de Microsoft Office.</li>
@@ -420,123 +496,140 @@
                              </div>
                         </div>
 
-                        <!-- Job: Customer Services Representative -->
-                        <div class="relative pl-8 border-l-2 border-gray-600 experience-toggle avoid-break" onclick="toggleExperience(this)">
-                             <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-2 top-1.5"></div>
+                        <div class="relative pl-8 border-l-2 border-bottom experience-toggle avoid-break" onclick="toggleExperience(this)">
+                              <div class="absolute w-4 h-4 rounded-full -left-2 top-1.5" style="background-color: var(--secondary-text-color);"></div>
                              <div class="flex justify-between items-center pr-4 py-2">
                                 <div>
-                                    <p class="text-sm text-gray-500">Febrero 2009 - Diciembre 2009</p>
-                                    <h4 class="text-xl font-bold text-white mt-1">Customer Services Representative</h4>
-                                    <p class="font-semibold text-gray-300 mb-2">UBICAR ARGENTINA</p>
+                                    <p class="text-sm text-secondary">Febrero 2009 - Diciembre 2009</p>
+                                    <h4 class="text-xl font-bold mt-1">Customer Services Representative</h4>
+                                    <p class="font-semibold text-secondary mb-2">UBICAR ARGENTINA</p>
                                 </div>
-                                <i class="fas fa-chevron-down chevron-icon text-gray-500"></i>
+                                <i class="fas fa-chevron-down chevron-icon text-secondary"></i>
                              </div>
                              <div class="experience-details pt-2">
-                                <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
                                     <li>Atención al cliente especializada para sistemas de rastreo satelital.</li>
                                     <li>Coordinación operativa y asignación de turnos para instalaciones.</li>
                                     <li>Soporte en back office y configuración de cuentas.</li>
                                 </ul>
                              </div>
                         </div>
-
                     </div>
                 </section>
             </div>
-
         </main>
 
-        <footer id="page-footer" class="text-center text-gray-500 mt-16">
+        <footer id="page-footer" class="text-center text-secondary mt-16">
             <p>&copy; 2025 Mariano Gobea Alcoba. Diseñado con <i class="fas fa-heart text-red-500"></i> en Buenos Aires.</p>
         </footer>
-
     </div>
 
     <script>
+        // --- Theme Switcher ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('dark-icon');
+            const lightIcon = document.getElementById('light-icon');
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.classList.remove('light-mode');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                } else {
+                    document.documentElement.classList.add('light-mode');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                }
+            };
+
+            themeToggle.addEventListener('click', () => {
+                const isLight = document.documentElement.classList.contains('light-mode');
+                const newTheme = isLight ? 'dark' : 'light';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+            
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+        });
+
+
         // --- Collapsible sections logic ---
         function toggleExperience(element) {
             const details = element.querySelector('.experience-details');
             const icon = element.querySelector('.chevron-icon');
-            
-            // Toggle the 'show' class to trigger CSS transition
             details.classList.toggle('show');
             icon.classList.toggle('rotate');
         }
 
         // --- PDF Generation logic ---
-        window.onload = function() {
-            const downloadBtn = document.getElementById('download-btn');
-            const downloadText = document.getElementById('download-text');
-            const downloadIcon = document.getElementById('download-icon');
-            const pageFooter = document.getElementById('page-footer');
-
+        const downloadBtn = document.getElementById('download-btn');
+        if (downloadBtn) {
             downloadBtn.addEventListener('click', () => {
-                // Set loading state
+                const downloadText = document.getElementById('download-text');
+                const downloadIcon = document.getElementById('download-icon');
+                const pageFooter = document.getElementById('page-footer');
+
                 downloadText.textContent = 'Generando...';
                 downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
                 downloadBtn.disabled = true;
 
+                const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+                document.documentElement.classList.add('light-mode'); // Force light for PDF
+                
                 const element = document.getElementById('page-content');
                 pageFooter.classList.remove('mt-16');
                 
-                // Temporarily expand all experience sections for capture
                 const allDetails = document.querySelectorAll('.experience-details');
                 allDetails.forEach(detail => detail.classList.add('show'));
                 
                 const allIcons = document.querySelectorAll('.chevron-icon');
                 allIcons.forEach(icon => icon.classList.add('rotate'));
 
-                // Use a timeout to allow the DOM to update before capturing
                 setTimeout(() => {
                     html2canvas(element, {
-                        scale: 2, // Improve quality
-                        backgroundColor: '#111827' // Match body background
+                        scale: 2, 
+                        backgroundColor: '#f9fafb'
                     }).then(canvas => {
                         const imgData = canvas.toDataURL('image/png');
                         const { jsPDF } = window.jspdf;
                         
-                        // A4 paper size: 210 x 297 mm
                         const pdf = new jsPDF('p', 'mm', 'a4');
                         const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = pdf.internal.pageSize.getHeight();
-                        
                         const canvasWidth = canvas.width;
                         const canvasHeight = canvas.height;
                         const ratio = canvasWidth / canvasHeight;
-
-                        const imgWidth = pdfWidth;
                         const imgHeight = pdfWidth / ratio;
                         
                         let heightLeft = imgHeight;
                         let position = 0;
 
-                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                        heightLeft -= pdfHeight;
+                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
+                        heightLeft -= pdf.internal.pageSize.getHeight();
 
                         while (heightLeft > 0) {
-                            position -= pdfHeight;
+                            position -= pdf.internal.pageSize.getHeight();
                             pdf.addPage();
-                            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                            heightLeft -= pdfHeight;
+                            pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
+                            heightLeft -= pdf.internal.pageSize.getHeight();
                         }
                         
                         pdf.save('CV-MarianoGobeaAlcoba.pdf');
                         
-                        // Restore button state
+                        // Restore state
                         downloadText.textContent = 'Descargar CV';
                         downloadIcon.className = 'fas fa-download w-5 mr-2';
                         downloadBtn.disabled = false;
                         pageFooter.classList.add('mt-16');
+                        if (originalTheme === 'dark') {
+                           document.documentElement.classList.remove('light-mode');
+                        }
 
-                        // Collapse sections back to original state
-                        allDetails.forEach(detail => {
-                            // We only remove 'show' if it was not there initially.
-                            // But since we are forcing all open, we just close all.
-                            detail.classList.remove('show');
-                        });
+                        allDetails.forEach(detail => detail.classList.remove('show'));
                         allIcons.forEach(icon => icon.classList.remove('rotate'));
                     });
-                }, 500); // 500ms timeout
+                }, 500);
             });
         }
     </script>
