@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariano Gobea Alcoba - CV</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png">
+    <link rel="icon" href="data:image/svg+xml,%3csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cclipPath id='circleClip'%3e%3ccircle cx='16' cy='16' r='14' /%3e%3c/clipPath%3e%3c/defs%3e%3ccircle cx='16' cy='16' r='15' fill='%2338bdf8' /%3e%3cimage href='https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png' width='32' height='32' clip-path='url(%23circleClip)' preserveAspectRatio='xMidYMid slice' /%3e%3c/svg%3e">
     
     <!-- SEO and Social Sharing Meta Tags -->
     <meta name="description" content="CV interactivo de Mariano Gobea Alcoba, Data & Analytics Technical Leader en Mercado Libre. Explora mi experiencia, proyectos y stack tecnológico.">
@@ -394,11 +394,11 @@
     <script>
         // --- DATA ---
         const techStackData = {
-            "Backend & Datos": ["Python", "Java", "Kotlin", "Go", "R", "SQL", "MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Firebase", "SQLite"],
+            "Backend & Datos": ["Python", "Java", "Kotlin", "Go", "R", "SQL", "MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Firebase", "SQLite", "Django", "Flask", "FastAPI"],
             "Machine Learning": ["Scikit-learn", "TensorFlow", "Keras", "PyTorch", "Caret"],
             "IA & Automatización": ["Generative AI", "LLM", "RAG", "GitHub Copilot", "n8n", "Zapier", "Windsurf", "Cursor"],
             "Cloud": ["Google Cloud", "AWS", "Azure"],
-            "Business Intelligence": ["Looker", "Looker Studio", "Power BI", "Tableau", "DataFlow", "DataMesh", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Geopandas", "Dplyr", "Ggplot2", "Canvas"],
+            "Business Intelligence": ["Looker", "Looker Studio", "Power BI", "Tableau", "DataFlow", "DataMesh", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Geopandas","Shiny", "Dplyr", "Ggplot2", "Canvas"],
             "Productividad": ["Jira", "Notion", "Monday", "Google Suite", "Microsoft Office"]
         };
         const projectsData = [
@@ -413,11 +413,11 @@
             { id: 9, tags: ['Python', 'Scikit-learn'], title: { es: "[Python-Scikit Learn] Predictor de Supervivencia en el Titanic", en: "[Python-Scikit Learn] Survival Predictor On The Titanic" }, description: { es: "Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.", en: "Machine Learning model and analysis to predict passenger survival on the Titanic." }, link: "https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" },
             { id: 10, tags: ['Python'], title: { es: "[Python - SpeechRecognition] Asistente de Voz", en: "[Python - SpeechRecognition] Voice Assistant" }, description: { es: "Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.", en: "Python-based voice assistant using NLP and speech recognition libraries." }, link: "https://github.com/Mgobeaalcoba/voice_assistant" },
             { id: 11, tags: ['Python'], title: { es: "[Python - Tkinter] Software de Escritorio para Restaurante", en: "[Python - Tkinter] Restaurant Desktop Software" }, description: { es: "Software de escritorio versátil construido con Python y la librería Tkinter GUI.", en: "Versatile desktop software built with Python and the Tkinter GUI library." }, link: "https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" },
-            { id: 12, tags: ['R'], title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" },
+            { id: 12, tags: ['R', 'Shiny'], title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" },
             { id: 13, tags: ['Kotlin', 'Go'], title: { es: "[Kotlin-Spring] Api Rest Trilateración", en: "[Kotlin-Spring] Api Rest Trilateration" }, description: { es: "Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.", en: "Rest Api built on GCP as part of an internal challenge at Mercado Libre, using Kotlin and Spring." }, link: "https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" },
-            { id: 14, tags: ['Python', 'Django'], title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" },
-            { id: 15, tags: ['Python', 'Flask'], title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
-            { id: 16, tags: ['Python', 'Pandas'], title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
+            { id: 14, tags: ['Python', 'Django', 'SQLite'], title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" },
+            { id: 15, tags: ['Python', 'Flask', 'MySQL'], title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
+            { id: 16, tags: ['Python', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn'], title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
         ];
 
         const experienceData = [
