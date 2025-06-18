@@ -135,7 +135,7 @@
         .timeline-container.right { left: 50%; }
         .timeline-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--bg-color); border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 1; transition: background-color 0.3s ease; }
         .timeline-container.right::after { left: -10px; }
-        .timeline-item { cursor: pointer; padding: 20px; position: relative; border-radius: 8px; }
+        .timeline-item { cursor: pointer; padding: 1.5rem; position: relative; border-radius: 8px; }
         .see-more-indicator {
             position: absolute;
             top: 0.75rem;
@@ -669,10 +669,10 @@
                                 <span data-translate="see_more">${translations.see_more[lang]}</span>
                                 <i class="fas fa-external-link-alt fa-xs"></i>
                             </div>
-                             <div>
-                                 <p class="font-semibold" style="color: var(--primary-color);">${job.date[lang]}</p>
-                                 <h4 class="text-xl font-bold mt-1">${job.title[lang]}</h4>
-                                 <p class="font-semibold text-secondary">${job.company}</p>
+                             <div class="pr-12">
+                                 <p class="font-semibold text-sm" style="color: var(--primary-color);">${job.date[lang]}</p>
+                                 <h4 class="text-lg font-bold mt-1">${job.title[lang]}</h4>
+                                 <p class="font-semibold text-base text-secondary">${job.company}</p>
                              </div>
                         </div>
                     </div>
