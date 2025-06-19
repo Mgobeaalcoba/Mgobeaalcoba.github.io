@@ -394,7 +394,13 @@
                     // --- FIN DE LA CORRECCIÓN ---
     
                     setTimeout(() => {
-                        html2canvas(element, { scale: 1, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
+                        html2canvas(element, { 
+                            useCORS: true, // <-- ESTA ES LA LÍNEA MÁGICA
+                            scale: 1, 
+                            backgroundColor: '#f9fafb', 
+                            windowWidth: element.scrollWidth, 
+                            windowHeight: element.scrollHeight 
+                        })
                         .then(canvas => {
                             const { jsPDF } = window.jspdf;
                             const pdf = new jsPDF('p', 'mm', 'a4');
