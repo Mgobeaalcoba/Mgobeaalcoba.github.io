@@ -279,9 +279,9 @@
                 <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
                 <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data & Analytics Technical Leader en Mercado Libre</h2>
                 <div class="flex items-center flex-wrap gap-4 mt-6">
-                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
-                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
-                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
+                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl"><i class="fab fa-linkedin"></i></a>
+                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl"><i class="fab fa-github"></i></a>
+                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link">
                        <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
                        </svg>
@@ -894,19 +894,6 @@
                     });
                 }, 500);
             });
-        }
-
-        // --- Social Link Tracking in Analytics ---
-        function trackSocialClick(event, platform) {
-          event.preventDefault();
-          const url = event.currentTarget.href;
-          gtag('event', 'social_click', {
-            'social_platform': platform,
-            'link_url': url,
-            'event_callback': function() {
-              window.location.href = url;
-            }
-          });
         }
     </script>
 </body>
