@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariano Gobea Alcoba - CV</title>
+    <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png&mask=circle&w=32&h=32">
+    
+    <!-- SEO and Social Sharing Meta Tags -->
+    <meta name="description" content="CV interactivo de Mariano Gobea Alcoba, Data & Analytics Technical Leader en Mercado Libre. Explora mi experiencia, proyectos y stack tecnológico.">
+    <meta name="author" content="Mariano Gobea Alcoba">
+    <meta property="og:title" content="Mariano Gobea Alcoba - CV Interactivo">
+    <meta property="og:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png">
+    <meta property="og:url" content="https://mgobeaalcoba.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mariano Gobea Alcoba - CV Interactivo">
+    <meta name="twitter:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DG0SLT5RY3');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <style>
+        :root { --bg-color: #111827; --text-color: #d1d5db; --card-bg-color: rgba(31, 41, 55, 0.5); --card-border-color: rgba(255, 255, 255, 0.1); --primary-color: #38bdf8; --secondary-text-color: #9ca3af; --border-color: #374151; --scrollbar-thumb: #4b5563; --scrollbar-track: #374151; }
+        html.light-mode { --bg-color: #f9fafb; --text-color: #1f2937; --card-bg-color: rgba(255, 255, 255, 0.7); --card-border-color: rgba(0, 0, 0, 0.1); --primary-color: #0ea5e9; --secondary-text-color: #4b5563; --border-color: #e5e7eb; --scrollbar-thumb: #d1d5db; --scrollbar-track: #e5e7eb; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+        .glass-effect { background: var(--card-bg-color); backdrop-filter: blur(10px); border: 1px solid var(--card-border-color); transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+        .timeline-item.glass-effect:hover, .project-item:hover, .glass-effect.interactive:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+        h1, h2, h3, h4 { color: var(--text-color); }
+        h2 { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-text-color); }
+        .border-bottom { border-color: var(--border-color); }
+        .icon-link { transition: color 0.3s ease, transform 0.3s ease; display: inline-block; color: var(--secondary-text-color); }
+        .icon-link:hover { color: var(--primary-color); transform: scale(1.1); }
+        .x-logo { width: 28px; height: 28px; fill: var(--secondary-text-color); transition: fill 0.3s ease; }
+        .icon-link:hover .x-logo { fill: var(--primary-color); }
+        .avoid-break { break-inside: avoid; }
+        .tag { background-color: #374151; color: #d1d5db; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; cursor: pointer; border: 1px solid transparent; }
+        html.light-mode .tag { background-color: #e5e7eb; color: #374151; }
+        .tag:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .tag.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+        html.light-mode .tag.active { color: #1f2937; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: var(--scrollbar-track); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.5rem;}
+        .control-btn { background-color: var(--card-bg-color); backdrop-filter: blur(10px); border: 1px solid var(--card-border-color); color: var(--text-color); width: 2.5rem; height: 2.5rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; transition: all 0.3s ease; }
+        .control-btn.active { background-color: var(--primary-color); color: white; border-color: transparent; }
+        .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 3px; background-color: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
+        .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--bg-color); border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 1; transition: background-color 0.3s ease; }
+        .timeline-container.right::after { left: -10px; }
+        .timeline-item { cursor: pointer; padding: 1.5rem; position: relative; border-radius: 8px; }
+        .see-more-indicator { position: absolute; top: 0.75rem; right: 1rem; opacity: 0; transition: opacity 0.3s ease; color: var(--primary-color); font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; pointer-events: none; }
+        .timeline-item:hover .see-more-indicator { opacity: 1; }
+        @media screen and (max-width: 768px) { .timeline::after { left: 20px; } .timeline-container { width: 100%; padding-left: 50px; padding-right: 15px; } .timeline-container.left, .timeline-container.right { left: 0%; } .timeline-container.left::after, .timeline-container.right::after { left: 10px; } }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-content { padding: 2.5rem; border-radius: 1rem; max-width: 90%; width: 700px; max-height: 90vh; overflow-y: auto; position: relative; transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal-overlay.show .modal-content { transform: scale(1); }
+        .modal-close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-text-color); transition: color 0.3s ease, transform 0.3s ease; }
+        .modal-close-btn:hover { color: var(--primary-color); transform: rotate(90deg); }
+        @media (max-width: 640px) { .modal-content { padding: 1.5rem; max-width: 95%; max-height: 95vh; } }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        #terminal-input { caret-color: #34d399; }
+        .terminal-line { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- CONTROLS -->
+    <div class="top-controls">
+        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+            <button id="lang-es" class="control-btn" data-lang="es">ES</button>
+            <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+        </div>
+        <button id="theme-toggle" class="control-btn">
+            <i class="fas fa-sun hidden" id="dark-icon"></i>
+            <i class="fas fa-moon" id="light-icon"></i>
+            <i class="fas fa-terminal hidden" id="terminal-icon"></i>
+        </button>
+    </div>
+
+    <!-- TERMINAL -->
+    <div id="terminal-container" class="hidden fixed inset-0 bg-black font-mono text-lg p-4 custom-scrollbar overflow-y-auto">
+        <div id="terminal-output"></div>
+        <div class="flex">
+            <span class="text-green-400">user@mgobeaalcoba:~$</span>
+            <input type="text" id="terminal-input" class="flex-grow bg-transparent border-none text-green-400 outline-none pl-2">
+        </div>
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
+
+        <!-- HEADER BLOCK -->
+        <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 animate-on-scroll">
+            <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                 <div class="w-48 h-48 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/Perfil-Uade-Blanco.png'); background-size: 155%; background-position: center 30%;">
+                </div>
+            </div>
+            <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
+                <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data & Analytics Technical Leader en Mercado Libre</h2>
+                <div class="flex items-center flex-wrap gap-4 mt-6">
+                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
+                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
+                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
+                       <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
+                       </svg>
+                   </a>
+                   <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
+                       <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
+                   </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ABOUT ME - FULL WIDTH -->
+        <section class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
+            <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="about_title">Sobre mí</h3>
+            <p class="leading-relaxed" data-translate="about_text">
+                Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
+            </p>
+        </section>
+
+
+        <!-- MAIN CONTENT GRID -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8">
+            <!-- ========== LEFT COLUMN ========== -->
+            <div class="lg:col-span-1 space-y-8">
+                <!-- Contact -->
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="contact_title">Contacto</h3>
+                    <ul class="space-y-4 text-secondary">
+                        <li><i class="fas fa-map-marker-alt w-5 mr-2" style="color: var(--primary-color);"></i> Buenos Aires, Argentina</li>
+                        <li><i class="fas fa-phone w-5 mr-2" style="color: var(--primary-color);"></i> +54 9 11 27475569</li>
+                        <li><i class="fas fa-envelope w-5 mr-2" style="color: var(--primary-color);"></i> gobeamariano@gmail.com</li>
+                        <li>
+                            <button id="download-btn" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i id="download-icon" class="fas fa-download w-5 mr-2"></i>
+                                <span id="download-text" data-translate="download_btn">Descargar CV</span>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- Tech Stack -->
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="stack_title">Stack Tecnológico</h3>
+                    <div id="tech-stack-container" class="space-y-4">
+                         <!-- Tags will be dynamically populated here -->
+                    </div>
+                </section>
+                
+                 <!-- Education -->
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="education_title">Educación</h3>
+                    <ul id="education-list" class="space-y-4 text-secondary">
+                        <!-- Education items inserted by JS -->
+                    </ul>
+                </section>
+
+                <!-- Certifications & Languages -->
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="cert_lang_title">Certificaciones e Idiomas</h3>
+                    <div class="space-y-4">
+                        <div>
+                             <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="languages_title">Idiomas</h4>
+                             <ul class="list-disc list-inside text-secondary space-y-1 text-sm">
+                                 <li data-translate="lang_es">Español (Nativo)</li>
+                                 <li data-translate="lang_en">Inglés (C1 - Avanzado)</li>
+                             </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="cert_title">Formación Complementaria</h4>
+                            <div id="cert-list" class="text-secondary text-sm space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                                <!-- Certs inserted by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <!-- ========== RIGHT COLUMN ========== -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Featured Projects -->
+                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
+                    <div id="projects-container" class="space-y-6 max-h-[40rem] overflow-y-auto custom-scrollbar pr-2">
+                        <!-- Projects will be dynamically inserted here by JS -->
+                    </div>
+                </section>
+                
+                 <!-- Experience Timeline -->
+                <section class="p-6 glass-effect rounded-xl animate-on-scroll">
+                    <h3 class="text-2xl font-semibold mb-8 border-b pb-2 border-bottom" data-translate="experience_title">Experiencia Profesional</h3>
+                    <div id="experience-timeline" class="timeline">
+                        <!-- Experience items will be dynamically inserted here by JS -->
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer id="page-footer" class="text-center text-secondary mt-16 animate-on-scroll">
+            <p>&copy; 2025 Mariano Gobea Alcoba. <span data-translate="footer_design">Diseñado con</span> <i class="fas fa-heart text-red-500"></i> <span data-translate="footer_location">en Buenos Aires</span>.</p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL FOR EXPERIENCE -->
+    <div id="experience-modal" class="modal-overlay" onclick="closeExperienceModal()">
+        <div class="modal-content glass-effect custom-scrollbar" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeExperienceModal()"><i class="fas fa-times"></i></button>
+            <p id="modal-date" class="font-semibold" style="color: var(--primary-color);"></p>
+            <h4 id="modal-title" class="text-2xl lg:text-3xl font-bold mt-1"></h4>
+            <p id="modal-company" class="font-semibold text-lg text-secondary mb-4"></p>
+            <ul id="modal-description" class="list-disc list-inside text-secondary space-y-2 text-base"></ul>
+        </div>
+    </div>
+    
+    <!-- TEMPORARY CONTAINER FOR PDF -->
+    <div id="pdf-experience-container" class="hidden"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+            // =================================================================================
+            // --- 1. DATA AND GLOBAL VARIABLES
+            // =================================================================================
+            const techStackData = { "Backend & Datos": ["Python", "Java", "Kotlin", "Go", "R", "SQL", "MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Firebase", "SQLite", "Django", "Flask", "FastAPI"], "Machine Learning": ["Scikit-learn", "TensorFlow", "Keras", "PyTorch", "Caret"], "IA & Automatización": ["Generative AI", "LLM", "RAG", "GitHub Copilot", "n8n", "Zapier", "Windsurf", "Cursor"], "Cloud": ["Google Cloud", "AWS", "Azure"], "Business Intelligence": ["Looker", "Looker Studio", "Power BI", "Tableau", "DataFlow", "DataMesh", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Geopandas","Shiny", "Dplyr", "Ggplot2", "Amplitude", "Analytics", "Canvas"], "Productividad": ["Jira", "Notion", "Monday", "Trello", "Google Suite", "Microsoft Office"] };
+            const projectsData = [ { id: 1, tags: ['Python', 'Pandas'], title: { es: "[Python-Pandas] Paquete PyPI Missing-mga", en: "[Python-Pandas] Missing-mga Pandas API extends PyPI package" }, description: { es: "Este paquete extiende la funcionalidad de Pandas DataFrame introduciendo una clase de Métodos de Ausencia, permitiendo un manejo intuitivo de valores faltantes.", en: "This package extends Pandas DataFrame functionality by introducing a Missing Methods class, enabling intuitive handling of missing values." }, link: "https://github.com/Mgobeaalcoba/missing_mga" }, { id: 2, tags: ['Python', 'Django'], title: { es: "[Python-Django] Web App para mi proyecto profesional personal", en: "[Python-Django] Web App for my personal professional project" }, description: { es: "Aplicación web Fullstack creada con Django que combina habilidades de frontend y backend, incluyendo endpoints, administración de bases de datos y conexión con servicios externos.", en: "Fullstack Web App created with Django combining front and back skills, including endpoints, database administration, and connection with external services." }, link: "https://github.com/Mgobeaalcoba/matrix-global-analytics-webapp" }, { id: 3, tags: ['Python'], title: { es: "[Python-Kaggle] Paquete Kaggle Downloader", en: "[Python-Kaggle] Kaggle Downloader Package" }, description: { es: "Una clase de Python que simplifica la interacción con Kaggle para la búsqueda, descarga y extracción de datasets.", en: "A Python class that simplifies interaction with Kaggle for searching, downloading, and extracting datasets." }, link: "https://github.com/Mgobeaalcoba/kaggle_downloader_package" }, { id: 4, tags: ['Python'], title: { es: "[Python-Package] Paquete PyPi Argendolar", en: "[Python-Package] Argendolar PyPi package" }, description: { es: "Paquete de Python que facilita la obtención de tasas de cambio del peso argentino usando APIs como DolarApi.", en: "Python package that facilitates obtaining exchange rates for the Argentine peso using APIs like DolarApi." }, link: "https://github.com/Mgobeaalcoba/argendolar" }, { id: 5, tags: ['Python', 'FastAPI'], title: { es: "[Python - FastApi] Proyecto Quasar Fire", en: "[Python - FastApi] Quasar Fire Project" }, description: { es: "API RESTful para determinar la ubicación de una señal de auxilio en el espacio mediante trilateración.", en: "RESTful API to determine the location of a distress signal in space through trilateration." }, link: "https://github.com/Mgobeaalcoba/quasar-fire" }, { id: 6, tags: ['Python', 'Django'], title: { es: "[Python-Django] App Web de Lista de Tareas", en: "[Python-Django] To Do List Web App" }, description: { es: "Aplicación web en Django para gestionar tareas y listas de quehaceres de manera eficiente.", en: "Web application in Django to efficiently manage tasks and to-do lists." }, link: "https://github.com/Mgobeaalcoba/django_python" }, { id: 7, tags: ['Python'], title: { es: "[Python-FaceRecognition] Validador de Asistencia Facial", en: "[Python-FaceRecognition] Face Assistance Validator" }, description: { es: "App de verificación facial y control de acceso utilizando Python, OpenCV y Face-recognition.", en: "Facial verification and access control app using Python, OpenCV, and Face-recognition." }, link: "https://github.com/Mgobeaalcoba/face_assistance_validator" }, { id: 8, tags: ['Python'], title: { es: "[Python-Pygame] Videojuego Space Invasion", en: "[Python-Pygame] Space Invasion Videogame" }, description: { es: "Juego 'Space Invasion' creado 100% con Pygame y Python, aplicando POO y patrones de diseño.", en: "'Space Invasion' game created 100% with Pygame and Python, applying OOP and design patterns." }, link: "https://github.com/Mgobeaalcoba/pygame_space_invasion" }, { id: 9, tags: ['Python', 'Scikit-learn'], title: { es: "[Python-Scikit Learn] Predictor de Supervivencia en el Titanic", en: "[Python-Scikit Learn] Survival Predictor On The Titanic" }, description: { es: "Modelo de Machine Learning y análisis para predecir la supervivencia de pasajeros en el Titanic.", en: "Machine Learning model and analysis to predict passenger survival on the Titanic." }, link: "https://github.com/Mgobeaalcoba/survival_predictor_on_the_titanic_sci_kit_learn" }, { id: 10, tags: ['Python'], title: { es: "[Python - SpeechRecognition] Asistente de Voz", en: "[Python - SpeechRecognition] Voice Assistant" }, description: { es: "Asistente de voz basado en Python que utiliza librerías de NLP y reconocimiento de voz.", en: "Python-based voice assistant using NLP and speech recognition libraries." }, link: "https://github.com/Mgobeaalcoba/voice_assistant" }, { id: 11, tags: ['Python'], title: { es: "[Python - Tkinter] Software de Escritorio para Restaurante", en: "[Python - Tkinter] Restaurant Desktop Software" }, description: { es: "Software de escritorio versátil construido con Python y la librería Tkinter GUI.", en: "Versatile desktop software built with Python and the Tkinter GUI library." }, link: "https://github.com/Mgobeaalcoba/restaurant_desktop_software_tkinter" }, { id: 12, tags: ['R', 'Shiny'], title: { es: "[R-Shiny] App en Shiny para EDA de Lenguajes de Programación", en: "[R-Shiny] Programming Languages EDA Shiny App" }, description: { es: "App en R/Shiny para un desafío de Cohen Allados Financieros, realizando un EDA sobre un dataset de tidytuesday.", en: "R/Shiny app for a Cohen Allados Financieros challenge, performing an EDA on a tidytuesday dataset." }, link: "https://github.com/Mgobeaalcoba/cohen_challenge_shiny_app" }, { id: 13, tags: ['Kotlin', 'Go'], title: { es: "[Kotlin-Spring] Api Rest Trilateración", en: "[Kotlin-Spring] Api Rest Trilateration" }, description: { es: "Rest Api construida en GCP como parte de un desafío interno en Mercado Libre, utilizando Kotlin y Spring.", en: "Rest Api built on GCP as part of an internal challenge at Mercado Libre, using Kotlin and Spring." }, link: "https://github.com/Mgobeaalcoba/api_rest_meli_challenge_public" }, { id: 14, tags: ['Python', 'Django', 'SQLite'], title: { es: "[Python-Django] Modelo de App Web", en: "[Python-Django] Web App Model" }, description: { es: "App en Django que permite registro, login, y gestión de tareas pendientes.", en: "Django app that allows registration, login, and to-do list management." }, link: "https://github.com/Mgobeaalcoba/django_python" }, { id: 15, tags: ['Python', 'Flask', 'MySQL'], title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" }, { id: 16, tags: ['Python', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn'], title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" } ];
+            const experienceData = [ { id: 1, date: { es: "Ene 2025 - actualidad", en: "Jan 2025 - Present" }, title: { es: "Data & Analytics Technical Leader", en: "Data & Analytics Technical Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré un equipo de +5 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li><li>Alineé la estrategia de Data & Analytics con los objetivos corporativos priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li><li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li><li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li><li>Diseñé e implementé arquitecturas RAG para sistemas de knowledge management, mejorando la precisión contextual de las respuestas generadas por LLMs en un 35%.</li><li>Entrené y desplegué modelos fine-tuned de transformers (BERT, GPT) que optimizaron procesos de clasificación de textos y análisis de sentimiento, mejorando KPIs de automatización en atención al cliente en un 20%.</li><li>Lideré la evaluación y adopción de tecnologías emergentes (MLOps, vector DBs, LLMs), manteniendo al equipo a la vanguardia y acelerando el time-to-market de soluciones de IA en un 50%.</li><li>Impulsé proyectos de transformación basada en datos que resolvieron desafíos complejos de negocio, generando +USD 500K en impacto estimado anual.</li><li>Diseñé arquitecturas de datos escalables para el procesamiento de grandes volúmenes de información, logrando una mejora del 45% en la performance de pipelines ETL.</li><li>Establecí procesos robustos de calidad de datos (validación, limpieza, estandarización), aumentando la confiabilidad de los dashboards ejecutivos y reduciendo errores críticos en un 70%.</li><li>Automaticé workflows analíticos complejos con Apache Airflow, dbt, n8n y Zapier, eliminando tareas manuales y mejorando la eficiencia operativa del equipo en un 60%.</li>`, en: `<li>Led a team of +5 analysts and data scientists, fostering a culture of innovation that increased AI solution adoption by 30% in key business areas.</li><li>Aligned Data & Analytics strategy with corporate objectives, prioritizing high-impact initiatives that increased operational efficiency by 20%.</li><li>Fostered a high-performance culture through mentoring, upskilling, and agile methodologies, raising team eNPS by over 25 points in less than a year.</li><li>Implemented analytical solutions that reduced data analysis time by 40% through predictive models, dynamic dashboards, and report automation.</li><li>Designed and implemented RAG architectures for knowledge management systems, improving contextual accuracy of LLM responses by 35%.</li><li>Trained and deployed fine-tuned transformer models (BERT, GPT) that optimized text classification and sentiment analysis processes, improving customer service automation KPIs by 20%.</li><li>Led the evaluation and adoption of emerging technologies (MLOps, vector DBs, LLMs), keeping the team at the forefront and accelerating the time-to-market for AI solutions by 50%.</li><li>Drove data-driven transformation projects that solved complex business challenges, generating an estimated annual impact of +USD 500K.</li><li>Designed scalable data architectures for processing large volumes of information, achieving a 45% improvement in ETL pipeline performance.</li><li>Established robust data quality processes (validation, cleaning, standardization), increasing the reliability of executive dashboards and reducing critical errors by 70%.</li><li>Automated complex analytical workflows with Apache Airflow, dbt, n8n, and Zapier, eliminating manual tasks and improving team operational efficiency by 60%.</li>` } }, { id: 2, date: { es: "Dic 2023 - Ene 2025", en: "Dec 2023 - Jan 2025" }, title: { es: "Sr Data & Analytics Engineer", en: "Sr. Data & Analytics Engineer" }, company: "Mercado Libre", description: { es: `<li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li><li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li><li>Automaticé la actualización diaria de los modelos de datos mediante scripts eficientes, reduciendo significativamente el costo operativo y la intervención manual.</li><li>Generé insights accionables a través de reportes, dashboards y tablas ad hoc, facilitando la medición del impacto de nuevas funcionalidades de login.</li><li>Coordiné con equipos de Producto para alinear los entregables analíticos con el roadmap, garantizando una correcta interpretación de resultados y visualizaciones.</li><li>Construí una API REST desde cero para analizar transacciones de login y automatizar decisiones en Customer Experience, Prevención de Fraude y GIN.</li><li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad de la infraestructura de datos.</li><li>Desarrollé nuevas funcionalidades en el sistema Auth-Login, contribuyendo a la mejora continua de un producto core del ecosistema de autenticación.</li><li>Optimicé pipelines de procesamiento de datos, mejorando su rendimiento y garantizando disponibilidad en tiempo real para servicios críticos.</li><li>Implementé prácticas de seguridad avanzadas en los procesos de autenticación, fortaleciendo la protección del acceso de usuarios y la robustez del sistema.</li>`, en: `<li>Designed, built, and maintained the login data model (MP, ML, ME), ensuring its organizational availability and reliability.</li><li>Developed strategic dashboards to monitor key metrics such as login conversion, account recovery, and use of authentication factors.</li><li>Automated the daily update of data models through efficient scripts, significantly reducing operational cost and manual intervention.</li><li>Generated actionable insights through reports, dashboards, and ad hoc tables, facilitating the impact measurement of new login functionalities.</li><li>Coordinated with Product teams to align analytical deliverables with the roadmap, ensuring correct interpretation of results and visualizations.</li><li>Built a REST API from scratch to analyze login transactions and automate decisions in Customer Experience, Fraud Prevention, and GIN.</li><li>Led the migration of the authentication model from Amazon Athena to Google BigQuery, improving the scalability, speed, and maintainability of the data infrastructure.</li><li>Developed new features in the Auth-Login system, contributing to the continuous improvement of a core product in the authentication ecosystem.</li><li>Optimized data processing pipelines, improving their performance and ensuring real-time availability for critical services.</li><li>Implemented advanced security practices in authentication processes, strengthening user access protection and system robustness.</li>` } }, { id: 3, date: { es: "May 2022 - Dic 2023", en: "May 2022 - Dec 2023" }, title: { es: "Shipping Product Owner", en: "Shipping Product Owner" }, company: "Mercado Libre", description: { es: `<li>Detecté oportunidades de mejora y nuevas funcionalidades a partir del análisis de datos de uso y feedback de usuarios, contribuyendo a la evolución continua del producto.</li><li>Colaboré con equipos de desarrollo y áreas de negocio para definir la estrategia y roadmap del producto, asegurando la alineación con los objetivos corporativos.</li><li>Realicé análisis de mercado y competencia para sustentar decisiones estratégicas, permitiendo identificar ventajas diferenciales y ajustar el posicionamiento del producto.</li><li>Aseguré estándares de calidad y una experiencia de usuario óptima a través de pruebas funcionales, validaciones de UX y mejoras iterativas basadas en métricas.</li><li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad, mejorando la eficiencia en la entrega y el enfoque en valor para el usuario.</li><li>Coordiné con el equipo técnico para garantizar claridad en los objetivos, prioridades y dependencias, facilitando una ejecución ágil y alineada.</li><li>Monitoreé métricas clave de negocio y producto (adopción, conversión, retención), impulsando decisiones de optimización que aumentaron la performance del producto.</li><li>Comuniqué avances, decisiones y métricas a stakeholders, fomentando una visión integrada y compartida entre producto, tech, negocio y diseño.</li>`, en: `<li>Identified improvement opportunities and new functionalities from usage data analysis and user feedback, contributing to the continuous evolution of the product.</li><li>Collaborated with development and business teams to define the product strategy and roadmap, ensuring alignment with corporate objectives.</li><li>Conducted market and competitor analysis to support strategic decisions, identifying differential advantages and adjusting product positioning.</li><li>Ensured quality standards and an optimal user experience through functional tests, UX validations, and iterative improvements based on metrics.</li><li>Managed the backlog by prioritizing functionalities according to impact and feasibility, improving delivery efficiency and focus on user value.</li><li>Coordinated with the technical team to ensure clarity on objectives, priorities, and dependencies, facilitating agile and aligned execution.</li><li>Monitored key business and product metrics (adoption, conversion, retention), driving optimization decisions that increased product performance.</li><li>Communicated progress, decisions, and metrics to stakeholders, fostering an integrated and shared vision among product, tech, business, and design.</li>` } }, { id: 4, date: { es: "Ene 2021 - Jun 2022", en: "Jan 2021 - Jun 2022" }, title: { es: "Cross Docking Sr. Analyst", en: "Sr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave que permitieron un análisis consistente y comparativo entre países y unidades operativas.</li><li>Implementé un sistema de monitoreo de indicadores operativos críticos, optimizando la eficiencia del negocio y mejorando la experiencia del cliente en puntos clave del journey.</li><li>Lideré iniciativas de mejora continua en operaciones de cross docking en MLA, logrando reducciones en tiempos de procesamiento y costos logísticos.</li><li>Coordiné directamente con operadores logísticos (3PL), negociando acuerdos y planificando acciones que mejoraron el rendimiento y la confiabilidad del servicio.</li><li>Planifiqué y executé la expansión de infraestructura logística mediante la apertura de nuevos centros de cross docking en Argentina, aumentando la capacidad operativa y reduciendo costos de botella.</li>`, en: `<li>Standardized KPIs and reports at a regional level, defining key metrics that allowed for consistent and comparative analysis between countries and operational units.</li><li>Implemented a monitoring system for critical operational indicators, optimizing business efficiency and improving the customer experience at key journey points.</li><li>Led continuous improvement initiatives in cross-docking operations in MLA, achieving reductions in processing times and logistics costs.</li><li>Coordinated directly with logistics operators (3PL), negotiating agreements and planning actions that improved service performance and reliability.</li><li>Planned and executed the expansion of logistics infrastructure through the opening of new cross-docking centers in Argentina, increasing operational capacity and reducing bottleneck costs.</li>` } }, { id: 5, date: { es: "Ago 2020 - Ene 2021", en: "Aug 2020 - Jan 2021" }, title: { es: "Cross Docking Ssr. Analyst", en: "Ssr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS de forma diaria, contribuyendo a la optimización de la operación de Mercado Envíos.</li><li>Detecté oportunidades de mejora a través del análisis de procesos operativos, impulsando acciones correctivas que elevaron la eficiencia y calidad del servicio.</li><li>Diseñé e implementé planes de capacitación para equipos operativos, mejorando los tiempos de ejecución y fortaleciendo el cumplimiento de estándares internos.</li><li>Realicé auditorías a proveedores logísticos, evaluando su desempeño y garantizando el cumplimiento de los niveles de servicio establecidos por la compañía.</li>`, en: `<li>Monitored and analyzed operational KPIs such as Out On Time, In On Time, and NPS on a daily basis, contributing to the optimization of the Mercado Envíos operation.</li><li>Identified improvement opportunities through the analysis of operational processes, driving corrective actions that increased service efficiency and quality.</li><li>Designed and implemented training plans for operational teams, improving execution times and strengthening compliance with internal standards.</li><li>Conducted audits of logistics providers, evaluating their performance and ensuring compliance with the service levels established by the company.</li>` } }, { id: 6, date: { es: "May 2019 - Ago 2020", en: "May 2019 - Aug 2020" }, title: { es: "Cross Docking Team Leader", en: "Cross Docking Team Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch, asegurando el cumplimiento consistente de objetivos clave de productividad y calidad.</li><li>Fomenté una cultura de trabajo motivadora, equilibrando la priorización de metas con el bienestar y disfrute del equipo, aumentando el compromiso y la retención.</li><li>Implementé procesos de feedback individual y grupal, junto con actividades motivacionales y planes de desarrollo, mejorando el desempeño y la cohesión del equipo.</li><li>Optimicé la gestión de tiempos productivos, ausencias y llegadas tardías, incrementando la eficiencia operativa y reduciendo pérdidas de productividad.</li><li>Analicé el desempeño del equipo y diseñé estrategias de mejora continua que incrementaron la productividad general de la operación.</li>`, en: `<li>Led and coordinated operational teams in inbound, sorting, outbound, and dispatch, ensuring consistent achievement of key productivity and quality objectives.</li><li>Fostered a motivating work culture, balancing goal prioritization with team well-being and enjoyment, increasing commitment and retention.</li><li>Implemented individual and group feedback processes, along with motivational activities and development plans, improving team performance and cohesion.</li><li>Optimized the management of productive times, absences, and late arrivals, increasing operational efficiency and reducing productivity losses.</li><li>Analyzed team performance and designed continuous improvement strategies that increased the overall productivity of the operation.</li>` } }, { id: 7, date: { es: "Dic 2024 - actualidad", en: "Dec 2024 - Present" }, title: { es: "Data & Analytics Expert", en: "Data & Analytics Expert" }, company: "Henry", description: { es: `<li>Liderazgo académico en Data & Analytics: Diseño de experiencias educativas transformadoras en herramientas clave como Power BI, Excel y Looker Studio.</li><li>Diseño instruccional y estructuración de contenidos: Maquetación de cursos con enfoque pedagógico, definiendo temáticas, secuencia de aprendizaje y recursos didácticos.</li><li>Desarrollo de proyectos aplicados: Creación de proyectos integradores que promueven el aprendizaje activo y la aplicación práctica de conceptos.</li><li>Elaboración de materiales didácticos de calidad: Redacción de soluciones, ejercicios y explicaciones detalladas que fortalecen el proceso de aprendizaje.</li><li>Planificación académica estratégica: Definición de programas de curso con objetivos claros, cronograma preciso y criterios de evaluación alineados al perfil profesional buscado.</li>`, en: `<li>Academic leadership in Data & Analytics: Designing transformative educational experiences in key tools like Power BI, Excel, and Looker Studio.</li><li>Instructional design and content structuring: Course layout with a pedagogical approach, defining themes, learning sequences, and didactic resources.</li><li>Development of applied projects: Creation of integrative projects that promote active learning and the practical application of concepts.</li><li>Elaboration of quality didactic materials: Writing solutions, exercises, and detailed explanations that strengthen the learning process.</li><li>Strategic academic planning: Definition of course programs with clear objectives, precise schedules, and evaluation criteria aligned with the desired professional profile.</li>` } }, { id: 8, date: { es: "May 2024 - actualidad", en: "May 2024 - Present" }, title: { es: "Data Analytics Instructor", en: "Data Analytics Instructor" }, company: "Henry", description: { es: `<li>Instructor de Data Analytics con foco en Python: Facilitación de clases teóricas y prácticas orientadas a la manipulación de datos, visualización y modelado estadístico.</li><li>Desarrollo de contenido educativo de alto impacto: Creación de presentaciones, ejercicios y proyectos alineados con las competencias clave del análisis de datos.</li><li>Acompañamiento personalizado al estudiante: Provisión de feedback individualizado y seguimiento constante para maximizar el aprendizaje y el desarrollo de habilidades.</li><li>Vinculación con la industria y actualización permanente: Colaboración con profesionales del sector y adopción de buenas prácticas en educación y ciencia de datos.</li><li>Pasión por la enseñanza y el crecimiento profesional: Compromiso con la formación de nuevos talentos en data analytics y la excelencia académica.</li>`, en: `<li>Data Analytics Instructor with a focus on Python: Facilitating theoretical and practical classes aimed at data manipulation, visualization, and statistical modeling.</li><li>Development of high-impact educational content: Creation of presentations, exercises, and projects aligned with key data analysis competencies.</li><li>Personalized student support: Providing individualized feedback and constant monitoring to maximize learning and skill development.</li><li>Industry linkage and continuous updating: Collaboration with industry professionals and adoption of best practices in education and data science.</li><li>Passion for teaching and professional growth: Commitment to training new talent in data analytics and academic excellence.</li>` } }, { id: 9, date: { es: "Mar 2024 - actualidad", en: "Mar 2024 - Present" }, title: { es: "Adjunct Professor", en: "Adjunct Professor" }, company: "UADE", description: { es: `<li>Docente de programación en nivel universitario: Liderazgo en la formación de estudiantes en su primer contacto formal con la programación, asegurando una base sólida para su desarrollo académico y profesional.</li><li>Diseño y actualización de programas de estudio: Desarrollo del plan académico del Taller de Programación I, incorporando buenas prácticas y tendencias actuales en el ámbito del software.</li><li>Facilitación de clases teóricas y prácticas: Enseñanza de fundamentos clave de programación a través de metodologías activas, fomentando la comprensión y aplicación de conceptos.</li><li>Acompañamiento y tutoría personalizada: Apoyo continuo a los estudiantes mediante asesorías individuales y grupales, promoviendo el aprendizaje autónomo y colaborativo.</li><li>Enfoque en pensamiento lógico y resolución de problemas: Estímulo del pensamiento crítico mediante ejercicios prácticos, proyectos integradores y desafíos reales.</li>`, en: `<li>University-level programming instructor: Leading the training of students in their first formal contact with programming, ensuring a solid foundation for their academic and professional development.</li><li>Design and updating of study programs: Development of the academic plan for Programming Workshop I, incorporating best practices and current trends in the software field.</li><li>Facilitation of theoretical and practical classes: Teaching key programming fundamentals through active methodologies, fostering the understanding and application of concepts.</li><li>Personalized support and tutoring: Continuous support for students through individual and group advising, promoting autonomous and collaborative learning.</li><li>Focus on logical thinking and problem-solving: Encouraging critical thinking through practical exercises, integrative projects, and real-world challenges.</li>` } }, { id: 10, date: { es: "Feb 2011 - Feb 2019", en: "Feb 2011 - Feb 2019" }, title: { es: "Warehouse Supervisor / Operations Sr. Analyst", en: "Warehouse Supervisor / Operations Sr. Analyst" }, company: "El Portugues", description: { es: `<li>Supervisión operativa de centro logístico: Gestión integral de un warehouse de 3.500 posiciones, asegurando el correcto funcionamiento de las operaciones logísticas.</li><li>Coordinación de procesos clave: Supervisión de la recepción, almacenamiento, preparación y despacho de mercadería, insumos, materias primas y pañol.</li><li>Manejo de flota de transporte: Coordinación de envíos mediante camiones propios y operadores logísticos externos (fleteros), optimizando tiempos y eficiencia.</li><li>Atención a clientes de primera línea: Gestión de operaciones logísticas para empresas líderes como Arcor, La Anónima, Los Marías, Flora-Dánica y PepsiCo.</li><li>Control de inventarios y operaciones: Aseguramiento del correcto registro y flujo de stock dentro del almacén, manteniendo altos estándares de orden y trazabilidad.</li><li>Gestión administrativa de proveedores logísticos: Atención y seguimiento de fleteros: liquidación de haberes, elaboración de tarifas, descuentos por repuestos y adelantos a cuenta de la compañía.</li><li>Control y conciliación de cuentas corrientes: Supervisión de gastos asociados a transporte (YPF, Rutas, telepeaje, estaciones de servicio del interior) y resolución de reclamos.</li>`, en: `<li>Operational supervision of logistics center: Comprehensive management of a 3,500-position warehouse, ensuring the correct functioning of logistics operations.</li><li>Coordination of key processes: Supervision of the reception, storage, preparation, and dispatch of merchandise, supplies, raw materials, and tools.</li><li>Transportation fleet management: Coordination of shipments using company-owned trucks and external logistics operators, optimizing time and efficiency.</li><li>Service to first-line clients: Management of logistics operations for leading companies such as Arcor, La Anónima, Los Marías, Flora-Dánica, and PepsiCo.</li><li>Inventory and operations control: Ensuring the correct registration and flow of stock within the warehouse, maintaining high standards of order and traceability.</li><li>Administrative management of logistics providers: Attention and follow-up with freight forwarders: payment settlement, rate setting, spare parts discounts, and company advances.</li><li>Current account control and reconciliation: Supervision of transportation-related expenses (YPF, tolls, service stations) and claim resolution.</li>` } }, { id: 11, date: { es: "Ene 2010 - Feb 2011", en: "Jan 2010 - Feb 2011" }, title: { es: "Backoffice Analyst", en: "Backoffice Analyst" }, company: "SOLDA-LIMP S.R.L.", description: { es: `<li>Gestión integral de ventas y facturación: Manejo completo del proceso de facturación de ventas, incluyendo remitos, control de stock, devoluciones y recepción/carga de pedidos.</li><li>Administración de medios de pago: Operación con cheques (al portador y cruzados), tarjetas de crédito y débito (POS), efectivo y realización de arqueos de caja.</li><li>Manejo de sistemas y herramientas: Uso del sistema de gestión Tango y dominio avanzado de Microsoft Office, especialmente Excel y PowerPoint.</li><li>Atención al cliente y asesoramiento comercial: Venta y recomendación de productos técnicos, electrodos, discos abrasivos, ropa de seguridad, máquinas de soldar, equipos de medición y control, entre otros.</li><li>Habilidades comerciales destacadas: Alta capacidad de persuasión y negociación para lograr cierres efectivos y fortalecer la relación con el cliente.</li>`, en: `<li>Comprehensive sales and invoicing management: Full handling of the sales invoicing process, including delivery notes, stock control, returns, and order reception/entry.</li><li>Payment methods administration: Operation with checks (bearer and crossed), credit and debit cards (POS), cash, and performing cash balancing.</li><li>Systems and tools management: Use of the Tango management system and advanced proficiency in Microsoft Office, especially Excel and PowerPoint.</li><li>Customer service and commercial advice: Sales and recommendation of technical products, electrodes, abrasive discs, safety clothing, welding machines, measurement and control equipment, among others.</li><li>Outstanding commercial skills: High capacity for persuasion and negotiation to achieve effective closings and strengthen the client relationship.</li>` } }, { id: 12, date: { es: "Feb 2009 - Dic 2009", en: "Feb 2009 - Dec 2009" }, title: { es: "Customer Services Representative", en: "Customer Services Representative" }, company: "UBICAR ARGENTINA", description: { es: `<li>Atención al cliente especializada: Representación directa ante usuarios de sistemas de rastreo satelital (radiofrecuencia y GPS), brindando soporte técnico y comercial.</li><li>Coordinación operativa: Asignación de turnos para instalación de dispositivos y seguimiento de solicitudes de servicio técnico.</li><li>Verificación de funcionamiento: Chequeo remoto y diagnóstico del estado del sistema de rastreo ante requerimientos del cliente.</li><li>Soporte en back office: Configuración y administración de cuentas personales de clientes, actualización de datos y resolución de incidencias administrativas.</li><li>Comunicación clara y efectiva: Interacción fluida con usuarios, adaptando la comunicación técnica a distintos niveles de conocimiento para garantizar una experiencia satisfactoria.</li>`, en: `<li>Specialized customer service: Direct representation to users of satellite tracking systems (radiofrequency and GPS), providing technical and commercial support.</li><li>Operational coordination: Assignment of shifts for device installation and monitoring of technical service requests.</li><li>Functionality verification: Remote checking and diagnosis of the tracking system's status upon client request.</li><li>Back office support: Configuration and administration of clients' personal accounts, data updates, and resolution of administrative incidents.</li><li>Clear and effective communication: Fluid interaction with users, adapting technical communication to different levels of knowledge to ensure a satisfactory experience.</li>` } } ];
+        const educationData = [ { title: {es: "Postgraduate Degree, Ingeniería de Software", en: "Postgraduate Degree, Software Engineering"}, school: "UAI - Universidad Abierta Interamericana", date: "2025 - 2026" }, { title: {es: "Licenciatura, Gestión de TI", en: "Bachelor's Degree, IT Management"}, school: "UADE", date: "2020 - 2021" }, { title: {es: "Profesorado, Sociología", en: "Teaching Degree, Sociology"}, school: "Universidad de Buenos Aires", date: "2014 - 2015" }, { title: {es: "Licenciatura, Sociología", en: "Bachelor's Degree, Sociology"}, school: "Universidad de Buenos Aires", date: "2007 - 2014" }, { title: {es: "Python Backend Engineer", en: "Python Backend Engineer"}, school: "Platzi", subtitle: {es: "Ciencias de la computación", en: "Computer Science"}, date: "2022 - 2023" }, { title: {es: "Data Analyst", en: "Data Analyst"}, school: "Platzi", subtitle: {es: "Ciencias de la computación", en: "Computer Science"}, date: "2021 - 2022" }, { title: {es: "Bachiller en Administración y Gestión de las Organizaciones", en: "High School Diploma in Business Administration and Management"}, school: "Instituto Parroquial Fundador Don Francisco de Merlo", subtitle: {es: "Administración y gestión de empresas, general", en: "Business Administration and Management, General"}, date: "2003 - 2006" } ];
+        const certifications = ["GenAl for Champions", "Curso de N8N", "Introducción a Jira para gestión de proyectos con Kanban", "Curso de Unit Testing en Python", "Hacking con Python", "Curso de Manejo de Datos Faltantes", "Dataiku Core Designer", "Enseñanza de inglés como lengua extranjera (TEFL)", "Data Champions | BigQuery and LookML", "5 minutos al dia para mejorar tu Ingles", "Curso de Análisis Exploratorio de Datos", "Curso de Estadistica Inferencial para Data Science", "Curso de Ética y Manejo de Datos para Data Science", "Python TOTAL - Programador Avanzado", "Curso Básico de Django", "Curso de Desarrollo Backend", "Curso de Django Intermedio", "Curso de FastAPI: Modularización, Datos y Errores", "Curso de Flask", "Principios SOLID y Clean Code", "Curso Práctico de Python: Creación de un CRUD", "Curso de Complejidad Algoritmica con Python", "Curso de Estructuras de Datos Lineales con Python", "Curso de FastAPI: Fundamentos", "Curso de Pensamiento Computacional con Python", "Curso de Python: PIP y Entornos Virtuales", "Curso de Selenium con Python", "Android Completo con Kotlin", "Curso de Fundamentos de Python", "Curso de Python: Comprehensions, Funciones y Manejo de Errores", "Curso de Kotlin desde Cero", "GOLANG: Curso profesional de Go", "Problem Solving", "Curso de Webpack", "Diseño de interfaz (UI) con Figma", "Curso Básico de JavaScript", "Curso Práctico de Frontend Developer", "Curso de Asincronismo con JavaScript", "Curso de ECMAScript", "Curso de Frontend Developer", "Curso de NPM: Gestión de Paquetes", "Introducción a la Programación con Kotlin", "Nuevo Curso Gratis de Programación Básica", "Curso Práctico de Product Owner", "Curso de Prework: Configuración de Entorno", "Nuevo Curso de Pensamiento Lógico", "Curso de Fundamentos de R", "Data Analyst", "Curso de Digital Project Management", "Curso de Manipulación y Transformación de Datos con Pandas y NumPy", "Curso de PostgreSQL Aplicado a Ciencia de Datos", "Curso de Visualización de Datos con Matplotlib y Seaborn", "Proyecto del #PlatziChallenge Datacademy 2022", "Curso Práctico de SQL", "Cómo y Por Qué Aprender Data Science", "Datacademy", "Curso de Análisis de Datos con Power BI", "Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos", "Curso de Cómo Dar y Recibir Feedback", "Curso de Funciones Matemáticas para Data Science", "Curso de PostgreSQL", "Curso sobre la Neurociencia del Feedback", "Curso de Programación Orientada a Objetos: POO", "Curso Fundamentos de Product Management", "Curso de Filosofía para Managers", "Curso de Herramientas para el Crecimiento Personal", "Curso de Historia de Bitcoin y Criptomonedas", "Curso de Motivación para Equipos de Trabajo", "Curso para Desbloquear tu Creatividad", "Learning Path Shipping", "Curso Profesional de Python", "Curso de Google Data Studio", "Python Challenge", "Curso de Business Intelligence: Utilidad y Áreas de Oportunidad", "Curso de Excel Básico", "Curso de Fundamentos de Bases de Datos", "Curso de Introducción a Business Intelligence con Power BI", "Curso de Introduccion al Algebra Lineal: Vectores", "Curso de Principios de Visualización de Datos para Business Intelligence", "Curso de Tableau: Visualización de Datos y Storytelling", "Curso Práctico de Regresión Lineal con Python", "Curso de Entorno de Trabajo para Ciencia de Datos", "Curso de Fundamentos de Álgebra Lineal con Python", "Curso de Google Suite", "Curso de Inglés para Principiantes", "Curso de Matemáticas para Data Science: Cálculo Básico", "Curso de Matemáticas para Data Science: Estadística Descriptiva", "Curso de Matemáticas para Data Science: Probabilidad", "Curso de Python Intermedio", "Taller de Inglés para Principiantes", "Curso Profesional de Git y GitHub", "Curso de Comunicación Efectiva", "Curso de Fundamentos de Matemáticas", "Curso de Gestión Efectiva del Tiempo", "Curso de Inteligencia Emocional", "Curso de Introducción a la Terminal y Línea de Comandos", "Curso Básico de Python", "Curso de Análisis de Negocios para Ciencia de Datos", "Curso de Estrategias para Aprender Inglés Online", "Data Explorer", "MicroStrategy", "Looker", "SQL", "Tableau", "Modelos logísticos para e-commerce", "SQL Foundamentals"];
+        const translations = { job_title: { es: "Data & Analytics Technical Leader en Mercado Libre", en: "Data & Analytics Technical Leader at Mercado Libre" }, contact_title: { es: "Contacto", en: "Contact" }, download_btn: { es: "Descargar CV", en: "Download CV" }, stack_title: { es: "Stack Tecnológico", en: "Tech Stack" }, stack_backend: { es: "Backend & Datos", en: "Backend & Data" }, stack_ml: { es: "Machine Learning", en: "Machine Learning" }, stack_ai: { es: "IA & Automatización", en: "AI & Automation" }, stack_bi: { es: "Business Intelligence", en: "Business Intelligence" }, stack_productivity: { es: "Productividad", en: "Productivity" }, education_title: { es: "Educación", en: "Education" }, cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"}, languages_title: { es: "Idiomas", en: "Languages"}, lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"}, lang_en: { es: "Inglés (C1 - Avanzado)", en: "English (C1 - Advanced)"}, cert_title: { es: "Formación Complementaria", en: "Complementary Training"}, about_title: { es: "Sobre mí", en: "About Me"}, about_text: { es: `Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.`, en: `Technical leader with over 6 years of experience at Mercado Libre, focused on Data & Analytics. Passionate about leading high-performance teams to solve complex business challenges through innovation and technology. Expert in aligning data strategies with corporate objectives to drive efficiency and growth. My goal is to continue democratizing commerce and financial services in Latin America, transforming the lives of millions.` }, projects_title: { es: "Proyectos Destacados", en: "Featured Projects"}, experience_title: { es: "Experiencia Profesional", en: "Professional Experience"}, view_repo: { es: "Ver Repositorio", en: "View Repository" }, footer_design: { es: "Diseñado con", en: "Designed with"}, footer_location: { es: "en Buenos Aires", en: "in Buenos Aires"}, calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" }, see_more: { es: "Ver más", en: "See more" } };
+    
+        let currentFilter = null;
+    
+        // =================================================================================
+        // --- 2. GUI FUNCTIONS (Populate content, modals, etc.)
+        // =================================================================================
+    
+        function populateTechStack(lang) {
+            const container = document.getElementById('tech-stack-container');
+            if(!container) return;
+            container.innerHTML = '';
+            for (const category in techStackData) {
+                const categoryKey = `stack_${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`;
+                let tagsHTML = techStackData[category].map(tag => `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`).join('');
+                container.innerHTML += `<div><h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="${categoryKey}">${translations[categoryKey] ? translations[categoryKey][lang] : category}</h4><div class="flex flex-wrap gap-2">${tagsHTML}</div></div>`;
+            }
+        }
+    
+        function populateProjects(lang, filterTag = null) {
+            const container = document.getElementById('projects-container');
+            if (!container) return;
+            const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
+            if (filteredProjects.length === 0 && filterTag) {
+                container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
+                return;
+            }
+            container.innerHTML = filteredProjects.map(project =>
+                `<div class="project-item avoid-break p-4 rounded-lg glass-effect interactive">
+                    <h4 class="text-lg font-bold">${project.title[lang]}</h4>
+                    <p class="text-secondary text-sm mb-2">${project.description[lang]}</p>
+                    <a href="${project.link}" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);" onclick="trackSocialClick(event, 'GitHub Project')"><i class="fab fa-github mr-1"></i> <span>${translations.view_repo[lang]}</span></a>
+                </div>`
+            ).join('');
+        }
+    
+        function populateExperience(lang) {
+            const container = document.getElementById('experience-timeline');
+            if(!container) return;
+            container.innerHTML = experienceData.map((job, index) => {
+                const side = index % 2 === 0 ? 'left' : 'right';
+                return `<div class="timeline-container ${side} animate-on-scroll">
+                            <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
+                                <div class="see-more-indicator">
+                                    <span data-translate="see_more">${translations.see_more[lang]}</span>
+                                    <i class="fas fa-external-link-alt fa-xs"></i>
+                                </div>
+                                <div class="pr-12">
+                                    <p class="font-semibold text-sm" style="color: var(--primary-color);">${job.date[lang]}</p>
+                                    <h4 class="text-lg font-bold mt-1">${job.title[lang]}</h4>
+                                    <p class="font-semibold text-base text-secondary">${job.company}</p>
+                                </div>
+                            </div>
+                        </div>`;
+            }).join('');
+        }
+    
+        function populateEducation(lang) {
+            const container = document.getElementById('education-list');
+            if(!container) return;
+            container.innerHTML = educationData.map(edu => {
+                const subtitleHTML = edu.subtitle ? `<p>${edu.subtitle[lang]}</p>` : '';
+                return `<li>
+                            <p class="font-semibold" style="color: var(--text-color);">${edu.title[lang]}</p>
+                            ${subtitleHTML}
+                            <p>${edu.school}</p>
+                            <p class="text-sm">${edu.date}</p>
+                        </li>`;
+            }).join('');
+        }
+    
+        function populateCerts() {
+            const container = document.getElementById('cert-list');
+            if(!container) return;
+            container.innerHTML = certifications.map(cert => `<p>${cert}</p>`).join('');
+        }
+        
+        function filterProjects(tag) {
+            const lang = localStorage.getItem('language') || 'es';
+            currentFilter = tag;
+            document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
+                t.classList.toggle('active', t.textContent === tag);
+            });
+            populateProjects(lang, tag);
+        }
+    
+        function openExperienceModal(jobId) {
+            const lang = localStorage.getItem('language') || 'es';
+            const job = experienceData.find(j => j.id === jobId);
+            if (!job) return;
+            document.getElementById('modal-date').textContent = job.date[lang];
+            document.getElementById('modal-title').textContent = job.title[lang];
+            document.getElementById('modal-company').textContent = job.company;
+            document.getElementById('modal-description').innerHTML = job.description[lang];
+            document.getElementById('experience-modal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    
+        function closeExperienceModal() {
+            document.getElementById('experience-modal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    
+        function setupPdfGeneration() {
+            const downloadBtn = document.getElementById('download-btn');
+            if (!downloadBtn) return;
+            downloadBtn.addEventListener('click', () => {
+                const downloadText = document.getElementById('download-text');
+                const downloadIcon = document.getElementById('download-icon');
+                downloadText.textContent = 'Generando...';
+                downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
+                downloadBtn.disabled = true;
+                const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+                document.documentElement.classList.add('light-mode');
+                
+                const element = document.getElementById('page-content');
+                
+                const tempExperienceContainer = document.createElement('div');
+                let experienceHTML = `<h3 class="text-2xl font-semibold mb-8 border-b pb-2" style="border-color: #e5e7eb; color: #0ea5e9; font-family: 'Inter', sans-serif; padding-left: 1.5rem;">Experiencia Profesional</h3>`;
+                 experienceData.forEach(job => {
+                    experienceHTML += `<div class="avoid-break mb-6 px-6"><p class="font-semibold" style="color: #0ea5e9;">${job.date['es']}</p><h4 class="text-xl font-bold mt-1" style="color: #1f2937;">${job.title['es']}</h4><p class="font-semibold text-lg" style="color: #4b5563;">${job.company}</p><ul class="list-disc list-inside space-y-2 text-base mt-2" style="color: #4b5563;">${job.description['es']}</ul></div>`;
+                });
+                tempExperienceContainer.innerHTML = experienceHTML;
+
+                document.getElementById('experience-timeline').parentElement.style.display = 'none';
+                document.querySelector('main.grid').appendChild(tempExperienceContainer);
+                
+                setTimeout(() => {
+                    html2canvas(element, { scale: 2, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
+                    .then(canvas => {
+                        const { jsPDF } = window.jspdf;
+                        const pdf = new jsPDF('p', 'mm', 'a4');
+                        const pdfWidth = pdf.internal.pageSize.getWidth();
+                        const pdfHeight = pdf.internal.pageSize.getHeight();
+                        const ratio = canvas.width / canvas.height;
+                        let imgHeight = pdfWidth / ratio;
+                        let heightLeft = imgHeight;
+                        let position = 0;
+
+                        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
+                        heightLeft -= pdfHeight;
+
+                        while (heightLeft > 0) {
+                            position -= pdfHeight;
+                            pdf.addPage();
+                            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
+                            heightLeft -= pdfHeight;
+                        }
+                        pdf.save('CV-MarianoGobeaAlcoba.pdf');
+                    })
+                    .finally(() => {
+                        document.getElementById('experience-timeline').parentElement.style.display = 'block';
+                         tempExperienceContainer.remove();
+                        downloadText.textContent = 'Descargar CV';
+                        downloadIcon.className = 'fas fa-download w-5 mr-2';
+                        downloadBtn.disabled = false;
+                        if (originalTheme === 'dark') {
+                           document.documentElement.classList.remove('light-mode');
+                        }
+                    });
+                }, 500);
+            });
+        }
+    
+        function trackSocialClick(event, platform) {
+            event.preventDefault();
+            const url = event.currentTarget.href;
+            if (typeof gtag === 'function') {
+                gtag('event', 'social_click', {
+                    'social_platform': platform,
+                    'link_url': url,
+                    'event_callback': function() { window.location.href = url; }
+                });
+            } else {
+                window.location.href = url;
+            }
+        }
+        
+        // =================================================================================
+        // --- 3. TERMINAL FUNCTIONS
+        // =================================================================================
+    
+        function printToTerminal(text) {
+            const terminalOutput = document.getElementById('terminal-output');
+            if (!terminalOutput) return;
+            const line = document.createElement('div');
+            line.innerHTML = text.replace(/\n/g, '<br>'); // Replace newlines with <br> for HTML
+            line.classList.add('terminal-line', 'text-green-400');
+            terminalOutput.appendChild(line);
+        }
+    
+        function toggleTerminal(show) {
+            const terminalContainer = document.getElementById('terminal-container');
+            const mainContent = document.getElementById('page-content');
+            const terminalInput = document.getElementById('terminal-input');
+            if (show) {
+                terminalContainer.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+                terminalInput.focus();
+            } else {
+                terminalContainer.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+            }
+        }
+    
+        function handleCommand(command) {
+            const lang = localStorage.getItem('language') || 'es';
+            const parts = command.split(' ');
+            const baseCommand = parts[0];
+            const argument = parts.length > 1 ? parts.slice(1).join(' ') : null;
+
+            switch (baseCommand) {
+                case 'help':
+                    printToTerminal(`Comandos disponibles:\n- about\n- experience\n- projects [--tag <tecnología>]\n- contact\n- clear\n- gui (volver a la vista normal)`);
+                    break;
+                case 'about':
+                    printToTerminal(translations.about_text[lang]);
+                    break;
+                case 'experience':
+                    let expOutput = '--- Experiencia Profesional ---\n\n';
+                    experienceData.forEach(job => {
+                        expOutput += `[${job.date[lang]}]\n`;
+                        expOutput += `${job.title[lang]} @ ${job.company}\n\n`;
+                    });
+                    printToTerminal(expOutput);
+                    break;
+                case 'projects':
+                    let filteredProjects = projectsData;
+                    if (argument && argument.startsWith('--tag')) {
+                        const tag = argument.split(' ')[1];
+                        if(tag){
+                            filteredProjects = projectsData.filter(p => p.tags.map(t => t.toLowerCase()).includes(tag.toLowerCase()));
+                            printToTerminal(`--- Proyectos con la tecnología: ${tag} ---`);
+                        } else {
+                             printToTerminal(`Error: Debes especificar una tecnología después de --tag.`);
+                             return;
+                        }
+                    } else {
+                        printToTerminal(`--- Proyectos Destacados ---`);
+                    }
+
+                    if(filteredProjects.length === 0){
+                        printToTerminal(`No se encontraron proyectos para esa tecnología.`);
+                    } else {
+                        let projOutput = `\n`;
+                        filteredProjects.forEach(proj => {
+                            projOutput += `[${proj.tags.join(', ')}]\n`;
+                            projOutput += `${proj.title[lang]}\n\n`;
+                        });
+                        printToTerminal(projOutput);
+                    }
+                    break;
+                case 'contact':
+                    printToTerminal(`- Ubicación: Buenos Aires, Argentina\n- Teléfono: +54 9 11 27475569\n- Email: gobeamariano@gmail.com`);
+                    break;
+                case 'clear':
+                    document.getElementById('terminal-output').innerHTML = '';
+                    break;
+                case 'gui':
+                    localStorage.setItem('theme', 'dark'); 
+                    location.reload(); 
+                    break;
+                default:
+                    printToTerminal(`bash: command not found: ${command}`);
+                    break;
+            }
+        }
+    
+        // =================================================================================
+        // --- 4. MAIN EXECUTION (Cuando el DOM está listo)
+        // =================================================================================
+        
+        // --- DOM Element References ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('dark-icon');
+        const lightIcon = document.getElementById('light-icon');
+        const terminalIcon = document.getElementById('terminal-icon');
+        const langEsBtn = document.getElementById('lang-es');
+        const langEnBtn = document.getElementById('lang-en');
+        const terminalInput = document.getElementById('terminal-input');
+    
+        // --- App State ---
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+    
+        // --- Theme Application Logic ---
+        const applyTheme = (theme) => {
+            terminalIcon.classList.add('hidden');
+            lightIcon.classList.add('hidden');
+            darkIcon.classList.add('hidden');
+            
+            if (theme === 'cli') {
+                toggleTerminal(true);
+                terminalIcon.classList.remove('hidden');
+            } else {
+                toggleTerminal(false);
+                if (theme === 'dark') {
+                    document.documentElement.classList.remove('light-mode');
+                    lightIcon.classList.remove('hidden');
+                } else { // light
+                    document.documentElement.classList.add('light-mode');
+                    darkIcon.classList.remove('hidden');
+                }
+            }
+        };
+    
+        // --- Language and Content Population Logic ---
+        const setLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
+                }
+            });
+            populateProjects(lang, currentFilter);
+            populateExperience(lang);
+            populateEducation(lang);
+            populateCerts();
+            populateTechStack(lang);
+            localStorage.setItem('language', lang);
+            langEsBtn.classList.toggle('active', lang === 'es');
+            langEnBtn.classList.toggle('active', lang === 'en');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+    
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        };
+        
+        // --- Event Listeners Setup ---
+        themeToggle.addEventListener('click', () => {
+            if (currentTheme === 'dark') currentTheme = 'light';
+            else if (currentTheme === 'light') currentTheme = 'cli';
+            else currentTheme = 'dark';
+            
+            localStorage.setItem('theme', currentTheme);
+            applyTheme(currentTheme);
+        });
+        
+        langEsBtn.addEventListener('click', () => setLanguage('es'));
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        
+        terminalInput.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const command = terminalInput.value.trim().toLowerCase();
+                if (command) {
+                    printToTerminal(`<span class="text-gray-500">> ${command}</span>`);
+                    handleCommand(command);
+                }
+                terminalInput.value = "";
+                const terminalContainer = document.getElementById('terminal-container');
+                if (terminalContainer) {
+                    terminalContainer.scrollTop = terminalContainer.scrollHeight;
+                }
+            }
+        });
+        
+        // --- Initial Page Load Calls ---
+        setupPdfGeneration(); 
+        printToTerminal('Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.');
+        
+        const savedLang = localStorage.getItem('language') || 'es';
+        applyTheme(currentTheme);
+        setLanguage(savedLang);
+    });
+    </script>
+</body>
+</html>
