@@ -382,10 +382,17 @@
                         experienceHTML += `<div class="avoid-break mb-6 px-6"><p class="font-semibold" style="color: #0ea5e9;">${job.date['es']}</p><h4 class="text-xl font-bold mt-1" style="color: #1f2937;">${job.title['es']}</h4><p class="font-semibold text-lg" style="color: #4b5563;">${job.company}</p><ul class="list-disc list-inside space-y-2 text-base mt-2" style="color: #4b5563;">${job.description['es']}</ul></div>`;
                     });
                     tempExperienceContainer.innerHTML = experienceHTML;
+
+                    // --- INICIO DE LA CORRECCIÓN ---
+                    // 1. Identificamos la sección de la línea de tiempo y su contenedor (la columna derecha).
+                    const experienceSection = document.getElementById('experience-timeline').parentElement;
+                    const rightColumn = experienceSection.parentElement;
+
+                    // 2. Ocultamos la sección original y añadimos la temporal A LA COLUMNA DERECHA.
+                    experienceSection.style.display = 'none';
+                    rightColumn.appendChild(tempExperienceContainer);
+                    // --- FIN DE LA CORRECCIÓN ---
     
-                    document.getElementById('experience-timeline').parentElement.style.display = 'none';
-                    document.querySelector('main.grid').appendChild(tempExperienceContainer);
-                    
                     setTimeout(() => {
                         html2canvas(element, { scale: 1, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
                         .then(canvas => {
@@ -410,8 +417,10 @@
                             pdf.save('CV-MarianoGobeaAlcoba.pdf');
                         })
                         .finally(() => {
-                            document.getElementById('experience-timeline').parentElement.style.display = 'block';
-                             tempExperienceContainer.remove();
+                            // Revertimos los cambios correctamente.
+                            rightColumn.removeChild(tempExperienceContainer);
+                            experienceSection.style.display = 'block';
+                            
                             downloadText.textContent = 'Descargar CV';
                             downloadIcon.className = 'fas fa-download w-5 mr-2';
                             downloadBtn.disabled = false;
