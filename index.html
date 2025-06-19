@@ -424,7 +424,9 @@
 
 
     <script>
-        // --- DATA ---
+        // =================================================================================
+        // --- 1. DATA (Todos tus datos de experiencia, proyectos, etc.)
+        // =================================================================================
         const techStackData = {
             "Backend & Datos": ["Python", "Java", "Kotlin", "Go", "R", "SQL", "MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Firebase", "SQLite", "Django", "Flask", "FastAPI"],
             "Machine Learning": ["Scikit-learn", "TensorFlow", "Keras", "PyTorch", "Caret"],
@@ -451,130 +453,20 @@
             { id: 15, tags: ['Python', 'Flask', 'MySQL'], title: { es: "[Python - Flask] App CRUD", en: "[Python - Flask] CRUD App" }, description: { es: "Una app hecha con Python y Flask que no es más que un software CRUD.", en: "An app made with Python and Flask that is a CRUD software." }, link: "https://github.com/Mgobeaalcoba/flask_python" },
             { id: 16, tags: ['Python', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn'], title: { es: "[Python - Pandas] Datacademy", en: "[Python - Pandas] Datacademy" }, description: { es: "Proyecto diseñado como parte de una competencia de Análisis Exploratorio de Datos usando Python y sus librerías.", en: "Project designed as part of an Exploratory Data Analysis competition using Python and its libraries." }, link: "https://github.com/Mgobeaalcoba/datacademy" }
         ];
-
         const experienceData = [
-            { 
-                id: 1,
-                date: { es: "Ene 2025 - actualidad", en: "Jan 2025 - Present" },
-                title: { es: "Data & Analytics Technical Leader", en: "Data & Analytics Technical Leader" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Lideré un equipo de +5 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li><li>Alineé la estrategia de Data & Analytics con los objetivos corporativos priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li><li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li><li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li><li>Diseñé e implementé arquitecturas RAG para sistemas de knowledge management, mejorando la precisión contextual de las respuestas generadas por LLMs en un 35%.</li><li>Entrené y desplegué modelos fine-tuned de transformers (BERT, GPT) que optimizaron procesos de clasificación de textos y análisis de sentimiento, mejorando KPIs de automatización en atención al cliente en un 20%.</li><li>Lideré la evaluación y adopción de tecnologías emergentes (MLOps, vector DBs, LLMs), manteniendo al equipo a la vanguardia y acelerando el time-to-market de soluciones de IA en un 50%.</li><li>Impulsé proyectos de transformación basada en datos que resolvieron desafíos complejos de negocio, generando +USD 500K en impacto estimado anual.</li><li>Diseñé arquitecturas de datos escalables para el procesamiento de grandes volúmenes de información, logrando una mejora del 45% en la performance de pipelines ETL.</li><li>Establecí procesos robustos de calidad de datos (validación, limpieza, estandarización), aumentando la confiabilidad de los dashboards ejecutivos y reduciendo errores críticos en un 70%.</li><li>Automaticé workflows analíticos complejos con Apache Airflow, dbt, n8n y Zapier, eliminando tareas manuales y mejorando la eficiencia operativa del equipo en un 60%.</li>`,
-                    en: `<li>Led a team of +5 analysts and data scientists, fostering a culture of innovation that increased AI solution adoption by 30% in key business areas.</li><li>Aligned Data & Analytics strategy with corporate objectives, prioritizing high-impact initiatives that increased operational efficiency by 20%.</li><li>Fostered a high-performance culture through mentoring, upskilling, and agile methodologies, raising team eNPS by over 25 points in less than a year.</li><li>Implemented analytical solutions that reduced data analysis time by 40% through predictive models, dynamic dashboards, and report automation.</li><li>Designed and implemented RAG architectures for knowledge management systems, improving contextual accuracy of LLM responses by 35%.</li><li>Trained and deployed fine-tuned transformer models (BERT, GPT) that optimized text classification and sentiment analysis processes, improving customer service automation KPIs by 20%.</li><li>Led the evaluation and adoption of emerging technologies (MLOps, vector DBs, LLMs), keeping the team at the forefront and accelerating the time-to-market for AI solutions by 50%.</li><li>Drove data-driven transformation projects that solved complex business challenges, generating an estimated annual impact of +USD 500K.</li><li>Designed scalable data architectures for processing large volumes of information, achieving a 45% improvement in ETL pipeline performance.</li><li>Established robust data quality processes (validation, cleaning, standardization), increasing the reliability of executive dashboards and reducing critical errors by 70%.</li><li>Automated complex analytical workflows with Apache Airflow, dbt, n8n, and Zapier, eliminating manual tasks and improving team operational efficiency by 60%.</li>`
-                } 
-            },
-            { 
-                id: 2,
-                date: { es: "Dic 2023 - Ene 2025", en: "Dec 2023 - Jan 2025" },
-                title: { es: "Sr Data & Analytics Engineer", en: "Sr. Data & Analytics Engineer" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li><li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li><li>Automaticé la actualización diaria de los modelos de datos mediante scripts eficientes, reduciendo significativamente el costo operativo y la intervención manual.</li><li>Generé insights accionables a través de reportes, dashboards y tablas ad hoc, facilitando la medición del impacto de nuevas funcionalidades de login.</li><li>Coordiné con equipos de Producto para alinear los entregables analíticos con el roadmap, garantizando una correcta interpretación de resultados y visualizaciones.</li><li>Construí una API REST desde cero para analizar transacciones de login y automatizar decisiones en Customer Experience, Prevención de Fraude y GIN.</li><li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad de la infraestructura de datos.</li><li>Desarrollé nuevas funcionalidades en el sistema Auth-Login, contribuyendo a la mejora continua de un producto core del ecosistema de autenticación.</li><li>Optimicé pipelines de procesamiento de datos, mejorando su rendimiento y garantizando disponibilidad en tiempo real para servicios críticos.</li><li>Implementé prácticas de seguridad avanzadas en los procesos de autenticación, fortaleciendo la protección del acceso de usuarios y la robustez del sistema.</li>`,
-                    en: `<li>Designed, built, and maintained the login data model (MP, ML, ME), ensuring its organizational availability and reliability.</li><li>Developed strategic dashboards to monitor key metrics such as login conversion, account recovery, and use of authentication factors.</li><li>Automated the daily update of data models through efficient scripts, significantly reducing operational cost and manual intervention.</li><li>Generated actionable insights through reports, dashboards, and ad hoc tables, facilitating the impact measurement of new login functionalities.</li><li>Coordinated with Product teams to align analytical deliverables with the roadmap, ensuring correct interpretation of results and visualizations.</li><li>Built a REST API from scratch to analyze login transactions and automate decisions in Customer Experience, Fraud Prevention, and GIN.</li><li>Led the migration of the authentication model from Amazon Athena to Google BigQuery, improving the scalability, speed, and maintainability of the data infrastructure.</li><li>Developed new features in the Auth-Login system, contributing to the continuous improvement of a core product in the authentication ecosystem.</li><li>Optimized data processing pipelines, improving their performance and ensuring real-time availability for critical services.</li><li>Implemented advanced security practices in authentication processes, strengthening user access protection and system robustness.</li>`
-                } 
-            },
-            { 
-                id: 3,
-                date: { es: "May 2022 - Dic 2023", en: "May 2022 - Dec 2023" },
-                title: { es: "Shipping Product Owner", en: "Shipping Product Owner" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Detecté oportunidades de mejora y nuevas funcionalidades a partir del análisis de datos de uso y feedback de usuarios, contribuyendo a la evolución continua del producto.</li><li>Colaboré con equipos de desarrollo y áreas de negocio para definir la estrategia y roadmap del producto, asegurando la alineación con los objetivos corporativos.</li><li>Realicé análisis de mercado y competencia para sustentar decisiones estratégicas, permitiendo identificar ventajas diferenciales y ajustar el posicionamiento del producto.</li><li>Aseguré estándares de calidad y una experiencia de usuario óptima a través de pruebas funcionales, validaciones de UX y mejoras iterativas basadas en métricas.</li><li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad, mejorando la eficiencia en la entrega y el enfoque en valor para el usuario.</li><li>Coordiné con el equipo técnico para garantizar claridad en los objetivos, prioridades y dependencias, facilitando una ejecución ágil y alineada.</li><li>Monitoreé métricas clave de negocio y producto (adopción, conversión, retención), impulsando decisiones de optimización que aumentaron la performance del producto.</li><li>Comuniqué avances, decisiones y métricas a stakeholders, fomentando una visión integrada y compartida entre producto, tech, negocio y diseño.</li>`,
-                    en: `<li>Identified improvement opportunities and new functionalities from usage data analysis and user feedback, contributing to the continuous evolution of the product.</li><li>Collaborated with development and business teams to define the product strategy and roadmap, ensuring alignment with corporate objectives.</li><li>Conducted market and competitor analysis to support strategic decisions, identifying differential advantages and adjusting product positioning.</li><li>Ensured quality standards and an optimal user experience through functional tests, UX validations, and iterative improvements based on metrics.</li><li>Managed the backlog by prioritizing functionalities according to impact and feasibility, improving delivery efficiency and focus on user value.</li><li>Coordinated with the technical team to ensure clarity on objectives, priorities, and dependencies, facilitating agile and aligned execution.</li><li>Monitored key business and product metrics (adoption, conversion, retention), driving optimization decisions that increased product performance.</li><li>Communicated progress, decisions, and metrics to stakeholders, fostering an integrated and shared vision among product, tech, business, and design.</li>`
-                } 
-            },
-            { 
-                id: 4,
-                date: { es: "Ene 2021 - Jun 2022", en: "Jan 2021 - Jun 2022" },
-                title: { es: "Cross Docking Sr. Analyst", en: "Sr. Cross Docking Analyst" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave que permitieron un análisis consistente y comparativo entre países y unidades operativas.</li><li>Implementé un sistema de monitoreo de indicadores operativos críticos, optimizando la eficiencia del negocio y mejorando la experiencia del cliente en puntos clave del journey.</li><li>Lideré iniciativas de mejora continua en operaciones de cross docking en MLA, logrando reducciones en tiempos de procesamiento y costos logísticos.</li><li>Coordiné directamente con operadores logísticos (3PL), negociando acuerdos y planificando acciones que mejoraron el rendimiento y la confiabilidad del servicio.</li><li>Planifiqué y ejecuté la expansión de infraestructura logística mediante la apertura de nuevos centros de cross docking en Argentina, aumentando la capacidad operativa y reduciendo costos de botella.</li>`,
-                    en: `<li>Standardized KPIs and reports at a regional level, defining key metrics that allowed for consistent and comparative analysis between countries and operational units.</li><li>Implemented a monitoring system for critical operational indicators, optimizing business efficiency and improving the customer experience at key journey points.</li><li>Led continuous improvement initiatives in cross-docking operations in MLA, achieving reductions in processing times and logistics costs.</li><li>Coordinated directly with logistics operators (3PL), negotiating agreements and planning actions that improved service performance and reliability.</li><li>Planned and executed the expansion of logistics infrastructure through the opening of new cross-docking centers in Argentina, increasing operational capacity and reducing bottleneck costs.</li>`
-                } 
-            },
-            { 
-                id: 5,
-                date: { es: "Ago 2020 - Ene 2021", en: "Aug 2020 - Jan 2021" },
-                title: { es: "Cross Docking Ssr. Analyst", en: "Ssr. Cross Docking Analyst" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS de forma diaria, contribuyendo a la optimización de la operación de Mercado Envíos.</li><li>Detecté oportunidades de mejora a través del análisis de procesos operativos, impulsando acciones correctivas que elevaron la eficiencia y calidad del servicio.</li><li>Diseñé e implementé planes de capacitación para equipos operativos, mejorando los tiempos de ejecución y fortaleciendo el cumplimiento de estándares internos.</li><li>Realicé auditorías a proveedores logísticos, evaluando su desempeño y garantizando el cumplimiento de los niveles de servicio establecidos por la compañía.</li>`,
-                    en: `<li>Monitored and analyzed operational KPIs such as Out On Time, In On Time, and NPS on a daily basis, contributing to the optimization of the Mercado Envíos operation.</li><li>Identified improvement opportunities through the analysis of operational processes, driving corrective actions that increased service efficiency and quality.</li><li>Designed and implemented training plans for operational teams, improving execution times and strengthening compliance with internal standards.</li><li>Conducted audits of logistics providers, evaluating their performance and ensuring compliance with the service levels established by the company.</li>`
-                } 
-            },
-            { 
-                id: 6,
-                date: { es: "May 2019 - Ago 2020", en: "May 2019 - Aug 2020" },
-                title: { es: "Cross Docking Team Leader", en: "Cross Docking Team Leader" },
-                company: "Mercado Libre",
-                description: { 
-                    es: `<li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch, asegurando el cumplimiento consistente de objetivos clave de productividad y calidad.</li><li>Fomenté una cultura de trabajo motivadora, equilibrando la priorización de metas con el bienestar y disfrute del equipo, aumentando el compromiso y la retención.</li><li>Implementé procesos de feedback individual y grupal, junto con actividades motivacionales y planes de desarrollo, mejorando el desempeño y la cohesión del equipo.</li><li>Optimicé la gestión de tiempos productivos, ausencias y llegadas tardías, incrementando la eficiencia operativa y reduciendo pérdidas de productividad.</li><li>Analicé el desempeño del equipo y diseñé estrategias de mejora continua que incrementaron la productividad general de la operación.</li>`,
-                    en: `<li>Led and coordinated operational teams in inbound, sorting, outbound, and dispatch, ensuring consistent achievement of key productivity and quality objectives.</li><li>Fostered a motivating work culture, balancing goal prioritization with team well-being and enjoyment, increasing commitment and retention.</li><li>Implemented individual and group feedback processes, along with motivational activities and development plans, improving team performance and cohesion.</li><li>Optimized the management of productive times, absences, and late arrivals, increasing operational efficiency and reducing productivity losses.</li><li>Analyzed team performance and designed continuous improvement strategies that increased the overall productivity of the operation.</li>`
-                } 
-            },
-            { 
-                id: 7,
-                date: { es: "Dic 2024 - actualidad", en: "Dec 2024 - Present" },
-                title: { es: "Data & Analytics Expert", en: "Data & Analytics Expert" },
-                company: "Henry",
-                description: { 
-                    es: `<li>Liderazgo académico en Data & Analytics: Diseño de experiencias educativas transformadoras en herramientas clave como Power BI, Excel y Looker Studio.</li><li>Diseño instruccional y estructuración de contenidos: Maquetación de cursos con enfoque pedagógico, definiendo temáticas, secuencia de aprendizaje y recursos didácticos.</li><li>Desarrollo de proyectos aplicados: Creación de proyectos integradores que promueven el aprendizaje activo y la aplicación práctica de conceptos.</li><li>Elaboración de materiales didácticos de calidad: Redacción de soluciones, ejercicios y explicaciones detalladas que fortalecen el proceso de aprendizaje.</li><li>Planificación académica estratégica: Definición de programas de curso con objetivos claros, cronograma preciso y criterios de evaluación alineados al perfil profesional buscado.</li>`,
-                    en: `<li>Academic leadership in Data & Analytics: Designing transformative educational experiences in key tools like Power BI, Excel, and Looker Studio.</li><li>Instructional design and content structuring: Course layout with a pedagogical approach, defining themes, learning sequences, and didactic resources.</li><li>Development of applied projects: Creation of integrative projects that promote active learning and the practical application of concepts.</li><li>Elaboration of quality didactic materials: Writing solutions, exercises, and detailed explanations that strengthen the learning process.</li><li>Strategic academic planning: Definition of course programs with clear objectives, precise schedules, and evaluation criteria aligned with the desired professional profile.</li>`
-                } 
-            },
-            { 
-                id: 8,
-                date: { es: "May 2024 - actualidad", en: "May 2024 - Present" },
-                title: { es: "Data Analytics Instructor", en: "Data Analytics Instructor" },
-                company: "Henry",
-                description: { 
-                    es: `<li>Instructor de Data Analytics con foco en Python: Facilitación de clases teóricas y prácticas orientadas a la manipulación de datos, visualización y modelado estadístico.</li><li>Desarrollo de contenido educativo de alto impacto: Creación de presentaciones, ejercicios y proyectos alineados con las competencias clave del análisis de datos.</li><li>Acompañamiento personalizado al estudiante: Provisión de feedback individualizado y seguimiento constante para maximizar el aprendizaje y el desarrollo de habilidades.</li><li>Vinculación con la industria y actualización permanente: Colaboración con profesionales del sector y adopción de buenas prácticas en educación y ciencia de datos.</li><li>Pasión por la enseñanza y el crecimiento profesional: Compromiso con la formación de nuevos talentos en data analytics y la excelencia académica.</li>`,
-                    en: `<li>Data Analytics Instructor with a focus on Python: Facilitating theoretical and practical classes aimed at data manipulation, visualization, and statistical modeling.</li><li>Development of high-impact educational content: Creation of presentations, exercises, and projects aligned with key data analysis competencies.</li><li>Personalized student support: Providing individualized feedback and constant monitoring to maximize learning and skill development.</li><li>Industry linkage and continuous updating: Collaboration with industry professionals and adoption of best practices in education and data science.</li><li>Passion for teaching and professional growth: Commitment to training new talent in data analytics and academic excellence.</li>`
-                } 
-            },
-            { 
-                id: 9,
-                date: { es: "Mar 2024 - actualidad", en: "Mar 2024 - Present" },
-                title: { es: "Adjunct Professor", en: "Adjunct Professor" },
-                company: "UADE",
-                description: { 
-                    es: `<li>Docente de programación en nivel universitario: Liderazgo en la formación de estudiantes en su primer contacto formal con la programación, asegurando una base sólida para su desarrollo académico y profesional.</li><li>Diseño y actualización de programas de estudio: Desarrollo del plan académico del Taller de Programación I, incorporando buenas prácticas y tendencias actuales en el ámbito del software.</li><li>Facilitación de clases teóricas y prácticas: Enseñanza de fundamentos clave de programación a través de metodologías activas, fomentando la comprensión y aplicación de conceptos.</li><li>Acompañamiento y tutoría personalizada: Apoyo continuo a los estudiantes mediante asesorías individuales y grupales, promoviendo el aprendizaje autónomo y colaborativo.</li><li>Enfoque en pensamiento lógico y resolución de problemas: Estímulo del pensamiento crítico mediante ejercicios prácticos, proyectos integradores y desafíos reales.</li>`,
-                    en: `<li>University-level programming instructor: Leading the training of students in their first formal contact with programming, ensuring a solid foundation for their academic and professional development.</li><li>Design and updating of study programs: Development of the academic plan for Programming Workshop I, incorporating best practices and current trends in the software field.</li><li>Facilitation of theoretical and practical classes: Teaching key programming fundamentals through active methodologies, fostering the understanding and application of concepts.</li><li>Personalized support and tutoring: Continuous support for students through individual and group advising, promoting autonomous and collaborative learning.</li><li>Focus on logical thinking and problem-solving: Encouraging critical thinking through practical exercises, integrative projects, and real-world challenges.</li>`
-                } 
-            },
-            { 
-                id: 10,
-                date: { es: "Feb 2011 - Feb 2019", en: "Feb 2011 - Feb 2019" },
-                title: { es: "Warehouse Supervisor / Operations Sr. Analyst", en: "Warehouse Supervisor / Operations Sr. Analyst" },
-                company: "El Portugues",
-                description: { 
-                    es: `<li>Supervisión operativa de centro logístico: Gestión integral de un warehouse de 3.500 posiciones, asegurando el correcto funcionamiento de las operaciones logísticas.</li><li>Coordinación de procesos clave: Supervisión de la recepción, almacenamiento, preparación y despacho de mercadería, insumos, materias primas y pañol.</li><li>Manejo de flota de transporte: Coordinación de envíos mediante camiones propios y operadores logísticos externos (fleteros), optimizando tiempos y eficiencia.</li><li>Atención a clientes de primera línea: Gestión de operaciones logísticas para empresas líderes como Arcor, La Anónima, Los Marías, Flora-Dánica y PepsiCo.</li><li>Control de inventarios y operaciones: Aseguramiento del correcto registro y flujo de stock dentro del almacén, manteniendo altos estándares de orden y trazabilidad.</li><li>Gestión administrativa de proveedores logísticos: Atención y seguimiento de fleteros: liquidación de haberes, elaboración de tarifas, descuentos por repuestos y adelantos a cuenta de la compañía.</li><li>Control y conciliación de cuentas corrientes: Supervisión de gastos asociados a transporte (YPF, Rutas, telepeaje, estaciones de servicio del interior) y resolución de reclamos.</li>`,
-                    en: `<li>Operational supervision of logistics center: Comprehensive management of a 3,500-position warehouse, ensuring the correct functioning of logistics operations.</li><li>Coordination of key processes: Supervision of the reception, storage, preparation, and dispatch of merchandise, supplies, raw materials, and tools.</li><li>Transportation fleet management: Coordination of shipments using company-owned trucks and external logistics operators, optimizing time and efficiency.</li><li>Service to first-line clients: Management of logistics operations for leading companies such as Arcor, La Anónima, Los Marías, Flora-Dánica, and PepsiCo.</li><li>Inventory and operations control: Ensuring the correct registration and flow of stock within the warehouse, maintaining high standards of order and traceability.</li><li>Administrative management of logistics providers: Attention and follow-up with freight forwarders: payment settlement, rate setting, spare parts discounts, and company advances.</li><li>Current account control and reconciliation: Supervision of transportation-related expenses (YPF, tolls, service stations) and claim resolution.</li>`
-                } 
-            },
-            { 
-                id: 11,
-                date: { es: "Ene 2010 - Feb 2011", en: "Jan 2010 - Feb 2011" },
-                title: { es: "Backoffice Analyst", en: "Backoffice Analyst" },
-                company: "SOLDA-LIMP S.R.L.",
-                description: { 
-                    es: `<li>Gestión integral de ventas y facturación: Manejo completo del proceso de facturación de ventas, incluyendo remitos, control de stock, devoluciones y recepción/carga de pedidos.</li><li>Administración de medios de pago: Operación con cheques (al portador y cruzados), tarjetas de crédito y débito (POS), efectivo y realización de arqueos de caja.</li><li>Manejo de sistemas y herramientas: Uso del sistema de gestión Tango y dominio avanzado de Microsoft Office, especialmente Excel y PowerPoint.</li><li>Atención al cliente y asesoramiento comercial: Venta y recomendación de productos técnicos, electrodos, discos abrasivos, ropa de seguridad, máquinas de soldar, equipos de medición y control, entre otros.</li><li>Habilidades comerciales destacadas: Alta capacidad de persuasión y negociación para lograr cierres efectivos y fortalecer la relación con el cliente.</li>`,
-                    en: `<li>Comprehensive sales and invoicing management: Full handling of the sales invoicing process, including delivery notes, stock control, returns, and order reception/entry.</li><li>Payment methods administration: Operation with checks (bearer and crossed), credit and debit cards (POS), cash, and performing cash balancing.</li><li>Systems and tools management: Use of the Tango management system and advanced proficiency in Microsoft Office, especially Excel and PowerPoint.</li><li>Customer service and commercial advice: Sales and recommendation of technical products, electrodes, abrasive discs, safety clothing, welding machines, measurement and control equipment, among others.</li><li>Outstanding commercial skills: High capacity for persuasion and negotiation to achieve effective closings and strengthen the client relationship.</li>`
-                } 
-            },
-            { 
-                id: 12,
-                date: { es: "Feb 2009 - Dic 2009", en: "Feb 2009 - Dec 2009" },
-                title: { es: "Customer Services Representative", en: "Customer Services Representative" },
-                company: "UBICAR ARGENTINA",
-                description: { 
-                    es: `<li>Atención al cliente especializada: Representación directa ante usuarios de sistemas de rastreo satelital (radiofrecuencia y GPS), brindando soporte técnico y comercial.</li><li>Coordinación operativa: Asignación de turnos para instalación de dispositivos y seguimiento de solicitudes de servicio técnico.</li><li>Verificación de funcionamiento: Chequeo remoto y diagnóstico del estado del sistema de rastreo ante requerimientos del cliente.</li><li>Soporte en back office: Configuración y administración de cuentas personales de clientes, actualización de datos y resolución de incidencias administrativas.</li><li>Comunicación clara y efectiva: Interacción fluida con usuarios, adaptando la comunicación técnica a distintos niveles de conocimiento para garantizar una experiencia satisfactoria.</li>`,
-                    en: `<li>Specialized customer service: Direct representation to users of satellite tracking systems (radiofrequency and GPS), providing technical and commercial support.</li><li>Operational coordination: Assignment of shifts for device installation and monitoring of technical service requests.</li><li>Functionality verification: Remote checking and diagnosis of the tracking system's status upon client request.</li><li>Back office support: Configuration and administration of clients' personal accounts, data updates, and resolution of administrative incidents.</li><li>Clear and effective communication: Fluid interaction with users, adapting technical communication to different levels of knowledge to ensure a satisfactory experience.</li>`
-                } 
-            }
+            { id: 1, date: { es: "Ene 2025 - actualidad", en: "Jan 2025 - Present" }, title: { es: "Data & Analytics Technical Leader", en: "Data & Analytics Technical Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré un equipo de +5 analistas y científicos de datos, impulsando una cultura de innovación que permitió aumentar un 30% la adopción de soluciones de IA en áreas clave del negocio.</li><li>Alineé la estrategia de Data & Analytics con los objetivos corporativos priorizando iniciativas de alto impacto que contribuyeron a aumentar la eficiencia operativa en un 20%.</li><li>Fomenté una cultura de alto rendimiento mediante mentoring, programas de upskilling y metodologías ágiles, elevando el eNPS del equipo en más de 25 puntos en menos de un año.</li><li>Implementé soluciones analíticas que redujeron el tiempo de análisis de datos en un 40%, mediante modelos predictivos, dashboards dinámicos y automatización de reportes.</li><li>Diseñé e implementé arquitecturas RAG para sistemas de knowledge management, mejorando la precisión contextual de las respuestas generadas por LLMs en un 35%.</li><li>Entrené y desplegué modelos fine-tuned de transformers (BERT, GPT) que optimizaron procesos de clasificación de textos y análisis de sentimiento, mejorando KPIs de automatización en atención al cliente en un 20%.</li><li>Lideré la evaluación y adopción de tecnologías emergentes (MLOps, vector DBs, LLMs), manteniendo al equipo a la vanguardia y acelerando el time-to-market de soluciones de IA en un 50%.</li><li>Impulsé proyectos de transformación basada en datos que resolvieron desafíos complejos de negocio, generando +USD 500K en impacto estimado anual.</li><li>Diseñé arquitecturas de datos escalables para el procesamiento de grandes volúmenes de información, logrando una mejora del 45% en la performance de pipelines ETL.</li><li>Establecí procesos robustos de calidad de datos (validación, limpieza, estandarización), aumentando la confiabilidad de los dashboards ejecutivos y reduciendo errores críticos en un 70%.</li><li>Automaticé workflows analíticos complejos con Apache Airflow, dbt, n8n y Zapier, eliminando tareas manuales y mejorando la eficiencia operativa del equipo en un 60%.</li>`, en: `<li>Led a team of +5 analysts and data scientists, fostering a culture of innovation that increased AI solution adoption by 30% in key business areas.</li><li>Aligned Data & Analytics strategy with corporate objectives, prioritizing high-impact initiatives that increased operational efficiency by 20%.</li><li>Fostered a high-performance culture through mentoring, upskilling, and agile methodologies, raising team eNPS by over 25 points in less than a year.</li><li>Implemented analytical solutions that reduced data analysis time by 40% through predictive models, dynamic dashboards, and report automation.</li><li>Designed and implemented RAG architectures for knowledge management systems, improving contextual accuracy of LLM responses by 35%.</li><li>Trained and deployed fine-tuned transformer models (BERT, GPT) that optimized text classification and sentiment analysis processes, improving customer service automation KPIs by 20%.</li><li>Led the evaluation and adoption of emerging technologies (MLOps, vector DBs, LLMs), keeping the team at the forefront and accelerating the time-to-market for AI solutions by 50%.</li><li>Drove data-driven transformation projects that solved complex business challenges, generating an estimated annual impact of +USD 500K.</li><li>Designed scalable data architectures for processing large volumes of information, achieving a 45% improvement in ETL pipeline performance.</li><li>Established robust data quality processes (validation, cleaning, standardization), increasing the reliability of executive dashboards and reducing critical errors by 70%.</li><li>Automated complex analytical workflows with Apache Airflow, dbt, n8n, and Zapier, eliminating manual tasks and improving team operational efficiency by 60%.</li>` } },
+            { id: 2, date: { es: "Dic 2023 - Ene 2025", en: "Dec 2023 - Jan 2025" }, title: { es: "Sr Data & Analytics Engineer", en: "Sr. Data & Analytics Engineer" }, company: "Mercado Libre", description: { es: `<li>Diseñé, construí y mantuve el modelo de datos de login (MP, ML, ME), asegurando su disponibilidad y confiabilidad a nivel organizacional.</li><li>Desarrollé dashboards estratégicos para monitorear métricas clave como conversión de login, recuperación de cuentas y uso de factores de autenticación.</li><li>Automaticé la actualización diaria de los modelos de datos mediante scripts eficientes, reduciendo significativamente el costo operativo y la intervención manual.</li><li>Generé insights accionables a través de reportes, dashboards y tablas ad hoc, facilitando la medición del impacto de nuevas funcionalidades de login.</li><li>Coordiné con equipos de Producto para alinear los entregables analíticos con el roadmap, garantizando una correcta interpretación de resultados y visualizaciones.</li><li>Construí una API REST desde cero para analizar transacciones de login y automatizar decisiones en Customer Experience, Prevención de Fraude y GIN.</li><li>Lideré la migración del modelo de autenticación de Amazon Athena a Google BigQuery, mejorando la escalabilidad, velocidad y mantenibilidad de la infraestructura de datos.</li><li>Desarrollé nuevas funcionalidades en el sistema Auth-Login, contribuyendo a la mejora continua de un producto core del ecosistema de autenticación.</li><li>Optimicé pipelines de procesamiento de datos, mejorando su rendimiento y garantizando disponibilidad en tiempo real para servicios críticos.</li><li>Implementé prácticas de seguridad avanzadas en los procesos de autenticación, fortaleciendo la protección del acceso de usuarios y la robustez del sistema.</li>`, en: `<li>Designed, built, and maintained the login data model (MP, ML, ME), ensuring its organizational availability and reliability.</li><li>Developed strategic dashboards to monitor key metrics such as login conversion, account recovery, and use of authentication factors.</li><li>Automated the daily update of data models through efficient scripts, significantly reducing operational cost and manual intervention.</li><li>Generated actionable insights through reports, dashboards, and ad hoc tables, facilitating the impact measurement of new login functionalities.</li><li>Coordinated with Product teams to align analytical deliverables with the roadmap, ensuring correct interpretation of results and visualizations.</li><li>Built a REST API from scratch to analyze login transactions and automate decisions in Customer Experience, Fraud Prevention, and GIN.</li><li>Led the migration of the authentication model from Amazon Athena to Google BigQuery, improving the scalability, speed, and maintainability of the data infrastructure.</li><li>Developed new features in the Auth-Login system, contributing to the continuous improvement of a core product in the authentication ecosystem.</li><li>Optimized data processing pipelines, improving their performance and ensuring real-time availability for critical services.</li><li>Implemented advanced security practices in authentication processes, strengthening user access protection and system robustness.</li>` } },
+            { id: 3, date: { es: "May 2022 - Dic 2023", en: "May 2022 - Dec 2023" }, title: { es: "Shipping Product Owner", en: "Shipping Product Owner" }, company: "Mercado Libre", description: { es: `<li>Detecté oportunidades de mejora y nuevas funcionalidades a partir del análisis de datos de uso y feedback de usuarios, contribuyendo a la evolución continua del producto.</li><li>Colaboré con equipos de desarrollo y áreas de negocio para definir la estrategia y roadmap del producto, asegurando la alineación con los objetivos corporativos.</li><li>Realicé análisis de mercado y competencia para sustentar decisiones estratégicas, permitiendo identificar ventajas diferenciales y ajustar el posicionamiento del producto.</li><li>Aseguré estándares de calidad y una experiencia de usuario óptima a través de pruebas funcionales, validaciones de UX y mejoras iterativas basadas en métricas.</li><li>Gestioné el backlog priorizando funcionalidades según impacto y viabilidad, mejorando la eficiencia en la entrega y el enfoque en valor para el usuario.</li><li>Coordiné con el equipo técnico para garantizar claridad en los objetivos, prioridades y dependencias, facilitando una ejecución ágil y alineada.</li><li>Monitoreé métricas clave de negocio y producto (adopción, conversión, retención), impulsando decisiones de optimización que aumentaron la performance del producto.</li><li>Comuniqué avances, decisiones y métricas a stakeholders, fomentando una visión integrada y compartida entre producto, tech, negocio y diseño.</li>`, en: `<li>Identified improvement opportunities and new functionalities from usage data analysis and user feedback, contributing to the continuous evolution of the product.</li><li>Collaborated with development and business teams to define the product strategy and roadmap, ensuring alignment with corporate objectives.</li><li>Conducted market and competitor analysis to support strategic decisions, identifying differential advantages and adjusting product positioning.</li><li>Ensured quality standards and an optimal user experience through functional tests, UX validations, and iterative improvements based on metrics.</li><li>Managed the backlog by prioritizing functionalities according to impact and feasibility, improving delivery efficiency and focus on user value.</li><li>Coordinated with the technical team to ensure clarity on objectives, priorities, and dependencies, facilitating agile and aligned execution.</li><li>Monitored key business and product metrics (adoption, conversion, retention), driving optimization decisions that increased product performance.</li><li>Communicated progress, decisions, and metrics to stakeholders, fostering an integrated and shared vision among product, tech, business, and design.</li>` } },
+            { id: 4, date: { es: "Ene 2021 - Jun 2022", en: "Jan 2021 - Jun 2022" }, title: { es: "Cross Docking Sr. Analyst", en: "Sr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Estandaricé KPIs y reportes a nivel regional, definiendo métricas clave que permitieron un análisis consistente y comparativo entre países y unidades operativas.</li><li>Implementé un sistema de monitoreo de indicadores operativos críticos, optimizando la eficiencia del negocio y mejorando la experiencia del cliente en puntos clave del journey.</li><li>Lideré iniciativas de mejora continua en operaciones de cross docking en MLA, logrando reducciones en tiempos de procesamiento y costos logísticos.</li><li>Coordiné directamente con operadores logísticos (3PL), negociando acuerdos y planificando acciones que mejoraron el rendimiento y la confiabilidad del servicio.</li><li>Planifiqué y executé la expansión de infraestructura logística mediante la apertura de nuevos centros de cross docking en Argentina, aumentando la capacidad operativa y reduciendo costos de botella.</li>`, en: `<li>Standardized KPIs and reports at a regional level, defining key metrics that allowed for consistent and comparative analysis between countries and operational units.</li><li>Implemented a monitoring system for critical operational indicators, optimizing business efficiency and improving the customer experience at key journey points.</li><li>Led continuous improvement initiatives in cross-docking operations in MLA, achieving reductions in processing times and logistics costs.</li><li>Coordinated directly with logistics operators (3PL), negotiating agreements and planning actions that improved service performance and reliability.</li><li>Planned and executed the expansion of logistics infrastructure through the opening of new cross-docking centers in Argentina, increasing operational capacity and reducing bottleneck costs.</li>` } },
+            { id: 5, date: { es: "Ago 2020 - Ene 2021", en: "Aug 2020 - Jan 2021" }, title: { es: "Cross Docking Ssr. Analyst", en: "Ssr. Cross Docking Analyst" }, company: "Mercado Libre", description: { es: `<li>Monitoreé y analicé KPIs operativos como Out On Time, In On Time y NPS de forma diaria, contribuyendo a la optimización de la operación de Mercado Envíos.</li><li>Detecté oportunidades de mejora a través del análisis de procesos operativos, impulsando acciones correctivas que elevaron la eficiencia y calidad del servicio.</li><li>Diseñé e implementé planes de capacitación para equipos operativos, mejorando los tiempos de ejecución y fortaleciendo el cumplimiento de estándares internos.</li><li>Realicé auditorías a proveedores logísticos, evaluando su desempeño y garantizando el cumplimiento de los niveles de servicio establecidos por la compañía.</li>`, en: `<li>Monitored and analyzed operational KPIs such as Out On Time, In On Time, and NPS on a daily basis, contributing to the optimization of the Mercado Envíos operation.</li><li>Identified improvement opportunities through the analysis of operational processes, driving corrective actions that increased service efficiency and quality.</li><li>Designed and implemented training plans for operational teams, improving execution times and strengthening compliance with internal standards.</li><li>Conducted audits of logistics providers, evaluating their performance and ensuring compliance with the service levels established by the company.</li>` } },
+            { id: 6, date: { es: "May 2019 - Ago 2020", en: "May 2019 - Aug 2020" }, title: { es: "Cross Docking Team Leader", en: "Cross Docking Team Leader" }, company: "Mercado Libre", description: { es: `<li>Lideré y coordiné equipos operativos en inbound, sorting, outbound y dispatch, asegurando el cumplimiento consistente de objetivos clave de productividad y calidad.</li><li>Fomenté una cultura de trabajo motivadora, equilibrando la priorización de metas con el bienestar y disfrute del equipo, aumentando el compromiso y la retención.</li><li>Implementé procesos de feedback individual y grupal, junto con actividades motivacionales y planes de desarrollo, mejorando el desempeño y la cohesión del equipo.</li><li>Optimicé la gestión de tiempos productivos, ausencias y llegadas tardías, incrementando la eficiencia operativa y reduciendo pérdidas de productividad.</li><li>Analicé el desempeño del equipo y diseñé estrategias de mejora continua que incrementaron la productividad general de la operación.</li>`, en: `<li>Led and coordinated operational teams in inbound, sorting, outbound, and dispatch, ensuring consistent achievement of key productivity and quality objectives.</li><li>Fostered a motivating work culture, balancing goal prioritization with team well-being and enjoyment, increasing commitment and retention.</li><li>Implemented individual and group feedback processes, along with motivational activities and development plans, improving team performance and cohesion.</li><li>Optimized the management of productive times, absences, and late arrivals, increasing operational efficiency and reducing productivity losses.</li><li>Analyzed team performance and designed continuous improvement strategies that increased the overall productivity of the operation.</li>` } },
+            { id: 7, date: { es: "Dic 2024 - actualidad", en: "Dec 2024 - Present" }, title: { es: "Data & Analytics Expert", en: "Data & Analytics Expert" }, company: "Henry", description: { es: `<li>Liderazgo académico en Data & Analytics: Diseño de experiencias educativas transformadoras en herramientas clave como Power BI, Excel y Looker Studio.</li><li>Diseño instruccional y estructuración de contenidos: Maquetación de cursos con enfoque pedagógico, definiendo temáticas, secuencia de aprendizaje y recursos didácticos.</li><li>Desarrollo de proyectos aplicados: Creación de proyectos integradores que promueven el aprendizaje activo y la aplicación práctica de conceptos.</li><li>Elaboración de materiales didácticos de calidad: Redacción de soluciones, ejercicios y explicaciones detalladas que fortalecen el proceso de aprendizaje.</li><li>Planificación académica estratégica: Definición de programas de curso con objetivos claros, cronograma preciso y criterios de evaluación alineados al perfil profesional buscado.</li>`, en: `<li>Academic leadership in Data & Analytics: Designing transformative educational experiences in key tools like Power BI, Excel, and Looker Studio.</li><li>Instructional design and content structuring: Course layout with a pedagogical approach, defining themes, learning sequences, and didactic resources.</li><li>Development of applied projects: Creation of integrative projects that promote active learning and the practical application of concepts.</li><li>Elaboration of quality didactic materials: Writing solutions, exercises, and detailed explanations that strengthen the learning process.</li><li>Strategic academic planning: Definition of course programs with clear objectives, precise schedules, and evaluation criteria aligned with the desired professional profile.</li>` } },
+            { id: 8, date: { es: "May 2024 - actualidad", en: "May 2024 - Present" }, title: { es: "Data Analytics Instructor", en: "Data Analytics Instructor" }, company: "Henry", description: { es: `<li>Instructor de Data Analytics con foco en Python: Facilitación de clases teóricas y prácticas orientadas a la manipulación de datos, visualización y modelado estadístico.</li><li>Desarrollo de contenido educativo de alto impacto: Creación de presentaciones, ejercicios y proyectos alineados con las competencias clave del análisis de datos.</li><li>Acompañamiento personalizado al estudiante: Provisión de feedback individualizado y seguimiento constante para maximizar el aprendizaje y el desarrollo de habilidades.</li><li>Vinculación con la industria y actualización permanente: Colaboración con profesionales del sector y adopción de buenas prácticas en educación y ciencia de datos.</li><li>Pasión por la enseñanza y el crecimiento profesional: Compromiso con la formación de nuevos talentos en data analytics y la excelencia académica.</li>`, en: `<li>Data Analytics Instructor with a focus on Python: Facilitating theoretical and practical classes aimed at data manipulation, visualization, and statistical modeling.</li><li>Development of high-impact educational content: Creation of presentations, exercises, and projects aligned with key data analysis competencies.</li><li>Personalized student support: Providing individualized feedback and constant monitoring to maximize learning and skill development.</li><li>Industry linkage and continuous updating: Collaboration with industry professionals and adoption of best practices in education and data science.</li><li>Passion for teaching and professional growth: Commitment to training new talent in data analytics and academic excellence.</li>` } },
+            { id: 9, date: { es: "Mar 2024 - actualidad", en: "Mar 2024 - Present" }, title: { es: "Adjunct Professor", en: "Adjunct Professor" }, company: "UADE", description: { es: `<li>Docente de programación en nivel universitario: Liderazgo en la formación de estudiantes en su primer contacto formal con la programación, asegurando una base sólida para su desarrollo académico y profesional.</li><li>Diseño y actualización de programas de estudio: Desarrollo del plan académico del Taller de Programación I, incorporando buenas prácticas y tendencias actuales en el ámbito del software.</li><li>Facilitación de clases teóricas y prácticas: Enseñanza de fundamentos clave de programación a través de metodologías activas, fomentando la comprensión y aplicación de conceptos.</li><li>Acompañamiento y tutoría personalizada: Apoyo continuo a los estudiantes mediante asesorías individuales y grupales, promoviendo el aprendizaje autónomo y colaborativo.</li><li>Enfoque en pensamiento lógico y resolución de problemas: Estímulo del pensamiento crítico mediante ejercicios prácticos, proyectos integradores y desafíos reales.</li>`, en: `<li>University-level programming instructor: Leading the training of students in their first formal contact with programming, ensuring a solid foundation for their academic and professional development.</li><li>Design and updating of study programs: Development of the academic plan for Programming Workshop I, incorporating best practices and current trends in the software field.</li><li>Facilitation of theoretical and practical classes: Teaching key programming fundamentals through active methodologies, fostering the understanding and application of concepts.</li><li>Personalized support and tutoring: Continuous support for students through individual and group advising, promoting autonomous and collaborative learning.</li><li>Focus on logical thinking and problem-solving: Encouraging critical thinking through practical exercises, integrative projects, and real-world challenges.</li>` } },
+            { id: 10, date: { es: "Feb 2011 - Feb 2019", en: "Feb 2011 - Feb 2019" }, title: { es: "Warehouse Supervisor / Operations Sr. Analyst", en: "Warehouse Supervisor / Operations Sr. Analyst" }, company: "El Portugues", description: { es: `<li>Supervisión operativa de centro logístico: Gestión integral de un warehouse de 3.500 posiciones, asegurando el correcto funcionamiento de las operaciones logísticas.</li><li>Coordinación de procesos clave: Supervisión de la recepción, almacenamiento, preparación y despacho de mercadería, insumos, materias primas y pañol.</li><li>Manejo de flota de transporte: Coordinación de envíos mediante camiones propios y operadores logísticos externos (fleteros), optimizando tiempos y eficiencia.</li><li>Atención a clientes de primera línea: Gestión de operaciones logísticas para empresas líderes como Arcor, La Anónima, Los Marías, Flora-Dánica y PepsiCo.</li><li>Control de inventarios y operaciones: Aseguramiento del correcto registro y flujo de stock dentro del almacén, manteniendo altos estándares de orden y trazabilidad.</li><li>Gestión administrativa de proveedores logísticos: Atención y seguimiento de fleteros: liquidación de haberes, elaboración de tarifas, descuentos por repuestos y adelantos a cuenta de la compañía.</li><li>Control y conciliación de cuentas corrientes: Supervisión de gastos asociados a transporte (YPF, Rutas, telepeaje, estaciones de servicio del interior) y resolución de reclamos.</li>`, en: `<li>Operational supervision of logistics center: Comprehensive management of a 3,500-position warehouse, ensuring the correct functioning of logistics operations.</li><li>Coordination of key processes: Supervision of the reception, storage, preparation, and dispatch of merchandise, supplies, raw materials, and tools.</li><li>Transportation fleet management: Coordination of shipments using company-owned trucks and external logistics operators, optimizing time and efficiency.</li><li>Service to first-line clients: Management of logistics operations for leading companies such as Arcor, La Anónima, Los Marías, Flora-Dánica, and PepsiCo.</li><li>Inventory and operations control: Ensuring the correct registration and flow of stock within the warehouse, maintaining high standards of order and traceability.</li><li>Administrative management of logistics providers: Attention and follow-up with freight forwarders: payment settlement, rate setting, spare parts discounts, and company advances.</li><li>Current account control and reconciliation: Supervision of transportation-related expenses (YPF, tolls, service stations) and claim resolution.</li>` } },
+            { id: 11, date: { es: "Ene 2010 - Feb 2011", en: "Jan 2010 - Feb 2011" }, title: { es: "Backoffice Analyst", en: "Backoffice Analyst" }, company: "SOLDA-LIMP S.R.L.", description: { es: `<li>Gestión integral de ventas y facturación: Manejo completo del proceso de facturación de ventas, incluyendo remitos, control de stock, devoluciones y recepción/carga de pedidos.</li><li>Administración de medios de pago: Operación con cheques (al portador y cruzados), tarjetas de crédito y débito (POS), efectivo y realización de arqueos de caja.</li><li>Manejo de sistemas y herramientas: Uso del sistema de gestión Tango y dominio avanzado de Microsoft Office, especialmente Excel y PowerPoint.</li><li>Atención al cliente y asesoramiento comercial: Venta y recomendación de productos técnicos, electrodos, discos abrasivos, ropa de seguridad, máquinas de soldar, equipos de medición y control, entre otros.</li><li>Habilidades comerciales destacadas: Alta capacidad de persuasión y negociación para lograr cierres efectivos y fortalecer la relación con el cliente.</li>`, en: `<li>Comprehensive sales and invoicing management: Full handling of the sales invoicing process, including delivery notes, stock control, returns, and order reception/entry.</li><li>Payment methods administration: Operation with checks (bearer and crossed), credit and debit cards (POS), cash, and performing cash balancing.</li><li>Systems and tools management: Use of the Tango management system and advanced proficiency in Microsoft Office, especially Excel and PowerPoint.</li><li>Customer service and commercial advice: Sales and recommendation of technical products, electrodes, abrasive discs, safety clothing, welding machines, measurement and control equipment, among others.</li><li>Outstanding commercial skills: High capacity for persuasion and negotiation to achieve effective closings and strengthen the client relationship.</li>` } },
+            { id: 12, date: { es: "Feb 2009 - Dic 2009", en: "Feb 2009 - Dec 2009" }, title: { es: "Customer Services Representative", en: "Customer Services Representative" }, company: "UBICAR ARGENTINA", description: { es: `<li>Atención al cliente especializada: Representación directa ante usuarios de sistemas de rastreo satelital (radiofrecuencia y GPS), brindando soporte técnico y comercial.</li><li>Coordinación operativa: Asignación de turnos para instalación de dispositivos y seguimiento de solicitudes de servicio técnico.</li><li>Verificación de funcionamiento: Chequeo remoto y diagnóstico del estado del sistema de rastreo ante requerimientos del cliente.</li><li>Soporte en back office: Configuración y administración de cuentas personales de clientes, actualización de datos y resolución de incidencias administrativas.</li><li>Comunicación clara y efectiva: Interacción fluida con usuarios, adaptando la comunicación técnica a distintos niveles de conocimiento para garantizar una experiencia satisfactoria.</li>`, en: `<li>Specialized customer service: Direct representation to users of satellite tracking systems (radiofrequency and GPS), providing technical and commercial support.</li><li>Operational coordination: Assignment of shifts for device installation and monitoring of technical service requests.</li><li>Functionality verification: Remote checking and diagnosis of the tracking system's status upon client request.</li><li>Back office support: Configuration and administration of clients' personal accounts, data updates, and resolution of administrative incidents.</li><li>Clear and effective communication: Fluid interaction with users, adapting technical communication to different levels of knowledge to ensure a satisfactory experience.</li>` } }
         ];
-        
         const educationData = [
             { title: {es: "Postgraduate Degree, Ingeniería de Software", en: "Postgraduate Degree, Software Engineering"}, school: "UAI - Universidad Abierta Interamericana", date: "2025 - 2026" },
             { title: {es: "Licenciatura, Gestión de TI", en: "Bachelor's Degree, IT Management"}, school: "UADE", date: "2020 - 2021" },
@@ -584,10 +476,7 @@
             { title: {es: "Data Analyst", en: "Data Analyst"}, school: "Platzi", subtitle: {es: "Ciencias de la computación", en: "Computer Science"}, date: "2021 - 2022" },
             { title: {es: "Bachiller en Administración y Gestión de las Organizaciones", en: "High School Diploma in Business Administration and Management"}, school: "Instituto Parroquial Fundador Don Francisco de Merlo", subtitle: {es: "Administración y gestión de empresas, general", en: "Business Administration and Management, General"}, date: "2003 - 2006" }
         ];
-
         const certifications = ["GenAl for Champions", "Curso de N8N", "Introducción a Jira para gestión de proyectos con Kanban", "Curso de Unit Testing en Python", "Hacking con Python", "Curso de Manejo de Datos Faltantes", "Dataiku Core Designer", "Enseñanza de inglés como lengua extranjera (TEFL)", "Data Champions | BigQuery and LookML", "5 minutos al dia para mejorar tu Ingles", "Curso de Análisis Exploratorio de Datos", "Curso de Estadistica Inferencial para Data Science", "Curso de Ética y Manejo de Datos para Data Science", "Python TOTAL - Programador Avanzado", "Curso Básico de Django", "Curso de Desarrollo Backend", "Curso de Django Intermedio", "Curso de FastAPI: Modularización, Datos y Errores", "Curso de Flask", "Principios SOLID y Clean Code", "Curso Práctico de Python: Creación de un CRUD", "Curso de Complejidad Algoritmica con Python", "Curso de Estructuras de Datos Lineales con Python", "Curso de FastAPI: Fundamentos", "Curso de Pensamiento Computacional con Python", "Curso de Python: PIP y Entornos Virtuales", "Curso de Selenium con Python", "Android Completo con Kotlin", "Curso de Fundamentos de Python", "Curso de Python: Comprehensions, Funciones y Manejo de Errores", "Curso de Kotlin desde Cero", "GOLANG: Curso profesional de Go", "Problem Solving", "Curso de Webpack", "Diseño de interfaz (UI) con Figma", "Curso Básico de JavaScript", "Curso Práctico de Frontend Developer", "Curso de Asincronismo con JavaScript", "Curso de ECMAScript", "Curso de Frontend Developer", "Curso de NPM: Gestión de Paquetes", "Introducción a la Programación con Kotlin", "Nuevo Curso Gratis de Programación Básica", "Curso Práctico de Product Owner", "Curso de Prework: Configuración de Entorno", "Nuevo Curso de Pensamiento Lógico", "Curso de Fundamentos de R", "Data Analyst", "Curso de Digital Project Management", "Curso de Manipulación y Transformación de Datos con Pandas y NumPy", "Curso de PostgreSQL Aplicado a Ciencia de Datos", "Curso de Visualización de Datos con Matplotlib y Seaborn", "Proyecto del #PlatziChallenge Datacademy 2022", "Curso Práctico de SQL", "Cómo y Por Qué Aprender Data Science", "Datacademy", "Curso de Análisis de Datos con Power BI", "Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos", "Curso de Cómo Dar y Recibir Feedback", "Curso de Funciones Matemáticas para Data Science", "Curso de PostgreSQL", "Curso sobre la Neurociencia del Feedback", "Curso de Programación Orientada a Objetos: POO", "Curso Fundamentos de Product Management", "Curso de Filosofía para Managers", "Curso de Herramientas para el Crecimiento Personal", "Curso de Historia de Bitcoin y Criptomonedas", "Curso de Motivación para Equipos de Trabajo", "Curso para Desbloquear tu Creatividad", "Learning Path Shipping", "Curso Profesional de Python", "Curso de Google Data Studio", "Python Challenge", "Curso de Business Intelligence: Utilidad y Áreas de Oportunidad", "Curso de Excel Básico", "Curso de Fundamentos de Bases de Datos", "Curso de Introducción a Business Intelligence con Power BI", "Curso de Introduccion al Algebra Lineal: Vectores", "Curso de Principios de Visualización de Datos para Business Intelligence", "Curso de Tableau: Visualización de Datos y Storytelling", "Curso Práctico de Regresión Lineal con Python", "Curso de Entorno de Trabajo para Ciencia de Datos", "Curso de Fundamentos de Álgebra Lineal con Python", "Curso de Google Suite", "Curso de Inglés para Principiantes", "Curso de Matemáticas para Data Science: Cálculo Básico", "Curso de Matemáticas para Data Science: Estadística Descriptiva", "Curso de Matemáticas para Data Science: Probabilidad", "Curso de Python Intermedio", "Taller de Inglés para Principiantes", "Curso Profesional de Git y GitHub", "Curso de Comunicación Efectiva", "Curso de Fundamentos de Matemáticas", "Curso de Gestión Efectiva del Tiempo", "Curso de Inteligencia Emocional", "Curso de Introducción a la Terminal y Línea de Comandos", "Curso Básico de Python", "Curso de Análisis de Negocios para Ciencia de Datos", "Curso de Estrategias para Aprender Inglés Online", "Data Explorer", "MicroStrategy", "Looker", "SQL", "Tableau", "Modelos logísticos para e-commerce", "SQL Foundamentals"];
-
-        // --- GLOBAL TRANSLATION OBJECT ---
         const translations = {
             job_title: { es: "Data & Analytics Technical Leader en Mercado Libre", en: "Data & Analytics Technical Leader at Mercado Libre" },
             contact_title: { es: "Contacto", en: "Contact" },
@@ -605,10 +494,7 @@
             lang_en: { es: "Inglés (C1 - Avanzado)", en: "English (C1 - Advanced)"},
             cert_title: { es: "Formación Complementaria", en: "Complementary Training"},
             about_title: { es: "Sobre mí", en: "About Me"},
-            about_text: {
-                es: `Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.`,
-                en: `Technical leader with over 6 years of experience at Mercado Libre, focused on Data & Analytics. Passionate about leading high-performance teams to solve complex business challenges through innovation and technology. Expert in aligning data strategies with corporate objectives to drive efficiency and growth. My goal is to continue democratizing commerce and financial services in Latin America, transforming the lives of millions.`
-            },
+            about_text: { es: `Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.`, en: `Technical leader with over 6 years of experience at Mercado Libre, focused on Data & Analytics. Passionate about leading high-performance teams to solve complex business challenges through innovation and technology. Expert in aligning data strategies with corporate objectives to drive efficiency and growth. My goal is to continue democratizing commerce and financial services in Latin America, transforming the lives of millions.` },
             projects_title: { es: "Proyectos Destacados", en: "Featured Projects"},
             experience_title: { es: "Experiencia Profesional", en: "Professional Experience"},
             view_repo: { es: "Ver Repositorio", en: "View Repository" },
@@ -617,40 +503,287 @@
             calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" },
             see_more: { es: "Ver más", en: "See more" }
         };
+    
+        // =================================================================================
+        // --- 2. FUNCIONES (Toda la lógica de la página)
+        // =================================================================================
+    
+        // --- Dynamic Content Population ---
+        function populateTechStack(lang) {
+            const container = document.getElementById('tech-stack-container');
+            if(!container) return;
+            container.innerHTML = '';
+            for (const category in techStackData) {
+                const categoryKey = `stack_${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`;
+                let tagsHTML = '';
+                techStackData[category].forEach(tag => {
+                    tagsHTML += `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`;
+                });
+                container.innerHTML += `<div><h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="${categoryKey}">${translations[categoryKey] ? translations[categoryKey][lang] : category}</h4><div class="flex flex-wrap gap-2">${tagsHTML}</div></div>`;
+            }
+        }
+        function populateProjects(lang, filterTag = null) {
+            const container = document.getElementById('projects-container');
+            if (!container) return;
+            const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
+            if (filteredProjects.length === 0 && filterTag) {
+                 container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="populateProjects(localStorage.getItem('language') || 'es'); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
+                 return;
+            }
+            container.innerHTML = '';
+            filteredProjects.forEach(project => {
+                 container.innerHTML += `<div class="project-item avoid-break p-4 rounded-lg glass-effect interactive"><h4 class="text-lg font-bold">${project.title[lang]}</h4><p class="text-secondary text-sm mb-2">${project.description[lang]}</p><a href="${project.link}" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> <span>${translations.view_repo[lang]}</span></a></div>`;
+            });
+        }
+        function populateExperience(lang) {
+            const container = document.getElementById('experience-timeline');
+            if(!container) return;
+            container.innerHTML = '';
+            experienceData.forEach((job, index) => {
+                const side = index % 2 === 0 ? 'left' : 'right';
+                container.innerHTML += `<div class="timeline-container ${side} animate-on-scroll"><div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})"><div class="see-more-indicator"><span data-translate="see_more">${translations.see_more[lang]}</span><i class="fas fa-external-link-alt fa-xs"></i></div><div class="pr-12"><p class="font-semibold text-sm" style="color: var(--primary-color);">${job.date[lang]}</p><h4 class="text-lg font-bold mt-1">${job.title[lang]}</h4><p class="font-semibold text-base text-secondary">${job.company}</p></div></div></div>`;
+            });
+        }
+        function populateEducation(lang) {
+            const container = document.getElementById('education-list');
+            if(!container) return;
+            container.innerHTML = '';
+            educationData.forEach(edu => {
+                const subtitleHTML = edu.subtitle ? `<p>${edu.subtitle[lang]}</p>` : '';
+                container.innerHTML += `<li><p class="font-semibold" style="color: var(--text-color);">${edu.title[lang]}</p>${subtitleHTML}<p>${edu.school}</p><p class="text-sm">${edu.date}</p></li>`;
+            });
+        }
+        function populateCerts() {
+            const container = document.getElementById('cert-list');
+            if(!container) return;
+            container.innerHTML = '';
+            certifications.forEach(cert => {
+                container.innerHTML += `<p>${cert}</p>`;
+            });
+        }
         
-        // --- DOMContentLoaded LOGIC ---
+        // --- Filtering Logic ---
+        let currentFilter = null;
+        function filterProjects(tag) {
+            const lang = localStorage.getItem('language') || 'es';
+            if (currentFilter === tag) {
+                currentFilter = null;
+                document.querySelectorAll('#tech-stack-container .tag').forEach(t => t.classList.remove('active'));
+            } else {
+                currentFilter = tag;
+                document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
+                    t.classList.toggle('active', t.textContent === tag);
+                });
+            }
+            populateProjects(lang, currentFilter);
+        }
+    
+        // --- Modal Logic ---
+        function openExperienceModal(jobId) {
+            const lang = localStorage.getItem('language') || 'es';
+            const job = experienceData.find(j => j.id === jobId);
+            if (!job) return;
+            document.getElementById('modal-date').textContent = job.date[lang];
+            document.getElementById('modal-title').textContent = job.title[lang];
+            document.getElementById('modal-company').textContent = job.company;
+            document.getElementById('modal-description').innerHTML = job.description[lang];
+            document.getElementById('experience-modal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeExperienceModal() {
+            document.getElementById('experience-modal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    
+        // --- PDF Generation Logic ---
+        function setupPdfGeneration() {
+            const downloadBtn = document.getElementById('download-btn');
+            if (!downloadBtn) return;
+            downloadBtn.addEventListener('click', () => {
+                const downloadText = document.getElementById('download-text');
+                const downloadIcon = document.getElementById('download-icon');
+                const pageFooter = document.getElementById('page-footer');
+                const lang = localStorage.getItem('language') || 'es';
+                downloadText.textContent = 'Generando...';
+                downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
+                downloadBtn.disabled = true;
+                const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+                document.documentElement.classList.add('light-mode');
+                const pdfContainer = document.getElementById('pdf-experience-container');
+                let experienceHTML = `<section class="p-6 rounded-xl"><h3 class="text-2xl font-semibold mb-8 border-b pb-2" style="border-color: #e5e7eb; color: #0ea5e9;">Experiencia Profesional</h3>`;
+                experienceData.forEach(job => {
+                    experienceHTML += `<div class="avoid-break mb-6"><p class="font-semibold" style="color: #0ea5e9;">${job.date[lang]}</p><h4 class="text-xl font-bold mt-1" style="color: #1f2937;">${job.title[lang]}</h4><p class="font-semibold text-lg" style="color: #4b5563;">${job.company}</p><ul class="list-disc list-inside space-y-2 text-base mt-2" style="color: #4b5563;">${job.description[lang]}</ul></div>`;
+                });
+                experienceHTML += `</section>`;
+                pdfContainer.innerHTML = experienceHTML;
+                document.getElementById('experience-timeline').parentElement.style.display = 'none';
+                pdfContainer.style.display = 'block';
+                const element = document.getElementById('page-content');
+                pageFooter.classList.remove('mt-16');
+                setTimeout(() => {
+                    html2canvas(element, { scale: 2, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
+                    .then(canvas => {
+                        const { jsPDF } = window.jspdf;
+                        const pdf = new jsPDF('p', 'mm', 'a4');
+                        const pdfWidth = pdf.internal.pageSize.getWidth();
+                        const pdfHeight = pdf.internal.pageSize.getHeight();
+                        const ratio = canvas.width / canvas.height;
+                        let imgHeight = pdfWidth / ratio;
+                        let heightLeft = imgHeight;
+                        let position = 0;
+                        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
+                        heightLeft -= pdfHeight;
+                        while (heightLeft > 0) {
+                            position -= pdfHeight;
+                            pdf.addPage();
+                            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
+                            heightLeft -= pdfHeight;
+                        }
+                        pdf.save('CV-MarianoGobeaAlcoba.pdf');
+                    })
+                    .finally(() => {
+                        document.getElementById('experience-timeline').parentElement.style.display = 'block';
+                        pdfContainer.style.display = 'none';
+                        pdfContainer.innerHTML = '';
+                        downloadText.textContent = 'Descargar CV';
+                        downloadIcon.className = 'fas fa-download w-5 mr-2';
+                        downloadBtn.disabled = false;
+                        pageFooter.classList.add('mt-16');
+                        if (originalTheme === 'dark') {
+                           document.documentElement.classList.remove('light-mode');
+                        }
+                    });
+                }, 500);
+            });
+        }
+    
+        // --- Social Link Tracking in Analytics ---
+        function trackSocialClick(event, platform) {
+          event.preventDefault();
+          const url = event.currentTarget.href;
+          gtag('event', 'social_click', {
+            'social_platform': platform,
+            'link_url': url,
+            'event_callback': function() {
+              window.location.href = url;
+            }
+          });
+        }
+        
+        // --- LÓGICA DE LA TERMINAL ---
+        const terminalContainer = document.getElementById('terminal-container');
+        const terminalOutput = document.getElementById('terminal-output');
+        const terminalInput = document.getElementById('terminal-input');
+        
+        terminalInput.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const command = terminalInput.value.trim().toLowerCase();
+                if(command) {
+                    printToTerminal(`<span class="text-gray-500">> ${command}</span>`);
+                    handleCommand(command);
+                }
+                terminalInput.value = "";
+                terminalContainer.scrollTop = terminalContainer.scrollHeight;
+            }
+        });
+        
+        function handleCommand(command) {
+            const lang = localStorage.getItem('language') || 'es';
+            switch (command) {
+                case 'help':
+                    printToTerminal(`Comandos disponibles:\n- about\n- experience\n- projects\n- contact\n- clear\n- gui (volver a la vista normal)`);
+                    break;
+                case 'about':
+                    printToTerminal(translations.about_text[lang]);
+                    break;
+                case 'experience':
+                    let expOutput = '--- Experiencia Profesional ---\n\n';
+                    experienceData.forEach(job => {
+                        expOutput += `[${job.date[lang]}]\n`;
+                        expOutput += `${job.title[lang]} @ ${job.company}\n\n`;
+                    });
+                    printToTerminal(expOutput);
+                    break;
+                case 'projects':
+                    let projOutput = '--- Proyectos Destacados ---\n(Para verlos en detalle, tipea 'gui')\n\n';
+                    projectsData.forEach(proj => {
+                        projOutput += `[${proj.tags.join(', ')}]\n`;
+                        projOutput += `${proj.title[lang]}\n\n`;
+                    });
+                    printToTerminal(projOutput);
+                    break;
+                case 'contact':
+                    printToTerminal(`- Ubicación: Buenos Aires, Argentina\n- Teléfono: +54 9 11 27475569\n- Email: gobeamariano@gmail.com`);
+                    break;
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
+                case 'gui':
+                    toggleTerminal(false);
+                    // Si el usuario vuelve a la GUI, reseteamos el tema a 'dark' por defecto para evitar quedar en un estado 'cli' fantasma.
+                    localStorage.setItem('theme', 'dark');
+                    // Y aplicamos el tema para que la GUI se vea correctamente.
+                    const newTheme = localStorage.getItem('theme') || 'dark';
+                    // Necesitamos acceder a la función applyTheme, que está en el scope de DOMContentLoaded.
+                    // Esto es un problema de scope que debemos resolver.
+                    // La solución más simple es hacer que la función applyTheme sea global o pasarla como callback.
+                    // Por ahora, recargamos la página para una solución simple.
+                    window.location.reload(); 
+                    break;
+                default:
+                    printToTerminal(`bash: command not found: ${command}`);
+                    break;
+            }
+        }
+        
+        function printToTerminal(text) {
+            const line = document.createElement('div');
+            line.innerHTML = text;
+            line.classList.add('terminal-line', 'text-green-400');
+            terminalOutput.appendChild(line);
+        }
+        
+        function toggleTerminal(show) {
+            const mainContent = document.getElementById('page-content');
+            if (show) {
+                terminalContainer.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+                terminalInput.focus();
+            } else {
+                terminalContainer.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+            }
+        }
+    
+        // =================================================================================
+        // --- 3. EJECUCIÓN INICIAL (El código que corre cuando la página carga)
+        // =================================================================================
+    
         document.addEventListener('DOMContentLoaded', () => {
-            // Referencias a los elementos del DOM
             const themeToggle = document.getElementById('theme-toggle');
             const darkIcon = document.getElementById('dark-icon');
             const lightIcon = document.getElementById('light-icon');
-            const terminalIcon = document.getElementById('terminal-icon'); // Nuevo
+            const terminalIcon = document.getElementById('terminal-icon');
             const langEsBtn = document.getElementById('lang-es');
             const langEnBtn = document.getElementById('lang-en');
         
-            // Variable para guardar el estado actual del tema (ahora con 3 opciones)
             let currentTheme = localStorage.getItem('theme') || 'dark';
         
-            // Función principal para aplicar el tema
             const applyTheme = (theme) => {
-                // Primero, manejamos la visibilidad de la terminal
                 if (theme === 'cli') {
-                    toggleTerminal(true); // Muestra la terminal
-                    // Ocultamos los íconos de sol/luna y mostramos el de terminal
+                    toggleTerminal(true);
                     darkIcon.classList.add('hidden');
                     lightIcon.classList.add('hidden');
                     terminalIcon.classList.remove('hidden');
                 } else {
-                    // Si no es CLI, nos aseguramos que la terminal esté oculta
                     toggleTerminal(false);
-                    terminalIcon.classList.add('hidden'); // Ocultamos el ícono de terminal
-                    
-                    // Y aplicamos el tema claro u oscuro a la GUI
+                    terminalIcon.classList.add('hidden');
                     if (theme === 'dark') {
                         document.documentElement.classList.remove('light-mode');
                         darkIcon.classList.add('hidden');
                         lightIcon.classList.remove('hidden');
-                    } else { // 'light'
+                    } else {
                         document.documentElement.classList.add('light-mode');
                         darkIcon.classList.remove('hidden');
                         lightIcon.classList.add('hidden');
@@ -658,25 +791,18 @@
                 }
             };
         
-            // Event listener para el botón de cambio de tema
             themeToggle.addEventListener('click', () => {
-                // Lógica de rotación de 3 estados
                 if (currentTheme === 'dark') {
                     currentTheme = 'light';
                 } else if (currentTheme === 'light') {
                     currentTheme = 'cli';
-                } else { // Si es 'cli'
-                    currentTheme = 'dark'; // Vuelve al modo oscuro
+                } else {
+                    currentTheme = 'dark';
                 }
-                
-                // Guardamos la nueva preferencia en el almacenamiento local
                 localStorage.setItem('theme', currentTheme);
-                
-                // Aplicamos el nuevo tema
                 applyTheme(currentTheme);
             });
         
-            // La función setLanguage no cambia, la dejamos como está
             const setLanguage = (lang) => {
                 document.documentElement.lang = lang;
                 document.querySelectorAll('[data-translate]').forEach(el => {
@@ -707,363 +833,17 @@
                 });
             };
             
-            // Event listeners para los botones de idioma (sin cambios)
             langEsBtn.addEventListener('click', () => setLanguage('es'));
             langEnBtn.addEventListener('click', () => setLanguage('en'));
             
-            // Al cargar la página, aplicamos el idioma y el tema guardados
+            // Llamadas iniciales
+            setupPdfGeneration(); // Configura el botón de PDF
+            printToTerminal('Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.'); // Mensaje inicial de la terminal
+            
             const savedLang = localStorage.getItem('language') || 'es';
-            applyTheme(currentTheme); // Usamos la variable 'currentTheme' que ya leyó el localStorage
+            applyTheme(currentTheme);
             setLanguage(savedLang);
         });
-        
-        // --- DYNAMIC CONTENT POPULATION ---
-        function populateTechStack(lang) {
-            const container = document.getElementById('tech-stack-container');
-            if(!container) return;
-            container.innerHTML = '';
-            for (const category in techStackData) {
-                const categoryKey = `stack_${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`;
-                let tagsHTML = '';
-                techStackData[category].forEach(tag => {
-                    tagsHTML += `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`;
-                });
-
-                container.innerHTML += `
-                    <div>
-                        <h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="${categoryKey}">${translations[categoryKey] ? translations[categoryKey][lang] : category}</h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${tagsHTML}
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        function populateProjects(lang, filterTag = null) {
-            const container = document.getElementById('projects-container');
-            if (!container) return;
-
-            const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
-            
-            if (filteredProjects.length === 0 && filterTag) {
-                 container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="populateProjects(localStorage.getItem('language') || 'es'); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
-                 return;
-            }
-
-            container.innerHTML = '';
-            filteredProjects.forEach(project => {
-                 container.innerHTML += `
-                    <div class="project-item avoid-break p-4 rounded-lg glass-effect interactive">
-                        <h4 class="text-lg font-bold">${project.title[lang]}</h4>
-                        <p class="text-secondary text-sm mb-2">${project.description[lang]}</p>
-                        <a href="${project.link}" target="_blank" class="text-sm icon-link" style="color: var(--primary-color);"><i class="fab fa-github mr-1"></i> <span>${translations.view_repo[lang]}</span></a>
-                    </div>
-                `;
-            });
-        }
-        
-        function populateExperience(lang) {
-            const container = document.getElementById('experience-timeline');
-            if(!container) return;
-            container.innerHTML = '';
-            experienceData.forEach((job, index) => {
-                const side = index % 2 === 0 ? 'left' : 'right';
-                const itemHTML = `
-                    <div class="timeline-container ${side} animate-on-scroll">
-                        <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
-                            <div class="see-more-indicator">
-                                <span data-translate="see_more">${translations.see_more[lang]}</span>
-                                <i class="fas fa-external-link-alt fa-xs"></i>
-                            </div>
-                             <div class="pr-12">
-                                 <p class="font-semibold text-sm" style="color: var(--primary-color);">${job.date[lang]}</p>
-                                 <h4 class="text-lg font-bold mt-1">${job.title[lang]}</h4>
-                                 <p class="font-semibold text-base text-secondary">${job.company}</p>
-                             </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += itemHTML;
-            });
-        }
-
-        function populateEducation(lang) {
-            const container = document.getElementById('education-list');
-            if(!container) return;
-            container.innerHTML = '';
-            educationData.forEach(edu => {
-                const subtitleHTML = edu.subtitle ? `<p>${edu.subtitle[lang]}</p>` : '';
-                container.innerHTML += `
-                     <li>
-                        <p class="font-semibold" style="color: var(--text-color);">${edu.title[lang]}</p>
-                        ${subtitleHTML}
-                        <p>${edu.school}</p>
-                        <p class="text-sm">${edu.date}</p>
-                    </li>
-                `;
-            });
-        }
-
-        function populateCerts() {
-            const container = document.getElementById('cert-list');
-            if(!container) return;
-            container.innerHTML = '';
-            certifications.forEach(cert => {
-                container.innerHTML += `<p>${cert}</p>`;
-            });
-        }
-        
-        // --- FILTERING LOGIC ---
-        let currentFilter = null;
-        function filterProjects(tag) {
-            const lang = localStorage.getItem('language') || 'es';
-            if (currentFilter === tag) {
-                currentFilter = null; // Unselect if the same tag is clicked again
-                document.querySelectorAll('#tech-stack-container .tag').forEach(t => t.classList.remove('active'));
-            } else {
-                currentFilter = tag;
-                document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
-                    t.classList.toggle('active', t.textContent === tag);
-                });
-            }
-            populateProjects(lang, currentFilter);
-        }
-
-        // --- MODAL LOGIC ---
-        function openExperienceModal(jobId) {
-            const lang = localStorage.getItem('language') || 'es';
-            const job = experienceData.find(j => j.id === jobId);
-            if (!job) return;
-
-            document.getElementById('modal-date').textContent = job.date[lang];
-            document.getElementById('modal-title').textContent = job.title[lang];
-            document.getElementById('modal-company').textContent = job.company;
-            document.getElementById('modal-description').innerHTML = job.description[lang];
-            
-            document.getElementById('experience-modal').classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeExperienceModal() {
-            document.getElementById('experience-modal').classList.remove('show');
-            document.body.style.overflow = ''; // Restore background scrolling
-        }
-
-
-        // --- PDF Generation logic ---
-        const downloadBtn = document.getElementById('download-btn');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', () => {
-                const downloadText = document.getElementById('download-text');
-                const downloadIcon = document.getElementById('download-icon');
-                const pageFooter = document.getElementById('page-footer');
-                const lang = localStorage.getItem('language') || 'es';
-
-                downloadText.textContent = 'Generando...';
-                downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
-                downloadBtn.disabled = true;
-
-                const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
-                document.documentElement.classList.add('light-mode');
-                
-                // Temporarily populate a hidden container with full experience details for printing
-                const pdfContainer = document.getElementById('pdf-experience-container');
-                let experienceHTML = `<section class="p-6 rounded-xl"><h3 class="text-2xl font-semibold mb-8 border-b pb-2" style="border-color: #e5e7eb; color: #0ea5e9;">Experiencia Profesional</h3>`;
-                experienceData.forEach(job => {
-                    experienceHTML += `
-                        <div class="avoid-break mb-6">
-                            <p class="font-semibold" style="color: #0ea5e9;">${job.date[lang]}</p>
-                            <h4 class="text-xl font-bold mt-1" style="color: #1f2937;">${job.title[lang]}</h4>
-                            <p class="font-semibold text-lg" style="color: #4b5563;">${job.company}</p>
-                            <ul class="list-disc list-inside space-y-2 text-base mt-2" style="color: #4b5563;">${job.description[lang]}</ul>
-                        </div>
-                    `;
-                });
-                experienceHTML += `</section>`;
-                pdfContainer.innerHTML = experienceHTML;
-
-                // Hide the interactive timeline and show the printable one
-                document.getElementById('experience-timeline').parentElement.style.display = 'none';
-                pdfContainer.style.display = 'block';
-
-                const element = document.getElementById('page-content');
-                pageFooter.classList.remove('mt-16');
-                
-                setTimeout(() => {
-                    html2canvas(element, {
-                        scale: 2, 
-                        backgroundColor: '#f9fafb',
-                        windowWidth: element.scrollWidth,
-                        windowHeight: element.scrollHeight
-                    }).then(canvas => {
-                        const imgData = canvas.toDataURL('image/png');
-                        const { jsPDF } = window.jspdf;
-                        
-                        const pdf = new jsPDF('p', 'mm', 'a4');
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = pdf.internal.pageSize.getHeight();
-                        const canvasWidth = canvas.width;
-                        const canvasHeight = canvas.height;
-                        const ratio = canvasWidth / canvasHeight;
-                        let imgHeight = pdfWidth / ratio;
-                        
-                        let heightLeft = imgHeight;
-                        let position = 0;
-
-                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
-                        heightLeft -= pdfHeight;
-
-                        while (heightLeft > 0) {
-                            position -= pdfHeight;
-                            pdf.addPage();
-                            pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
-                            heightLeft -= pdfHeight;
-                        }
-                        
-                        pdf.save('CV-MarianoGobeaAlcoba.pdf');
-                        
-                        // Restore state
-                        document.getElementById('experience-timeline').parentElement.style.display = 'block';
-                        pdfContainer.style.display = 'none';
-                        pdfContainer.innerHTML = '';
-                        downloadText.textContent = 'Descargar CV';
-                        downloadIcon.className = 'fas fa-download w-5 mr-2';
-                        downloadBtn.disabled = false;
-                        pageFooter.classList.add('mt-16');
-                        if (originalTheme === 'dark') {
-                           document.documentElement.classList.remove('light-mode');
-                        }
-                        
-                    }).catch(err => {
-                        console.error("PDF generation failed:", err);
-                        // Restore state on error
-                        document.getElementById('experience-timeline').parentElement.style.display = 'block';
-                        pdfContainer.style.display = 'none';
-                        pdfContainer.innerHTML = '';
-                        downloadText.textContent = 'Descargar CV';
-                        downloadIcon.className = 'fas fa-download w-5 mr-2';
-                        downloadBtn.disabled = false;
-                    });
-                }, 500);
-            });
-        }
-
-        // --- Social Link Tracking in Analytics ---
-        function trackSocialClick(event, platform) {
-          event.preventDefault();
-          const url = event.currentTarget.href;
-          gtag('event', 'social_click', {
-            'social_platform': platform,
-            'link_url': url,
-            'event_callback': function() {
-              window.location.href = url;
-            }
-          });
-        }
-        
-        // --- LÓGICA DE LA TERMINAL ---
-        
-        // 1. Obtenemos los elementos del DOM
-        const terminalContainer = document.getElementById('terminal-container');
-        const terminalOutput = document.getElementById('terminal-output');
-        const terminalInput = document.getElementById('terminal-input');
-        
-        // 2. Event Listener para la tecla "Enter"
-        terminalInput.addEventListener('keydown', function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-        
-                const command = terminalInput.value.trim().toLowerCase();
-                
-                // Imprime el comando que el usuario escribió
-                printToTerminal(`<span class="text-gray-500">> ${command}</span>`);
-        
-                // Procesa el comando
-                handleCommand(command);
-        
-                // Limpia el input
-                terminalInput.value = "";
-                
-                // Asegura que la vista siempre baje hasta el final
-                terminalContainer.scrollTop = terminalContainer.scrollHeight;
-            }
-        });
-        
-        // 3. El manejador de comandos (el cerebro)
-        function handleCommand(command) {
-            // La MEJOR parte: ¡reutilizamos los datos que ya tienes!
-            const lang = localStorage.getItem('language') || 'es';
-        
-            switch (command) {
-                case 'help':
-                    printToTerminal(`Comandos disponibles:\n- about\n- experience\n- projects\n- contact\n- clear\n- gui (volver a la vista normal)`);
-                    break;
-                
-                case 'about':
-                    printToTerminal(translations.about_text[lang]);
-                    break;
-        
-                case 'experience':
-                    let expOutput = '--- Experiencia Profesional ---\n\n';
-                    experienceData.forEach(job => {
-                        expOutput += `[${job.date[lang]}]\n`;
-                        expOutput += `${job.title[lang]} @ ${job.company}\n\n`;
-                    });
-                    printToTerminal(expOutput);
-                    break;
-        
-                case 'projects':
-                    let projOutput = '--- Proyectos Destacados ---\n(Para verlos en detalle, tipea 'gui')\n\n';
-                    projectsData.forEach(proj => {
-                        projOutput += `[${proj.tags.join(', ')}]\n`;
-                        projOutput += `${proj.title[lang]}\n\n`;
-                    });
-                    printToTerminal(projOutput);
-                    break;
-        
-                case 'contact':
-                    printToTerminal(`- Ubicación: Buenos Aires, Argentina\n- Teléfono: +54 9 11 27475569\n- Email: gobeamariano@gmail.com`);
-                    break;
-                    
-                case 'clear':
-                    terminalOutput.innerHTML = '';
-                    break;
-                
-                case 'gui':
-                    // Lógica para volver a la interfaz gráfica (ver Paso 4)
-                    toggleTerminal(false);
-                    break;
-                    
-                default:
-                    printToTerminal(`bash: command not found: ${command}`);
-                    break;
-            }
-        }
-        
-        // 4. Función para imprimir en nuestra terminal
-        function printToTerminal(text) {
-            const line = document.createElement('div');
-            line.innerHTML = text; // Usamos innerHTML para poder renderizar las etiquetas <span>
-            line.classList.add('terminal-line', 'text-green-400');
-            terminalOutput.appendChild(line);
-        }
-        
-        // 5. Función para activar/desactivar la terminal
-        function toggleTerminal(show) {
-            const mainContent = document.getElementById('page-content');
-            if (show) {
-                terminalContainer.classList.remove('hidden');
-                mainContent.classList.add('hidden');
-                terminalInput.focus(); // ¡Muy importante para que el usuario pueda escribir de inmediato!
-            } else {
-                terminalContainer.classList.add('hidden');
-                mainContent.classList.remove('hidden');
-            }
-        }
-        
-        // Mensaje de bienvenida inicial
-        printToTerminal('Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.');
     </script>
 </body>
 </html>
