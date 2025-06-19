@@ -335,11 +335,14 @@
             
             function filterProjects(tag) {
                 const lang = localStorage.getItem('language') || 'es';
-                currentFilter = tag;
+                const alreadyActive = currentFilter === tag;
+                currentFilter = alreadyActive ? null : tag;
+            
                 document.querySelectorAll('#tech-stack-container .tag').forEach(t => {
-                    t.classList.toggle('active', t.textContent === tag);
+                    t.classList.toggle('active', t.textContent === tag && !alreadyActive);
                 });
-                populateProjects(lang, tag);
+            
+                populateProjects(lang, currentFilter);
             }
         
             function openExperienceModal(jobId) {
@@ -384,7 +387,7 @@
                     document.querySelector('main.grid').appendChild(tempExperienceContainer);
                     
                     setTimeout(() => {
-                        html2canvas(element, { scale: 2, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
+                        html2canvas(element, { scale: 1, backgroundColor: '#f9fafb', windowWidth: element.scrollWidth, windowHeight: element.scrollHeight })
                         .then(canvas => {
                             const { jsPDF } = window.jspdf;
                             const pdf = new jsPDF('p', 'mm', 'a4');
@@ -423,13 +426,22 @@
             function trackSocialClick(event, platform) {
                 event.preventDefault();
                 const url = event.currentTarget.href;
-                if (typeof gtag === 'function') {
-                    gtag('event', 'social_click', {
-                        'social_platform': platform,
-                        'link_url': url,
-                        'event_callback': function() { window.location.href = url; }
-                    });
-                } else {
+                try {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'social_click', {
+                            'social_platform': platform,
+                            'link_url': url,
+                            'event_callback': function () {
+                                window.location.href = url;
+                            },
+                            'event_timeout': 500 // fallback en 0.5s
+                        });
+                        setTimeout(() => window.location.href = url, 500);
+                    } else {
+                        window.location.href = url;
+                    }
+                } catch (err) {
+                    console.warn('Error en trackSocialClick:', err);
                     window.location.href = url;
                 }
             }
@@ -440,6 +452,28 @@
             window.filterProjects = filterProjects;
             window.trackSocialClick = trackSocialClick;
             window.setupPdfGeneration = setupPdfGeneration;
+
+            // Función de diagnóstico para verificar el scope global
+            window.debugAll = () => {
+                console.log("🧪 Ejecutando debugAll()...");
+            
+                const checks = {
+                    openExperienceModal,
+                    closeExperienceModal,
+                    filterProjects,
+                    trackSocialClick,
+                    setupPdfGeneration,
+                };
+            
+                for (const fn in checks) {
+                    const isFunction = typeof checks[fn] === 'function';
+                    console.log(`✅ ${fn}: ${isFunction ? 'OK (function)' : '❌ No definida o no es función'}`);
+                }
+            
+                console.log("🌐 Todas las funciones deberían estar disponibles en window. Podés probar:");
+                console.log("➡️  openExperienceModal(1), filterProjects('Python'), setupPdfGeneration(), etc.");
+                console.log("🛠️  Si ves errores arriba, alguna función no está bien expuesta al scope global.");
+            };
 
             // =================================================================================
             // --- 3. TERMINAL FUNCTIONS
