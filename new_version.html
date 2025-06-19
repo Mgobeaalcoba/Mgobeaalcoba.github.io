@@ -434,9 +434,11 @@
                 }
             }
 
-            // Hacemos visibles las funciones necesarias desde el HTML
+            // Exportar funciones necesarias al scope global para el HTML
             window.openExperienceModal = openExperienceModal;
+            window.closeExperienceModal = closeExperienceModal;
             window.filterProjects = filterProjects;
+            window.trackSocialClick = trackSocialClick;
 
             // =================================================================================
             // --- 3. TERMINAL FUNCTIONS
