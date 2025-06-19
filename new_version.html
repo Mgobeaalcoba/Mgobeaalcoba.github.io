@@ -643,7 +643,13 @@
                 localStorage.setItem('language', lang);
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
-                
+            
+                // LÍNEAS NUEVAS AÑADIDAS AQUÍ
+                // Si el tema actual es la terminal, la reinicia con el nuevo idioma.
+                if(currentTheme === 'cli') {
+                    initTerminal(lang);
+                }
+            
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -651,7 +657,7 @@
                         }
                     });
                 }, { threshold: 0.1 });
-        
+            
                 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
             };
             
@@ -660,9 +666,16 @@
                 if (currentTheme === 'dark') currentTheme = 'light';
                 else if (currentTheme === 'light') currentTheme = 'cli';
                 else currentTheme = 'dark';
-                
+            
                 localStorage.setItem('theme', currentTheme);
                 applyTheme(currentTheme);
+            
+                // LÍNEAS NUEVAS AÑADIDAS AQUÍ
+                // Si el nuevo tema es la terminal, la inicializa.
+                if (currentTheme === 'cli') {
+                    const currentLang = localStorage.getItem('language') || 'es';
+                    initTerminal(currentLang);
+                }
             });
             
             langEsBtn.addEventListener('click', () => setLanguage('es'));
@@ -686,11 +699,18 @@
             
             // --- Initial Page Load Calls ---
             setupPdfGeneration(); 
-            printToTerminal('Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.');
+            
+            // LA LÍNEA printToTerminal(...) FUE BORRADA DE AQUÍ.
             
             const savedLang = localStorage.getItem('language') || 'es';
             applyTheme(currentTheme);
             setLanguage(savedLang);
+            
+            // LÍNEAS NUEVAS AÑADIDAS AQUÍ
+            // Si el tema guardado por defecto es la terminal, la inicializa al cargar la página.
+            if (currentTheme === 'cli') {
+                initTerminal(savedLang);
+            }
         });
     </script>
 </body>
