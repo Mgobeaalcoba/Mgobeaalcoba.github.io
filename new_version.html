@@ -447,17 +447,17 @@
                             'social_platform': platform,
                             'link_url': url,
                             'event_callback': function () {
-                                window.location.href = url;
+                                window.open(url, '_blank'); // <-- CAMBIO AQUÍ
                             },
                             'event_timeout': 500 // fallback en 0.5s
                         });
-                        setTimeout(() => window.location.href = url, 500);
+                        setTimeout(() => window.open(url, '_blank'), 500); // <-- Y AQUÍ
                     } else {
-                        window.location.href = url;
+                        window.open(url, '_blank'); // <-- Y AQUÍ
                     }
                 } catch (err) {
                     console.warn('Error en trackSocialClick:', err);
-                    window.location.href = url;
+                    window.open(url, '_blank'); // <-- Y AQUÍ
                 }
             }
 
