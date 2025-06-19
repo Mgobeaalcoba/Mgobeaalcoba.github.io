@@ -250,6 +250,18 @@
             transform: translateY(0);
         }
         /* --- END: Scroll Animation --- */
+        /* --- START: Terminal --- */
+        #terminal-input {
+            /* Le da ese cursor de texto parpadeante y del color que queramos */
+            caret-color: #34d399; /* Un verde similar al de Tailwind */
+        }
+        
+        /* Para los resultados de los comandos */
+        .terminal-line {
+            white-space: pre-wrap; /* Respeta los espacios y saltos de línea */
+            word-wrap: break-word;
+        }
+        /* --- END: Terminal --- */
     </style>
 </head>
 <body class="antialiased">
@@ -260,10 +272,20 @@
             <button id="lang-es" class="control-btn" data-lang="es">ES</button>
             <button id="lang-en" class="control-btn" data-lang="en">EN</button>
         </div>
-        <button id="theme-toggle" class="control-btn">
-            <i class="fas fa-sun hidden" id="dark-icon"></i>
-            <i class="fas fa-moon" id="light-icon"></i>
-        </button>
+            <button id="theme-toggle" class="control-btn">
+                <i class="fas fa-sun hidden" id="dark-icon"></i>
+                <i class="fas fa-moon" id="light-icon"></i>
+                <i class="fas fa-terminal hidden" id="terminal-icon"></i>
+            </button>
+    </div>
+
+    <!-- TERMINAL -->
+    <div id="terminal-container" class="hidden fixed inset-0 bg-black font-mono text-lg p-4 custom-scrollbar overflow-y-auto">
+        <div id="terminal-output"></div>
+        <div class="flex">
+            <span class="text-green-400">user@mgobeaalcoba:~$</span>
+            <input type="text" id="terminal-input" class="flex-grow bg-transparent border-none text-green-400 outline-none pl-2">
+        </div>
     </div>
 
     <!-- MAIN PAGE CONTENT -->
@@ -598,24 +620,63 @@
         
         // --- DOMContentLoaded LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
+            // Referencias a los elementos del DOM
             const themeToggle = document.getElementById('theme-toggle');
             const darkIcon = document.getElementById('dark-icon');
             const lightIcon = document.getElementById('light-icon');
+            const terminalIcon = document.getElementById('terminal-icon'); // Nuevo
             const langEsBtn = document.getElementById('lang-es');
             const langEnBtn = document.getElementById('lang-en');
-
+        
+            // Variable para guardar el estado actual del tema (ahora con 3 opciones)
+            let currentTheme = localStorage.getItem('theme') || 'dark';
+        
+            // Función principal para aplicar el tema
             const applyTheme = (theme) => {
-                if (theme === 'dark') {
-                    document.documentElement.classList.remove('light-mode');
+                // Primero, manejamos la visibilidad de la terminal
+                if (theme === 'cli') {
+                    toggleTerminal(true); // Muestra la terminal
+                    // Ocultamos los íconos de sol/luna y mostramos el de terminal
                     darkIcon.classList.add('hidden');
-                    lightIcon.classList.remove('hidden');
-                } else {
-                    document.documentElement.classList.add('light-mode');
-                    darkIcon.classList.remove('hidden');
                     lightIcon.classList.add('hidden');
+                    terminalIcon.classList.remove('hidden');
+                } else {
+                    // Si no es CLI, nos aseguramos que la terminal esté oculta
+                    toggleTerminal(false);
+                    terminalIcon.classList.add('hidden'); // Ocultamos el ícono de terminal
+                    
+                    // Y aplicamos el tema claro u oscuro a la GUI
+                    if (theme === 'dark') {
+                        document.documentElement.classList.remove('light-mode');
+                        darkIcon.classList.add('hidden');
+                        lightIcon.classList.remove('hidden');
+                    } else { // 'light'
+                        document.documentElement.classList.add('light-mode');
+                        darkIcon.classList.remove('hidden');
+                        lightIcon.classList.add('hidden');
+                    }
                 }
             };
-            
+        
+            // Event listener para el botón de cambio de tema
+            themeToggle.addEventListener('click', () => {
+                // Lógica de rotación de 3 estados
+                if (currentTheme === 'dark') {
+                    currentTheme = 'light';
+                } else if (currentTheme === 'light') {
+                    currentTheme = 'cli';
+                } else { // Si es 'cli'
+                    currentTheme = 'dark'; // Vuelve al modo oscuro
+                }
+                
+                // Guardamos la nueva preferencia en el almacenamiento local
+                localStorage.setItem('theme', currentTheme);
+                
+                // Aplicamos el nuevo tema
+                applyTheme(currentTheme);
+            });
+        
+            // La función setLanguage no cambia, la dejamos como está
             const setLanguage = (lang) => {
                 document.documentElement.lang = lang;
                 document.querySelectorAll('[data-translate]').forEach(el => {
@@ -624,7 +685,7 @@
                         el.innerHTML = translations[key][lang];
                     }
                 });
-                populateProjects(lang, currentFilter); // Repopulate with current filter
+                populateProjects(lang, currentFilter);
                 populateExperience(lang);
                 populateEducation(lang);
                 populateCerts();
@@ -633,7 +694,6 @@
                 langEsBtn.classList.toggle('active', lang === 'es');
                 langEnBtn.classList.toggle('active', lang === 'en');
                 
-                // Re-initialize observer after content is re-populated
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -641,29 +701,22 @@
                         }
                     });
                 }, { threshold: 0.1 });
-
+        
                 document.querySelectorAll('.animate-on-scroll').forEach(el => {
                     observer.observe(el);
                 });
             };
             
-            themeToggle.addEventListener('click', () => {
-                const isLight = document.documentElement.classList.contains('light-mode');
-                const newTheme = isLight ? 'dark' : 'light';
-                localStorage.setItem('theme', newTheme);
-                applyTheme(newTheme);
-            });
-            
+            // Event listeners para los botones de idioma (sin cambios)
             langEsBtn.addEventListener('click', () => setLanguage('es'));
             langEnBtn.addEventListener('click', () => setLanguage('en'));
             
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            // Al cargar la página, aplicamos el idioma y el tema guardados
             const savedLang = localStorage.getItem('language') || 'es';
-            
-            applyTheme(savedTheme);
+            applyTheme(currentTheme); // Usamos la variable 'currentTheme' que ya leyó el localStorage
             setLanguage(savedLang);
         });
-
+        
         // --- DYNAMIC CONTENT POPULATION ---
         function populateTechStack(lang) {
             const container = document.getElementById('tech-stack-container');
@@ -908,6 +961,109 @@
             }
           });
         }
+        
+        // --- LÓGICA DE LA TERMINAL ---
+        
+        // 1. Obtenemos los elementos del DOM
+        const terminalContainer = document.getElementById('terminal-container');
+        const terminalOutput = document.getElementById('terminal-output');
+        const terminalInput = document.getElementById('terminal-input');
+        
+        // 2. Event Listener para la tecla "Enter"
+        terminalInput.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+        
+                const command = terminalInput.value.trim().toLowerCase();
+                
+                // Imprime el comando que el usuario escribió
+                printToTerminal(`<span class="text-gray-500">> ${command}</span>`);
+        
+                // Procesa el comando
+                handleCommand(command);
+        
+                // Limpia el input
+                terminalInput.value = "";
+                
+                // Asegura que la vista siempre baje hasta el final
+                terminalContainer.scrollTop = terminalContainer.scrollHeight;
+            }
+        });
+        
+        // 3. El manejador de comandos (el cerebro)
+        function handleCommand(command) {
+            // La MEJOR parte: ¡reutilizamos los datos que ya tienes!
+            const lang = localStorage.getItem('language') || 'es';
+        
+            switch (command) {
+                case 'help':
+                    printToTerminal(`Comandos disponibles:\n- about\n- experience\n- projects\n- contact\n- clear\n- gui (volver a la vista normal)`);
+                    break;
+                
+                case 'about':
+                    printToTerminal(translations.about_text[lang]);
+                    break;
+        
+                case 'experience':
+                    let expOutput = '--- Experiencia Profesional ---\n\n';
+                    experienceData.forEach(job => {
+                        expOutput += `[${job.date[lang]}]\n`;
+                        expOutput += `${job.title[lang]} @ ${job.company}\n\n`;
+                    });
+                    printToTerminal(expOutput);
+                    break;
+        
+                case 'projects':
+                    let projOutput = '--- Proyectos Destacados ---\n(Para verlos en detalle, tipea 'gui')\n\n';
+                    projectsData.forEach(proj => {
+                        projOutput += `[${proj.tags.join(', ')}]\n`;
+                        projOutput += `${proj.title[lang]}\n\n`;
+                    });
+                    printToTerminal(projOutput);
+                    break;
+        
+                case 'contact':
+                    printToTerminal(`- Ubicación: Buenos Aires, Argentina\n- Teléfono: +54 9 11 27475569\n- Email: gobeamariano@gmail.com`);
+                    break;
+                    
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
+                
+                case 'gui':
+                    // Lógica para volver a la interfaz gráfica (ver Paso 4)
+                    toggleTerminal(false);
+                    break;
+                    
+                default:
+                    printToTerminal(`bash: command not found: ${command}`);
+                    break;
+            }
+        }
+        
+        // 4. Función para imprimir en nuestra terminal
+        function printToTerminal(text) {
+            const line = document.createElement('div');
+            line.innerHTML = text; // Usamos innerHTML para poder renderizar las etiquetas <span>
+            line.classList.add('terminal-line', 'text-green-400');
+            terminalOutput.appendChild(line);
+        }
+        
+        // 5. Función para activar/desactivar la terminal
+        function toggleTerminal(show) {
+            const mainContent = document.getElementById('page-content');
+            if (show) {
+                terminalContainer.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+                terminalInput.focus(); // ¡Muy importante para que el usuario pueda escribir de inmediato!
+            } else {
+                terminalContainer.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+            }
+        }
+        
+        // Mensaje de bienvenida inicial
+        printToTerminal('Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.');
     </script>
 </body>
 </html>
