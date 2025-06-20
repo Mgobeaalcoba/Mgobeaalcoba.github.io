@@ -235,6 +235,19 @@
             height: 100%;
             z-index: 10000; /* Por encima de todo, incluso la intro */
         }
+        /* --- Estilos para el comando Neofetch --- */
+        .neofetch-line {
+            display: flex;
+            align-items: flex-start; /* Alinea los items al inicio de la línea */
+            white-space: pre; /* Mantiene los espacios del logo */
+        }
+        .neofetch-logo {
+            flex-shrink: 0; /* Evita que el logo se encoja */
+            color: #38bdf8; /* Color azul para el logo */
+        }
+        .neofetch-skills {
+            padding-left: 1.5rem; /* Un espacio de separación entre logo y texto */
+        }
     </style>
 </head>
 <body class="antialiased intro-active">
@@ -942,31 +955,55 @@
             
                     case 'neofetch':
                         const skills = [
-                            `                            <span class="text-secondary">OS:</span>       Web Browser`,
-                            `                            <span class="text-secondary">Host:</span>     GitHub Pages`,
-                            `                            <span class="text-secondary">Kernel:</span>   1.0.0-MGA`,
-                            `                            <span class="text-secondary">Shell:</span>    bash 5.2.15`,
-                            `                            <span class="text-secondary">Theme:</span>    ${currentTheme}`,
-                            `                            <span class="text-secondary">CPU:</span>      Coffee Lake`,
-                            `                            <span class="text-secondary">Memory:</span>   16384MiB`,
+                            `<span class="text-secondary">OS:</span>       Web Browser`,
+                            `<span class="text-secondary">Host:</span>     GitHub Pages`,
+                            `<span class="text-secondary">Kernel:</span>   1.0.0-MGA`,
+                            `<span class="text-secondary">Shell:</span>    bash 5.2.15`,
+                            `<span class="text-secondary">Theme:</span>    ${currentTheme}`,
+                            `<span class="text-secondary">CPU:</span>      Coffee Lake`,
+                            `<span class="text-secondary">Memory:</span>   16384MiB`,
                             ``,
-                            `                            <span class="text-secondary">Skills:</span>`,
-                            `                             - Python, Java, Go`,
-                            `                             - Cloud (GCP, AWS)`,
-                            `                             - Data & Analytics`,
-                            `                             - LLMs, RAG`,
-                            `                             - Software Engineering`
+                            `<span class="text-secondary">Skills:</span>`,
+                            ` - Python, Java, Go`,
+                            ` - Cloud (GCP, AWS)`,
+                            ` - Data & Analytics`,
+                            ` - LLMs, RAG`,
+                            ` - Software Engineering`
                         ];
-                        let summaryOutput = '\n';
+                    
+                        // Imprime una línea en blanco para dar espacio
+                        printToTerminal(''); 
+                    
                         const maxLines = Math.max(mgaLogo2.length, skills.length);
+                    
                         for (let i = 0; i < maxLines; i++) {
-                            const logoLine = mgaLogo2[i] ? mgaLogo2[i].replace(/ /g, '&nbsp;') : '&nbsp;'.repeat(30);
+                            const logoLine = mgaLogo2[i] || '';
                             const skillLine = skills[i] || '';
-            
-                            // CORRECCIÓN 2: Se utiliza la sintaxis correcta de template literal (`...${variable}...`)
-                            summaryOutput += `<span class="text-sky-400"><span class="math-inline">${logoLine}</span\>&nbsp;&nbsp;</span>${skillLine}\n`;
+                    
+                            // Crea un contenedor para la línea con Flexbox
+                            const lineContainer = document.createElement('div');
+                            lineContainer.classList.add('neofetch-line');
+                    
+                            // Crea el span para el logo
+                            const logoElement = document.createElement('span');
+                            logoElement.classList.add('neofetch-logo');
+                            logoElement.textContent = logoLine;
+                    
+                            // Crea el span para los skills
+                            const skillElement = document.createElement('span');
+                            skillElement.classList.add('neofetch-skills');
+                            skillElement.innerHTML = skillLine; // Usamos innerHTML aquí porque contiene <span>
+                    
+                            // Añade ambos a la línea
+                            lineContainer.appendChild(logoElement);
+                            lineContainer.appendChild(skillElement);
+                    
+                            // Añade la línea completa a la terminal
+                            terminalOutput.appendChild(lineContainer);
                         }
-                        printToTerminal(summaryOutput + '\n');
+                    
+                        // Imprime otra línea en blanco al final
+                        printToTerminal(''); 
                         break;
             
                     case 'matrix':
