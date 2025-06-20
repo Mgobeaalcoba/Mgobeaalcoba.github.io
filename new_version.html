@@ -958,7 +958,7 @@
                             const skillLine = skills[i] || '';
             
                             // CORRECCIÓN 2: Se utiliza la sintaxis correcta de template literal (`...${variable}...`)
-                            summaryOutput += `<span class="text-sky-400"><span class="math-inline">\{logoLine\}</span\>&nbsp;&nbsp;</span>{skillLine}\n`;
+                            summaryOutput += `<span class="text-sky-400"><span class="math-inline">${logoLine}</span\>&nbsp;&nbsp;</span>${skillLine}\n`;
                         }
                         printToTerminal(summaryOutput + '\n');
                         break;
