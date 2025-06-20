@@ -929,7 +929,7 @@
                         let eduOutput = `${translations.terminal.education_header[lang]}\n\n`;
                         educationData.forEach(edu => {
                             const subtitleLine = edu.subtitle ? `  (${edu.subtitle[lang]})\n` : '';
-                            eduOutput += `[${edu.date}]\n> <span class="math-inline">\{edu\.title\[lang\]\}\\n</span>{subtitleLine}  @ ${edu.school}\n\n`;
+                            eduOutput += `[${edu.date}]\n> <span class="math-inline">${edu.title[lang]}\n</span>${subtitleLine}  @ ${edu.school}\n\n`;
                         });
                         printToTerminal(eduOutput);
                         break;
