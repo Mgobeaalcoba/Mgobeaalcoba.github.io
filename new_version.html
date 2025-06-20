@@ -450,6 +450,14 @@
               'MMMM               MMMM   AAA     AAA ',
               'MMMM               MMMM   AAA     AAA '
             ];
+            const mgaLogo2 = [
+                '███╗   ███╗ ██████╗  █████╗ ',
+                '████╗ ████║██╔════╝ ██╔══██╗',
+                '██╔████╔██║██║  ███╗███████║',
+                '██║╚██╔╝██║██║   ██║██╔══██║',
+                '██║ ╚═╝ ██║╚██████╔╝██║  ██║',
+                '╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝'
+            ];
             
             let currentFilter = null;
 
@@ -915,14 +923,17 @@
                         });
                         printToTerminal(expOutput);
                         break;
-                    case 'education': // Comando de Educación añadido
+            
+                    // CORRECCIÓN 1: Se añade el case para 'education' que faltaba.
+                    case 'education':
                         let eduOutput = `${translations.terminal.education_header[lang]}\n\n`;
                         educationData.forEach(edu => {
                             eduOutput += `[${edu.date}]\n> ${edu.title[lang]}\n  @ ${edu.school}\n\n`;
                         });
                         printToTerminal(eduOutput);
                         break;
-                    case 'neofetch': // Renombrado de 'summary'
+            
+                    case 'neofetch':
                         const skills = [
                             `                            <span class="text-secondary">OS:</span>       Web Browser`,
                             `                            <span class="text-secondary">Host:</span>     GitHub Pages`,
@@ -944,13 +955,17 @@
                         for (let i = 0; i < maxLines; i++) {
                             const logoLine = mgaLogo[i] ? mgaLogo[i].replace(/ /g, '&nbsp;') : '&nbsp;'.repeat(30);
                             const skillLine = skills[i] || '';
+            
+                            // CORRECCIÓN 2: Se utiliza la sintaxis correcta de template literal (`...${variable}...`)
                             summaryOutput += `<span class="text-sky-400"><span class="math-inline">\{logoLine\}</span\>&nbsp;&nbsp;</span>{skillLine}\n`;
                         }
                         printToTerminal(summaryOutput + '\n');
                         break;
-                    case 'matrix': // Comando Matrix añadido
+            
+                    case 'matrix':
                         startMatrixEffect();
                         break;
+            
                     case 'projects':
                         let filteredProjects = projectsData;
                         if (argument && argument.startsWith('--tag')) {
@@ -975,16 +990,20 @@
                             printToTerminal(projOutput);
                         }
                         break;
+            
                     case 'contact':
                         printToTerminal(translations.terminal.contact_details[lang]);
                         break;
+            
                     case 'clear':
                         document.getElementById('terminal-output').innerHTML = '';
                         break;
+            
                     case 'gui':
                         localStorage.setItem('theme', 'dark');
                         location.reload();
                         break;
+            
                     default:
                         printToTerminal(translations.terminal.command_not_found[lang].replace('{command}', command));
                         break;
