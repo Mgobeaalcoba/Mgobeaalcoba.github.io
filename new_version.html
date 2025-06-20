@@ -147,7 +147,8 @@
         
         /* --- Contenedor de texto y cursor --- */
         .typing-container {
-            font-size: 2rem;
+            /* Esta línea hace que el texto sea responsive */
+            font-size: clamp(1.25rem, 4vw, 2rem);
             text-align: center;
             margin-bottom: 2rem;
             min-height: 2.5rem;
@@ -248,6 +249,14 @@
         .neofetch-skills {
             padding-left: 1.5rem; /* Un espacio de separación entre logo y texto */
             color: #34d399; /* Asigna el color verde estándar de la terminal */
+        }
+        /* --- Estilos Responsive para la Terminal --- */
+        @media screen and (max-width: 768px) {
+            #terminal-container {
+                /* Hacemos la letra un poco más pequeña y reducimos el padding en móviles */
+                font-size: 0.875rem;
+                padding: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -950,7 +959,6 @@
                         printToTerminal(expOutput);
                         break;
             
-                    // CORRECCIÓN 1: Se añade el case para 'education' que faltaba.
                     case 'education':
                         let eduOutput = `${translations.terminal.education_header[lang]}\n\n`;
                         educationData.forEach(edu => {
@@ -976,38 +984,62 @@
                             ` - Software Engineering`
                         ];
                     
-                        // Imprime una línea en blanco para dar espacio
                         printToTerminal(''); 
                     
-                        const maxLines = Math.max(mgaLogo2.length, skills.length);
+                        // --- LÓGICA CONDICIONAL PARA RESPONSIVE ---
                     
-                        for (let i = 0; i < maxLines; i++) {
-                            const logoLine = mgaLogo2[i] || '';
-                            const skillLine = skills[i] || '';
+                        // Si la pantalla es angosta (móvil)
+                        if (window.innerWidth <= 768) {
                     
-                            // Crea un contenedor para la línea con Flexbox
-                            const lineContainer = document.createElement('div');
-                            lineContainer.classList.add('neofetch-line');
+                            // 1. Imprime el logo completo primero
+                            mgaLogo2.forEach(line => {
+                                const logoLineElement = document.createElement('div');
+                                logoLineElement.className = 'neofetch-logo terminal-line';
+                                logoLineElement.style.fontSize = '0.7em';
+                                logoLineElement.style.lineHeight = '1';
+                                logoLineElement.style.whiteSpace = 'pre';
+                                logoLineElement.textContent = line;
+                                terminalOutput.appendChild(logoLineElement);
+                            });
                     
-                            // Crea el span para el logo
-                            const logoElement = document.createElement('span');
-                            logoElement.classList.add('neofetch-logo');
-                            logoElement.textContent = logoLine;
+                            printToTerminal(''); // Un espacio de separación
                     
-                            // Crea el span para los skills
-                            const skillElement = document.createElement('span');
-                            skillElement.classList.add('neofetch-skills');
-                            skillElement.innerHTML = skillLine; // Usamos innerHTML aquí porque contiene <span>
+                            // 2. Imprime la lista de skills debajo
+                            skills.forEach(line => {
+                                // No usamos printToTerminal para poder aplicar el estilo de skills
+                                const skillLineElement = document.createElement('div');
+                                skillLineElement.className = 'neofetch-skills terminal-line';
+                                skillLineElement.style.paddingLeft = '0'; // Sin padding lateral en móvil
+                                skillLineElement.innerHTML = line;
+                                terminalOutput.appendChild(skillLineElement);
+                            });
                     
-                            // Añade ambos a la línea
-                            lineContainer.appendChild(logoElement);
-                            lineContainer.appendChild(skillElement);
+                        } else {
+                            // Si la pantalla es ancha (escritorio), usa la lógica original de dos columnas
+                            const maxLines = Math.max(mgaLogo2.length, skills.length);
                     
-                            // Añade la línea completa a la terminal
-                            terminalOutput.appendChild(lineContainer);
+                            for (let i = 0; i < maxLines; i++) {
+                                const logoLine = mgaLogo2[i] || '';
+                                const skillLine = skills[i] || '';
+                    
+                                const lineContainer = document.createElement('div');
+                                lineContainer.classList.add('neofetch-line');
+                    
+                                const logoElement = document.createElement('span');
+                                logoElement.classList.add('neofetch-logo');
+                                logoElement.textContent = logoLine;
+                    
+                                const skillElement = document.createElement('span');
+                                skillElement.classList.add('neofetch-skills');
+                                skillElement.innerHTML = skillLine; 
+                    
+                                lineContainer.appendChild(logoElement);
+                                lineContainer.appendChild(skillElement);
+                    
+                                terminalOutput.appendChild(lineContainer);
+                            }
                         }
                     
-                        // Imprime otra línea en blanco al final
                         printToTerminal(''); 
                         break;
             
