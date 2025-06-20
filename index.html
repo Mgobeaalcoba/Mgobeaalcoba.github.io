@@ -250,6 +250,33 @@
             padding-left: 1.5rem; /* Un espacio de separación entre logo y texto */
             color: #34d399; /* Asigna el color verde estándar de la terminal */
         }
+        /* --- Estilos Responsive para la Terminal --- */
+        @media screen and (max-width: 768px) {
+            #terminal-container {
+                /* Hacemos la letra un poco más pequeña y reducimos el padding en móviles */
+                font-size: 0.875rem;
+                padding: 0.75rem;
+            }
+        
+            .neofetch-line {
+                /* Para el comando 'neofetch', cambiamos a un layout de columna para apilar el logo y el texto */
+                flex-direction: column;
+            }
+        
+            .neofetch-logo {
+                /* Reducimos el tamaño de la fuente del logo para que quepa en la pantalla del celular */
+                font-size: 0.75em;
+                line-height: 1;
+            }
+        
+            .neofetch-skills {
+                /* Quitamos el padding lateral (que ya no es necesario) y añadimos un margen superior para separar del logo */
+                padding-left: 0;
+                margin-top: 0.75rem;
+                /* Permitimos que el texto de skills se ajuste si es muy largo */
+                white-space: pre-wrap;
+            }
+        }
     </style>
 </head>
 <body class="antialiased intro-active">
