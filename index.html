@@ -85,12 +85,177 @@
         .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
         #terminal-input { caret-color: #34d399; }
         .terminal-line { white-space: pre-wrap; word-wrap: break-word; }
+        /* Estilos base */
+        body.intro-active {
+            overflow: hidden;
+        }
+
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto Mono', monospace;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* --- TEMA OSCURO (Por defecto) --- */
+        #intro-overlay {
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        #intro-overlay .typing-cursor { background-color: #38bdf8; }
+        #intro-overlay .progress-bar-fill { background-color: #38bdf8; }
+        #intro-overlay .progress-bar-container { background-color: rgba(255, 255, 255, 0.1); }
+        #intro-overlay .control-btn { border-color: rgba(255, 255, 255, 0.2); color: #d1d5db; }
+        #intro-overlay .control-btn.active { background-color: #38bdf8; border-color: #38bdf8; color: #111827; }
+
+        /* --- TEMA CLARO --- */
+        #intro-overlay.light-mode {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+        #intro-overlay.light-mode .typing-cursor { background-color: #0ea5e9; }
+        #intro-overlay.light-mode .progress-bar-fill { background-color: #0ea5e9; }
+        #intro-overlay.light-mode .progress-bar-container { background-color: rgba(0, 0, 0, 0.1); }
+        #intro-overlay.light-mode .control-btn { border-color: rgba(0, 0, 0, 0.2); color: #1f2937; }
+        #intro-overlay.light-mode .control-btn.active { background-color: #0ea5e9; border-color: #0ea5e9; color: white; }
+
+        /* --- TEMA TERMINAL --- */
+        #intro-overlay.terminal-mode {
+            background-color: #000000;
+            color: #34d399;
+        }
+        #intro-overlay.terminal-mode .typing-cursor { background-color: #34d399; }
+        #intro-overlay.terminal-mode .progress-bar-fill { background-color: #34d399; }
+        #intro-overlay.terminal-mode .progress-bar-container { background-color: rgba(52, 211, 153, 0.2); }
+        #intro-overlay.terminal-mode .control-btn { border-color: rgba(52, 211, 153, 0.3); color: #34d399; }
+        #intro-overlay.terminal-mode .control-btn.active { background-color: #34d399; border-color: #34d399; color: #000000; }
+        
+        /* --- Ocultar intro --- */
+        #intro-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* --- Contenedor de texto y cursor --- */
+        .typing-container {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            min-height: 2.5rem;
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 2rem;
+            animation: blink 1s step-end infinite;
+            vertical-align: bottom;
+            margin-left: 8px;
+        }
+        @keyframes blink {
+            from, to { background-color: transparent; }
+            50% { animation-timing-function: step-end; }
+        }
+
+        /* --- Barra de progreso --- */
+        .progress-bar-container {
+            width: 80%;
+            max-width: 400px;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+        .progress-bar-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.1s linear;
+        }
+
+        /* --- Botón Ingresar --- */
+        #enter-button {
+            background: transparent;
+            padding: 0.75rem 2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+            border-width: 1px;
+        }
+        #intro-overlay:not(.light-mode):not(.terminal-mode) #enter-button { color: #38bdf8; border-color: #38bdf8; }
+        #intro-overlay.light-mode #enter-button { color: #0ea5e9; border-color: #0ea5e9; }
+        #intro-overlay.terminal-mode #enter-button { color: #34d399; border-color: #34d399; }
+
+        #enter-button.visible { opacity: 1; transform: translateY(0); }
+
+        #intro-overlay:not(.light-mode):not(.terminal-mode) #enter-button:hover { background-color: #38bdf8; color: #111827; }
+        #intro-overlay.light-mode #enter-button:hover { background-color: #0ea5e9; color: white; }
+        #intro-overlay.terminal-mode #enter-button:hover { background-color: #34d399; color: #000000; }
+
+        /* --- Controles simulados --- */
+        .intro-controls {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .control-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid;
+        }
+
+        .content-hidden { display: none !important; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased intro-active">
+    
+    <!-- =========== INICIO DEL COMPONENTE DE INTRODUCCIÓN =========== -->
+    <div id="intro-overlay">
+        <div class="intro-controls">
+            <div class="flex rounded-full">
+                <button id="intro-lang-es" class="control-btn" data-lang="es">ES</button>
+                <button id="intro-lang-en" class="control-btn" data-lang="en">EN</button>
+            </div>
+            <button id="intro-theme-btn" class="control-btn">
+                <i class="fas fa-sun hidden" id="intro-icon-sun"></i>
+                <i class="fas fa-moon" id="intro-icon-moon"></i>
+                <i class="fas fa-terminal hidden" id="intro-icon-terminal"></i>
+            </button>
+        </div>
+
+        <div class="typing-container">
+            <span id="typing-text"></span><span class="typing-cursor"></span>
+        </div>
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+        <button id="enter-button">Ingresar</button>
+    </div>
+    <!-- =========== FIN DEL COMPONENTE DE INTRODUCCIÓN =========== -->
 
     <!-- CONTROLS -->
-    <div class="top-controls">
+    <div class="top-controls content-hidden">
         <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
             <button id="lang-es" class="control-btn" data-lang="es">ES</button>
             <button id="lang-en" class="control-btn" data-lang="en">EN</button>
@@ -112,7 +277,7 @@
     </div>
 
     <!-- MAIN PAGE CONTENT -->
-    <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16">
+    <div id="page-content" class="container mx-auto max-w-5xl px-4 py-8 sm:py-12 md:py-16 content-hidden">
 
         <!-- HEADER BLOCK -->
         <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 animate-on-scroll">
@@ -259,6 +424,126 @@
             const translations = { job_title: { es: "Data & Analytics Technical Leader en Mercado Libre", en: "Data & Analytics Technical Leader at Mercado Libre" }, contact_title: { es: "Contacto", en: "Contact" }, download_btn: { es: "Descargar CV", en: "Download CV" }, stack_title: { es: "Stack Tecnológico", en: "Tech Stack" }, stack_backend: { es: "Backend & Datos", en: "Backend & Data" }, stack_ml: { es: "Machine Learning", en: "Machine Learning" }, stack_ai: { es: "IA & Automatización", en: "AI & Automation" }, stack_bi: { es: "Business Intelligence", en: "Business Intelligence" }, stack_productivity: { es: "Productividad", en: "Productivity" }, education_title: { es: "Educación", en: "Education" }, cert_lang_title: { es: "Certificaciones e Idiomas", en: "Certifications & Languages"}, languages_title: { es: "Idiomas", en: "Languages"}, lang_es: { es: "Español (Nativo)", en: "Spanish (Native)"}, lang_en: { es: "Inglés (C1 - Avanzado)", en: "English (C1 - Advanced)"}, cert_title: { es: "Formación Complementaria", en: "Complementary Training"}, about_title: { es: "Sobre mí", en: "About Me"}, about_text: { es: `Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.`, en: `Technical leader with over 6 years of experience at Mercado Libre, focused on Data & Analytics. Passionate about leading high-performance teams to solve complex business challenges through innovation and technology. Expert in aligning data strategies with corporate objectives to drive efficiency and growth. My goal is to continue democratizing commerce and financial services in Latin America, transforming the lives of millions.` }, projects_title: { es: "Proyectos Destacados", en: "Featured Projects"}, experience_title: { es: "Experiencia Profesional", en: "Professional Experience"}, view_repo: { es: "Ver Repositorio", en: "View Repository" }, footer_design: { es: "Diseñado con", en: "Designed with"}, footer_location: { es: "en Buenos Aires", en: "in Buenos Aires"}, calendly_btn: { es: "Agenda un espacio conmigo", en: "Schedule time with me" }, see_more: { es: "Ver más", en: "See more" }, terminal:{welcome:{es:'Bienvenido a mi CV interactivo. Escribe "help" para ver la lista de comandos.',en:'Welcome to my interactive CV. Type "help" to see the list of commands.'},help:{es:'Comandos disponibles:\n- about\n- experience\n- projects [--tag <tecnología>]\n- contact\n- clear\n- gui (volver a la vista normal)',en:'Available commands:\n- about\n- experience\n- projects [--tag <technology>]\n- contact\n- clear\n- gui (return to normal view)'},tag_error:{es:'Error: Debes especificar una tecnología después de --tag.',en:'Error: You must specify a technology after --tag.'},projects_with_tag:{es:'--- Proyectos con la tecnología: {tag} ---',en:'--- Projects with technology: {tag} ---'},projects_all:{es:'--- Proyectos Destacados ---',en:'--- Featured Projects ---'},projects_not_found:{es:'No se encontraron proyectos para esa tecnología.',en:'No projects found for that technology.'},experience_header:{es:'--- Experiencia Profesional ---',en:'--- Professional Experience ---'},contact_details:{es:'- Ubicación: Buenos Aires, Argentina\\n- Teléfono: +54 9 11 27475569\\n- Email: gobeamariano@gmail.com',en:'- Location: Buenos Aires, Argentina\\n- Phone: +54 9 11 27475569\\n- Email: gobeamariano@gmail.com'},command_not_found:{es:'bash: command not found: {command}',en:'bash: command not found: {command}'}}};
         
             let currentFilter = null;
+
+            // =================================================================================
+            // --- INTRO LOGIC
+            // =================================================================================
+            const introOverlay = document.getElementById('intro-overlay');
+            const typingTextElement = document.getElementById('typing-text');
+            const progressBarElement = document.getElementById('progress-bar');
+            const enterButton = document.getElementById('enter-button');
+            const introIconSun = document.getElementById('intro-icon-sun');
+            const introIconMoon = document.getElementById('intro-icon-moon');
+            const introIconTerminal = document.getElementById('intro-icon-terminal');
+            
+            const introWords = ["Data & Analytics", "Technical Leadership", "Python", "Cloud Computing", "Business Intelligence", "Software Engineering"];
+            const introThemes = ['dark', 'light', 'terminal', 'dark', 'light', 'terminal'];
+            const introLanguages = ['es', 'en', 'es', 'en', 'es', 'en'];
+            const introTotalDuration = 12000;
+            let introElapsed = 0;
+            let introIntervalId;
+            let introFinished = false;
+
+            function applyIntroTheme(theme) {
+                introOverlay.classList.remove('light-mode', 'terminal-mode');
+                if (theme === 'light') {
+                    introOverlay.classList.add('light-mode');
+                } else if (theme === 'terminal') {
+                    introOverlay.classList.add('terminal-mode');
+                }
+            }
+
+            function updateThemeToggle(theme) {
+                introIconSun.classList.add('hidden');
+                introIconMoon.classList.add('hidden');
+                introIconTerminal.classList.add('hidden');
+                if (theme === 'dark') introIconSun.classList.remove('hidden');
+                else if (theme === 'light') introIconTerminal.classList.remove('hidden');
+                else if (theme === 'terminal') introIconMoon.classList.remove('hidden');
+            }
+
+            function updateLangToggle(lang) {
+                document.getElementById('intro-lang-es').classList.toggle('active', lang === 'es');
+                document.getElementById('intro-lang-en').classList.toggle('active', lang === 'en');
+            }
+
+            async function typeWords() {
+                for (let i = 0; i < introWords.length; i++) {
+                    if (introFinished) break;
+                    applyIntroTheme(introThemes[i]);
+                    updateThemeToggle(introThemes[i]);
+                    updateLangToggle(introLanguages[i]);
+                    await typeSentence(introWords[i]);
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    if (i < introWords.length - 1) {
+                        if (introFinished) break;
+                        await deleteSentence();
+                    }
+                }
+            }
+
+            async function typeSentence(sentence) {
+                for (let i = 0; i < sentence.length; i++) {
+                    if (introFinished) return;
+                    typingTextElement.innerText += sentence[i];
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                }
+            }
+
+            async function deleteSentence() {
+                const sentence = typingTextElement.innerText;
+                for (let i = sentence.length; i > 0; i--) {
+                    if (introFinished) return;
+                    typingTextElement.innerText = sentence.substring(0, i - 1);
+                    await new Promise(resolve => setTimeout(resolve, 30));
+                }
+            }
+
+            function finishIntro() {
+                if (introFinished) return;
+                introFinished = true;
+                clearInterval(introIntervalId);
+                progressBarElement.style.width = '100%';
+                enterButton.classList.add('visible');
+                const autoExitTimeout = setTimeout(exitIntro, 2000);
+                enterButton.onclick = () => {
+                    clearTimeout(autoExitTimeout);
+                    exitIntro();
+                };
+            }
+
+            function exitIntro() {
+                introOverlay.classList.add('hidden');
+                document.body.classList.remove('intro-active');
+                
+                // Muestra el contenido real del CV
+                const pageContent = document.getElementById('page-content');
+                const topControls = document.querySelector('.top-controls');
+                if (pageContent) pageContent.classList.remove('content-hidden');
+                if (topControls) topControls.classList.remove('content-hidden');
+
+                // Ejecuta la lógica original de tu CV para que todo aparezca correctamente
+                const savedLang = localStorage.getItem('language') || 'es';
+                applyTheme(currentTheme);
+                setLanguage(savedLang);
+                if (currentTheme === 'cli') {
+                    initTerminal(savedLang);
+                }
+            }
+
+            function startIntro() {
+                typeWords();
+                introIntervalId = setInterval(() => {
+                    if (introFinished) return;
+                    introElapsed += 100;
+                    const progress = (introElapsed / introTotalDuration) * 100;
+                    progressBarElement.style.width = `${progress}%`;
+                    if (introElapsed >= introTotalDuration) {
+                        finishIntro();
+                    }
+                }, 100);
+                 enterButton.onclick = finishIntro;
+            }
         
             // =================================================================================
             // --- 2. GUI FUNCTIONS (Populate content, modals, etc.)
@@ -699,18 +984,7 @@
             
             // --- Initial Page Load Calls ---
             setupPdfGeneration(); 
-            
-            // LA LÍNEA printToTerminal(...) FUE BORRADA DE AQUÍ.
-            
-            const savedLang = localStorage.getItem('language') || 'es';
-            applyTheme(currentTheme);
-            setLanguage(savedLang);
-            
-            // LÍNEAS NUEVAS AÑADIDAS AQUÍ
-            // Si el tema guardado por defecto es la terminal, la inicializa al cargar la página.
-            if (currentTheme === 'cli') {
-                initTerminal(savedLang);
-            }
+            startIntro(); // <-- ESTA ES LA ÚNICA LLAMADA QUE NECESITAS
         });
     </script>
 </body>
