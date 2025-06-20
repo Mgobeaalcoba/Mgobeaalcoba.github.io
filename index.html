@@ -555,20 +555,14 @@
                 }
             }
 
-            function finishIntro() {
-                if (introFinished) return;
-                introFinished = true;
-                clearInterval(introIntervalId);
-                progressBarElement.style.width = '100%';
-                enterButton.classList.add('visible');
-                const autoExitTimeout = setTimeout(exitIntro, 2000);
-                enterButton.onclick = () => {
-                    clearTimeout(autoExitTimeout);
-                    exitIntro();
-                };
-            }
-
             function exitIntro() {
+                // Este "seguro" evita que la función se ejecute múltiples veces.
+                if (introFinished) return; 
+                introFinished = true; // Marca que la intro ya terminó.
+                
+                // Detiene el intervalo de la barra de progreso para que no siga corriendo.
+                clearInterval(introIntervalId);
+
                 introOverlay.classList.add('hidden');
                 document.body.classList.remove('intro-active');
                 
@@ -578,7 +572,7 @@
                 if (pageContent) pageContent.classList.remove('content-hidden');
                 if (topControls) topControls.classList.remove('content-hidden');
 
-                // Ejecuta la lógica original de tu CV para que todo aparezca correctamente
+                // Ejecuta la lógica del CV para que todo aparezca correctamente
                 const savedLang = localStorage.getItem('language') || 'es';
                 applyTheme(currentTheme);
                 setLanguage(savedLang);
@@ -588,17 +582,26 @@
             }
 
             function startIntro() {
-                typeWords();
+                // 1. HACE EL BOTÓN VISIBLE DESDE EL INICIO
+                enterButton.classList.add('visible');
+                // 2. ASIGNA EL EVENTO DE CLIC PARA SALIR DE INMEDIATO
+                enterButton.onclick = exitIntro; 
+
+                // Inicia la animación de tipeo
+                typeWords(); 
+                
+                // Inicia el intervalo para la barra de progreso
                 introIntervalId = setInterval(() => {
                     if (introFinished) return;
                     introElapsed += 100;
                     const progress = (introElapsed / introTotalDuration) * 100;
                     progressBarElement.style.width = `${progress}%`;
+                    
+                    // Cuando el tiempo se acaba, también llama a la función de salida.
                     if (introElapsed >= introTotalDuration) {
-                        finishIntro();
+                        exitIntro();
                     }
                 }, 100);
-                 enterButton.onclick = finishIntro;
             }
         
             // =================================================================================
