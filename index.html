@@ -923,6 +923,9 @@
             }
         
             function handleCommand(command) {
+                // TERMINAL OUTPUT MANIPULATION:
+                const terminalOutput = document.getElementById('terminal-output'); 
+                
                 const lang = localStorage.getItem('language') || 'es';
                 const parts = command.split(' ');
                 const baseCommand = parts[0];
