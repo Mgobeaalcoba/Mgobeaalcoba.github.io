@@ -134,17 +134,14 @@ export function exitIntro() {
     console.log(`[intro.js] Exiting. Saved theme for next session: ${currentIntroTheme}`);
 
     const { overlay } = getIntroElements();
-    if (!overlay) return;
+    if (overlay) {
+        DOM.hide(overlay);
+    }
     
-    DOM.hide(overlay);
     document.body.classList.remove('intro-active');
     
-    // Show main content
-    const pageContent = DOM.find('#page-content');
-    const topControls = DOM.find('.top-controls');
-    DOM.show(pageContent, topControls);
-    
-    // Trigger a custom event to notify other parts of the app
+    // Trigger a custom event to notify the main app to initialize
+    console.log('[intro.js] Dispatching introCompleted event.');
     const event = new CustomEvent('introCompleted');
     document.dispatchEvent(event);
 }

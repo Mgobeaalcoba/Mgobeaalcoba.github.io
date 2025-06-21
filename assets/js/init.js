@@ -60,6 +60,40 @@ function closeExperienceModal() {
 }
 
 // =================================================================================
+// MAIN APP INITIALIZATION
+// =================================================================================
+
+async function initializeMainApp() {
+    console.log('[init.js] Initializing main application after intro...');
+    
+    // Dynamically import theme functions to ensure they are ready
+    const { initializeThemes, getCurrentTheme } = await import('./themes.js');
+    
+    // Initialize themes (reads localStorage and applies theme)
+    initializeThemes();
+    
+    // Setup PDF generation
+    setupPdfGeneration();
+    
+    // Setup scroll animations
+    setupScrollAnimations();
+    
+    // Set initial language
+    const savedLang = Storage.get('language', 'es');
+    setLanguage(savedLang);
+    
+    // Ensure main content is visible after setup
+    const pageContent = DOM.find('#page-content');
+    const topControls = DOM.find('.top-controls');
+    
+    if (getCurrentTheme() !== 'cli') {
+        DOM.show(pageContent, topControls);
+    }
+    
+    console.log('✅ Main CV App components initialized');
+}
+
+// =================================================================================
 // EVENT LISTENERS
 // =================================================================================
 
@@ -100,26 +134,16 @@ function initializeApp() {
     try {
         console.log('[init.js] initializeApp START');
         
-        // Setup event listeners
+        // Setup event listeners that are safe to run before intro
         setupEventListeners();
         
-        // Initialize themes (reads localStorage and applies theme)
-        initializeThemes();
-        
-        // Setup PDF generation
-        setupPdfGeneration();
-        
-        // Setup scroll animations
-        setupScrollAnimations();
-        
-        // Set initial language
-        const savedLang = Storage.get('language', 'es');
-        setLanguage(savedLang);
+        // Listen for the intro to complete, then initialize the main app
+        document.addEventListener('introCompleted', initializeMainApp, { once: true });
         
         // Start intro animation
         startIntro();
         
-        console.log('✅ CV App initialized successfully');
+        console.log('✅ CV App initialization sequence started.');
         
     } catch (error) {
         handleError(error, 'App initialization');

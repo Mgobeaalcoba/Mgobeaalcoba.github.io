@@ -102,7 +102,7 @@ export function trackSocialClick(event, platform) {
 // LANGUAGE & CONTENT MANAGEMENT
 // =================================================================================
 
-export function setLanguage(lang) {
+export async function setLanguage(lang) {
     document.documentElement.lang = lang;
     DOM.findAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
@@ -119,8 +119,16 @@ export function setLanguage(lang) {
     populateTechStack(lang);
     Storage.set('language', lang);
     
+    // Update active language button
     const langEsBtn = DOM.find('#lang-es');
     const langEnBtn = DOM.find('#lang-en');
     if (langEsBtn) langEsBtn.classList.toggle('active', lang === 'es');
     if (langEnBtn) langEnBtn.classList.toggle('active', lang === 'en');
+    
+    // Re-initialize the terminal to apply the new language.
+    // This is more robust than trying to partially update its content.
+    const { initTerminal } = await import('./terminal.js');
+    if (document.body.classList.contains('terminal-mode-active')) {
+        initTerminal(lang);
+    }
 } 

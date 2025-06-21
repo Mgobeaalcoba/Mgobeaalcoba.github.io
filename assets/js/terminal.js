@@ -286,6 +286,9 @@ export function toggleTerminal(show) {
     const mainContent = DOM.find('#page-content');
     const terminalInput = DOM.find('#terminal-input');
     
+    // This class is crucial for other modules to know if the terminal is active.
+    document.body.classList.toggle('terminal-mode-active', show);
+
     if (show) {
         DOM.show(terminalContainer);
         DOM.hide(mainContent);
