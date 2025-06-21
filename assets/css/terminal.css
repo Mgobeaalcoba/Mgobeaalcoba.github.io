@@ -1,0 +1,76 @@
+/* terminal.css - Styles for the interactive terminal mode */
+
+/* =================================================================================
+   --- TERMINAL INPUT STYLING
+   ================================================================================= */
+
+#terminal-container {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    line-height: 1.5;
+}
+
+#terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 1rem; /* Space for scrollbar */
+}
+
+.terminal-line {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#terminal-input {
+    caret-color: #0f0;
+}
+
+#terminal-input:focus {
+    outline: none;
+    border: none;
+}
+
+/* =================================================================================
+   --- MATRIX EFFECT CANVAS
+   ================================================================================= */
+
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998; /* Below terminal but above everything else */
+    background-color: #000;
+}
+
+/* =================================================================================
+   --- NEOFETCH COMMAND STYLING
+   ================================================================================= */
+
+.neofetch-line {
+    display: flex;
+    align-items: flex-start;
+}
+
+.neofetch-logo {
+    color: var(--primary-color);
+    margin-right: 2rem;
+    white-space: pre;
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+}
+
+.neofetch-skills {
+    white-space: pre-wrap;
+}
+
+/* =================================================================================
+   --- RESPONSIVE TERMINAL STYLING
+   ================================================================================= */
+
+@media screen and (max-width: 768px) {
+    #terminal-container {
+        /* Hacemos la letra un poco más pequeña y reducimos el padding en móviles */
+        font-size: 0.875rem;
+        padding: 0.75rem;
+    }
+} 

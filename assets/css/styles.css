@@ -1,0 +1,59 @@
+/* 
+    styles.css - Main CSS entry point.
+    This file imports all other CSS modules.
+*/
+
+/* =================================================================================
+   --- IMPORT ALL CSS FILES
+   ================================================================================= */
+
+@import url('base.css');
+@import url('main.css');
+@import url('components.css');
+@import url('terminal.css');
+@import url('intro.css');
+
+/* =================================================================================
+   --- ADDITIONAL GLOBAL STYLES
+   ================================================================================= */
+
+/* Ensure smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve text rendering */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+}
+
+/* =================================================================================
+   --- PRINT STYLES
+   ================================================================================= */
+
+@media print {
+    .top-controls,
+    .intro-overlay,
+    #terminal-container,
+    .modal-overlay {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .glass-effect {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+} 
