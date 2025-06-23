@@ -36,6 +36,22 @@ async function filterProjects(tag) {
     populateProjects(lang, currentFilter);
 }
 
+async function filterProjectsByCategory(category) {
+    const lang = Storage.get('language', 'es');
+    const alreadyActive = currentFilter === category;
+    
+    currentFilter = alreadyActive ? null : category;
+
+    // Clear all active states
+    DOM.findAll('#tech-stack-container .tag').forEach(t => {
+        t.classList.remove('active');
+    });
+
+    // Re-populate projects with the new filter
+    const { populateProjects } = await import('./main.js');
+    populateProjects(lang, currentFilter);
+}
+
 // =================================================================================
 // EXPERIENCE MODAL
 // =================================================================================
@@ -157,6 +173,7 @@ function initializeApp() {
 window.openExperienceModal = openExperienceModal;
 window.closeExperienceModal = closeExperienceModal;
 window.filterProjects = filterProjects;
+window.filterProjectsByCategory = filterProjectsByCategory;
 window.trackSocialClick = async (event, platform) => {
     const { trackSocialClick } = await import('./main.js');
     trackSocialClick(event, platform);

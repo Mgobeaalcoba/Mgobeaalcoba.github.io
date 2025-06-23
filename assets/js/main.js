@@ -8,25 +8,67 @@ import { DOM, Storage } from './utils.js';
 // UI POPULATION FUNCTIONS
 // =================================================================================
 
+// Helper function to get all technologies from a category
+function getTechnologiesFromCategory(category) {
+    return techStackData[category] || [];
+}
+
+// Helper function to check if a project matches any technology in a category
+function projectMatchesCategory(project, category) {
+    const categoryTechnologies = getTechnologiesFromCategory(category);
+    return project.tags.some(tag => categoryTechnologies.includes(tag));
+}
+
 export function populateTechStack(lang) {
     const container = DOM.find('#tech-stack-container');
     if (!container) return;
     container.innerHTML = '';
+    
     for (const category in techStackData) {
         const categoryKey = `stack_${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`;
-        let tagsHTML = techStackData[category].map(tag => `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`).join('');
-        container.innerHTML += `<div><h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2" data-translate="${categoryKey}">${translations[categoryKey] ? translations[categoryKey][lang] : category}</h4><div class="flex flex-wrap gap-2">${tagsHTML}</div></div>`;
+        const categoryDisplayName = translations[categoryKey] ? translations[categoryKey][lang] : category;
+        
+        // Create category header that acts as a filter
+        const categoryHeader = `<h4 class="font-semibold text-sm uppercase tracking-wider text-secondary mb-2 cursor-pointer hover:text-primary transition-colors" onclick="filterProjectsByCategory('${category}')" data-translate="${categoryKey}">${categoryDisplayName}</h4>`;
+        
+        // Create individual technology tags
+        const tagsHTML = techStackData[category].map(tag => 
+            `<span class="tag" onclick="filterProjects('${tag}')">${tag}</span>`
+        ).join('');
+        
+        container.innerHTML += `<div>${categoryHeader}<div class="flex flex-wrap gap-2">${tagsHTML}</div></div>`;
     }
 }
 
 export function populateProjects(lang, filterTag = null) {
     const container = DOM.find('#projects-container');
     if (!container) return;
-    const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
+    
+    let filteredProjects;
+    if (filterTag) {
+        // Check if filterTag is a category name
+        if (techStackData[filterTag]) {
+            // Filter by category - show projects that use any technology from this category
+            filteredProjects = projectsData.filter(project => projectMatchesCategory(project, filterTag));
+        } else {
+            // Filter by specific technology
+            filteredProjects = projectsData.filter(p => p.tags.includes(filterTag));
+        }
+    } else {
+        filteredProjects = projectsData;
+    }
+    
     if (filteredProjects.length === 0 && filterTag) {
-        container.innerHTML = `<p class="text-secondary">No projects for the technology '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Show all</a>.</p>`;
+        const filterDisplayName = techStackData[filterTag] ? 
+            (translations[`stack_${filterTag.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`] ? 
+             translations[`stack_${filterTag.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`][lang] : 
+             filterTag) : 
+            filterTag;
+        
+        container.innerHTML = `<p class="text-secondary">No projects for '${filterDisplayName}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Show all</a>.</p>`;
         return;
     }
+    
     container.innerHTML = filteredProjects.map(project =>
         `<div class="project-item avoid-break p-4 rounded-lg glass-effect interactive">
             <h4 class="text-lg font-bold">${project.title[lang]}</h4>

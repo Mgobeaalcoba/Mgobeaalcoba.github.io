@@ -17,19 +17,23 @@ export const translations = {
         es: "Stack Tecnológico", 
         en: "Tech Stack" 
     },
-    stack_backend: { 
-        es: "Backend & Datos", 
+    stack_backend_data: { 
+        es: "Backend & Data", 
         en: "Backend & Data" 
     },
-    stack_ml: { 
+    stack_machine_learning: { 
         es: "Machine Learning", 
         en: "Machine Learning" 
     },
-    stack_ai: { 
+    stack_ai_automation: { 
         es: "IA & Automatización", 
         en: "AI & Automation" 
     },
-    stack_bi: { 
+    stack_cloud_devops: { 
+        es: "Cloud & DevOps", 
+        en: "Cloud & DevOps" 
+    },
+    stack_business_intelligence: { 
         es: "Business Intelligence", 
         en: "Business Intelligence" 
     },
