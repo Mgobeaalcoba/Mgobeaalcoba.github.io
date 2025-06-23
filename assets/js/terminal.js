@@ -238,37 +238,38 @@ export function handleCommand(command) {
             let filteredEducation = educationData;
             let filteredCerts = certificationsData;
             
-            if (argument && argument.startsWith('--tag')) {
+            if (argument && argument.toLowerCase().startsWith('--tag')) {
                 const tag = argument.split(' ')[1];
                 if (tag) {
+                    const tagLower = tag.toLowerCase();
                     // Check if tag is a category
                     if (techStackData[tag]) {
                         // Filter by category
                         const categoryTechnologies = techStackData[tag];
                         filteredProjects = projectsData.filter(p => 
-                            p.tags.some(t => categoryTechnologies.includes(t))
+                            p.tags.some(t => categoryTechnologies.map(x => x.toLowerCase()).includes(t.toLowerCase()))
                         );
                         filteredExperience = experienceData.filter(exp => 
-                            exp.tags && exp.tags.some(t => categoryTechnologies.includes(t))
+                            exp.tags && exp.tags.some(t => categoryTechnologies.map(x => x.toLowerCase()).includes(t.toLowerCase()))
                         );
                         filteredEducation = educationData.filter(edu => 
-                            edu.tags && edu.tags.some(t => categoryTechnologies.includes(t))
+                            edu.tags && edu.tags.some(t => categoryTechnologies.map(x => x.toLowerCase()).includes(t.toLowerCase()))
                         );
                         filteredCerts = certificationsData.filter(cert => 
-                            cert.tags && cert.tags.some(t => categoryTechnologies.includes(t))
+                            cert.tags && cert.tags.some(t => categoryTechnologies.map(x => x.toLowerCase()).includes(t.toLowerCase()))
                         );
                         printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag) + ' (Category)');
                     } else {
-                        // Filter by specific technology
-                        filteredProjects = projectsData.filter(p => p.tags.includes(tag));
+                        // Filter by specific technology (case-insensitive)
+                        filteredProjects = projectsData.filter(p => p.tags.map(t => t.toLowerCase()).includes(tagLower));
                         filteredExperience = experienceData.filter(exp => 
-                            exp.tags && exp.tags.includes(tag)
+                            exp.tags && exp.tags.map(t => t.toLowerCase()).includes(tagLower)
                         );
                         filteredEducation = educationData.filter(edu => 
-                            edu.tags && edu.tags.includes(tag)
+                            edu.tags && edu.tags.map(t => t.toLowerCase()).includes(tagLower)
                         );
                         filteredCerts = certificationsData.filter(cert => 
-                            cert.tags && cert.tags.includes(tag)
+                            cert.tags && cert.tags.map(t => t.toLowerCase()).includes(tagLower)
                         );
                         printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag));
                     }
@@ -333,8 +334,8 @@ export function handleCommand(command) {
             break;
 
         case 'gui':
-            const event = new CustomEvent('theme-change', { detail: { theme: 'gui' } });
-            document.dispatchEvent(event);
+            // Restaurar el tema anterior a cli, por defecto 'dark'
+            import('./themes.js').then(({ setTheme }) => setTheme('dark'));
             break;
 
         default:
