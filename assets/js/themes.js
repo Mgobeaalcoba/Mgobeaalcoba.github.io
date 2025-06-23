@@ -49,7 +49,14 @@ export function applyTheme(theme) {
 
 function cycleTheme() {
     console.log(`[themes.js] cycleTheme called. Current theme: ${currentTheme}`);
-    const currentThemeIndex = themeOrder.indexOf(currentTheme);
+    let currentThemeIndex = themeOrder.indexOf(currentTheme);
+
+    // Defensive check: If the theme is not found, default to dark mode.
+    if (currentThemeIndex === -1) {
+        console.warn(`[themes.js] Warning: current theme "${currentTheme}" not found in themeOrder. Defaulting to 'dark'.`);
+        currentThemeIndex = 0; // Default to 'dark' index
+    }
+
     const nextTheme = themeOrder[(currentThemeIndex + 1) % themeOrder.length];
     console.log(`[themes.js] Next theme will be: ${nextTheme}`);
     setTheme(nextTheme, true);

@@ -6,7 +6,6 @@
 
 import { experienceData } from './data.js';
 import { setLanguage } from './main.js';
-import { initializeThemes } from './themes.js';
 import { initTerminal, startMatrixEffect } from './terminal.js';
 import { startIntro } from './intro.js';
 import { setupPdfGeneration } from './pdf.js';
@@ -67,10 +66,10 @@ async function initializeMainApp() {
     console.log('[init.js] Initializing main application after intro...');
     
     // Dynamically import theme functions to ensure they are ready
-    const { initializeThemes, getCurrentTheme } = await import('./themes.js');
+    const themeModule = await import('./themes.js');
     
     // Initialize themes (reads localStorage and applies theme)
-    initializeThemes();
+    themeModule.initializeThemes();
     
     // Setup PDF generation
     setupPdfGeneration();
@@ -86,7 +85,7 @@ async function initializeMainApp() {
     const pageContent = DOM.find('#page-content');
     const topControls = DOM.find('.top-controls');
     
-    if (getCurrentTheme() !== 'cli') {
+    if (themeModule.getCurrentTheme() !== 'cli') {
         DOM.show(pageContent, topControls);
     }
     
