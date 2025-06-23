@@ -1,6 +1,6 @@
 // main.js - Core application logic and content population
 
-import { techStackData, projectsData, experienceData, educationData, certifications } from './data.js';
+import { techStackData, projectsData, experienceData, educationData, certificationsData } from './data.js';
 import { translations } from './translations.js';
 import { DOM, Storage } from './utils.js';
 
@@ -17,6 +17,20 @@ function getTechnologiesFromCategory(category) {
 function projectMatchesCategory(project, category) {
     const categoryTechnologies = getTechnologiesFromCategory(category);
     return project.tags.some(tag => categoryTechnologies.includes(tag));
+}
+
+// Helper function to check if an item (experience, education, certification) matches filter
+function itemMatchesFilter(item, filterTag) {
+    if (!filterTag) return true;
+    
+    // Check if filterTag is a category name
+    if (techStackData[filterTag]) {
+        const categoryTechnologies = getTechnologiesFromCategory(filterTag);
+        return item.tags && item.tags.some(tag => categoryTechnologies.includes(tag));
+    } else {
+        // Filter by specific technology
+        return item.tags && item.tags.includes(filterTag);
+    }
 }
 
 export function populateTechStack(lang) {
@@ -78,10 +92,18 @@ export function populateProjects(lang, filterTag = null) {
     ).join('');
 }
 
-export function populateExperience(lang) {
+export function populateExperience(lang, filterTag = null) {
     const container = DOM.find('#experience-timeline');
     if (!container) return;
-    container.innerHTML = experienceData.map((job, index) => {
+    
+    const filteredExperience = filterTag ? experienceData.filter(exp => itemMatchesFilter(exp, filterTag)) : experienceData;
+    
+    if (filteredExperience.length === 0 && filterTag) {
+        container.innerHTML = `<p class="text-secondary">No experience found for this technology.</p>`;
+        return;
+    }
+    
+    container.innerHTML = filteredExperience.map((job, index) => {
         const side = index % 2 === 0 ? 'left' : 'right';
         return `<div class="timeline-container ${side}">
                     <div class="timeline-item glass-effect" onclick="openExperienceModal(${job.id})">
@@ -99,10 +121,18 @@ export function populateExperience(lang) {
     }).join('');
 }
 
-export function populateEducation(lang) {
+export function populateEducation(lang, filterTag = null) {
     const container = DOM.find('#education-list');
     if (!container) return;
-    container.innerHTML = educationData.map(edu => {
+    
+    const filteredEducation = filterTag ? educationData.filter(edu => itemMatchesFilter(edu, filterTag)) : educationData;
+    
+    if (filteredEducation.length === 0 && filterTag) {
+        container.innerHTML = `<p class="text-secondary">No education found for this technology.</p>`;
+        return;
+    }
+    
+    container.innerHTML = filteredEducation.map(edu => {
         const subtitleHTML = edu.subtitle ? `<p>${edu.subtitle[lang]}</p>` : '';
         return `<li>
                     <p class="font-semibold" style="color: var(--text-color);">${edu.title[lang]}</p>
@@ -113,10 +143,18 @@ export function populateEducation(lang) {
     }).join('');
 }
 
-export function populateCerts() {
+export function populateCerts(filterTag = null) {
     const container = DOM.find('#cert-list');
     if (!container) return;
-    container.innerHTML = certifications.map(cert => `<p>${cert}</p>`).join('');
+    
+    const filteredCerts = filterTag ? certificationsData.filter(cert => itemMatchesFilter(cert, filterTag)) : certificationsData;
+    
+    if (filteredCerts.length === 0 && filterTag) {
+        container.innerHTML = `<p class="text-secondary">No certifications found for this technology.</p>`;
+        return;
+    }
+    
+    container.innerHTML = filteredCerts.map(cert => `<p>${cert.name}</p>`).join('');
 }
 
 export function trackSocialClick(event, platform) {
@@ -144,6 +182,9 @@ export function trackSocialClick(event, platform) {
 // LANGUAGE & CONTENT MANAGEMENT
 // =================================================================================
 
+// Global variable to track current filter
+let currentFilter = null;
+
 export async function setLanguage(lang) {
     document.documentElement.lang = lang;
     DOM.findAll('[data-translate]').forEach(el => {
@@ -153,11 +194,11 @@ export async function setLanguage(lang) {
         }
     });
     
-    // Pass null to show all projects initially
-    populateProjects(lang, null); 
-    populateExperience(lang);
-    populateEducation(lang);
-    populateCerts();
+    // Pass current filter to all population functions
+    populateProjects(lang, currentFilter); 
+    populateExperience(lang, currentFilter);
+    populateEducation(lang, currentFilter);
+    populateCerts(currentFilter);
     populateTechStack(lang);
     Storage.set('language', lang);
     
@@ -173,4 +214,16 @@ export async function setLanguage(lang) {
     if (document.body.classList.contains('terminal-mode-active')) {
         initTerminal(lang);
     }
+}
+
+// Function to update current filter and repopulate all sections
+export function updateFilter(filterTag) {
+    currentFilter = filterTag;
+    const lang = Storage.get('language', 'es');
+    
+    // Repopulate all sections with the new filter
+    populateProjects(lang, currentFilter);
+    populateExperience(lang, currentFilter);
+    populateEducation(lang, currentFilter);
+    populateCerts(currentFilter);
 } 

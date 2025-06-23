@@ -1,6 +1,6 @@
 // terminal.js - Interactive terminal mode logic
 
-import { projectsData, experienceData, educationData, mgaLogo2 } from './data.js';
+import { projectsData, experienceData, educationData, mgaLogo2, certificationsData, techStackData } from './data.js';
 import { translations } from './translations.js';
 import { DOM, Storage } from './utils.js';
 
@@ -234,11 +234,44 @@ export function handleCommand(command) {
 
         case 'projects':
             let filteredProjects = projectsData;
+            let filteredExperience = experienceData;
+            let filteredEducation = educationData;
+            let filteredCerts = certificationsData;
+            
             if (argument && argument.startsWith('--tag')) {
                 const tag = argument.split(' ')[1];
                 if (tag) {
-                    filteredProjects = projectsData.filter(p => p.tags.map(t => t.toLowerCase()).includes(tag.toLowerCase()));
-                    printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag));
+                    // Check if tag is a category
+                    if (techStackData[tag]) {
+                        // Filter by category
+                        const categoryTechnologies = techStackData[tag];
+                        filteredProjects = projectsData.filter(p => 
+                            p.tags.some(t => categoryTechnologies.includes(t))
+                        );
+                        filteredExperience = experienceData.filter(exp => 
+                            exp.tags && exp.tags.some(t => categoryTechnologies.includes(t))
+                        );
+                        filteredEducation = educationData.filter(edu => 
+                            edu.tags && edu.tags.some(t => categoryTechnologies.includes(t))
+                        );
+                        filteredCerts = certificationsData.filter(cert => 
+                            cert.tags && cert.tags.some(t => categoryTechnologies.includes(t))
+                        );
+                        printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag) + ' (Category)');
+                    } else {
+                        // Filter by specific technology
+                        filteredProjects = projectsData.filter(p => p.tags.includes(tag));
+                        filteredExperience = experienceData.filter(exp => 
+                            exp.tags && exp.tags.includes(tag)
+                        );
+                        filteredEducation = educationData.filter(edu => 
+                            edu.tags && edu.tags.includes(tag)
+                        );
+                        filteredCerts = certificationsData.filter(cert => 
+                            cert.tags && cert.tags.includes(tag)
+                        );
+                        printToTerminal(translations.terminal.projects_with_tag[lang].replace('{tag}', tag));
+                    }
                 } else {
                     printToTerminal(translations.terminal.tag_error[lang]);
                     return;
@@ -246,14 +279,44 @@ export function handleCommand(command) {
             } else {
                 printToTerminal(translations.terminal.projects_all[lang]);
             }
+            
+            // Show projects
             if (filteredProjects.length === 0) {
-                printToTerminal(translations.terminal.projects_not_found[lang]);
+                printToTerminal('No projects found for this technology.');
             } else {
-                let projOutput = `\n`;
+                let projOutput = `\n--- PROJECTS ---\n`;
                 filteredProjects.forEach(proj => {
                     projOutput += `[${proj.tags.join(', ')}]\n> ${proj.title[lang]}\n\n`;
                 });
                 printToTerminal(projOutput);
+            }
+            
+            // Show experience
+            if (filteredExperience.length > 0) {
+                let expOutput = `--- EXPERIENCE ---\n`;
+                filteredExperience.forEach(job => {
+                    expOutput += `[${job.tags.join(', ')}]\n> ${job.title[lang]} @ ${job.company}\n`;
+                });
+                printToTerminal(expOutput);
+            }
+            
+            // Show education
+            if (filteredEducation.length > 0) {
+                let eduOutput = `\n--- EDUCATION ---\n`;
+                filteredEducation.forEach(edu => {
+                    const subtitleLine = edu.subtitle ? `  (${edu.subtitle[lang]})` : '';
+                    eduOutput += `[${edu.tags.join(', ')}]\n> ${edu.title[lang]}${subtitleLine}\n  @ ${edu.school}\n`;
+                });
+                printToTerminal(eduOutput);
+            }
+            
+            // Show certifications
+            if (filteredCerts.length > 0) {
+                let certOutput = `\n--- CERTIFICATIONS ---\n`;
+                filteredCerts.forEach(cert => {
+                    certOutput += `[${cert.tags.join(', ')}]\n> ${cert.name}\n`;
+                });
+                printToTerminal(certOutput);
             }
             break;
 

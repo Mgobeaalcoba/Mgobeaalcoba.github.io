@@ -22,34 +22,34 @@ let currentFilter = null;
 // =================================================================================
 
 async function filterProjects(tag) {
-    const lang = Storage.get('language', 'es');
     const alreadyActive = currentFilter === tag;
+    const newFilter = alreadyActive ? null : tag;
     
-    currentFilter = alreadyActive ? null : tag;
+    currentFilter = newFilter;
 
     DOM.findAll('#tech-stack-container .tag').forEach(t => {
         t.classList.toggle('active', t.textContent === tag && !alreadyActive);
     });
 
-    // Re-populate projects with the new filter
-    const { populateProjects } = await import('./main.js');
-    populateProjects(lang, currentFilter);
+    // Update all sections with the new filter
+    const { updateFilter } = await import('./main.js');
+    updateFilter(currentFilter);
 }
 
 async function filterProjectsByCategory(category) {
-    const lang = Storage.get('language', 'es');
     const alreadyActive = currentFilter === category;
+    const newFilter = alreadyActive ? null : category;
     
-    currentFilter = alreadyActive ? null : category;
+    currentFilter = newFilter;
 
     // Clear all active states
     DOM.findAll('#tech-stack-container .tag').forEach(t => {
         t.classList.remove('active');
     });
 
-    // Re-populate projects with the new filter
-    const { populateProjects } = await import('./main.js');
-    populateProjects(lang, currentFilter);
+    // Update all sections with the new filter
+    const { updateFilter } = await import('./main.js');
+    updateFilter(currentFilter);
 }
 
 // =================================================================================
