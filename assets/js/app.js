@@ -1,4 +1,4 @@
-// app.js - Archivo principal que orquestra todos los módulos
+// app.js - Main file that orchestrates all modules
 
 import { initializeApp, setLanguage } from './main.js';
 import { initializeThemes, applyTheme } from './themes.js';

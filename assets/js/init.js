@@ -104,7 +104,7 @@ function setupEventListeners() {
     DOM.find('#lang-es')?.addEventListener('click', () => setLanguage('es'));
     DOM.find('#lang-en')?.addEventListener('click', () => setLanguage('en'));
 
-    // Terminal input (se mueve de aquí, se inicializa con el tema)
+    // Terminal input (moves from here, initialized with the theme)
     
     // Intro controls
     DOM.find('#intro-lang-es')?.addEventListener('click', async () => {

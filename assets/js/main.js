@@ -24,7 +24,7 @@ export function populateProjects(lang, filterTag = null) {
     if (!container) return;
     const filteredProjects = filterTag ? projectsData.filter(p => p.tags.includes(filterTag)) : projectsData;
     if (filteredProjects.length === 0 && filterTag) {
-        container.innerHTML = `<p class="text-secondary">No hay proyectos para la tecnología '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Mostrar todos</a>.</p>`;
+        container.innerHTML = `<p class="text-secondary">No projects for the technology '${filterTag}'. <a href="#" onclick="filterProjects(null); return false;" class="text-sky-400">Show all</a>.</p>`;
         return;
     }
     container.innerHTML = filteredProjects.map(project =>
@@ -93,7 +93,7 @@ export function trackSocialClick(event, platform) {
             window.open(url, '_blank');
         }
     } catch (err) {
-        console.warn('Error en trackSocialClick:', err);
+        console.warn('Error in trackSocialClick:', err);
         window.open(url, '_blank');
     }
 }

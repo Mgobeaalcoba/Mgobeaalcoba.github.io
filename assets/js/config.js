@@ -1,4 +1,4 @@
-// config.js - Configuración del proyecto
+// config.js - Project Configuration
 
 // =================================================================================
 // --- APP CONFIGURATION

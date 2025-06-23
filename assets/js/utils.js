@@ -1,4 +1,4 @@
-// utils.js - Funciones utilitarias compartidas 
+// utils.js - Shared utility functions 
 
 // =================================================================================
 // --- DOM UTILITIES

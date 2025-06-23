@@ -1,311 +1,310 @@
-# SCAFFOLDING - CV Interactivo de Mariano Gobea Alcoba
+# SCAFFOLDING - Mariano Gobea Alcoba's Interactive CV
 
-## 📋 Resumen del Proyecto
+## 📋 Project Summary
 
-Este proyecto es un CV interactivo profesional desarrollado con tecnologías web modernas. El scaffolding proporciona una estructura modular y escalable para mantener y extender el código de manera eficiente.
+This project is a professional interactive CV developed with modern web technologies. The scaffolding provides a modular and scalable structure to efficiently maintain and extend the code.
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Project Structure
 
 ```
 Mgobeaalcoba.github.io/
-├── index.html                 # Archivo principal (HTML limpio)
+├── index.html                 # Main file (clean HTML)
 ├── assets/
-│   ├── css/                   # Estilos organizados por módulos
-│   │   ├── base.css          # Reset y estilos base
-│   │   ├── main.css          # Estilos principales y variables CSS
-│   │   ├── components.css    # Estilos de componentes específicos
-│   │   ├── terminal.css      # Estilos del modo terminal
-│   │   ├── intro.css         # Estilos de la animación de introducción
-│   │   └── styles.css        # Archivo principal que importa todos los CSS
-│   ├── js/                    # JavaScript modular
-│   │   ├── init.js           # Script de inicialización principal
-│   │   ├── data.js           # Datos del CV (experiencia, proyectos, etc.)
-│   │   ├── translations.js   # Traducciones ES/EN
-│   │   ├── main.js           # Lógica principal de la aplicación
-│   │   ├── themes.js         # Gestión de temas (dark/light/terminal)
-│   │   ├── terminal.js       # Lógica del modo terminal
-│   │   ├── intro.js          # Animación de introducción
-│   │   ├── pdf.js            # Generación de PDF
-│   │   ├── utils.js          # Utilidades y funciones auxiliares
-│   │   └── config.js         # Configuración centralizada
-│   └── images/               # Imágenes del proyecto
-└── SCAFFOLDING.md            # Esta documentación
+│   ├── css/                   # Styles organized by modules
+│   │   ├── base.css          # Reset and base styles
+│   │   ├── main.css          # Main styles and CSS variables
+│   │   ├── components.css    # Specific component styles
+│   │   ├── terminal.css      # Terminal mode styles
+│   │   ├── intro.css         # Introduction animation styles
+│   │   └── styles.css        # Main file that imports all CSS
+│   ├── js/                    # Modular JavaScript
+│   │   ├── init.js           # Main initialization script
+│   │   ├── data.js           # CV data (experience, projects, etc.)
+│   │   ├── translations.js   # ES/EN translations
+│   │   ├── main.js           # Main application logic
+│   │   ├── themes.js         # Theme management (dark/light/terminal)
+│   │   ├── terminal.js       # Terminal mode logic
+│   │   ├── intro.js          # Introduction animation
+│   │   ├── pdf.js            # PDF generation
+│   │   ├── utils.js          # Utilities and helper functions
+│   │   └── config.js         # Centralized configuration
+│   └── images/               # Project images
+└── SCAFFOLDING.md            # This documentation
 ```
 
-## 🎯 Objetivos del Scaffolding
+## 🎯 Scaffolding Goals
 
-### ✅ Completado
-- [x] **Migración completa de JavaScript**: Todo el código JS migrado a módulos ES6
-- [x] **Migración completa de CSS**: Todos los estilos organizados en archivos separados
-- [x] **HTML limpio**: Sin JavaScript ni CSS inline
-- [x] **Estructura modular**: Código organizado por responsabilidades
-- [x] **Sistema de temas**: Dark, Light y Terminal
-- [x] **Internacionalización**: Soporte completo ES/EN
-- [x] **Animaciones**: Intro y scroll animations
-- [x] **Terminal interactiva**: Modo CLI funcional
-- [x] **Generación de PDF**: Exportación a PDF
-- [x] **SEO optimizado**: Meta tags y estructura semántica
+### ✅ Completed
+- [x] **Full JavaScript Migration**: All JS code migrated to ES6 modules
+- [x] **Full CSS Migration**: All styles organized into separate files
+- [x] **Clean HTML**: No inline JavaScript or CSS
+- [x] **Modular Structure**: Code organized by responsibilities
+- [x] **Theme System**: Dark, Light, and Terminal
+- [x] **Internationalization**: Full ES/EN support
+- [x] **Animations**: Intro and scroll animations
+- [x] **Interactive Terminal**: Functional CLI mode
+- [x] **PDF Generation**: PDF export
+- [x] **Optimized SEO**: Meta tags and semantic structure
 
-## 📁 Descripción de Módulos
+## 📁 Module Descriptions
 
 ### 🎨 CSS Modules
 
 #### `base.css`
-- Reset CSS y estilos base
-- Tipografía y elementos fundamentales
-- Variables CSS globales
+- CSS Reset and base styles
+- Typography and fundamental elements
+- Global CSS variables
 
 #### `main.css`
-- Variables CSS para el sistema de temas
-- Estilos principales del sitio
-- Layout y componentes base
+- CSS variables for the theme system
+- Main site styles
+- Layout and base components
 
 #### `components.css`
-- Estilos específicos para componentes
-- Proyectos, experiencia, educación
-- Elementos interactivos
+- Specific styles for components
+- Projects, experience, education
+- Interactive elements
 
 #### `terminal.css`
-- Estilos del modo terminal
-- Efecto Matrix
-- Input y output de terminal
+- Terminal mode styles
+- Matrix effect
+- Terminal input and output
 
 #### `intro.css`
-- Animación de introducción
-- Overlay y controles
-- Efectos de tipeo
+- Introduction animation
+- Overlay and controls
+- Typing effects
 
 #### `styles.css`
-- Archivo principal que importa todos los CSS
-- Estilos globales adicionales
+- Main file that imports all CSS
+- Additional global styles
 
 ### 🔧 JavaScript Modules
 
-#### `init.js` (Principal)
-- Script de inicialización de la aplicación
-- Orquestador de todos los módulos
-- Setup de event listeners
-- Exportación de funciones globales
+#### `init.js` (Main)
+- Application initialization script
+- Orchestrator of all modules
+- Event listeners setup
+- Export of global functions
 
 #### `data.js`
-- Datos del CV (experiencia, proyectos, educación)
-- Stack tecnológico
-- Certificaciones
-- Logos ASCII
+- CV data (experience, projects, education)
+- Tech stack
+- Certifications
+- ASCII logos
 
 #### `translations.js`
-- Traducciones ES/EN
-- Textos dinámicos
-- Comandos de terminal
+- ES/EN translations
+- Dynamic texts
+- Terminal commands
 
 #### `main.js`
-- Lógica principal de la aplicación
-- Población de contenido
-- Filtros de proyectos
-- Tracking de eventos
+- Main application logic
+- Content population
+- Project filters
+- Event tracking
 
 #### `themes.js`
-- Gestión de temas (dark/light/terminal)
-- Aplicación de estilos
-- Toggle de temas
+- Theme management (dark/light/terminal)
+- Style application
+- Theme toggle
 
 #### `terminal.js`
-- Lógica del modo terminal
-- Manejo de comandos
-- Efecto Matrix
+- Terminal mode logic
+- Command handling
+- Matrix effect
 - Input/output
 
 #### `intro.js`
-- Animación de introducción
-- Efectos de tipeo
-- Controles de intro
+- Introduction animation
+- Typing effects
+- Intro controls
 
 #### `pdf.js`
-- Generación de PDF
-- Configuración de html2canvas
-- Optimización para impresión
+- PDF generation
+- html2canvas configuration
+- Print optimization
 
 #### `utils.js`
-- Funciones auxiliares
-- Manejo de errores
-- Animaciones de scroll
-- Utilidades generales
+- Helper functions
+- Error handling
+- Scroll animations
+- General utilities
 
 #### `config.js`
-- Configuración centralizada
-- Constantes globales
-- Settings de la aplicación
+- Centralized configuration
+- Global constants
+- Application settings
 
-## 🔄 Flujo de Inicialización
+## 🔄 Initialization Flow
 
-1. **Carga del HTML**: Se carga el HTML limpio
-2. **Importación de módulos**: `init.js` importa todos los módulos necesarios
-3. **Setup de event listeners**: Se configuran todos los listeners
-4. **Inicialización de temas**: Se aplica el tema guardado
-5. **Población de contenido**: Se cargan los datos en el idioma correcto
-6. **Inicio de intro**: Se inicia la animación de introducción
-7. **Aplicación lista**: El usuario puede interactuar con el CV
+1. **HTML Loading**: Clean HTML is loaded
+2. **Module Import**: `init.js` imports all necessary modules
+3. **Event Listeners Setup**: All listeners are configured
+4. **Theme Initialization**: The saved theme is applied
+5. **Content Population**: Data is loaded in the correct language
+6. **Intro Start**: The intro animation begins
+7. **Application Ready**: The user can interact with the CV
 
-## 🎨 Sistema de Temas
+## 🎨 Theme System
 
 ### Dark Mode (Default)
-- Fondo oscuro con elementos glass
-- Texto claro
-- Acentos en azul
+- Dark background with glass elements
+- Light text
+- Blue accents
 
 ### Light Mode
-- Fondo claro
-- Texto oscuro
-- Misma funcionalidad
+- Light background
+- Dark text
+- Same functionality
 
 ### Terminal Mode
-- Interfaz de terminal completa
-- Comandos interactivos
-- Efecto Matrix disponible
+- Full terminal interface
+- Interactive commands
+- Matrix effect available
 
-## 🌍 Internacionalización
+## 🌍 Internationalization
 
-- **Español (ES)**: Idioma por defecto
-- **Inglés (EN)**: Traducción completa
-- **Cambio dinámico**: Sin recargar la página
-- **Persistencia**: Idioma guardado en localStorage
+- **Spanish (ES)**: Default language
+- **English (EN)**: Full translation
+- **Dynamic Change**: No page reload
+- **Persistence**: Language saved in localStorage
 
-## 🚀 Comandos de Terminal
+## 🚀 Terminal Commands
 
-- `help`: Lista de comandos disponibles
-- `about`: Información sobre el CV
-- `experience`: Experiencia profesional
-- `education`: Educación y certificaciones
-- `projects [--tag <tecnología>]`: Proyectos filtrados
-- `contact`: Información de contacto
-- `neofetch`: Información del sistema
-- `matrix`: Efecto Matrix
-- `clear`: Limpiar terminal
-- `gui`: Volver a la vista normal
+- `help`: List of available commands
+- `about`: Information about the CV
+- `experience`: Professional experience
+- `education`: Education and certifications
+- `projects [--tag <technology>]`: Filtered projects
+- `contact`: Contact information
+- `neofetch`: System information
+- `matrix`: Matrix effect
+- `clear`: Clear terminal
+- `gui`: Return to normal view
 
 ## 📱 Responsive Design
 
-- **Mobile First**: Diseño optimizado para móviles
-- **Breakpoints**: Adaptación a diferentes tamaños
-- **Touch Friendly**: Interacciones táctiles optimizadas
-- **Performance**: Carga rápida en todos los dispositivos
+- **Mobile First**: Design optimized for mobile
+- **Breakpoints**: Adaptation to different sizes
+- **Touch Friendly**: Optimized touch interactions
+- **Performance**: Fast loading on all devices
 
-## 🔧 Configuración
+## 🔧 Configuration
 
-### Variables CSS
+### CSS Variables
 ```css
 :root {
     --bg-color: #111827;
     --text-color: #d1d5db;
     --primary-color: #38bdf8;
-    /* ... más variables */
+    /* ... more variables */
 }
 ```
 
-### Configuración JavaScript
+### JavaScript Configuration
 ```javascript
 // config.js
 export const CONFIG = {
     ANIMATION_DURATION: 12000,
     SCROLL_THRESHOLD: 0.1,
     PDF_SCALE: 1,
-    // ... más configuraciones
+    // ... more configurations
 };
 ```
 
-## 🛠️ Desarrollo
+## 🛠️ Development
 
-### Agregar Nuevas Funcionalidades
+### Adding New Features
 
-1. **Crear módulo JS**: Nuevo archivo en `assets/js/`
-2. **Importar en init.js**: Agregar import y inicialización
-3. **Agregar estilos**: Nuevo archivo CSS si es necesario
-4. **Documentar**: Actualizar esta documentación
+1. **Create JS module**: New file in `assets/js/`
+2. **Import in init.js**: Add import and initialization
+3. **Add styles**: New CSS file if necessary
+4. **Document**: Update this documentation
 
-### Modificar Datos
+### Modifying Data
 
-1. **Experiencia**: Editar `data.js` → `experienceData`
-2. **Proyectos**: Editar `data.js` → `projectsData`
-3. **Traducciones**: Editar `translations.js`
-4. **Stack**: Editar `data.js` → `techStackData`
+1. **Experience**: Edit `data.js` → `experienceData`
+2. **Projects**: Edit `data.js` → `projectsData`
+3. **Translations**: Edit `translations.js`
+4. **Stack**: Edit `data.js` → `techStackData`
 
-### Agregar Nuevos Temas
+### Adding New Themes
 
-1. **Variables CSS**: Agregar en `main.css`
-2. **Lógica JS**: Modificar `themes.js`
-3. **Iconos**: Actualizar HTML y CSS
-4. **Testing**: Verificar en todos los modos
+1. **CSS Variables**: Add in `main.css`
+2. **JS Logic**: Modify `themes.js`
+3. **Icons**: Update HTML and CSS
+4. **Testing**: Verify in all modes
 
-## 📊 Métricas y Analytics
+## 📊 Metrics and Analytics
 
-- **Google Analytics**: Configurado con gtag
-- **Event Tracking**: Clicks en redes sociales
-- **Performance**: Métricas de carga
-- **SEO**: Meta tags optimizados
+- **Google Analytics**: Configured with gtag
+- **Event Tracking**: Clicks on social media
+- **Performance**: Loading metrics
+- **SEO**: Optimized meta tags
 
-## 🔒 Seguridad
+## 🔒 Security
 
-- **XSS Prevention**: Sanitización de datos
+- **XSS Prevention**: Data sanitization
 - **CSP**: Content Security Policy
-- **HTTPS**: Conexiones seguras
-- **Input Validation**: Validación de entradas
+- **HTTPS**: Secure connections
 
 ## 🚀 Deployment
 
 ### GitHub Pages
 - **Automatic**: Push a main branch
-- **Custom Domain**: Configurado
-- **HTTPS**: Certificado automático
+- **Custom Domain**: Configured
+- **HTTPS**: Automatic certificate
 
-### Optimizaciones
-- **Minificación**: CSS y JS minificados
-- **Compresión**: Gzip habilitado
-- **Caching**: Headers optimizados
-- **CDN**: Librerías externas
+### Optimizations
+- **Minification**: CSS and JS minified
+- **Compression**: Gzip enabled
+- **Caching**: Optimized headers
+- **CDN**: External libraries
 
-## 📝 Mantenimiento
+## 📝 Maintenance
 
-### Actualizaciones Regulares
-- **Datos del CV**: Experiencia, proyectos, skills
-- **Dependencias**: Librerías externas
-- **Traducciones**: Nuevos textos
-- **Performance**: Optimizaciones
+### Regular Updates
+- **CV Data**: Experience, projects, skills
+- **Dependencies**: External libraries
+- **Translations**: New texts
+- **Performance**: Optimizations
 
-### Backup y Versionado
-- **Git**: Control de versiones
-- **Branches**: Desarrollo separado
-- **Tags**: Versiones estables
-- **Documentación**: Actualizada
+### Backup and Versioning
+- **Git**: Version control
+- **Branches**: Separate development
+- **Tags**: Stable versions
+- **Documentation**: Updated
 
-## 🎯 Beneficios del Scaffolding
+## 🎯 Scaffolding Benefits
 
-### Para el Desarrollador
-- **Mantenibilidad**: Código organizado y modular
-- **Escalabilidad**: Fácil agregar nuevas funcionalidades
-- **Debugging**: Errores localizados por módulo
-- **Testing**: Módulos independientes
+### For Developer
+- **Maintainability**: Organized and modular code
+- **Scalability**: Easy to add new features
+- **Debugging**: Errors localized by module
+- **Testing**: Independent modules
 
-### Para el Usuario
-- **Performance**: Carga rápida y eficiente
-- **UX**: Interfaz fluida y responsive
-- **Accesibilidad**: Navegación intuitiva
-- **Funcionalidad**: Todas las características disponibles
+### For User
+- **Performance**: Fast and efficient loading
+- **UX**: Fluid and responsive interface
+- **Accessibility**: Intuitive navigation
+- **Functionality**: All features available
 
-### Para el Negocio
-- **SEO**: Optimizado para motores de búsqueda
-- **Branding**: Identidad visual consistente
-- **Profesionalismo**: Código de calidad empresarial
-- **Escalabilidad**: Preparado para crecimiento
+### For Business
+- **SEO**: Optimized for search engines
+- **Branding**: Consistent visual identity
+- **Professionalism**: High-quality business code
+- **Scalability**: Prepared for growth
 
-## 🎉 Conclusión
+## 🎉 Conclusion
 
-El scaffolding proporciona una base sólida y profesional para el CV interactivo, con:
+The scaffolding provides a solid and professional base for the interactive CV, with:
 
-- ✅ **Código limpio y organizado**
-- ✅ **Arquitectura modular escalable**
-- ✅ **Funcionalidades completas**
-- ✅ **Performance optimizada**
-- ✅ **Mantenimiento simplificado**
-- ✅ **Experiencia de usuario excepcional**
+- ✅ **Clean and organized code**
+- ✅ **Modular scalable architecture**
+- ✅ **Complete features**
+- ✅ **Optimized performance**
+- ✅ **Simplified maintenance**
+- ✅ **Exceptional user experience**
 
-El proyecto está listo para producción y puede ser fácilmente extendido con nuevas funcionalidades según las necesidades futuras. 
+The project is ready for production and can be easily extended with new features as needed. 
