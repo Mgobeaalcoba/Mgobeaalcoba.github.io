@@ -258,7 +258,10 @@ export function handleCommand(command) {
             break;
 
         case 'contact':
-            printToTerminal(translations.terminal.contact_details[lang]);
+            const contactDetails = translations.terminal.contact_details[lang];
+            contactDetails.split('\n').forEach(line => {
+                printToTerminal(line);
+            });
             break;
 
         case 'clear':
@@ -267,8 +270,8 @@ export function handleCommand(command) {
             break;
 
         case 'gui':
-            Storage.set('theme', 'dark');
-            location.reload();
+            const event = new CustomEvent('theme-change', { detail: { theme: 'gui' } });
+            document.dispatchEvent(event);
             break;
 
         default:

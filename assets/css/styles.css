@@ -56,4 +56,71 @@ body {
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* =================================================================================
+   PDF EXPORT STYLES
+   These styles are applied only when the 'pdf-export-active' class is on the body
+   to prepare the document for clean PDF generation.
+================================================================================= */
+
+.pdf-export-active {
+    /* Use a standard font for PDF compatibility */
+    font-family: 'Helvetica', 'Arial', sans-serif !important;
+}
+
+.pdf-export-active #page-content {
+    /* Remove responsive constraints */
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pdf-export-active header,
+.pdf-export-active section {
+    /* Ensure sections don't get cut across pages */
+    page-break-inside: avoid !important;
+    margin-bottom: 10px !important;
+}
+
+.pdf-export-active .project-item,
+.pdf-export-active #experience-timeline > div {
+    /* Ensure individual items don't get cut */
+    page-break-inside: avoid !important;
+}
+
+.pdf-export-active #cert-list {
+    /* Expand the full list of certifications */
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+.pdf-export-active .glass-effect {
+    /* Remove visual effects for cleaner PDF */
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+}
+
+/* Hide elements not needed in the PDF */
+.pdf-export-active #download-btn,
+.pdf-export-active .top-controls,
+.pdf-export-active .see-more-indicator,
+.pdf-export-active a[href^="https://www.linkedin.com"],
+.pdf-export-active a[href^="https://github.com/Mgobeaalcoba"],
+.pdf-export-active a[href^="https://x.com"],
+.pdf-export-active button[onclick*="Calendly"] {
+    display: none !important;
+}
+
+/* Ensure the main grid layout is consistent for PDF */
+.pdf-export-active main.grid {
+    display: block !important;
+}
+
+.pdf-export-active .lg\\:col-span-1,
+.pdf-export-active .lg\\:col-span-2 {
+    width: 100% !important;
+    display: block !important;
 } 

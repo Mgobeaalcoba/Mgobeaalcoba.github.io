@@ -1,8 +1,80 @@
 // pdf.js - PDF generation logic for the CV
 
-import { experienceData, educationData, certifications, techStackData } from './data.js';
-import { translations } from './translations.js';
-import { DOM } from './utils.js';
+import { experienceData, educationData, certifications, projectsData, translations } from './data.js';
+import { DOM, Storage } from './utils.js';
+
+// =================================================================================
+// PDF GENERATION CONSTANTS
+// =================================================================================
+const FONT_SIZES = {
+    H1: 22,
+    H2: 16,
+    H3: 12,
+    Body: 10,
+    Small: 9,
+};
+
+const COLORS = {
+    Primary: '#0ea5e9',
+    Heading: '#1f2937',
+    Body: '#374151',
+    Muted: '#6b7280',
+};
+
+const MARGIN = 18;
+const PAGE_WIDTH = 210;
+const PAGE_HEIGHT = 297;
+const CONTENT_WIDTH = PAGE_WIDTH - (MARGIN * 2);
+
+class PdfBuilder {
+    constructor(lang) {
+        this.doc = new window.jspdf.jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+        this.yPos = MARGIN;
+        this.lang = lang;
+        this.doc.setFont('helvetica', 'normal');
+    }
+
+    // Helper to get line height in mm for a given font size in pt
+    getLineHeight(fontSize) {
+        // The 1.15 factor is a standard line-height for good readability
+        return this.doc.getTextDimensions('T', { fontSize }).h * 1.15;
+    }
+
+    checkPageBreak(requiredHeight) {
+        if (this.yPos + requiredHeight > PAGE_HEIGHT - MARGIN) {
+            this.doc.addPage();
+            this.yPos = MARGIN;
+        }
+    }
+
+    addSectionTitle(title) {
+        const titleHeight = this.getLineHeight(FONT_SIZES.H2);
+        this.checkPageBreak(titleHeight + 8); // title + gap + line + gap
+        this.doc.setFont('helvetica', 'bold').setFontSize(FONT_SIZES.H2).setTextColor(COLORS.Heading);
+        this.doc.text(title, MARGIN, this.yPos + titleHeight / 2); // Center vertically
+        this.yPos += titleHeight;
+        this.yPos += 1;
+        this.doc.setDrawColor(COLORS.Primary).setLineWidth(0.5).line(MARGIN, this.yPos, MARGIN + CONTENT_WIDTH, this.yPos);
+        this.yPos += 5;
+    }
+
+    addBodyText(text, options = {}) {
+        const fontSize = options.fontSize || FONT_SIZES.Body;
+        const color = options.color || COLORS.Body;
+        const fontStyle = options.fontStyle || 'normal';
+        const indent = options.indent || 0;
+
+        this.doc.setFont('helvetica', fontStyle).setFontSize(fontSize).setTextColor(color);
+        
+        const lines = this.doc.splitTextToSize(text, CONTENT_WIDTH - indent);
+        const lineHeight = this.getLineHeight(fontSize);
+        const totalHeight = lines.length * lineHeight;
+
+        this.checkPageBreak(totalHeight);
+        this.doc.text(lines, MARGIN + indent, this.yPos);
+        this.yPos += totalHeight;
+    }
+}
 
 // =================================================================================
 // MAIN PDF GENERATION FUNCTION
@@ -15,167 +87,146 @@ async function generatePdf() {
     
     if (!downloadBtn || !downloadText || !downloadIcon) return;
     
-    // Update button state
     downloadText.textContent = 'Generating...';
     downloadIcon.className = 'fas fa-spinner fa-spin w-5 mr-2';
     downloadBtn.disabled = true;
     
-    // Store original theme and switch to light mode for PDF
-    const originalTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
-    document.documentElement.classList.add('light-mode');
-    
     try {
-        await createPdf();
+        const lang = Storage.get('language', 'es');
+        const builder = new PdfBuilder(lang);
+        await drawPdf(builder);
+        builder.doc.save('CV-MarianoGobeaAlcoba.pdf');
     } catch (error) {
         console.error('Error generating PDF:', error);
+        showPdfError();
     } finally {
-        // Restore original state
-        downloadText.textContent = 'Download CV';
+        downloadText.textContent = translations.download_btn[Storage.get('language', 'es')];
         downloadIcon.className = 'fas fa-download w-5 mr-2';
         downloadBtn.disabled = false;
-        
-        if (originalTheme === 'dark') {
-            document.documentElement.classList.remove('light-mode');
-        }
-    }
-}
-
-async function createPdf() {
-    const element = document.getElementById('page-content');
-    if (!element) throw new Error('Page content element not found');
-    
-    // Create temporary experience container for PDF
-    const tempExperienceContainer = createTemporaryExperienceContainer();
-    
-    // Hide original timeline and add temporary container
-    const experienceSection = document.getElementById('experience-timeline')?.parentElement;
-    const rightColumn = experienceSection?.parentElement;
-    
-    if (experienceSection && rightColumn) {
-        experienceSection.style.display = 'none';
-        rightColumn.appendChild(tempExperienceContainer);
-    }
-    
-    try {
-        // Wait for DOM updates
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
-        // Generate canvas
-        const canvas = await html2canvas(element, { 
-            useCORS: true,
-            scale: 1, 
-            backgroundColor: '#f9fafb', 
-            windowWidth: element.scrollWidth, 
-            windowHeight: element.scrollHeight 
-        });
-        
-        // Create PDF
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-        const ratio = canvas.width / canvas.height;
-        let imgHeight = pdfWidth / ratio;
-        let heightLeft = imgHeight;
-        let position = 0;
-
-        // Add first page
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
-        heightLeft -= pdfHeight;
-
-        // Add additional pages if needed
-        while (heightLeft > 0) {
-            position -= pdfHeight;
-            pdf.addPage();
-            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, pdfWidth, imgHeight);
-            heightLeft -= pdfHeight;
-        }
-        
-        // Save PDF
-        pdf.save('CV-MarianoGobeaAlcoba.pdf');
-        
-    } finally {
-        // Clean up temporary elements
-        if (rightColumn && tempExperienceContainer) {
-            rightColumn.removeChild(tempExperienceContainer);
-        }
-        if (experienceSection) {
-            experienceSection.style.display = 'block';
-        }
     }
 }
 
 // =================================================================================
-// EVENT LISTENER SETUP
-// =================================================================================
-
-export function setupPdfGeneration() {
-    const downloadBtn = DOM.find('#download-btn');
-    if (!downloadBtn) return;
-    
-    downloadBtn.addEventListener('click', generatePdf);
-}
-
-// =================================================================================
-// DOM & HTML HELPERS FOR PDF
+// PDF DRAWING LOGIC
 // =================================================================================
 
 /**
- * Creates and returns the main container for the PDF version of the experience section.
- * It programmatically creates DOM nodes instead of using a large HTML string.
+ * Loads an image from a given path and returns it as a Base64 string.
+ * @param {string} path - The path to the image file.
+ * @returns {Promise<string>} A promise that resolves with the Base64 image data.
  */
-function createTemporaryExperienceContainer() {
-    const tempContainer = document.createElement('div');
-    
-    const title = document.createElement('h3');
-    title.className = 'text-2xl font-semibold mb-8 border-b pb-2';
-    title.style.cssText = 'border-color: #e5e7eb; color: #0ea5e9; font-family: "Inter", sans-serif; padding-left: 1.5rem;';
-    title.textContent = 'Professional Experience';
-    tempContainer.appendChild(title);
-    
-    experienceData.forEach(job => {
-        const jobContainer = document.createElement('div');
-        jobContainer.className = 'avoid-break mb-6 px-6';
-
-        const date = document.createElement('p');
-        date.className = 'font-semibold';
-        date.style.color = '#0ea5e9';
-        date.textContent = job.date['es'];
-        jobContainer.appendChild(date);
-
-        const jobTitle = document.createElement('h4');
-        jobTitle.className = 'text-xl font-bold mt-1';
-        jobTitle.style.color = '#1f2937';
-        jobTitle.textContent = job.title['es'];
-        jobContainer.appendChild(jobTitle);
-
-        const company = document.createElement('p');
-        company.className = 'font-semibold text-lg';
-        company.style.color = '#4b5563';
-        company.textContent = job.company;
-        jobContainer.appendChild(company);
-
-        const descriptionList = document.createElement('ul');
-        descriptionList.className = 'list-disc list-inside space-y-2 text-base mt-2';
-        descriptionList.style.color = '#4b5563';
-        descriptionList.innerHTML = job.description['es']; // innerHTML is suitable here for list items
-        jobContainer.appendChild(descriptionList);
-
-        tempContainer.appendChild(jobContainer);
+function loadImageAsBase64(path) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', path, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                const blob = this.response;
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            } else {
+                reject(new Error(`Failed to load image at ${path}: ${this.statusText}`));
+            }
+        };
+        xhr.onerror = reject;
+        xhr.send();
     });
+}
+
+async function drawPdf(builder) {
+    const { doc, lang } = builder;
+
+    // --- Header ---
+    const profileImgBase64 = await loadImageAsBase64('assets/images/profile.png');
+    const imgSize = 35;
+    const headerHeight = imgSize + 10;
+    builder.checkPageBreak(headerHeight);
+    doc.addImage(profileImgBase64, 'PNG', MARGIN, builder.yPos, imgSize, imgSize, 'profile', 'FAST');
+
+    const textX = MARGIN + imgSize + 10;
     
-    return tempContainer;
+    doc.setFont('helvetica', 'bold').setFontSize(FONT_SIZES.H1).setTextColor(COLORS.Heading);
+    doc.text('Mariano Gobea Alcoba', textX, builder.yPos + (imgSize / 2) - 2);
+
+    doc.setFont('helvetica', 'normal').setFontSize(FONT_SIZES.H2).setTextColor(COLORS.Primary);
+    doc.text(translations.job_title[lang], textX, builder.yPos + (imgSize / 2) + 6);
+    
+    builder.yPos += headerHeight;
+
+    // --- About Me ---
+    builder.addSectionTitle(translations.about_title[lang]);
+    builder.addBodyText(translations.about_text[lang]);
+    builder.yPos += 5;
+
+    // --- Contact ---
+    builder.addSectionTitle(translations.contact_title[lang]);
+    builder.addBodyText('Buenos Aires, Argentina  •  +54 9 11 27475569  •  gobeamariano@gmail.com');
+    builder.yPos += 5;
+
+    // --- Professional Experience ---
+    builder.addSectionTitle(translations.experience_title[lang]);
+    experienceData.forEach(job => {
+        const plainDescription = job.description[lang].replace(/<li>/g, '• ').replace(/<\/li>|<ul>|<\/ul>/g, '').split('\n').map(l => l.trim()).filter(l => l).join('\n');
+        
+        const titleHeight = builder.getLineHeight(FONT_SIZES.H3);
+        const subtitleHeight = builder.getLineHeight(FONT_SIZES.Body);
+        const descriptionLines = doc.setFontSize(FONT_SIZES.Body).splitTextToSize(plainDescription, CONTENT_WIDTH - 5);
+        const descriptionHeight = descriptionLines.length * builder.getLineHeight(FONT_SIZES.Body);
+        
+        builder.checkPageBreak(titleHeight + subtitleHeight + descriptionHeight + 8);
+
+        builder.addBodyText(job.title[lang], { fontSize: FONT_SIZES.H3, fontStyle: 'bold', color: COLORS.Body });
+        builder.yPos += 0.5;
+        builder.addBodyText(`${job.company}  |  ${job.date[lang]}`, { color: COLORS.Muted });
+        builder.yPos += 2;
+        builder.addBodyText(plainDescription, { indent: 5 });
+        builder.yPos += 6;
+    });
+
+    // --- Education ---
+    builder.addSectionTitle(translations.education_title[lang]);
+    educationData.forEach(edu => {
+        const subtitleText = edu.subtitle ? `${edu.school} | ${edu.subtitle[lang]}` : edu.school;
+        builder.checkPageBreak(20);
+        builder.addBodyText(edu.title[lang], { fontSize: FONT_SIZES.H3, fontStyle: 'bold', color: COLORS.Body });
+        builder.yPos += 0.5;
+        builder.addBodyText(subtitleText, { color: COLORS.Muted });
+        builder.yPos += 0.5;
+        builder.addBodyText(edu.date, { fontSize: FONT_SIZES.Small, fontStyle: 'italic', color: COLORS.Muted });
+        builder.yPos += 6;
+    });
+
+    // --- Certifications ---
+    builder.addSectionTitle(translations.cert_title[lang]);
+    const certText = certifications.join('  •  ');
+    builder.addBodyText(certText, {fontSize: FONT_SIZES.Small, color: COLORS.Muted});
+    builder.yPos += 5;
+
+    // --- Featured Projects ---
+    builder.addSectionTitle(translations.projects_title[lang]);
+    projectsData.forEach(proj => {
+        builder.checkPageBreak(25);
+        builder.addBodyText(proj.title[lang], { fontSize: FONT_SIZES.H3, fontStyle: 'bold', color: COLORS.Body });
+        builder.yPos += 1;
+        builder.addBodyText(proj.description[lang]);
+        builder.yPos += 1;
+        doc.setFont('helvetica', 'normal').setFontSize(FONT_SIZES.Small).setTextColor(COLORS.Primary);
+        doc.textWithLink('Ver Repositorio', MARGIN, builder.yPos, { url: proj.link });
+        builder.yPos += builder.getLineHeight(FONT_SIZES.Small) + 6;
+    });
 }
 
-// =================================================================================
-// PDF ERROR HANDLING
-// =================================================================================
-
-export function isPdfGenerationSupported() {
-    return typeof html2canvas !== 'undefined' && typeof window.jspdf !== 'undefined';
+export function setupPdfGeneration() {
+    const downloadBtn = DOM.find('#download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', generatePdf);
+    }
 }
 
-export function showPdfError() {
+function showPdfError() {
     const downloadBtn = DOM.find('#download-btn');
     const downloadText = DOM.find('#download-text');
     const downloadIcon = DOM.find('#download-icon');

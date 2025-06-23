@@ -127,8 +127,8 @@ export const translations = {
             en: '--- Professional Experience ---'
         },
         contact_details: {
-            es: '- Ubicación: Buenos Aires, Argentina\\n- Teléfono: +54 9 11 27475569\\n- Email: gobeamariano@gmail.com',
-            en: '- Location: Buenos Aires, Argentina\\n- Phone: +54 9 11 27475569\\n- Email: gobeamariano@gmail.com'
+            es: '- Ubicación: Buenos Aires, Argentina\n- Teléfono: +54 9 11 27475569\n- Email: gobeamariano@gmail.com',
+            en: '- Location: Buenos Aires, Argentina\n- Phone: +54 9 11 27475569\n- Email: gobeamariano@gmail.com'
         },
         command_not_found: {
             es: 'bash: command not found: {command}',
