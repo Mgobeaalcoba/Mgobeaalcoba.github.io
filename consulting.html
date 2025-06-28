@@ -120,8 +120,63 @@
             border-radius: 0.5rem;
             transition: transform 0.3s ease;
         }
-        .workflow-image:hover {
+        .example-card:hover .workflow-image {
             transform: scale(1.03);
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            padding: 2rem;
+            border-radius: 1rem;
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+        .pack-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -135,6 +190,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-6">
                 <a href="#services" class="hover:text-sky-400 transition-colors">Servicios</a>
+                <a href="#packs" class="hover:text-sky-400 transition-colors">Packs</a>
                 <a href="#examples" class="hover:text-sky-400 transition-colors">Ejemplos</a>
                 <a href="#process" class="hover:text-sky-400 transition-colors">Nuestro Proceso</a>
                 <a href="#about" class="hover:text-sky-400 transition-colors">Quién Soy</a>
@@ -182,8 +238,8 @@
                 <p class="mt-2 text-lg text-secondary">Ofrecemos soluciones modulares que se adaptan a su nivel de madurez digital.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1: Automation -->
-                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 200ms;">
+                 <!-- Service Card 1: Automation -->
+                 <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 200ms;">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot"></i></div>
                     <h3 class="text-xl font-bold mb-2">Automatización de Procesos</h3>
                     <p class="text-secondary text-sm leading-relaxed">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
@@ -203,6 +259,69 @@
             </div>
         </section>
 
+        <!-- PACKS SECTION -->
+        <section id="packs" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Packs de Crecimiento para Pymes</h2>
+                <p class="mt-2 text-lg text-secondary">Soluciones empaquetadas con un retorno de inversión claro y rápido.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pack 1: Starter -->
+                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" data-title="Pack Starter: Tu Primera Automatización" 
+                    data-services="<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Diagnóstico de 1 proceso clave.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Implementación de 1 automatización (ej. carga de facturas, data entry).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Documentación y capacitación básica.</li>"
+                    data-timeline="2 - 3 Semanas"
+                    data-investment="Inversión Única: USD 850"
+                    data-roi="<li>Ahorro estimado: 15-20 hs/mes.</li><li><strong>Ahorro Anual Estimado: USD 3,600+</strong></li><li>Retorno de la inversión en ~3 meses.</li>">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bolt text-4xl text-sky-400"></i>
+                        <h3 class="text-xl font-bold mt-2">Pack Starter</h3>
+                    </div>
+                    <p class="text-secondary text-sm text-center flex-grow">Ideal para empezar. Automatizamos un proceso manual doloroso para un impacto inmediato.</p>
+                    <div class="mt-4 border-t border-gray-700 pt-4 text-center">
+                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-2xl font-bold">USD 850</p>
+                        <p class="text-xs text-green-400 font-semibold">Ahorro anual: $3,600+</p>
+                    </div>
+                </div>
+
+                <!-- Pack 2: Growth -->
+                 <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" data-title="Pack Crecimiento: IA + Automatización" 
+                    data-services="<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Todo lo del Pack Starter.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Implementación de Chatbot para WhatsApp/Web.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Respuesta a preguntas frecuentes 24/7.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Captura de leads automática.</li>"
+                    data-timeline="3 - 4 Semanas"
+                    data-investment="Inversión Única: USD 1,500"
+                    data-roi="<li>Ahorro estimado: 30-40 hs/mes.</li><li><strong>Ahorro Anual Estimado: USD 6,000+</strong></li><li>Aumento de leads y satisfacción del cliente.</li>">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-comments text-4xl text-sky-400"></i>
+                        <h3 class="text-xl font-bold mt-2">Pack Crecimiento</h3>
+                    </div>
+                    <p class="text-secondary text-sm text-center flex-grow">Combinamos automatización de tareas con un chatbot para potenciar ventas y soporte.</p>
+                     <div class="mt-4 border-t border-gray-700 pt-4 text-center">
+                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-2xl font-bold">USD 1,500</p>
+                        <p class="text-xs text-green-400 font-semibold">Ahorro anual: $6,000+</p>
+                    </div>
+                </div>
+
+                <!-- Pack 3: BI Express -->
+                 <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" data-title="Pack BI Express: Decisiones con Datos" 
+                    data-services="<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Análisis de fuentes de datos (Excel, sistemas, etc.).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Creación de 1 Dashboard Interactivo (Ventas, Operaciones).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Actualización automática de datos.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Capacitación en uso y lectura del tablero.</li>"
+                    data-timeline="2 Semanas"
+                    data-investment="Inversión Única: USD 1,200"
+                    data-roi="<li>Ahorro en horas de gerencia para armado de reportes.</li><li><strong>Valor anual por decisiones informadas: >USD 10,000</strong></li><li>Detección temprana de problemas y oportunidades.</li>">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-chart-line text-4xl text-sky-400"></i>
+                        <h3 class="text-xl font-bold mt-2">Pack BI Express</h3>
+                    </div>
+                    <p class="text-secondary text-sm text-center flex-grow">Deje de decidir a ciegas. Le damos visibilidad total de su negocio en un solo panel.</p>
+                     <div class="mt-4 border-t border-gray-700 pt-4 text-center">
+                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-2xl font-bold">USD 1,200</p>
+                        <p class="text-xs text-green-400 font-semibold">Valor anual: +$10,000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ALL EXAMPLES PARENT SECTION -->
         <section id="examples">
 
@@ -214,20 +333,20 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- Workflow 1 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 200ms;">
-                        <a href="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 200ms;" data-img-src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" data-title="Automatización de Contenido para Redes" data-story="Una agencia de marketing digital pasaba más de 10 horas semanales copiando y pegando contenido desde Notion a LinkedIn para sus clientes. Implementamos este flujo que lo hace automáticamente cada día a las 9 AM, liberando al equipo para que se enfoque en la estrategia y la creatividad, no en tareas repetitivas.">
+                        <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" alt="Workflow de automatización de contenido para redes sociales" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Automatización de Contenido para Redes</h4>
-                        <p class="text-secondary text-sm">Este flujo toma publicaciones desde Notion, las procesa con IA para optimizar el texto y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
+                        <p class="text-secondary text-sm">Este flujo toma publicaciones desde Notion, las procesa con IA y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
                     </div>
                     <!-- Workflow 2 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 400ms;">
-                         <a href="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 400ms;" data-img-src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" data-title="Reportes de Performance Automatizados" data-story="El dueño de una pyme de retail perdía medio día cada lunes consolidando reportes de Facebook, Twitter y LinkedIn en un único Excel para entender el rendimiento. Ahora, recibe un email cada lunes a las 8 AM con un link a un reporte unificado y visual, permitiéndole tomar decisiones estratégicas antes de empezar la semana.">
+                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" alt="Workflow de reportes automáticos de redes sociales" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Reportes de Performance Automatizados</h4>
-                        <p class="text-secondary text-sm">Cada semana, este workflow recolecta métricas de múltiples redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email, eliminando la creación manual de informes.</p>
+                        <p class="text-secondary text-sm">Cada semana, este workflow recolecta métricas de redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email.</p>
                     </div>
                 </div>
             </div>
@@ -240,20 +359,20 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- AI Example 1 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in">
-                        <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" data-title="Chatbot de Soporte 24/7" data-story="Una empresa de servicios recibía más de 50 consultas diarias por WhatsApp sobre horarios, precios y ubicación. Implementamos un chatbot que responde el 80% de estas preguntas al instante, 24/7. El equipo de soporte ahora solo se ocupa de los casos complejos, la satisfacción del cliente aumentó un 30% y se capturan leads incluso fuera del horario laboral.">
+                        <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" alt="Ejemplo de un chatbot para atención al cliente" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Chatbot de Soporte 24/7</h4>
-                        <p class="text-secondary text-sm">Un asistente virtual que responde preguntas frecuentes en su web o WhatsApp, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
+                        <p class="text-secondary text-sm">Un asistente virtual que responde preguntas frecuentes, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
                     </div>
                     <!-- AI Example 2 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in">
-                         <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" data-title="Análisis Inteligente de Feedback" data-story="Una cadena de restaurantes quería entender las miles de reseñas online que recibían. Creamos un sistema que analiza automáticamente cada comentario, lo clasifica (comida, servicio, limpieza) y detecta el sentimiento (positivo, negativo, neutro). Esto les permitió identificar que la 'lentitud en el servicio de mediodía' era un problema recurrente en una sucursal y tomar acciones correctivas inmediatas.">
+                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" alt="Ejemplo de análisis de sentimiento con IA" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Análisis Inteligente de Feedback</h4>
-                        <p class="text-secondary text-sm">Utilizamos IA para analizar miles de comentarios de clientes, reseñas o encuestas, detectando patrones, quejas recurrentes y oportunidades de mejora de forma automática.</p>
+                        <p class="text-secondary text-sm">Utilizamos IA para analizar miles de comentarios de clientes y reseñas, detectando patrones y oportunidades de mejora de forma automática.</p>
                     </div>
                 </div>
             </div>
@@ -266,20 +385,20 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- BI Example 1 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in">
-                        <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" data-title="Dashboard de Ventas en Tiempo Real" data-story="Una distribuidora dependía de reportes de Excel semanales que no reflejaban la realidad del momento. Implementamos un dashboard conectado directamente a su sistema de facturación. Ahora, el gerente de ventas puede ver desde su celular las ventas por vendedor, por producto y por región, actualizadas cada hora. Esto les permitió lanzar promociones flash y ajustar estrategias en el mismo día.">
+                        <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" alt="Ejemplo de un dashboard de ventas en Power BI o Looker Studio" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Dashboard de Ventas en Tiempo Real</h4>
-                        <p class="text-secondary text-sm">Visualice sus KPIs de ventas, compare periodos, filtre por vendedor o producto y entienda qué impulsa sus ingresos con un panel interactivo y siempre actualizado.</p>
+                        <p class="text-secondary text-sm">Visualice sus KPIs de ventas, compare periodos y filtre por vendedor o producto con un panel interactivo y siempre actualizado.</p>
                     </div>
                     <!-- BI Example 2 -->
-                    <div class="glass-effect rounded-2xl p-6 fade-in">
-                         <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" data-title="Control de Inventario y Operaciones" data-story="Una pyme de manufactura sufría constantes quiebres de stock en materias primas clave, frenando la producción. Creamos un dashboard de control de inventario que no solo muestra el stock actual, sino que proyecta el consumo y alerta automáticamente cuando un item llega a su punto de reorden. Las paradas de producción por falta de material se redujeron en un 90%.">
+                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" alt="Ejemplo de un dashboard de control de inventario" class="workflow-image">
-                        </a>
+                        </div>
                         <h4 class="font-bold text-lg mb-1">Control de Inventario y Operaciones</h4>
-                        <p class="text-secondary text-sm">Monitoree niveles de stock, rotación de productos y eficiencia logística. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
+                        <p class="text-secondary text-sm">Monitoree niveles de stock y rotación de productos. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
                     </div>
                 </div>
             </div>
@@ -367,15 +486,50 @@
             <h2 class="text-3xl font-bold mb-2">¿Listo para dar el siguiente paso?</h2>
             <p class="text-secondary mb-8">Agende una sesión de diagnóstico gratuita de 30 minutos. Sin compromiso, sin costo. <br>Solo una charla para explorar cómo la tecnología puede impulsar su negocio.</p>
             
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/mariano-gobea-mercadolibre/30min" style="min-width:320px;height:700px;"></div>
-            <!-- Calendly inline widget end -->
+            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="main-cta text-white font-bold px-10 py-4 rounded-full text-lg">
+                <i class="fas fa-calendar-alt mr-2"></i> Agendar mi sesión gratuita
+            </button>
 
             <div class="mt-12 text-sm text-secondary">
                  &copy; 2025 Mariano Gobea Alcoba Consulting. Todos los derechos reservados.
             </div>
         </div>
     </footer>
+
+    <!-- MODAL FOR EXAMPLES -->
+    <div id="example-modal" class="modal-overlay" onclick="closeModal('example-modal')">
+        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('example-modal')"><i class="fas fa-times"></i></button>
+            <img id="modal-img" src="" alt="Ejemplo de caso de uso" class="w-full h-auto max-h-[50vh] object-contain rounded-lg mb-4">
+            <h4 id="modal-title" class="text-2xl font-bold mb-2"></h4>
+            <p id="modal-story" class="text-secondary leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- MODAL FOR PACKS -->
+    <div id="pack-modal" class="modal-overlay" onclick="closeModal('pack-modal')">
+        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('pack-modal')"><i class="fas fa-times"></i></button>
+            <h4 id="pack-modal-title" class="text-2xl font-bold mb-4"></h4>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h5 class="font-semibold mb-2 text-sky-400">¿Qué incluye?</h5>
+                    <ul id="pack-modal-services" class="text-secondary list-none space-y-2"></ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-2 text-sky-400">Inversión y Retorno</h5>
+                    <div class="space-y-4 text-secondary">
+                        <p id="pack-modal-timeline"><i class="fas fa-clock w-5 mr-2"></i></p>
+                        <p id="pack-modal-investment"><i class="fas fa-dollar-sign w-5 mr-2"></i></p>
+                        <div>
+                            <p class="font-semibold">Retorno de Inversión (ROI):</p>
+                            <ul id="pack-modal-roi" class="list-none space-y-1 mt-1"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // THEME TOGGLE
@@ -384,7 +538,6 @@
         const lightIcon = document.getElementById('light-icon');
         const docHtml = document.documentElement;
 
-        // Check for saved theme in localStorage
         if (localStorage.getItem('theme') === 'light') {
             docHtml.classList.remove('dark');
             docHtml.classList.add('light');
@@ -393,19 +546,11 @@
         }
 
         themeToggle.addEventListener('click', () => {
-            if (docHtml.classList.contains('dark')) {
-                docHtml.classList.remove('dark');
-                docHtml.classList.add('light');
-                localStorage.setItem('theme', 'light');
-                darkIcon.classList.remove('hidden');
-                lightIcon.classList.add('hidden');
-            } else {
-                docHtml.classList.remove('light');
-                docHtml.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-            }
+            docHtml.classList.toggle('dark');
+            docHtml.classList.toggle('light');
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            localStorage.setItem('theme', docHtml.classList.contains('dark') ? 'dark' : 'light');
         });
 
         // TYPING EFFECT
@@ -422,6 +567,7 @@
         let isDeleting = false;
 
         function type() {
+            if(!typingText) return;
             const currentPhrase = phrases[phraseIndex];
             if (isDeleting) {
                 typingText.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -445,28 +591,80 @@
             setTimeout(type, typeSpeed);
         }
         
-        document.addEventListener('DOMContentLoaded', type);
-        
         // FADE-IN ON SCROLL
         const faders = document.querySelectorAll('.fade-in');
         const appearOptions = {
-            threshold: 0.1, // Start animation a bit earlier
+            threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
         };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.style.animationPlayState = 'running';
-                    appearOnScroll.unobserve(entry.target);
-                }
+                if (!entry.isIntersecting) return;
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
             });
         }, appearOptions);
 
-        faders.forEach(fader => {
-            fader.style.animationPlayState = 'paused';
-            appearOnScroll.observe(fader);
+        // MODAL LOGIC (Generic)
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove('active');
+        }
+
+        // EXAMPLE MODAL
+        const exampleModal = document.getElementById('example-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalStory = document.getElementById('modal-story');
+        const exampleCards = document.querySelectorAll('.example-card');
+
+        function openExampleModal(card) {
+            modalImg.src = card.dataset.imgSrc;
+            modalImg.alt = card.dataset.title;
+            modalTitle.textContent = card.dataset.title;
+            modalStory.textContent = card.dataset.story;
+            openModal('example-modal');
+        }
+
+        // PACK MODAL
+        const packModal = document.getElementById('pack-modal');
+        const packModalTitle = document.getElementById('pack-modal-title');
+        const packModalServices = document.getElementById('pack-modal-services');
+        const packModalTimeline = document.getElementById('pack-modal-timeline');
+        const packModalInvestment = document.getElementById('pack-modal-investment');
+        const packModalRoi = document.getElementById('pack-modal-roi');
+        const packCards = document.querySelectorAll('.pack-card');
+
+        function openPackModal(card) {
+            packModalTitle.textContent = card.dataset.title;
+            packModalServices.innerHTML = card.dataset.services;
+            packModalTimeline.innerHTML = `<i class="fas fa-clock w-5 mr-2"></i>${card.dataset.timeline}`;
+            packModalInvestment.innerHTML = `<i class="fas fa-dollar-sign w-5 mr-2"></i>${card.dataset.investment}`;
+            packModalRoi.innerHTML = card.dataset.roi;
+            openModal('pack-modal');
+        }
+
+        // Initialize all functionalities on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+            
+            faders.forEach(fader => {
+                fader.style.animationPlayState = 'paused';
+                appearOnScroll.observe(fader);
+            });
+
+            exampleCards.forEach(card => {
+                card.addEventListener('click', () => openExampleModal(card));
+            });
+            
+            packCards.forEach(card => {
+                card.addEventListener('click', () => openPackModal(card));
+            });
         });
 
     </script>
