@@ -24,6 +24,10 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
+    <!-- Libraries for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/consulting.css">
 </head>
@@ -90,7 +94,7 @@
                 Ayudamos a pymes a reducir costos operativos, optimizar procesos y tomar decisiones basadas en datos para que pueda enfocarse en lo que realmente importa: hacer crecer su negocio.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#contact" class="w-full sm:w-auto main-cta text-white font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base" data-translate="consulting_hero_main_cta">Solicitar Diagnóstico Gratuito</a>
+                <button id="open-proposal-modal-btn" class="w-full sm:w-auto main-cta text-white font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base" data-translate="consulting_hero_main_cta">Crear Pre-propuesta Instantánea</button>
                 <a href="/" target="_blank" class="w-full sm:w-auto secondary-cta font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base">
                     <span data-translate="consulting_hero_secondary_cta">Ver mi Perfil Técnico</span> <i class="fas fa-arrow-right ml-2 text-sm"></i>
                 </a>
@@ -395,6 +399,69 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- MODAL PARA FORMULARIO DE PROPUESTA -->
+    <div id="proposal-form-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <h4 class="text-2xl font-bold mb-4" data-translate="consulting_proposal_form_title">Generar Pre-propuesta Personalizada</h4>
+            <p class="text-secondary mb-6" data-translate="consulting_proposal_form_desc">Complete sus datos para generar un PDF con una propuesta inicial y agilizar nuestro contacto.</p>
+            <form id="proposal-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="user-name" data-translate-placeholder="consulting_form_name_placeholder" placeholder="Nombre y Apellido" required class="form-input w-full p-2 rounded focus:ring-2 outline-none">
+                    <input type="email" id="user-email" data-translate-placeholder="consulting_form_email_placeholder" placeholder="Email de Contacto" required class="form-input w-full p-2 rounded focus:ring-2 outline-none">
+                    <input type="text" id="company-name" data-translate-placeholder="consulting_form_company_placeholder" placeholder="Nombre de la Empresa" required class="form-input w-full p-2 rounded focus:ring-2 outline-none">
+                    <input type="text" id="company-industry" data-translate-placeholder="consulting_form_industry_placeholder" placeholder="Rubro (Ej: Retail, Servicios, etc.)" required class="form-input w-full p-2 rounded focus:ring-2 outline-none">
+                </div>
+                <textarea id="user-problem" data-translate-placeholder="consulting_form_problem_placeholder" placeholder="Describa brevemente su principal desafío o el proceso que busca mejorar..." rows="4" required class="form-input w-full mt-4 p-2 rounded focus:ring-2 outline-none"></textarea>
+                <button type="submit" id="generate-pdf-btn" class="w-full mt-6 main-cta text-white font-bold py-3 rounded-lg flex items-center justify-center">
+                    <span id="btn-text" data-translate="consulting_form_generate_btn">Generar PDF y Contactar</span>
+                    <i id="btn-spinner" class="fas fa-spinner fa-spin hidden ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL PARA OPCIONES DE CONTACTO -->
+    <div id="contact-options-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect text-center">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <i class="fas fa-check-circle text-5xl text-green-400 mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2" data-translate="consulting_contact_success_title">¡Propuesta Generada!</h4>
+            <p class="text-secondary mb-6" data-translate="consulting_contact_success_desc">Su PDF se ha descargado. Ahora, demos el siguiente paso. ¡Contácteme para revisar la propuesta juntos!</p>
+            <div class="flex flex-col md:flex-row gap-4">
+                <a id="whatsapp-link" href="#" target="_blank" class="flex-1 p-4 rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold text-center">
+                    <i class="fab fa-whatsapp mr-2"></i> <span data-translate="consulting_contact_whatsapp">Contactar por WhatsApp</span>
+                </a>
+                <a id="email-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 p-4 rounded-lg bg-gray-600 hover:bg-gray-500 text-white font-bold text-center">
+                    <i class="fas fa-envelope mr-2"></i> <span data-translate="consulting_contact_email">Enviar Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PLANTILLA OCULTA PARA EL PDF -->
+    <div id="pdf-content" class="hidden w-[800px] p-10 bg-white text-black font-sans">
+         <h1 class="text-3xl font-bold text-sky-600" data-translate="consulting_pdf_title">Propuesta de Transformación Digital</h1>
+         <p class="text-gray-500"><span data-translate="consulting_pdf_for">Para:</span> <span id="pdf-company-name"></span></p>
+         <p class="text-gray-500"><span data-translate="consulting_pdf_date">Fecha:</span> <span id="pdf-date"></span></p>
+         <hr class="my-6">
+         <h2 class="text-xl font-semibold text-gray-800 mb-2" data-translate="consulting_pdf_challenge_title">1. Entendimiento del Desafío</h2>
+         <p class="text-gray-600 mb-6" data-translate="consulting_pdf_challenge_desc">Hemos registrado su interés en resolver desafíos relacionados con <strong id="pdf-user-problem" class="font-bold"></strong>. Esta propuesta inicial está diseñada para abordar problemas similares mediante la implementación de tecnología de vanguardia.</p>
+         <h2 class="text-xl font-semibold text-gray-800 mb-2" data-translate="consulting_pdf_value_title">2. Propuesta de Valor</h2>
+         <p class="text-gray-600 mb-4" data-translate="consulting_pdf_value_intro">Nuestra solución se basa en tres pilares clave que han demostrado generar un alto retorno de la inversión para pymes del rubro <strong id="pdf-company-industry" class="font-bold"></strong>:</p>
+         <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+             <li data-translate="consulting_pdf_pillar_automation"><strong>Automatización de Procesos:</strong> Para reducir costos operativos y liberar tiempo de su equipo.</li>
+             <li data-translate="consulting_pdf_pillar_ai"><strong>Inteligencia Artificial Aplicada:</strong> Para mejorar la comunicación y la eficiencia en la toma de decisiones.</li>
+             <li data-translate="consulting_pdf_pillar_bi"><strong>Business Intelligence:</strong> Para obtener visibilidad clara y en tiempo real de las métricas clave de su negocio.</li>
+         </ul>
+         <h2 class="text-xl font-semibold text-gray-800 mb-2" data-translate="consulting_pdf_next_steps_title">3. Próximos Pasos</h2>
+         <p class="text-gray-600" data-translate="consulting_pdf_next_steps_desc">El siguiente paso es una reunión de 30 minutos para realizar un diagnóstico más profundo y cuantificar el impacto potencial en su operación. Esta propuesta es un punto de partida para una colaboración exitosa.</p>
+         <div class="mt-10 pt-6 border-t text-center text-gray-500 text-sm">
+            <p><strong>Mariano Gobea Alcoba</strong> | MGA Tech Consulting</p>
+            <p>gobeamariano@gmail.com | +54 9 11 27475569</p>
+         </div>
     </div>
 
     <script src="assets/js/consulting.js" type="module" defer></script>

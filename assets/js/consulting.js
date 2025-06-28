@@ -386,4 +386,134 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
     
     console.log('[Consulting] Initialization complete');
-}); 
+    
+    // Initialize PDF proposal functionality
+    initializeProposalGenerator();
+});
+
+// ============== PDF PROPOSAL FUNCTIONALITY ==============
+
+function initializeProposalGenerator() {
+    const openModalBtn = document.getElementById('open-proposal-modal-btn');
+    const proposalForm = document.getElementById('proposal-form');
+    
+    if (openModalBtn) {
+        openModalBtn.addEventListener('click', () => openModal('proposal-form-modal'));
+    }
+
+    if (proposalForm) {
+        proposalForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btnText = document.getElementById('btn-text');
+            const btnSpinner = document.getElementById('btn-spinner');
+            const generatePdfBtn = document.getElementById('generate-pdf-btn');
+
+            generatePdfBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnSpinner.style.display = 'inline-block';
+
+            const userData = {
+                name: document.getElementById('user-name').value,
+                email: document.getElementById('user-email').value,
+                company: document.getElementById('company-name').value,
+                industry: document.getElementById('company-industry').value,
+                problem: document.getElementById('user-problem').value,
+            };
+
+            try {
+                await generatePDF(userData);
+                setupContactLinks(userData);
+                closeModal('proposal-form-modal');
+                openModal('contact-options-modal');
+            } catch (error) {
+                console.error('Error generating proposal:', error);
+                alert('Hubo un error al generar la propuesta. Por favor, intente de nuevo.');
+            } finally {
+                generatePdfBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnSpinner.style.display = 'none';
+                proposalForm.reset();
+            }
+        });
+    }
+}
+
+async function generatePDF(data) {
+    const { company, industry, problem } = data;
+
+    // Fill PDF template with user data
+    document.getElementById('pdf-company-name').textContent = company;
+    document.getElementById('pdf-date').textContent = new Date().toLocaleDateString('es-AR');
+    document.getElementById('pdf-user-problem').textContent = problem;
+    document.getElementById('pdf-company-industry').textContent = industry;
+
+    const pdfContent = document.getElementById('pdf-content');
+    pdfContent.classList.remove('hidden');
+
+    // Wait for content to be visible
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    try {
+        const canvas = await html2canvas(pdfContent, { scale: 2 });
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'px',
+            format: [canvas.width, canvas.height]
+        });
+        
+        doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        doc.save(`Propuesta-MGA-Consulting-${company.replace(/\s+/g, '-')}.pdf`);
+
+    } catch(error) {
+        console.error("Error generating PDF:", error);
+        throw error;
+    } finally {
+        pdfContent.classList.add('hidden');
+    }
+}
+
+function setupContactLinks(data) {
+    const { name, company, industry, problem } = data;
+    
+    // WhatsApp link
+    const whatsappText = `Hola Mariano, soy ${name} de la empresa ${company}. Acabo de generar una pre-propuesta desde tu web. Nos dedicamos al rubro ${industry} y nuestro principal desafío es: "${problem}". Me gustaría conversar sobre la propuesta.`;
+    const whatsappLink = document.getElementById('whatsapp-link');
+    whatsappLink.href = `https://wa.me/5491127475569?text=${encodeURIComponent(whatsappText)}`;
+    
+    // Email link
+    const emailLink = document.getElementById('email-link');
+    const emailSubject = `Contacto desde la web - Propuesta para ${company}`;
+    const emailBody = `Hola Mariano,\n\nMi nombre es ${name} y te escribo desde ${company} (rubro: ${industry}).\n\nGeneré una pre-propuesta en tu sitio web sobre nuestro desafío: "${problem}".\n\nMe gustaría coordinar una llamada para conversar más en detalle.\n\nSaludos.`;
+    const mailtoHref = `mailto:gobeamariano@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    emailLink.href = mailtoHref;
+    emailLink.onclick = null; // Remove any previous onclick handlers
+}
+
+// Function to update form placeholders when language changes
+function updateFormPlaceholders(lang) {
+    const placeholderElements = [
+        { id: 'user-name', key: 'consulting_form_name_placeholder' },
+        { id: 'user-email', key: 'consulting_form_email_placeholder' },
+        { id: 'company-name', key: 'consulting_form_company_placeholder' },
+        { id: 'company-industry', key: 'consulting_form_industry_placeholder' },
+        { id: 'user-problem', key: 'consulting_form_problem_placeholder' }
+    ];
+
+    placeholderElements.forEach(({ id, key }) => {
+        const element = document.getElementById(id);
+        if (element && translations[key] && translations[key][lang]) {
+            element.placeholder = translations[key][lang];
+        }
+    });
+}
+
+// Override the setLanguage function to include form placeholders
+const originalSetLanguage = setLanguage;
+setLanguage = function(lang) {
+    originalSetLanguage(lang);
+    updateFormPlaceholders(lang);
+}; 

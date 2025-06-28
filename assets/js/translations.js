@@ -185,8 +185,8 @@ export const translations = {
         en: "We help SMEs reduce operational costs, optimize processes and make data-driven decisions so you can focus on what really matters: growing your business."
     },
     consulting_hero_main_cta: {
-        es: "Solicitar Diagnóstico Gratuito",
-        en: "Request Free Diagnosis"
+        es: "Crear Pre-propuesta Instantánea",
+        en: "Create Instant Pre-proposal"
     },
     consulting_hero_secondary_cta: {
         es: "Ver mi Perfil Técnico",
@@ -535,5 +535,107 @@ export const translations = {
     consulting_pack_bi_roi: {
         es: "<li>Ahorro en horas de gerencia para armado de reportes.</li><li><strong>Valor anual por decisiones informadas: >USD 10,000</strong></li><li>Detección temprana de problemas y oportunidades.</li>",
         en: "<li>Savings in management hours for report preparation.</li><li><strong>Annual value from informed decisions: >USD 10,000</strong></li><li>Early detection of problems and opportunities.</li>"
+    },
+
+    // ========== PDF PROPOSAL FORM TRANSLATIONS ==========
+    consulting_proposal_form_title: {
+        es: "Generar Pre-propuesta Personalizada",
+        en: "Generate Personalized Pre-proposal"
+    },
+    consulting_proposal_form_desc: {
+        es: "Complete sus datos para generar un PDF con una propuesta inicial y agilizar nuestro contacto.",
+        en: "Complete your information to generate a PDF with an initial proposal and streamline our contact."
+    },
+    consulting_form_name_placeholder: {
+        es: "Nombre y Apellido",
+        en: "Full Name"
+    },
+    consulting_form_email_placeholder: {
+        es: "Email de Contacto",
+        en: "Contact Email"
+    },
+    consulting_form_company_placeholder: {
+        es: "Nombre de la Empresa",
+        en: "Company Name"
+    },
+    consulting_form_industry_placeholder: {
+        es: "Rubro (Ej: Retail, Servicios, etc.)",
+        en: "Industry (e.g. Retail, Services, etc.)"
+    },
+    consulting_form_problem_placeholder: {
+        es: "Describa brevemente su principal desafío o el proceso que busca mejorar...",
+        en: "Briefly describe your main challenge or the process you want to improve..."
+    },
+    consulting_form_generate_btn: {
+        es: "Generar PDF y Contactar",
+        en: "Generate PDF and Contact"
+    },
+
+    // ========== CONTACT SUCCESS MODAL TRANSLATIONS ==========
+    consulting_contact_success_title: {
+        es: "¡Propuesta Generada!",
+        en: "Proposal Generated!"
+    },
+    consulting_contact_success_desc: {
+        es: "Su PDF se ha descargado. Ahora, demos el siguiente paso. ¡Contácteme para revisar la propuesta juntos!",
+        en: "Your PDF has been downloaded. Now, let's take the next step. Contact me to review the proposal together!"
+    },
+    consulting_contact_whatsapp: {
+        es: "Contactar por WhatsApp",
+        en: "Contact via WhatsApp"
+    },
+    consulting_contact_email: {
+        es: "Enviar Email",
+        en: "Send Email"
+    },
+
+    // ========== PDF TEMPLATE TRANSLATIONS ==========
+    consulting_pdf_title: {
+        es: "Propuesta de Transformación Digital",
+        en: "Digital Transformation Proposal"
+    },
+    consulting_pdf_for: {
+        es: "Para:",
+        en: "For:"
+    },
+    consulting_pdf_date: {
+        es: "Fecha:",
+        en: "Date:"
+    },
+    consulting_pdf_challenge_title: {
+        es: "1. Entendimiento del Desafío",
+        en: "1. Understanding the Challenge"
+    },
+    consulting_pdf_challenge_desc: {
+        es: "Hemos registrado su interés en resolver desafíos relacionados con <strong id=\"pdf-user-problem\" class=\"font-bold\"></strong>. Esta propuesta inicial está diseñada para abordar problemas similares mediante la implementación de tecnología de vanguardia.",
+        en: "We have registered your interest in solving challenges related to <strong id=\"pdf-user-problem\" class=\"font-bold\"></strong>. This initial proposal is designed to address similar problems through the implementation of cutting-edge technology."
+    },
+    consulting_pdf_value_title: {
+        es: "2. Propuesta de Valor",
+        en: "2. Value Proposition"
+    },
+    consulting_pdf_value_intro: {
+        es: "Nuestra solución se basa en tres pilares clave que han demostrado generar un alto retorno de la inversión para pymes del rubro <strong id=\"pdf-company-industry\" class=\"font-bold\"></strong>:",
+        en: "Our solution is based on three key pillars that have proven to generate high return on investment for SMEs in the <strong id=\"pdf-company-industry\" class=\"font-bold\"></strong> industry:"
+    },
+    consulting_pdf_pillar_automation: {
+        es: "<strong>Automatización de Procesos:</strong> Para reducir costos operativos y liberar tiempo de su equipo.",
+        en: "<strong>Process Automation:</strong> To reduce operational costs and free up your team's time."
+    },
+    consulting_pdf_pillar_ai: {
+        es: "<strong>Inteligencia Artificial Aplicada:</strong> Para mejorar la comunicación y la eficiencia en la toma de decisiones.",
+        en: "<strong>Applied Artificial Intelligence:</strong> To improve communication and decision-making efficiency."
+    },
+    consulting_pdf_pillar_bi: {
+        es: "<strong>Business Intelligence:</strong> Para obtener visibilidad clara y en tiempo real de las métricas clave de su negocio.",
+        en: "<strong>Business Intelligence:</strong> To gain clear, real-time visibility into your business's key metrics."
+    },
+    consulting_pdf_next_steps_title: {
+        es: "3. Próximos Pasos",
+        en: "3. Next Steps"
+    },
+    consulting_pdf_next_steps_desc: {
+        es: "El siguiente paso es una reunión de 30 minutos para realizar un diagnóstico más profundo y cuantificar el impacto potencial en su operación. Esta propuesta es un punto de partida para una colaboración exitosa.",
+        en: "The next step is a 30-minute meeting to conduct a deeper diagnosis and quantify the potential impact on your operation. This proposal is a starting point for a successful collaboration."
     }
 }; 

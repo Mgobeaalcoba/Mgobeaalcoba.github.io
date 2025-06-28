@@ -552,7 +552,7 @@
             <p class="text-secondary mb-6">Su PDF se ha descargado. Ahora, demos el siguiente paso. ¡Contácteme para revisar la propuesta juntos!</p>
             <div class="flex flex-col md:flex-row gap-4">
                 <a id="whatsapp-link" href="#" target="_blank" class="flex-1 p-4 rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold text-center"><i class="fab fa-whatsapp mr-2"></i> Contactar por WhatsApp</a>
-                <a id="email-link" href="#" class="flex-1 p-4 rounded-lg bg-gray-600 hover:bg-gray-500 text-white font-bold text-center"><i class="fas fa-envelope mr-2"></i> Enviar Email</a>
+                <a id="email-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 p-4 rounded-lg bg-gray-600 hover:bg-gray-500 text-white font-bold text-center"><i class="fas fa-envelope mr-2"></i> Enviar Email</a>
             </div>
         </div>
     </div>
@@ -786,14 +786,21 @@
         function setupContactLinks(data) {
             const { name, company, industry, problem } = data;
             
+            // Link de WhatsApp
             const whatsappText = `Hola Mariano, soy ${name} de la empresa ${company}. Acabo de generar una pre-propuesta desde tu web. Nos dedicamos al rubro ${industry} y nuestro principal desafío es: "${problem}". Me gustaría conversar sobre la propuesta.`;
             const whatsappLink = document.getElementById('whatsapp-link');
             whatsappLink.href = `https://wa.me/5491127475569?text=${encodeURIComponent(whatsappText)}`;
             
+            // Link de Email (Corregido)
+            const emailLink = document.getElementById('email-link');
             const emailSubject = `Contacto desde la web - Propuesta para ${company}`;
             const emailBody = `Hola Mariano,\n\nMi nombre es ${name} y te escribo desde ${company} (rubro: ${industry}).\n\nGeneré una pre-propuesta en tu sitio web sobre nuestro desafío: "${problem}".\n\nMe gustaría coordinar una llamada para conversar más en detalle.\n\nSaludos.`;
-            const emailLink = document.getElementById('email-link');
-            emailLink.href = `mailto:gobeamariano@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const mailtoHref = `mailto:gobeamariano@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Se establece el href directamente para que el navegador maneje el protocolo.
+            emailLink.href = mailtoHref;
+            // Se elimina cualquier manejador onclick previo para no interferir.
+            emailLink.onclick = null;
         }
 
 

@@ -151,6 +151,16 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Custom styles for form inputs in dark/light mode */
+.form-input {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.form-input:focus {
+    --tw-ring-color: var(--primary-color);
+}
+
 /* TOP CONTROLS (Language Toggle) */
 .top-controls {
     position: fixed;
