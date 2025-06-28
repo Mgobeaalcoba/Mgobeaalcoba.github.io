@@ -187,4 +187,37 @@ body {
     background-color: var(--primary-color);
     color: white;
     border-color: transparent;
+}
+
+/* =================================================================================
+   MOBILE MENU OVERRIDE - Make it identical to index.html
+   ================================================================================= */
+
+/* Force mobile menu to use the same styling as index.html */
+#mobile-nav.glass-effect {
+    background: rgba(31, 41, 55, 0.95) !important;
+    background-color: rgba(31, 41, 55, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    border-radius: 0.75rem !important;
+    border: 1px solid rgba(75, 85, 99, 0.5) !important;
+}
+
+html.light #mobile-nav.glass-effect {
+    background: rgba(255, 255, 255, 0.95) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(209, 213, 219, 0.5) !important;
+}
+
+/* Ensure mobile menu links have proper styling */
+#mobile-nav a {
+    border-radius: 0.5rem !important;
+    transition: background-color 0.2s ease !important;
+}
+
+#mobile-nav a:hover {
+    background-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+html.light #mobile-nav a:hover {
+    background-color: rgba(229, 231, 235, 0.5) !important;
 } 

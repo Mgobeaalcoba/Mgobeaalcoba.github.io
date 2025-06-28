@@ -440,6 +440,32 @@ html.light-mode .tag.active {
 }
 
 /* =================================================================================
+   MOBILE NAVIGATION MENU
+   ================================================================================= */
+
+/* Override glass-effect for mobile navigation to make it less transparent */
+#mobile-nav.glass-effect, 
+#mobile-nav-index.glass-effect,
+#mobile-nav,
+#mobile-nav-index {
+    background: rgba(31, 41, 55, 0.95) !important; /* Much less transparent dark */
+    background-color: rgba(31, 41, 55, 0.95) !important; /* Override consulting.css var */
+    backdrop-filter: blur(15px) !important; /* More blur for better readability */
+}
+
+html.light-mode #mobile-nav.glass-effect, 
+html.light-mode #mobile-nav-index.glass-effect,
+html.light-mode #mobile-nav, 
+html.light-mode #mobile-nav-index,
+html.light #mobile-nav.glass-effect,
+html.light #mobile-nav-index.glass-effect,
+html.light #mobile-nav,
+html.light #mobile-nav-index {
+    background: rgba(255, 255, 255, 0.95) !important; /* Much less transparent light */
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Override consulting.css var */
+}
+
+/* =================================================================================
    RESPONSIVE ADJUSTMENTS
    ================================================================================= */
 

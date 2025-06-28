@@ -28,10 +28,19 @@ const CONTENT_WIDTH = PAGE_WIDTH - (MARGIN * 2);
 
 class PdfBuilder {
     constructor(lang) {
-        this.doc = new window.jspdf.jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+        // Force A4 format regardless of device - consistent PDF generation
+        this.doc = new window.jspdf.jsPDF({ 
+            orientation: 'portrait', 
+            unit: 'mm', 
+            format: 'a4',
+            compress: true
+        });
         this.yPos = MARGIN;
         this.lang = lang;
         this.doc.setFont('helvetica', 'normal');
+        
+        // Ensure consistent content width calculation
+        this.contentWidth = PAGE_WIDTH - (MARGIN * 2); // Always 174mm regardless of screen
     }
 
     // Helper to get line height in mm for a given font size in pt
@@ -54,7 +63,7 @@ class PdfBuilder {
         this.doc.text(title, MARGIN, this.yPos + titleHeight / 2); // Center vertically
         this.yPos += titleHeight;
         this.yPos += 1;
-        this.doc.setDrawColor(COLORS.Primary).setLineWidth(0.5).line(MARGIN, this.yPos, MARGIN + CONTENT_WIDTH, this.yPos);
+        this.doc.setDrawColor(COLORS.Primary).setLineWidth(0.5).line(MARGIN, this.yPos, MARGIN + this.contentWidth, this.yPos);
         this.yPos += 5;
     }
 
@@ -66,7 +75,7 @@ class PdfBuilder {
 
         this.doc.setFont('helvetica', fontStyle).setFontSize(fontSize).setTextColor(color);
         
-        const lines = this.doc.splitTextToSize(text, CONTENT_WIDTH - indent);
+        const lines = this.doc.splitTextToSize(text, this.contentWidth - indent);
         const lineHeight = this.getLineHeight(fontSize);
         const totalHeight = lines.length * lineHeight;
 
@@ -92,10 +101,41 @@ async function generatePdf() {
     downloadBtn.disabled = true;
     
     try {
+        // Force desktop-like environment for PDF generation
+        // This ensures consistent formatting regardless of device
+        const originalInnerWidth = window.innerWidth;
+        const originalInnerHeight = window.innerHeight;
+        const originalUserAgent = navigator.userAgent;
+        
+        // Temporarily override window dimensions to desktop size for PDF consistency
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: 1280 // Desktop width
+        });
+        Object.defineProperty(window, 'innerHeight', {
+            writable: true,
+            configurable: true,
+            value: 720 // Desktop height
+        });
+        
         const lang = Storage.get('language', 'es');
         const builder = new PdfBuilder(lang);
         await drawPdf(builder);
         builder.doc.save('CV-MarianoGobeaAlcoba.pdf');
+        
+        // Restore original dimensions
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: originalInnerWidth
+        });
+        Object.defineProperty(window, 'innerHeight', {
+            writable: true,
+            configurable: true,
+            value: originalInnerHeight
+        });
+        
     } catch (error) {
         console.error('Error generating PDF:', error);
         showPdfError();
@@ -173,7 +213,7 @@ async function drawPdf(builder) {
         
         const titleHeight = builder.getLineHeight(FONT_SIZES.H3);
         const subtitleHeight = builder.getLineHeight(FONT_SIZES.Body);
-        const descriptionLines = doc.setFontSize(FONT_SIZES.Body).splitTextToSize(plainDescription, CONTENT_WIDTH - 5);
+        const descriptionLines = doc.setFontSize(FONT_SIZES.Body).splitTextToSize(plainDescription, builder.contentWidth - 5);
         const descriptionHeight = descriptionLines.length * builder.getLineHeight(FONT_SIZES.Body);
         
         builder.checkPageBreak(titleHeight + subtitleHeight + descriptionHeight + 8);
