@@ -25,160 +25,7 @@
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
     <!-- Custom Styles -->
-    <style>
-        :root {
-            --primary-color: #0ea5e9; /* sky-500 */
-            --background-dark: #111827; /* gray-900 */
-            --background-light: #f3f4f6; /* gray-100 */
-            --card-dark: rgba(31, 41, 55, 0.5); /* gray-800 with transparency */
-            --card-light: rgba(255, 255, 255, 0.7);
-            --text-dark-primary: #f9fafb; /* gray-50 */
-            --text-dark-secondary: #9ca3af; /* gray-400 */
-            --text-light-primary: #1f2937; /* gray-800 */
-            --text-light-secondary: #4b5563; /* gray-600 */
-            --border-dark: rgba(55, 65, 81, 0.6);
-            --border-light: rgba(209, 213, 219, 0.8);
-        }
-        html.dark {
-            --bg-color: var(--background-dark);
-            --card-bg: var(--card-dark);
-            --text-primary: var(--text-dark-primary);
-            --text-secondary: var(--text-dark-secondary);
-            --border-color: var(--border-dark);
-        }
-        html.light {
-            --bg-color: var(--background-light);
-            --card-bg: var(--card-light);
-            --text-primary: var(--text-light-primary);
-            --text-secondary: var(--text-light-secondary);
-            --border-color: var(--border-light);
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            transition: background-color 0.3s, color 0.3s;
-            scroll-behavior: smooth;
-        }
-        .glass-effect {
-            background-color: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .main-cta {
-            background-color: var(--primary-color);
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .main-cta:hover {
-            background-color: #0284c7; /* sky-600 */
-            transform: translateY(-2px);
-        }
-        .secondary-cta {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .secondary-cta:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        .typing-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.5rem;
-            background-color: var(--primary-color);
-            animation: blink 1s infinite;
-            margin-left: 4px;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .feature-icon {
-            color: var(--primary-color);
-            font-size: 2rem;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .workflow-image {
-            aspect-ratio: 16 / 9;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        .example-card:hover .workflow-image {
-            transform: scale(1.03);
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            pointer-events: none;
-        }
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            padding: 2rem;
-            border-radius: 1rem;
-            transform: scale(0.95);
-            transition: transform 0.3s ease-in-out;
-            overflow-y: auto;
-        }
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(0,0,0,0.3);
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-        }
-        .pack-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .pack-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/consulting.css">
 </head>
 <body class="antialiased">
 
@@ -189,12 +36,12 @@
                 MGA <span style="color: var(--primary-color);">Consulting</span>
             </a>
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#services" class="hover:text-sky-400 transition-colors">Servicios</a>
-                <a href="#packs" class="hover:text-sky-400 transition-colors">Packs</a>
-                <a href="#examples" class="hover:text-sky-400 transition-colors">Ejemplos</a>
-                <a href="#process" class="hover:text-sky-400 transition-colors">Nuestro Proceso</a>
-                <a href="#about" class="hover:text-sky-400 transition-colors">Quién Soy</a>
-                <a href="#contact" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm">Agendar Diagnóstico</a>
+                <a href="#services" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_services">Servicios</a>
+                <a href="#packs" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_packs">Packs</a>
+                <a href="#examples" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_examples">Ejemplos</a>
+                <a href="#process" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_process">Nuestro Proceso</a>
+                <a href="#about" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_about">Quién Soy</a>
+                <a href="#contact" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_nav_contact">Agendar Diagnóstico</a>
             </div>
             <div class="flex items-center space-x-4">
                  <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center">
@@ -208,25 +55,33 @@
         </nav>
     </header>
 
+    <!-- CONTROLS -->
+    <div class="top-controls">
+        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+            <button id="lang-es" class="control-btn" data-lang="es">ES</button>
+            <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
     <!-- MAIN CONTENT -->
     <main class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
 
         <!-- HERO SECTION -->
         <section class="text-center mb-24 fade-in">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight" data-translate="consulting_hero_title">
                 Transforme su Pyme con 
                 <span style="color: var(--primary-color);">Inteligencia</span> y <span style="color: var(--primary-color);">Automatización</span>
             </h1>
             <div class="text-lg md:text-xl text-secondary h-14 flex items-center justify-center">
                 <span id="typing-text"></span><span class="typing-cursor"></span>
             </div>
-            <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary">
+            <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary" data-translate="consulting_hero_subtitle">
                 Ayudamos a pymes a reducir costos operativos, optimizar procesos y tomar decisiones basadas en datos para que pueda enfocarse en lo que realmente importa: hacer crecer su negocio.
             </p>
             <div class="mt-8 flex justify-center items-center gap-4">
-                <a href="#contact" class="main-cta text-white font-bold px-8 py-3 rounded-full">Solicitar Diagnóstico Gratuito</a>
+                <a href="#contact" class="main-cta text-white font-bold px-8 py-3 rounded-full" data-translate="consulting_hero_main_cta">Solicitar Diagnóstico Gratuito</a>
                 <a href="/" target="_blank" class="secondary-cta font-bold px-8 py-3 rounded-full">
-                    Ver mi Perfil Técnico <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    <span data-translate="consulting_hero_secondary_cta">Ver mi Perfil Técnico</span> <i class="fas fa-arrow-right ml-2 text-sm"></i>
                 </a>
             </div>
         </section>
@@ -234,27 +89,27 @@
         <!-- SERVICES SECTION -->
         <section id="services" class="mb-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Un Socio Tecnológico para cada Necesidad</h2>
-                <p class="mt-2 text-lg text-secondary">Ofrecemos soluciones modulares que se adaptan a su nivel de madurez digital.</p>
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_services_title">Un Socio Tecnológico para cada Necesidad</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_services_subtitle">Ofrecemos soluciones modulares que se adaptan a su nivel de madurez digital.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                  <!-- Service Card 1: Automation -->
                  <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 200ms;">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Automatización de Procesos</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_automation_title">Automatización de Procesos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_automation_desc">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
                 </div>
                 <!-- Service Card 2: GenAI -->
                 <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 400ms;">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-brain"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Inteligencia Artificial Aplicada</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_ai_desc">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
                 </div>
                 <!-- Service Card 3: BI -->
                 <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 600ms;">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-chart-pie"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Business Intelligence & Datos</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_bi_title">Business Intelligence & Datos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_bi_desc">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
                 </div>
             </div>
         </section>
@@ -262,8 +117,8 @@
         <!-- PACKS SECTION -->
         <section id="packs" class="mb-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Packs de Crecimiento para Pymes</h2>
-                <p class="mt-2 text-lg text-secondary">Soluciones empaquetadas con un retorno de inversión claro y rápido.</p>
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_packs_title">Packs de Crecimiento para Pymes</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_packs_subtitle">Soluciones empaquetadas con un retorno de inversión claro y rápido.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Pack 1: Starter -->
@@ -276,11 +131,11 @@
                         <i class="fas fa-bolt text-4xl text-sky-400"></i>
                         <h3 class="text-xl font-bold mt-2">Pack Starter</h3>
                     </div>
-                    <p class="text-secondary text-sm text-center flex-grow">Ideal para empezar. Automatizamos un proceso manual doloroso para un impacto inmediato.</p>
+                    <p class="text-secondary text-sm text-center flex-grow" data-translate="consulting_pack_starter_desc">Ideal para empezar. Automatizamos un proceso manual doloroso para un impacto inmediato.</p>
                     <div class="mt-4 border-t border-gray-700 pt-4 text-center">
-                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-sm text-secondary" data-translate="consulting_price_from">Desde</p>
                         <p class="text-2xl font-bold">USD 850</p>
-                        <p class="text-xs text-green-400 font-semibold">Ahorro anual: $3,600+</p>
+                        <p class="text-xs text-green-400 font-semibold"><span data-translate="consulting_annual_savings">Ahorro anual</span>: $3,600+</p>
                     </div>
                 </div>
 
@@ -294,11 +149,11 @@
                         <i class="fas fa-comments text-4xl text-sky-400"></i>
                         <h3 class="text-xl font-bold mt-2">Pack Crecimiento</h3>
                     </div>
-                    <p class="text-secondary text-sm text-center flex-grow">Combinamos automatización de tareas con un chatbot para potenciar ventas y soporte.</p>
+                    <p class="text-secondary text-sm text-center flex-grow" data-translate="consulting_pack_growth_desc">Combinamos automatización de tareas con un chatbot para potenciar ventas y soporte.</p>
                      <div class="mt-4 border-t border-gray-700 pt-4 text-center">
-                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-sm text-secondary" data-translate="consulting_price_from">Desde</p>
                         <p class="text-2xl font-bold">USD 1,500</p>
-                        <p class="text-xs text-green-400 font-semibold">Ahorro anual: $6,000+</p>
+                        <p class="text-xs text-green-400 font-semibold"><span data-translate="consulting_annual_savings">Ahorro anual</span>: $6,000+</p>
                     </div>
                 </div>
 
@@ -312,11 +167,11 @@
                         <i class="fas fa-chart-line text-4xl text-sky-400"></i>
                         <h3 class="text-xl font-bold mt-2">Pack BI Express</h3>
                     </div>
-                    <p class="text-secondary text-sm text-center flex-grow">Deje de decidir a ciegas. Le damos visibilidad total de su negocio en un solo panel.</p>
+                    <p class="text-secondary text-sm text-center flex-grow" data-translate="consulting_pack_bi_desc">Deje de decidir a ciegas. Le damos visibilidad total de su negocio en un solo panel.</p>
                      <div class="mt-4 border-t border-gray-700 pt-4 text-center">
-                        <p class="text-sm text-secondary">Desde</p>
+                        <p class="text-sm text-secondary" data-translate="consulting_price_from">Desde</p>
                         <p class="text-2xl font-bold">USD 1,200</p>
-                        <p class="text-xs text-green-400 font-semibold">Valor anual: +$10,000</p>
+                        <p class="text-xs text-green-400 font-semibold"><span data-translate="consulting_annual_value">Valor anual</span>: +$10,000</p>
                     </div>
                 </div>
             </div>
@@ -328,8 +183,8 @@
             <!-- EXAMPLES/WORKFLOWS SECTION -->
             <div class="mb-24">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold">Automatización en Acción: Casos Reales</h2>
-                    <p class="mt-2 text-lg text-secondary">Vea cómo los flujos de trabajo resuelven problemas cotidianos de su negocio.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_examples_automation_title">Automatización en Acción: Casos Reales</h2>
+                    <p class="mt-2 text-lg text-secondary" data-translate="consulting_examples_automation_subtitle">Vea cómo los flujos de trabajo resuelven problemas cotidianos de su negocio.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- Workflow 1 -->
@@ -337,16 +192,16 @@
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" alt="Workflow de automatización de contenido para redes sociales" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Automatización de Contenido para Redes</h4>
-                        <p class="text-secondary text-sm">Este flujo toma publicaciones desde Notion, las procesa con IA y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_social_title">Automatización de Contenido para Redes</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_social_desc">Este flujo toma publicaciones desde Notion, las procesa con IA y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
                     </div>
                     <!-- Workflow 2 -->
                     <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 400ms;" data-img-src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" data-title="Reportes de Performance Automatizados" data-story="El dueño de una pyme de retail perdía medio día cada lunes consolidando reportes de Facebook, Twitter y LinkedIn en un único Excel para entender el rendimiento. Ahora, recibe un email cada lunes a las 8 AM con un link a un reporte unificado y visual, permitiéndole tomar decisiones estratégicas antes de empezar la semana.">
                          <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" alt="Workflow de reportes automáticos de redes sociales" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Reportes de Performance Automatizados</h4>
-                        <p class="text-secondary text-sm">Cada semana, este workflow recolecta métricas de redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_reports_title">Reportes de Performance Automatizados</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_reports_desc">Cada semana, este workflow recolecta métricas de redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email.</p>
                     </div>
                 </div>
             </div>
@@ -354,8 +209,8 @@
             <!-- IA EXAMPLES SECTION -->
             <div class="mb-24">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold">Inteligencia Artificial en Acción: Casos Prácticos</h2>
-                    <p class="mt-2 text-lg text-secondary">Vea cómo la IA puede potenciar su comunicación y análisis.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_examples_ai_title">Inteligencia Artificial en Acción: Casos Prácticos</h2>
+                    <p class="mt-2 text-lg text-secondary" data-translate="consulting_examples_ai_subtitle">Vea cómo la IA puede potenciar su comunicación y análisis.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- AI Example 1 -->
@@ -363,16 +218,16 @@
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" alt="Ejemplo de un chatbot para atención al cliente" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Chatbot de Soporte 24/7</h4>
-                        <p class="text-secondary text-sm">Un asistente virtual que responde preguntas frecuentes, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_chatbot_title">Chatbot de Soporte 24/7</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_chatbot_desc">Un asistente virtual que responde preguntas frecuentes, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
                     </div>
                     <!-- AI Example 2 -->
                     <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" data-title="Análisis Inteligente de Feedback" data-story="Una cadena de restaurantes quería entender las miles de reseñas online que recibían. Creamos un sistema que analiza automáticamente cada comentario, lo clasifica (comida, servicio, limpieza) y detecta el sentimiento (positivo, negativo, neutro). Esto les permitió identificar que la 'lentitud en el servicio de mediodía' era un problema recurrente en una sucursal y tomar acciones correctivas inmediatas.">
                          <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" alt="Ejemplo de análisis de sentimiento con IA" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Análisis Inteligente de Feedback</h4>
-                        <p class="text-secondary text-sm">Utilizamos IA para analizar miles de comentarios de clientes y reseñas, detectando patrones y oportunidades de mejora de forma automática.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_feedback_title">Análisis Inteligente de Feedback</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_feedback_desc">Utilizamos IA para analizar miles de comentarios de clientes y reseñas, detectando patrones y oportunidades de mejora de forma automática.</p>
                     </div>
                 </div>
             </div>
@@ -380,8 +235,8 @@
             <!-- BI EXAMPLES SECTION -->
             <div class="mb-24">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold">Business Intelligence en Acción: Datos para Decidir</h2>
-                    <p class="mt-2 text-lg text-secondary">Convierta números en estrategias con tableros de control claros y potentes.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_examples_bi_title">Business Intelligence en Acción: Datos para Decidir</h2>
+                    <p class="mt-2 text-lg text-secondary" data-translate="consulting_examples_bi_subtitle">Convierta números en estrategias con tableros de control claros y potentes.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- BI Example 1 -->
@@ -389,16 +244,16 @@
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" alt="Ejemplo de un dashboard de ventas en Power BI o Looker Studio" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Dashboard de Ventas en Tiempo Real</h4>
-                        <p class="text-secondary text-sm">Visualice sus KPIs de ventas, compare periodos y filtre por vendedor o producto con un panel interactivo y siempre actualizado.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_sales_title">Dashboard de Ventas en Tiempo Real</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_sales_desc">Visualice sus KPIs de ventas, compare periodos y filtre por vendedor o producto con un panel interactivo y siempre actualizado.</p>
                     </div>
                     <!-- BI Example 2 -->
                     <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" data-title="Control de Inventario y Operaciones" data-story="Una pyme de manufactura sufría constantes quiebres de stock en materias primas clave, frenando la producción. Creamos un dashboard de control de inventario que no solo muestra el stock actual, sino que proyecta el consumo y alerta automáticamente cuando un item llega a su punto de reorden. Las paradas de producción por falta de material se redujeron en un 90%.">
                          <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
                             <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" alt="Ejemplo de un dashboard de control de inventario" class="workflow-image">
                         </div>
-                        <h4 class="font-bold text-lg mb-1">Control de Inventario y Operaciones</h4>
-                        <p class="text-secondary text-sm">Monitoree niveles de stock y rotación de productos. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
+                        <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_inventory_title">Control de Inventario y Operaciones</h4>
+                        <p class="text-secondary text-sm" data-translate="consulting_example_inventory_desc">Monitoree niveles de stock y rotación de productos. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
                     </div>
                 </div>
             </div>
@@ -408,8 +263,8 @@
         <!-- PROCESS SECTION -->
         <section id="process" class="mb-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Nuestro Proceso: Ágil y Transparente</h2>
-                <p class="mt-2 text-lg text-secondary">Un camino claro desde el problema hasta la solución, con resultados visibles en cada etapa.</p>
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_process_title">Nuestro Proceso: Ágil y Transparente</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_process_subtitle">Un camino claro desde el problema hasta la solución, con resultados visibles en cada etapa.</p>
             </div>
             <div class="relative max-w-4xl mx-auto">
                 <!-- The connecting line -->
@@ -418,9 +273,9 @@
                 <div class="relative mb-8 md:mb-12 fade-in">
                     <div class="md:flex items-center md:flex-row-reverse">
                         <div class="md:w-1/2 text-left md:pl-12">
-                            <p class="font-bold text-sky-400 mb-1">Paso 1</p>
-                            <h4 class="text-xl font-bold mb-2">Diagnóstico y Quick Wins</h4>
-                            <p class="text-secondary text-sm">Analizamos sus procesos, identificamos los cuellos de botella y le presentamos un plan con victorias rápidas y de alto impacto.</p>
+                            <p class="font-bold text-sky-400 mb-1"><span data-translate="consulting_step_label">Paso</span> 1</p>
+                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step1_title">Diagnóstico y Quick Wins</h4>
+                            <p class="text-secondary text-sm" data-translate="consulting_step1_desc">Analizamos sus procesos, identificamos los cuellos de botella y le presentamos un plan con victorias rápidas y de alto impacto.</p>
                         </div>
                         <div class="md:w-1/2 flex justify-center md:justify-start">
                              <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
@@ -433,9 +288,9 @@
                 <div class="relative mb-8 md:mb-12 fade-in">
                     <div class="md:flex items-center">
                         <div class="md:w-1/2 text-left md:pr-12 md:text-right">
-                            <p class="font-bold text-sky-400 mb-1">Paso 2</p>
-                            <h4 class="text-xl font-bold mb-2">Implementación del Prototipo</h4>
-                            <p class="text-secondary text-sm">En 2-3 semanas, construimos y entregamos una primera versión funcional (MVP) de la automatización o dashboard para que vea el valor inmediatamente.</p>
+                            <p class="font-bold text-sky-400 mb-1"><span data-translate="consulting_step_label">Paso</span> 2</p>
+                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step2_title">Implementación del Prototipo</h4>
+                            <p class="text-secondary text-sm" data-translate="consulting_step2_desc">En 2-3 semanas, construimos y entregamos una primera versión funcional (MVP) de la automatización o dashboard para que vea el valor inmediatamente.</p>
                         </div>
                         <div class="md:w-1/2 flex justify-center">
                              <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
@@ -448,9 +303,9 @@
                 <div class="relative fade-in">
                     <div class="md:flex items-center md:flex-row-reverse">
                         <div class="md:w-1/2 text-left md:pl-12">
-                            <p class="font-bold text-sky-400 mb-1">Paso 3</p>
-                            <h4 class="text-xl font-bold mb-2">Despliegue, Capacitación y Escalamiento</h4>
-                            <p class="text-secondary text-sm">Ponemos la solución en producción, capacitamos a su equipo para que la gestione y planificamos los siguientes pasos para una mejora continua.</p>
+                            <p class="font-bold text-sky-400 mb-1"><span data-translate="consulting_step_label">Paso</span> 3</p>
+                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step3_title">Despliegue, Capacitación y Escalamiento</h4>
+                            <p class="text-secondary text-sm" data-translate="consulting_step3_desc">Ponemos la solución en producción, capacitamos a su equipo para que la gestione y planificamos los siguientes pasos para una mejora continua.</p>
                         </div>
                         <div class="md:w-1/2 flex justify-center md:justify-start">
                              <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
@@ -469,11 +324,11 @@
                     <div class="w-40 h-40 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png'); background-size: 155%; background-position: center 30%;"></div>
                 </div>
                 <div class="md:col-span-2 text-center md:text-left">
-                    <h2 class="text-3xl font-bold mb-2">Experiencia Real, Resultados Concretos.</h2>
-                    <p class="text-secondary mb-4">
+                    <h2 class="text-3xl font-bold mb-2" data-translate="consulting_about_title">Experiencia Real, Resultados Concretos.</h2>
+                    <p class="text-secondary mb-4" data-translate="consulting_about_desc">
                         Soy Mariano Gobea Alcoba. Como Líder Técnico de Datos y Analytics en Mercado Libre, he pasado los últimos 6 años diseñando y construyendo soluciones de datos a gran escala. Ahora, aplico esa experiencia para resolver los desafíos del mundo real que enfrentan las pymes, con un enfoque pragmático y sin "humo".
                     </p>
-                    <a href="#contact" class="main-cta text-white font-semibold px-6 py-3 rounded-full inline-block">Hablemos de su proyecto</a>
+                    <a href="#contact" class="main-cta text-white font-semibold px-6 py-3 rounded-full inline-block" data-translate="consulting_about_cta">Hablemos de su proyecto</a>
                 </div>
             </div>
         </section>
@@ -483,23 +338,23 @@
     <!-- FOOTER -->
     <footer id="contact" class="bg-gray-800/50 text-center py-12">
         <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-3xl font-bold mb-2">¿Listo para dar el siguiente paso?</h2>
-            <p class="text-secondary mb-8">Agende una sesión de diagnóstico gratuita de 30 minutos. Sin compromiso, sin costo. <br>Solo una charla para explorar cómo la tecnología puede impulsar su negocio.</p>
+            <h2 class="text-3xl font-bold mb-2" data-translate="consulting_footer_title">¿Listo para dar el siguiente paso?</h2>
+            <p class="text-secondary mb-8" data-translate="consulting_footer_desc">Agende una sesión de diagnóstico gratuita de 30 minutos. Sin compromiso, sin costo. <br>Solo una charla para explorar cómo la tecnología puede impulsar su negocio.</p>
             
             <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="main-cta text-white font-bold px-10 py-4 rounded-full text-lg">
-                <i class="fas fa-calendar-alt mr-2"></i> Agendar mi sesión gratuita
+                <i class="fas fa-calendar-alt mr-2"></i> <span data-translate="consulting_footer_cta">Agendar mi sesión gratuita</span>
             </button>
 
             <div class="mt-12 text-sm text-secondary">
-                 &copy; 2025 Mariano Gobea Alcoba Consulting. Todos los derechos reservados.
+                 <span data-translate="consulting_copyright">&copy; 2025 Mariano Gobea Alcoba Consulting. Todos los derechos reservados.</span>
             </div>
         </div>
     </footer>
 
     <!-- MODAL FOR EXAMPLES -->
-    <div id="example-modal" class="modal-overlay" onclick="closeModal('example-modal')">
-        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" onclick="closeModal('example-modal')"><i class="fas fa-times"></i></button>
+                <div id="example-modal" class="modal-overlay modal">
+                <div class="modal-content glass-effect">
+                            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
             <img id="modal-img" src="" alt="Ejemplo de caso de uso" class="w-full h-auto max-h-[50vh] object-contain rounded-lg mb-4">
             <h4 id="modal-title" class="text-2xl font-bold mb-2"></h4>
             <p id="modal-story" class="text-secondary leading-relaxed"></p>
@@ -507,22 +362,22 @@
     </div>
 
     <!-- MODAL FOR PACKS -->
-    <div id="pack-modal" class="modal-overlay" onclick="closeModal('pack-modal')">
-        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" onclick="closeModal('pack-modal')"><i class="fas fa-times"></i></button>
+                <div id="pack-modal" class="modal-overlay modal">
+                <div class="modal-content glass-effect">
+                            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
             <h4 id="pack-modal-title" class="text-2xl font-bold mb-4"></h4>
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <h5 class="font-semibold mb-2 text-sky-400">¿Qué incluye?</h5>
+                    <h5 class="font-semibold mb-2 text-sky-400" data-translate="consulting_modal_what_includes">¿Qué incluye?</h5>
                     <ul id="pack-modal-services" class="text-secondary list-none space-y-2"></ul>
                 </div>
                 <div>
-                    <h5 class="font-semibold mb-2 text-sky-400">Inversión y Retorno</h5>
+                    <h5 class="font-semibold mb-2 text-sky-400" data-translate="consulting_modal_investment_return">Inversión y Retorno</h5>
                     <div class="space-y-4 text-secondary">
                         <p id="pack-modal-timeline"><i class="fas fa-clock w-5 mr-2"></i></p>
                         <p id="pack-modal-investment"><i class="fas fa-dollar-sign w-5 mr-2"></i></p>
                         <div>
-                            <p class="font-semibold">Retorno de Inversión (ROI):</p>
+                            <p class="font-semibold" data-translate="consulting_modal_roi_label">Retorno de Inversión (ROI):</p>
                             <ul id="pack-modal-roi" class="list-none space-y-1 mt-1"></ul>
                         </div>
                     </div>
@@ -531,142 +386,6 @@
         </div>
     </div>
 
-    <script>
-        // THEME TOGGLE
-        const themeToggle = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('dark-icon');
-        const lightIcon = document.getElementById('light-icon');
-        const docHtml = document.documentElement;
-
-        if (localStorage.getItem('theme') === 'light') {
-            docHtml.classList.remove('dark');
-            docHtml.classList.add('light');
-            darkIcon.classList.remove('hidden');
-            lightIcon.classList.add('hidden');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            docHtml.classList.toggle('dark');
-            docHtml.classList.toggle('light');
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-            localStorage.setItem('theme', docHtml.classList.contains('dark') ? 'dark' : 'light');
-        });
-
-        // TYPING EFFECT
-        const typingText = document.getElementById('typing-text');
-        const phrases = [
-            "Reduzca costos operativos.",
-            "Automatice tareas repetitivas.",
-            "Tome decisiones basadas en datos.",
-            "Libere a su equipo para crear valor.",
-            "Mejore la atención al cliente."
-        ];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            if(!typingText) return;
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 75 : 150;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2000; // Pause at end
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500; // Pause before new phrase
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-        
-        // FADE-IN ON SCROLL
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.style.animationPlayState = 'running';
-                observer.unobserve(entry.target);
-            });
-        }, appearOptions);
-
-        // MODAL LOGIC (Generic)
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.classList.add('active');
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.classList.remove('active');
-        }
-
-        // EXAMPLE MODAL
-        const exampleModal = document.getElementById('example-modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalStory = document.getElementById('modal-story');
-        const exampleCards = document.querySelectorAll('.example-card');
-
-        function openExampleModal(card) {
-            modalImg.src = card.dataset.imgSrc;
-            modalImg.alt = card.dataset.title;
-            modalTitle.textContent = card.dataset.title;
-            modalStory.textContent = card.dataset.story;
-            openModal('example-modal');
-        }
-
-        // PACK MODAL
-        const packModal = document.getElementById('pack-modal');
-        const packModalTitle = document.getElementById('pack-modal-title');
-        const packModalServices = document.getElementById('pack-modal-services');
-        const packModalTimeline = document.getElementById('pack-modal-timeline');
-        const packModalInvestment = document.getElementById('pack-modal-investment');
-        const packModalRoi = document.getElementById('pack-modal-roi');
-        const packCards = document.querySelectorAll('.pack-card');
-
-        function openPackModal(card) {
-            packModalTitle.textContent = card.dataset.title;
-            packModalServices.innerHTML = card.dataset.services;
-            packModalTimeline.innerHTML = `<i class="fas fa-clock w-5 mr-2"></i>${card.dataset.timeline}`;
-            packModalInvestment.innerHTML = `<i class="fas fa-dollar-sign w-5 mr-2"></i>${card.dataset.investment}`;
-            packModalRoi.innerHTML = card.dataset.roi;
-            openModal('pack-modal');
-        }
-
-        // Initialize all functionalities on DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', () => {
-            type();
-            
-            faders.forEach(fader => {
-                fader.style.animationPlayState = 'paused';
-                appearOnScroll.observe(fader);
-            });
-
-            exampleCards.forEach(card => {
-                card.addEventListener('click', () => openExampleModal(card));
-            });
-            
-            packCards.forEach(card => {
-                card.addEventListener('click', () => openPackModal(card));
-            });
-        });
-
-    </script>
+    <script src="assets/js/consulting.js" type="module" defer></script>
 </body>
 </html>

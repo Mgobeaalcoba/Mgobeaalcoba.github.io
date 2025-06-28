@@ -1,20 +1,35 @@
 {
-  "name": "mgobeaalcoba-cv",
-  "version": "1.0.0",
-  "description": "Interactive CV for Mariano Gobea Alcoba - Data & Analytics Technical Leader",
+  "name": "mgobeaalcoba-cv-consulting",
+  "version": "2.0.0",
+  "description": "Interactive CV & Consulting Platform for Mariano Gobea Alcoba - Data & Analytics Technical Leader with integrated professional consulting services",
   "main": "index.html",
   "scripts": {
     "dev": "live-server --port=3000 --open=/",
+    "dev:cv": "live-server --port=3000 --open=/index.html",
+    "dev:consulting": "live-server --port=3000 --open=/consulting.html",
     "build": "echo 'Build process would go here'",
     "lint": "echo 'Linting would go here'",
-    "format": "prettier --write '**/*.{html,css,js}'"
+    "format": "prettier --write '**/*.{html,css,js}'",
+    "test": "echo 'Testing would go here'",
+    "deploy": "echo 'GitHub Pages deployment is automatic on push to main'"
   },
   "keywords": [
     "cv",
     "portfolio",
+    "consulting",
     "data-analytics",
     "technical-leader",
-    "interactive"
+    "interactive",
+    "business-intelligence",
+    "automation",
+    "artificial-intelligence",
+    "bilingual",
+    "spanish",
+    "english",
+    "professional-services",
+    "modal-system",
+    "responsive-design",
+    "es6-modules"
   ],
   "author": "Mariano Gobea Alcoba",
   "license": "MIT",
@@ -27,5 +42,27 @@
     "type": "git",
     "url": "https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io.git"
   },
-  "homepage": "https://mgobeaalcoba.github.io/"
+  "homepage": "https://mgobeaalcoba.github.io/",
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "> 1%",
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "directories": {
+    "css": "assets/css",
+    "js": "assets/js",
+    "images": "assets/images"
+  },
+  "files": [
+    "index.html",
+    "consulting.html",
+    "assets/",
+    "README.md",
+    "CHANGELOG.md",
+    "SCAFFOLDING.md"
+  ]
 } 

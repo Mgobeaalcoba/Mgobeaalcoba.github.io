@@ -1,0 +1,190 @@
+:root {
+    --primary-color: #0ea5e9; /* sky-500 */
+    --background-dark: #111827; /* gray-900 */
+    --background-light: #f3f4f6; /* gray-100 */
+    --card-dark: rgba(31, 41, 55, 0.5); /* gray-800 with transparency */
+    --card-light: rgba(255, 255, 255, 0.7);
+    --text-dark-primary: #f9fafb; /* gray-50 */
+    --text-dark-secondary: #9ca3af; /* gray-400 */
+    --text-light-primary: #1f2937; /* gray-800 */
+    --text-light-secondary: #4b5563; /* gray-600 */
+    --border-dark: rgba(55, 65, 81, 0.6);
+    --border-light: rgba(209, 213, 219, 0.8);
+}
+html.dark {
+    --bg-color: var(--background-dark);
+    --card-bg: var(--card-dark);
+    --text-primary: var(--text-dark-primary);
+    --text-secondary: var(--text-dark-secondary);
+    --border-color: var(--border-dark);
+}
+html.light {
+    --bg-color: var(--background-light);
+    --card-bg: var(--card-light);
+    --text-primary: var(--text-light-primary);
+    --text-secondary: var(--text-light-secondary);
+    --border-color: var(--border-light);
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+}
+.glass-effect {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.main-cta {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, transform 0.2s;
+}
+.main-cta:hover {
+    background-color: #0284c7; /* sky-600 */
+    transform: translateY(-2px);
+}
+.secondary-cta {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+.secondary-cta:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.typing-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.5rem;
+    background-color: var(--primary-color);
+    animation: blink 1s infinite;
+    margin-left: 4px;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.feature-icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.workflow-image {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+.example-card:hover .workflow-image {
+    transform: scale(1.03);
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    padding: 2rem;
+    border-radius: 1rem;
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+}
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+.pack-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.pack-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* TOP CONTROLS (Language Toggle) */
+.top-controls {
+    position: fixed;
+    top: 0.75rem;
+    right: 1.5rem;
+    z-index: 100;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.control-btn:hover {
+    background-color: rgba(14, 165, 233, 0.1);
+    border-color: var(--primary-color);
+}
+
+.control-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: transparent;
+} 
