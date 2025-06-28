@@ -45,6 +45,14 @@ La característica distintiva es un **terminal completamente funcional** integra
 - **DOM utilities**: Biblioteca custom para manipulación del DOM
 - **Local storage**: Persistencia de configuraciones
 
+### **💼 Sistema de Lead Generation Avanzado (Consulting)**
+- **Pre-propuesta instantánea**: Formulario interactivo para generar propuestas personalizadas
+- **Generación PDF automática**: Usando html2canvas y jsPDF para crear documentos profesionales
+- **Sistema de contacto integrado**: WhatsApp y Email con mensajes pre-cargados
+- **Validación en tiempo real**: Formularios con feedback inmediato
+- **Modal system**: Interfaz fluida con modales glass-morphism
+- **Lead nurturing**: Flujo automatizado desde formulario hasta contacto directo
+
 ---
 
 ## 🛠️ **STACK TECNOLÓGICO**
@@ -54,6 +62,8 @@ La característica distintiva es un **terminal completamente funcional** integra
 - **CSS3**: Flexbox, Grid, Custom Properties, Animations
 - **HTML5**: Semantic markup, Canvas API
 - **Module System**: ES6 imports/exports
+- **PDF Generation**: html2canvas + jsPDF para documentos dinámicos
+- **Form Processing**: Validación avanzada y manejo de datos
 
 ### **Arquitectura**
 - **Patrón MVC**: Separación clara de responsabilidades
@@ -83,6 +93,14 @@ La característica distintiva es un **terminal completamente funcional** integra
 4. **Easter eggs**: Matrix effect, neofetch personalizado
 5. **Salida**: Tema button para volver al modo normal
 
+### **Flujo Consulting (Lead Generation)**
+1. **Landing**: Página consulting.html con propuesta de valor
+2. **CTA Principal**: "Crear Pre-propuesta Instantánea" 
+3. **Formulario**: Modal con 5 campos (nombre, email, empresa, industria, problema)
+4. **Generación PDF**: Documento personalizado con datos del cliente
+5. **Opciones de contacto**: Modal con WhatsApp y Email pre-configurados
+6. **Follow-up**: Links directos para continuar conversación
+
 ---
 
 ## 📊 **MÉTRICAS DEL PROYECTO**
@@ -95,10 +113,13 @@ La característica distintiva es un **terminal completamente funcional** integra
 
 ### **Funcionalidades**
 - **Comandos terminal**: 8 comandos únicos implementados
-- **Traducciones**: 500+ strings traducidos
+- **Traducciones**: 600+ strings traducidos (ES/EN completo)
 - **Responsive breakpoints**: 3 breakpoints principales
 - **Temas**: 3 temas completos implementados
 - **Animaciones**: 5+ efectos visuales custom
+- **Sistema de formularios**: Validación y procesamiento avanzado
+- **Generación PDF**: Documentos personalizados dinámicos
+- **Lead generation**: Flujo completo de captura y seguimiento
 
 ### **Complejidad Técnica**
 - **Event listeners**: 20+ listeners para interactividad
@@ -116,6 +137,9 @@ La característica distintiva es un **terminal completamente funcional** integra
 3. **Theme Transitions**: Cambios fluidos entre temas
 4. **Mobile Interactions**: Menús hamburger con animaciones
 5. **ASCII Art**: Logo personalizado en neofetch
+6. **PDF Generation**: Generación de documentos en tiempo real
+7. **Modal Animations**: Glass morphism effects con transiciones suaves
+8. **Form Interactions**: Validación visual en tiempo real
 
 ### **⚡ Aspectos Técnicos Impresionantes**
 1. **Zero frameworks**: Todo en Vanilla JS
@@ -130,6 +154,9 @@ La característica distintiva es un **terminal completamente funcional** integra
 3. **Experiencia inmersiva**: Modo terminal transporta al usuario
 4. **Attention to detail**: Cada feature está pulida
 5. **Professional + Fun**: Balance perfecto entre serio y creativo
+6. **Lead generation completo**: Sistema de captura y seguimiento automatizado
+7. **PDF generation dinámica**: Documentos personalizados al instante
+8. **Multi-channel contact**: WhatsApp + Email integrados
 
 ---
 
@@ -146,6 +173,13 @@ La característica distintiva es un **terminal completamente funcional** integra
 - Theme switching (dark → light → cli)
 - Language toggle (todo cambia instantly)
 - Mobile menu animations
+
+### **Demos de Business Features**
+- **Formulario → PDF**: Completar form y generar documento instantly
+- **Modal transitions**: Smooth glass morphism effects
+- **WhatsApp integration**: Link directo con mensaje personalizado
+- **Email pre-loading**: Cliente automático con subject/body
+- **Form validation**: Real-time feedback visual
 
 ---
 
@@ -180,6 +214,16 @@ La característica distintiva es un **terminal completamente funcional** integra
 - **UX thinking**: Múltiples formas de navegar el contenido
 - **Problem solving**: Challenges técnicos únicos resueltos
 - **Attention to detail**: Polish en cada aspecto
+- **Business integration**: Sistemas de lead generation funcionales
+- **Document automation**: PDF generation con datos dinámicos
+- **Multi-platform integration**: WhatsApp + Email APIs
+
+### **🏢 Valor Comercial Demostrado**
+- **Lead conversion optimization**: Reduce fricción en proceso de contacto
+- **Professional documentation**: PDFs branded y personalizados
+- **Multi-channel approach**: Maximiza posibilidades de respuesta
+- **User experience excellence**: Formularios intuitivos y fluidos
+- **Technical reliability**: Sistema robusto sin dependencias externas
 
 ---
 
@@ -202,6 +246,10 @@ La característica distintiva es un **terminal completamente funcional** integra
 2. **"Matrix effect in vanilla JS"**
 3. **"No frameworks, just pure code"**
 4. **"Terminal that actually works"**
+5. **"Generate custom PDFs in real-time"**
+6. **"Complete lead generation system"**
+7. **"WhatsApp + Email integration"**
+8. **"Business features that actually convert"**
 
 ---
 

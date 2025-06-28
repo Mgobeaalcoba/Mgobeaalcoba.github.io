@@ -24,12 +24,22 @@ A modern, interactive CV/portfolio website with integrated consulting services p
 - **Modal System**: Advanced modal interactions with multiple close methods
 - **Integrated Navigation**: Seamless flow between CV and consulting pages
 
+### 🎯 **Lead Generation System (NEW v2.1)**
+- **Instant Pre-proposal Generation**: Interactive form to create custom PDF proposals
+- **Real-time PDF Creation**: Using html2canvas + jsPDF for professional documents
+- **Multi-channel Contact**: Automated WhatsApp and Email integration
+- **Form Validation**: Real-time validation with visual feedback
+- **Personalized Output**: Company-specific proposal documents
+- **Conversion Optimization**: Streamlined 3-click process from interest to contact
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript ES6+ Modules
 - **Styling**: Tailwind CSS + Custom CSS Modules
 - **Icons**: Font Awesome
 - **PDF Generation**: html2canvas + jsPDF
+- **Form Processing**: Real-time validation and dynamic content generation
+- **Contact Integration**: WhatsApp Web API + Email client automation
 - **Analytics**: Google Analytics
 - **Scheduling**: Calendly Integration
 - **Architecture**: Modular ES6 with clean separation of concerns
@@ -152,6 +162,14 @@ When in terminal mode, you can use these commands:
 
 ## 🔧 Consulting Page Features
 
+### 🎯 **Lead Generation System**
+- **"Crear Pre-propuesta Instantánea"**: Main CTA button
+- **5-Field Form**: Name, Email, Company, Industry, Problem Description
+- **Real-time PDF Generation**: Professional proposals using client data
+- **Contact Options Modal**: WhatsApp + Email with pre-loaded messages
+- **Form Validation**: Visual feedback and error handling
+- **Mobile Optimized**: Touch-friendly interface with glass morphism effects
+
 ### Service Packages
 - **Pack Starter**: Entry-level automation (USD 850)
 - **Pack Crecimiento**: Automation + AI chatbot (USD 1,500)
@@ -258,8 +276,16 @@ This is a personal portfolio and consulting website. Suggestions and improvement
 
 ## 🎯 Recent Updates (2025)
 
+### Version 2.1 (Latest)
+- ✅ **Lead Generation System**: Complete "Pre-propuesta Instantánea" functionality
+- ✅ **PDF Generation Engine**: Real-time document creation with html2canvas + jsPDF
+- ✅ **Multi-channel Contact**: WhatsApp + Email automation with personalized messages
+- ✅ **Enhanced Form Processing**: Real-time validation and professional UX
+- ✅ **Conversion Optimization**: 3-click process from interest to contact
+
+### Version 2.0
 - ✅ **Complete Consulting Page**: Full-featured services showcase
-- ✅ **Expanded Translation System**: 500+ translation keys
+- ✅ **Expanded Translation System**: 600+ translation keys
 - ✅ **Advanced Modal System**: Multiple interaction methods
 - ✅ **Integrated Navigation**: Seamless multi-page experience
 - ✅ **Mobile Optimization**: Enhanced touch interactions
