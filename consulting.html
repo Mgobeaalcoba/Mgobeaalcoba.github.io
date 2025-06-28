@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGA Tech Consulting - Automatización & IA para Pymes</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Potenciamos Pymes con Automatización, Inteligencia Artificial Generativa y Business Intelligence. Reduzca costos, optimice operaciones y tome mejores decisiones.">
+    <meta name="author" content="Mariano Gobea Alcoba">
+    <meta property="og:title" content="MGA Tech Consulting - Soluciones para Pymes">
+    <meta property="og:description" content="Transformamos los desafíos de su pyme en oportunidades de crecimiento con tecnología de punta.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png"> <!-- Usamos tu imagen de perfil para consistencia -->
+    <meta property="og:url" content="/consulting">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png&mask=circle&w=32&h=32">
+
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #0ea5e9; /* sky-500 */
+            --background-dark: #111827; /* gray-900 */
+            --background-light: #f3f4f6; /* gray-100 */
+            --card-dark: rgba(31, 41, 55, 0.5); /* gray-800 with transparency */
+            --card-light: rgba(255, 255, 255, 0.7);
+            --text-dark-primary: #f9fafb; /* gray-50 */
+            --text-dark-secondary: #9ca3af; /* gray-400 */
+            --text-light-primary: #1f2937; /* gray-800 */
+            --text-light-secondary: #4b5563; /* gray-600 */
+            --border-dark: rgba(55, 65, 81, 0.6);
+            --border-light: rgba(209, 213, 219, 0.8);
+        }
+        html.dark {
+            --bg-color: var(--background-dark);
+            --card-bg: var(--card-dark);
+            --text-primary: var(--text-dark-primary);
+            --text-secondary: var(--text-dark-secondary);
+            --border-color: var(--border-dark);
+        }
+        html.light {
+            --bg-color: var(--background-light);
+            --card-bg: var(--card-light);
+            --text-primary: var(--text-light-primary);
+            --text-secondary: var(--text-light-secondary);
+            --border-color: var(--border-light);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+        }
+        .glass-effect {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .main-cta {
+            background-color: var(--primary-color);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .main-cta:hover {
+            background-color: #0284c7; /* sky-600 */
+            transform: translateY(-2px);
+        }
+        .secondary-cta {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .secondary-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.5rem;
+            background-color: var(--primary-color);
+            animation: blink 1s infinite;
+            margin-left: 4px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .workflow-image {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .workflow-image:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 glass-effect">
+        <nav class="container mx-auto max-w-6xl px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">
+                MGA <span style="color: var(--primary-color);">Consulting</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#services" class="hover:text-sky-400 transition-colors">Servicios</a>
+                <a href="#examples" class="hover:text-sky-400 transition-colors">Ejemplos</a>
+                <a href="#process" class="hover:text-sky-400 transition-colors">Nuestro Proceso</a>
+                <a href="#about" class="hover:text-sky-400 transition-colors">Quién Soy</a>
+                <a href="#contact" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm">Agendar Diagnóstico</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center">
+                    <i class="fas fa-sun hidden" id="dark-icon"></i>
+                    <i class="fas fa-moon" id="light-icon"></i>
+                </button>
+                 <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+
+        <!-- HERO SECTION -->
+        <section class="text-center mb-24 fade-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Transforme su Pyme con 
+                <span style="color: var(--primary-color);">Inteligencia</span> y <span style="color: var(--primary-color);">Automatización</span>
+            </h1>
+            <div class="text-lg md:text-xl text-secondary h-14 flex items-center justify-center">
+                <span id="typing-text"></span><span class="typing-cursor"></span>
+            </div>
+            <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary">
+                Ayudamos a pymes a reducir costos operativos, optimizar procesos y tomar decisiones basadas en datos para que pueda enfocarse en lo que realmente importa: hacer crecer su negocio.
+            </p>
+            <div class="mt-8 flex justify-center items-center gap-4">
+                <a href="#contact" class="main-cta text-white font-bold px-8 py-3 rounded-full">Solicitar Diagnóstico Gratuito</a>
+                <a href="/" target="_blank" class="secondary-cta font-bold px-8 py-3 rounded-full">
+                    Ver mi Perfil Técnico <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Un Socio Tecnológico para cada Necesidad</h2>
+                <p class="mt-2 text-lg text-secondary">Ofrecemos soluciones modulares que se adaptan a su nivel de madurez digital.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Automation -->
+                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 200ms;">
+                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Automatización de Procesos</h3>
+                    <p class="text-secondary text-sm leading-relaxed">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
+                </div>
+                <!-- Service Card 2: GenAI -->
+                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 400ms;">
+                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Inteligencia Artificial Aplicada</h3>
+                    <p class="text-secondary text-sm leading-relaxed">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
+                </div>
+                <!-- Service Card 3: BI -->
+                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 600ms;">
+                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-chart-pie"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Business Intelligence & Datos</h3>
+                    <p class="text-secondary text-sm leading-relaxed">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALL EXAMPLES PARENT SECTION -->
+        <section id="examples">
+
+            <!-- EXAMPLES/WORKFLOWS SECTION -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Automatización en Acción: Casos Reales</h2>
+                    <p class="mt-2 text-lg text-secondary">Vea cómo los flujos de trabajo resuelven problemas cotidianos de su negocio.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                    <!-- Workflow 1 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 200ms;">
+                        <a href="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" alt="Workflow de automatización de contenido para redes sociales" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Automatización de Contenido para Redes</h4>
+                        <p class="text-secondary text-sm">Este flujo toma publicaciones desde Notion, las procesa con IA para optimizar el texto y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
+                    </div>
+                    <!-- Workflow 2 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 400ms;">
+                         <a href="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" alt="Workflow de reportes automáticos de redes sociales" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Reportes de Performance Automatizados</h4>
+                        <p class="text-secondary text-sm">Cada semana, este workflow recolecta métricas de múltiples redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email, eliminando la creación manual de informes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IA EXAMPLES SECTION -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Inteligencia Artificial en Acción: Casos Prácticos</h2>
+                    <p class="mt-2 text-lg text-secondary">Vea cómo la IA puede potenciar su comunicación y análisis.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                    <!-- AI Example 1 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in">
+                        <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" alt="Ejemplo de un chatbot para atención al cliente" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Chatbot de Soporte 24/7</h4>
+                        <p class="text-secondary text-sm">Un asistente virtual que responde preguntas frecuentes en su web o WhatsApp, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
+                    </div>
+                    <!-- AI Example 2 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in">
+                         <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" alt="Ejemplo de análisis de sentimiento con IA" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Análisis Inteligente de Feedback</h4>
+                        <p class="text-secondary text-sm">Utilizamos IA para analizar miles de comentarios de clientes, reseñas o encuestas, detectando patrones, quejas recurrentes y oportunidades de mejora de forma automática.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BI EXAMPLES SECTION -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Business Intelligence en Acción: Datos para Decidir</h2>
+                    <p class="mt-2 text-lg text-secondary">Convierta números en estrategias con tableros de control claros y potentes.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                    <!-- BI Example 1 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in">
+                        <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" alt="Ejemplo de un dashboard de ventas en Power BI o Looker Studio" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Dashboard de Ventas en Tiempo Real</h4>
+                        <p class="text-secondary text-sm">Visualice sus KPIs de ventas, compare periodos, filtre por vendedor o producto y entienda qué impulsa sus ingresos con un panel interactivo y siempre actualizado.</p>
+                    </div>
+                    <!-- BI Example 2 -->
+                    <div class="glass-effect rounded-2xl p-6 fade-in">
+                         <a href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" alt="Ejemplo de un dashboard de control de inventario" class="workflow-image">
+                        </a>
+                        <h4 class="font-bold text-lg mb-1">Control de Inventario y Operaciones</h4>
+                        <p class="text-secondary text-sm">Monitoree niveles de stock, rotación de productos y eficiencia logística. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+        <!-- PROCESS SECTION -->
+        <section id="process" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Nuestro Proceso: Ágil y Transparente</h2>
+                <p class="mt-2 text-lg text-secondary">Un camino claro desde el problema hasta la solución, con resultados visibles en cada etapa.</p>
+            </div>
+            <div class="relative max-w-4xl mx-auto">
+                <!-- The connecting line -->
+                <div class="absolute left-1/2 top-10 bottom-10 w-0.5 bg-sky-500/30 hidden md:block"></div>
+                <!-- Step 1 -->
+                <div class="relative mb-8 md:mb-12 fade-in">
+                    <div class="md:flex items-center md:flex-row-reverse">
+                        <div class="md:w-1/2 text-left md:pl-12">
+                            <p class="font-bold text-sky-400 mb-1">Paso 1</p>
+                            <h4 class="text-xl font-bold mb-2">Diagnóstico y Quick Wins</h4>
+                            <p class="text-secondary text-sm">Analizamos sus procesos, identificamos los cuellos de botella y le presentamos un plan con victorias rápidas y de alto impacto.</p>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center md:justify-start">
+                             <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
+                                <i class="fas fa-search-plus text-2xl text-sky-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative mb-8 md:mb-12 fade-in">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 text-left md:pr-12 md:text-right">
+                            <p class="font-bold text-sky-400 mb-1">Paso 2</p>
+                            <h4 class="text-xl font-bold mb-2">Implementación del Prototipo</h4>
+                            <p class="text-secondary text-sm">En 2-3 semanas, construimos y entregamos una primera versión funcional (MVP) de la automatización o dashboard para que vea el valor inmediatamente.</p>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                             <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
+                                <i class="fas fa-cogs text-2xl text-sky-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Step 3 -->
+                <div class="relative fade-in">
+                    <div class="md:flex items-center md:flex-row-reverse">
+                        <div class="md:w-1/2 text-left md:pl-12">
+                            <p class="font-bold text-sky-400 mb-1">Paso 3</p>
+                            <h4 class="text-xl font-bold mb-2">Despliegue, Capacitación y Escalamiento</h4>
+                            <p class="text-secondary text-sm">Ponemos la solución en producción, capacitamos a su equipo para que la gestione y planificamos los siguientes pasos para una mejora continua.</p>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center md:justify-start">
+                             <div class="relative w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full border-2 border-sky-500">
+                                <i class="fas fa-rocket text-2xl text-sky-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & CTA SECTION -->
+        <section id="about" class="glass-effect rounded-2xl p-8 md:p-12 fade-in">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-1 flex justify-center">
+                    <div class="w-40 h-40 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png'); background-size: 155%; background-position: center 30%;"></div>
+                </div>
+                <div class="md:col-span-2 text-center md:text-left">
+                    <h2 class="text-3xl font-bold mb-2">Experiencia Real, Resultados Concretos.</h2>
+                    <p class="text-secondary mb-4">
+                        Soy Mariano Gobea Alcoba. Como Líder Técnico de Datos y Analytics en Mercado Libre, he pasado los últimos 6 años diseñando y construyendo soluciones de datos a gran escala. Ahora, aplico esa experiencia para resolver los desafíos del mundo real que enfrentan las pymes, con un enfoque pragmático y sin "humo".
+                    </p>
+                    <a href="#contact" class="main-cta text-white font-semibold px-6 py-3 rounded-full inline-block">Hablemos de su proyecto</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-gray-800/50 text-center py-12">
+        <div class="container mx-auto max-w-4xl px-4">
+            <h2 class="text-3xl font-bold mb-2">¿Listo para dar el siguiente paso?</h2>
+            <p class="text-secondary mb-8">Agende una sesión de diagnóstico gratuita de 30 minutos. Sin compromiso, sin costo. <br>Solo una charla para explorar cómo la tecnología puede impulsar su negocio.</p>
+            
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/mariano-gobea-mercadolibre/30min" style="min-width:320px;height:700px;"></div>
+            <!-- Calendly inline widget end -->
+
+            <div class="mt-12 text-sm text-secondary">
+                 &copy; 2025 Mariano Gobea Alcoba Consulting. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // THEME TOGGLE
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('dark-icon');
+        const lightIcon = document.getElementById('light-icon');
+        const docHtml = document.documentElement;
+
+        // Check for saved theme in localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            docHtml.classList.remove('dark');
+            docHtml.classList.add('light');
+            darkIcon.classList.remove('hidden');
+            lightIcon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (docHtml.classList.contains('dark')) {
+                docHtml.classList.remove('dark');
+                docHtml.classList.add('light');
+                localStorage.setItem('theme', 'light');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            } else {
+                docHtml.classList.remove('light');
+                docHtml.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            }
+        });
+
+        // TYPING EFFECT
+        const typingText = document.getElementById('typing-text');
+        const phrases = [
+            "Reduzca costos operativos.",
+            "Automatice tareas repetitivas.",
+            "Tome decisiones basadas en datos.",
+            "Libere a su equipo para crear valor.",
+            "Mejore la atención al cliente."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 75 : 150;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before new phrase
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        
+        document.addEventListener('DOMContentLoaded', type);
+        
+        // FADE-IN ON SCROLL
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.1, // Start animation a bit earlier
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.style.animationPlayState = 'running';
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            fader.style.animationPlayState = 'paused';
+            appearOnScroll.observe(fader);
+        });
+
+    </script>
+</body>
+</html>
