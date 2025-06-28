@@ -43,25 +43,36 @@
                 <a href="#about" class="hover:text-sky-400 transition-colors" data-translate="consulting_nav_about">Quién Soy</a>
                 <a href="#contact" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_nav_contact">Agendar Diagnóstico</a>
             </div>
-            <div class="flex items-center space-x-4">
-                 <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center">
+            <div class="flex items-center space-x-3">
+                <!-- Language Controls -->
+                <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+                    <button id="lang-es" class="control-btn" data-lang="es">ES</button>
+                    <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="control-btn">
                     <i class="fas fa-sun hidden" id="dark-icon"></i>
                     <i class="fas fa-moon" id="light-icon"></i>
                 </button>
-                 <button class="md:hidden text-2xl">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden control-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </nav>
-    </header>
-
-    <!-- CONTROLS -->
-    <div class="top-controls">
-        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
-            <button id="lang-es" class="control-btn" data-lang="es">ES</button>
-            <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav" class="md:hidden hidden fixed top-16 left-0 right-0 z-40 glass-effect border-t border-gray-600/50">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="#services" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_services">Servicios</a>
+                <a href="#packs" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_packs">Packs</a>
+                <a href="#examples" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_examples">Ejemplos</a>
+                <a href="#process" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_process">Nuestro Proceso</a>
+                <a href="#about" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_about">Quién Soy</a>
+                <a href="#contact" class="block py-2 px-4 main-cta text-white text-center font-semibold rounded-lg" data-translate="consulting_nav_contact">Agendar Diagnóstico</a>
+            </div>
         </div>
-    </div>
+    </header>
 
     <!-- MAIN CONTENT -->
     <main class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
@@ -78,9 +89,9 @@
             <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary" data-translate="consulting_hero_subtitle">
                 Ayudamos a pymes a reducir costos operativos, optimizar procesos y tomar decisiones basadas en datos para que pueda enfocarse en lo que realmente importa: hacer crecer su negocio.
             </p>
-            <div class="mt-8 flex justify-center items-center gap-4">
-                <a href="#contact" class="main-cta text-white font-bold px-8 py-3 rounded-full" data-translate="consulting_hero_main_cta">Solicitar Diagnóstico Gratuito</a>
-                <a href="/" target="_blank" class="secondary-cta font-bold px-8 py-3 rounded-full">
+            <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto main-cta text-white font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base" data-translate="consulting_hero_main_cta">Solicitar Diagnóstico Gratuito</a>
+                <a href="/" target="_blank" class="w-full sm:w-auto secondary-cta font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base">
                     <span data-translate="consulting_hero_secondary_cta">Ver mi Perfil Técnico</span> <i class="fas fa-arrow-right ml-2 text-sm"></i>
                 </a>
             </div>

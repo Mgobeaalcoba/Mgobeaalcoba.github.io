@@ -66,9 +66,15 @@ export function printToTerminal(text) {
 
 export function startMatrixEffect() {
     const canvas = DOM.find('#matrix-canvas');
-    if (!canvas) return;
-
+    if (!canvas) {
+        console.error('[Terminal] Matrix canvas not found!');
+        printToTerminal('Error: Matrix canvas not found');
+        return;
+    }
+    
+    console.log('[Terminal] Matrix canvas found, starting effect');
     DOM.show(canvas);
+    canvas.classList.add('matrix-active'); // Bring canvas above terminal
     const ctx = canvas.getContext('2d');
 
     canvas.width = window.innerWidth;
@@ -112,6 +118,7 @@ export function startMatrixEffect() {
     const stopMatrix = (event) => {
         if (event.key === 'Escape' || event.type === 'click') {
             clearInterval(matrixInterval);
+            canvas.classList.remove('matrix-active'); // Remove z-index override
             DOM.hide(canvas);
             document.removeEventListener('keydown', stopMatrix);
             document.removeEventListener('click', stopMatrix);
@@ -360,8 +367,58 @@ export function toggleTerminal(show) {
         DOM.show(terminalContainer);
         DOM.hide(mainContent);
         terminalInput?.focus();
+        // Initialize terminal controls
+        initTerminalControls();
     } else {
         DOM.hide(terminalContainer);
         DOM.show(mainContent);
+    }
+}
+
+// Initialize terminal controls (language and theme buttons)
+function initTerminalControls() {
+    const langEsTerminal = DOM.find('#lang-es-terminal');
+    const langEnTerminal = DOM.find('#lang-en-terminal');
+    const themeBtnTerminal = DOM.find('#theme-btn-terminal');
+    
+    // Update active language button style
+    function updateActiveLanguage(currentLang) {
+        if (langEsTerminal && langEnTerminal) {
+            langEsTerminal.classList.toggle('active', currentLang === 'es');
+            langEnTerminal.classList.toggle('active', currentLang === 'en');
+        }
+    }
+    
+    // Set initial active language
+    const currentLang = localStorage.getItem('language') || 'es';
+    updateActiveLanguage(currentLang);
+    
+    // Spanish button
+    if (langEsTerminal) {
+        langEsTerminal.onclick = () => {
+            localStorage.setItem('language', 'es');
+            updateActiveLanguage('es');
+            initTerminal('es');
+            // Apply translations to the rest of the app
+            import('./main.js').then(({ setLanguage }) => setLanguage('es'));
+        };
+    }
+    
+    // English button  
+    if (langEnTerminal) {
+        langEnTerminal.onclick = () => {
+            localStorage.setItem('language', 'en');
+            updateActiveLanguage('en');
+            initTerminal('en');
+            // Apply translations to the rest of the app
+            import('./main.js').then(({ setLanguage }) => setLanguage('en'));
+        };
+    }
+    
+    // Theme toggle (exit terminal mode)
+    if (themeBtnTerminal) {
+        themeBtnTerminal.onclick = () => {
+            import('./themes.js').then(({ setTheme }) => setTheme('dark'));
+        };
     }
 } 

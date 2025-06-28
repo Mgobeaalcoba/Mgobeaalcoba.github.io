@@ -35,8 +35,9 @@ function setLanguage(lang) {
     });
     
     // Update typing phrases
-    if (window.typingPhrases) {
+    if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[lang]) {
         window.typingPhrases = translations.consulting_typing_phrases[lang];
+        console.log('[Consulting] Updated typing phrases for language:', lang, window.typingPhrases);
         // Restart typing animation with new phrases
         const typingText = document.getElementById('typing-text');
         if (typingText) {
@@ -58,6 +59,48 @@ function setLanguage(lang) {
     const langEnBtn = document.getElementById('lang-en');
     if (langEsBtn) langEsBtn.classList.toggle('active', lang === 'es');
     if (langEnBtn) langEnBtn.classList.toggle('active', lang === 'en');
+}
+
+// MOBILE MENU
+function initializeMobileMenu() {
+    console.log('[Consulting] Initializing mobile menu...');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    console.log('[Consulting] Mobile menu elements:', { mobileMenuBtn, mobileNav });
+    
+    if (mobileMenuBtn && mobileNav) {
+        console.log('[Consulting] Mobile menu elements found, setting up listeners...');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('[Consulting] Mobile menu button clicked');
+            mobileNav.classList.toggle('hidden');
+            console.log('[Consulting] Menu hidden class:', mobileNav.classList.contains('hidden'));
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        console.log('[Consulting] Found mobile links:', mobileLinks.length);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('[Consulting] Mobile link clicked, closing menu');
+                mobileNav.classList.add('hidden');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.add('hidden');
+            }
+        });
+        
+        console.log('[Consulting] Mobile menu initialization complete');
+    } else {
+        console.error('[Consulting] Mobile menu elements not found!');
+    }
 }
 
 // Update pack data-attributes with translations
@@ -121,7 +164,6 @@ function updateExampleDataAttributes(lang) {
 }
 
 // TYPING EFFECT
-const typingText = document.getElementById('typing-text');
 // Initialize phrases globally so they can be updated by language change
 window.typingPhrases = [
     "Reduzca costos operativos.",
@@ -136,7 +178,17 @@ let isDeleting = false;
 let typingTimeout;
 
 function type() {
-    if(!typingText) return;
+    const typingText = document.getElementById('typing-text');
+    if(!typingText) {
+        console.log('[Consulting] typing-text element not found!');
+        return;
+    }
+    
+    if (!window.typingPhrases || window.typingPhrases.length === 0) {
+        console.log('[Consulting] No typing phrases available!');
+        return;
+    }
+    
     const currentPhrase = window.typingPhrases[phraseIndex];
     if (isDeleting) {
         typingText.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -170,9 +222,13 @@ function restartTypingEffect() {
     isDeleting = false;
     
     // Clear current text and restart
+    const typingText = document.getElementById('typing-text');
     if (typingText) {
         typingText.textContent = '';
+        console.log('[Consulting] Restarting typing effect with phrases:', window.typingPhrases);
         type();
+    } else {
+        console.log('[Consulting] Cannot restart typing effect - element not found!');
     }
 }
 
@@ -236,8 +292,23 @@ function openPackModal(card) {
 
 // Initialize all functionalities on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('[Consulting] DOM loaded, starting initialization...');
+    
+    // Load initial language from localStorage or default to ES
+    const savedLang = localStorage.getItem('language') || 'es';
+    console.log('[Consulting] Loaded language:', savedLang);
+    
+    // Initialize typing phrases from translations
+    if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[savedLang]) {
+        window.typingPhrases = translations.consulting_typing_phrases[savedLang];
+        console.log('[Consulting] Loaded typing phrases:', window.typingPhrases);
+    }
+    
     // Initialize typing effect
-    type();
+    setTimeout(() => {
+        console.log('[Consulting] Starting typing effect...');
+        type();
+    }, 500); // Small delay to ensure DOM is fully ready
     
     // Initialize fade-in animations
     faders.forEach(fader => {
@@ -306,7 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         langEnBtn.addEventListener('click', () => setLanguage('en'));
     }
     
-    // Set initial language based on localStorage or default to Spanish
-    const savedLang = localStorage.getItem('language') || 'es';
+    // Set initial language
     setLanguage(savedLang);
+    
+    // Initialize mobile menu with delay to ensure DOM is fully ready
+    setTimeout(() => {
+        initializeMobileMenu();
+    }, 100);
+    
+    console.log('[Consulting] Initialization complete');
 }); 

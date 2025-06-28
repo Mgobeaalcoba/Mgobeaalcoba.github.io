@@ -69,21 +69,65 @@
     </div>
     <!-- =========== FIN DEL COMPONENTE DE INTRODUCCIÓN =========== -->
 
-    <!-- CONTROLS -->
-    <div class="top-controls hidden">
-        <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
-            <button id="lang-es" class="control-btn" data-lang="es">ES</button>
-            <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 glass-effect">
+        <nav class="container mx-auto max-w-6xl px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">
+                MGA <span style="color: var(--primary-color);">Portfolio</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="hover:text-sky-400 transition-colors" data-translate="nav_about">Sobre mí</a>
+                <a href="#projects" class="hover:text-sky-400 transition-colors" data-translate="nav_projects">Proyectos</a>
+                <a href="#experience" class="hover:text-sky-400 transition-colors" data-translate="nav_experience">Experiencia</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors" data-translate="nav_contact">Contacto</a>
+                <a href="consulting.html" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_btn">Servicios de Consultoría</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <!-- Language Controls -->
+                <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+                    <button id="lang-es" class="control-btn" data-lang="es">ES</button>
+                    <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="control-btn">
+                    <i class="fas fa-sun hidden" id="dark-icon"></i>
+                    <i class="fas fa-moon" id="light-icon"></i>
+                    <i class="fas fa-terminal hidden" id="terminal-icon"></i>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn-index" class="md:hidden control-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav-index" class="md:hidden hidden fixed top-16 left-0 right-0 z-40 glass-effect border-t border-gray-600/50">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="#about" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_about">Sobre mí</a>
+                <a href="#projects" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_projects">Proyectos</a>
+                <a href="#experience" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_experience">Experiencia</a>
+                <a href="#contact" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_contact">Contacto</a>
+                <a href="consulting.html" class="block py-2 px-4 main-cta text-white text-center font-semibold rounded-lg" data-translate="consulting_btn">Servicios de Consultoría</a>
+            </div>
         </div>
-        <button id="theme-toggle" class="control-btn">
-            <i class="fas fa-sun hidden" id="dark-icon"></i>
-            <i class="fas fa-moon" id="light-icon"></i>
-            <i class="fas fa-terminal hidden" id="terminal-icon"></i>
-        </button>
-    </div>
+    </header>
 
     <!-- TERMINAL -->
     <div id="terminal-container" class="hidden fixed inset-0 bg-black font-mono text-lg p-4 custom-scrollbar overflow-y-auto">
+        <!-- Terminal Controls (Only visible in terminal mode) -->
+        <div class="absolute top-4 right-4 flex items-center gap-3 z-50">
+            <!-- Language Controls - Same style as header -->
+            <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
+                <button id="lang-es-terminal" class="control-btn" data-lang="es">ES</button>
+                <button id="lang-en-terminal" class="control-btn" data-lang="en">EN</button>
+            </div>
+            <!-- Theme Toggle -->
+            <button id="theme-btn-terminal" class="control-btn">
+                <i class="fas fa-desktop"></i>
+            </button>
+        </div>
+        
         <div id="terminal-output"></div>
         <div class="flex">
             <span class="text-green-400">user@mgobeaalcoba:~$</span>
@@ -103,24 +147,52 @@
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
                 <h1 class="text-4xl sm:text-5xl font-bold">Mariano Gobea Alcoba</h1>
                 <h2 class="text-xl sm:text-2xl mt-2" data-translate="job_title">Data & Analytics Technical Leader en Mercado Libre</h2>
-                <div class="flex items-center flex-wrap gap-4 mt-6">
-                   <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
-                   <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
-                   <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
-                       <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
-                       </svg>
-                   </a>
-                   <a href="consulting.html" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">Servicios de Consultoría</a>
-                   <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
-                       <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
-                   </button>
+                <!-- Social links and action buttons -->
+                <div class="mt-6">
+                    <!-- Desktop: All in one row, Mobile: Stacked in 3 levels -->
+                    <div class="hidden lg:flex items-center justify-start gap-4 flex-wrap">
+                       <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
+                       <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
+                       <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
+                           <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
+                           </svg>
+                       </a>
+                       <a href="consulting.html" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white text-center" style="background-color: var(--primary-color);" data-translate="consulting_btn">Servicios de Consultoría</a>
+                       <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
+                           <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
+                       </button>
+                    </div>
+                    
+                    <!-- Mobile: Stacked in 3 levels -->
+                    <div class="lg:hidden space-y-4">
+                        <!-- Level 1: Social Links Row -->
+                        <div class="flex items-center justify-center gap-4">
+                           <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'LinkedIn')"><i class="fab fa-linkedin"></i></a>
+                           <a href="https://github.com/Mgobeaalcoba" target="_blank" class="icon-link text-3xl" onclick="trackSocialClick(event, 'GitHub')"><i class="fab fa-github"></i></a>
+                           <a href="https://x.com/MGobeaAlcoba" target="_blank" class="icon-link" onclick="trackSocialClick(event, 'Twitter/X')">
+                               <svg class="x-logo" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
+                               </svg>
+                           </a>
+                        </div>
+                        <!-- Level 2: Consulting button -->
+                        <div class="flex justify-center">
+                           <a href="consulting.html" class="w-full max-w-xs px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white text-center" style="background-color: var(--primary-color);" data-translate="consulting_btn">Servicios de Consultoría</a>
+                        </div>
+                        <!-- Level 3: Calendar button -->
+                        <div class="flex justify-center">
+                           <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="w-full max-w-xs px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 text-white" style="background-color: var(--primary-color);">
+                               <span data-translate="calendly_btn">Agenda un espacio conmigo</span>
+                           </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- ABOUT ME - FULL WIDTH -->
-        <section class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
+        <section id="about" class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
             <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="about_title">Sobre mí</h3>
             <p class="leading-relaxed" data-translate="about_text">
                 Líder técnico con más de 6 años de experiencia en Mercado Libre, enfocado en Data & Analytics. Apasionado por liderar equipos de alto rendimiento para resolver desafíos complejos de negocio mediante la innovación y la tecnología. Experto en alinear estrategias de datos con objetivos corporativos para impulsar la eficiencia y el crecimiento. Mi objetivo es continuar democratizando el comercio y los servicios financieros en América Latina, transformando la vida de millones de personas.
@@ -129,13 +201,13 @@
 
         <!-- CONSULTING TEASER SECTION -->
         <section class="p-6 glass-effect rounded-xl mb-8 animate-on-scroll interactive">
-            <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom">Consultoría para Empresas</h3>
-            <p class="leading-relaxed text-secondary mb-4">
+            <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="consulting_teaser_title">Consultoría para Empresas</h3>
+            <p class="leading-relaxed text-secondary mb-4" data-translate="consulting_teaser_desc">
                 Aplico mi experiencia en datos y tecnología para ayudar a pymes a optimizar operaciones, reducir costos y crecer. Descubra cómo la automatización, la IA y el Business Intelligence pueden transformar su negocio.
             </p>
             <a href="consulting.html" class="flex items-center justify-center w-full mt-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-colors duration-300">
                 <i class="fas fa-briefcase w-5 mr-2"></i>
-                <span>Conocer mis Servicios</span>
+                <span data-translate="consulting_teaser_btn">Conocer mis Servicios</span>
             </a>
         </section>
 
@@ -144,7 +216,7 @@
             <!-- ========== LEFT COLUMN ========== -->
             <div class="lg:col-span-1 space-y-8">
                 <!-- Contact -->
-                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
+                <section id="contact" class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll interactive">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="contact_title">Contacto</h3>
                     <ul class="space-y-4 text-secondary">
                         <li><i class="fas fa-map-marker-alt w-5 mr-2" style="color: var(--primary-color);"></i> Buenos Aires, Argentina</li>
@@ -199,7 +271,7 @@
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Featured Projects -->
-                <section class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
+                <section id="projects" class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
                     <div id="projects-container" class="space-y-6 max-h-[40rem] overflow-y-auto custom-scrollbar pr-2">
                         <!-- Projects will be dynamically inserted here by JS -->
@@ -207,7 +279,7 @@
                 </section>
                 
                  <!-- Experience Timeline -->
-                <section class="p-6 glass-effect rounded-xl animate-on-scroll">
+                <section id="experience" class="p-6 glass-effect rounded-xl animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-8 border-b pb-2 border-bottom" data-translate="experience_title">Experiencia Profesional</h3>
                     <div id="experience-timeline" class="timeline">
                         <!-- Experience items will be dynamically inserted here by JS -->

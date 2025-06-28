@@ -53,6 +53,51 @@ async function filterProjectsByCategory(category) {
 }
 
 // =================================================================================
+// MOBILE MENU INITIALIZATION
+// =================================================================================
+
+function initializeMobileMenuIndex() {
+    console.log('[Index] Initializing mobile menu after intro...');
+    const mobileMenuBtnIndex = DOM.find('#mobile-menu-btn-index');
+    const mobileNavIndex = DOM.find('#mobile-nav-index');
+    
+    console.log('[Index] Mobile menu elements:', { mobileMenuBtnIndex, mobileNavIndex });
+    
+    if (mobileMenuBtnIndex && mobileNavIndex) {
+        console.log('[Index] Mobile menu elements found, setting up listeners...');
+        
+        mobileMenuBtnIndex.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('[Index] Mobile menu button clicked');
+            mobileNavIndex.classList.toggle('hidden');
+            console.log('[Index] Menu hidden class:', mobileNavIndex.classList.contains('hidden'));
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinksIndex = mobileNavIndex.querySelectorAll('a');
+        console.log('[Index] Found mobile links:', mobileLinksIndex.length);
+        mobileLinksIndex.forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('[Index] Mobile link clicked, closing menu');
+                mobileNavIndex.classList.add('hidden');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtnIndex.contains(e.target) && !mobileNavIndex.contains(e.target)) {
+                mobileNavIndex.classList.add('hidden');
+            }
+        });
+        
+        console.log('[Index] Mobile menu initialization complete');
+    } else {
+        console.error('[Index] Mobile menu elements not found!');
+    }
+}
+
+// =================================================================================
 // EXPERIENCE MODAL
 // =================================================================================
 
@@ -96,6 +141,12 @@ async function initializeMainApp() {
     // Set initial language
     const savedLang = Storage.get('language', 'es');
     setLanguage(savedLang);
+    
+    // Initialize mobile menu for index.html (after intro completes)
+    setTimeout(() => {
+        console.log('[Init] About to initialize mobile menu...');
+        initializeMobileMenuIndex();
+    }, 200);
     
     // Ensure main content is visible after setup
     const pageContent = DOM.find('#page-content');

@@ -183,6 +183,25 @@
    --- RESPONSIVE COMPONENTS
    ================================================================================= */
 
+/* Desktop layout adjustments */
+@media (min-width: 768px) {
+    .md\:flex {
+        display: flex !important;
+    }
+    
+    .lg\:flex {
+        display: flex !important;
+    }
+    
+    .md\:hidden {
+        display: none !important;
+    }
+    
+    .lg\:hidden {
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
     .profile-image {
         width: 10rem;
@@ -284,6 +303,50 @@ html.light-mode .tag.active {
 }
 
 /* =================================================================================
+   CTA BUTTONS (Call to Action)
+   ================================================================================= */
+
+.main-cta {
+    background-color: var(--primary-color) !important;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.main-cta:hover {
+    background-color: #0284c7 !important; /* sky-600 */
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary-cta:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* =================================================================================
+   TYPING EFFECT
+   ================================================================================= */
+
+.typing-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.5rem;
+    background-color: var(--primary-color);
+    animation: blink 1s infinite;
+    margin-left: 4px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* =================================================================================
    BUTTONS (Main site controls)
    ================================================================================= */
 
@@ -374,6 +437,20 @@ html.light-mode .tag.active {
 
 .modal-close-btn:hover {
     color: var(--text-color);
+}
+
+/* =================================================================================
+   RESPONSIVE ADJUSTMENTS
+   ================================================================================= */
+
+@media (max-width: 768px) {
+    /* Ensure header controls (language and theme) are side by side in mobile */
+    header .flex.items-center.space-x-3 {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        align-items: center;
+    }
 }
 
 /* =================================================================================

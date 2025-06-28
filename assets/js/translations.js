@@ -97,6 +97,38 @@ export const translations = {
         es: "Agenda un espacio conmigo", 
         en: "Schedule time with me" 
     },
+    consulting_btn: {
+        es: "Servicios de Consultoría",
+        en: "Consulting Services"
+    },
+    consulting_teaser_title: {
+        es: "Consultoría para Empresas",
+        en: "Business Consulting"
+    },
+    consulting_teaser_desc: {
+        es: "Aplico mi experiencia en datos y tecnología para ayudar a pymes a optimizar operaciones, reducir costos y crecer. Descubra cómo la automatización, la IA y el Business Intelligence pueden transformar su negocio.",
+        en: "I apply my experience in data and technology to help SMEs optimize operations, reduce costs and grow. Discover how automation, AI and Business Intelligence can transform your business."
+    },
+    consulting_teaser_btn: {
+        es: "Conocer mis Servicios",
+        en: "Learn About My Services"
+    },
+    nav_about: {
+        es: "Sobre mí",
+        en: "About"
+    },
+    nav_projects: {
+        es: "Proyectos",
+        en: "Projects"
+    },
+    nav_experience: {
+        es: "Experiencia",
+        en: "Experience"
+    },
+    nav_contact: {
+        es: "Contacto",
+        en: "Contact"
+    },
     see_more: { 
         es: "Ver más", 
         en: "See more" 
