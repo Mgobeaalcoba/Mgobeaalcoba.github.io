@@ -500,6 +500,20 @@ export const translations = {
         es: "Pack Crecimiento: IA + Automatización",
         en: "Growth Pack: AI + Automation"
     },
+    
+    // Pack titles (short versions for cards)
+    consulting_pack_starter_name: {
+        es: "Pack Starter",
+        en: "Starter Pack"
+    },
+    consulting_pack_growth_name: {
+        es: "Pack Crecimiento",
+        en: "Growth Pack"
+    },
+    consulting_pack_bi_name: {
+        es: "Pack BI Express",
+        en: "BI Express Pack"
+    },
     consulting_pack_growth_services: {
         es: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Todo lo del Pack Starter.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Implementación de Chatbot para WhatsApp/Web.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Respuesta a preguntas frecuentes 24/7.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Captura de leads automática.</li>",
         en: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Everything from Starter Pack.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>WhatsApp/Web Chatbot implementation.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>24/7 FAQ responses.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Automatic lead capture.</li>"
