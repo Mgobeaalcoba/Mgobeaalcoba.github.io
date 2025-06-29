@@ -496,6 +496,306 @@ export const translations = {
         es: "Paso 3",
         en: "Step 3"
     },
+    
+    // Service Modal Translations
+    consulting_click_to_learn: {
+        es: "Haz clic para conocer más →",
+        en: "Click to learn more →"
+    },
+    
+    // Automation Modal
+    consulting_automation_modal_title: {
+        es: "Automatización de Procesos",
+        en: "Process Automation"
+    },
+    consulting_automation_modal_what: {
+        es: "¿Qué Automatizamos?",
+        en: "What Do We Automate?"
+    },
+    consulting_automation_item_1: {
+        es: "Carga y procesamiento de facturas desde emails",
+        en: "Invoice loading and processing from emails"
+    },
+    consulting_automation_item_2: {
+        es: "Seguimiento automático de cobranzas por WhatsApp",
+        en: "Automatic collection follow-up via WhatsApp"
+    },
+    consulting_automation_item_3: {
+        es: "Sincronización entre sistemas (CRM, ERP, Excel)",
+        en: "System synchronization (CRM, ERP, Excel)"
+    },
+    consulting_automation_item_4: {
+        es: "Generación automática de reportes semanales",
+        en: "Automatic weekly report generation"
+    },
+    consulting_automation_item_5: {
+        es: "Control de stock y alertas de reposición",
+        en: "Stock control and replenishment alerts"
+    },
+    consulting_automation_modal_benefits: {
+        es: "Beneficios Inmediatos",
+        en: "Immediate Benefits"
+    },
+    consulting_automation_benefit_1: {
+        es: "Reducción del 70-80% en tiempo de tareas repetitivas",
+        en: "70-80% reduction in repetitive task time"
+    },
+    consulting_automation_benefit_2: {
+        es: "Eliminación de errores humanos en data entry",
+        en: "Elimination of human errors in data entry"
+    },
+    consulting_automation_benefit_3: {
+        es: "Disponibilidad 24/7 sin supervisión",
+        en: "24/7 availability without supervision"
+    },
+    consulting_automation_benefit_4: {
+        es: "ROI visible en 2-3 meses",
+        en: "Visible ROI in 2-3 months"
+    },
+    consulting_automation_modal_process: {
+        es: "Nuestro Proceso",
+        en: "Our Process"
+    },
+    consulting_automation_step_1_title: {
+        es: "Mapeo de Procesos:",
+        en: "Process Mapping:"
+    },
+    consulting_automation_step_1_desc: {
+        es: "Analizamos paso a paso su flujo actual",
+        en: "We analyze your current workflow step by step"
+    },
+    consulting_automation_step_2_title: {
+        es: "Diseño de Automatización:",
+        en: "Automation Design:"
+    },
+    consulting_automation_step_2_desc: {
+        es: "Creamos el flujo optimizado y automatizado",
+        en: "We create the optimized and automated flow"
+    },
+    consulting_automation_step_3_title: {
+        es: "Implementación & Testing:",
+        en: "Implementation & Testing:"
+    },
+    consulting_automation_step_3_desc: {
+        es: "Desarrollamos y probamos la solución",
+        en: "We develop and test the solution"
+    },
+    consulting_automation_step_4_title: {
+        es: "Capacitación & Soporte:",
+        en: "Training & Support:"
+    },
+    consulting_automation_step_4_desc: {
+        es: "Su equipo aprende a gestionar la automatización",
+        en: "Your team learns to manage the automation"
+    },
+    consulting_automation_modal_investment: {
+        es: "Casos de Éxito",
+        en: "Success Cases"
+    },
+    consulting_automation_success_case: {
+        es: "Una pyme de servicios redujo de 15 horas semanales a 2 horas el procesamiento de facturas, ahorrando USD 3,600 anuales en horas de trabajo administrativo.",
+        en: "A service SME reduced invoice processing from 15 weekly hours to 2 hours, saving USD 3,600 annually in administrative work hours."
+    },
+    consulting_automation_modal_cta: {
+        es: "Crear Mi Propuesta de Automatización",
+        en: "Create My Automation Proposal"
+    },
+    
+    // AI Modal
+    consulting_ai_modal_title: {
+        es: "Inteligencia Artificial Aplicada",
+        en: "Applied Artificial Intelligence"
+    },
+    consulting_ai_modal_what: {
+        es: "¿Qué Soluciones IA Creamos?",
+        en: "What AI Solutions Do We Create?"
+    },
+    consulting_ai_item_1: {
+        es: "Chatbots inteligentes para WhatsApp Business",
+        en: "Intelligent chatbots for WhatsApp Business"
+    },
+    consulting_ai_item_2: {
+        es: "Asistentes virtuales para sitios web",
+        en: "Virtual assistants for websites"
+    },
+    consulting_ai_item_3: {
+        es: "Generación automática de contenido de marketing",
+        en: "Automatic marketing content generation"
+    },
+    consulting_ai_item_4: {
+        es: "Análisis de sentimiento de reseñas y feedback",
+        en: "Sentiment analysis of reviews and feedback"
+    },
+    consulting_ai_item_5: {
+        es: "Respuesta automática y clasificación de emails",
+        en: "Automatic email response and classification"
+    },
+    consulting_ai_modal_benefits: {
+        es: "Impacto en Su Negocio",
+        en: "Impact on Your Business"
+    },
+    consulting_ai_benefit_1: {
+        es: "Atención al cliente 24/7 sin descanso",
+        en: "24/7 customer service without rest"
+    },
+    consulting_ai_benefit_2: {
+        es: "Respuesta instantánea a preguntas frecuentes",
+        en: "Instant response to frequently asked questions"
+    },
+    consulting_ai_benefit_3: {
+        es: "Captura de leads automatizada",
+        en: "Automated lead capture"
+    },
+    consulting_ai_benefit_4: {
+        es: "Mejora del 40% en satisfacción del cliente",
+        en: "40% improvement in customer satisfaction"
+    },
+    consulting_ai_modal_features: {
+        es: "Características Técnicas",
+        en: "Technical Features"
+    },
+    consulting_ai_feature_1_title: {
+        es: "Comprensión de Lenguaje Natural:",
+        en: "Natural Language Understanding:"
+    },
+    consulting_ai_feature_1_desc: {
+        es: "Entiende preguntas en español coloquial",
+        en: "Understands questions in colloquial Spanish"
+    },
+    consulting_ai_feature_2_title: {
+        es: "Base de Conocimiento Personalizada:",
+        en: "Personalized Knowledge Base:"
+    },
+    consulting_ai_feature_2_desc: {
+        es: "Entrenado con información específica de su negocio",
+        en: "Trained with your specific business information"
+    },
+    consulting_ai_feature_3_title: {
+        es: "Aprendizaje Continuo:",
+        en: "Continuous Learning:"
+    },
+    consulting_ai_feature_3_desc: {
+        es: "Mejora con cada interacción",
+        en: "Improves with each interaction"
+    },
+    consulting_ai_feature_4_title: {
+        es: "Escalamiento Humano:",
+        en: "Human Escalation:"
+    },
+    consulting_ai_feature_4_desc: {
+        es: "Deriva casos complejos a su equipo",
+        en: "Escalates complex cases to your team"
+    },
+    consulting_ai_modal_success: {
+        es: "Resultado Real",
+        en: "Real Result"
+    },
+    consulting_ai_success_case: {
+        es: "Una empresa de servicios aumentó su tasa de respuesta de 20% a 85% implementando un chatbot que atiende 200+ consultas mensuales automáticamente.",
+        en: "A service company increased its response rate from 20% to 85% by implementing a chatbot that handles 200+ monthly queries automatically."
+    },
+    consulting_ai_modal_cta: {
+        es: "Crear Mi Asistente IA Personalizado",
+        en: "Create My Personalized AI Assistant"
+    },
+    
+    // BI Modal
+    consulting_bi_modal_title: {
+        es: "Business Intelligence & Datos",
+        en: "Business Intelligence & Data"
+    },
+    consulting_bi_modal_what: {
+        es: "¿Qué Dashboards Creamos?",
+        en: "What Dashboards Do We Create?"
+    },
+    consulting_bi_item_1: {
+        es: "Dashboard de Ventas y Performance",
+        en: "Sales and Performance Dashboard"
+    },
+    consulting_bi_item_2: {
+        es: "Control de Inventario y Rotación",
+        en: "Inventory Control and Rotation"
+    },
+    consulting_bi_item_3: {
+        es: "Análisis de Rentabilidad por Producto/Cliente",
+        en: "Profitability Analysis by Product/Customer"
+    },
+    consulting_bi_item_4: {
+        es: "Métricas Financieras y Cash Flow",
+        en: "Financial Metrics and Cash Flow"
+    },
+    consulting_bi_item_5: {
+        es: "KPIs Operacionales y de Productividad",
+        en: "Operational and Productivity KPIs"
+    },
+    consulting_bi_modal_benefits: {
+        es: "Transformación de Decisiones",
+        en: "Decision Transformation"
+    },
+    consulting_bi_benefit_1: {
+        es: "Decisiones basadas en datos, no intuición",
+        en: "Data-driven decisions, not intuition"
+    },
+    consulting_bi_benefit_2: {
+        es: "Visibilidad total del negocio en tiempo real",
+        en: "Complete business visibility in real time"
+    },
+    consulting_bi_benefit_3: {
+        es: "Detección temprana de problemas y oportunidades",
+        en: "Early detection of problems and opportunities"
+    },
+    consulting_bi_benefit_4: {
+        es: "Ahorro de 10+ horas/mes en reportes manuales",
+        en: "Save 10+ hours/month on manual reports"
+    },
+    consulting_bi_modal_tech: {
+        es: "Tecnología & Integración",
+        en: "Technology & Integration"
+    },
+    consulting_bi_tech_1_title: {
+        es: "Conexión Directa:",
+        en: "Direct Connection:"
+    },
+    consulting_bi_tech_1_desc: {
+        es: "Excel, Google Sheets, sistemas ERP/CRM",
+        en: "Excel, Google Sheets, ERP/CRM systems"
+    },
+    consulting_bi_tech_2_title: {
+        es: "Actualización Automática:",
+        en: "Automatic Updates:"
+    },
+    consulting_bi_tech_2_desc: {
+        es: "Datos siempre actualizados sin intervención manual",
+        en: "Always updated data without manual intervention"
+    },
+    consulting_bi_tech_3_title: {
+        es: "Acceso Multiplataforma:",
+        en: "Multi-platform Access:"
+    },
+    consulting_bi_tech_3_desc: {
+        es: "Desde cualquier dispositivo, en cualquier momento",
+        en: "From any device, at any time"
+    },
+    consulting_bi_tech_4_title: {
+        es: "Filtros Interactivos:",
+        en: "Interactive Filters:"
+    },
+    consulting_bi_tech_4_desc: {
+        es: "Explore sus datos por período, vendedor, producto",
+        en: "Explore your data by period, salesperson, product"
+    },
+    consulting_bi_modal_roi: {
+        es: "ROI Comprobado",
+        en: "Proven ROI"
+    },
+    consulting_bi_success_case: {
+        es: "Una distribuidora identificó productos con margen negativo y optimizó su portfolio, aumentando la rentabilidad un 18% en 3 meses.",
+        en: "A distributor identified products with negative margins and optimized their portfolio, increasing profitability by 18% in 3 months."
+    },
+    consulting_bi_modal_cta: {
+        es: "Crear Mi Dashboard Personalizado",
+        en: "Create My Personalized Dashboard"
+    },
     consulting_modal_what_includes: {
         es: "¿Qué incluye?",
         en: "What's included?"

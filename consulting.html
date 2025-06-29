@@ -109,22 +109,31 @@
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                  <!-- Service Card 1: Automation -->
-                 <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 200ms;">
+                 <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="automation">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot"></i></div>
                     <h3 class="text-xl font-bold mb-2" data-translate="consulting_automation_title">Automatización de Procesos</h3>
                     <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_automation_desc">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
                 </div>
                 <!-- Service Card 2: GenAI -->
-                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 400ms;">
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 400ms;" data-service="ai">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-brain"></i></div>
                     <h3 class="text-xl font-bold mb-2" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
                     <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_ai_desc">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
                 </div>
                 <!-- Service Card 3: BI -->
-                <div class="p-8 glass-effect rounded-2xl fade-in" style="animation-delay: 600ms;">
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 600ms;" data-service="bi">
                     <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-chart-pie"></i></div>
                     <h3 class="text-xl font-bold mb-2" data-translate="consulting_bi_title">Business Intelligence & Datos</h3>
                     <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_bi_desc">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -538,6 +547,203 @@
         </div>
     </div>
     
+    <!-- MODALES DETALLADOS DE SERVICIOS -->
+    
+    <!-- MODAL DE AUTOMATIZACIÓN -->
+    <div id="automation-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-4xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-robot text-3xl"></i></div>
+                <h4 class="text-3xl font-bold" data-translate="consulting_automation_modal_title">Automatización de Procesos</h4>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-semibold mb-4 text-sky-400 text-lg" data-translate="consulting_automation_modal_what">¿Qué Automatizamos?</h5>
+                    <ul class="text-secondary space-y-3 mb-6">
+                        <li class="flex items-start"><i class="fas fa-cog text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_automation_item_1">Carga y procesamiento de facturas desde emails</span></li>
+                        <li class="flex items-start"><i class="fas fa-cog text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_automation_item_2">Seguimiento automático de cobranzas por WhatsApp</span></li>
+                        <li class="flex items-start"><i class="fas fa-cog text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_automation_item_3">Sincronización entre sistemas (CRM, ERP, Excel)</span></li>
+                        <li class="flex items-start"><i class="fas fa-cog text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_automation_item_4">Generación automática de reportes semanales</span></li>
+                        <li class="flex items-start"><i class="fas fa-cog text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_automation_item_5">Control de stock y alertas de reposición</span></li>
+                    </ul>
+                    
+                    <h5 class="font-semibold mb-4 text-emerald-400 text-lg" data-translate="consulting_automation_modal_benefits">Beneficios Inmediatos</h5>
+                    <ul class="text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_automation_benefit_1">Reducción del 70-80% en tiempo de tareas repetitivas</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_automation_benefit_2">Eliminación de errores humanos en data entry</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_automation_benefit_3">Disponibilidad 24/7 sin supervisión</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_automation_benefit_4">ROI visible en 2-3 meses</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4 text-cyan-400 text-lg" data-translate="consulting_automation_modal_process">Nuestro Proceso</h5>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 font-bold text-sm mr-3 mt-1">1</div>
+                            <div><strong class="text-white" data-translate="consulting_automation_step_1_title">Mapeo de Procesos:</strong> <span class="text-secondary text-sm" data-translate="consulting_automation_step_1_desc">Analizamos paso a paso su flujo actual</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-sm mr-3 mt-1">2</div>
+                            <div><strong class="text-white" data-translate="consulting_automation_step_2_title">Diseño de Automatización:</strong> <span class="text-secondary text-sm" data-translate="consulting_automation_step_2_desc">Creamos el flujo optimizado y automatizado</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm mr-3 mt-1">3</div>
+                            <div><strong class="text-white" data-translate="consulting_automation_step_3_title">Implementación & Testing:</strong> <span class="text-secondary text-sm" data-translate="consulting_automation_step_3_desc">Desarrollamos y probamos la solución</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm mr-3 mt-1">4</div>
+                            <div><strong class="text-white" data-translate="consulting_automation_step_4_title">Capacitación & Soporte:</strong> <span class="text-secondary text-sm" data-translate="consulting_automation_step_4_desc">Su equipo aprende a gestionar la automatización</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <h6 class="font-semibold text-yellow-400 mb-2" data-translate="consulting_automation_modal_investment">Casos de Éxito</h6>
+                        <p class="text-sm text-secondary" data-translate="consulting_automation_success_case">Una pyme de servicios redujo de 15 horas semanales a 2 horas el procesamiento de facturas, ahorrando USD 3,600 anuales en horas de trabajo administrativo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button onclick="openProposalFromService('automation-service-modal')" class="main-cta text-white font-bold px-8 py-3 rounded-lg">
+                    <i class="fas fa-rocket mr-2"></i><span data-translate="consulting_automation_modal_cta">Crear Mi Propuesta de Automatización</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE INTELIGENCIA ARTIFICIAL -->
+    <div id="ai-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-4xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-brain text-3xl"></i></div>
+                <h4 class="text-3xl font-bold" data-translate="consulting_ai_modal_title">Inteligencia Artificial Aplicada</h4>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-semibold mb-4 text-sky-400 text-lg" data-translate="consulting_ai_modal_what">¿Qué Soluciones IA Creamos?</h5>
+                    <ul class="text-secondary space-y-3 mb-6">
+                        <li class="flex items-start"><i class="fas fa-comments text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_ai_item_1">Chatbots inteligentes para WhatsApp Business</span></li>
+                        <li class="flex items-start"><i class="fas fa-comments text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_ai_item_2">Asistentes virtuales para sitios web</span></li>
+                        <li class="flex items-start"><i class="fas fa-comments text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_ai_item_3">Generación automática de contenido de marketing</span></li>
+                        <li class="flex items-start"><i class="fas fa-comments text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_ai_item_4">Análisis de sentimiento de reseñas y feedback</span></li>
+                        <li class="flex items-start"><i class="fas fa-comments text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_ai_item_5">Respuesta automática y clasificación de emails</span></li>
+                    </ul>
+                    
+                    <h5 class="font-semibold mb-4 text-emerald-400 text-lg" data-translate="consulting_ai_modal_benefits">Impacto en Su Negocio</h5>
+                    <ul class="text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_ai_benefit_1">Atención al cliente 24/7 sin descanso</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_ai_benefit_2">Respuesta instantánea a preguntas frecuentes</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_ai_benefit_3">Captura de leads automatizada</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_ai_benefit_4">Mejora del 40% en satisfacción del cliente</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4 text-cyan-400 text-lg" data-translate="consulting_ai_modal_features">Características Técnicas</h5>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-language text-sky-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_ai_feature_1_title">Comprensión de Lenguaje Natural:</strong> <span class="text-secondary text-sm" data-translate="consulting_ai_feature_1_desc">Entiende preguntas en español coloquial</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-database text-cyan-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_ai_feature_2_title">Base de Conocimiento Personalizada:</strong> <span class="text-secondary text-sm" data-translate="consulting_ai_feature_2_desc">Entrenado con información específica de su negocio</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-emerald-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_ai_feature_3_title">Aprendizaje Continuo:</strong> <span class="text-secondary text-sm" data-translate="consulting_ai_feature_3_desc">Mejora con cada interacción</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-purple-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_ai_feature_4_title">Escalamiento Humano:</strong> <span class="text-secondary text-sm" data-translate="consulting_ai_feature_4_desc">Deriva casos complejos a su equipo</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <h6 class="font-semibold text-yellow-400 mb-2" data-translate="consulting_ai_modal_success">Resultado Real</h6>
+                        <p class="text-sm text-secondary" data-translate="consulting_ai_success_case">Una empresa de servicios aumentó su tasa de respuesta de 20% a 85% implementando un chatbot que atiende 200+ consultas mensuales automáticamente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button onclick="openProposalFromService('ai-service-modal')" class="main-cta text-white font-bold px-8 py-3 rounded-lg">
+                    <i class="fas fa-brain mr-2"></i><span data-translate="consulting_ai_modal_cta">Crear Mi Asistente IA Personalizado</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE BUSINESS INTELLIGENCE -->
+    <div id="bi-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-4xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-chart-pie text-3xl"></i></div>
+                <h4 class="text-3xl font-bold" data-translate="consulting_bi_modal_title">Business Intelligence & Datos</h4>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-semibold mb-4 text-sky-400 text-lg" data-translate="consulting_bi_modal_what">¿Qué Dashboards Creamos?</h5>
+                    <ul class="text-secondary space-y-3 mb-6">
+                        <li class="flex items-start"><i class="fas fa-chart-line text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_bi_item_1">Dashboard de Ventas y Performance</span></li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_bi_item_2">Control de Inventario y Rotación</span></li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_bi_item_3">Análisis de Rentabilidad por Producto/Cliente</span></li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_bi_item_4">Métricas Financieras y Cash Flow</span></li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-sky-400 mr-3 mt-1"></i><span data-translate="consulting_bi_item_5">KPIs Operacionales y de Productividad</span></li>
+                    </ul>
+                    
+                    <h5 class="font-semibold mb-4 text-emerald-400 text-lg" data-translate="consulting_bi_modal_benefits">Transformación de Decisiones</h5>
+                    <ul class="text-secondary space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_bi_benefit_1">Decisiones basadas en datos, no intuición</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_bi_benefit_2">Visibilidad total del negocio en tiempo real</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_bi_benefit_3">Detección temprana de problemas y oportunidades</span></li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i><span data-translate="consulting_bi_benefit_4">Ahorro de 10+ horas/mes en reportes manuales</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4 text-cyan-400 text-lg" data-translate="consulting_bi_modal_tech">Tecnología & Integración</h5>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-plug text-sky-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_bi_tech_1_title">Conexión Directa:</strong> <span class="text-secondary text-sm" data-translate="consulting_bi_tech_1_desc">Excel, Google Sheets, sistemas ERP/CRM</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-sync text-cyan-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_bi_tech_2_title">Actualización Automática:</strong> <span class="text-secondary text-sm" data-translate="consulting_bi_tech_2_desc">Datos siempre actualizados sin intervención manual</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-mobile-alt text-emerald-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_bi_tech_3_title">Acceso Multiplataforma:</strong> <span class="text-secondary text-sm" data-translate="consulting_bi_tech_3_desc">Desde cualquier dispositivo, en cualquier momento</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-filter text-purple-400 mr-3 mt-1"></i>
+                            <div><strong class="text-white" data-translate="consulting_bi_tech_4_title">Filtros Interactivos:</strong> <span class="text-secondary text-sm" data-translate="consulting_bi_tech_4_desc">Explore sus datos por período, vendedor, producto</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <h6 class="font-semibold text-yellow-400 mb-2" data-translate="consulting_bi_modal_roi">ROI Comprobado</h6>
+                        <p class="text-sm text-secondary" data-translate="consulting_bi_success_case">Una distribuidora identificó productos con margen negativo y optimizó su portfolio, aumentando la rentabilidad un 18% en 3 meses.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button onclick="openProposalFromService('bi-service-modal')" class="main-cta text-white font-bold px-8 py-3 rounded-lg">
+                    <i class="fas fa-chart-pie mr-2"></i><span data-translate="consulting_bi_modal_cta">Crear Mi Dashboard Personalizado</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- PLANTILLA OCULTA PARA EL PDF -->
     <div id="pdf-content" class="hidden w-[800px] p-10 bg-white text-black font-sans">
          <h1 class="text-3xl font-bold text-sky-600" data-translate="consulting_pdf_title">Propuesta de Transformación Digital</h1>

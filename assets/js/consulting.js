@@ -246,15 +246,32 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
     });
 }, appearOptions);
 
-// MODAL LOGIC (Generic)
-function openModal(modalId) {
+// MODAL LOGIC (Generic) - GLOBAL FUNCTIONS
+window.openModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) modal.classList.add('active');
 }
 
-function closeModal(modalId) {
+window.closeModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) modal.classList.remove('active');
+}
+
+// FUNCTION TO TRANSITION FROM SERVICE MODAL TO PROPOSAL MODAL
+window.openProposalFromService = function(serviceModalId) {
+    // Close the service modal first
+    const serviceModal = document.getElementById(serviceModalId);
+    if (serviceModal) {
+        serviceModal.classList.remove('active');
+        setTimeout(() => {
+            serviceModal.style.display = 'none';
+        }, 300);
+    }
+    
+    // Then open the proposal modal after a short delay
+    setTimeout(() => {
+        openModal('proposal-form-modal');
+    }, 350);
 }
 
 // EXAMPLE MODAL
@@ -389,6 +406,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize PDF proposal functionality
     initializeProposalGenerator();
+    
+    // Initialize service modals
+    initializeServiceModals();
     
     // Timeline will be initialized after all functions are defined
     
@@ -667,6 +687,64 @@ function initializeProcessTimeline() {
     setTimeout(checkStepVisibility, 100);
     
     console.log('[Timeline] Animated process timeline initialized');
+}
+
+// ============== SERVICE MODALS FUNCTIONALITY ==============
+
+function initializeServiceModals() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceModals = {
+        'automation': document.getElementById('automation-service-modal'),
+        'ai': document.getElementById('ai-service-modal'),
+        'bi': document.getElementById('bi-service-modal')
+    };
+
+    // Add click listeners to service cards
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const service = card.getAttribute('data-service');
+            const modal = serviceModals[service];
+            
+            if (modal) {
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 10);
+                
+                console.log(`[Services] ${service} modal opened`);
+            }
+        });
+    });
+
+    // Add close functionality to all service modals
+    Object.values(serviceModals).forEach(modal => {
+        if (!modal) return;
+        
+        const closeBtn = modal.querySelector('.modal-close-btn');
+        
+        // Close on button click
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                closeServiceModal(modal);
+            });
+        }
+        
+        // Close on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeServiceModal(modal);
+            }
+        });
+    });
+
+    function closeServiceModal(modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    console.log('[Services] Service modals initialized');
 }
 
 // Initialize the timeline when DOM is ready and function is defined
