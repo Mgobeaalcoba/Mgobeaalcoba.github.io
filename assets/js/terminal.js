@@ -1,6 +1,6 @@
 // terminal.js - Interactive terminal mode logic
 
-import { projectsData, experienceData, educationData, mgaLogo2, certificationsData, techStackData } from './data.js';
+import { projectsData, experienceData, educationData, mgaLogo2, certificationsData, techStackData } from './data-index.js';
 import { translations } from './translations.js';
 import { DOM, Storage } from './utils.js';
 

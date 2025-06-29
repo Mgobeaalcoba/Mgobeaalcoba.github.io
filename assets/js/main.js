@@ -1,6 +1,6 @@
 // main.js - Core application logic and content population
 
-import { techStackData, projectsData, experienceData, educationData, certificationsData } from './data.js';
+import { techStackData, projectsData, experienceData, educationData, certificationsData } from './data-index.js';
 import { translations } from './translations.js';
 import { DOM, Storage } from './utils.js';
 

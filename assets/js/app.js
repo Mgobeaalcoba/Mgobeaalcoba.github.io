@@ -3,7 +3,7 @@
 import logger from './logger.js';
 import { initializeApp, setLanguage } from './main.js';
 import { initializeThemes, applyTheme } from './themes.js';
-import { initTerminal, initializeTerminalInput } from './terminal.js';
+// Terminal will be loaded dynamically when needed
 import { startIntro } from './intro.js';
 import { setupPdfGeneration } from './pdf.js';
 import { setupScrollAnimations } from './utils.js';
@@ -70,8 +70,7 @@ class CVApp {
         // Initialize themes
         initializeThemes();
         
-        // Initialize terminal input handling
-        initializeTerminalInput();
+        // Terminal will be initialized dynamically when CLI theme is selected
         
         // Setup PDF generation
         setupPdfGeneration();
@@ -86,22 +85,22 @@ class CVApp {
         const langEnBtn = document.getElementById('lang-en');
         
         if (langEsBtn) {
-            langEsBtn.addEventListener('click', () => {
-                this.setLanguage('es');
+            langEsBtn.addEventListener('click', async () => {
+                await this.setLanguage('es');
             });
         }
         
         if (langEnBtn) {
-            langEnBtn.addEventListener('click', () => {
-                this.setLanguage('en');
+            langEnBtn.addEventListener('click', async () => {
+                await this.setLanguage('en');
             });
         }
 
         // Theme change listener
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                this.cycleTheme();
+            themeToggle.addEventListener('click', async () => {
+                await this.cycleTheme();
             });
         }
 
@@ -111,30 +110,30 @@ class CVApp {
         }, 250));
     }
 
-    applyInitialState() {
+    async applyInitialState() {
         // Apply saved theme
         applyTheme(this.currentTheme);
         
         // Apply saved language
         setLanguage(this.currentLang);
         
-        // Initialize terminal if in CLI mode
+        // Initialize terminal if in CLI mode (dynamic import)
         if (this.currentTheme === 'cli') {
-            initTerminal(this.currentLang);
+            await this.initializeTerminal(this.currentLang);
         }
     }
 
-    setLanguage(lang) {
+    async setLanguage(lang) {
         this.currentLang = lang;
         setLanguage(lang);
         
-        // Reinitialize terminal if in CLI mode
+        // Reinitialize terminal if in CLI mode (dynamic)
         if (this.currentTheme === 'cli') {
-            initTerminal(lang);
+            await this.initializeTerminal(lang);
         }
     }
 
-    cycleTheme() {
+    async cycleTheme() {
         const themes = ['dark', 'light', 'cli'];
         const currentIndex = themes.indexOf(this.currentTheme);
         const nextIndex = (currentIndex + 1) % themes.length;
@@ -144,7 +143,24 @@ class CVApp {
         applyTheme(this.currentTheme);
         
         if (this.currentTheme === 'cli') {
-            initTerminal(this.currentLang);
+            await this.initializeTerminal(this.currentLang);
+        }
+    }
+
+    async initializeTerminal(lang) {
+        try {
+            logger.debug('CVApp', 'Loading terminal module dynamically...');
+            
+            // Dynamic import of terminal module
+            const terminalModule = await import('./terminal.js');
+            
+            // Initialize terminal with current language
+            terminalModule.initTerminal(lang);
+            terminalModule.initializeTerminalInput();
+            
+            logger.success('CVApp', 'Terminal module loaded and initialized');
+        } catch (error) {
+            logger.error('Failed to load terminal module:', error);
         }
     }
 

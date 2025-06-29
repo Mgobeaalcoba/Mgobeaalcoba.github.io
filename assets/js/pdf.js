@@ -1,6 +1,7 @@
 // pdf.js - PDF generation logic for the CV
 
-import { experienceData, educationData, certifications, projectsData, translations } from './data.js';
+import { experienceData, educationData, certifications, projectsData } from './data-index.js';
+import { translations } from './translations.js';
 import { DOM, Storage } from './utils.js';
 
 // =================================================================================

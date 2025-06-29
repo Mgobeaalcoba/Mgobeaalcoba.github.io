@@ -5,9 +5,9 @@
 // =================================================================================
 
 import logger from './logger.js';
-import { experienceData } from './data.js';
+import { experienceData } from './data-index.js';
 import { setLanguage } from './main.js';
-import { initTerminal, startMatrixEffect } from './terminal.js';
+// Terminal will be loaded dynamically when needed
 import { startIntro } from './intro.js';
 import { setupPdfGeneration } from './pdf.js';
 import { DOM, Storage, setupScrollAnimations, handleError } from './utils.js';
@@ -242,7 +242,14 @@ window.trackSocialClick = async (event, platform) => {
     const { trackSocialClick } = await import('./main.js');
     trackSocialClick(event, platform);
 };
-window.startMatrixEffect = startMatrixEffect;
+window.startMatrixEffect = async function() {
+    try {
+        const terminalModule = await import('./terminal.js');
+        terminalModule.startMatrixEffect();
+    } catch (error) {
+        logger.error('Failed to load terminal for matrix effect:', error);
+    }
+};
 
 // =================================================================================
 // DOM-READY EXECUTION
