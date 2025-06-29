@@ -312,6 +312,10 @@ export const translations = {
         es: "Agendar mi sesión gratuita",
         en: "Schedule my free session"
     },
+    consulting_nav_portfolio: {
+        es: "Mi Portfolio",
+        en: "My Portfolio"
+    },
     consulting_nav_services: {
         es: "Servicios",
         en: "Services"

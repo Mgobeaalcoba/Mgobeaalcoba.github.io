@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /consulting.html
+Allow: /assets/
+
+# Disallow admin and config files
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.gitignore
+Disallow: /package.json
+Disallow: /*.md
+
+# Sitemap location
+Sitemap: https://mgobeaalcoba.github.io/sitemap.xml
+
+# Crawl-delay (optional - helps prevent overloading)
+Crawl-delay: 1 
