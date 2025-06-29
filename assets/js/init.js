@@ -57,48 +57,9 @@ async function filterProjectsByCategory(category) {
 // MOBILE MENU INITIALIZATION
 // =================================================================================
 
-function initializeMobileMenuIndex() {
-    logger.debug('MobileMenu', 'Initializing mobile menu after intro...');
-    const mobileMenuBtnIndex = DOM.find('#mobile-menu-btn-index');
-    const mobileNavIndex = DOM.find('#mobile-nav-index');
-    
-    logger.debug('MobileMenu', 'Mobile menu elements found', { 
-        hasButton: !!mobileMenuBtnIndex, 
-        hasNav: !!mobileNavIndex 
-    });
-    
-    if (mobileMenuBtnIndex && mobileNavIndex) {
-        logger.debug('MobileMenu', 'Setting up event listeners...');
-        
-        mobileMenuBtnIndex.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            logger.debug('MobileMenu', 'Menu button clicked');
-            mobileNavIndex.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinksIndex = mobileNavIndex.querySelectorAll('a');
-        logger.debug('MobileMenu', 'Found mobile links', { count: mobileLinksIndex.length });
-        mobileLinksIndex.forEach(link => {
-            link.addEventListener('click', () => {
-                logger.debug('MobileMenu', 'Mobile link clicked, closing menu');
-                mobileNavIndex.classList.add('hidden');
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtnIndex.contains(e.target) && !mobileNavIndex.contains(e.target)) {
-                mobileNavIndex.classList.add('hidden');
-            }
-        });
-        
-        logger.success('MobileMenu', 'Mobile menu initialization complete');
-    } else {
-        logger.error('[Index] Mobile menu elements not found!');
-    }
-}
+import { initializeIndexMobileMenu } from './mobile-menu.js';
+
+const initializeMobileMenuIndex = initializeIndexMobileMenu;
 
 // =================================================================================
 // EXPERIENCE MODAL

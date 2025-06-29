@@ -1,6 +1,7 @@
 // IMPORTS AND TRANSLATIONS
 import logger from './logger.js';
 import { translations } from './translations.js';
+import { initializeConsultingMobileMenu } from './mobile-menu.js';
 
 // THEME TOGGLE
 const themeToggle = document.getElementById('theme-toggle');
@@ -63,48 +64,7 @@ function setLanguage(lang) {
 }
 
 // MOBILE MENU
-function initializeMobileMenu() {
-    logger.debug('MobileMenu', 'Initializing mobile menu...');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    
-    logger.debug('MobileMenu', 'Mobile menu elements found', {
-        hasButton: !!mobileMenuBtn,
-        hasNav: !!mobileNav
-    });
-    
-    if (mobileMenuBtn && mobileNav) {
-        logger.debug('MobileMenu', 'Setting up event listeners...');
-        
-        mobileMenuBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            logger.debug('MobileMenu', 'Menu button clicked');
-            mobileNav.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileNav.querySelectorAll('a');
-        logger.debug('MobileMenu', 'Found mobile links', { count: mobileLinks.length });
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                logger.debug('MobileMenu', 'Mobile link clicked, closing menu');
-                mobileNav.classList.add('hidden');
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.classList.add('hidden');
-            }
-        });
-        
-        logger.success('MobileMenu', 'Mobile menu initialization complete');
-    } else {
-        logger.error('[Consulting] Mobile menu elements not found!');
-    }
-}
+const initializeMobileMenu = initializeConsultingMobileMenu;
 
 // Update pack data-attributes with translations
 function updatePackDataAttributes(lang) {

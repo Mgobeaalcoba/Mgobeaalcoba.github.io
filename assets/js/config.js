@@ -239,14 +239,5 @@ export function getLanguageConfig(lang) {
     return LANGUAGE_CONFIG[lang] || LANGUAGE_CONFIG.es;
 }
 
-export function isMobile() {
-    return window.innerWidth <= BREAKPOINTS.mobile;
-}
-
-export function isTablet() {
-    return window.innerWidth > BREAKPOINTS.mobile && window.innerWidth <= BREAKPOINTS.tablet;
-}
-
-export function isDesktop() {
-    return window.innerWidth > BREAKPOINTS.tablet;
-} 
+// Device detection functions moved to utils.js to avoid duplication
+// Import from utils.js: import { isMobile, isTablet, isDesktop } from './utils.js'; 
