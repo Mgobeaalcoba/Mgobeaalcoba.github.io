@@ -1003,5 +1003,49 @@ export const translations = {
     consulting_about_cta: {
         es: "Transformemos su negocio juntos",
         en: "Let's transform your business together"
+    },
+    
+    // ========== METRICS TRANSLATIONS ==========
+    consulting_metric_experience: {
+        es: "Años de Experiencia",
+        en: "Years of Experience"
+    },
+    consulting_metric_processed: {
+        es: "Procesados en ML",
+        en: "Processed in ML"
+    },
+    consulting_metric_reduction: {
+        es: "Reducción Promedio",
+        en: "Average Reduction"
+    },
+    consulting_metric_projects: {
+        es: "Proyectos Exitosos",
+        en: "Successful Projects"
+    },
+    
+    // ========== TESTIMONIAL TRANSLATIONS ==========
+    consulting_testimonial_quote: {
+        es: "\"Mariano automatizó nuestro proceso de facturación que nos tomaba 12 horas semanales. Ahora se hace solo y sin errores. En 6 meses nos ahorró más de $15,000 en horas de trabajo. Su experiencia en MercadoLibre se nota en cada detalle.\"",
+        en: "\"Mariano automated our billing process that used to take us 12 hours weekly. Now it runs by itself without errors. In 6 months, it saved us over $15,000 in labor hours. His MercadoLibre experience shows in every detail.\""
+    },
+    consulting_testimonial_role: {
+        es: "CEO, Distribuidora San Martín (120 empleados)",
+        en: "CEO, Distribuidora San Martín (120 employees)"
+    },
+    
+    // ========== CTA SUBTITLE TRANSLATION ==========
+    consulting_cta_subtitle: {
+        es: "Sesión de diagnóstico gratuita de 30 minutos • Sin compromiso",
+        en: "Free 30-minute diagnostic session • No commitment"
+    },
+    
+    // ========== POSITION TRANSLATIONS ==========
+    consulting_position_title: {
+        es: "Líder Técnico de Datos & Analytics",
+        en: "Data & Analytics Technical Leader"
+    },
+    consulting_position_years: {
+        es: "6+ años en MercadoLibre",
+        en: "6+ years at MercadoLibre"
     }
 }; 
