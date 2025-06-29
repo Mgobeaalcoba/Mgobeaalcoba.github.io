@@ -467,16 +467,94 @@
 
         <!-- ABOUT & CTA SECTION -->
         <section id="about" class="glass-effect rounded-2xl p-8 md:p-12 fade-in">
-            <div class="grid md:grid-cols-3 gap-8 items-center">
-                <div class="md:col-span-1 flex justify-center">
+            <!-- Header with Photo and Credentials -->
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-6">
                     <div class="w-40 h-40 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png'); background-size: 155%; background-position: center 30%;"></div>
                 </div>
-                <div class="md:col-span-2 text-center md:text-left">
-                    <h2 class="text-3xl font-bold mb-2" data-translate="consulting_about_title">Experiencia Real, Resultados Concretos.</h2>
-                    <p class="text-secondary mb-4" data-translate="consulting_about_desc">
-                        Soy Mariano Gobea Alcoba. Como Líder Técnico de Datos y Analytics en Mercado Libre, he pasado los últimos 6 años diseñando y construyendo soluciones de datos a gran escala. Ahora, aplico esa experiencia para resolver los desafíos del mundo real que enfrentan las pymes, con un enfoque pragmático y sin "humo".
-                    </p>
-                    <a href="#contact" class="main-cta text-white font-semibold px-6 py-3 rounded-full inline-block" data-translate="consulting_about_cta">Hablemos de su proyecto</a>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="consulting_about_title">Experiencia Real, Resultados Concretos</h2>
+                
+                <!-- MercadoLibre Credentials -->
+                <div class="flex items-center justify-center gap-3 mb-6 p-4 bg-gray-800/30 rounded-xl max-w-md mx-auto">
+                    <img src="https://logoeps.com/wp-content/uploads/2013/03/mercadolibre-vector-logo.png" alt="MercadoLibre" class="h-8 w-auto">
+                    <div class="text-left">
+                        <div class="text-sm font-semibold text-white">Líder Técnico de Datos & Analytics</div>
+                        <div class="text-xs text-sky-400">6+ años en MercadoLibre</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-sky-500/10 flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-2xl text-sky-400"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">
+                        <span class="metric-counter" data-target="6">0</span><span class="text-sky-400">+</span>
+                    </div>
+                    <div class="text-sm text-secondary">Años de Experiencia</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                        <i class="fas fa-dollar-sign text-2xl text-emerald-400"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">
+                        $<span class="metric-counter" data-target="500">0</span><span class="text-emerald-400">K+</span>
+                    </div>
+                    <div class="text-sm text-secondary">Procesados en ML</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-cyan-500/10 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-2xl text-cyan-400"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">
+                        <span class="metric-counter" data-target="80">0</span><span class="text-cyan-400">%</span>
+                    </div>
+                    <div class="text-sm text-secondary">Reducción Promedio</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-purple-500/10 flex items-center justify-center">
+                        <i class="fas fa-trophy text-2xl text-purple-400"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">
+                        <span class="metric-counter" data-target="15">0</span><span class="text-purple-400">+</span>
+                    </div>
+                    <div class="text-sm text-secondary">Proyectos Exitosos</div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="text-center mb-8 max-w-4xl mx-auto">
+                <p class="text-lg text-secondary leading-relaxed" data-translate="consulting_about_desc">
+                    Soy Mariano Gobea Alcoba. Como Líder Técnico de Datos y Analytics en MercadoLibre, he pasado los últimos 6 años diseñando y construyendo soluciones de datos a gran escala que procesan millones de transacciones diarias. Ahora, aplico esa experiencia enterprise para resolver los desafíos del mundo real que enfrentan las pymes, con un enfoque pragmático y sin "humo".
+                </p>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="bg-gray-800/30 rounded-xl p-6 mb-8 max-w-3xl mx-auto">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-sky-400 to-cyan-400 flex items-center justify-center text-white font-bold flex-shrink-0">
+                        R
+                    </div>
+                    <div>
+                        <blockquote class="text-white font-medium mb-2">
+                            "Mariano automatizó nuestro proceso de facturación que nos tomaba 12 horas semanales. Ahora se hace solo y sin errores. En 6 meses nos ahorró más de $15,000 en horas de trabajo. Su experiencia en MercadoLibre se nota en cada detalle."
+                        </blockquote>
+                        <cite class="text-sm text-secondary">
+                            <strong class="text-sky-400">Roberto Martínez</strong> - CEO, Distribuidora San Martín (120 empleados)
+                        </cite>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="#contact" class="main-cta text-white font-bold px-8 py-4 rounded-full inline-block text-lg shadow-xl hover:shadow-2xl transition-all duration-300" data-translate="consulting_about_cta">
+                    <i class="fas fa-rocket mr-2"></i>Transformemos su negocio juntos
+                </a>
+                <div class="mt-4 text-sm text-secondary">
+                    Sesión de diagnóstico gratuita de 30 minutos • Sin compromiso
                 </div>
             </div>
         </section>

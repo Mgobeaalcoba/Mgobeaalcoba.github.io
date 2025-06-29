@@ -989,5 +989,19 @@ export const translations = {
     consulting_pdf_next_steps_desc: {
         es: "El siguiente paso es una reunión de 30 minutos para realizar un diagnóstico más profundo y cuantificar el impacto potencial en su operación. Esta propuesta es un punto de partida para una colaboración exitosa.",
         en: "The next step is a 30-minute meeting to conduct a deeper diagnosis and quantify the potential impact on your operation. This proposal is a starting point for a successful collaboration."
+    },
+
+    // ========== ENHANCED ABOUT SECTION TRANSLATIONS ==========
+    consulting_about_title: {
+        es: "Experiencia Real, Resultados Concretos",
+        en: "Real Experience, Concrete Results"
+    },
+    consulting_about_desc: {
+        es: "Soy Mariano Gobea Alcoba. Como Líder Técnico de Datos y Analytics en MercadoLibre, he pasado los últimos 6 años diseñando y construyendo soluciones de datos a gran escala que procesan millones de transacciones diarias. Ahora, aplico esa experiencia enterprise para resolver los desafíos del mundo real que enfrentan las pymes, con un enfoque pragmático y sin \"humo\".",
+        en: "I'm Mariano Gobea Alcoba. As Data & Analytics Technical Leader at MercadoLibre, I've spent the last 6 years designing and building large-scale data solutions that process millions of daily transactions. Now, I apply that enterprise experience to solve real-world challenges faced by SMEs, with a pragmatic approach and no \"smoke\"."
+    },
+    consulting_about_cta: {
+        es: "Transformemos su negocio juntos",
+        en: "Let's transform your business together"
     }
 }; 

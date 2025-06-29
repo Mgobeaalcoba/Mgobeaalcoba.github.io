@@ -747,14 +747,100 @@ function initializeServiceModals() {
     console.log('[Services] Service modals initialized');
 }
 
+// ============== ANIMATED METRICS COUNTERS ==============
+
+function initializeMetricsCounters() {
+    const metrics = document.querySelectorAll('.metric-counter');
+    if (!metrics.length) return;
+    
+    let metricsAnimated = false;
+    
+    function animateMetric(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const stepTime = 50; // Update every 50ms
+        const steps = duration / stepTime;
+        const stepValue = target / steps;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += stepValue;
+            
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            element.textContent = Math.floor(current);
+        }, stepTime);
+    }
+    
+    function checkMetricsVisibility() {
+        if (metricsAnimated) return;
+        
+        const aboutSection = document.getElementById('about');
+        if (!aboutSection) return;
+        
+        const rect = aboutSection.getBoundingClientRect();
+        const triggerPoint = window.innerHeight * 0.7;
+        
+        if (rect.top < triggerPoint && rect.bottom > 0) {
+            metricsAnimated = true;
+            
+            // Animate each metric with a small delay between them
+            metrics.forEach((metric, index) => {
+                setTimeout(() => {
+                    animateMetric(metric);
+                }, index * 200); // 200ms delay between each counter
+            });
+            
+            console.log('[Metrics] Animated counters started');
+        }
+    }
+    
+    // Create intersection observer for performance
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -20% 0px'
+    };
+    
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        const metricsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !metricsAnimated) {
+                    metricsAnimated = true;
+                    
+                    // Animate each metric with a small delay
+                    metrics.forEach((metric, index) => {
+                        setTimeout(() => {
+                            animateMetric(metric);
+                        }, index * 200);
+                    });
+                    
+                    console.log('[Metrics] Animated counters triggered by observer');
+                }
+            });
+        }, observerOptions);
+        
+        metricsObserver.observe(aboutSection);
+    }
+    
+    // Fallback scroll listener
+    window.addEventListener('scroll', checkMetricsVisibility);
+    
+    console.log('[Metrics] Metrics counters initialized');
+}
+
 // Initialize the timeline when DOM is ready and function is defined
 document.addEventListener('DOMContentLoaded', () => {
     // Wait a bit for all other initialization to complete
     setTimeout(() => {
         try {
             initializeProcessTimeline();
+            initializeMetricsCounters();
         } catch (error) {
-            console.error('[ERROR] Failed to initialize timeline:', error);
+            console.error('[ERROR] Failed to initialize timeline or metrics:', error);
         }
     }, 500);
 }); 
