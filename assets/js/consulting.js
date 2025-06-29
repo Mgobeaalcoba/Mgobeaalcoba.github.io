@@ -1,4 +1,5 @@
 // IMPORTS AND TRANSLATIONS
+import logger from './logger.js';
 import { translations } from './translations.js';
 
 // THEME TOGGLE
@@ -37,7 +38,7 @@ function setLanguage(lang) {
     // Update typing phrases
     if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[lang]) {
         window.typingPhrases = translations.consulting_typing_phrases[lang];
-        console.log('[Consulting] Updated typing phrases for language:', lang, window.typingPhrases);
+        logger.debug('Language', 'Updated typing phrases for language', { lang, phrases: window.typingPhrases });
         // Restart typing animation with new phrases
         const typingText = document.getElementById('typing-text');
         if (typingText) {
@@ -63,29 +64,31 @@ function setLanguage(lang) {
 
 // MOBILE MENU
 function initializeMobileMenu() {
-    console.log('[Consulting] Initializing mobile menu...');
+    logger.debug('MobileMenu', 'Initializing mobile menu...');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
     
-    console.log('[Consulting] Mobile menu elements:', { mobileMenuBtn, mobileNav });
+    logger.debug('MobileMenu', 'Mobile menu elements found', {
+        hasButton: !!mobileMenuBtn,
+        hasNav: !!mobileNav
+    });
     
     if (mobileMenuBtn && mobileNav) {
-        console.log('[Consulting] Mobile menu elements found, setting up listeners...');
+        logger.debug('MobileMenu', 'Setting up event listeners...');
         
         mobileMenuBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('[Consulting] Mobile menu button clicked');
+            logger.debug('MobileMenu', 'Menu button clicked');
             mobileNav.classList.toggle('hidden');
-            console.log('[Consulting] Menu hidden class:', mobileNav.classList.contains('hidden'));
         });
         
         // Close mobile menu when clicking on a link
         const mobileLinks = mobileNav.querySelectorAll('a');
-        console.log('[Consulting] Found mobile links:', mobileLinks.length);
+        logger.debug('MobileMenu', 'Found mobile links', { count: mobileLinks.length });
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                console.log('[Consulting] Mobile link clicked, closing menu');
+                logger.debug('MobileMenu', 'Mobile link clicked, closing menu');
                 mobileNav.classList.add('hidden');
             });
         });
@@ -97,9 +100,9 @@ function initializeMobileMenu() {
             }
         });
         
-        console.log('[Consulting] Mobile menu initialization complete');
+        logger.success('MobileMenu', 'Mobile menu initialization complete');
     } else {
-        console.error('[Consulting] Mobile menu elements not found!');
+        logger.error('[Consulting] Mobile menu elements not found!');
     }
 }
 
@@ -180,12 +183,12 @@ let typingTimeout;
 function type() {
     const typingText = document.getElementById('typing-text');
     if(!typingText) {
-        console.log('[Consulting] typing-text element not found!');
+        logger.debug('TypingEffect', 'typing-text element not found!');
         return;
     }
     
     if (!window.typingPhrases || window.typingPhrases.length === 0) {
-        console.log('[Consulting] No typing phrases available!');
+        logger.debug('TypingEffect', 'No typing phrases available!');
         return;
     }
     

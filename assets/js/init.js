@@ -4,6 +4,7 @@
 // IMPORTS
 // =================================================================================
 
+import logger from './logger.js';
 import { experienceData } from './data.js';
 import { setLanguage } from './main.js';
 import { initTerminal, startMatrixEffect } from './terminal.js';
@@ -57,29 +58,31 @@ async function filterProjectsByCategory(category) {
 // =================================================================================
 
 function initializeMobileMenuIndex() {
-    console.log('[Index] Initializing mobile menu after intro...');
+    logger.debug('MobileMenu', 'Initializing mobile menu after intro...');
     const mobileMenuBtnIndex = DOM.find('#mobile-menu-btn-index');
     const mobileNavIndex = DOM.find('#mobile-nav-index');
     
-    console.log('[Index] Mobile menu elements:', { mobileMenuBtnIndex, mobileNavIndex });
+    logger.debug('MobileMenu', 'Mobile menu elements found', { 
+        hasButton: !!mobileMenuBtnIndex, 
+        hasNav: !!mobileNavIndex 
+    });
     
     if (mobileMenuBtnIndex && mobileNavIndex) {
-        console.log('[Index] Mobile menu elements found, setting up listeners...');
+        logger.debug('MobileMenu', 'Setting up event listeners...');
         
         mobileMenuBtnIndex.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('[Index] Mobile menu button clicked');
+            logger.debug('MobileMenu', 'Menu button clicked');
             mobileNavIndex.classList.toggle('hidden');
-            console.log('[Index] Menu hidden class:', mobileNavIndex.classList.contains('hidden'));
         });
         
         // Close mobile menu when clicking on a link
         const mobileLinksIndex = mobileNavIndex.querySelectorAll('a');
-        console.log('[Index] Found mobile links:', mobileLinksIndex.length);
+        logger.debug('MobileMenu', 'Found mobile links', { count: mobileLinksIndex.length });
         mobileLinksIndex.forEach(link => {
             link.addEventListener('click', () => {
-                console.log('[Index] Mobile link clicked, closing menu');
+                logger.debug('MobileMenu', 'Mobile link clicked, closing menu');
                 mobileNavIndex.classList.add('hidden');
             });
         });
@@ -91,9 +94,9 @@ function initializeMobileMenuIndex() {
             }
         });
         
-        console.log('[Index] Mobile menu initialization complete');
+        logger.success('MobileMenu', 'Mobile menu initialization complete');
     } else {
-        console.error('[Index] Mobile menu elements not found!');
+        logger.error('[Index] Mobile menu elements not found!');
     }
 }
 
@@ -124,7 +127,7 @@ function closeExperienceModal() {
 // =================================================================================
 
 async function initializeMainApp() {
-    console.log('[init.js] Initializing main application after intro...');
+    logger.debug('MainApp', 'Initializing main application after intro...');
     
     // Dynamically import theme functions to ensure they are ready
     const themeModule = await import('./themes.js');
@@ -148,13 +151,13 @@ async function initializeMainApp() {
         try {
             initializeIndexAnalytics();
         } catch (error) {
-            console.error('[ERROR] Failed to initialize analytics:', error);
+            logger.error('[ERROR] Failed to initialize analytics:', error);
         }
     }, 1000); // Wait for all other components to be ready
     
     // Initialize mobile menu for index.html (after intro completes)
     setTimeout(() => {
-        console.log('[Init] About to initialize mobile menu...');
+        logger.debug('MainApp', 'About to initialize mobile menu...');
         initializeMobileMenuIndex();
     }, 200);
     
@@ -166,7 +169,7 @@ async function initializeMainApp() {
         DOM.show(pageContent, topControls);
     }
     
-    console.log('✅ Main CV App components initialized');
+    logger.success('MainApp', 'Main CV App components initialized');
 }
 
 // =================================================================================
@@ -174,7 +177,7 @@ async function initializeMainApp() {
 // =================================================================================
 
 function setupEventListeners() {
-    console.log('[init.js] Setting up event listeners');
+    logger.debug('EventListeners', 'Setting up event listeners');
     // Theme toggle is handled by initializeThemes in themes.js
     
     // Language toggles
@@ -208,7 +211,7 @@ function setupEventListeners() {
 
 function initializeApp() {
     try {
-        console.log('[init.js] initializeApp START');
+        logger.debug('InitApp', 'initializeApp START');
         
         // Setup event listeners that are safe to run before intro
         setupEventListeners();
@@ -219,11 +222,11 @@ function initializeApp() {
         // Start intro animation
         startIntro();
         
-        console.log('✅ CV App initialization sequence started.');
+        logger.success('InitApp', 'CV App initialization sequence started');
         
     } catch (error) {
         handleError(error, 'App initialization');
-        console.error('❌ Failed to initialize CV App:', error);
+        logger.error('❌ Failed to initialize CV App:', error);
     }
 }
 

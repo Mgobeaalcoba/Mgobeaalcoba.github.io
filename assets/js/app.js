@@ -1,5 +1,6 @@
 // app.js - Main file that orchestrates all modules
 
+import logger from './logger.js';
 import { initializeApp, setLanguage } from './main.js';
 import { initializeThemes, applyTheme } from './themes.js';
 import { initTerminal, initializeTerminalInput } from './terminal.js';
@@ -22,7 +23,7 @@ class CVApp {
         if (this.isInitialized) return;
         
         try {
-            console.log('🚀 Initializing CV Application...');
+            logger.debug('CVApp', 'Initializing CV Application...');
             
             // Start intro animation
             startIntro();
@@ -40,10 +41,10 @@ class CVApp {
             this.applyInitialState();
             
             this.isInitialized = true;
-            console.log('✅ CV Application initialized successfully');
+            logger.success('CVApp', 'CV Application initialized successfully');
             
         } catch (error) {
-            console.error('❌ Error initializing CV Application:', error);
+            logger.error('❌ Error initializing CV Application:', error);
             this.handleInitializationError(error);
         }
     }
@@ -160,7 +161,7 @@ class CVApp {
     }
 
     handleInitializationError(error) {
-        console.error('Application initialization failed:', error);
+        logger.error('Application initialization failed:', error);
         
         // Fallback: try to show basic content
         const pageContent = document.getElementById('page-content');
@@ -198,22 +199,22 @@ window.cvApp = new CVApp();
 // Export functions to global scope for HTML compatibility
 window.openExperienceModal = function(jobId) {
     // This would be implemented in main.js or a separate modal module
-    console.log('Opening experience modal for job:', jobId);
+    logger.debug('ExperienceModal', 'Opening experience modal for job', { jobId });
 };
 
 window.closeExperienceModal = function() {
     // This would be implemented in main.js or a separate modal module
-    console.log('Closing experience modal');
+    logger.debug('ExperienceModal', 'Closing experience modal');
 };
 
 window.filterProjects = function(tag) {
     // This is already exported from main.js
-    console.log('Filtering projects by tag:', tag);
+    logger.debug('ProjectFilter', 'Filtering projects by tag', { tag });
 };
 
 window.trackSocialClick = function(event, platform) {
     // This is already exported from main.js
-    console.log('Tracking social click for platform:', platform);
+    logger.debug('Analytics', 'Tracking social click for platform', { platform });
 };
 
 // =================================================================================
@@ -221,7 +222,7 @@ window.trackSocialClick = function(event, platform) {
 // =================================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('📄 DOM loaded, starting CV application...');
+    logger.debug('CVApp', 'DOM loaded, starting CV application...');
     window.cvApp.initialize();
 });
 
@@ -230,9 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // =================================================================================
 
 window.addEventListener('error', (event) => {
-    console.error('Global error caught:', event.error);
+    logger.error('Global error caught:', event.error);
 });
 
 window.addEventListener('unhandledrejection', (event) => {
-    console.error('Unhandled promise rejection:', event.reason);
+    logger.error('Unhandled promise rejection:', event.reason);
 }); 

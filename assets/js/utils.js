@@ -1,4 +1,6 @@
-// utils.js - Shared utility functions 
+// utils.js - Shared utility functions
+
+import logger from './logger.js';
 
 // =================================================================================
 // --- DOM UTILITIES
@@ -179,7 +181,7 @@ export function isEmpty(value) {
  * @param {string} [context='Unknown'] - The context where the error occurred.
  */
 export function handleError(error, context = 'Unknown') {
-    console.error(`Error in ${context}:`, error);
+    logger.error(`Error in ${context}:`, error);
     // In a real-world application, this could be expanded to log errors
     // to a service like Sentry, LogRocket, etc.
 }
@@ -198,18 +200,16 @@ export function safeExecute(func, fallback = null, context = '') {
 // =================================================================================
 
 export function measurePerformance(name, func) {
-    const start = performance.now();
+    logger.time(name);
     const result = func();
-    const end = performance.now();
-    console.log(`${name} took ${end - start} milliseconds`);
+    logger.timeEnd(name);
     return result;
 }
 
 export function asyncMeasurePerformance(name, asyncFunc) {
-    const start = performance.now();
+    logger.time(name);
     return asyncFunc().then(result => {
-        const end = performance.now();
-        console.log(`${name} took ${end - start} milliseconds`);
+        logger.timeEnd(name);
         return result;
     });
 }
@@ -296,7 +296,7 @@ export function copyToClipboard(text) {
         try {
             document.execCommand('copy');
         } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
+            logger.error('Fallback: Oops, unable to copy', err);
         }
         document.body.removeChild(textArea);
     }
