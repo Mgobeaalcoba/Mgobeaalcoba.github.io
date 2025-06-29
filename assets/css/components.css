@@ -489,4 +489,207 @@ html.light #mobile-nav-index {
         max-width: 95%;
         max-height: 95vh;
     }
+}
+
+/* =================================================================================
+   LIGHT MODE MODAL IMPROVEMENTS - BETTER READABILITY (FROM CONSULTING.HTML)
+   ================================================================================= */
+
+/* Modal background improvements for light mode */
+html.light-mode .modal-content.glass-effect,
+html.light .modal-content.glass-effect {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Better text contrast in light mode modals */
+html.light-mode .modal-content h4,
+html.light-mode .modal-content h5,
+html.light-mode .modal-content h6,
+html.light .modal-content h4,
+html.light .modal-content h5,
+html.light .modal-content h6 {
+    color: #1f2937 !important; /* gray-800 for better contrast */
+}
+
+/* Service-specific color improvements for light mode */
+html.light-mode .modal-content .text-emerald-400,
+html.light .modal-content .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 for better contrast */
+}
+
+html.light-mode .modal-content .text-green-400,
+html.light .modal-content .text-green-400 {
+    color: #166534 !important; /* green-800 for better contrast */
+}
+
+html.light-mode .modal-content .text-sky-400,
+html.light .modal-content .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light-mode .modal-content .text-cyan-400,
+html.light .modal-content .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 for better contrast */
+}
+
+html.light-mode .modal-content .text-purple-400,
+html.light .modal-content .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 for better contrast */
+}
+
+html.light-mode .modal-content .text-yellow-400,
+html.light .modal-content .text-yellow-400 {
+    color: #d97706 !important; /* amber-600 for better contrast */
+}
+
+/* Check icons and success indicators */
+html.light-mode .fa-check-circle.text-green-400,
+html.light .fa-check-circle.text-green-400 {
+    color: #16a34a !important; /* green-600 for better visibility */
+}
+
+/* Step number circles in light mode */
+html.light-mode .modal-content .bg-sky-500\/20,
+html.light .modal-content .bg-sky-500\/20 {
+    background-color: rgba(14, 165, 233, 0.15) !important;
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light-mode .modal-content .bg-cyan-500\/20,
+html.light .modal-content .bg-cyan-500\/20 {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light-mode .modal-content .bg-emerald-500\/20,
+html.light .modal-content .bg-emerald-500\/20 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    color: #047857 !important; /* emerald-700 */
+}
+
+html.light-mode .modal-content .bg-purple-500\/20,
+html.light .modal-content .bg-purple-500\/20 {
+    background-color: rgba(168, 85, 247, 0.15) !important;
+    color: #7c3aed !important; /* purple-600 */
+}
+
+/* Success case boxes in light mode */
+html.light-mode .modal-content .bg-gray-800\/50,
+html.light .modal-content .bg-gray-800\/50 {
+    background-color: rgba(243, 244, 246, 0.8) !important; /* gray-100 */
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Secondary text improvements */
+html.light-mode .modal-content .text-secondary,
+html.light .modal-content .text-secondary {
+    color: #4b5563 !important; /* gray-600 for better readability */
+}
+
+/* WhatsApp button improvements for light mode */
+html.light-mode .bg-green-500,
+html.light .bg-green-500 {
+    background-color: #16a34a !important; /* green-600 for better contrast */
+}
+
+html.light-mode .bg-green-500:hover,
+html.light-mode .hover\:bg-green-600:hover,
+html.light .bg-green-500:hover,
+html.light .hover\:bg-green-600:hover {
+    background-color: #15803d !important; /* green-700 */
+}
+
+/* Modal close button improvements */
+html.light-mode .modal-close-btn,
+html.light .modal-close-btn {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: #374151 !important; /* gray-700 */
+}
+
+html.light-mode .modal-close-btn:hover,
+html.light .modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: #111827 !important; /* gray-900 */
+}
+
+/* Feature icons in modals */
+html.light-mode .modal-content .feature-icon,
+html.light .modal-content .feature-icon {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+/* Ensure all modal text has proper contrast */
+html.light-mode .modal-content strong,
+html.light .modal-content strong {
+    color: #111827 !important; /* gray-900 for maximum contrast */
+}
+
+/* Glass effect improvements for light mode sections */
+html.light-mode .glass-effect,
+html.light .glass-effect {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Better contrast for project and experience items */
+html.light-mode .project-item,
+html.light-mode .experience-item,
+html.light-mode .education-item,
+html.light .project-item,
+html.light .experience-item,
+html.light .education-item {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+}
+
+/* Certification items improvements */
+html.light-mode .certification-item,
+html.light .certification-item {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Card hover effects improvements */
+html.light-mode .card:hover .glass-effect,
+html.light .card:hover .glass-effect {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Icon links improvements */
+html.light-mode .icon-link,
+html.light .icon-link {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light-mode .icon-link:hover,
+html.light .icon-link:hover {
+    color: #0284c7 !important; /* sky-600 */
+}
+
+/* Social link improvements */
+html.light-mode .social-link,
+html.light .social-link {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light-mode .social-link:hover,
+html.light .social-link:hover {
+    color: #0284c7 !important; /* sky-600 */
+}
+
+/* Download button improvements */
+html.light-mode .download-btn,
+html.light .download-btn {
+    background-color: #0369a1 !important; /* sky-700 for better contrast */
+    border-color: #0369a1 !important;
+}
+
+html.light-mode .download-btn:hover,
+html.light .download-btn:hover {
+    background-color: #0284c7 !important; /* sky-600 */
+    border-color: #0284c7 !important;
 } 

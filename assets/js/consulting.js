@@ -832,6 +832,127 @@ function initializeMetricsCounters() {
     console.log('[Metrics] Metrics counters initialized');
 }
 
+// ============== GOOGLE ANALYTICS TRACKING ==============
+
+function trackEvent(eventName, eventData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            custom_parameter_1: 'consulting_page',
+            page_location: window.location.href,
+            page_title: document.title,
+            ...eventData
+        });
+        console.log(`[Analytics] Event tracked: ${eventName}`, eventData);
+    } else {
+        console.warn('[Analytics] gtag not available');
+    }
+}
+
+function initializeAnalyticsTracking() {
+    // Track page view
+    trackEvent('page_view', {
+        page_location: window.location.href,
+        page_title: document.title
+    });
+
+    // Track CTA button clicks
+    const proposalBtn = document.getElementById('open-proposal-modal-btn');
+    if (proposalBtn) {
+        proposalBtn.addEventListener('click', () => {
+            trackEvent('cta_click', {
+                button_text: 'Crear Pre-propuesta Instantánea',
+                section: 'hero'
+            });
+        });
+    }
+
+    // Track service card clicks
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const service = card.getAttribute('data-service');
+            trackEvent('service_interest', {
+                service_type: service,
+                section: 'services'
+            });
+        });
+    });
+
+    // Track pack card clicks
+    const packCards = document.querySelectorAll('.pack-card');
+    packCards.forEach(card => {
+        card.addEventListener('click', () => {
+            trackEvent('pack_interest', {
+                pack_type: 'pack_click',
+                section: 'packs'
+            });
+        });
+    });
+
+    // Track PDF generation (conversion)
+    const proposalForm = document.getElementById('proposal-form');
+    if (proposalForm) {
+        proposalForm.addEventListener('submit', () => {
+            trackEvent('proposal_generated', {
+                conversion_type: 'pdf_download',
+                section: 'proposal_form',
+                value: 1
+            });
+        });
+    }
+
+    // Track WhatsApp contact (conversion)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#whatsapp-link')) {
+            trackEvent('contact_conversion', {
+                contact_method: 'whatsapp',
+                conversion_type: 'contact_click',
+                value: 1
+            });
+        }
+    });
+
+    // Track Email contact (conversion)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#email-link')) {
+            trackEvent('contact_conversion', {
+                contact_method: 'email',
+                conversion_type: 'contact_click',
+                value: 1
+            });
+        }
+    });
+
+    // Track Calendly scheduling
+    const calendlyBtn = document.querySelector('[onclick*="Calendly"]');
+    if (calendlyBtn) {
+        calendlyBtn.addEventListener('click', () => {
+            trackEvent('scheduling_interest', {
+                calendar_type: 'calendly',
+                section: 'footer'
+            });
+        });
+    }
+
+    // Track scroll depth (engagement)
+    let maxScrollDepth = 0;
+    const trackScrollDepth = () => {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        
+        if (scrollPercent > maxScrollDepth && scrollPercent % 25 === 0) {
+            maxScrollDepth = scrollPercent;
+            trackEvent('scroll_depth', {
+                scroll_percent: scrollPercent,
+                engagement_type: 'page_scroll'
+            });
+        }
+    };
+
+    window.addEventListener('scroll', trackScrollDepth);
+
+    console.log('[Analytics] Event tracking initialized');
+}
+
 // Initialize the timeline when DOM is ready and function is defined
 document.addEventListener('DOMContentLoaded', () => {
     // Wait a bit for all other initialization to complete
@@ -839,8 +960,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             initializeProcessTimeline();
             initializeMetricsCounters();
+            initializeAnalyticsTracking();
         } catch (error) {
-            console.error('[ERROR] Failed to initialize timeline or metrics:', error);
+            console.error('[ERROR] Failed to initialize timeline, metrics, or analytics:', error);
         }
     }, 500);
 }); 

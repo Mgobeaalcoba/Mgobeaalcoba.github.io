@@ -157,9 +157,33 @@ export function populateCerts(filterTag = null) {
     container.innerHTML = filteredCerts.map(cert => `<p>${cert.name}</p>`).join('');
 }
 
+// ============== GOOGLE ANALYTICS TRACKING FOR INDEX.HTML ==============
+
+function trackEvent(eventName, eventData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            custom_parameter_1: 'portfolio_page',
+            page_location: window.location.href,
+            page_title: document.title,
+            ...eventData
+        });
+        console.log(`[Analytics] Event tracked: ${eventName}`, eventData);
+    } else {
+        console.warn('[Analytics] gtag not available');
+    }
+}
+
 export function trackSocialClick(event, platform) {
     event.preventDefault();
     const url = event.currentTarget.href;
+    
+    // Track the social click event
+    trackEvent('social_engagement', {
+        social_platform: platform,
+        link_url: url,
+        engagement_type: 'social_click'
+    });
+    
     try {
         if (typeof gtag === 'function') {
             gtag('event', 'social_click', {
@@ -176,6 +200,181 @@ export function trackSocialClick(event, platform) {
         console.warn('Error in trackSocialClick:', err);
         window.open(url, '_blank');
     }
+}
+
+export function initializeIndexAnalytics() {
+    console.log('[Analytics] Initializing index.html tracking...');
+    
+    // Track page view
+    trackEvent('page_view', {
+        page_location: window.location.href,
+        page_title: document.title,
+        page_type: 'portfolio'
+    });
+
+    // Track CV download (primary conversion)
+    const downloadBtn = DOM.find('#download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            trackEvent('cv_download', {
+                conversion_type: 'cv_download',
+                file_type: 'pdf',
+                value: 1,
+                section: 'contact'
+            });
+        });
+    }
+
+    // Track consulting navigation (primary conversion)
+    const consultingBtns = DOM.findAll('[href="consulting.html"]');
+    consultingBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isTeaser = btn.closest('[data-translate="consulting_teaser_btn"]');
+            trackEvent('consulting_interest', {
+                conversion_type: 'consulting_navigation',
+                button_location: isTeaser ? 'teaser_section' : 'header',
+                value: 1
+            });
+        });
+    });
+
+    // Track Calendly scheduling (primary conversion)
+    const calendlyBtns = DOM.findAll('[onclick*="Calendly"]');
+    calendlyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('scheduling_interest', {
+                conversion_type: 'calendly_click',
+                calendar_type: 'calendly',
+                value: 1,
+                section: 'header'
+            });
+        });
+    });
+
+    // Track project interactions
+    document.addEventListener('click', (e) => {
+        const projectLink = e.target.closest('[onclick*="GitHub Project"]');
+        if (projectLink) {
+            trackEvent('project_engagement', {
+                engagement_type: 'project_link',
+                project_url: projectLink.href,
+                section: 'projects'
+            });
+        }
+    });
+
+    // Track experience modal opens
+    window.originalOpenExperienceModal = window.openExperienceModal;
+    window.openExperienceModal = function(jobId) {
+        trackEvent('experience_detail', {
+            engagement_type: 'modal_open',
+            job_id: jobId,
+            section: 'experience'
+        });
+        window.originalOpenExperienceModal(jobId);
+    };
+
+    // Track technology filter usage
+    window.originalFilterProjects = window.filterProjects;
+    window.filterProjects = function(tag) {
+        if (tag) {
+            trackEvent('tech_filter', {
+                engagement_type: 'technology_filter',
+                technology: tag,
+                section: 'tech_stack'
+            });
+        }
+        window.originalFilterProjects(tag);
+    };
+
+    // Track theme changes
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#theme-toggle, #intro-theme-btn, #theme-btn-terminal')) {
+            trackEvent('theme_change', {
+                engagement_type: 'theme_toggle',
+                interaction_type: 'theme_switch'
+            });
+        }
+    });
+
+    // Track language changes
+    document.addEventListener('click', (e) => {
+        const langBtn = e.target.closest('[data-lang]');
+        if (langBtn) {
+            const language = langBtn.getAttribute('data-lang');
+            trackEvent('language_change', {
+                engagement_type: 'language_switch',
+                language: language,
+                previous_language: document.documentElement.lang
+            });
+        }
+    });
+
+    // Track terminal mode activation
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('[onclick*="terminal"]') || e.target.closest('#terminal-btn')) {
+            trackEvent('terminal_activation', {
+                engagement_type: 'terminal_mode',
+                interaction_type: 'advanced_user'
+            });
+        }
+    });
+
+    // Track scroll depth (engagement metric)
+    let maxScrollDepth = 0;
+    const trackScrollDepth = () => {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        
+        if (scrollPercent > maxScrollDepth && scrollPercent % 25 === 0) {
+            maxScrollDepth = scrollPercent;
+            trackEvent('scroll_depth', {
+                scroll_percent: scrollPercent,
+                engagement_type: 'page_scroll',
+                page_type: 'portfolio'
+            });
+        }
+    };
+
+    // Track time on page (engagement metric)
+    let timeOnPage = 0;
+    const trackTimeOnPage = () => {
+        timeOnPage += 30;
+        if (timeOnPage % 60 === 0) { // Every minute
+            trackEvent('time_on_page', {
+                time_seconds: timeOnPage,
+                engagement_type: 'session_duration',
+                milestone: `${timeOnPage/60}min`
+            });
+        }
+    };
+
+    // Track section visibility (engagement)
+    const sections = ['about', 'projects', 'experience', 'contact'];
+    const observedSections = new Set();
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !observedSections.has(entry.target.id)) {
+                observedSections.add(entry.target.id);
+                trackEvent('section_view', {
+                    section_name: entry.target.id,
+                    engagement_type: 'section_scroll',
+                    view_order: observedSections.size
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(sectionId => {
+        const section = DOM.find(`#${sectionId}`);
+        if (section) sectionObserver.observe(section);
+    });
+
+    // Set up scroll and time tracking
+    window.addEventListener('scroll', trackScrollDepth);
+    setInterval(trackTimeOnPage, 30000); // Track every 30 seconds
+
+    console.log('[Analytics] Index analytics tracking initialized');
 }
 
 // =================================================================================

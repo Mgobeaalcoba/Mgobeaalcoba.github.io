@@ -462,5 +462,425 @@ html.light #mobile-nav.glass-effect {
 }
 
 html.light #mobile-nav a:hover {
-    background-color: rgba(229, 231, 235, 0.5) !important;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* =================================================================================
+   LIGHT MODE MODAL IMPROVEMENTS - BETTER READABILITY
+   ================================================================================= */
+
+/* Modal background improvements for light mode */
+html.light .modal-content.glass-effect {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Better text contrast in light mode modals */
+html.light .modal-content h4,
+html.light .modal-content h5,
+html.light .modal-content h6 {
+    color: #1f2937 !important; /* gray-800 for better contrast */
+}
+
+/* Service-specific color improvements for light mode */
+html.light .modal-content .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 for better contrast */
+}
+
+html.light .modal-content .text-green-400 {
+    color: #166534 !important; /* green-800 for better contrast */
+}
+
+html.light .modal-content .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light .modal-content .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 for better contrast */
+}
+
+html.light .modal-content .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 for better contrast */
+}
+
+html.light .modal-content .text-yellow-400 {
+    color: #d97706 !important; /* amber-600 for better contrast */
+}
+
+/* Check icons and success indicators */
+html.light .fa-check-circle.text-green-400 {
+    color: #16a34a !important; /* green-600 for better visibility */
+}
+
+/* Step number circles in light mode */
+html.light .modal-content .bg-sky-500\/20 {
+    background-color: rgba(14, 165, 233, 0.15) !important;
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light .modal-content .bg-cyan-500\/20 {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light .modal-content .bg-emerald-500\/20 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    color: #047857 !important; /* emerald-700 */
+}
+
+html.light .modal-content .bg-purple-500\/20 {
+    background-color: rgba(168, 85, 247, 0.15) !important;
+    color: #7c3aed !important; /* purple-600 */
+}
+
+/* Success case boxes in light mode */
+html.light .modal-content .bg-gray-800\/50 {
+    background-color: rgba(243, 244, 246, 0.8) !important; /* gray-100 */
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Secondary text improvements */
+html.light .modal-content .text-secondary {
+    color: #4b5563 !important; /* gray-600 for better readability */
+}
+
+/* WhatsApp button improvements for light mode */
+html.light .bg-green-500 {
+    background-color: #16a34a !important; /* green-600 for better contrast */
+}
+
+html.light .bg-green-500:hover,
+html.light .hover\:bg-green-600:hover {
+    background-color: #15803d !important; /* green-700 */
+}
+
+/* Modal close button improvements */
+html.light .modal-close-btn {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: #374151 !important; /* gray-700 */
+}
+
+html.light .modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: #111827 !important; /* gray-900 */
+}
+
+/* Feature icons in modals */
+html.light .modal-content .feature-icon {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+/* Ensure all modal text has proper contrast */
+html.light .modal-content strong {
+    color: #111827 !important; /* gray-900 for maximum contrast */
+}
+
+/* Contact success modal specific improvements */
+html.light #contact-options-modal .fa-check-circle {
+    color: #16a34a !important; /* green-600 */
+}
+
+/* =================================================================================
+   LIGHT MODE TIMELINE/PROCESS SECTION IMPROVEMENTS - BETTER READABILITY
+   ================================================================================= */
+
+/* Timeline section background improvements */
+html.light #process {
+    background-color: transparent !important;
+}
+
+/* Timeline labels improvements - top timeline nodes */
+html.light .timeline-node .text-sky-300 {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light .timeline-node .text-gray-400 {
+    color: #4b5563 !important; /* gray-600 for better readability */
+}
+
+/* Process step labels improvements */
+html.light .process-step .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+html.light .process-step .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 for better contrast */
+}
+
+html.light .process-step .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 for better contrast */
+}
+
+/* Step detail text improvements (time and features) */
+html.light .step-detail {
+    color: #374151 !important; /* gray-700 for better readability */
+}
+
+html.light .step-detail strong {
+    color: #111827 !important; /* gray-900 for maximum contrast */
+}
+
+/* Step counter circles improvements */
+html.light .process-step .bg-sky-500\/20 {
+    background-color: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.4) !important;
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light .process-step .bg-cyan-500\/20 {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    border-color: rgba(6, 182, 212, 0.4) !important;
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light .process-step .bg-emerald-500\/20 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    color: #047857 !important; /* emerald-700 */
+}
+
+/* Timeline progress bar improvements */
+html.light #process-progress {
+    background: linear-gradient(to right, #0369a1, #0891b2, #047857) !important;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3) !important;
+}
+
+/* Animated line improvements */
+html.light #animated-line {
+    background: linear-gradient(to bottom, #0369a1, #0891b2) !important;
+}
+
+/* Timeline node glow effects for light mode */
+html.light .timeline-node.active .step-glow {
+    background-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+html.light .timeline-node[data-step="1"].active .step-glow {
+    background-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+html.light .timeline-node[data-step="2"].active .step-glow {
+    background-color: rgba(6, 182, 212, 0.2) !important;
+}
+
+html.light .timeline-node[data-step="3"].active .step-glow {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Timeline node numbers - better contrast */
+html.light .timeline-node .timeline-number {
+    color: #1f2937 !important; /* gray-800 for better contrast */
+}
+
+html.light .timeline-node.active .timeline-number {
+    color: #ffffff !important; /* white for activated nodes */
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Step counter animation improvements */
+html.light .process-step.active .step-counter {
+    background-color: rgba(14, 165, 233, 0.1) !important;
+    color: #0369a1 !important;
+    border-color: rgba(14, 165, 233, 0.3) !important;
+}
+
+/* Pack cards improvements for better contrast */
+html.light .pack-card .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light .pack-card .text-green-400 {
+    color: #16a34a !important; /* green-600 */
+}
+
+/* Pack card price text improvements */
+html.light .pack-card .text-xs.text-green-400 {
+    color: #15803d !important; /* green-700 for annual savings */
+}
+
+/* Example cards click hints */
+html.light .example-card .text-xs.text-sky-400 {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+/* Service cards icon improvements */
+html.light .service-card .feature-icon {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+/* About section credentials improvements */
+html.light #about .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+/* Metrics counters improvements */
+html.light .metrics-counter .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light .metrics-counter .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 */
+}
+
+html.light .metrics-counter .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light .metrics-counter .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 */
+}
+
+/* =================================================================================
+   LIGHT MODE ABOUT SECTION (EXPERIENCIA REAL) IMPROVEMENTS - BETTER READABILITY
+   ================================================================================= */
+
+/* About section background */
+html.light #about.glass-effect {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+}
+
+/* MercadoLibre credentials box improvements */
+html.light #about .bg-gray-800\/30 {
+    background-color: rgba(243, 244, 246, 0.8) !important; /* gray-100 */
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Position years text - "6+ años en MercadoLibre" */
+html.light #about .text-xs.text-sky-400 {
+    color: #0369a1 !important; /* sky-700 for better contrast */
+}
+
+/* Metrics icons improvements */
+html.light #about .fas.fa-calendar-alt.text-sky-400 {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light #about .fas.fa-dollar-sign.text-emerald-400 {
+    color: #047857 !important; /* emerald-700 */
+}
+
+html.light #about .fas.fa-chart-line.text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light #about .fas.fa-trophy.text-purple-400 {
+    color: #7c3aed !important; /* purple-600 */
+}
+
+/* Metrics suffix improvements - the "+" "K+" "%" symbols */
+html.light #about .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 - for the "+" in "6+" */
+}
+
+html.light #about .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 - for the "K+" in "$500K+" */
+}
+
+html.light #about .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 - for the "%" in "80%" */
+}
+
+html.light #about .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 - for the "+" in "15+" */
+}
+
+/* Metrics labels improvements - "Años de Experiencia", "Procesados en ML", etc. */
+html.light #about .text-sm.text-secondary {
+    color: #4b5563 !important; /* gray-600 for better readability */
+}
+
+/* Metrics counter circles improvements */
+html.light #about .bg-sky-500\/10 {
+    background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+html.light #about .bg-emerald-500\/10 {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+html.light #about .bg-cyan-500\/10 {
+    background-color: rgba(6, 182, 212, 0.1) !important;
+}
+
+html.light #about .bg-purple-500\/10 {
+    background-color: rgba(168, 85, 247, 0.1) !important;
+}
+
+/* Main description text improvements */
+html.light #about .text-lg.text-secondary {
+    color: #374151 !important; /* gray-700 for better contrast */
+}
+
+/* Testimonial section improvements if present */
+html.light #about .bg-gray-800\/50 {
+    background-color: rgba(243, 244, 246, 0.8) !important; /* gray-100 */
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Testimonial text improvements */
+html.light #about .text-gray-400 {
+    color: #6b7280 !important; /* gray-500 for author attribution */
+}
+
+/* Section title improvements */
+html.light #about h2 {
+    color: #111827 !important; /* gray-900 for maximum contrast */
+}
+
+/* CTA button improvements if present in about section */
+html.light #about .main-cta {
+    background-color: #0369a1 !important; /* sky-700 */
+    border-color: #0369a1 !important;
+}
+
+html.light #about .main-cta:hover {
+    background-color: #0284c7 !important; /* sky-600 */
+    border-color: #0284c7 !important;
+}
+
+/* =================================================================================
+   CRITICAL FIX: MAIN METRIC NUMBERS VISIBILITY IN LIGHT MODE
+   ================================================================================= */
+
+/* Main metric numbers - force dark color in light mode */
+html.light #about .text-3xl.font-bold.text-white {
+    color: #111827 !important; /* gray-900 - maximum contrast for main numbers */
+}
+
+html.light #about .text-3xl.font-bold.text-white .metric-counter {
+    color: #111827 !important; /* gray-900 - ensure counters are visible */
+}
+
+/* Additional specific targeting for metric numbers */
+html.light #about .metric-counter {
+    color: #111827 !important; /* gray-900 - force dark numbers */
+}
+
+/* Position title in credentials box */
+html.light #about .text-sm.font-semibold.text-white {
+    color: #111827 !important; /* gray-900 - "Líder Técnico de Datos & Analytics" */
+}
+
+/* Make sure all white text in about section is dark in light mode */
+html.light #about .text-white {
+    color: #111827 !important; /* gray-900 - catch all white text */
+}
+
+/* Ensure metric suffixes remain with their specific colors */
+html.light #about .text-white .text-sky-400 {
+    color: #0369a1 !important; /* sky-700 - for "+" suffix */
+}
+
+html.light #about .text-white .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 - for "K+" suffix */
+}
+
+html.light #about .text-white .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 - for "%" suffix */
+}
+
+html.light #about .text-white .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 - for "+" suffix */
 } 

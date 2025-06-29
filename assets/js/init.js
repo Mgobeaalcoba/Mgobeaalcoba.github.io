@@ -142,6 +142,16 @@ async function initializeMainApp() {
     const savedLang = Storage.get('language', 'es');
     setLanguage(savedLang);
     
+    // Initialize analytics tracking
+    const { initializeIndexAnalytics } = await import('./main.js');
+    setTimeout(() => {
+        try {
+            initializeIndexAnalytics();
+        } catch (error) {
+            console.error('[ERROR] Failed to initialize analytics:', error);
+        }
+    }, 1000); // Wait for all other components to be ready
+    
     // Initialize mobile menu for index.html (after intro completes)
     setTimeout(() => {
         console.log('[Init] About to initialize mobile menu...');
