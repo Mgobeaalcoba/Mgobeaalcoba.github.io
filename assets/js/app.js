@@ -7,6 +7,7 @@ import { initializeThemes, applyTheme } from './themes.js';
 import { startIntro } from './intro.js';
 import { setupPdfGeneration } from './pdf.js';
 import { setupScrollAnimations } from './utils.js';
+import { initializeImageOptimization, preloadCriticalImages } from './image-optimizer.js';
 
 // =================================================================================
 // --- APPLICATION INITIALIZATION
@@ -32,7 +33,7 @@ class CVApp {
             await this.waitForIntroCompletion();
             
             // Initialize all modules
-            this.initializeModules();
+            await this.initializeModules();
             
             // Setup event listeners
             this.setupEventListeners();
@@ -63,7 +64,7 @@ class CVApp {
         });
     }
 
-    initializeModules() {
+    async initializeModules() {
         // Initialize main app functionality
         initializeApp();
         
@@ -77,6 +78,14 @@ class CVApp {
         
         // Setup scroll animations
         setupScrollAnimations();
+        
+        // Initialize image optimization
+        await initializeImageOptimization();
+        
+        // Preload critical images
+        preloadCriticalImages([
+            'https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png'
+        ]);
     }
 
     setupEventListeners() {

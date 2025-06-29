@@ -2,6 +2,7 @@
 import logger from './logger.js';
 import { translations } from './translations.js';
 import { initializeConsultingMobileMenu } from './mobile-menu.js';
+import { initializeImageOptimization } from './image-optimizer.js';
 
 // THEME TOGGLE
 const themeToggle = document.getElementById('theme-toggle');
@@ -917,15 +918,20 @@ function initializeAnalyticsTracking() {
 }
 
 // Initialize the timeline when DOM is ready and function is defined
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Wait a bit for all other initialization to complete
-    setTimeout(() => {
+    setTimeout(async () => {
         try {
             initializeProcessTimeline();
             initializeMetricsCounters();
             initializeAnalyticsTracking();
+            
+            // Initialize image optimization
+            await initializeImageOptimization();
+            
+            logger.success('Consulting', 'All consulting page modules initialized successfully');
         } catch (error) {
-            console.error('[ERROR] Failed to initialize timeline, metrics, or analytics:', error);
+            logger.error('Failed to initialize consulting page modules:', error);
         }
     }, 500);
 }); 
