@@ -389,6 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize PDF proposal functionality
     initializeProposalGenerator();
+    
+    // Timeline will be initialized after all functions are defined
+    
+    
 });
 
 // ============== PDF PROPOSAL FUNCTIONALITY ==============
@@ -516,4 +520,163 @@ const originalSetLanguage = setLanguage;
 setLanguage = function(lang) {
     originalSetLanguage(lang);
     updateFormPlaceholders(lang);
-}; 
+};
+
+// ============== ANIMATED PROCESS TIMELINE ==============
+// (Moved before DOMContentLoaded to be available when called)
+
+function initializeProcessTimeline() {
+    const processSection = document.getElementById('process');
+    const processSteps = document.querySelectorAll('.process-step');
+    const timelineNodes = document.querySelectorAll('.timeline-node');
+    const progressBar = document.getElementById('process-progress');
+    const animatedLine = document.getElementById('animated-line');
+    
+    if (!processSection || !processSteps.length) return;
+    
+    let activeSteps = new Set();
+    
+    function updateProgressBar(activeStepCount) {
+        const progressPercent = (activeStepCount / processSteps.length) * 100;
+        if (progressBar) {
+            progressBar.style.width = `${progressPercent}%`;
+        }
+    }
+    
+    function updateAnimatedLine(highestStep) {
+        if (animatedLine && highestStep > 0) {
+            // Calculate line height based on step progress, extending beyond the step
+            const baseHeight = (highestStep / processSteps.length) * 85; // 85% to account for step positioning
+            const extendedHeight = Math.min(baseHeight + 15, 100); // Add 15% extension, max 100%
+            animatedLine.style.height = `${extendedHeight}%`;
+        }
+    }
+    
+    function activateStep(step, stepNumber) {
+        if (activeSteps.has(stepNumber)) return;
+        
+        activeSteps.add(stepNumber);
+        step.classList.add('active');
+        
+        // Activate corresponding timeline node
+        const correspondingNode = document.querySelector(`.timeline-node[data-step="${stepNumber}"]`);
+        if (correspondingNode) {
+            correspondingNode.classList.add('active');
+            
+            // Trigger glow animation
+            const glow = correspondingNode.querySelector('.step-glow');
+            if (glow) {
+                setTimeout(() => {
+                    glow.style.transform = 'scale(1.4)';
+                    glow.style.opacity = '0.7';
+                }, 100);
+            }
+        }
+        
+        // Animate step counter in both places
+        const counter = step.querySelector('.step-counter');
+        const timelineNumber = correspondingNode?.querySelector('.timeline-number');
+        
+        if (counter) {
+            setTimeout(() => {
+                animateCounter(counter, stepNumber);
+            }, 300);
+        }
+        
+        if (timelineNumber) {
+            setTimeout(() => {
+                animateCounter(timelineNumber, stepNumber);
+            }, 400);
+        }
+        
+        console.log(`[Timeline] Step ${stepNumber} activated`);
+    }
+    
+    function animateCounter(element, targetNumber) {
+        let current = 0;
+        const increment = targetNumber / 20;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= targetNumber) {
+                current = targetNumber;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current);
+        }, 50);
+    }
+    
+    function checkStepVisibility() {
+        const triggerHeight = window.innerHeight * 0.7;
+        let highestActiveStep = 0;
+        
+        processSteps.forEach((step, index) => {
+            const stepNumber = index + 1;
+            const rect = step.getBoundingClientRect();
+            const isVisible = rect.top < triggerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+                activateStep(step, stepNumber);
+                highestActiveStep = Math.max(highestActiveStep, stepNumber);
+            }
+        });
+        
+        updateProgressBar(activeSteps.size);
+        updateAnimatedLine(highestActiveStep);
+    }
+    
+    // Create intersection observer for better performance
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '-10% 0px -30% 0px'
+    };
+    
+    const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stepNumber = parseInt(entry.target.dataset.step);
+                activateStep(entry.target, stepNumber);
+                
+                // Update progress bar and line
+                const currentActiveSteps = document.querySelectorAll('.process-step.active').length;
+                updateProgressBar(currentActiveSteps);
+                updateAnimatedLine(currentActiveSteps);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all process steps
+    processSteps.forEach(step => {
+        stepObserver.observe(step);
+    });
+    
+    // Also listen to scroll for real-time updates
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                checkStepVisibility();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', onScroll);
+    
+    // Initial check
+    setTimeout(checkStepVisibility, 100);
+    
+    console.log('[Timeline] Animated process timeline initialized');
+}
+
+// Initialize the timeline when DOM is ready and function is defined
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for all other initialization to complete
+    setTimeout(() => {
+        try {
+            initializeProcessTimeline();
+        } catch (error) {
+            console.error('[ERROR] Failed to initialize timeline:', error);
+        }
+    }, 500);
+}); 

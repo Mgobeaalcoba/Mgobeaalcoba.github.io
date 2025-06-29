@@ -161,6 +161,244 @@ body {
     --tw-ring-color: var(--primary-color);
 }
 
+/* ======== PROFESSIONAL TIMELINE ANIMATIONS ======== */
+
+/* Timeline track enhancements */
+#process-progress {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+/* Timeline nodes */
+.timeline-node {
+    transition: all 0.3s ease;
+}
+
+.timeline-node:hover {
+    transform: translateY(-2px);
+}
+
+.timeline-number {
+    transition: all 0.4s ease;
+}
+
+/* Node activation states */
+.timeline-node.active .step-node {
+    background: linear-gradient(135deg, #0ea5e9, #06b6d4, #10b981);
+    border-color: #0ea5e9;
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.6);
+    transform: scale(1.1);
+}
+
+.timeline-node.active .step-glow {
+    animation: timelineGlow 2s ease-out infinite alternate;
+    transform: scale(1.4);
+}
+
+.timeline-node.active .timeline-number {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Progressive activation colors */
+.timeline-node[data-step="1"].active .step-node {
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    border-color: #0ea5e9;
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.6);
+}
+
+.timeline-node[data-step="2"].active .step-node {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    border-color: #06b6d4;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+}
+
+.timeline-node[data-step="3"].active .step-node {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-color: #10b981;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+}
+
+/* Timeline glow animation */
+@keyframes timelineGlow {
+    0% { 
+        opacity: 0.3;
+        transform: scale(1.2);
+    }
+    100% { 
+        opacity: 0.7;
+        transform: scale(1.6);
+    }
+}
+
+/* Professional border-3 class */
+.border-3 {
+    border-width: 3px;
+}
+
+/* Step counter animations */
+.step-counter {
+    display: inline-block;
+    transition: all 0.6s ease;
+}
+
+.process-step.active .step-counter {
+    animation: counterPulse 0.8s ease-out;
+}
+
+@keyframes counterPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); color: #38bdf8; }
+    100% { transform: scale(1); }
+}
+
+/* Step icon container animations */
+.step-icon-container {
+    transition: all 0.6s ease;
+    position: relative;
+    overflow: visible;
+}
+
+.process-step.active .step-icon-container {
+    border-color: #38bdf8;
+    background-color: rgba(55, 65, 81, 0.8);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+}
+
+.step-icon-bg {
+    transition: all 0.6s ease;
+}
+
+.process-step.active .step-icon-bg {
+    opacity: 1;
+    animation: iconGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes iconGlow {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* Step pulse effect */
+.step-pulse {
+    border: 2px solid transparent;
+    transition: all 0.6s ease;
+}
+
+.process-step.active .step-pulse {
+    animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        border-color: rgba(56, 189, 248, 0.8);
+        transform: scale(1);
+    }
+    50% {
+        border-color: rgba(56, 189, 248, 0.3);
+        transform: scale(1.15);
+    }
+    100% {
+        border-color: rgba(56, 189, 248, 0);
+        transform: scale(1.3);
+    }
+}
+
+/* Step detail animations */
+.step-detail {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(10px);
+}
+
+.process-step.active .step-detail {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ICON-SPECIFIC ANIMATIONS */
+
+/* Search icon animation */
+.search-icon {
+    transition: all 0.6s ease;
+}
+
+.process-step.active .search-icon {
+    animation: searchScan 2s ease-in-out infinite;
+}
+
+@keyframes searchScan {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Cogs icon animation */
+.cogs-icon {
+    transition: all 0.6s ease;
+    transform-origin: center;
+}
+
+.process-step.active .cogs-icon {
+    animation: cogsRotate 3s linear infinite;
+}
+
+@keyframes cogsRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Rocket icon animation */
+.rocket-icon {
+    transition: all 0.6s ease;
+}
+
+.process-step.active .rocket-icon {
+    animation: rocketLaunch 2s ease-in-out infinite;
+}
+
+@keyframes rocketLaunch {
+    0%, 100% { transform: translateY(0) rotate(-45deg); }
+    50% { transform: translateY(-8px) rotate(-35deg); }
+}
+
+/* Rocket trail effect */
+.rocket-trail {
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, 
+        rgba(56, 189, 248, 0.8) 0%,
+        rgba(6, 182, 212, 0.6) 50%,
+        transparent 100%);
+    transition: height 0.6s ease;
+    border-radius: 1px;
+}
+
+.process-step.active .rocket-trail {
+    height: 20px;
+    animation: trailFlicker 1.5s ease-in-out infinite;
+}
+
+@keyframes trailFlicker {
+    0%, 100% { opacity: 0.8; height: 20px; }
+    50% { opacity: 0.4; height: 15px; }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .step-icon-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .step-icon {
+        font-size: 2rem;
+    }
+    
+    .process-step.active .step-icon-container {
+        transform: scale(1.02);
+    }
+}
+
 /* TOP CONTROLS (Language Toggle) */
 .top-controls {
     position: fixed;

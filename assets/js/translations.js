@@ -458,6 +458,44 @@ export const translations = {
         es: "Paso",
         en: "Step"
     },
+    
+    // Professional Timeline Labels
+    consulting_timeline_diagnosis: {
+        es: "Diagnóstico",
+        en: "Diagnosis"
+    },
+    consulting_timeline_quick_wins: {
+        es: "& Quick Wins",
+        en: "& Quick Wins"
+    },
+    consulting_timeline_prototype: {
+        es: "Prototipo",
+        en: "Prototype"
+    },
+    consulting_timeline_mvp: {
+        es: "MVP Funcional",
+        en: "Functional MVP"
+    },
+    consulting_timeline_deployment: {
+        es: "Despliegue",
+        en: "Deployment"
+    },
+    consulting_timeline_scaling: {
+        es: "& Escalamiento",
+        en: "& Scaling"
+    },
+    consulting_timeline_step_1: {
+        es: "Paso 1",
+        en: "Step 1"
+    },
+    consulting_timeline_step_2: {
+        es: "Paso 2", 
+        en: "Step 2"
+    },
+    consulting_timeline_step_3: {
+        es: "Paso 3",
+        en: "Step 3"
+    },
     consulting_modal_what_includes: {
         es: "¿Qué incluye?",
         en: "What's included?"
