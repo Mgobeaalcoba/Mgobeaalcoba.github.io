@@ -385,11 +385,6 @@ body {
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    .step-icon-container {
-        width: 80px;
-        height: 80px;
-    }
-    
     .step-icon {
         font-size: 2rem;
     }
