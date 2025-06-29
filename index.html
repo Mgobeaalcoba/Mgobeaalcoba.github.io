@@ -2,21 +2,61 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Mariano Gobea Alcoba - CV</title>
+    
+    <!-- Theme and Performance -->
+    <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Mariano Gobea Portfolio">
+    
+    <!-- Preconnects for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//github.com">
+    <link rel="dns-prefetch" href="//linkedin.com">
+    <link rel="dns-prefetch" href="//wa.me">
     <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png&mask=circle&w=32&h=32">
     
     <!-- SEO and Social Sharing Meta Tags -->
     <meta name="description" content="CV interactivo de Mariano Gobea Alcoba, Data & Analytics Technical Leader en Mercado Libre con 6+ años de experiencia. Especialista en Python, SQL, ingeniería de datos a gran escala, automatización y desarrollo backend. Portfolio con proyectos destacados y servicios de consultoría tecnológica para empresas.">
     <meta name="author" content="Mariano Gobea Alcoba">
-    <meta property="og:title" content="Mariano Gobea Alcoba - CV Interactivo">
-    <meta property="og:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    
+    <!-- Local SEO -->
+    <meta name="geo.region" content="AR-C">
+    <meta name="geo.placename" content="Buenos Aires">
+    <meta name="geo.position" content="-34.6118;-58.3960">
+    <meta name="ICBM" content="-34.6118, -58.3960">
+    <meta name="keywords" content="Mariano Gobea Alcoba, Data Analytics Technical Leader Buenos Aires, Python developer Argentina, SQL specialist MercadoLibre, desarrollador backend Buenos Aires, ingeniero datos Argentina, portfolio desarrollador CABA, CV interactivo Buenos Aires">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Mariano Gobea Alcoba - Data & Analytics Technical Leader | MercadoLibre">
+    <meta property="og:description" content="Portfolio profesional de Mariano Gobea Alcoba, Technical Leader en MercadoLibre con 6+ años procesando millones de transacciones. Especialista en Python, SQL, ingeniería de datos y consultoría tecnológica para empresas.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Mariano Gobea Alcoba - Data & Analytics Technical Leader en MercadoLibre">
     <meta property="og:url" content="https://mgobeaalcoba.github.io/">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Portfolio - Mariano Gobea Alcoba">
+    <meta property="profile:first_name" content="Mariano">
+    <meta property="profile:last_name" content="Gobea Alcoba">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mariano Gobea Alcoba - CV Interactivo">
-    <meta name="twitter:description" content="Data & Analytics Technical Leader con experiencia en ingeniería de datos, desarrollo backend y docencia. ¡Conoce mis proyectos y trayectoria!">
+    <meta name="twitter:site" content="@MGobeaAlcoba">
+    <meta name="twitter:creator" content="@MGobeaAlcoba">
+    <meta name="twitter:title" content="Mariano Gobea Alcoba - Data & Analytics Technical Leader | MercadoLibre">
+    <meta name="twitter:description" content="Portfolio profesional con 6+ años en MercadoLibre procesando millones de transacciones. Especialista en Python, SQL e ingeniería de datos.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mgobeaalcoba.github.io/">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"></script>
@@ -210,7 +250,13 @@
         <!-- HEADER BLOCK -->
         <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 mb-12 animate-on-scroll">
             <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
-                 <div class="w-48 h-48 rounded-full border-4" style="border-color: var(--primary-color); background-image: url('https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png'); background-size: 155%; background-position: center 30%;">
+                <div class="relative w-48 h-48 rounded-full border-4 overflow-hidden" style="border-color: var(--primary-color);">
+                    <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png" 
+                         alt="Mariano Gobea Alcoba - Data &amp; Analytics Technical Leader en MercadoLibre, especialista en Python, SQL, ingeniería de datos y consultoría tecnológica" 
+                         class="w-full h-full object-cover object-center" 
+                         style="object-position: center 30%; transform: scale(1.55);"
+                         loading="eager"
+                         fetchpriority="high">
                 </div>
             </div>
             <div class="lg:col-span-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
