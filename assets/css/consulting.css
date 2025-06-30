@@ -901,7 +901,7 @@ html.light #about .text-white .text-purple-400 {
 .logo-img {
     height: 4.5rem; /* Logo grande - 72px */
     width: auto;
-    object-fit: cover; /* Recortar espacios en blanco */
+    object-fit: contain; /* Logos ya vienen recortados */
     object-position: left center; /* Alinear contenido a la izquierda */
     transition: all 0.3s ease;
 }
@@ -946,7 +946,7 @@ header nav {
     .logo-img {
         height: clamp(3rem, 8vw, 4rem) !important; /* Logo grande en móviles - 48px-64px */
         width: auto !important;
-        object-fit: cover !important; /* Recortar espacios */
+        object-fit: contain !important; /* Logos recortados */
     }
     
     /* Reduce controls container spacing */
@@ -982,7 +982,7 @@ header nav {
     .logo-img {
         height: clamp(2.5rem, 7vw, 3rem) !important; /* Logo grande incluso en móviles pequeños - 40px-48px */
         width: auto !important;
-        object-fit: cover !important;
+        object-fit: contain !important; /* Logos recortados */
     }
     
     .control-btn {
