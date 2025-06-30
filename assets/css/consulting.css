@@ -386,11 +386,11 @@ body {
 /* Mobile optimizations */
 @media (max-width: 768px) {
     .step-icon {
-        font-size: 2rem;
+        font-size: 1.25rem;
     }
     
     .process-step.active .step-icon-container {
-        transform: scale(1.02);
+        transform: scale(1.05);
     }
 }
 
@@ -883,4 +883,31 @@ html.light #about .text-white .text-cyan-400 {
 
 html.light #about .text-white .text-purple-400 {
     color: #7c3aed !important; /* purple-600 - for "+" suffix */
+}
+
+/* ======== MOBILE RESPONSIVE ADJUSTMENTS ======== */
+
+/* Mobile header spacing adjustments */
+@media (max-width: 768px) {
+    /* Responsive logo size for mobile devices */
+    header nav > a {
+        font-size: clamp(0.875rem, 4vw, 1rem); /* Responsive between text-sm and text-base */
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+    header nav > a {
+        font-size: clamp(0.75rem, 3.5vw, 0.875rem); /* Even smaller for very small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .step-icon {
+        font-size: 1.25rem; /* smaller icons on mobile */
+    }
+    
+    .process-step.active .step-icon-container {
+        transform: scale(1.05); /* less scaling on mobile */
+    }
 } 
