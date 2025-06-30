@@ -885,15 +885,47 @@ html.light #about .text-white .text-purple-400 {
     color: #7c3aed !important; /* purple-600 - for "+" suffix */
 }
 
+/* ======== LOGO STYLING ======== */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.8;
+}
+
+.logo-img {
+    max-height: 4rem; /* 64px default - aún más grande */
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* Logo styling for light mode */
+html.light .logo-img {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+}
+
 /* ======== MOBILE RESPONSIVE ADJUSTMENTS ======== */
 
 /* Mobile header spacing adjustments */
 @media (max-width: 768px) {
-    /* Logo styling and spacing for mobile */
-    header nav > a {
-        font-size: clamp(0.875rem, 4vw, 1rem); /* Responsive size */
+    /* Logo container styling and spacing for mobile */
+    header nav > a.logo-container {
         margin-right: 1rem; /* Force minimum 16px space */
         flex-shrink: 1; /* Allow logo to shrink if needed */
+    }
+    
+    /* Logo image responsive sizing */
+    .logo-img {
+        height: clamp(2.25rem, 9vw, 3rem) !important; /* Responsive height 36px-48px */
+        width: auto;
     }
     
     /* Reduce controls container spacing */
@@ -923,9 +955,12 @@ html.light #about .text-white .text-purple-400 {
 
 /* Extra small mobile devices - even more aggressive */
 @media (max-width: 375px) {
-    header nav > a {
-        font-size: clamp(0.75rem, 3.5vw, 0.875rem); /* Even smaller text */
+    header nav > a.logo-container {
         margin-right: 0.75rem; /* Still maintain some space */
+    }
+    
+    .logo-img {
+        height: clamp(2rem, 8vw, 2.25rem) !important; /* Even larger logo for tiny screens */
     }
     
     .control-btn {
