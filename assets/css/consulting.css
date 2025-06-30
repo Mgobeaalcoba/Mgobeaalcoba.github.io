@@ -891,6 +891,7 @@ html.light #about .text-white .text-purple-400 {
     display: flex;
     align-items: center;
     transition: opacity 0.3s ease;
+    position: relative;
 }
 
 .logo-container:hover {
@@ -898,18 +899,37 @@ html.light #about .text-white .text-purple-400 {
 }
 
 .logo-img {
-    max-height: 4rem; /* 64px default - aún más grande */
+    height: 4.5rem; /* Logo grande - 72px */
     width: auto;
-    object-fit: contain;
+    object-fit: cover; /* Recortar espacios en blanco */
+    object-position: left center; /* Alinear contenido a la izquierda */
     transition: all 0.3s ease;
 }
 
-/* Logo styling for light mode */
-html.light .logo-img {
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 0.375rem;
-    padding: 0.25rem;
+/* Logo visibility based on theme */
+.logo-dark {
+    display: block;
+}
+
+.logo-light {
+    display: none;
+}
+
+/* Show appropriate logo in light mode */
+html.light .logo-dark {
+    display: none;
+}
+
+html.light .logo-light {
+    display: block;
+}
+
+/* ======== HEADER COMPACTNESS ======== */
+
+/* Make header more compact by reducing nav padding */
+header nav {
+    padding-top: 0.5rem; /* Compacto pero que acomode el logo grande - 8px */
+    padding-bottom: 0.5rem;
 }
 
 /* ======== MOBILE RESPONSIVE ADJUSTMENTS ======== */
@@ -924,8 +944,9 @@ html.light .logo-img {
     
     /* Logo image responsive sizing */
     .logo-img {
-        height: clamp(2.25rem, 9vw, 3rem) !important; /* Responsive height 36px-48px */
-        width: auto;
+        height: clamp(3rem, 8vw, 4rem) !important; /* Logo grande en móviles - 48px-64px */
+        width: auto !important;
+        object-fit: cover !important; /* Recortar espacios */
     }
     
     /* Reduce controls container spacing */
@@ -936,8 +957,7 @@ html.light .logo-img {
     
     /* Tighter nav container on mobile */
     header nav {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+        padding: 0.375rem 0.75rem; /* Compacto pero que acomode logo grande en móviles */
         gap: 0.5rem; /* Add gap between main elements */
     }
     
@@ -960,7 +980,9 @@ html.light .logo-img {
     }
     
     .logo-img {
-        height: clamp(2rem, 8vw, 2.25rem) !important; /* Even larger logo for tiny screens */
+        height: clamp(2.5rem, 7vw, 3rem) !important; /* Logo grande incluso en móviles pequeños - 40px-48px */
+        width: auto !important;
+        object-fit: cover !important;
     }
     
     .control-btn {
