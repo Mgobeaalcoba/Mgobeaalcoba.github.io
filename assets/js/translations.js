@@ -813,8 +813,8 @@ export const translations = {
         en: "Return on Investment (ROI):"
     },
     consulting_copyright: {
-        es: "© 2025 Mariano Gobea Alcoba Consulting. Todos los derechos reservados.",
-        en: "© 2025 Mariano Gobea Alcoba Consulting. All rights reserved."
+        es: "© 2025 Mariano Gobea Alcoba Tech Consulting. Todos los derechos reservados.",
+        en: "© 2025 Mariano Gobea Alcoba Tech Consulting. All rights reserved."
     },
 
     // ========== PACK DATA TRANSLATIONS ==========

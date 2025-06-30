@@ -453,7 +453,7 @@ async function generatePDF(data) {
         });
         
         doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-        doc.save(`Propuesta-MGA-Consulting-${company.replace(/\s+/g, '-')}.pdf`);
+        doc.save(`Propuesta-MGA-Tech-Consulting-${company.replace(/\s+/g, '-')}.pdf`);
 
     } catch(error) {
         console.error("Error generating PDF:", error);
