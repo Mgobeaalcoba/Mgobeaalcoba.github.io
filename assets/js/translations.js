@@ -408,6 +408,54 @@ export const translations = {
         es: "El dueño de una pyme de retail perdía medio día cada lunes consolidando reportes de Facebook, Twitter y LinkedIn en un único Excel para entender el rendimiento. Ahora, recibe un email cada lunes a las 8 AM con un link a un reporte unificado y visual, permitiéndole tomar decisiones estratégicas antes de empezar la semana.",
         en: "The owner of a retail SME lost half a day every Monday consolidating reports from Facebook, Twitter and LinkedIn into a single Excel to understand performance. Now, he receives an email every Monday at 8 AM with a link to a unified and visual report, allowing him to make strategic decisions before starting the week."
     },
+    consulting_example_sales_automation_title: {
+        es: "Automatización de Ventas",
+        en: "Sales Automation"
+    },
+    consulting_example_sales_automation_desc: {
+        es: "Recuperación automática de carritos abandonados, alertas de precios competitivos y sugerencias inteligentes de upselling/cross-selling.",
+        en: "Automatic abandoned cart recovery, competitive price alerts and intelligent upselling/cross-selling suggestions."
+    },
+    consulting_example_hr_automation_title: {
+        es: "Automatización de RRHH",
+        en: "HR Automation"
+    },
+    consulting_example_hr_automation_desc: {
+        es: "Onboarding automático de nuevos empleados y procesamiento inteligente de reembolsos de gastos con IA.",
+        en: "Automatic onboarding of new employees and intelligent processing of expense reimbursements with AI."
+    },
+    consulting_example_operations_automation_title: {
+        es: "Automatización Operativa",
+        en: "Operations Automation"
+    },
+    consulting_example_operations_automation_desc: {
+        es: "Facturación automática inteligente y sistema de soporte al cliente con derivación automática por especialidad.",
+        en: "Intelligent automatic billing and customer support system with automatic routing by specialty."
+    },
+    consulting_example_sales_automation_story: {
+        es: "Una tienda online perdía ventas por carritos abandonados y no podía competir en precios. Automatizamos su proceso de ventas: 1) Emails automáticos de recuperación de carrito (30min, 2hrs, 24hrs), 2) Monitoreo y ajuste automático de precios vs competencia, 3) Ofertas de productos complementarios basadas en historial de compra, 4) Descuentos automáticos por lealtad. Resultado: 40% más conversiones, 25% mayor ticket promedio y 60% menos carritos abandonados.",
+        en: "An online store was losing sales due to abandoned carts and couldn't compete on prices. We automated their sales process: 1) Automatic cart recovery emails (30min, 2hrs, 24hrs), 2) Monitoring and automatic price adjustment vs competition, 3) Complementary product offers based on purchase history, 4) Automatic loyalty discounts. Result: 40% more conversions, 25% higher average ticket and 60% fewer abandoned carts."
+    },
+    consulting_example_hr_automation_story: {
+        es: "Una consultora perdía tiempo valioso en procesos manuales de recursos humanos. Automatizamos su gestión de personal: 1) Onboarding automático: creación de cuentas, accesos y asignación de equipos, 2) Envío programado de documentación y checklist de bienvenida, 3) Procesamiento de reembolsos con IA desde fotos de tickets, 4) Seguimiento automático de evaluaciones de desempeño. Ahorro de tiempo: Onboarding de 8hrs a 2hrs, reembolsos de 3hrs a 15min semanales.",
+        en: "A consulting firm was losing valuable time on manual HR processes. We automated their personnel management: 1) Automatic onboarding: account creation, access and team assignment, 2) Scheduled sending of documentation and welcome checklist, 3) AI expense reimbursement processing from ticket photos, 4) Automatic performance evaluation tracking. Time savings: Onboarding from 8hrs to 2hrs, reimbursements from 3hrs to 15min weekly."
+    },
+    consulting_example_operations_automation_story: {
+        es: "Una pyme de servicios tenía operaciones lentas y costosas. Automatizamos sus procesos operativos clave: 1) Facturación automática desde órdenes de servicio con envío por email, 2) Recordatorios automáticos de vencimiento de pagos, 3) Sistema inteligente de tickets que categoriza y deriva consultas al especialista correcto, 4) Actualización automática de inventario y reportes operativos. Eficiencia operativa: Facturación de 12hrs a 1hr semanal, 70% de consultas resueltas en menos de 2hrs.",
+        en: "A service SME had slow and expensive operations. We automated their key operational processes: 1) Automatic billing from service orders with email sending, 2) Automatic payment due reminders, 3) Intelligent ticketing system that categorizes and routes queries to the right specialist, 4) Automatic inventory updates and operational reports. Operational efficiency: Billing from 12hrs to 1hr weekly, 70% of queries resolved in less than 2hrs."
+    },
+    consulting_example_marketing_automation_title: {
+        es: "Automatización de Marketing",
+        en: "Marketing Automation"
+    },
+    consulting_example_marketing_automation_desc: {
+        es: "Lead nurturing automático, secuencias de email personalizadas y scoring inteligente de prospectos para maximizar conversiones.",
+        en: "Automatic lead nurturing, personalized email sequences and intelligent prospect scoring to maximize conversions."
+    },
+    consulting_example_marketing_automation_story: {
+        es: "Una inmobiliaria perdía leads porque no tenía seguimiento sistemático de prospectos. Automatizamos su marketing digital: 1) Captura automática de leads desde web/redes sociales, 2) Secuencias de emails personalizados según el tipo de propiedad de interés, 3) Scoring automático de leads calientes/fríos, 4) Recordatorios automáticos para el equipo de ventas sobre follow-ups, 5) Campañas de remarketing para visitantes del sitio web. Resultado: 60% más leads calificados, 35% más conversiones y 80% menos leads perdidos por falta de seguimiento.",
+        en: "A real estate agency was losing leads because they had no systematic prospect follow-up. We automated their digital marketing: 1) Automatic lead capture from web/social media, 2) Personalized email sequences based on property type of interest, 3) Automatic hot/cold lead scoring, 4) Automatic reminders for sales team about follow-ups, 5) Remarketing campaigns for website visitors. Result: 60% more qualified leads, 35% more conversions and 80% fewer leads lost due to lack of follow-up."
+    },
     consulting_example_chatbot_title: {
         es: "Chatbot de Soporte 24/7",
         en: "24/7 Support Chatbot"

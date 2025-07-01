@@ -108,7 +108,7 @@ function updateExampleDataAttributes(lang) {
     const exampleCards = document.querySelectorAll('.example-card');
     
     const exampleTypes = [
-        'social', 'reports', 'chatbot', 'feedback', 'sales', 'inventory'
+        'sales_automation', 'hr_automation', 'operations_automation', 'social', 'reports', 'marketing_automation', 'chatbot', 'feedback', 'sales', 'inventory'
     ];
     
     exampleCards.forEach((card, index) => {
