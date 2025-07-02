@@ -812,6 +812,77 @@ function trackEvent(eventName, eventData = {}) {
     }
 }
 
+// Track standard GA4 conversion events for consulting
+function trackConversion(conversionType, eventData = {}) {
+    let eventName = '';
+    let standardData = {};
+    
+    switch(conversionType) {
+        case 'lead_generation':
+            eventName = 'generate_lead';
+            standardData = {
+                currency: 'USD',
+                value: eventData.value || 100, // Higher value for consulting leads
+                lead_source: 'consulting_page',
+                ...eventData
+            };
+            break;
+        case 'form_submit':
+            eventName = 'form_submit';
+            standardData = {
+                form_id: eventData.form_id || 'proposal_form',
+                form_destination: 'proposal_generation',
+                value: eventData.value || 200, // High value for proposal generation
+                currency: 'USD',
+                ...eventData
+            };
+            break;
+        case 'contact':
+            eventName = 'contact';
+            standardData = {
+                contact_method: eventData.contact_method || 'unknown',
+                value: eventData.value || 75,
+                currency: 'USD',
+                conversion_source: 'consulting_page',
+                ...eventData
+            };
+            break;
+        case 'file_download':
+            eventName = 'file_download';
+            standardData = {
+                file_name: eventData.file_name || 'proposal.pdf',
+                file_extension: eventData.file_extension || '.pdf',
+                link_url: eventData.link_url || window.location.href,
+                value: eventData.value || 150,
+                currency: 'USD',
+                ...eventData
+            };
+            break;
+        case 'begin_checkout': // For service interest
+            eventName = 'begin_checkout';
+            standardData = {
+                currency: 'USD',
+                value: eventData.value || 50,
+                items: eventData.items || [],
+                ...eventData
+            };
+            break;
+        default:
+            trackEvent(conversionType, eventData);
+            return;
+    }
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            custom_parameter_1: 'consulting_page',
+            page_location: window.location.href,
+            page_title: document.title,
+            ...standardData
+        });
+        console.log(`[Analytics] Conversion tracked: ${eventName}`, standardData);
+    }
+}
+
 function initializeAnalyticsTracking() {
     // Track page view
     trackEvent('page_view', {
@@ -819,36 +890,57 @@ function initializeAnalyticsTracking() {
         page_title: document.title
     });
 
-    // Track CTA button clicks
+    // Track CTA button clicks (lead generation)
     const proposalBtn = document.getElementById('open-proposal-modal-btn');
     if (proposalBtn) {
         proposalBtn.addEventListener('click', () => {
-            trackEvent('cta_click', {
+            trackConversion('lead_generation', {
+                lead_source: 'hero_cta',
                 button_text: 'Crear Pre-propuesta Instantánea',
-                section: 'hero'
+                section: 'hero',
+                value: 150
             });
         });
     }
 
-    // Track service card clicks
+    // Track service card clicks (begin checkout)
     const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
+    serviceCards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            const service = card.getAttribute('data-service');
-            trackEvent('service_interest', {
+            const service = card.getAttribute('data-service') || `service_${index}`;
+            trackConversion('begin_checkout', {
                 service_type: service,
-                section: 'services'
+                section: 'services',
+                value: 75,
+                items: [{
+                    item_id: service,
+                    item_name: service,
+                    item_category: 'consulting_service',
+                    quantity: 1,
+                    price: 75
+                }]
             });
         });
     });
 
-    // Track pack card clicks
+    // Track pack card clicks (view item)
     const packCards = document.querySelectorAll('.pack-card');
-    packCards.forEach(card => {
+    packCards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            trackEvent('pack_interest', {
-                pack_type: 'pack_click',
-                section: 'packs'
+            const packType = ['starter', 'growth', 'bi'][index] || `pack_${index}`;
+            const packValues = [850, 1500, 1200];
+            
+            // Track view_item event
+            gtag('event', 'view_item', {
+                currency: 'USD',
+                value: packValues[index] || 850,
+                items: [{
+                    item_id: packType,
+                    item_name: `Pack ${packType}`,
+                    item_category: 'consulting_pack',
+                    quantity: 1,
+                    price: packValues[index] || 850
+                }]
             });
         });
     });
@@ -857,10 +949,11 @@ function initializeAnalyticsTracking() {
     const proposalForm = document.getElementById('proposal-form');
     if (proposalForm) {
         proposalForm.addEventListener('submit', () => {
-            trackEvent('proposal_generated', {
-                conversion_type: 'pdf_download',
+            trackConversion('form_submit', {
+                form_id: 'proposal_form',
                 section: 'proposal_form',
-                value: 1
+                value: 300, // High value for proposal generation
+                conversion_type: 'proposal_generated'
             });
         });
     }
@@ -868,10 +961,10 @@ function initializeAnalyticsTracking() {
     // Track WhatsApp contact (conversion)
     document.addEventListener('click', (e) => {
         if (e.target.closest('#whatsapp-link')) {
-            trackEvent('contact_conversion', {
+            trackConversion('contact', {
                 contact_method: 'whatsapp',
-                conversion_type: 'contact_click',
-                value: 1
+                value: 100,
+                conversion_type: 'direct_contact'
             });
         }
     });
@@ -879,21 +972,23 @@ function initializeAnalyticsTracking() {
     // Track Email contact (conversion)
     document.addEventListener('click', (e) => {
         if (e.target.closest('#email-link')) {
-            trackEvent('contact_conversion', {
+            trackConversion('contact', {
                 contact_method: 'email',
-                conversion_type: 'contact_click',
-                value: 1
+                value: 75,
+                conversion_type: 'direct_contact'
             });
         }
     });
 
-    // Track Calendly scheduling
+    // Track Calendly scheduling (high-value conversion)
     const calendlyBtn = document.querySelector('[onclick*="Calendly"]');
     if (calendlyBtn) {
         calendlyBtn.addEventListener('click', () => {
-            trackEvent('scheduling_interest', {
-                calendar_type: 'calendly',
-                section: 'footer'
+            trackConversion('contact', {
+                contact_method: 'calendly',
+                section: 'footer',
+                value: 200, // High value for direct scheduling
+                conversion_type: 'appointment_booking'
             });
         });
     }
@@ -914,24 +1009,135 @@ function initializeAnalyticsTracking() {
 
     window.addEventListener('scroll', trackScrollDepth);
 
-    console.log('[Analytics] Event tracking initialized');
+    // Track example modal opens (engagement leading to interest)
+    document.addEventListener('click', (e) => {
+        const exampleCard = e.target.closest('.example-card');
+        if (exampleCard) {
+            trackEvent('example_view', {
+                example_type: exampleCard.dataset.title || 'unknown',
+                engagement_type: 'modal_open',
+                section: 'examples'
+            });
+        }
+    });
+
+    // Track pack modal opens (high-intent)
+    document.addEventListener('click', (e) => {
+        const packCard = e.target.closest('.pack-card');
+        if (packCard) {
+            const packIndex = Array.from(document.querySelectorAll('.pack-card')).indexOf(packCard);
+            const packType = ['starter', 'growth', 'bi'][packIndex] || 'unknown';
+            
+            trackEvent('pack_detail_view', {
+                pack_type: packType,
+                engagement_type: 'modal_open',
+                section: 'packs'
+            });
+        }
+    });
+
+    // Track language changes (user behavior)
+    document.addEventListener('click', (e) => {
+        const langBtn = e.target.closest('[data-lang]');
+        if (langBtn) {
+            const language = langBtn.getAttribute('data-lang');
+            trackEvent('language_change', {
+                language: language,
+                previous_language: document.documentElement.lang,
+                engagement_type: 'language_switch'
+            });
+        }
+    });
+
+    // Track theme changes (user behavior)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            trackEvent('theme_change', {
+                theme: isDark ? 'light' : 'dark',
+                engagement_type: 'theme_toggle'
+            });
+        });
+    }
+
+    // Track social media clicks
+    document.addEventListener('click', (e) => {
+        const socialLink = e.target.closest('[href*="linkedin"], [href*="github"], [href*="twitter"]');
+        if (socialLink) {
+            const platform = socialLink.href.includes('linkedin') ? 'linkedin' : 
+                           socialLink.href.includes('github') ? 'github' : 'twitter';
+            trackEvent('social_engagement', {
+                social_platform: platform,
+                link_url: socialLink.href,
+                engagement_type: 'social_click'
+            });
+        }
+    });
+
+    // Track time on page milestones
+    let timeOnPage = 0;
+    const trackTimeOnPage = () => {
+        timeOnPage += 30;
+        if (timeOnPage % 60 === 0) { // Every minute
+            trackEvent('time_on_page', {
+                time_seconds: timeOnPage,
+                engagement_type: 'session_duration',
+                milestone: `${timeOnPage/60}min`
+            });
+        }
+    };
+    
+    setInterval(trackTimeOnPage, 30000); // Track every 30 seconds
+
+    // Track section visibility (engagement metric)
+    const sections = ['services', 'packs', 'examples', 'process', 'about', 'contact'];
+    const observedSections = new Set();
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !observedSections.has(entry.target.id)) {
+                observedSections.add(entry.target.id);
+                trackEvent('section_view', {
+                    section_name: entry.target.id,
+                    engagement_type: 'section_scroll',
+                    view_order: observedSections.size,
+                    page_type: 'consulting'
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) sectionObserver.observe(section);
+    });
+
+    console.log('[Analytics] Enhanced event tracking initialized');
 }
 
-// Initialize the timeline when DOM is ready and function is defined
+// Initialize analytics immediately, other modules with delay
 document.addEventListener('DOMContentLoaded', async () => {
-    // Wait a bit for all other initialization to complete
-    setTimeout(async () => {
-        try {
-            initializeProcessTimeline();
-            initializeMetricsCounters();
-            initializeAnalyticsTracking();
-            
-            // Initialize image optimization
-            await initializeImageOptimization();
-            
-            logger.success('Consulting', 'All consulting page modules initialized successfully');
-        } catch (error) {
-            logger.error('Failed to initialize consulting page modules:', error);
-        }
-    }, 500);
+    try {
+        // Initialize analytics immediately to capture early events
+        initializeAnalyticsTracking();
+        
+        // Initialize other modules with minimal delay
+        setTimeout(async () => {
+            try {
+                initializeProcessTimeline();
+                initializeMetricsCounters();
+                
+                // Initialize image optimization
+                await initializeImageOptimization();
+                
+                logger.success('Consulting', 'All consulting page modules initialized successfully');
+            } catch (error) {
+                logger.error('Failed to initialize consulting page modules:', error);
+            }
+        }, 100); // Reduced delay from 500ms to 100ms
+        
+    } catch (error) {
+        logger.error('Failed to initialize analytics:', error);
+    }
 }); 

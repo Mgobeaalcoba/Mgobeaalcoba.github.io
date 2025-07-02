@@ -173,6 +173,62 @@ function trackEvent(eventName, eventData = {}) {
     }
 }
 
+// Track standard GA4 conversion events
+function trackConversion(conversionType, eventData = {}) {
+    let eventName = '';
+    let standardData = {};
+    
+    switch(conversionType) {
+        case 'lead_generation':
+            eventName = 'generate_lead';
+            standardData = {
+                currency: 'USD',
+                value: eventData.value || 10, // Estimated lead value
+                ...eventData
+            };
+            break;
+        case 'file_download':
+            eventName = 'file_download';
+            standardData = {
+                file_name: eventData.file_name || 'cv.pdf',
+                file_extension: eventData.file_extension || '.pdf',
+                link_url: eventData.link_url || window.location.href,
+                ...eventData
+            };
+            break;
+        case 'form_submit':
+            eventName = 'form_submit';
+            standardData = {
+                form_id: eventData.form_id || 'contact_form',
+                form_destination: eventData.form_destination || 'portfolio_contact',
+                ...eventData
+            };
+            break;
+        case 'contact':
+            eventName = 'contact';
+            standardData = {
+                contact_method: eventData.contact_method || 'unknown',
+                value: eventData.value || 5,
+                currency: 'USD',
+                ...eventData
+            };
+            break;
+        default:
+            trackEvent(conversionType, eventData);
+            return;
+    }
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            custom_parameter_1: 'portfolio_page',
+            page_location: window.location.href,
+            page_title: document.title,
+            ...standardData
+        });
+        console.log(`[Analytics] Conversion tracked: ${eventName}`, standardData);
+    }
+}
+
 export function trackSocialClick(event, platform) {
     event.preventDefault();
     const url = event.currentTarget.href;
@@ -216,11 +272,12 @@ export function initializeIndexAnalytics() {
     const downloadBtn = DOM.find('#download-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
-            trackEvent('cv_download', {
-                conversion_type: 'cv_download',
-                file_type: 'pdf',
-                value: 1,
-                section: 'contact'
+            trackConversion('file_download', {
+                file_name: 'mariano_gobea_cv.pdf',
+                file_extension: '.pdf',
+                link_url: window.location.href,
+                section: 'contact',
+                value: 15 // Estimated value of CV download
             });
         });
     }
@@ -230,10 +287,11 @@ export function initializeIndexAnalytics() {
     consultingBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const isTeaser = btn.closest('[data-translate="consulting_teaser_btn"]');
-            trackEvent('consulting_interest', {
-                conversion_type: 'consulting_navigation',
+            trackConversion('lead_generation', {
+                lead_source: 'portfolio_page',
                 button_location: isTeaser ? 'teaser_section' : 'header',
-                value: 1
+                value: 25, // Estimated lead value
+                conversion_type: 'consulting_interest'
             });
         });
     });
@@ -242,11 +300,11 @@ export function initializeIndexAnalytics() {
     const calendlyBtns = DOM.findAll('[onclick*="Calendly"]');
     calendlyBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            trackEvent('scheduling_interest', {
-                conversion_type: 'calendly_click',
-                calendar_type: 'calendly',
-                value: 1,
-                section: 'header'
+            trackConversion('contact', {
+                contact_method: 'calendly',
+                section: 'header',
+                value: 50, // High value for direct scheduling
+                conversion_type: 'appointment_booking'
             });
         });
     });
