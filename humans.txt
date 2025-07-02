@@ -1,0 +1,58 @@
+/* TEAM */
+Developer & Designer: Mariano Gobea Alcoba
+Contact: gobeamariano [at] gmail.com
+LinkedIn: https://www.linkedin.com/in/mariano-gobea-alcoba/
+GitHub: https://github.com/Mgobeaalcoba
+Twitter: @MGobeaAlcoba
+Location: Buenos Aires, Argentina
+
+/* SITE */
+Site: https://mgobeaalcoba.github.io/
+Repository: https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io
+Standards: HTML5, CSS3, JavaScript ES6+, Semantic Web
+Components: Google Analytics, GitHub Pages, Tailwind CSS
+Software: VS Code, Git, Adobe Creative Suite
+
+/* THANKS */
+Fonts: Inter by Rasmus Andersson (https://rsms.me/inter/)
+Icons: Font Awesome by Dave Gandy (https://fontawesome.com/)
+Hosting: GitHub Pages
+CDN: jsDelivr, Google Fonts
+Inspiration: Modern portfolio design trends and technical documentation sites
+
+/* LAST UPDATE */
+Last update: 2025/01/29
+Language: Spanish / English
+Doctype: HTML5
+IDE: Visual Studio Code
+
+/* TECHNOLOGIES USED */
+Frontend: HTML5, CSS3, JavaScript ES6+, Tailwind CSS
+Backend Integrations: Google Analytics, Calendly API
+Tools: GitHub Actions, Git Version Control
+Performance: Image optimization, CDN usage, Lazy loading
+SEO: Structured data, Open Graph, Twitter Cards, Sitemap
+
+/* STATS */
+Initial Release: 2024
+Total Lines of Code: 2000+
+Pages: 2 (Portfolio, Consulting)
+Supported Languages: Spanish, English
+Mobile Responsive: Yes
+Accessibility: WCAG 2.1 AA Compliant
+Performance Score: 95+ (Lighthouse)
+
+/* CONTACT FOR BUSINESS */
+Services: Data Engineering, Technical Leadership, Process Automation
+Consulting: Business Intelligence, AI Implementation, System Architecture
+Response Time: Within 24 hours
+Preferred Contact: WhatsApp +54-9-11-27475569 or Email
+
+                              .-.
+                             (o o)
+                      +---oOO-(_)-OOo---+
+                      |                 |
+                      |  Thanks for     |
+                      |  visiting!      |
+                      |                 |
+                      +---oOO-------OOo-+ 

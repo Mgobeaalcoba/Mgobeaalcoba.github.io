@@ -2,7 +2,9 @@ User-agent: *
 Allow: /
 Allow: /index.html
 Allow: /consulting.html
-Allow: /assets/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
 
 # Disallow admin and config files
 Disallow: /.git/
@@ -10,9 +12,41 @@ Disallow: /node_modules/
 Disallow: /.gitignore
 Disallow: /package.json
 Disallow: /*.md
+Disallow: /BRIEF.md
+Disallow: /CHANGELOG.md
+Disallow: /CODE_ANALYSIS.md
+Disallow: /SCAFFOLDING.md
+
+# Allow specific important files
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Sitemap location
 Sitemap: https://mgobeaalcoba.github.io/sitemap.xml
 
-# Crawl-delay (optional - helps prevent overloading)
-Crawl-delay: 1 
+# Humans file location
+# More info about humans.txt: http://humanstxt.org/
+# Humans: https://mgobeaalcoba.github.io/humans.txt
+
+# Preferred domain
+# Host: https://mgobeaalcoba.github.io
+
+# Crawl-delay (helps prevent overloading)
+Crawl-delay: 1
+
+# Search engines specific instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: FacebookBot
+Allow: /
+Allow: /assets/images/
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /assets/images/ 
