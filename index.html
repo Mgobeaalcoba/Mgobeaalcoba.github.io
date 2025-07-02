@@ -23,6 +23,10 @@
     <link rel="dns-prefetch" href="//github.com">
     <link rel="dns-prefetch" href="//linkedin.com">
     <link rel="dns-prefetch" href="//wa.me">
+    
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
     <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png&mask=circle&w=32&h=32">
     
     <!-- SEO and Social Sharing Meta Tags -->
@@ -94,7 +98,7 @@
     </script>
 
     <!-- External Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.0"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -109,92 +113,48 @@
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
-    [
-        {
-            "@context": "https://schema.org",
-            "@type": ["Person", "ProfilePage"],
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Mariano Gobea Alcoba",
-                "jobTitle": "Data & Analytics Technical Leader",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "MercadoLibre"
-                },
-                "url": "https://mgobeaalcoba.github.io",
-                "image": [
-                    "https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png",
-                    "https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png"
-                ],
-                "logo": "https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png",
-                "description": "Data & Analytics Technical Leader en MercadoLibre con 6+ años de experiencia en ingeniería de datos, desarrollo backend y consultoría tecnológica.",
-                "alumniOf": {
-                    "@type": "Organization",
-                    "name": "Universidad de Buenos Aires"
-                },
-                "knowsAbout": [
-                    "Python",
-                    "SQL", 
-                    "Data Engineering",
-                    "Backend Development",
-                    "Business Intelligence",
-                    "Process Automation",
-                    "Artificial Intelligence",
-                    "Machine Learning",
-                    "Django",
-                    "Flask",
-                    "PostgreSQL",
-                    "Git"
-                ],
-                "sameAs": [
-                    "https://www.linkedin.com/in/mariano-gobea-alcoba/",
-                    "https://github.com/Mgobeaalcoba",
-                    "https://x.com/MGobeaAlcoba"
-                ],
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Buenos Aires",
-                    "addressCountry": "Argentina"
-                },
-                "email": "gobeamariano@gmail.com",
-                "telephone": "+54-9-11-27475569",
-                "hasOccupation": {
-                    "@type": "Occupation",
-                    "name": "Data & Analytics Technical Leader",
-                    "occupationLocation": {
-                        "@type": "Place",
-                        "name": "MercadoLibre"
-                    },
-                    "skills": [
-                        "Data Engineering",
-                        "Python Programming", 
-                        "SQL Database Management",
-                        "Backend Development",
-                        "Business Intelligence",
-                        "Process Automation"
-                    ]
-                }
-            }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Portfolio - Mariano Gobea Alcoba",
-            "url": "https://mgobeaalcoba.github.io",
-            "logo": "https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png",
-            "description": "Portfolio profesional de Mariano Gobea Alcoba, especialista en Data & Analytics con servicios de consultoría tecnológica",
-            "founder": {
-                "@type": "Person",
-                "name": "Mariano Gobea Alcoba"
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Mariano Gobea Alcoba",
+            "jobTitle": "Data & Analytics Technical Leader",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "MercadoLibre"
             },
-            "offers": {
-                "@type": "Offer",
-                "name": "Servicios de Consultoría Tecnológica",
-                "description": "Consultoría especializada en automatización de procesos, IA aplicada y business intelligence para PyMEs",
-                "url": "https://mgobeaalcoba.github.io/consulting.html"
-            }
+            "url": "https://mgobeaalcoba.github.io",
+            "image": "https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png",
+            "description": "Data & Analytics Technical Leader en MercadoLibre con 6+ años de experiencia en ingeniería de datos, desarrollo backend y consultoría tecnológica.",
+            "alumniOf": {
+                "@type": "Organization",
+                "name": "Universidad de Buenos Aires"
+            },
+            "knowsAbout": [
+                "Python",
+                "SQL", 
+                "Data Engineering",
+                "Backend Development",
+                "Business Intelligence",
+                "Process Automation",
+                "Artificial Intelligence",
+                "Machine Learning"
+            ],
+            "sameAs": [
+                "https://www.linkedin.com/in/mariano-gobea-alcoba/",
+                "https://github.com/Mgobeaalcoba",
+                "https://x.com/MGobeaAlcoba"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Buenos Aires",
+                "addressCountry": "Argentina"
+            },
+            "email": "gobeamariano@gmail.com",
+            "telephone": "+54-9-11-27475569"
         }
-    ]
+    }
     </script>
 </head>
 <body class="antialiased intro-active">
