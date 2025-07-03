@@ -41,6 +41,10 @@ export const translations = {
         es: "Productividad", 
         en: "Productivity" 
     },
+    stack_cybersecurity: { 
+        es: "Ciberseguridad", 
+        en: "Cybersecurity" 
+    },
     education_title: { 
         es: "Educación", 
         en: "Education" 

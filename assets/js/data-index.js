@@ -38,6 +38,9 @@ export const techStackData = {
         "Team Management", "Mentoring", "Public Speaking", "Negotiation", "Time Management",
         "Adaptability", "Creativity", "Emotional Intelligence", "Conflict Resolution"
     ],
+    "Cybersecurity": [
+        "Hacking", "Pentesting", "Ciberseguridad", "Desarrollo Seguro", "Hacking ético", "Seguridad", "SSDLC"
+    ],
     "Other": [
         "Blockchain"
     ]
@@ -308,6 +311,9 @@ export const educationData = [
 
 // Certifications with tags
 export const certificationsData = [
+    { name: "Buenas prácticas de desarrollo seguro para Back-end - Python", tags: ["Python", "Backend", "Hacking", "Ciberseguridad", "Pentesting", "Desarrollo Seguro"] },
+    { name: "Onboarding - Security Guardians - Guardian", tags: ["Hacking ético", "Hacking", "Backend", "Python", "Pentesting", "Ciberseguridad"] },
+    { name: "Seguridad en el Ciclo de Desarrollo - SSDLC", tags: ["Seguridad", "Desarrollo", "SSDLC", "Pentesting", "Ciberseguridad"] },
     { name: "GenAl for Champions", tags: ["LLM", "AI"] },
     { name: "Curso de N8N", tags: ["n8n", "Zapier"] },
     { name: "Introducción a Jira para gestión de proyectos con Kanban", tags: ["Jira", "Agile"] },
