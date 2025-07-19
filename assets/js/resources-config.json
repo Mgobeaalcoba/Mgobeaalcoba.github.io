@@ -119,18 +119,40 @@
     "defaultLanguage": "es",
     "themes": ["dark", "light"],
     "apis": {
-      "bluelytics": {
-        "baseUrl": "https://api.bluelytics.com.ar/v2",
+      "dolarApi": {
+        "baseUrl": "https://dolarapi.com/v1",
         "endpoints": {
-          "latest": "/latest",
-          "historical": "/evolution"
-        }
+          "dolares": "/dolares",
+          "cotizaciones": "/cotizaciones",
+          "oficial": "/dolares/oficial",
+          "blue": "/dolares/blue",
+          "euro": "/euro",
+          "real": "/real"
+        },
+        "description": "API completa para cotizaciones argentinas"
       },
       "exchangeRate": {
         "baseUrl": "https://api.exchangerate-api.com/v4",
         "endpoints": {
           "latest": "/latest"
-        }
+        },
+        "description": "Fallback para cotizaciones internacionales"
+      },
+      "bluelytics": {
+        "baseUrl": "https://api.bluelytics.com.ar/v2",
+        "endpoints": {
+          "latest": "/latest",
+          "historical": "/evolution"
+        },
+        "description": "Fallback legacy (deprecated)"
+      },
+      "argentinaDatos": {
+        "baseUrl": "https://api.argentinadatos.com/v1",
+        "endpoints": {
+          "historical": "/cotizaciones/dolares/{casa}",
+          "houses": ["oficial", "blue", "bolsa", "contadoconliqui", "cripto", "mayorista", "solidario", "turista"]
+        },
+        "description": "Datos históricos de cotizaciones argentinas"
       }
     }
   },

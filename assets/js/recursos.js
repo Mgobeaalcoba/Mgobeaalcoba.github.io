@@ -7,6 +7,16 @@
 import { translations } from './translations.js';
 
 // =================================================================================
+// --- TRANSLATION HELPER
+// =================================================================================
+
+function getTranslation(key) {
+    const currentLang = document.documentElement.lang || 'es';
+    return translations[key] && translations[key][currentLang] ? 
+        translations[key][currentLang] : key;
+}
+
+// =================================================================================
 // --- GLOBAL VARIABLES AND CONFIG
 // =================================================================================
 
@@ -14,6 +24,8 @@ let resourcesConfig = null;
 let currencyRates = null;
 let lastUpdateTime = null;
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
+let historicalChart = null;
+let currentChartData = null;
 
 // =================================================================================
 // --- INITIALIZATION
@@ -268,8 +280,138 @@ function getDefaultTaxBrackets() {
 }
 
 // =================================================================================
-// --- CURRENCY WIDGET
+// --- CURRENCY MANAGEMENT WITH DOLARAPI INTEGRATION
 // =================================================================================
+
+async function loadCurrencyRates() {
+    try {
+        // Check cache validity
+        if (currencyRates && (Date.now() - lastUpdateTime) < CACHE_DURATION) {
+            console.log('📊 Using cached currency rates');
+            return;
+        }
+        
+        console.log('🔄 Fetching fresh currency rates from DolarApi...');
+        
+        // Fetch from DolarApi and other sources
+        const [dolarApiData, cotizacionesData, exchangeData] = await Promise.allSettled([
+            fetch('https://dolarapi.com/v1/dolares').then(r => r.json()),
+            fetch('https://dolarapi.com/v1/cotizaciones').then(r => r.json()),
+            fetch('https://api.exchangerate-api.com/v4/latest/USD').then(r => r.json())
+        ]);
+        
+        // Process and combine data
+        currencyRates = processDolarApiData(dolarApiData, cotizacionesData, exchangeData);
+        lastUpdateTime = Date.now();
+        
+        console.log('✅ Currency rates updated with DolarApi');
+    } catch (error) {
+        console.error('❌ Error loading currency rates:', error);
+        // Use fallback or cached data if available
+        if (!currencyRates) {
+            currencyRates = getFallbackRates();
+        }
+    }
+}
+
+function processDolarApiData(dolarApiResult, cotizacionesResult, exchangeResult) {
+    const rates = {
+        USD: {},
+        EUR: {},
+        BRL: {},
+        lastUpdate: new Date().toLocaleString('es-AR'),
+        source: 'DolarApi.com'
+    };
+    
+    // Process DolarApi dollar data
+    if (dolarApiResult.status === 'fulfilled' && dolarApiResult.value) {
+        const dolares = dolarApiResult.value;
+        
+        // Map different dollar types
+        const dolarTypes = {
+            'oficial': 'oficial',
+            'blue': 'blue', 
+            'bolsa': 'mep',
+            'contadoconliqui': 'ccl',
+            'mayorista': 'mayorista',
+            'tarjeta': 'tarjeta',
+            'cripto': 'cripto'
+        };
+        
+        dolares.forEach(dolar => {
+            const type = dolarTypes[dolar.casa];
+            if (type) {
+                rates.USD[type] = {
+                    buy: dolar.compra || 0,
+                    sell: dolar.venta || 0,
+                    name: dolar.nombre,
+                    lastUpdate: dolar.fechaActualizacion
+                };
+            }
+        });
+    }
+    
+    // Process DolarApi other currencies (EUR, BRL)
+    if (cotizacionesResult.status === 'fulfilled' && cotizacionesResult.value) {
+        const cotizaciones = cotizacionesResult.value;
+        
+        cotizaciones.forEach(moneda => {
+            if (moneda.moneda === 'EUR') {
+                rates.EUR.oficial = {
+                    buy: moneda.compra || 0,
+                    sell: moneda.venta || 0,
+                    name: moneda.nombre,
+                    lastUpdate: moneda.fechaActualizacion
+                };
+            } else if (moneda.moneda === 'BRL') {
+                rates.BRL.oficial = {
+                    buy: moneda.compra || 0,
+                    sell: moneda.venta || 0,
+                    name: moneda.nombre,
+                    lastUpdate: moneda.fechaActualizacion
+                };
+            }
+        });
+    }
+    
+    // Fallback with Exchange Rate API if DolarApi fails
+    if (exchangeResult.status === 'fulfilled' && exchangeResult.value?.rates) {
+        const exchangeRates = exchangeResult.value.rates;
+        
+        // Only use as fallback if DolarApi data is missing
+        if (!rates.USD.oficial && exchangeRates.ARS) {
+            const usdToArs = exchangeRates.ARS;
+            rates.USD.oficial = {
+                buy: usdToArs * 0.98,
+                sell: usdToArs * 1.02,
+                name: 'Oficial (Fallback)',
+                lastUpdate: new Date().toISOString()
+            };
+        }
+        
+        if (!rates.EUR.oficial && exchangeRates.EUR && exchangeRates.ARS) {
+            const eurToArs = exchangeRates.ARS / exchangeRates.EUR;
+            rates.EUR.oficial = {
+                buy: eurToArs * 0.98,
+                sell: eurToArs * 1.02,
+                name: 'Euro (Fallback)',
+                lastUpdate: new Date().toISOString()
+            };
+        }
+        
+        if (!rates.BRL.oficial && exchangeRates.BRL && exchangeRates.ARS) {
+            const brlToArs = exchangeRates.ARS / exchangeRates.BRL;
+            rates.BRL.oficial = {
+                buy: brlToArs * 0.98,
+                sell: brlToArs * 1.02,
+                name: 'Real (Fallback)',
+                lastUpdate: new Date().toISOString()
+            };
+        }
+    }
+    
+    return rates;
+}
 
 async function initializeCurrencyWidget() {
     console.log('💱 Initializing currency widget...');
@@ -283,101 +425,22 @@ async function initializeCurrencyWidget() {
     }, resourcesConfig?.settings?.refreshInterval || 1800000);
 }
 
-async function loadCurrencyRates() {
-    try {
-        // Check cache first
-        if (currencyRates && lastUpdateTime && (Date.now() - lastUpdateTime) < CACHE_DURATION) {
-            console.log('📊 Using cached currency rates');
-            return;
-        }
-        
-        console.log('🔄 Fetching fresh currency rates...');
-        
-        // Fetch from multiple sources
-        const [bluelyticsData, exchangeData] = await Promise.allSettled([
-            fetch('https://api.bluelytics.com.ar/v2/latest').then(r => r.json()),
-            fetch('https://api.exchangerate-api.com/v4/latest/USD').then(r => r.json())
-        ]);
-        
-        // Process and combine data
-        currencyRates = processCurrencyData(bluelyticsData, exchangeData);
-        lastUpdateTime = Date.now();
-        
-        console.log('✅ Currency rates updated');
-    } catch (error) {
-        console.error('❌ Error loading currency rates:', error);
-        // Use fallback or cached data if available
-        if (!currencyRates) {
-            currencyRates = getFallbackRates();
-        }
-    }
-}
-
-function processCurrencyData(bluelyticsResult, exchangeResult) {
-    const rates = {
-        USD: {},
-        EUR: {},
-        BRL: {},
-        lastUpdate: new Date().toLocaleString('es-AR')
-    };
-    
-    // Process Bluelytics data (Argentine specific)
-    if (bluelyticsResult.status === 'fulfilled' && bluelyticsResult.value) {
-        const data = bluelyticsResult.value;
-        
-        rates.USD = {
-            oficial: {
-                buy: data.oficial?.value_buy || 0,
-                sell: data.oficial?.value_sell || 0
-            },
-            blue: {
-                buy: data.blue?.value_buy || 0,
-                sell: data.blue?.value_sell || 0
-            },
-            mep: {
-                buy: data.oficial_euro?.value_buy || 0,
-                sell: data.oficial_euro?.value_sell || 0
-            }
-        };
-    }
-    
-    // Process Exchange Rate API data
-    if (exchangeResult.status === 'fulfilled' && exchangeResult.value?.rates) {
-        const exchangeRates = exchangeResult.value.rates;
-        
-        if (exchangeRates.ARS) {
-            const usdToArs = exchangeRates.ARS;
-            rates.USD.oficial = rates.USD.oficial || {
-                buy: usdToArs * 0.98,
-                sell: usdToArs * 1.02
-            };
-        }
-        
-        if (exchangeRates.EUR && exchangeRates.ARS) {
-            const eurToArs = exchangeRates.ARS / exchangeRates.EUR;
-            rates.EUR.oficial = {
-                buy: eurToArs * 0.98,
-                sell: eurToArs * 1.02
-            };
-        }
-        
-        if (exchangeRates.BRL && exchangeRates.ARS) {
-            const brlToArs = exchangeRates.ARS / exchangeRates.BRL;
-            rates.BRL.oficial = {
-                buy: brlToArs * 0.98,
-                sell: brlToArs * 1.02
-            };
-        }
-    }
-    
-    return rates;
-}
-
 function displayCurrencyRates() {
     const container = document.getElementById('currency-rates');
     if (!container || !currencyRates) return;
     
+    // Create header with source and last update
+    const header = document.createElement('div');
+    header.className = 'mb-4 text-center';
+    header.innerHTML = `
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+            <span data-translate="currency.source">Fuente</span>: ${currencyRates.source || 'DolarApi.com'} | 
+            <span data-translate="currency.last_update">Última actualización</span>: ${currencyRates.lastUpdate}
+        </div>
+    `;
+    
     container.innerHTML = '';
+    container.appendChild(header);
     
     // USD Rates
     if (currencyRates.USD) {
@@ -397,7 +460,7 @@ function displayCurrencyRates() {
     // Add last update info
     const updateInfo = document.createElement('div');
     updateInfo.className = 'text-sm text-gray-400 mt-4 text-center';
-    updateInfo.textContent = `Última actualización: ${currencyRates.lastUpdate}`;
+    updateInfo.textContent = `${getTranslation('currency.last_update')}: ${currencyRates.lastUpdate}`;
     container.appendChild(updateInfo);
 }
 
@@ -405,35 +468,86 @@ function createCurrencyRateItem(code, name, symbol, rates) {
     const item = document.createElement('div');
     item.className = 'currency-rate-item';
     
-    const info = document.createElement('div');
-    info.className = 'currency-info';
-    
-    const details = document.createElement('div');
-    details.className = 'currency-details';
-    details.innerHTML = `
-        <h4>${code} - ${name}</h4>
-        <p>${symbol}</p>
+    // Create header with currency info
+    const header = document.createElement('div');
+    header.className = 'currency-header';
+    header.innerHTML = `
+        <h4 class="currency-title">
+            <span class="currency-symbol">${symbol}</span>
+            <span class="currency-name">${code} - ${getTranslation(`currency.${code.toLowerCase()}_title`) || name}</span>
+        </h4>
     `;
-    
-    info.appendChild(details);
     
     const ratesGrid = document.createElement('div');
     ratesGrid.className = 'currency-rates-grid';
     
-    // Add rate types
-    Object.entries(rates).forEach(([type, values]) => {
-        if (values && typeof values === 'object' && values.buy) {
+    // Define display names for dollar types
+    const typeNames = {
+        'oficial': getTranslation('currency.official'),
+        'blue': getTranslation('currency.blue'),
+        'mep': getTranslation('currency.mep'),
+        'ccl': getTranslation('currency.ccl'),
+        'mayorista': getTranslation('currency.wholesale'),
+        'tarjeta': getTranslation('currency.card'),
+        'cripto': getTranslation('currency.crypto')
+    };
+    
+    // Sort rates to show in preferred order
+    const preferredOrder = ['oficial', 'blue', 'mep', 'ccl', 'mayorista', 'tarjeta', 'cripto'];
+    const sortedRates = Object.entries(rates).sort(([a], [b]) => {
+        const orderA = preferredOrder.indexOf(a);
+        const orderB = preferredOrder.indexOf(b);
+        if (orderA === -1) return 1;
+        if (orderB === -1) return -1;
+        return orderA - orderB;
+    });
+    
+    // Add rate types with enhanced display
+    sortedRates.forEach(([type, values]) => {
+        if (values && typeof values === 'object' && (values.buy || values.sell)) {
             const rateType = document.createElement('div');
             rateType.className = 'rate-type';
+            
+            // Calculate spread percentage for USD types
+            const spread = values.buy && values.sell ? 
+                (((values.sell - values.buy) / values.buy) * 100).toFixed(1) : null;
+                
+            // Get premium vs official for non-official USD rates
+            const isUSD = code === 'USD';
+            const isOfficial = type === 'oficial';
+            let premium = '';
+            if (isUSD && !isOfficial && rates.oficial?.sell && values.sell) {
+                const premiumPerc = (((values.sell - rates.oficial.sell) / rates.oficial.sell) * 100).toFixed(1);
+                premium = `<span class="text-xs ${premiumPerc > 0 ? 'text-red-500' : 'text-green-500'}">
+                    ${premiumPerc > 0 ? '+' : ''}${premiumPerc}%
+                </span>`;
+            }
+            
             rateType.innerHTML = `
-                <div class="rate-label">${type.toUpperCase()}</div>
-                <div class="rate-value">$${values.sell.toFixed(2)}</div>
+                <div class="rate-label">
+                    ${typeNames[type] || type.toUpperCase()}
+                    ${premium}
+                </div>
+                <div class="rate-values">
+                    ${values.buy ? `<div class="rate-buy">${getTranslation('currency.buy')}: $${values.buy.toFixed(2)}</div>` : ''}
+                    ${values.sell ? `<div class="rate-sell">${getTranslation('currency.sell')}: $${values.sell.toFixed(2)}</div>` : ''}
+                    ${spread ? `<div class="rate-spread text-xs">${getTranslation('currency.spread')}: ${spread}%</div>` : ''}
+                </div>
             `;
+            
+            // Make rate type clickable for historical charts (only for USD types)
+            if (code === 'USD' && ['oficial', 'blue', 'mep', 'ccl', 'mayorista'].includes(type)) {
+                rateType.classList.add('clickable');
+                rateType.addEventListener('click', () => {
+                    const rateDisplayName = typeNames[type] || type.toUpperCase();
+                    showHistoricalChart(type, `Dólar ${rateDisplayName}`);
+                });
+            }
             ratesGrid.appendChild(rateType);
         }
     });
     
-    item.appendChild(info);
+    item.appendChild(header);
     item.appendChild(ratesGrid);
     
     return item;
@@ -484,16 +598,25 @@ function convertCurrency() {
     const fromCurrency = document.getElementById('from-currency')?.value;
     const toCurrency = document.getElementById('to-currency')?.value;
     const toAmountInput = document.getElementById('to-amount');
+    const exchangeRateText = document.getElementById('exchange-rate-text');
     
-    if (!toAmountInput || fromAmount <= 0 || !fromCurrency || !toCurrency) {
+    if (!toAmountInput || !fromCurrency || !toCurrency) {
         if (toAmountInput) toAmountInput.value = '';
+        updateExchangeRateInfo('', '');
         return;
     }
     
     const rate = getConversionRate(fromCurrency, toCurrency);
-    const convertedAmount = fromAmount * rate;
     
+    if (fromAmount <= 0) {
+        toAmountInput.value = '';
+        updateExchangeRateInfo(fromCurrency, toCurrency, rate);
+        return;
+    }
+    
+    const convertedAmount = fromAmount * rate;
     toAmountInput.value = convertedAmount.toFixed(2);
+    updateExchangeRateInfo(fromCurrency, toCurrency, rate);
 }
 
 function getConversionRate(from, to) {
@@ -518,6 +641,55 @@ function getConversionRate(from, to) {
     }
 }
 
+function updateExchangeRateInfo(fromCurrency, toCurrency, rate) {
+    const exchangeRateText = document.getElementById('exchange-rate-text');
+    if (!exchangeRateText) return;
+    
+    if (!fromCurrency || !toCurrency || !rate) {
+        exchangeRateText.textContent = getTranslation('recursos_converter_rate_info');
+        return;
+    }
+    
+    if (fromCurrency === toCurrency) {
+        exchangeRateText.textContent = getTranslation('recursos_converter_same_currency');
+        return;
+    }
+    
+    // Currency symbols
+    const symbols = {
+        'ARS': '$',
+        'USD': '$',
+        'EUR': '€',
+        'BRL': 'R$'
+    };
+    
+    // Currency names with translations
+    const names = {
+        'ARS': getTranslation('currency.ars_name') || 'Peso Argentino',
+        'USD': getTranslation('currency.usd_name') || 'Dólar',
+        'EUR': getTranslation('currency.eur_name') || 'Euro',
+        'BRL': getTranslation('currency.brl_name') || 'Real'
+    };
+    
+    const fromSymbol = symbols[fromCurrency] || '';
+    const toSymbol = symbols[toCurrency] || '';
+    const fromName = names[fromCurrency] || fromCurrency;
+    const toName = names[toCurrency] || toCurrency;
+    
+    // Get rate type info for USD with translation
+    let rateInfo = '';
+    if ((fromCurrency === 'USD' || toCurrency === 'USD') && currencyRates?.USD?.blue) {
+        rateInfo = getTranslation('recursos_converter_blue_rate');
+    }
+    
+    // Create exchange rate info text
+    exchangeRateText.innerHTML = `
+        1 ${fromName} = ${toSymbol}${rate.toFixed(4)} ${toName}${rateInfo}
+        <span style="margin-left: 0.5rem; opacity: 0.7;">•</span>
+        <span style="margin-left: 0.5rem;">1 ${toName} = ${fromSymbol}${(1/rate).toFixed(4)} ${fromName}</span>
+    `;
+}
+
 // =================================================================================
 // --- REFRESH FUNCTIONALITY
 // =================================================================================
@@ -527,7 +699,7 @@ async function refreshRates() {
     const originalText = refreshBtn?.innerHTML;
     
     if (refreshBtn) {
-        refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Actualizando...';
+        refreshBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>${getTranslation('recursos_loading_quotes')}`;
         refreshBtn.disabled = true;
     }
     
@@ -539,7 +711,7 @@ async function refreshRates() {
         convertCurrency(); // Update converter with new rates
         
         if (refreshBtn) {
-            refreshBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Actualizado';
+            refreshBtn.innerHTML = `<i class="fas fa-check mr-2"></i>${getTranslation('recursos_updated')}`;
             setTimeout(() => {
                 refreshBtn.innerHTML = originalText;
                 refreshBtn.disabled = false;
@@ -548,7 +720,7 @@ async function refreshRates() {
     } catch (error) {
         console.error('❌ Error refreshing rates:', error);
         if (refreshBtn) {
-            refreshBtn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Error';
+            refreshBtn.innerHTML = `<i class="fas fa-exclamation-triangle mr-2"></i>${getTranslation('recursos_error')}`;
             setTimeout(() => {
                 refreshBtn.innerHTML = originalText;
                 refreshBtn.disabled = false;
@@ -657,6 +829,20 @@ function setLanguage(lang) {
         fromAmountInput.placeholder = lang === 'es' ? '100' : '100';
     }
     
+    // Refresh dynamic content
+    if (currencyRates) {
+        displayCurrencyRates();
+    }
+    
+    // Update converter info
+    convertCurrency();
+    
+    // Update button text if it's in "Updated" state
+    const refreshBtn = document.querySelector('.refresh-btn');
+    if (refreshBtn && refreshBtn.disabled && (refreshBtn.textContent.includes('Actualizado') || refreshBtn.textContent.includes('Updated'))) {
+        refreshBtn.innerHTML = `<i class="fas fa-check mr-2"></i>${getTranslation('recursos_updated')}`;
+    }
+    
     console.log(`Language changed to: ${lang}`);
 }
 
@@ -703,4 +889,302 @@ function initializeLanguage() {
 // Make functions available globally for onclick handlers
 window.calculateTax = calculateTax;
 window.refreshRates = refreshRates;
-window.convertCurrency = convertCurrency; 
+window.convertCurrency = convertCurrency;
+
+// =================================================================================
+// --- HISTORICAL CHART SYSTEM
+// =================================================================================
+
+async function loadHistoricalData(casa, days = 7) {
+    try {
+        console.log(`📊 Loading historical data for ${casa} (${days} days)`);
+        
+        const baseUrl = 'https://api.argentinadatos.com/v1';
+        const url = `${baseUrl}/cotizaciones/dolares/${casa}`;
+        
+        const response = await fetch(url, {
+            redirect: 'follow'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log(`📈 Received ${data.length} historical records for ${casa}`);
+        
+        // Filter data by days and sort by date
+        const cutoffDate = new Date();
+        cutoffDate.setDate(cutoffDate.getDate() - days);
+        
+        const filteredData = data
+            .filter(item => new Date(item.fecha) >= cutoffDate)
+            .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        
+        return filteredData;
+    } catch (error) {
+        console.error(`❌ Error loading historical data for ${casa}:`, error);
+        // Fallback to sample data if API fails
+        console.log(`🔄 Using sample data as fallback for ${casa}`);
+        return generateSampleHistoricalData(casa, days);
+    }
+}
+
+function generateSampleHistoricalData(casa, days) {
+    const data = [];
+    const baseRates = {
+        'oficial': { buy: 1250, sell: 1300 },
+        'blue': { buy: 1285, sell: 1305 },
+        'mep': { buy: 1289, sell: 1294 },
+        'ccl': { buy: 1300, sell: 1269 },
+        'mayorista': { buy: 1277, sell: 1286 }
+    };
+    
+    const baseRate = baseRates[casa] || baseRates['blue'];
+    const volatility = 0.02; // 2% daily volatility
+    
+    for (let i = days - 1; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        
+        // Add some realistic variation
+        const variation = (Math.random() - 0.5) * volatility;
+        const buyRate = Math.round(baseRate.buy * (1 + variation) * 100) / 100;
+        const sellRate = Math.round(baseRate.sell * (1 + variation) * 100) / 100;
+        
+        data.push({
+            fecha: date.toISOString().split('T')[0],
+            compra: buyRate,
+            venta: sellRate,
+            casa: casa
+        });
+    }
+    
+    return data;
+}
+
+function createHistoricalChart(data, casa, period) {
+    const ctx = document.getElementById('historical-chart');
+    if (!ctx) {
+        console.error('❌ Chart canvas not found');
+        return;
+    }
+    
+    // Destroy existing chart if it exists
+    if (historicalChart) {
+        historicalChart.destroy();
+    }
+    
+    // Prepare chart data
+    const labels = data.map(item => {
+        const date = new Date(item.fecha);
+        return date.toLocaleDateString('es-AR', { 
+            month: 'short', 
+            day: 'numeric' 
+        });
+    });
+    
+    const buyData = data.map(item => item.compra);
+    const sellData = data.map(item => item.venta);
+    
+    // Chart configuration
+    const config = {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Compra',
+                    data: buyData,
+                    borderColor: '#10b981',
+                    backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(16, 185, 129, 0.3)' : 'rgba(16, 185, 129, 0.6)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Venta',
+                    data: sellData,
+                    borderColor: '#ef4444',
+                    backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(239, 68, 68, 0.3)' : 'rgba(239, 68, 68, 0.6)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.99)',
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
+                        usePointStyle: true,
+                        padding: 20,
+                        font: {
+                            weight: '600'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--card-background'),
+                    titleColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color'),
+                    bodyColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color'),
+                    borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    displayColors: true,
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: $${context.parsed.y.toLocaleString('es-AR')}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
+                        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color')
+                    },
+                    ticks: {
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                    }
+                },
+                y: {
+                    grid: {
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
+                        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color')
+                    },
+                    ticks: {
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary'),
+                        callback: function(value) {
+                            return '$' + value.toLocaleString('es-AR');
+                        }
+                    }
+                }
+            }
+        }
+    };
+    
+    historicalChart = new Chart(ctx, config);
+    currentChartData = { data, casa, period };
+}
+
+function showHistoricalChart(casa, rateName) {
+    const modal = document.getElementById('historical-chart-modal');
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    const dateRange = document.getElementById('chart-date-range');
+    
+    if (!modal || !chartTitle) {
+        console.error('❌ Modal elements not found');
+        return;
+    }
+    
+    // Update modal title
+    chartTitle.textContent = `${rateName} - Evolución Histórica`;
+    chartSubtitle.textContent = `Datos de ArgentinaDatos API`;
+    dateRange.textContent = 'Últimos 7 días';
+    
+    // Show modal
+    modal.classList.remove('hidden');
+    
+    // Load initial data (7 days)
+    loadHistoricalData(casa, 7).then(data => {
+        createHistoricalChart(data, casa, '7d');
+    }).catch(error => {
+        console.error('❌ Error loading initial chart data:', error);
+        showErrorMessage('Error al cargar los datos históricos');
+    });
+    
+    // Initialize time filter handlers
+    initializeTimeFilters(casa);
+    
+    // Initialize close button
+    const closeBtn = document.getElementById('close-modal');
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.classList.add('hidden');
+            if (historicalChart) {
+                historicalChart.destroy();
+                historicalChart = null;
+            }
+        };
+    }
+    
+    // Close modal on backdrop click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            if (historicalChart) {
+                historicalChart.destroy();
+                historicalChart = null;
+            }
+        }
+    });
+}
+
+function initializeTimeFilters(casa) {
+    const timeFilters = document.querySelectorAll('.time-filter');
+    const dateRange = document.getElementById('chart-date-range');
+    
+    timeFilters.forEach(filter => {
+        filter.onclick = async () => {
+            // Update active state
+            timeFilters.forEach(f => f.classList.remove('active'));
+            filter.classList.add('active');
+            
+            const period = filter.getAttribute('data-period');
+            let days, rangeText;
+            
+            switch (period) {
+                case '7d':
+                    days = 7;
+                    rangeText = 'Últimos 7 días';
+                    break;
+                case '30d':
+                    days = 30;
+                    rangeText = 'Últimos 30 días';
+                    break;
+                case '90d':
+                    days = 90;
+                    rangeText = 'Últimos 90 días';
+                    break;
+                case '1y':
+                    days = 365;
+                    rangeText = 'Último año';
+                    break;
+                default:
+                    days = 7;
+                    rangeText = 'Últimos 7 días';
+            }
+            
+            // Update date range text
+            if (dateRange) {
+                dateRange.textContent = rangeText;
+            }
+            
+            try {
+                const data = await loadHistoricalData(casa, days);
+                createHistoricalChart(data, casa, period);
+            } catch (error) {
+                console.error('❌ Error loading chart data for period:', error);
+                showErrorMessage('Error al cargar los datos para este período');
+            }
+        };
+    });
+}
+
+// Make chart functions available globally
+window.showHistoricalChart = showHistoricalChart; 

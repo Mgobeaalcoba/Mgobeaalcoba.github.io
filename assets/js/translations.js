@@ -1253,6 +1253,18 @@ export const translations = {
         es: "Hacia",
         en: "To"
     },
+    recursos_converter_rate_info: {
+        es: "Ingresa una cantidad para ver la tasa de cambio",
+        en: "Enter an amount to see the exchange rate"
+    },
+    recursos_converter_same_currency: {
+        es: "Misma moneda seleccionada",
+        en: "Same currency selected"
+    },
+    recursos_converter_blue_rate: {
+        es: "(cotización blue)",
+        en: "(blue rate)"
+    },
     recursos_cta_title: {
         es: "¿Necesitas Herramientas Personalizadas?",
         en: "Need Custom Tools?"
@@ -1300,5 +1312,241 @@ export const translations = {
     recursos_footer_copyright: {
         es: "Todos los recursos son gratuitos y de código abierto.",
         en: "All resources are free and open source."
+    },
+    
+    // Currency data translations
+    "currency.source": {
+        es: "Fuente",
+        en: "Source"
+    },
+    "currency.last_update": {
+        es: "Última actualización",
+        en: "Last update"
+    },
+    "currency.buy": {
+        es: "Compra",
+        en: "Buy"
+    },
+    "currency.sell": {
+        es: "Venta", 
+        en: "Sell"
+    },
+    "currency.spread": {
+        es: "Spread",
+        en: "Spread"
+    },
+    "currency.premium": {
+        es: "vs Oficial",
+        en: "vs Official"
+    },
+    "currency.official": {
+        es: "Oficial",
+        en: "Official"
+    },
+    "currency.blue": {
+        es: "Blue",
+        en: "Blue"
+    },
+    "currency.mep": {
+        es: "MEP/Bolsa",
+        en: "MEP/Stock"
+    },
+    "currency.ccl": {
+        es: "CCL",
+        en: "CCL"
+    },
+    "currency.wholesale": {
+        es: "Mayorista",
+        en: "Wholesale"
+    },
+    "currency.card": {
+        es: "Tarjeta",
+        en: "Card"
+    },
+    "currency.crypto": {
+        es: "Cripto",
+        en: "Crypto"
+    },
+    
+    // Additional missing translations
+    "currency.usd_title": {
+        es: "USD - Dólar Estadounidense",
+        en: "USD - US Dollar"
+    },
+    "currency.eur_title": {
+        es: "EUR - Euro",
+        en: "EUR - Euro"
+    },
+    "currency.brl_title": {
+        es: "BRL - Real Brasileño",
+        en: "BRL - Brazilian Real"
+    },
+    "currency.official_label": {
+        es: "Oficial",
+        en: "Official"
+    },
+    "currency.amount_placeholder": {
+        es: "Ingresa una cantidad para ver la tasa de cambio",
+        en: "Enter an amount to see the exchange rate"
+    },
+    "currency.exchange_rate_info": {
+        es: "1 Peso Argentino = $0.0008 Dólar (cotización blue)",
+        en: "1 Argentine Peso = $0.0008 Dollar (blue rate)"
+    },
+    "currency.exchange_rate_reverse": {
+        es: "1 Dólar = $1305.0000 Peso Argentino",
+        en: "1 Dollar = $1305.0000 Argentine Peso"
+    },
+    
+    // CTA Section translations
+    "recursos_cta_title": {
+        es: "¿Necesitas Herramientas Personalizadas?",
+        en: "Need Custom Tools?"
+    },
+    "recursos_cta_desc": {
+        es: "Si tu empresa necesita calculadoras específicas, dashboards financieros o automatización de procesos económicos, puedo ayudarte.",
+        en: "If your company needs specific calculators, financial dashboards or economic process automation, I can help you."
+    },
+    "recursos_cta_consulting_btn": {
+        es: "Ver Servicios de Consultoría",
+        en: "View Consulting Services"
+    },
+    "recursos_cta_experience_btn": {
+        es: "Conocer mi Experiencia",
+        en: "Learn About My Experience"
+    },
+    
+    // Footer translations
+    "recursos_footer_resources": {
+        es: "Recursos",
+        en: "Resources"
+    },
+    "recursos_footer_navigation": {
+        es: "Navegación",
+        en: "Navigation"
+    },
+    "recursos_footer_contact": {
+        es: "Contacto",
+        en: "Contact"
+    },
+    "recursos_footer_calculators": {
+        es: "Calculadoras",
+        en: "Calculators"
+    },
+    "recursos_footer_quotes": {
+        es: "Cotizaciones",
+        en: "Quotes"
+    },
+    "recursos_footer_portfolio": {
+        es: "Portfolio",
+        en: "Portfolio"
+    },
+    "recursos_footer_consulting": {
+        es: "Consultoría",
+        en: "Consulting"
+    },
+    "recursos_footer_copyright": {
+        es: "Todos los recursos son gratuitos y de código abierto.",
+        en: "All resources are free and open source."
+    },
+    
+    // Exchange rate info translations
+    "currency.exchange_rate_info_ars_to_usd": {
+        es: "1 Peso Argentino = $0.0008 Dólar (cotización blue)",
+        en: "1 Argentine Peso = $0.0008 Dollar (blue rate)"
+    },
+    "currency.exchange_rate_info_usd_to_ars": {
+        es: "1 Dólar = $1305.0000 Peso Argentino",
+        en: "1 Dollar = $1305.0000 Argentine Peso"
+    },
+    
+    // Currency names translations
+    "currency.ars_name": {
+        es: "Peso Argentino",
+        en: "Argentine Peso"
+    },
+    "currency.usd_name": {
+        es: "Dólar",
+        en: "Dollar"
+    },
+    "currency.eur_name": {
+        es: "Euro",
+        en: "Euro"
+    },
+    "currency.brl_name": {
+        es: "Real",
+        en: "Real"
+    },
+    
+    // Currency titles for display
+    "currency.usd_title": {
+        es: "Dólar Estadounidense",
+        en: "US Dollar"
+    },
+    "currency.eur_title": {
+        es: "Euro",
+        en: "Euro"
+    },
+    "currency.brl_title": {
+        es: "Real Brasileño",
+        en: "Brazilian Real"
+    },
+    "currency.ars_title": {
+        es: "Peso Argentino",
+        en: "Argentine Peso"
+    },
+    
+    // Currency source and update info
+    "currency.source": {
+        es: "Fuente",
+        en: "Source"
+    },
+    "currency.last_update": {
+        es: "Última actualización",
+        en: "Last update"
+    },
+    
+    // Converter translations
+    "recursos_converter_rate_info": {
+        es: "Ingresa una cantidad para ver la tasa de cambio",
+        en: "Enter an amount to see the exchange rate"
+    },
+    "recursos_converter_same_currency": {
+        es: "Misma moneda seleccionada",
+        en: "Same currency selected"
+    },
+    "recursos_converter_blue_rate": {
+        es: " (cotización blue)",
+        en: " (blue rate)"
+    },
+    
+    // Credit Calculator translations
+    "recursos_credit_calculator_title": {
+        es: "Calculadora de Créditos",
+        en: "Credit Calculator"
+    },
+    "recursos_credit_calculator_coming_soon": {
+        es: "Próximamente",
+        en: "Coming Soon"
+    },
+    "recursos_credit_calculator_desc": {
+        es: "Esta calculadora estará disponible pronto",
+        en: "This calculator will be available soon"
+    },
+    
+    // Loading translations
+    "recursos_loading_quotes": {
+        es: "Actualizando...",
+        en: "Updating..."
+    },
+    
+    // Button states translations
+    "recursos_updated": {
+        es: "Actualizado",
+        en: "Updated"
+    },
+    "recursos_error": {
+        es: "Error",
+        en: "Error"
     }
 }; 

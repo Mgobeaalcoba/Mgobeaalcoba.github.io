@@ -90,6 +90,7 @@
     <script src="https://cdn.tailwindcss.com/3.4.0"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -261,13 +262,17 @@
                 </h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Calculadora Impuesto a las Ganancias -->
-                    <div class="resource-widget" id="tax-calculator">
-                        <div class="widget-header">
-                            <h4 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-receipt text-yellow-400 mr-2"></i>
-                                <span data-translate="recursos_tax_calculator_title">Impuesto a las Ganancias</span>
-                            </h4>
-                            <p class="text-sm text-gray-400 mt-1" data-translate="recursos_tax_calculator_desc">Calcula tu impuesto anual en Argentina</p>
+                    <div class="resource-widget modern-widget" id="tax-calculator">
+                        <div class="modern-header">
+                            <div class="modern-title">
+                                <div class="modern-icon">
+                                    <i class="fas fa-receipt"></i>
+                                </div>
+                                <div class="title-content">
+                                    <h4 data-translate="recursos_tax_calculator_title">Impuesto a las Ganancias</h4>
+                                    <p data-translate="recursos_tax_calculator_desc">Calcula tu impuesto anual en Argentina</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="widget-content">
                             <div class="input-group">
@@ -296,17 +301,21 @@
                     </div>
 
                     <!-- Placeholder para futura calculadora -->
-                    <div class="resource-widget coming-soon">
-                        <div class="widget-header">
-                            <h4 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-home text-green-400 mr-2"></i>
-                                Calculadora de Créditos
-                            </h4>
-                            <p class="text-sm text-gray-400 mt-1">Próximamente</p>
+                    <div class="resource-widget modern-widget coming-soon">
+                        <div class="modern-header">
+                            <div class="modern-title">
+                                <div class="modern-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="title-content">
+                                    <h4 data-translate="recursos_credit_calculator_title">Calculadora de Créditos</h4>
+                                    <p data-translate="recursos_credit_calculator_coming_soon">Próximamente</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="widget-content text-center py-8">
                             <i class="fas fa-clock text-4xl text-gray-500 mb-4"></i>
-                            <p class="text-gray-400">Esta calculadora estará disponible pronto</p>
+                            <p class="text-gray-400" data-translate="recursos_credit_calculator_desc">Esta calculadora estará disponible pronto</p>
                         </div>
                     </div>
                 </div>
@@ -320,66 +329,109 @@
                 </h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Widget de Cotizaciones -->
-                    <div class="resource-widget" id="currency-widget">
-                        <div class="widget-header">
-                            <h4 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-dollar-sign text-green-400 mr-2"></i>
-                                <span data-translate="recursos_currency_argentina_title">Cotizaciones Argentina</span>
-                            </h4>
-                            <p class="text-sm text-gray-400 mt-1" data-translate="recursos_currency_updated">Actualizadas cada 30 minutos</p>
+                    <div class="resource-widget modern-widget" id="currency-widget">
+                        <div class="modern-header">
+                            <div class="modern-title">
+                                <div class="modern-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="title-content">
+                                    <h4 data-translate="recursos_currency_argentina_title">Cotizaciones Argentina</h4>
+                                    <p data-translate="recursos_currency_updated">Actualizadas cada 30 minutos</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="widget-content">
                             <div id="currency-rates" class="space-y-4">
                                 <!-- Las cotizaciones se cargarán dinámicamente -->
                                 <div class="loading-spinner">
                                     <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                                    <p class="mt-2 text-gray-400">Cargando cotizaciones...</p>
+                                    <p class="mt-2 text-gray-400" data-translate="recursos_loading_quotes">Cargando cotizaciones...</p>
                                 </div>
                             </div>
                             <button onclick="refreshRates()" class="refresh-btn mt-4">
                                 <i class="fas fa-sync-alt mr-2"></i>
-                                Actualizar
+                                <span data-translate="recursos_currency_update_btn">Actualizar</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Conversor de Monedas -->
-                    <div class="resource-widget" id="currency-converter">
-                        <div class="widget-header">
-                            <h4 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-exchange-alt text-purple-400 mr-2"></i>
-                                <span data-translate="recursos_converter_title">Conversor de Monedas</span>
-                            </h4>
-                            <p class="text-sm text-gray-400 mt-1" data-translate="recursos_converter_desc">Convierte entre ARS, USD, EUR, BRL</p>
+                    <div class="resource-widget modern-converter" id="currency-converter">
+                        <div class="converter-header">
+                            <div class="converter-title">
+                                <div class="converter-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="title-content">
+                                    <h4 data-translate="recursos_converter_title">Conversor de Monedas</h4>
+                                    <p data-translate="recursos_converter_desc">Convierte entre ARS, USD, EUR, BRL</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="widget-content">
-                            <div class="converter-inputs">
-                                <div class="input-group">
-                                    <label data-translate="recursos_converter_from">Desde</label>
-                                    <div class="currency-input">
-                                        <input type="number" id="from-amount" placeholder="100">
-                                        <select id="from-currency">
-                                            <option value="ARS">ARS</option>
-                                            <option value="USD">USD</option>
-                                            <option value="EUR">EUR</option>
-                                            <option value="BRL">BRL</option>
-                                        </select>
+                        
+                        <div class="converter-body">
+                            <div class="conversion-container">
+                                <!-- From Currency -->
+                                <div class="currency-section from-section">
+                                    <label class="currency-label" data-translate="recursos_converter_from">Desde</label>
+                                    <div class="currency-card">
+                                        <div class="amount-input-wrapper">
+                                            <input type="number" id="from-amount" placeholder="100" class="amount-input">
+                                            <div class="input-decoration"></div>
+                                        </div>
+                                        <div class="currency-selector-wrapper">
+                                            <select id="from-currency" class="currency-selector">
+                                                <option value="ARS">🇦🇷 ARS</option>
+                                                <option value="USD">🇺🇸 USD</option>
+                                                <option value="EUR">🇪🇺 EUR</option>
+                                                <option value="BRL">🇧🇷 BRL</option>
+                                            </select>
+                                            <div class="selector-arrow">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="convert-arrow">
-                                    <i class="fas fa-arrow-down text-sky-400"></i>
-                                </div>
-                                <div class="input-group">
-                                    <label data-translate="recursos_converter_to">Hacia</label>
-                                    <div class="currency-input">
-                                        <input type="number" id="to-amount" readonly>
-                                        <select id="to-currency">
-                                            <option value="USD">USD</option>
-                                            <option value="ARS">ARS</option>
-                                            <option value="EUR">EUR</option>
-                                            <option value="BRL">BRL</option>
-                                        </select>
+
+                                <!-- Conversion Arrow -->
+                                <div class="conversion-arrow">
+                                    <div class="arrow-container">
+                                        <div class="arrow-circle">
+                                            <i class="fas fa-arrows-alt-v"></i>
+                                        </div>
+                                        <div class="arrow-line"></div>
                                     </div>
+                                </div>
+
+                                <!-- To Currency -->
+                                <div class="currency-section to-section">
+                                    <label class="currency-label" data-translate="recursos_converter_to">Hacia</label>
+                                    <div class="currency-card result-card">
+                                        <div class="amount-input-wrapper">
+                                            <input type="number" id="to-amount" readonly class="amount-input result-input">
+                                            <div class="input-decoration result-decoration"></div>
+                                        </div>
+                                        <div class="currency-selector-wrapper">
+                                            <select id="to-currency" class="currency-selector">
+                                                <option value="USD">🇺🇸 USD</option>
+                                                <option value="ARS">🇦🇷 ARS</option>
+                                                <option value="EUR">🇪🇺 EUR</option>
+                                                <option value="BRL">🇧🇷 BRL</option>
+                                            </select>
+                                            <div class="selector-arrow">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exchange Rate Info -->
+                            <div class="exchange-rate-info">
+                                <div class="rate-display">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span id="exchange-rate-text">Ingresa una cantidad para ver la tasa de cambio</span>
                                 </div>
                             </div>
                         </div>
@@ -392,20 +444,20 @@
     <!-- CTA SECTION -->
     <section class="cta-section py-16 px-4">
         <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text" data-translate="recursos_cta_title">
                 ¿Necesitas Herramientas Personalizadas?
             </h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-translate="recursos_cta_desc">
                 Si tu empresa necesita calculadoras específicas, dashboards financieros o automatización de procesos económicos, puedo ayudarte.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="consulting.html" class="cta-button primary">
                     <i class="fas fa-briefcase mr-2"></i>
-                    Ver Servicios de Consultoría
+                    <span data-translate="recursos_cta_consulting_btn">Ver Servicios de Consultoría</span>
                 </a>
                 <a href="index.html" class="cta-button secondary">
                     <i class="fas fa-user mr-2"></i>
-                    Conocer mi Experiencia
+                    <span data-translate="recursos_cta_experience_btn">Conocer mi Experiencia</span>
                 </a>
             </div>
         </div>
@@ -418,29 +470,29 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-tools text-sky-400 mr-2"></i>
-                        Recursos
+                        <span data-translate="recursos_footer_resources">Recursos</span>
                     </h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#calculadoras" class="hover:text-sky-400 transition-colors">Calculadoras</a></li>
-                        <li><a href="#cotizaciones" class="hover:text-sky-400 transition-colors">Cotizaciones</a></li>
+                        <li><a href="#calculadoras" class="hover:text-sky-400 transition-colors" data-translate="recursos_footer_calculators">Calculadoras</a></li>
+                        <li><a href="#cotizaciones" class="hover:text-sky-400 transition-colors" data-translate="recursos_footer_quotes">Cotizaciones</a></li>
                         <li><a href="#" class="hover:text-sky-400 transition-colors">API Documentation</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-sitemap text-green-400 mr-2"></i>
-                        Navegación
+                        <span data-translate="recursos_footer_navigation">Navegación</span>
                     </h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="index.html" class="hover:text-sky-400 transition-colors">Portfolio</a></li>
-                        <li><a href="consulting.html" class="hover:text-sky-400 transition-colors">Consultoría</a></li>
+                        <li><a href="index.html" class="hover:text-sky-400 transition-colors" data-translate="recursos_footer_portfolio">Portfolio</a></li>
+                        <li><a href="consulting.html" class="hover:text-sky-400 transition-colors" data-translate="recursos_footer_consulting">Consultoría</a></li>
                         <li><a href="#" class="hover:text-sky-400 transition-colors">Blog</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-user text-purple-400 mr-2"></i>
-                        Contacto
+                        <span data-translate="recursos_footer_contact">Contacto</span>
                     </h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="mailto:gobeamariano@gmail.com" class="hover:text-sky-400 transition-colors">Email</a></li>
@@ -450,12 +502,62 @@
                 </div>
             </div>
             <div class="text-center pt-8 border-t border-gray-700">
-                <p class="text-gray-400">
+                <p class="text-gray-400" data-translate="recursos_footer_copyright">
                     © 2024 Mariano Gobea Alcoba. Todos los recursos son gratuitos y de código abierto.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Modal para Gráficos Históricos -->
+    <div id="historical-chart-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="relative h-full flex items-center justify-center p-4">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <div class="modal-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="title-content">
+                            <h4 id="chart-title">Evolución Histórica</h4>
+                            <p id="chart-subtitle">Datos de ArgentinaDatos API</p>
+                        </div>
+                    </div>
+                    <button id="close-modal" class="modal-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <!-- Filtros de Tiempo -->
+                    <div class="time-filters">
+                        <button class="time-filter active" data-period="7d">7 días</button>
+                        <button class="time-filter" data-period="30d">30 días</button>
+                        <button class="time-filter" data-period="90d">90 días</button>
+                        <button class="time-filter" data-period="1y">1 año</button>
+                    </div>
+                    
+                    <!-- Contenedor del Gráfico -->
+                    <div class="chart-container">
+                        <canvas id="historical-chart"></canvas>
+                    </div>
+                    
+                    <!-- Información del Gráfico -->
+                    <div class="chart-info">
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="chart-date-range">Últimos 7 días</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-database"></i>
+                            <span id="chart-data-source">ArgentinaDatos API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script type="module" src="assets/js/recursos.js"></script>
