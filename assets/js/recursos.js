@@ -547,12 +547,22 @@ function createCurrencyRateItem(code, name, symbol, rates) {
                 </div>
             `;
             
-            // Make rate type clickable for historical charts (only for USD types)
-            if (code === 'USD' && ['oficial', 'blue', 'mep', 'ccl', 'mayorista'].includes(type)) {
+            // Make rate type clickable for historical charts
+            const clickableTypes = {
+                'USD': ['oficial', 'blue', 'mep', 'ccl', 'mayorista', 'tarjeta', 'cripto'],
+                'EUR': ['oficial'],
+                'BRL': ['oficial']
+            };
+            
+            if (clickableTypes[code] && clickableTypes[code].includes(type)) {
                 rateType.classList.add('clickable');
                 rateType.addEventListener('click', () => {
                     const rateDisplayName = typeNames[type] || type.toUpperCase();
-                    showHistoricalChart(type, `Dólar ${rateDisplayName}`);
+                    const currencyName = code === 'USD' ? 'Dólar' : code === 'EUR' ? 'Euro' : 'Real';
+                    
+                    // For EUR and BRL, pass the currency code instead of the rate type
+                    const chartParameter = (code === 'EUR' || code === 'BRL') ? code : type;
+                    showHistoricalChart(chartParameter, `${currencyName} ${rateDisplayName}`);
                 });
             }
             ratesGrid.appendChild(rateType);
@@ -948,47 +958,76 @@ async function loadHistoricalData(casa, days = 7) {
         console.log(`📊 Loading historical data for ${casa} (${days} days)`);
         
         let url;
-        const baseUrl = 'https://api.argentinadatos.com/v1';
+        let data;
         
         // Handle different currency types
         if (casa === 'EUR' || casa === 'BRL') {
-            // For EUR and BRL, use the cotizaciones endpoint
-            url = `${baseUrl}/cotizaciones`;
+            // For EUR and BRL, use Banco Central API with date parameters
+            const codMoneda = casa === 'EUR' ? 'EUR' : 'BRL';
+            
+            // Calculate date range
+            const endDate = new Date();
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - days);
+            
+            const fechaDesde = startDate.toISOString().split('T')[0];
+            const fechaHasta = endDate.toISOString().split('T')[0];
+            
+            url = `https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/${codMoneda}?fechaDesde=${fechaDesde}&fechaHasta=${fechaHasta}`;
+            
+            const response = await fetch(url, {
+                redirect: 'follow'
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            data = await response.json();
+            console.log(`📈 Received ${data.results?.length || 0} historical records for ${casa} from BCRA`);
+            
+            // Process BCRA data format
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - days);
+            
+            const filteredData = data.results
+                .filter(item => new Date(item.fecha) >= cutoffDate)
+                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+                .map(item => {
+                    const detalle = item.detalle[0]; // Get first detail item
+                    return {
+                        fecha: item.fecha,
+                        compra: parseFloat(detalle.tipoCotizacion),
+                        venta: parseFloat(detalle.tipoCotizacion), // BCRA only provides one rate
+                        casa: casa
+                    };
+                });
+            
+            return filteredData;
         } else {
-            // For USD types, use the dolares endpoint
+            // For USD types, use ArgentinaDatos API
+            const baseUrl = 'https://api.argentinadatos.com/v1';
             url = `${baseUrl}/cotizaciones/dolares/${casa}`;
-        }
-        
-        const response = await fetch(url, {
-            redirect: 'follow'
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        console.log(`📈 Received ${data.length} historical records for ${casa}`);
-        
-        // Filter and process data based on currency type
-        const cutoffDate = new Date();
-        cutoffDate.setDate(cutoffDate.getDate() - days);
-        
-        let filteredData;
-        
-        if (casa === 'EUR' || casa === 'BRL') {
-            // Filter EUR/BRL data
-            filteredData = data
-                .filter(item => item.moneda === casa)
-                .filter(item => new Date(item.fecha) >= cutoffDate)
-                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-        } else {
+            
+            const response = await fetch(url, {
+                redirect: 'follow'
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            data = await response.json();
+            console.log(`📈 Received ${data.length} historical records for ${casa} from ArgentinaDatos`);
+            
             // Filter USD data
-            filteredData = data
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - days);
+            
+            const filteredData = data
                 .filter(item => new Date(item.fecha) >= cutoffDate)
                 .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            
+            return filteredData;
         }
-        
-        return filteredData;
     } catch (error) {
         console.error(`❌ Error loading historical data for ${casa}:`, error);
         // Fallback to sample data if API fails
@@ -1164,9 +1203,16 @@ function showHistoricalChart(casa, rateName) {
         return;
     }
     
-    // Update modal title
+    // Update modal title and subtitle based on currency type
     chartTitle.textContent = `${rateName} - Evolución Histórica`;
-    chartSubtitle.textContent = `Datos de ArgentinaDatos API`;
+    
+    // Set subtitle based on currency type
+    if (casa === 'EUR' || casa === 'BRL') {
+        chartSubtitle.textContent = `Datos de Banco Central de Argentina`;
+    } else {
+        chartSubtitle.textContent = `Datos de ArgentinaDatos API`;
+    }
+    
     dateRange.textContent = 'Últimos 7 días';
     
     // Show modal
