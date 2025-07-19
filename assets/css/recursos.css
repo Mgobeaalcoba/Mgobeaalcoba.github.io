@@ -199,19 +199,23 @@ html.light .mobile-nav-link:hover {
 .logo-container {
     display: flex;
     align-items: center;
-    transition: transform 0.2s ease;
+    transition: opacity 0.3s ease;
+    position: relative;
 }
 
 .logo-container:hover {
-    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .logo-img {
-    height: 40px;
+    height: 4.5rem; /* Logo grande - 72px */
     width: auto;
-    transition: opacity 0.3s ease;
+    object-fit: contain; /* Logos ya vienen recortados */
+    object-position: left center; /* Alinear contenido a la izquierda */
+    transition: all 0.3s ease;
 }
 
+/* Logo visibility based on theme */
 .logo-dark {
     display: block;
 }
@@ -220,12 +224,80 @@ html.light .mobile-nav-link:hover {
     display: none;
 }
 
+/* Show appropriate logo in light mode */
 html.light .logo-dark {
     display: none;
 }
 
 html.light .logo-light {
     display: block;
+}
+
+/* ======== HEADER COMPACTNESS ======== */
+
+/* Make header more compact by reducing nav padding */
+header nav {
+    padding-top: 0.5rem; /* Compacto pero que acomode el logo grande - 8px */
+    padding-bottom: 0.5rem;
+}
+
+/* ======== MOBILE RESPONSIVE ADJUSTMENTS ======== */
+
+/* Mobile header spacing adjustments */
+@media (max-width: 768px) {
+    /* Logo container styling and spacing for mobile */
+    header nav > a.logo-container {
+        margin-right: 1rem; /* Force minimum 16px space */
+        flex-shrink: 1; /* Allow logo to shrink if needed */
+    }
+    
+    /* Logo image responsive sizing */
+    .logo-img {
+        height: clamp(3rem, 8vw, 4rem) !important; /* Logo grande en móviles - 48px-64px */
+        width: auto !important;
+        object-fit: contain !important; /* Logos recortados */
+    }
+    
+    /* Reduce controls container spacing */
+    header nav > div.flex.items-center.space-x-3 {
+        gap: 0.5rem; /* 8px instead of 12px (space-x-3) */
+        margin-left: auto; /* Ensure it stays on the right */
+    }
+    
+    /* Tighter nav container on mobile */
+    header nav {
+        padding: 0.375rem 0.75rem; /* Compacto pero que acomode logo grande en móviles */
+        gap: 0.5rem; /* Add gap between main elements */
+    }
+    
+    /* Smaller control buttons for more space */
+    .control-btn {
+        padding: 0.375rem 0.5rem; /* Reduce from default padding */
+        font-size: 0.75rem; /* Make text smaller */
+    }
+    
+    /* Language controls container - make it more compact */
+    header nav .flex.bg-gray-700\/50 {
+        padding: 0.125rem; /* Tighter internal padding */
+    }
+}
+
+/* Extra small mobile devices - even more aggressive */
+@media (max-width: 375px) {
+    header nav > a.logo-container {
+        margin-right: 0.75rem; /* Still maintain some space */
+    }
+    
+    .logo-img {
+        height: clamp(2.5rem, 7vw, 3rem) !important; /* Logo grande incluso en móviles pequeños - 40px-48px */
+        width: auto !important;
+        object-fit: contain !important; /* Logos recortados */
+    }
+    
+    .control-btn {
+        padding: 0.25rem 0.375rem; /* Very compact */
+        font-size: 0.6875rem; /* 11px */
+    }
 }
 
 /* Control Buttons */
@@ -371,6 +443,36 @@ html.light .hero-section::before {
 .resource-widget:hover {
     transform: translateY(-3px);
     border-color: var(--primary-color);
+}
+
+/* Economic indicator widgets - clickable */
+.economic-widget {
+    cursor: pointer;
+    position: relative;
+}
+
+.economic-widget:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.economic-widget::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 1rem;
+}
+
+.economic-widget:hover::after {
+    opacity: 1;
 }
 
 .resource-widget.coming-soon {
@@ -807,6 +909,7 @@ html.light .hero-section::before {
 .refresh-btn {
     background: var(--button-secondary);
     width: auto;
+    margin: 0 0.5rem;
 }
 
 /* Light mode refresh button improvements */
@@ -2091,9 +2194,13 @@ html.dark .historical-chart-modal .info-item {
     background: var(--widget-bg);
     border: 1px solid var(--widget-border);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 0.875rem;
     margin-bottom: 0.75rem;
     transition: all 0.3s ease;
+}
+
+.holiday-item:last-child {
+    margin-bottom: 0;
 }
 
 .holiday-item:hover {
@@ -2105,7 +2212,7 @@ html.dark .historical-chart-modal .info-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.375rem;
     font-size: 0.875rem;
     color: var(--text-secondary);
 }
@@ -2118,7 +2225,24 @@ html.dark .historical-chart-modal .info-item {
 .holiday-name {
     font-weight: 600;
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+/* Holiday widget content spacing */
+#holidays-data {
+    padding: 0 0.5rem;
+}
+
+.holidays-summary {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.holidays-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 /* Error Messages */
@@ -2202,4 +2326,225 @@ html.dark .historical-chart-modal .info-item {
     .fci-return {
         align-self: flex-end;
     }
+}
+
+/* =================================================================================
+   --- FIXED TERM AND FCI MODAL STYLES
+   ================================================================================= */
+
+/* Fixed Term Modal Styles */
+.fixed-term-content {
+    padding: 0;
+}
+
+.banks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.bank-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.bank-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.bank-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.bank-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+}
+
+.bank-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.bank-rate {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.bank-rate .rate-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.bank-rate .rate-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bank-link {
+    display: block;
+    text-align: center;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.bank-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* FCI Modal Styles */
+.fci-content {
+    padding: 0;
+}
+
+.fci-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.fci-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.fci-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.fci-header {
+    margin-bottom: 12px;
+}
+
+.fci-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.fci-data {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fci-rate {
+    text-align: center;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.fci-rate .rate-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+
+.fci-rate .rate-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fci-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detail-item {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-item:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Responsive adjustments for Fixed Term and FCI modals */
+@media (max-width: 768px) {
+    .banks-grid,
+    .fci-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .bank-card,
+    .fci-card {
+        padding: 12px;
+    }
+    
+    .bank-name,
+    .fci-name {
+        font-size: 13px;
+    }
+    
+    .bank-rate .rate-value,
+    .fci-rate .rate-value {
+        font-size: 20px;
+    }
+}
+
+/* =================================================================================
+   --- HOLIDAY MODAL STYLES
+   ================================================================================= */
+
+.holidays-modal-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.past-holiday {
+    opacity: 0.7;
+}
+
+.past-holiday .holiday-date,
+.past-holiday .holiday-name {
+    color: #ef4444 !important; /* red-500 */
 } 

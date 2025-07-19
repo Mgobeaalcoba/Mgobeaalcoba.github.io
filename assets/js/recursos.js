@@ -1799,12 +1799,24 @@ async function refreshHolidays() {
         const data = await loadHolidaysData();
         
         if (data && data.holidays) {
-            const holidaysList = data.holidays
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // Filtrar solo feriados futuros y ordenar por fecha
+            const futureHolidays = data.holidays
+                .filter(holiday => {
+                    const holidayDate = new Date(holiday.fecha);
+                    holidayDate.setHours(0, 0, 0, 0);
+                    return holidayDate >= today;
+                })
+                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+                .slice(0, 3); // Solo los próximos 3
+            
+            const holidaysList = futureHolidays
                 .map(holiday => {
                     const date = new Date(holiday.fecha);
                     const formattedDate = date.toLocaleDateString('es-AR', {
                         weekday: 'long',
-                        year: 'numeric',
                         month: 'long',
                         day: 'numeric'
                     });
@@ -1817,7 +1829,7 @@ async function refreshHolidays() {
             
             holidaysData.innerHTML = `
                 <div class="holidays-summary">
-                    <div class="holidays-count">${data.total} feriados en ${data.year}</div>
+                    <div class="holidays-count">Próximos 3 feriados</div>
                 </div>
                 <div class="holidays-list">
                     ${holidaysList}
@@ -1877,13 +1889,30 @@ async function showHistoricalData(indicatorType) {
                 break;
             case 'fixed-term':
                 data = await loadFixedTermHistoricalData();
+                // Fixed term doesn't have historical data, it shows current data in modal
+                if (data === null) {
+                    return; // Exit early, modal already shown by loadFixedTermHistoricalData
+                }
                 title = 'Evolución de Plazos Fijos';
                 subtitle = 'Datos de ArgentinaDatos API';
                 break;
             case 'fci':
                 data = await loadFCIHistoricalData();
+                // FCI doesn't have historical data, it shows current data in modal
+                if (data === null) {
+                    return; // Exit early, modal already shown by loadFCIHistoricalData
+                }
                 title = 'Evolución de Fondos Comunes de Inversión';
                 subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'holidays':
+                data = await loadHolidaysData();
+                if (data && data.holidays) {
+                    showHolidaysModal(data);
+                    return; // Exit early, modal already shown
+                }
+                title = 'Feriados Nacionales';
+                subtitle = 'Calendario oficial 2025';
                 break;
             default:
                 console.error(`❌ Unknown indicator type: ${indicatorType}`);
@@ -1986,9 +2015,17 @@ async function loadFixedTermHistoricalData() {
         }
         
         const data = await response.json();
-        return data.slice(-30); // Last 30 data points
+        
+        if (data && data.length > 0) {
+            // Mostrar datos actuales organizados por banco
+            showFixedTermModal(data);
+            return null; // No retornar datos para evitar crear gráfico
+        } else {
+            throw new Error('No se encontraron datos de plazos fijos');
+        }
     } catch (error) {
-        console.error('❌ Error loading fixed term historical data:', error);
+        console.error('❌ Error loading fixed term data:', error);
+        alert('Error al cargar datos de plazos fijos');
         return null;
     }
 }
@@ -2004,27 +2041,60 @@ async function loadFCIHistoricalData() {
         }
         
         const data = await response.json();
-        return data.slice(-30); // Last 30 data points
+        
+        if (data && data.length > 0) {
+            // Mostrar datos actuales organizados por entidad
+            showFCIModal(data);
+            return null; // No retornar datos para evitar crear gráfico
+        } else {
+            throw new Error('No se encontraron datos de FCI');
+        }
     } catch (error) {
-        console.error('❌ Error loading FCI historical data:', error);
+        console.error('❌ Error loading FCI data:', error);
+        alert('Error al cargar datos de FCI');
         return null;
     }
 }
 
-function showHistoricalChartModal(data, title, subtitle, indicatorType) {
+function showFixedTermModal(data) {
     const modal = document.getElementById('historical-chart-modal');
     const chartTitle = document.getElementById('chart-title');
     const chartSubtitle = document.getElementById('chart-subtitle');
+    const modalBody = document.querySelector('.modal-body');
     
-    if (modal && chartTitle && chartSubtitle) {
-        chartTitle.textContent = title;
-        chartSubtitle.textContent = subtitle;
+    if (modal && chartTitle && chartSubtitle && modalBody) {
+        chartTitle.textContent = 'Tasas de Plazo Fijo por Banco';
+        chartSubtitle.textContent = 'Tasas Nominales Anuales (TNA) - Clientes';
         
-        // Show modal
+        // Filtrar solo bancos con tasas válidas
+        const validBanks = data.filter(item => item.tnaClientes !== null && item.tnaClientes > 0);
+        
+        // Crear contenido HTML para mostrar los datos
+        const contentHTML = `
+            <div class="fixed-term-content">
+                <div class="banks-grid">
+                    ${validBanks.map(bank => `
+                        <div class="bank-card">
+                            <div class="bank-header">
+                                <img src="${bank.logo}" alt="${bank.entidad}" class="bank-logo" onerror="this.style.display='none'">
+                                <h4 class="bank-name">${bank.entidad}</h4>
+                            </div>
+                            <div class="bank-rate">
+                                <span class="rate-value">${(bank.tnaClientes * 100).toFixed(2)}%</span>
+                                <span class="rate-label">TNA</span>
+                            </div>
+                            ${bank.enlace ? `<a href="${bank.enlace}" target="_blank" class="bank-link">Ver más</a>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        // Reemplazar el contenido del modal
+        modalBody.innerHTML = contentHTML;
+        
+        // Mostrar modal
         modal.classList.remove('hidden');
-        
-        // Create chart with the data
-        createEconomicIndicatorChart(data, indicatorType);
         
         // Setup close functionality
         const closeBtn = document.getElementById('close-modal');
@@ -2041,6 +2111,172 @@ function showHistoricalChartModal(data, title, subtitle, indicatorType) {
             }
         };
     }
+}
+
+function showFCIModal(data) {
+    const modal = document.getElementById('historical-chart-modal');
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    const modalBody = document.querySelector('.modal-body');
+    
+    if (modal && chartTitle && chartSubtitle && modalBody) {
+        chartTitle.textContent = 'Fondos Comunes de Inversión';
+        chartSubtitle.textContent = 'Patrimonio por Categoría - Mercado de Dinero';
+        
+        console.log('FCI Data:', data); // Debug log
+        
+        // Crear contenido HTML para mostrar los datos
+        const contentHTML = `
+            <div class="fci-content">
+                <div class="fci-grid">
+                    ${data.map(fci => {
+                        console.log('Processing FCI item:', fci); // Debug log
+                        return `
+                            <div class="fci-card">
+                                <div class="fci-header">
+                                    <h4 class="fci-name">${fci.fondo || 'Categoría no disponible'}</h4>
+                                </div>
+                                <div class="fci-data">
+                                    <div class="fci-rate">
+                                        <span class="rate-value">${fci.patrimonio ? `$${(fci.patrimonio / 1000000).toFixed(1)}M` : 'N/A'}</span>
+                                        <span class="rate-label">Patrimonio</span>
+                                    </div>
+                                    <div class="fci-details">
+                                        <span class="detail-item">VCP: ${fci.vcp ? fci.vcp.toLocaleString() : 'N/A'}</span>
+                                        <span class="detail-item">CCP: ${fci.ccp ? fci.ccp.toLocaleString() : 'N/A'}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+        
+        // Reemplazar el contenido del modal
+        modalBody.innerHTML = contentHTML;
+        
+        // Mostrar modal
+        modal.classList.remove('hidden');
+        
+        // Setup close functionality
+        const closeBtn = document.getElementById('close-modal');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.classList.add('hidden');
+            };
+        }
+        
+        // Close on backdrop click
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    }
+}
+
+function showHistoricalChartModal(data, title, subtitle, indicatorType) {
+    const modal = document.getElementById('historical-chart-modal');
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    
+    if (modal && chartTitle && chartSubtitle) {
+        chartTitle.textContent = title;
+        chartSubtitle.textContent = subtitle;
+        
+        // Show modal
+        modal.classList.remove('hidden');
+        
+        // Store data globally for filtering
+        window.currentHistoricalData = data;
+        window.currentIndicatorType = indicatorType;
+        
+        // Create chart with the data
+        createEconomicIndicatorChart(data, indicatorType);
+        
+        // Setup time filter functionality
+        setupTimeFilters(data, indicatorType);
+        
+        // Setup close functionality
+        const closeBtn = document.getElementById('close-modal');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.classList.add('hidden');
+            };
+        }
+        
+        // Close on backdrop click
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    }
+}
+
+function setupTimeFilters(data, indicatorType) {
+    const timeFilters = document.querySelectorAll('.time-filter');
+    const dateRangeSpan = document.getElementById('chart-date-range');
+    
+    timeFilters.forEach(filter => {
+        filter.onclick = () => {
+            // Remove active class from all filters
+            timeFilters.forEach(f => f.classList.remove('active'));
+            // Add active class to clicked filter
+            filter.classList.add('active');
+            
+            const period = filter.getAttribute('data-period');
+            const filteredData = filterDataByPeriod(data, period);
+            
+            // Update chart with filtered data
+            createEconomicIndicatorChart(filteredData, indicatorType);
+            
+            // Update date range display
+            if (dateRangeSpan) {
+                dateRangeSpan.textContent = getPeriodDisplayText(period);
+            }
+        };
+    });
+}
+
+function filterDataByPeriod(data, period) {
+    if (!data || data.length === 0) return data;
+    
+    const now = new Date();
+    let cutoffDate;
+    
+    switch (period) {
+        case '7d':
+            cutoffDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            break;
+        case '30d':
+            cutoffDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            break;
+        case '90d':
+            cutoffDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+            break;
+        case '1y':
+            cutoffDate = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+            break;
+        default:
+            return data;
+    }
+    
+    return data.filter(item => {
+        const itemDate = new Date(item.fecha);
+        return itemDate >= cutoffDate;
+    });
+}
+
+function getPeriodDisplayText(period) {
+    const texts = {
+        '7d': 'Últimos 7 días',
+        '30d': 'Últimos 30 días',
+        '90d': 'Últimos 90 días',
+        '1y': 'Último año'
+    };
+    return texts[period] || 'Todos los datos';
 }
 
 function createEconomicIndicatorChart(data, indicatorType) {
@@ -2158,4 +2394,94 @@ window.refreshFixedTerm = refreshFixedTerm;
 window.refreshFCI = refreshFCI;
 window.refreshUVA = refreshUVA;
 window.refreshHolidays = refreshHolidays;
-window.showHistoricalData = showHistoricalData; 
+window.showHistoricalData = showHistoricalData;
+
+// =================================================================================
+// --- WIDGET CLICK HANDLERS
+// =================================================================================
+
+// Function to handle widget clicks and prevent event bubbling
+function handleWidgetClick(event, indicatorType) {
+    // Don't trigger if clicking on refresh button or its children
+    if (event.target.closest('.refresh-btn')) {
+        event.stopPropagation();
+        return;
+    }
+    
+    // Show historical data
+    showHistoricalData(indicatorType);
+}
+
+// Make function available globally
+window.handleWidgetClick = handleWidgetClick;
+
+function showHolidaysModal(data) {
+    const modal = document.getElementById('historical-chart-modal');
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    const modalBody = document.querySelector('.modal-body');
+    
+    if (modal && chartTitle && chartSubtitle && modalBody) {
+        chartTitle.textContent = 'Feriados Nacionales 2025';
+        chartSubtitle.textContent = 'Calendario oficial completo';
+        
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        // Ordenar feriados por fecha
+        const sortedHolidays = data.holidays.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        
+        const holidaysList = sortedHolidays
+            .map(holiday => {
+                const date = new Date(holiday.fecha);
+                const isPast = date < today;
+                const formattedDate = date.toLocaleDateString('es-AR', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                return `<div class="holiday-item ${isPast ? 'past-holiday' : ''}">
+                    <div class="holiday-date ${isPast ? 'text-red-400' : ''}">${formattedDate}</div>
+                    <div class="holiday-name ${isPast ? 'text-red-400' : ''}">${holiday.nombre}</div>
+                </div>`;
+            })
+            .join('');
+        
+        const contentHTML = `
+            <div class="holidays-modal-content">
+                <div class="holidays-summary">
+                    <div class="holidays-count">${data.total} feriados en ${data.year}</div>
+                </div>
+                <div class="holidays-list">
+                    ${holidaysList}
+                </div>
+            </div>
+        `;
+        
+        // Reemplazar el contenido del modal
+        modalBody.innerHTML = contentHTML;
+        
+        // Mostrar modal
+        modal.classList.remove('hidden');
+        
+        // Setup close functionality
+        const closeBtn = document.getElementById('close-modal');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.classList.add('hidden');
+            };
+        }
+        
+        // Close on backdrop click
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    }
+}
+
+// Make function available globally
+window.showHolidaysModal = showHolidaysModal; 

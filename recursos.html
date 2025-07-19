@@ -453,22 +453,16 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Widget de Inflación Mensual -->
-                <div class="resource-widget modern-widget" id="inflation-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_inflation_title">Inflación Mensual</h3>
-                            <p data-translate="recursos_inflation_desc">Índice de precios al consumidor</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('inflation')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('inflation-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="inflation-widget" onclick="handleWidgetClick(event, 'inflation')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_inflation_title">Inflación Mensual</h4>
+                                <p data-translate="recursos_inflation_desc">Índice de precios al consumidor</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -480,25 +474,23 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('inflation-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Inflación Interanual -->
-                <div class="resource-widget modern-widget" id="annual-inflation-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-percentage"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_annual_inflation_title">Inflación Interanual</h3>
-                            <p data-translate="recursos_annual_inflation_desc">Variación anual del IPC</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('annual-inflation')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('annual-inflation-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="annual-inflation-widget" onclick="handleWidgetClick(event, 'annual-inflation')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_annual_inflation_title">Inflación Interanual</h4>
+                                <p data-translate="recursos_annual_inflation_desc">Variación anual del IPC</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -510,25 +502,23 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('annual-inflation-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Riesgo País -->
-                <div class="resource-widget modern-widget" id="risk-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_risk_title">Riesgo País</h3>
-                            <p data-translate="recursos_risk_desc">Indicador de riesgo soberano</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('risk')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('risk-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="risk-widget" onclick="handleWidgetClick(event, 'risk')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_risk_title">Riesgo País</h4>
+                                <p data-translate="recursos_risk_desc">Indicador de riesgo soberano</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -540,25 +530,23 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('risk-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Plazos Fijos -->
-                <div class="resource-widget modern-widget" id="fixed-term-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-piggy-bank"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_fixed_term_title">Plazos Fijos</h3>
-                            <p data-translate="recursos_fixed_term_desc">Tasas de interés actuales</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('fixed-term')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('fixed-term-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="fixed-term-widget" onclick="handleWidgetClick(event, 'fixed-term')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_fixed_term_title">Plazos Fijos</h4>
+                                <p data-translate="recursos_fixed_term_desc">Tasas de interés actuales</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -570,25 +558,23 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('fixed-term-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Fondos Comunes de Inversión -->
-                <div class="resource-widget modern-widget" id="fci-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_fci_title">Fondos Comunes de Inversión</h3>
-                            <p data-translate="recursos_fci_desc">Rendimientos por categoría</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('fci')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('fci-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="fci-widget" onclick="handleWidgetClick(event, 'fci')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_fci_title">Fondos Comunes de Inversión</h4>
+                                <p data-translate="recursos_fci_desc">Rendimientos por categoría</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -600,25 +586,23 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('fci-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Índice UVA -->
-                <div class="resource-widget modern-widget" id="uva-widget">
-                    <div class="widget-header">
-                        <div class="widget-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="widget-title">
-                            <h3 data-translate="recursos_uva_title">Índice UVA</h3>
-                            <p data-translate="recursos_uva_desc">Unidad de Valor Adquisitivo</p>
-                        </div>
-                        <div class="widget-actions">
-                            <button class="history-btn" onclick="showHistoricalData('uva')" title="Ver histórico">
-                                <i class="fas fa-history"></i>
-                            </button>
-                            <button class="refresh-btn" onclick="refreshWidget('uva-widget')" title="Actualizar">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <div class="resource-widget modern-widget economic-widget" id="uva-widget" onclick="handleWidgetClick(event, 'uva')">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_uva_title">Índice UVA</h4>
+                                <p data-translate="recursos_uva_desc">Unidad de Valor Adquisitivo</p>
+                            </div>
                         </div>
                     </div>
                     <div class="widget-loading">
@@ -630,10 +614,14 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
+                    <button onclick="refreshWidget('uva-widget')" class="refresh-btn mt-4">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-translate="recursos_currency_update_btn">Actualizar</span>
+                    </button>
                 </div>
 
                 <!-- Widget de Feriados -->
-                <div class="resource-widget modern-widget" id="holidays-widget">
+                <div class="resource-widget modern-widget economic-widget" id="holidays-widget" onclick="handleWidgetClick(event, 'holidays')">
                     <div class="modern-header">
                         <div class="modern-title">
                             <div class="modern-icon">
