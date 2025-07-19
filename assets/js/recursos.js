@@ -349,6 +349,18 @@ function processDolarApiData(dolarApiResult, cotizacionesResult, exchangeResult)
                 };
             }
         });
+        
+        // Calculate credit card dollar if official rate is available
+        if (rates.USD.oficial && rates.USD.oficial.sell) {
+            const officialRate = rates.USD.oficial.sell;
+            const creditCardRate = calculateCreditCardRate(officialRate);
+            rates.USD.tarjeta = {
+                buy: creditCardRate,
+                sell: creditCardRate,
+                name: 'Tarjeta (Calculado)',
+                lastUpdate: rates.USD.oficial.lastUpdate
+            };
+        }
     }
     
     // Process DolarApi other currencies (EUR, BRL)
@@ -551,6 +563,42 @@ function createCurrencyRateItem(code, name, symbol, rates) {
     item.appendChild(ratesGrid);
     
     return item;
+}
+
+// Calculate credit card dollar rate based on official rate and date
+function calculateCreditCardRate(officialRate, date = new Date()) {
+    const currentDate = new Date(date);
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1; // January is 0
+    
+    let totalPercentage = 0;
+    
+    if (year === 2023) {
+        if (month <= 9) {
+            // Until September 2023: 30% PAIS + 35% Ganancias = 65%
+            totalPercentage = 0.65;
+        } else if (month === 10) {
+            // October 2023: 30% PAIS + 35% Ganancias + 25% Bienes Personales = 90%
+            totalPercentage = 0.90;
+        } else {
+            // November-December 2023: 30% PAIS + 100% Ganancias + 25% Bienes Personales = 155%
+            totalPercentage = 1.55;
+        }
+    } else if (year === 2024) {
+        if (month === 12) {
+            // December 2024: 30% Ganancias (PAIS eliminated)
+            totalPercentage = 0.30;
+        } else {
+            // January-November 2024: 30% PAIS + 30% Ganancias = 60%
+            totalPercentage = 0.60;
+        }
+    } else if (year >= 2025) {
+        // 2025 onwards: 30% Ganancias
+        totalPercentage = 0.30;
+    }
+    
+    const creditCardRate = officialRate * (1 + totalPercentage);
+    return Math.round(creditCardRate * 100) / 100;
 }
 
 function getFallbackRates() {
@@ -899,8 +947,17 @@ async function loadHistoricalData(casa, days = 7) {
     try {
         console.log(`📊 Loading historical data for ${casa} (${days} days)`);
         
+        let url;
         const baseUrl = 'https://api.argentinadatos.com/v1';
-        const url = `${baseUrl}/cotizaciones/dolares/${casa}`;
+        
+        // Handle different currency types
+        if (casa === 'EUR' || casa === 'BRL') {
+            // For EUR and BRL, use the cotizaciones endpoint
+            url = `${baseUrl}/cotizaciones`;
+        } else {
+            // For USD types, use the dolares endpoint
+            url = `${baseUrl}/cotizaciones/dolares/${casa}`;
+        }
         
         const response = await fetch(url, {
             redirect: 'follow'
@@ -912,13 +969,24 @@ async function loadHistoricalData(casa, days = 7) {
         const data = await response.json();
         console.log(`📈 Received ${data.length} historical records for ${casa}`);
         
-        // Filter data by days and sort by date
+        // Filter and process data based on currency type
         const cutoffDate = new Date();
         cutoffDate.setDate(cutoffDate.getDate() - days);
         
-        const filteredData = data
-            .filter(item => new Date(item.fecha) >= cutoffDate)
-            .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        let filteredData;
+        
+        if (casa === 'EUR' || casa === 'BRL') {
+            // Filter EUR/BRL data
+            filteredData = data
+                .filter(item => item.moneda === casa)
+                .filter(item => new Date(item.fecha) >= cutoffDate)
+                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        } else {
+            // Filter USD data
+            filteredData = data
+                .filter(item => new Date(item.fecha) >= cutoffDate)
+                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        }
         
         return filteredData;
     } catch (error) {
@@ -936,7 +1004,11 @@ function generateSampleHistoricalData(casa, days) {
         'blue': { buy: 1285, sell: 1305 },
         'mep': { buy: 1289, sell: 1294 },
         'ccl': { buy: 1300, sell: 1269 },
-        'mayorista': { buy: 1277, sell: 1286 }
+        'mayorista': { buy: 1277, sell: 1286 },
+        'tarjeta': { buy: 1950, sell: 1950 }, // Calculated rate
+        'cripto': { buy: 1290, sell: 1300 },
+        'EUR': { buy: 1350, sell: 1400 },
+        'BRL': { buy: 250, sell: 260 }
     };
     
     const baseRate = baseRates[casa] || baseRates['blue'];

@@ -1367,6 +1367,14 @@ export const translations = {
         es: "Cripto",
         en: "Crypto"
     },
+    "currency.card": {
+        es: "Tarjeta",
+        en: "Card"
+    },
+    "currency.wholesale": {
+        es: "Mayorista",
+        en: "Wholesale"
+    },
     
     // Additional missing translations
     "currency.usd_title": {
