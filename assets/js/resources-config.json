@@ -1,0 +1,169 @@
+{
+  "resources": {
+    "calculators": [
+      {
+        "id": "tax-calculator",
+        "name": "Calculadora de Impuesto a las Ganancias",
+        "description": "Calcula tu impuesto anual en Argentina",
+        "icon": "fas fa-receipt",
+        "iconColor": "text-yellow-400",
+        "category": "fiscal",
+        "active": true,
+        "inputs": [
+          {
+            "id": "annual-salary",
+            "label": "Salario Bruto Anual (ARS)",
+            "type": "number",
+            "placeholder": "3000000",
+            "required": true
+          },
+          {
+            "id": "deductions",
+            "label": "Deducciones (ARS)",
+            "type": "number",
+            "placeholder": "500000",
+            "required": false
+          }
+        ],
+        "calculations": {
+          "taxBrackets": [
+            { "min": 0, "max": 2260473, "rate": 0 },
+            { "min": 2260473, "max": 3390710, "rate": 0.05 },
+            { "min": 3390710, "max": 4521000, "rate": 0.09 },
+            { "min": 4521000, "max": 6781400, "rate": 0.12 },
+            { "min": 6781400, "max": 9041800, "rate": 0.15 },
+            { "min": 9041800, "max": 13562700, "rate": 0.19 },
+            { "min": 13562700, "max": 18083600, "rate": 0.23 },
+            { "min": 18083600, "max": 27125400, "rate": 0.27 },
+            { "min": 27125400, "max": 36167200, "rate": 0.31 },
+            { "min": 36167200, "max": null, "rate": 0.35 }
+          ],
+          "nonTaxableMinimum": 2260473,
+          "year": 2024
+        }
+      },
+      {
+        "id": "credit-calculator",
+        "name": "Calculadora de Créditos",
+        "description": "Próximamente",
+        "icon": "fas fa-home",
+        "iconColor": "text-green-400",
+        "category": "loans",
+        "active": false,
+        "comingSoon": true
+      },
+      {
+        "id": "investment-calculator",
+        "name": "Calculadora de Inversiones",
+        "description": "Calcula rendimientos de tus inversiones",
+        "icon": "fas fa-chart-pie",
+        "iconColor": "text-blue-400",
+        "category": "investments",
+        "active": false,
+        "comingSoon": true
+      }
+    ],
+    "currencies": [
+      {
+        "id": "currency-rates",
+        "name": "Cotizaciones Argentina",
+        "description": "Actualizadas cada 30 minutos",
+        "icon": "fas fa-dollar-sign",
+        "iconColor": "text-green-400",
+        "active": true,
+        "sources": [
+          {
+            "name": "BluelyticAPI",
+            "url": "https://api.bluelytics.com.ar/v2/latest",
+            "type": "blue_dollar"
+          },
+          {
+            "name": "ExchangeRateAPI",
+            "url": "https://api.exchangerate-api.com/v4/latest/USD",
+            "type": "official_rates"
+          }
+        ],
+        "supportedCurrencies": [
+          {
+            "code": "USD",
+            "name": "Dólar Estadounidense",
+            "symbol": "$",
+            "types": ["oficial", "blue", "mep", "ccl"]
+          },
+          {
+            "code": "EUR",
+            "name": "Euro",
+            "symbol": "€",
+            "types": ["oficial"]
+          },
+          {
+            "code": "BRL",
+            "name": "Real Brasileño",
+            "symbol": "R$",
+            "types": ["oficial"]
+          }
+        ]
+      },
+      {
+        "id": "currency-converter",
+        "name": "Conversor de Monedas",
+        "description": "Convierte entre ARS, USD, EUR, BRL",
+        "icon": "fas fa-exchange-alt",
+        "iconColor": "text-purple-400",
+        "active": true
+      }
+    ]
+  },
+  "settings": {
+    "refreshInterval": 1800000,
+    "defaultLanguage": "es",
+    "themes": ["dark", "light"],
+    "apis": {
+      "bluelytics": {
+        "baseUrl": "https://api.bluelytics.com.ar/v2",
+        "endpoints": {
+          "latest": "/latest",
+          "historical": "/evolution"
+        }
+      },
+      "exchangeRate": {
+        "baseUrl": "https://api.exchangerate-api.com/v4",
+        "endpoints": {
+          "latest": "/latest"
+        }
+      }
+    }
+  },
+  "navigation": {
+    "sections": [
+      {
+        "id": "portfolio",
+        "name": "Portfolio",
+        "url": "index.html",
+        "icon": "fas fa-user",
+        "description": "Conoce mi experiencia como Data & Analytics Technical Leader"
+      },
+      {
+        "id": "consulting",
+        "name": "Consultoría",
+        "url": "consulting.html",
+        "icon": "fas fa-briefcase",
+        "description": "Servicios de automatización, IA y Business Intelligence"
+      },
+      {
+        "id": "resources",
+        "name": "Recursos",
+        "url": "recursos.html",
+        "icon": "fas fa-tools",
+        "description": "Herramientas financieras gratuitas y actualizadas",
+        "active": true
+      }
+    ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-15",
+    "author": "Mariano Gobea Alcoba",
+    "description": "Configuración escalable para recursos útiles del sitio web"
+  }
+} 

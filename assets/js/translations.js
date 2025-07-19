@@ -1103,5 +1103,202 @@ export const translations = {
     consulting_position_years: {
         es: "6+ años en MercadoLibre",
         en: "6+ years at MercadoLibre"
+    },
+    
+    // ===============================================
+    // RECURSOS PAGE TRANSLATIONS
+    // ===============================================
+    
+    recursos_page_title: {
+        es: "Recursos Útiles",
+        en: "Useful Resources"
+    },
+    recursos_page_subtitle: {
+        es: "Herramientas financieras gratuitas y actualizadas para tomar mejores decisiones económicas en Argentina",
+        en: "Free and updated financial tools to make better economic decisions in Argentina"
+    },
+    recursos_stat_free: {
+        es: "Gratuito",
+        en: "Free"
+    },
+    recursos_stat_available: {
+        es: "Disponible",
+        en: "Available"
+    },
+    recursos_stat_realtime: {
+        es: "Datos Actualizados",
+        en: "Real-time Data"
+    },
+    recursos_nav_portfolio: {
+        es: "Mi Portfolio",
+        en: "My Portfolio"
+    },
+    recursos_nav_consulting: {
+        es: "Servicios de Consultoría",
+        en: "Consulting Services"
+    },
+    recursos_portfolio_title: {
+        es: "Mi Portfolio",
+        en: "My Portfolio"
+    },
+    recursos_portfolio_desc: {
+        es: "Conoce mi experiencia como Data & Analytics Technical Leader en MercadoLibre y mis proyectos destacados.",
+        en: "Learn about my experience as Data & Analytics Technical Leader at MercadoLibre and my featured projects."
+    },
+    recursos_portfolio_btn: {
+        es: "Ver Portfolio",
+        en: "View Portfolio"
+    },
+    recursos_consulting_title: {
+        es: "Servicios de Consultoría",
+        en: "Consulting Services"
+    },
+    recursos_consulting_desc: {
+        es: "Automatización, IA aplicada y Business Intelligence para hacer crecer tu negocio y reducir costos operativos.",
+        en: "Automation, applied AI and Business Intelligence to grow your business and reduce operational costs."
+    },
+    recursos_consulting_btn: {
+        es: "Ver Servicios",
+        en: "View Services"
+    },
+    recursos_tools_title: {
+        es: "Herramientas Disponibles",
+        en: "Available Tools"
+    },
+    recursos_tools_desc: {
+        es: "Accede a calculadoras y cotizaciones actualizadas para optimizar tus decisiones financieras",
+        en: "Access calculators and updated quotes to optimize your financial decisions"
+    },
+    recursos_calculators_title: {
+        es: "Calculadoras",
+        en: "Calculators"
+    },
+    recursos_quotes_title: {
+        es: "Cotizaciones en Tiempo Real",
+        en: "Real-time Quotes"
+    },
+    recursos_nav_quotes: {
+        es: "Cotizaciones",
+        en: "Quotes"
+    },
+    recursos_tax_calculator_title: {
+        es: "Impuesto a las Ganancias",
+        en: "Income Tax"
+    },
+    recursos_tax_calculator_desc: {
+        es: "Calcula tu impuesto anual en Argentina",
+        en: "Calculate your annual tax in Argentina"
+    },
+    recursos_tax_salary_label: {
+        es: "Salario Bruto Anual (ARS)",
+        en: "Annual Gross Salary (ARS)"
+    },
+    recursos_tax_deductions_label: {
+        es: "Deducciones (ARS)",
+        en: "Deductions (ARS)"
+    },
+    recursos_tax_calculate_btn: {
+        es: "Calcular",
+        en: "Calculate"
+    },
+    recursos_tax_annual_result: {
+        es: "Impuesto Anual:",
+        en: "Annual Tax:"
+    },
+    recursos_tax_monthly_result: {
+        es: "Impuesto Mensual:",
+        en: "Monthly Tax:"
+    },
+    recursos_credit_calculator_title: {
+        es: "Calculadora de Créditos",
+        en: "Credit Calculator"
+    },
+    recursos_credit_coming_soon: {
+        es: "Próximamente",
+        en: "Coming Soon"
+    },
+    recursos_credit_available_soon: {
+        es: "Esta calculadora estará disponible pronto",
+        en: "This calculator will be available soon"
+    },
+    recursos_currency_argentina_title: {
+        es: "Cotizaciones Argentina",
+        en: "Argentina Exchange Rates"
+    },
+    recursos_currency_updated: {
+        es: "Actualizadas cada 30 minutos",
+        en: "Updated every 30 minutes"
+    },
+    recursos_currency_update_btn: {
+        es: "Actualizar",
+        en: "Update"
+    },
+    recursos_currency_last_update: {
+        es: "Última actualización:",
+        en: "Last update:"
+    },
+    recursos_converter_title: {
+        es: "Conversor de Monedas",
+        en: "Currency Converter"
+    },
+    recursos_converter_desc: {
+        es: "Convierte entre ARS, USD, EUR, BRL",
+        en: "Convert between ARS, USD, EUR, BRL"
+    },
+    recursos_converter_from: {
+        es: "Desde",
+        en: "From"
+    },
+    recursos_converter_to: {
+        es: "Hacia",
+        en: "To"
+    },
+    recursos_cta_title: {
+        es: "¿Necesitas Herramientas Personalizadas?",
+        en: "Need Custom Tools?"
+    },
+    recursos_cta_desc: {
+        es: "Si tu empresa necesita calculadoras específicas, dashboards financieros o automatización de procesos económicos, puedo ayudarte.",
+        en: "If your company needs specific calculators, financial dashboards or economic process automation, I can help you."
+    },
+    recursos_cta_consulting_btn: {
+        es: "Ver Servicios de Consultoría",
+        en: "View Consulting Services"
+    },
+    recursos_cta_experience_btn: {
+        es: "Conocer mi Experiencia",
+        en: "Learn About My Experience"
+    },
+    recursos_footer_resources: {
+        es: "Recursos",
+        en: "Resources"
+    },
+    recursos_footer_navigation: {
+        es: "Navegación",
+        en: "Navigation"
+    },
+    recursos_footer_contact: {
+        es: "Contacto",
+        en: "Contact"
+    },
+    recursos_footer_calculators: {
+        es: "Calculadoras",
+        en: "Calculators"
+    },
+    recursos_footer_quotes: {
+        es: "Cotizaciones",
+        en: "Quotes"
+    },
+    recursos_footer_portfolio: {
+        es: "Portfolio",
+        en: "Portfolio"
+    },
+    recursos_footer_consulting: {
+        es: "Consultoría",
+        en: "Consulting"
+    },
+    recursos_footer_copyright: {
+        es: "Todos los recursos son gratuitos y de código abierto.",
+        en: "All resources are free and open source."
     }
 }; 

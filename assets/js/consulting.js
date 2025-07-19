@@ -1131,6 +1131,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Initialize image optimization
                 await initializeImageOptimization();
                 
+                // Initialize secondary navigation
+                initializeSecondaryNavigation();
+                
                 logger.success('Consulting', 'All consulting page modules initialized successfully');
             } catch (error) {
                 logger.error('Failed to initialize consulting page modules:', error);
@@ -1140,4 +1143,72 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         logger.error('Failed to initialize analytics:', error);
     }
-}); 
+});
+
+// ===============================================
+// SECONDARY NAVIGATION FUNCTIONALITY
+// ===============================================
+
+function initializeSecondaryNavigation() {
+    const secondaryNavLinks = document.querySelectorAll('.secondary-nav-link');
+    const sections = ['packs', 'examples', 'process'];
+    
+    // Function to update active link based on scroll position
+    function updateActiveLink() {
+        let current = '';
+        
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                const headerHeight = 120; // Account for sticky headers
+                
+                if (rect.top <= headerHeight && rect.bottom >= headerHeight) {
+                    current = sectionId;
+                }
+            }
+        });
+        
+        // Update active states
+        secondaryNavLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Smooth scroll for secondary navigation links
+    secondaryNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const headerHeight = 120; // Account for both main and secondary nav
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Listen for scroll events to update active link
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        // Debounce scroll events for performance
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveLink, 10);
+    });
+    
+    // Initial check
+    updateActiveLink();
+    
+    logger.debug('SecondaryNav', 'Secondary navigation initialized successfully');
+} 
