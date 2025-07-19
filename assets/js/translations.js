@@ -1556,5 +1556,125 @@ export const translations = {
     "recursos_error": {
         es: "Error",
         en: "Error"
+    },
+    
+    // ================= ECONOMIC INDICATORS TRANSLATIONS =================
+    
+    // Section titles
+    "recursos_indicators_title": {
+        es: "Indicadores Económicos",
+        en: "Economic Indicators"
+    },
+    "recursos_indicators_desc": {
+        es: "Datos clave de la economía argentina actualizados en tiempo real",
+        en: "Key data from the Argentine economy updated in real time"
+    },
+    
+    // Inflation Widget
+    "recursos_inflation_title": {
+        es: "Índice de Inflación",
+        en: "Inflation Index"
+    },
+    "recursos_inflation_desc": {
+        es: "Inflación mensual e interanual",
+        en: "Monthly and annual inflation"
+    },
+    "recursos_loading_inflation": {
+        es: "Cargando datos de inflación...",
+        en: "Loading inflation data..."
+    },
+    "recursos_inflation_update_btn": {
+        es: "Actualizar Inflación",
+        en: "Update Inflation"
+    },
+    
+    // Country Risk Widget
+    "recursos_risk_title": {
+        es: "Riesgo País",
+        en: "Country Risk"
+    },
+    "recursos_risk_desc": {
+        es: "Indicador de riesgo soberano",
+        en: "Sovereign risk indicator"
+    },
+    "recursos_loading_risk": {
+        es: "Cargando riesgo país...",
+        en: "Loading country risk..."
+    },
+    "recursos_risk_update_btn": {
+        es: "Actualizar Riesgo",
+        en: "Update Risk"
+    },
+    
+    // Fixed Term Widget
+    "recursos_fixed_term_title": {
+        es: "Plazos Fijos",
+        en: "Fixed Term Deposits"
+    },
+    "recursos_fixed_term_desc": {
+        es: "Tasas de interés actuales",
+        en: "Current interest rates"
+    },
+    "recursos_loading_fixed_term": {
+        es: "Cargando plazos fijos...",
+        en: "Loading fixed term deposits..."
+    },
+    "recursos_fixed_term_update_btn": {
+        es: "Actualizar Plazos",
+        en: "Update Deposits"
+    },
+    
+    // FCI Widget
+    "recursos_fci_title": {
+        es: "Fondos Comunes de Inversión",
+        en: "Mutual Investment Funds"
+    },
+    "recursos_fci_desc": {
+        es: "Rendimientos por categoría",
+        en: "Returns by category"
+    },
+    "recursos_loading_fci": {
+        es: "Cargando FCI...",
+        en: "Loading FCI..."
+    },
+    "recursos_fci_update_btn": {
+        es: "Actualizar FCI",
+        en: "Update FCI"
+    },
+    
+    // UVA Index Widget
+    "recursos_uva_title": {
+        es: "Índice UVA",
+        en: "UVA Index"
+    },
+    "recursos_uva_desc": {
+        es: "Unidad de Valor Adquisitivo",
+        en: "Acquisition Value Unit"
+    },
+    "recursos_loading_uva": {
+        es: "Cargando índice UVA...",
+        en: "Loading UVA index..."
+    },
+    "recursos_uva_update_btn": {
+        es: "Actualizar UVA",
+        en: "Update UVA"
+    },
+    
+    // Holidays Widget
+    "recursos_holidays_title": {
+        es: "Feriados Nacionales",
+        en: "National Holidays"
+    },
+    "recursos_holidays_desc": {
+        es: "Calendario oficial 2025",
+        en: "Official 2025 calendar"
+    },
+    "recursos_loading_holidays": {
+        es: "Cargando feriados...",
+        en: "Loading holidays..."
+    },
+    "recursos_holidays_update_btn": {
+        es: "Actualizar Feriados",
+        en: "Update Holidays"
     }
 }; 

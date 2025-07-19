@@ -441,6 +441,182 @@
         </div>
     </section>
 
+    <!-- INDICADORES ECONÓMICOS -->
+    <section id="indicadores" class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text" data-translate="recursos_indicators_title">Indicadores Económicos</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-translate="recursos_indicators_desc">
+                    Datos clave de la economía argentina actualizados en tiempo real
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Widget de Inflación -->
+                <div class="resource-widget modern-widget" id="inflation-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_inflation_title">Índice de Inflación</h4>
+                                <p data-translate="recursos_inflation_desc">Inflación mensual e interanual</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="inflation-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_inflation">Cargando datos de inflación...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshInflation()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_inflation_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget de Riesgo País -->
+                <div class="resource-widget modern-widget" id="country-risk-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_risk_title">Riesgo País</h4>
+                                <p data-translate="recursos_risk_desc">Indicador de riesgo soberano</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="risk-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_risk">Cargando riesgo país...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshRisk()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_risk_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget de Plazos Fijos -->
+                <div class="resource-widget modern-widget" id="fixed-term-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_fixed_term_title">Plazos Fijos</h4>
+                                <p data-translate="recursos_fixed_term_desc">Tasas de interés actuales</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="fixed-term-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_fixed_term">Cargando plazos fijos...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshFixedTerm()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_fixed_term_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget de Fondos Comunes de Inversión -->
+                <div class="resource-widget modern-widget" id="fci-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_fci_title">Fondos Comunes de Inversión</h4>
+                                <p data-translate="recursos_fci_desc">Rendimientos por categoría</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="fci-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_fci">Cargando FCI...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshFCI()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_fci_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget de Índice UVA -->
+                <div class="resource-widget modern-widget" id="uva-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_uva_title">Índice UVA</h4>
+                                <p data-translate="recursos_uva_desc">Unidad de Valor Adquisitivo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="uva-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_uva">Cargando índice UVA...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshUVA()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_uva_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Widget de Feriados -->
+                <div class="resource-widget modern-widget" id="holidays-widget">
+                    <div class="modern-header">
+                        <div class="modern-title">
+                            <div class="modern-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="title-content">
+                                <h4 data-translate="recursos_holidays_title">Feriados Nacionales</h4>
+                                <p data-translate="recursos_holidays_desc">Calendario oficial 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div id="holidays-data" class="space-y-4">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_holidays">Cargando feriados...</p>
+                            </div>
+                        </div>
+                        <button onclick="refreshHolidays()" class="refresh-btn mt-4">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            <span data-translate="recursos_holidays_update_btn">Actualizar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA SECTION -->
     <section class="cta-section py-16 px-4">
         <div class="container mx-auto max-w-4xl text-center">

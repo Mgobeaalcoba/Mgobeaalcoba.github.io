@@ -1757,4 +1757,283 @@ html.dark .historical-chart-modal .info-item {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* =================================================================================
+   --- ECONOMIC INDICATORS STYLES
+   ================================================================================= */
+
+/* Indicator Cards */
+.indicator-card {
+    background: var(--widget-bg);
+    border: 1px solid var(--widget-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--widget-shadow);
+}
+
+.indicator-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.indicator-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.indicator-header i {
+    font-size: 1.25rem;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.indicator-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.indicator-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.indicator-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.indicator-subtitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+/* Rate Items (for Fixed Term) */
+.rate-item {
+    background: var(--widget-bg);
+    border: 1px solid var(--widget-border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.rate-item:hover {
+    transform: translateX(4px);
+    border-color: var(--primary-color);
+}
+
+.rate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.rate-bank {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.rate-value {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.125rem;
+}
+
+.rate-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.rate-period {
+    font-weight: 500;
+}
+
+.rate-date {
+    opacity: 0.8;
+}
+
+/* FCI Categories */
+.fci-category {
+    margin-bottom: 1.5rem;
+}
+
+.fci-category-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--widget-border);
+    padding-bottom: 0.5rem;
+}
+
+.fci-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--widget-border);
+    transition: all 0.3s ease;
+}
+
+.fci-item:last-child {
+    border-bottom: none;
+}
+
+.fci-item:hover {
+    background: rgba(14, 165, 233, 0.05);
+    border-radius: 6px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.fci-name {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    flex: 1;
+}
+
+.fci-return {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* Holiday Items */
+.holiday-item {
+    background: var(--widget-bg);
+    border: 1px solid var(--widget-border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.holiday-item:hover {
+    transform: translateX(4px);
+    border-color: var(--primary-color);
+}
+
+.holiday-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.holiday-date i {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+}
+
+.holiday-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+/* Error Messages */
+.error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.error-message i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Loading States */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* Responsive Design for Economic Indicators */
+@media (max-width: 768px) {
+    .indicator-card {
+        padding: 1rem;
+    }
+    
+    .indicator-value {
+        font-size: 1.5rem;
+    }
+    
+    .rate-item,
+    .holiday-item {
+        padding: 0.75rem;
+    }
+    
+    .fci-item {
+        padding: 0.5rem 0;
+    }
+    
+    .fci-item:hover {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .indicator-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .rate-header,
+    .rate-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .fci-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .fci-return {
+        align-self: flex-end;
+    }
 } 
