@@ -1763,6 +1763,159 @@ html.dark .historical-chart-modal .info-item {
    --- ECONOMIC INDICATORS STYLES
    ================================================================================= */
 
+/* Widget Structure */
+.widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--widget-border);
+}
+
+.widget-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+.widget-title h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.widget-title p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0 0;
+}
+
+.refresh-btn {
+    background: var(--widget-bg);
+    border: 1px solid var(--widget-border);
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.refresh-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Widget States */
+.widget-loading,
+.widget-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.widget-loading i,
+.widget-error i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.widget-error i {
+    color: #ef4444;
+}
+
+.widget-content {
+    padding: 1rem 0;
+}
+
+/* Indicator Values */
+.indicator-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.indicator-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.indicator-change {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.indicator-change.positive {
+    color: #10b981;
+}
+
+.indicator-change.negative {
+    color: #ef4444;
+}
+
+.indicator-date {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+.indicator-level {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.indicator-range {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.indicator-banks,
+.indicator-funds {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+/* Risk Levels */
+.risk-low {
+    color: #10b981;
+}
+
+.risk-medium {
+    color: #f59e0b;
+}
+
+.risk-high {
+    color: #ef4444;
+}
+
+.risk-very-high {
+    color: #dc2626;
+}
+
 /* Indicator Cards */
 .indicator-card {
     background: var(--widget-bg);

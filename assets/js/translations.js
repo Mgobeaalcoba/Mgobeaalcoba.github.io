@@ -1572,12 +1572,20 @@ export const translations = {
     
     // Inflation Widget
     "recursos_inflation_title": {
-        es: "Índice de Inflación",
-        en: "Inflation Index"
+        es: "Inflación Mensual",
+        en: "Monthly Inflation"
     },
     "recursos_inflation_desc": {
-        es: "Inflación mensual e interanual",
-        en: "Monthly and annual inflation"
+        es: "Índice de precios al consumidor",
+        en: "Consumer price index"
+    },
+    "recursos_annual_inflation_title": {
+        es: "Inflación Interanual",
+        en: "Annual Inflation"
+    },
+    "recursos_annual_inflation_desc": {
+        es: "Variación anual del IPC",
+        en: "Annual CPI variation"
     },
     "recursos_loading_inflation": {
         es: "Cargando datos de inflación...",

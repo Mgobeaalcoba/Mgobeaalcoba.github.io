@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Initialize economic indicators
         initializeEconomicIndicators();
         
+        // Initialize holidays widget
+        refreshHolidays();
+        
         console.log('✅ Recursos page initialized successfully');
     } catch (error) {
         console.error('❌ Error initializing recursos page:', error);
@@ -1318,7 +1321,7 @@ window.showHistoricalChart = showHistoricalChart;
 async function loadInflationData() {
     try {
         console.log('📊 Loading inflation data...');
-        const response = await fetch('https://api.argentinadatos.com/v1/inflacion/mensual', {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacion', {
             redirect: 'follow'
         });
         
@@ -1328,76 +1331,31 @@ async function loadInflationData() {
         
         const data = await response.json();
         console.log('📈 Inflation data loaded:', data);
-        return data;
+        
+        if (data && data.length > 0) {
+            const latest = data[data.length - 1];
+            const previous = data[data.length - 2];
+            
+            return {
+                current: latest.valor,
+                previous: previous ? previous.valor : null,
+                date: latest.fecha,
+                variation: previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : null
+            };
+        }
+        
+        return null;
     } catch (error) {
         console.error('❌ Error loading inflation data:', error);
         return null;
     }
 }
 
-function displayInflationData(data) {
-    const container = document.getElementById('inflation-data');
-    if (!container) return;
-    
-    if (!data || data.length === 0) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos de inflación</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const latest = data[0];
-    const previous = data[1];
-    
-    const monthlyChange = previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(1) : 0;
-    
-    container.innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="indicator-card">
-                <div class="indicator-header">
-                    <i class="fas fa-chart-line text-blue-400"></i>
-                    <span class="indicator-label">Inflación Mensual</span>
-                </div>
-                <div class="indicator-value">${latest.valor.toFixed(1)}%</div>
-                <div class="indicator-date">${new Date(latest.fecha).toLocaleDateString('es-AR')}</div>
-            </div>
-            <div class="indicator-card">
-                <div class="indicator-header">
-                    <i class="fas fa-percentage text-green-400"></i>
-                    <span class="indicator-label">Variación</span>
-                </div>
-                <div class="indicator-value ${monthlyChange >= 0 ? 'text-red-400' : 'text-green-400'}">
-                    ${monthlyChange >= 0 ? '+' : ''}${monthlyChange}%
-                </div>
-                <div class="indicator-date">vs mes anterior</div>
-            </div>
-        </div>
-    `;
-}
-
-async function refreshInflation() {
-    const container = document.getElementById('inflation-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando inflación...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadInflationData();
-    displayInflationData(data);
-}
-
-// Country Risk Widget
-async function loadRiskData() {
+// Annual Inflation Widget
+async function loadAnnualInflationData() {
     try {
-        console.log('📊 Loading country risk data...');
-        const response = await fetch('https://api.argentinadatos.com/v1/riesgo-pais/ultimo', {
+        console.log('📊 Loading annual inflation data...');
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacionInteranual', {
             redirect: 'follow'
         });
         
@@ -1406,217 +1364,32 @@ async function loadRiskData() {
         }
         
         const data = await response.json();
-        console.log('📈 Risk data loaded:', data);
-        return data;
-    } catch (error) {
-        console.error('❌ Error loading risk data:', error);
-        return null;
-    }
-}
-
-function displayRiskData(data) {
-    const container = document.getElementById('risk-data');
-    if (!container) return;
-    
-    if (!data) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos de riesgo país</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const riskLevel = data.valor > 1000 ? 'Alto' : data.valor > 500 ? 'Medio' : 'Bajo';
-    const riskColor = data.valor > 1000 ? 'text-red-400' : data.valor > 500 ? 'text-yellow-400' : 'text-green-400';
-    
-    container.innerHTML = `
-        <div class="indicator-card">
-            <div class="indicator-header">
-                <i class="fas fa-exclamation-triangle ${riskColor}"></i>
-                <span class="indicator-label">Riesgo País</span>
-            </div>
-            <div class="indicator-value ${riskColor}">${data.valor.toLocaleString('es-AR')}</div>
-            <div class="indicator-date">${new Date(data.fecha).toLocaleDateString('es-AR')}</div>
-            <div class="indicator-subtitle ${riskColor}">Nivel: ${riskLevel}</div>
-        </div>
-    `;
-}
-
-async function refreshRisk() {
-    const container = document.getElementById('risk-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando riesgo país...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadRiskData();
-    displayRiskData(data);
-}
-
-// Fixed Term Widget
-async function loadFixedTermData() {
-    try {
-        console.log('📊 Loading fixed term data...');
-        const response = await fetch('https://api.argentinadatos.com/v1/plazo-fijo', {
-            redirect: 'follow'
-        });
+        console.log('📈 Annual inflation data loaded:', data);
         
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        if (data && data.length > 0) {
+            const latest = data[data.length - 1];
+            const previous = data[data.length - 2];
+            
+            return {
+                current: latest.valor,
+                previous: previous ? previous.valor : null,
+                date: latest.fecha,
+                variation: previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : null
+            };
         }
         
-        const data = await response.json();
-        console.log('📈 Fixed term data loaded:', data);
-        return data;
+        return null;
     } catch (error) {
-        console.error('❌ Error loading fixed term data:', error);
+        console.error('❌ Error loading annual inflation data:', error);
         return null;
     }
-}
-
-function displayFixedTermData(data) {
-    const container = document.getElementById('fixed-term-data');
-    if (!container) return;
-    
-    if (!data || data.length === 0) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos de plazos fijos</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const rates = data.slice(0, 3); // Show top 3 rates
-    
-    container.innerHTML = `
-        <div class="space-y-3">
-            ${rates.map(rate => `
-                <div class="rate-item">
-                    <div class="rate-header">
-                        <span class="rate-bank">${rate.entidad}</span>
-                        <span class="rate-value">${rate.tasa}%</span>
-                    </div>
-                    <div class="rate-details">
-                        <span class="rate-period">${rate.plazo} días</span>
-                        <span class="rate-date">${new Date(rate.fecha).toLocaleDateString('es-AR')}</span>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-}
-
-async function refreshFixedTerm() {
-    const container = document.getElementById('fixed-term-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando plazos fijos...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadFixedTermData();
-    displayFixedTermData(data);
-}
-
-// FCI Widget
-async function loadFCIData() {
-    try {
-        console.log('📊 Loading FCI data...');
-        const [moneyMarket, variableIncome, fixedIncome] = await Promise.all([
-            fetch('https://api.argentinadatos.com/v1/fci/mercado-dinero').then(r => r.json()),
-            fetch('https://api.argentinadatos.com/v1/fci/renta-variable').then(r => r.json()),
-            fetch('https://api.argentinadatos.com/v1/fci/renta-fija').then(r => r.json())
-        ]);
-        
-        console.log('📈 FCI data loaded:', { moneyMarket, variableIncome, fixedIncome });
-        return { moneyMarket, variableIncome, fixedIncome };
-    } catch (error) {
-        console.error('❌ Error loading FCI data:', error);
-        return null;
-    }
-}
-
-function displayFCIData(data) {
-    const container = document.getElementById('fci-data');
-    if (!container) return;
-    
-    if (!data) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos de FCI</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const getTopRates = (data, count = 2) => {
-        return data.slice(0, count).map(item => ({
-            name: item.nombre,
-            return: item.rendimiento,
-            category: item.categoria
-        }));
-    };
-    
-    container.innerHTML = `
-        <div class="space-y-4">
-            <div class="fci-category">
-                <h5 class="fci-category-title">Mercado de Dinero</h5>
-                ${getTopRates(data.moneyMarket).map(fci => `
-                    <div class="fci-item">
-                        <span class="fci-name">${fci.name}</span>
-                        <span class="fci-return ${fci.return >= 0 ? 'text-green-400' : 'text-red-400'}">
-                            ${fci.return >= 0 ? '+' : ''}${fci.return}%
-                        </span>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="fci-category">
-                <h5 class="fci-category-title">Renta Variable</h5>
-                ${getTopRates(data.variableIncome).map(fci => `
-                    <div class="fci-item">
-                        <span class="fci-name">${fci.name}</span>
-                        <span class="fci-return ${fci.return >= 0 ? 'text-green-400' : 'text-red-400'}">
-                            ${fci.return >= 0 ? '+' : ''}${fci.return}%
-                        </span>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-}
-
-async function refreshFCI() {
-    const container = document.getElementById('fci-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando FCI...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadFCIData();
-    displayFCIData(data);
 }
 
 // UVA Index Widget
 async function loadUVAData() {
     try {
         console.log('📊 Loading UVA data...');
-        const response = await fetch('https://api.argentinadatos.com/v1/indices/uva', {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/uva', {
             redirect: 'follow'
         });
         
@@ -1626,75 +1399,31 @@ async function loadUVAData() {
         
         const data = await response.json();
         console.log('📈 UVA data loaded:', data);
-        return data;
+        
+        if (data && data.length > 0) {
+            const latest = data[data.length - 1];
+            const previous = data[data.length - 2];
+            
+            return {
+                current: latest.valor,
+                previous: previous ? previous.valor : null,
+                date: latest.fecha,
+                variation: previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : null
+            };
+        }
+        
+        return null;
     } catch (error) {
         console.error('❌ Error loading UVA data:', error);
         return null;
     }
 }
 
-function displayUVAData(data) {
-    const container = document.getElementById('uva-data');
-    if (!container) return;
-    
-    if (!data || data.length === 0) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos del índice UVA</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const latest = data[0];
-    const previous = data[1];
-    const monthlyChange = previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : 0;
-    
-    container.innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="indicator-card">
-                <div class="indicator-header">
-                    <i class="fas fa-home text-purple-400"></i>
-                    <span class="indicator-label">Índice UVA</span>
-                </div>
-                <div class="indicator-value">${latest.valor.toFixed(2)}</div>
-                <div class="indicator-date">${new Date(latest.fecha).toLocaleDateString('es-AR')}</div>
-            </div>
-            <div class="indicator-card">
-                <div class="indicator-header">
-                    <i class="fas fa-percentage text-blue-400"></i>
-                    <span class="indicator-label">Variación Mensual</span>
-                </div>
-                <div class="indicator-value ${monthlyChange >= 0 ? 'text-red-400' : 'text-green-400'}">
-                    ${monthlyChange >= 0 ? '+' : ''}${monthlyChange}%
-                </div>
-                <div class="indicator-date">vs mes anterior</div>
-            </div>
-        </div>
-    `;
-}
-
-async function refreshUVA() {
-    const container = document.getElementById('uva-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando índice UVA...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadUVAData();
-    displayUVAData(data);
-}
-
-// Holidays Widget
-async function loadHolidaysData() {
+// Country Risk Widget
+async function loadCountryRiskData() {
     try {
-        console.log('📊 Loading holidays data...');
-        const response = await fetch('https://api.argentinadatos.com/v1/feriados', {
+        console.log('⚠️ Loading country risk data...');
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo', {
             redirect: 'follow'
         });
         
@@ -1703,96 +1432,419 @@ async function loadHolidaysData() {
         }
         
         const data = await response.json();
-        console.log('📈 Holidays data loaded:', data);
-        return data;
+        console.log('⚠️ Country risk data loaded:', data);
+        
+        if (data) {
+            return {
+                current: data.valor,
+                date: data.fecha,
+                level: getRiskLevel(data.valor)
+            };
+        }
+        
+        return null;
+    } catch (error) {
+        console.error('❌ Error loading country risk data:', error);
+        return null;
+    }
+}
+
+// Fixed Term Deposits Widget
+async function loadFixedTermData() {
+    try {
+        console.log('💰 Loading fixed term deposits data...');
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/tasas/plazoFijo', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('💰 Fixed term deposits data loaded:', data);
+        
+        if (data && data.length > 0) {
+            // Filter valid rates and calculate average
+            const validRates = data.filter(bank => bank.tnaClientes && bank.tnaClientes > 0);
+            const averageRate = validRates.reduce((sum, bank) => sum + bank.tnaClientes, 0) / validRates.length;
+            const maxRate = Math.max(...validRates.map(bank => bank.tnaClientes));
+            const minRate = Math.min(...validRates.map(bank => bank.tnaClientes));
+            
+            return {
+                average: averageRate,
+                max: maxRate,
+                min: minRate,
+                banks: validRates.length,
+                topBanks: validRates
+                    .sort((a, b) => b.tnaClientes - a.tnaClientes)
+                    .slice(0, 5)
+            };
+        }
+        
+        return null;
+    } catch (error) {
+        console.error('❌ Error loading fixed term deposits data:', error);
+        return null;
+    }
+}
+
+// FCI Widget
+async function loadFCIData() {
+    try {
+        console.log('📊 Loading FCI data...');
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/fci/mercadoDinero/ultimo', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('📊 FCI data loaded:', data);
+        
+        if (data && data.length > 0) {
+            // Filter valid funds and calculate average
+            const validFunds = data.filter(fund => fund.vcp && fund.vcp > 0);
+            const averageVCP = validFunds.reduce((sum, fund) => sum + fund.vcp, 0) / validFunds.length;
+            const maxVCP = Math.max(...validFunds.map(fund => fund.vcp));
+            const minVCP = Math.min(...validFunds.map(fund => fund.vcp));
+            
+            return {
+                average: averageVCP,
+                max: maxVCP,
+                min: minVCP,
+                funds: validFunds.length,
+                topFunds: validFunds
+                    .sort((a, b) => b.vcp - a.vcp)
+                    .slice(0, 5)
+            };
+        }
+        
+        return null;
+    } catch (error) {
+        console.error('❌ Error loading FCI data:', error);
+        return null;
+    }
+}
+
+// Helper function to get risk level
+function getRiskLevel(value) {
+    if (value < 300) return 'low';
+    if (value < 600) return 'medium';
+    if (value < 1000) return 'high';
+    return 'very-high';
+}
+
+// Update widget content
+function updateWidgetContent(widgetId, data, type) {
+    const widget = document.getElementById(widgetId);
+    if (!widget) return;
+    
+    const contentDiv = widget.querySelector('.widget-content');
+    const loadingDiv = widget.querySelector('.widget-loading');
+    const errorDiv = widget.querySelector('.widget-error');
+    
+    if (loadingDiv) loadingDiv.style.display = 'none';
+    if (errorDiv) errorDiv.style.display = 'none';
+    
+    if (!data) {
+        if (errorDiv) errorDiv.style.display = 'block';
+        return;
+    }
+    
+    if (contentDiv) {
+        contentDiv.style.display = 'block';
+        
+        switch (type) {
+            case 'inflation':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value">${data.current}%</div>
+                    <div class="indicator-label">Inflación Mensual</div>
+                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
+                    <div class="indicator-date">${formatDate(data.date)}</div>
+                `;
+                break;
+                
+            case 'annual-inflation':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value">${data.current}%</div>
+                    <div class="indicator-label">Inflación Interanual</div>
+                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
+                    <div class="indicator-date">${formatDate(data.date)}</div>
+                `;
+                break;
+                
+            case 'uva':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value">${data.current.toLocaleString()}</div>
+                    <div class="indicator-label">Índice UVA</div>
+                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
+                    <div class="indicator-date">${formatDate(data.date)}</div>
+                `;
+                break;
+                
+            case 'risk':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value risk-${data.level}">${data.current}</div>
+                    <div class="indicator-label">Riesgo País</div>
+                    <div class="indicator-level">${getRiskLevelText(data.level)}</div>
+                    <div class="indicator-date">${formatDate(data.date)}</div>
+                `;
+                break;
+                
+            case 'fixed-term':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value">${(data.average * 100).toFixed(2)}%</div>
+                    <div class="indicator-label">Plazos Fijos Promedio</div>
+                    <div class="indicator-range">${(data.min * 100).toFixed(1)}% - ${(data.max * 100).toFixed(1)}%</div>
+                    <div class="indicator-banks">${data.banks} bancos</div>
+                `;
+                break;
+                
+            case 'fci':
+                contentDiv.innerHTML = `
+                    <div class="indicator-value">${data.average.toFixed(2)}</div>
+                    <div class="indicator-label">FCI Promedio</div>
+                    <div class="indicator-range">${data.min.toFixed(2)} - ${data.max.toFixed(2)}</div>
+                    <div class="indicator-funds">${data.funds} fondos</div>
+                `;
+                break;
+        }
+    }
+}
+
+// Helper functions
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-AR', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+    });
+}
+
+function getRiskLevelText(level) {
+    const texts = {
+        'low': 'Bajo',
+        'medium': 'Medio',
+        'high': 'Alto',
+        'very-high': 'Muy Alto'
+    };
+    return texts[level] || 'N/A';
+}
+
+// Initialize economic indicators
+async function initializeEconomicIndicators() {
+    console.log('🚀 Initializing economic indicators...');
+    
+    // Load all indicators in parallel
+    const [
+        inflationData,
+        annualInflationData,
+        uvaData,
+        riskData,
+        fixedTermData,
+        fciData
+    ] = await Promise.all([
+        loadInflationData(),
+        loadAnnualInflationData(),
+        loadUVAData(),
+        loadCountryRiskData(),
+        loadFixedTermData(),
+        loadFCIData()
+    ]);
+    
+    // Update widgets
+    updateWidgetContent('inflation-widget', inflationData, 'inflation');
+    updateWidgetContent('annual-inflation-widget', annualInflationData, 'annual-inflation');
+    updateWidgetContent('uva-widget', uvaData, 'uva');
+    updateWidgetContent('risk-widget', riskData, 'risk');
+    updateWidgetContent('fixed-term-widget', fixedTermData, 'fixed-term');
+    updateWidgetContent('fci-widget', fciData, 'fci');
+    
+    console.log('✅ Economic indicators initialized');
+}
+
+// Refresh widget function
+async function refreshWidget(widgetId) {
+    const widget = document.getElementById(widgetId);
+    if (!widget) return;
+    
+    const loadingDiv = widget.querySelector('.widget-loading');
+    const errorDiv = widget.querySelector('.widget-error');
+    const contentDiv = widget.querySelector('.widget-content');
+    
+    // Show loading
+    if (loadingDiv) loadingDiv.style.display = 'block';
+    if (errorDiv) errorDiv.style.display = 'none';
+    if (contentDiv) contentDiv.style.display = 'none';
+    
+    try {
+        let data = null;
+        let type = '';
+        
+        switch (widgetId) {
+            case 'inflation-widget':
+                data = await loadInflationData();
+                type = 'inflation';
+                break;
+            case 'annual-inflation-widget':
+                data = await loadAnnualInflationData();
+                type = 'annual-inflation';
+                break;
+            case 'uva-widget':
+                data = await loadUVAData();
+                type = 'uva';
+                break;
+            case 'risk-widget':
+                data = await loadCountryRiskData();
+                type = 'risk';
+                break;
+            case 'fixed-term-widget':
+                data = await loadFixedTermData();
+                type = 'fixed-term';
+                break;
+            case 'fci-widget':
+                data = await loadFCIData();
+                type = 'fci';
+                break;
+        }
+        
+        updateWidgetContent(widgetId, data, type);
+        
+    } catch (error) {
+        console.error(`❌ Error refreshing widget ${widgetId}:`, error);
+        if (errorDiv) errorDiv.style.display = 'block';
+    }
+}
+
+// =================================================================================
+// --- REFRESH FUNCTIONS FOR GLOBAL ACCESS
+// =================================================================================
+
+// Refresh functions for individual widgets
+async function refreshInflation() {
+    await refreshWidget('inflation-widget');
+}
+
+async function refreshAnnualInflation() {
+    await refreshWidget('annual-inflation-widget');
+}
+
+async function refreshUVA() {
+    await refreshWidget('uva-widget');
+}
+
+async function refreshRisk() {
+    await refreshWidget('risk-widget');
+}
+
+async function refreshFixedTerm() {
+    await refreshWidget('fixed-term-widget');
+}
+
+async function refreshFCI() {
+    await refreshWidget('fci-widget');
+}
+
+// =================================================================================
+// --- HOLIDAYS WIDGET
+// =================================================================================
+
+async function loadHolidaysData() {
+    try {
+        console.log('📅 Loading holidays data...');
+        const currentYear = new Date().getFullYear();
+        const response = await fetch(`https://api.argentinadatos.com/v1/feriados/${currentYear}`, {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('📅 Holidays data loaded:', data);
+        
+        if (data && data.length > 0) {
+            return {
+                holidays: data,
+                total: data.length,
+                year: currentYear
+            };
+        }
+        
+        return null;
     } catch (error) {
         console.error('❌ Error loading holidays data:', error);
         return null;
     }
 }
 
-function displayHolidaysData(data) {
-    const container = document.getElementById('holidays-data');
-    if (!container) return;
+async function refreshHolidays() {
+    const holidaysData = document.getElementById('holidays-data');
+    if (!holidaysData) return;
     
-    if (!data || data.length === 0) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle text-red-400"></i>
-                <p class="text-gray-400">No se pudieron cargar los datos de feriados</p>
-            </div>
-        `;
-        return;
-    }
-    
-    const currentYear = new Date().getFullYear();
-    const yearHolidays = data.filter(holiday => new Date(holiday.fecha).getFullYear() === currentYear);
-    const upcomingHolidays = yearHolidays.filter(holiday => new Date(holiday.fecha) >= new Date()).slice(0, 3);
-    
-    container.innerHTML = `
-        <div class="space-y-3">
-            ${upcomingHolidays.map(holiday => `
-                <div class="holiday-item">
-                    <div class="holiday-date">
-                        <i class="fas fa-calendar-day text-blue-400"></i>
-                        <span>${new Date(holiday.fecha).toLocaleDateString('es-AR', { 
-                            day: 'numeric', 
-                            month: 'long' 
-                        })}</span>
-                    </div>
-                    <div class="holiday-name">${holiday.nombre}</div>
-                </div>
-            `).join('')}
+    // Show loading
+    holidaysData.innerHTML = `
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
+            <p class="mt-2 text-gray-400" data-translate="recursos_loading_holidays">Cargando feriados...</p>
         </div>
     `;
-}
-
-async function refreshHolidays() {
-    const container = document.getElementById('holidays-data');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                <p class="mt-2 text-gray-400">Actualizando feriados...</p>
-            </div>
-        `;
-    }
-    
-    const data = await loadHolidaysData();
-    displayHolidaysData(data);
-}
-
-// Initialize all economic indicators
-async function initializeEconomicIndicators() {
-    console.log('📊 Initializing economic indicators...');
     
     try {
-        // Load all data in parallel
-        const [inflationData, riskData, fixedTermData, fciData, uvaData, holidaysData] = await Promise.all([
-            loadInflationData(),
-            loadRiskData(),
-            loadFixedTermData(),
-            loadFCIData(),
-            loadUVAData(),
-            loadHolidaysData()
-        ]);
+        const data = await loadHolidaysData();
         
-        // Display all data
-        displayInflationData(inflationData);
-        displayRiskData(riskData);
-        displayFixedTermData(fixedTermData);
-        displayFCIData(fciData);
-        displayUVAData(uvaData);
-        displayHolidaysData(holidaysData);
-        
-        console.log('✅ Economic indicators initialized successfully');
+        if (data && data.holidays) {
+            const holidaysList = data.holidays
+                .map(holiday => {
+                    const date = new Date(holiday.fecha);
+                    const formattedDate = date.toLocaleDateString('es-AR', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    return `<div class="holiday-item">
+                        <div class="holiday-date">${formattedDate}</div>
+                        <div class="holiday-name">${holiday.nombre}</div>
+                    </div>`;
+                })
+                .join('');
+            
+            holidaysData.innerHTML = `
+                <div class="holidays-summary">
+                    <div class="holidays-count">${data.total} feriados en ${data.year}</div>
+                </div>
+                <div class="holidays-list">
+                    ${holidaysList}
+                </div>
+            `;
+        } else {
+            holidaysData.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle text-red-400"></i>
+                    <p class="mt-2 text-gray-400">No se pudieron cargar los feriados</p>
+                </div>
+            `;
+        }
     } catch (error) {
-        console.error('❌ Error initializing economic indicators:', error);
+        console.error('❌ Error refreshing holidays:', error);
+        holidaysData.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle text-red-400"></i>
+                <p class="mt-2 text-gray-400">Error al cargar los feriados</p>
+            </div>
+        `;
     }
 }
 
 // Make functions available globally
 window.refreshInflation = refreshInflation;
+window.refreshAnnualInflation = refreshAnnualInflation;
 window.refreshRisk = refreshRisk;
 window.refreshFixedTerm = refreshFixedTerm;
 window.refreshFCI = refreshFCI;
