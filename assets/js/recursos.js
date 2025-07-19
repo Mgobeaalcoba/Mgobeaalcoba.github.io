@@ -1842,6 +1842,314 @@ async function refreshHolidays() {
     }
 }
 
+// =================================================================================
+// --- HISTORICAL DATA SYSTEM FOR ECONOMIC INDICATORS
+// =================================================================================
+
+async function showHistoricalData(indicatorType) {
+    try {
+        console.log(`📊 Loading historical data for ${indicatorType}...`);
+        
+        let data = null;
+        let title = '';
+        let subtitle = '';
+        
+        switch (indicatorType) {
+            case 'inflation':
+                data = await loadInflationHistoricalData();
+                title = 'Evolución de Inflación Mensual';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'annual-inflation':
+                data = await loadAnnualInflationHistoricalData();
+                title = 'Evolución de Inflación Interanual';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'uva':
+                data = await loadUVAHistoricalData();
+                title = 'Evolución del Índice UVA';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'risk':
+                data = await loadRiskHistoricalData();
+                title = 'Evolución del Riesgo País';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'fixed-term':
+                data = await loadFixedTermHistoricalData();
+                title = 'Evolución de Plazos Fijos';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            case 'fci':
+                data = await loadFCIHistoricalData();
+                title = 'Evolución de Fondos Comunes de Inversión';
+                subtitle = 'Datos de ArgentinaDatos API';
+                break;
+            default:
+                console.error(`❌ Unknown indicator type: ${indicatorType}`);
+                return;
+        }
+        
+        if (data && data.length > 0) {
+            showHistoricalChartModal(data, title, subtitle, indicatorType);
+        } else {
+            showErrorMessage('No se encontraron datos históricos para este indicador');
+        }
+        
+    } catch (error) {
+        console.error(`❌ Error loading historical data for ${indicatorType}:`, error);
+        showErrorMessage('Error al cargar datos históricos');
+    }
+}
+
+// Historical data loading functions
+async function loadInflationHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacion', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading inflation historical data:', error);
+        return null;
+    }
+}
+
+async function loadAnnualInflationHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacionInteranual', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading annual inflation historical data:', error);
+        return null;
+    }
+}
+
+async function loadUVAHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/uva', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading UVA historical data:', error);
+        return null;
+    }
+}
+
+async function loadRiskHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading risk historical data:', error);
+        return null;
+    }
+}
+
+async function loadFixedTermHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/tasas/plazoFijo', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading fixed term historical data:', error);
+        return null;
+    }
+}
+
+async function loadFCIHistoricalData() {
+    try {
+        const response = await fetch('https://api.argentinadatos.com/v1/finanzas/fci/mercadoDinero/ultimo', {
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.slice(-30); // Last 30 data points
+    } catch (error) {
+        console.error('❌ Error loading FCI historical data:', error);
+        return null;
+    }
+}
+
+function showHistoricalChartModal(data, title, subtitle, indicatorType) {
+    const modal = document.getElementById('historical-chart-modal');
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    
+    if (modal && chartTitle && chartSubtitle) {
+        chartTitle.textContent = title;
+        chartSubtitle.textContent = subtitle;
+        
+        // Show modal
+        modal.classList.remove('hidden');
+        
+        // Create chart with the data
+        createEconomicIndicatorChart(data, indicatorType);
+        
+        // Setup close functionality
+        const closeBtn = document.getElementById('close-modal');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.classList.add('hidden');
+            };
+        }
+        
+        // Close on backdrop click
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    }
+}
+
+function createEconomicIndicatorChart(data, indicatorType) {
+    const ctx = document.getElementById('historical-chart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (window.economicChart) {
+        window.economicChart.destroy();
+    }
+    
+    // Prepare chart data
+    const labels = data.map(item => {
+        const date = new Date(item.fecha);
+        return date.toLocaleDateString('es-AR', { 
+            month: 'short', 
+            day: 'numeric' 
+        });
+    });
+    
+    const values = data.map(item => item.valor);
+    
+    // Chart configuration
+    const config = {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: getIndicatorLabel(indicatorType),
+                data: values,
+                borderColor: getIndicatorColor(indicatorType),
+                backgroundColor: getIndicatorColor(indicatorType, 0.1),
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointHoverRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: getIndicatorColor(indicatorType),
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#9ca3af'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#9ca3af'
+                    }
+                }
+            },
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            }
+        }
+    };
+    
+    window.economicChart = new Chart(ctx, config);
+}
+
+function getIndicatorLabel(indicatorType) {
+    const labels = {
+        'inflation': 'Inflación Mensual (%)',
+        'annual-inflation': 'Inflación Interanual (%)',
+        'uva': 'Índice UVA',
+        'risk': 'Riesgo País',
+        'fixed-term': 'Tasa Promedio (%)',
+        'fci': 'Rendimiento Promedio'
+    };
+    return labels[indicatorType] || 'Valor';
+}
+
+function getIndicatorColor(indicatorType, alpha = 1) {
+    const colors = {
+        'inflation': `rgba(59, 130, 246, ${alpha})`,
+        'annual-inflation': `rgba(16, 185, 129, ${alpha})`,
+        'uva': `rgba(245, 158, 11, ${alpha})`,
+        'risk': `rgba(239, 68, 68, ${alpha})`,
+        'fixed-term': `rgba(139, 92, 246, ${alpha})`,
+        'fci': `rgba(236, 72, 153, ${alpha})`
+    };
+    return colors[indicatorType] || `rgba(59, 130, 246, ${alpha})`;
+}
+
 // Make functions available globally
 window.refreshInflation = refreshInflation;
 window.refreshAnnualInflation = refreshAnnualInflation;
@@ -1849,4 +2157,5 @@ window.refreshRisk = refreshRisk;
 window.refreshFixedTerm = refreshFixedTerm;
 window.refreshFCI = refreshFCI;
 window.refreshUVA = refreshUVA;
-window.refreshHolidays = refreshHolidays; 
+window.refreshHolidays = refreshHolidays;
+window.showHistoricalData = showHistoricalData; 

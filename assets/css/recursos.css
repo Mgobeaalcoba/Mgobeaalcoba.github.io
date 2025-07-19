@@ -1799,6 +1799,13 @@ html.dark .historical-chart-modal .info-item {
     margin: 0.25rem 0 0 0;
 }
 
+.widget-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.history-btn,
 .refresh-btn {
     background: var(--widget-bg);
     border: 1px solid var(--widget-border);
@@ -1807,6 +1814,12 @@ html.dark .historical-chart-modal .info-item {
     color: var(--text-secondary);
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+.history-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: scale(1.05);
 }
 
 .refresh-btn:hover {
