@@ -2039,6 +2039,10 @@ export const translations = {
         es: "1 año",
         en: "1 year"
     },
+    "time.max": {
+        es: "Máximo",
+        en: "Max"
+    },
     
     // Time range translations  
     "time_range.last_7_days": {
@@ -2060,6 +2064,10 @@ export const translations = {
     "time_range.all_data": {
         es: "Todos los datos",
         en: "All data"
+    },
+    "time_range.max_period": {
+        es: "Período máximo disponible",
+        en: "Maximum available period"
     },
     
     // Exchange rate labels

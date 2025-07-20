@@ -27,6 +27,16 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
 let historicalChart = null;
 let currentChartData = null;
 
+// Economic indicators data cache for language switching
+let widgetDataCache = {
+    inflation: null,
+    annualInflation: null,
+    uva: null,
+    risk: null,
+    fixedTerm: null,
+    fci: null
+};
+
 // =================================================================================
 // --- INITIALIZATION
 // =================================================================================
@@ -880,9 +890,35 @@ function showSuccessMessage(message) {
 // --- LANGUAGE MANAGEMENT
 // =================================================================================
 
+// Function to refresh all economic widgets with current language
+function refreshAllWidgetsLanguage() {
+    console.log('🔄 Refreshing all widgets with current language...');
+    
+    // Only refresh if we have cached data
+    if (widgetDataCache.inflation) {
+        updateWidgetContent('inflation-widget', widgetDataCache.inflation, 'inflation');
+    }
+    if (widgetDataCache.annualInflation) {
+        updateWidgetContent('annual-inflation-widget', widgetDataCache.annualInflation, 'annual-inflation');
+    }
+    if (widgetDataCache.uva) {
+        updateWidgetContent('uva-widget', widgetDataCache.uva, 'uva');
+    }
+    if (widgetDataCache.risk) {
+        updateWidgetContent('risk-widget', widgetDataCache.risk, 'risk');
+    }
+    if (widgetDataCache.fixedTerm) {
+        updateWidgetContent('fixed-term-widget', widgetDataCache.fixedTerm, 'fixed-term');
+    }
+    if (widgetDataCache.fci) {
+        updateWidgetContent('fci-widget', widgetDataCache.fci, 'fci');
+    }
+}
+
 // LANGUAGE SYSTEM - Following consulting.js pattern
 function setLanguage(lang) {
     document.documentElement.lang = lang;
+    window.currentLanguage = lang; // Set global language reference
     
     // Update all elements with data-translate attribute
     document.querySelectorAll('[data-translate]').forEach(el => {
@@ -931,6 +967,9 @@ function setLanguage(lang) {
     if (refreshBtn && refreshBtn.disabled && (refreshBtn.textContent.includes('Actualizado') || refreshBtn.textContent.includes('Updated'))) {
         refreshBtn.innerHTML = `<i class="fas fa-check mr-2"></i>${getTranslation('recursos_updated')}`;
     }
+    
+    // Refresh economic indicators widgets with new language
+    refreshAllWidgetsLanguage();
     
     console.log(`Language changed to: ${lang}`);
 }
@@ -1164,29 +1203,29 @@ function createHistoricalChart(data, casa, period) {
                 {
                     label: 'Compra',
                     data: buyData,
-                    borderColor: '#10b981',
-                    backgroundColor: isDark ? 'rgba(16, 185, 129, 0.6)' : 'rgba(16, 185, 129, 0.3)',
-                    borderWidth: 3,
+                    borderColor: isDark ? '#10b981' : '#059669',
+                    backgroundColor: isDark ? 'rgba(16, 185, 129, 0.8)' : 'rgba(5, 150, 105, 0.6)',
+                    borderWidth: 4,
                     fill: true,
                     tension: 0.4,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
-                    pointBackgroundColor: '#10b981',
-                    pointBorderColor: textColor,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: isDark ? '#10b981' : '#059669',
+                    pointBorderColor: isDark ? '#ffffff' : '#000000',
                     pointBorderWidth: 2
                 },
                 {
                     label: 'Venta',
                     data: sellData,
-                    borderColor: '#ef4444',
-                    backgroundColor: isDark ? 'rgba(239, 68, 68, 0.6)' : 'rgba(239, 68, 68, 0.3)',
-                    borderWidth: 3,
+                    borderColor: isDark ? '#ef4444' : '#dc2626',
+                    backgroundColor: isDark ? 'rgba(239, 68, 68, 0.8)' : 'rgba(220, 38, 38, 0.6)',
+                    borderWidth: 4,
                     fill: true,
                     tension: 0.4,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
-                    pointBackgroundColor: '#ef4444',
-                    pointBorderColor: textColor,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: isDark ? '#ef4444' : '#dc2626',
+                    pointBorderColor: isDark ? '#ffffff' : '#000000',
                     pointBorderWidth: 2
                 }
             ]
@@ -1306,6 +1345,7 @@ function showHistoricalChart(casa, rateName) {
                 <button class="time-filter" data-period="30d">${getTranslation('time.30_days')}</button>
                 <button class="time-filter" data-period="90d">${getTranslation('time.90_days')}</button>
                 <button class="time-filter" data-period="1y">${getTranslation('time.1_year')}</button>
+                <button class="time-filter" data-period="max">${getTranslation('time.max')}</button>
             </div>
             
             <!-- Contenedor del Gráfico -->
@@ -1393,6 +1433,10 @@ function initializeTimeFilters(casa) {
                 case '1y':
                     days = 365;
                     rangeText = getTranslation('time_range.last_1_year');
+                    break;
+                case 'max':
+                    days = 3650; // ~10 years to get all available data
+                    rangeText = getTranslation('time_range.max_period');
                     break;
                 default:
                     days = 7;
@@ -1730,7 +1774,25 @@ function updateWidgetContent(widgetId, data, type) {
 
 // Helper functions
 function getCurrentLanguage() {
-    return window.currentLanguage || 'es';
+    // Check multiple sources for current language
+    if (window.currentLanguage) {
+        return window.currentLanguage;
+    }
+    
+    // Check localStorage
+    const storedLang = localStorage.getItem('language');
+    if (storedLang) {
+        return storedLang;
+    }
+    
+    // Check document lang attribute
+    const docLang = document.documentElement.lang;
+    if (docLang && docLang !== '') {
+        return docLang;
+    }
+    
+    // Default to Spanish
+    return 'es';
 }
 
 function formatDate(dateString) {
@@ -1777,6 +1839,14 @@ async function initializeEconomicIndicators() {
         loadFixedTermData(),
         loadFCIData()
     ]);
+    
+    // Cache data for language switching
+    widgetDataCache.inflation = inflationData;
+    widgetDataCache.annualInflation = annualInflationData;
+    widgetDataCache.uva = uvaData;
+    widgetDataCache.risk = riskData;
+    widgetDataCache.fixedTerm = fixedTermData;
+    widgetDataCache.fci = fciData;
     
     // Update widgets
     updateWidgetContent('inflation-widget', inflationData, 'inflation');
@@ -2029,6 +2099,7 @@ function clearModalContent() {
                     <button class="time-filter" data-period="30d">${getTranslation('time.30_days')}</button>
                     <button class="time-filter" data-period="90d">${getTranslation('time.90_days')}</button>
                     <button class="time-filter" data-period="1y">${getTranslation('time.1_year')}</button>
+                    <button class="time-filter" data-period="max">${getTranslation('time.max')}</button>
                 </div>
             `;
             modalBody.insertAdjacentHTML('beforeend', filtersHTML);
@@ -2529,6 +2600,8 @@ function filterDataByPeriod(data, period) {
         case '1y':
             cutoffDate = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
             break;
+        case 'max':
+            return data; // Return all data for max period
         default:
             return data;
     }
@@ -2544,7 +2617,8 @@ function getPeriodDisplayText(period) {
         '7d': getTranslation('time_range.last_7_days'),
         '30d': getTranslation('time_range.last_30_days'),
         '90d': getTranslation('time_range.last_90_days'),
-        '1y': getTranslation('time_range.last_1_year')
+        '1y': getTranslation('time_range.last_1_year'),
+        'max': getTranslation('time_range.max_period')
     };
     return texts[period] || getTranslation('time_range.all_data') || 'All data';
 }
