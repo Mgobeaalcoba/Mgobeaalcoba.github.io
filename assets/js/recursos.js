@@ -53,6 +53,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         refreshHolidays();
         
         console.log('✅ Recursos page initialized successfully');
+        
+        // Force language application after all content is loaded
+        setTimeout(() => {
+            const currentLang = localStorage.getItem('language') || 'es';
+            setLanguage(currentLang);
+            console.log('🔄 Forced language application:', currentLang);
+        }, 500);
     } catch (error) {
         console.error('❌ Error initializing recursos page:', error);
         showErrorMessage('Error al cargar la página. Por favor, recarga la página.');
@@ -873,8 +880,17 @@ function setLanguage(lang) {
         const key = el.getAttribute('data-translate');
         if (translations[key] && translations[key][lang]) {
             el.innerHTML = translations[key][lang];
+        } else {
+            console.warn(`Translation not found for key: ${key} in language: ${lang}`);
         }
     });
+    
+    // Force update currency display with translations
+    if (currencyRates) {
+        setTimeout(() => {
+            displayCurrencyRates();
+        }, 100);
+    }
     
     // Update placeholders
     const salaryInput = document.getElementById('annual-salary');
@@ -914,17 +930,28 @@ function initializeLanguage() {
     const langEs = document.getElementById('lang-es');
     const langEn = document.getElementById('lang-en');
     
-    // Get saved language or default to Spanish
-    const savedLang = localStorage.getItem('language') || 'es';
+    // ALWAYS default to Spanish on recursos page to fix translation issues
+    let savedLang = 'es';
+    localStorage.setItem('language', 'es');
     
-    // Set initial language
+    // Set initial language to Spanish
     setLanguage(savedLang);
     
-    // Update button states
+    // Update button states - ensure Spanish is always active initially
     if (langEs && langEn) {
-        langEs.classList.toggle('active', savedLang === 'es');
-        langEn.classList.toggle('active', savedLang === 'en');
+        langEs.classList.remove('active');
+        langEn.classList.remove('active');
+        langEs.classList.add('active');
     }
+    
+    // Force update button states after a short delay to ensure DOM is ready
+    setTimeout(() => {
+        if (langEs && langEn) {
+            langEs.classList.remove('active');
+            langEn.classList.remove('active');
+            langEs.classList.add('active');
+        }
+    }, 100);
     
     // Language toggle handlers
     if (langEs) {
