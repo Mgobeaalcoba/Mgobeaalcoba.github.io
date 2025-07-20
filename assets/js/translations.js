@@ -1686,6 +1686,52 @@ export const translations = {
         en: "Update Holidays"
     },
     
+    // Modal translations
+    "modal.fixed_term_title": {
+        es: "Tasas de Plazo Fijo por Banco",
+        en: "Fixed Term Rates by Bank"
+    },
+    "modal.fixed_term_subtitle": {
+        es: "Tasas Nominales Anuales (TNA) - Clientes",
+        en: "Annual Nominal Rates (ANR) - Clients"
+    },
+    "modal.tna_label": {
+        es: "TNA",
+        en: "ANR"
+    },
+    "modal.see_more": {
+        es: "Ver más",
+        en: "See more"
+    },
+    "modal.fci_title": {
+        es: "Fondos Comunes de Inversión",
+        en: "Mutual Investment Funds"
+    },
+    "modal.fci_subtitle": {
+        es: "Patrimonio por Categoría - Mercado de Dinero",
+        en: "Assets by Category - Money Market"
+    },
+    "modal.category_not_available": {
+        es: "Categoría no disponible",
+        en: "Category not available"
+    },
+    "modal.patrimony": {
+        es: "Patrimonio",
+        en: "Assets"
+    },
+    "modal.holidays_title": {
+        es: "Feriados Nacionales 2025",
+        en: "National Holidays 2025"
+    },
+    "modal.holidays_subtitle": {
+        es: "Calendario oficial completo",
+        en: "Complete official calendar"
+    },
+    "modal.holidays_in": {
+        es: "feriados en",
+        en: "holidays in"
+    },
+    
     // Additional missing translations
     "recursos_nav_portfolio": {
         es: "Mi Portfolio",
@@ -1874,5 +1920,161 @@ export const translations = {
     "recursos_footer_copyright": {
         es: "© 2024 Mariano Gobea Alcoba. Todos los recursos son gratuitos y de código abierto.",
         en: "© 2024 Mariano Gobea Alcoba. All resources are free and open source."
+    },
+    
+    // Additional indicator labels
+    "recursos_banks_label": {
+        es: "bancos",
+        en: "banks"
+    },
+    "recursos_funds_label": {
+        es: "fondos",
+        en: "funds"
+    },
+    
+    // Holiday status translations
+    "modal.holiday_past": {
+        es: "Pasado",
+        en: "Past"
+    },
+    "modal.holiday_upcoming": {
+        es: "Próximo",
+        en: "Upcoming"
+    },
+    "modal.holidays_in": {
+        es: "feriados en",
+        en: "holidays in"
+    },
+    
+    // Economic indicator widget labels (for content inside cards)
+    "indicator.monthly_inflation": {
+        es: "Inflación Mensual",
+        en: "Monthly Inflation"
+    },
+    "indicator.annual_inflation": {
+        es: "Inflación Interanual", 
+        en: "Annual Inflation"
+    },
+    "indicator.country_risk": {
+        es: "Riesgo País",
+        en: "Country Risk"
+    },
+    "indicator.fixed_term": {
+        es: "Plazos Fijos",
+        en: "Fixed Term Deposits"
+    },
+    "indicator.fci": {
+        es: "Fondos Comunes de Inversión", 
+        en: "Mutual Investment Funds"
+    },
+    "indicator.uva_index": {
+        es: "Índice UVA",
+        en: "UVA Index"
+    },
+    
+    // Risk level translations
+    "risk.low": {
+        es: "Bajo",
+        en: "Low"
+    },
+    "risk.medium": {
+        es: "Medio", 
+        en: "Medium"
+    },
+    "risk.high": {
+        es: "Alto",
+        en: "High"
+    },
+    "risk.very_high": {
+        es: "Muy Alto",
+        en: "Very High"
+    },
+    
+    // Modal evolution titles
+    "modal.evolution_monthly_inflation": {
+        es: "Evolución de Inflación Mensual",
+        en: "Monthly Inflation Evolution"
+    },
+    "modal.evolution_annual_inflation": {
+        es: "Evolución de Inflación Interanual",
+        en: "Annual Inflation Evolution"
+    },
+    "modal.evolution_uva": {
+        es: "Evolución del Índice UVA",
+        en: "UVA Index Evolution"
+    },
+    "modal.evolution_risk": {
+        es: "Evolución del Riesgo País",
+        en: "Country Risk Evolution"
+    },
+    "modal.evolution_fixed_term": {
+        es: "Evolución de Plazos Fijos",
+        en: "Fixed Term Deposits Evolution"
+    },
+    "modal.evolution_fci": {
+        es: "Evolución de Fondos Comunes de Inversión",
+        en: "Mutual Investment Funds Evolution"
+    },
+    
+    // Data source translations
+    "modal.data_source": {
+        es: "Datos de ArgentinaDatos API",
+        en: "Data from ArgentinaDatos API"
+    },
+    
+    // Time filter translations
+    "time.7_days": {
+        es: "7 días",
+        en: "7 days"
+    },
+    "time.30_days": {
+        es: "30 días",
+        en: "30 days"
+    },
+    "time.90_days": {
+        es: "90 días",
+        en: "90 days"
+    },
+    "time.1_year": {
+        es: "1 año",
+        en: "1 year"
+    },
+    
+    // Time range translations  
+    "time_range.last_7_days": {
+        es: "Últimos 7 días",
+        en: "Last 7 days"
+    },
+    "time_range.last_30_days": {
+        es: "Últimos 30 días",
+        en: "Last 30 days"
+    },
+    "time_range.last_90_days": {
+        es: "Últimos 90 días",
+        en: "Last 90 days"
+    },
+    "time_range.last_1_year": {
+        es: "Último año",
+        en: "Last year"
+    },
+    "time_range.all_data": {
+        es: "Todos los datos",
+        en: "All data"
+    },
+    
+    // Exchange rate labels
+    "quotes.source": {
+        es: "Fuente",
+        en: "Source"
+    },
+    "quotes.last_update": {
+        es: "Última actualización",
+        en: "Last update"
+    },
+    
+    // Holiday labels
+    "holidays.next_3": {
+        es: "Próximos 3 feriados",
+        en: "Next 3 holidays"
     }
 }; 

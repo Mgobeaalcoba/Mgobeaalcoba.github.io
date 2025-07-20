@@ -2540,11 +2540,57 @@ html.dark .historical-chart-modal .info-item {
     padding: 0;
 }
 
-.past-holiday {
-    opacity: 0.7;
+/* Holiday status styling - works in both light and dark modes */
+.holiday-past {
+    opacity: 0.65;
+    background: var(--widget-bg);
+    border-left: 3px solid var(--text-tertiary);
 }
 
-.past-holiday .holiday-date,
-.past-holiday .holiday-name {
-    color: #ef4444 !important; /* red-500 */
+.holiday-upcoming {
+    background: var(--widget-bg);
+    border-left: 3px solid var(--primary-color);
+}
+
+.holiday-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--widget-border);
+}
+
+.holiday-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.holiday-status-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+/* Theme-specific enhancements */
+html.dark .holiday-past {
+    background: rgba(31, 41, 55, 0.3);
+    border-left-color: rgba(156, 163, 175, 0.5);
+}
+
+html.dark .holiday-upcoming {
+    background: rgba(31, 41, 55, 0.5);
+    border-left-color: #3b82f6;
+}
+
+html.light .holiday-past {
+    background: rgba(243, 244, 246, 0.5);
+    border-left-color: rgba(107, 114, 128, 0.5);
+}
+
+html.light .holiday-upcoming {
+    background: rgba(239, 246, 255, 0.8);
+    border-left-color: #3b82f6;
 } 

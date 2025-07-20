@@ -459,8 +459,8 @@ function displayCurrencyRates() {
     header.className = 'mb-4 text-center';
     header.innerHTML = `
         <div class="text-sm text-gray-600 dark:text-gray-400">
-            <span data-translate="currency.source">Fuente</span>: ${currencyRates.source || 'DolarApi.com'} | 
-            <span data-translate="currency.last_update">Última actualización</span>: ${currencyRates.lastUpdate}
+            ${getTranslation('quotes.source')}: ${currencyRates.source || 'DolarApi.com'} | 
+            ${getTranslation('quotes.last_update')}: ${currencyRates.lastUpdate}
         </div>
     `;
     
@@ -569,9 +569,18 @@ function createCurrencyRateItem(code, name, symbol, rates) {
             
             if (clickableTypes[code] && clickableTypes[code].includes(type)) {
                 rateType.classList.add('clickable');
-                rateType.addEventListener('click', () => {
+                
+                // Remove any existing click handlers
+                rateType.onclick = null;
+                
+                rateType.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
                     const rateDisplayName = typeNames[type] || type.toUpperCase();
                     const currencyName = code === 'USD' ? 'Dólar' : code === 'EUR' ? 'Euro' : 'Real';
+                    
+                    console.log(`💱 Opening chart for ${code} ${type}: ${currencyName} ${rateDisplayName}`);
                     
                     // For EUR and BRL, pass the currency code instead of the rate type
                     const chartParameter = (code === 'EUR' || code === 'BRL') ? code : type;
@@ -1107,6 +1116,8 @@ function generateSampleHistoricalData(casa, days) {
 }
 
 function createHistoricalChart(data, casa, period) {
+    console.log(`📈 Creating historical chart for ${casa} with ${data.length} data points`);
+    
     const ctx = document.getElementById('historical-chart');
     if (!ctx) {
         console.error('❌ Chart canvas not found');
@@ -1115,7 +1126,15 @@ function createHistoricalChart(data, casa, period) {
     
     // Destroy existing chart if it exists
     if (historicalChart) {
+        console.log('🔨 Destroying existing historical chart');
         historicalChart.destroy();
+        historicalChart = null;
+    }
+    
+    // Also destroy window charts
+    if (window.historicalChart) {
+        window.historicalChart.destroy();
+        window.historicalChart = null;
     }
     
     // Prepare chart data
@@ -1130,6 +1149,12 @@ function createHistoricalChart(data, casa, period) {
     const buyData = data.map(item => item.compra);
     const sellData = data.map(item => item.venta);
     
+    // Determine theme colors
+    const isDark = document.documentElement.classList.contains('dark');
+    const textColor = isDark ? '#ffffff' : '#000000';
+    const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+    const backgroundColor = isDark ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.99)';
+    
     // Chart configuration
     const config = {
         type: 'line',
@@ -1140,30 +1165,36 @@ function createHistoricalChart(data, casa, period) {
                     label: 'Compra',
                     data: buyData,
                     borderColor: '#10b981',
-                    backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(16, 185, 129, 0.3)' : 'rgba(16, 185, 129, 0.6)',
-                    borderWidth: 2,
+                    backgroundColor: isDark ? 'rgba(16, 185, 129, 0.6)' : 'rgba(16, 185, 129, 0.3)',
+                    borderWidth: 3,
                     fill: true,
                     tension: 0.4,
                     pointRadius: 4,
-                    pointHoverRadius: 6
+                    pointHoverRadius: 6,
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: textColor,
+                    pointBorderWidth: 2
                 },
                 {
                     label: 'Venta',
                     data: sellData,
                     borderColor: '#ef4444',
-                    backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(239, 68, 68, 0.3)' : 'rgba(239, 68, 68, 0.6)',
-                    borderWidth: 2,
+                    backgroundColor: isDark ? 'rgba(239, 68, 68, 0.6)' : 'rgba(239, 68, 68, 0.3)',
+                    borderWidth: 3,
                     fill: true,
                     tension: 0.4,
                     pointRadius: 4,
-                    pointHoverRadius: 6
+                    pointHoverRadius: 6,
+                    pointBackgroundColor: '#ef4444',
+                    pointBorderColor: textColor,
+                    pointBorderWidth: 2
                 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            backgroundColor: document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.99)',
+            backgroundColor: backgroundColor,
             interaction: {
                 intersect: false,
                 mode: 'index'
@@ -1172,19 +1203,20 @@ function createHistoricalChart(data, casa, period) {
                 legend: {
                     position: 'top',
                     labels: {
-                        color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
+                        color: textColor,
                         usePointStyle: true,
                         padding: 20,
                         font: {
-                            weight: '600'
+                            weight: '600',
+                            size: 14
                         }
                     }
                 },
                 tooltip: {
-                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--card-background'),
-                    titleColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color'),
-                    bodyColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color'),
-                    borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
+                    backgroundColor: isDark ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+                    titleColor: textColor,
+                    bodyColor: textColor,
+                    borderColor: gridColor,
                     borderWidth: 1,
                     cornerRadius: 8,
                     displayColors: true,
@@ -1198,20 +1230,26 @@ function createHistoricalChart(data, casa, period) {
             scales: {
                 x: {
                     grid: {
-                        color: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
-                        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color')
+                        color: gridColor,
+                        borderColor: gridColor
                     },
                     ticks: {
-                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                        color: textColor,
+                        font: {
+                            size: 12
+                        }
                     }
                 },
                 y: {
                     grid: {
-                        color: getComputedStyle(document.documentElement).getPropertyValue('--border-color'),
-                        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color')
+                        color: gridColor,
+                        borderColor: gridColor
                     },
                     ticks: {
-                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary'),
+                        color: textColor,
+                        font: {
+                            size: 12
+                        },
                         callback: function(value) {
                             return '$' + value.toLocaleString('es-AR');
                         }
@@ -1221,11 +1259,16 @@ function createHistoricalChart(data, casa, period) {
         }
     };
     
+    // Create new chart
     historicalChart = new Chart(ctx, config);
     currentChartData = { data, casa, period };
+    
+    console.log('✅ Historical chart created successfully');
 }
 
 function showHistoricalChart(casa, rateName) {
+    console.log(`📊 Opening historical chart for ${casa}: ${rateName}`);
+    
     const modal = document.getElementById('historical-chart-modal');
     const chartTitle = document.getElementById('chart-title');
     const chartSubtitle = document.getElementById('chart-subtitle');
@@ -1235,6 +1278,9 @@ function showHistoricalChart(casa, rateName) {
         console.error('❌ Modal elements not found');
         return;
     }
+    
+    // Clear any existing modal content first
+    clearModalContent();
     
     // Update modal title and subtitle based on currency type
     chartTitle.textContent = `${rateName} - Evolución Histórica`;
@@ -1246,52 +1292,84 @@ function showHistoricalChart(casa, rateName) {
         chartSubtitle.textContent = `Datos de ArgentinaDatos API`;
     }
     
-    dateRange.textContent = 'Últimos 7 días';
+    if (dateRange) {
+        dateRange.textContent = getTranslation('time_range.last_7_days');
+    }
+    
+    // Create modal body content with chart container and time filters
+    const modalBody = document.querySelector('.modal-body');
+    if (modalBody) {
+        modalBody.innerHTML = `
+            <!-- Filtros de Tiempo -->
+            <div class="time-filters">
+                <button class="time-filter active" data-period="7d">${getTranslation('time.7_days')}</button>
+                <button class="time-filter" data-period="30d">${getTranslation('time.30_days')}</button>
+                <button class="time-filter" data-period="90d">${getTranslation('time.90_days')}</button>
+                <button class="time-filter" data-period="1y">${getTranslation('time.1_year')}</button>
+            </div>
+            
+            <!-- Contenedor del Gráfico -->
+            <div class="chart-container">
+                <canvas id="historical-chart"></canvas>
+            </div>
+            
+            <!-- Información del Gráfico -->
+            <div class="chart-info">
+                <div class="info-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="chart-date-range">${getTranslation('time_range.last_7_days')}</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-database"></i>
+                    <span id="chart-data-source">${casa === 'EUR' || casa === 'BRL' ? 'Banco Central' : 'ArgentinaDatos'}</span>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Setup close functionality
+    setupModalCloseHandlers(modal, modalBody);
     
     // Show modal
     modal.classList.remove('hidden');
     
     // Load initial data (7 days)
     loadHistoricalData(casa, 7).then(data => {
-        createHistoricalChart(data, casa, '7d');
+        if (data && data.length > 0) {
+            createHistoricalChart(data, casa, '7d');
+            // Initialize time filter handlers after chart is created
+            initializeTimeFilters(casa);
+        } else {
+            console.error('❌ No data received for chart');
+            showErrorMessage('No se encontraron datos históricos para este indicador');
+        }
     }).catch(error => {
         console.error('❌ Error loading initial chart data:', error);
         showErrorMessage('Error al cargar los datos históricos');
     });
-    
-    // Initialize time filter handlers
-    initializeTimeFilters(casa);
-    
-    // Initialize close button
-    const closeBtn = document.getElementById('close-modal');
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            modal.classList.add('hidden');
-            if (historicalChart) {
-                historicalChart.destroy();
-                historicalChart = null;
-            }
-        };
-    }
-    
-    // Close modal on backdrop click
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-            if (historicalChart) {
-                historicalChart.destroy();
-                historicalChart = null;
-            }
-        }
-    });
 }
 
 function initializeTimeFilters(casa) {
+    console.log(`🔧 Setting up time filters for ${casa}`);
+    
     const timeFilters = document.querySelectorAll('.time-filter');
     const dateRange = document.getElementById('chart-date-range');
     
+    if (timeFilters.length === 0) {
+        console.warn('⚠️ No time filters found');
+        return;
+    }
+    
     timeFilters.forEach(filter => {
-        filter.onclick = async () => {
+        // Remove any existing onclick handlers
+        filter.onclick = null;
+        
+        filter.onclick = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log(`🕒 Time filter clicked: ${filter.getAttribute('data-period')}`);
+            
             // Update active state
             timeFilters.forEach(f => f.classList.remove('active'));
             filter.classList.add('active');
@@ -1302,23 +1380,23 @@ function initializeTimeFilters(casa) {
             switch (period) {
                 case '7d':
                     days = 7;
-                    rangeText = 'Últimos 7 días';
+                    rangeText = getTranslation('time_range.last_7_days');
                     break;
                 case '30d':
                     days = 30;
-                    rangeText = 'Últimos 30 días';
+                    rangeText = getTranslation('time_range.last_30_days');
                     break;
                 case '90d':
                     days = 90;
-                    rangeText = 'Últimos 90 días';
+                    rangeText = getTranslation('time_range.last_90_days');
                     break;
                 case '1y':
                     days = 365;
-                    rangeText = 'Último año';
+                    rangeText = getTranslation('time_range.last_1_year');
                     break;
                 default:
                     days = 7;
-                    rangeText = 'Últimos 7 días';
+                    rangeText = getTranslation('time_range.last_7_days');
             }
             
             // Update date range text
@@ -1327,14 +1405,22 @@ function initializeTimeFilters(casa) {
             }
             
             try {
+                console.log(`📊 Loading ${days} days of data for ${casa}`);
                 const data = await loadHistoricalData(casa, days);
-                createHistoricalChart(data, casa, period);
+                if (data && data.length > 0) {
+                    createHistoricalChart(data, casa, period);
+                } else {
+                    console.error('❌ No data received for time filter');
+                    showErrorMessage('No se encontraron datos para este período');
+                }
             } catch (error) {
                 console.error('❌ Error loading chart data for period:', error);
                 showErrorMessage('Error al cargar los datos para este período');
             }
         };
     });
+    
+    console.log(`✅ Time filters configured for ${casa}`);
 }
 
 // Make chart functions available globally
@@ -1588,7 +1674,7 @@ function updateWidgetContent(widgetId, data, type) {
             case 'inflation':
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.current}%</div>
-                    <div class="indicator-label">Inflación Mensual</div>
+                    <div class="indicator-label">${getTranslation('indicator.monthly_inflation')}</div>
                     ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
@@ -1597,7 +1683,7 @@ function updateWidgetContent(widgetId, data, type) {
             case 'annual-inflation':
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.current}%</div>
-                    <div class="indicator-label">Inflación Interanual</div>
+                    <div class="indicator-label">${getTranslation('indicator.annual_inflation')}</div>
                     ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
@@ -1606,7 +1692,7 @@ function updateWidgetContent(widgetId, data, type) {
             case 'uva':
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.current.toLocaleString()}</div>
-                    <div class="indicator-label">Índice UVA</div>
+                    <div class="indicator-label">${getTranslation('indicator.uva_index')}</div>
                     ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
@@ -1615,7 +1701,7 @@ function updateWidgetContent(widgetId, data, type) {
             case 'risk':
                 contentDiv.innerHTML = `
                     <div class="indicator-value risk-${data.level}">${data.current}</div>
-                    <div class="indicator-label">Riesgo País</div>
+                    <div class="indicator-label">${getTranslation('indicator.country_risk')}</div>
                     <div class="indicator-level">${getRiskLevelText(data.level)}</div>
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
@@ -1624,18 +1710,18 @@ function updateWidgetContent(widgetId, data, type) {
             case 'fixed-term':
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${(data.average * 100).toFixed(2)}%</div>
-                    <div class="indicator-label">Plazos Fijos Promedio</div>
+                    <div class="indicator-label">${getTranslation('indicator.fixed_term')}</div>
                     <div class="indicator-range">${(data.min * 100).toFixed(1)}% - ${(data.max * 100).toFixed(1)}%</div>
-                    <div class="indicator-banks">${data.banks} bancos</div>
+                    <div class="indicator-banks">${data.banks} ${getTranslation('recursos_banks_label')}</div>
                 `;
                 break;
                 
             case 'fci':
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.average.toFixed(2)}</div>
-                    <div class="indicator-label">FCI Promedio</div>
+                    <div class="indicator-label">${getTranslation('indicator.fci')}</div>
                     <div class="indicator-range">${data.min.toFixed(2)} - ${data.max.toFixed(2)}</div>
-                    <div class="indicator-funds">${data.funds} fondos</div>
+                    <div class="indicator-funds">${data.funds} ${getTranslation('recursos_funds_label')}</div>
                 `;
                 break;
         }
@@ -1643,9 +1729,16 @@ function updateWidgetContent(widgetId, data, type) {
 }
 
 // Helper functions
+function getCurrentLanguage() {
+    return window.currentLanguage || 'es';
+}
+
 function formatDate(dateString) {
     const date = new Date(dateString);
-    return date.toLocaleDateString('es-AR', { 
+    const currentLang = getCurrentLanguage();
+    const locale = currentLang === 'en' ? 'en-US' : 'es-AR';
+    
+    return date.toLocaleDateString(locale, { 
         year: 'numeric', 
         month: 'short', 
         day: 'numeric' 
@@ -1653,13 +1746,15 @@ function formatDate(dateString) {
 }
 
 function getRiskLevelText(level) {
-    const texts = {
-        'low': 'Bajo',
-        'medium': 'Medio',
-        'high': 'Alto',
-        'very-high': 'Muy Alto'
+    const levelMap = {
+        'low': 'risk.low',
+        'medium': 'risk.medium',
+        'high': 'risk.high',
+        'very-high': 'risk.very_high'
     };
-    return texts[level] || 'N/A';
+    
+    const translationKey = levelMap[level];
+    return translationKey ? getTranslation(translationKey) : 'N/A';
 }
 
 // Initialize economic indicators
@@ -1780,6 +1875,12 @@ async function refreshFCI() {
 // --- HOLIDAYS WIDGET
 // =================================================================================
 
+// Helper function to parse holiday dates correctly (avoiding timezone issues)
+function parseHolidayDate(dateString) {
+    const dateParts = dateString.split('-');
+    return new Date(parseInt(dateParts[0]), parseInt(dateParts[1]) - 1, parseInt(dateParts[2]));
+}
+
 async function loadHolidaysData() {
     try {
         console.log('📅 Loading holidays data...');
@@ -1832,17 +1933,19 @@ async function refreshHolidays() {
             // Filtrar solo feriados futuros y ordenar por fecha
             const futureHolidays = data.holidays
                 .filter(holiday => {
-                    const holidayDate = new Date(holiday.fecha);
+                    const holidayDate = parseHolidayDate(holiday.fecha);
                     holidayDate.setHours(0, 0, 0, 0);
                     return holidayDate >= today;
                 })
-                .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+                .sort((a, b) => parseHolidayDate(a.fecha) - parseHolidayDate(b.fecha))
                 .slice(0, 3); // Solo los próximos 3
             
             const holidaysList = futureHolidays
                 .map(holiday => {
-                    const date = new Date(holiday.fecha);
-                    const formattedDate = date.toLocaleDateString('es-AR', {
+                    const date = parseHolidayDate(holiday.fecha);
+                    const currentLang = getCurrentLanguage();
+                    const locale = currentLang === 'en' ? 'en-US' : 'es-AR';
+                    const formattedDate = date.toLocaleDateString(locale, {
                         weekday: 'long',
                         month: 'long',
                         day: 'numeric'
@@ -1856,7 +1959,7 @@ async function refreshHolidays() {
             
             holidaysData.innerHTML = `
                 <div class="holidays-summary">
-                    <div class="holidays-count">Próximos 3 feriados</div>
+                    <div class="holidays-count">${getTranslation('holidays.next_3')}</div>
                 </div>
                 <div class="holidays-list">
                     ${holidaysList}
@@ -1882,6 +1985,147 @@ async function refreshHolidays() {
 }
 
 // =================================================================================
+// --- MODAL MANAGEMENT SYSTEM
+// =================================================================================
+
+function clearModalContent() {
+    console.log('🧹 Clearing modal content...');
+    
+    // Clear modal body content but preserve chart canvas
+    const modalBody = document.querySelector('.modal-body');
+    if (modalBody) {
+        // Save the chart canvas before clearing
+        const chartCanvas = document.getElementById('historical-chart');
+        let canvasParent = null;
+        
+        if (chartCanvas) {
+            canvasParent = chartCanvas.parentNode;
+            canvasParent.removeChild(chartCanvas);
+            console.log('📊 Chart canvas temporarily removed');
+        }
+        
+        // Clear all content
+        modalBody.innerHTML = '';
+        
+        // Restore the chart canvas
+        if (chartCanvas) {
+            modalBody.appendChild(chartCanvas);
+            console.log('📊 Chart canvas restored');
+        } else {
+            // Create chart canvas if it doesn't exist
+            const canvas = document.createElement('canvas');
+            canvas.id = 'historical-chart';
+            canvas.width = 800;
+            canvas.height = 400;
+            modalBody.appendChild(canvas);
+            console.log('📊 Chart canvas created');
+        }
+        
+        // Ensure we have the time filters structure
+        if (!document.querySelector('.time-filters')) {
+            const filtersHTML = `
+                <div class="time-filters">
+                    <button class="time-filter active" data-period="7d">${getTranslation('time.7_days')}</button>
+                    <button class="time-filter" data-period="30d">${getTranslation('time.30_days')}</button>
+                    <button class="time-filter" data-period="90d">${getTranslation('time.90_days')}</button>
+                    <button class="time-filter" data-period="1y">${getTranslation('time.1_year')}</button>
+                </div>
+            `;
+            modalBody.insertAdjacentHTML('beforeend', filtersHTML);
+            console.log('⏱️ Time filters created');
+        }
+    }
+    
+    // Destroy any existing charts
+    if (window.economicChart) {
+        console.log('🔨 Destroying economic chart');
+        window.economicChart.destroy();
+        window.economicChart = null;
+    }
+    if (window.historicalChart) {
+        console.log('🔨 Destroying historical chart');
+        window.historicalChart.destroy();
+        window.historicalChart = null;
+    }
+    if (historicalChart) {
+        console.log('🔨 Destroying local historical chart');
+        historicalChart.destroy();
+        historicalChart = null;
+    }
+    
+    // Clear any chart references
+    currentChartData = null;
+    
+    // Reset modal title and subtitle
+    const chartTitle = document.getElementById('chart-title');
+    const chartSubtitle = document.getElementById('chart-subtitle');
+    if (chartTitle) chartTitle.textContent = 'Evolución Histórica';
+    if (chartSubtitle) chartSubtitle.textContent = 'Datos actualizados';
+    
+    // Reset time filters
+    const timeFilters = document.querySelectorAll('.time-filter');
+    timeFilters.forEach(filter => {
+        filter.classList.remove('active');
+        filter.onclick = null; // Remove old event handlers
+    });
+    
+    // Activate first filter by default
+    if (timeFilters.length > 0) {
+        timeFilters[0].classList.add('active');
+    }
+    
+    console.log('✅ Modal content cleared');
+}
+
+function setupModalCloseHandlers(modal, modalBody) {
+    console.log('🔧 Setting up modal close handlers');
+    
+    // Remove existing event listeners first
+    const closeBtn = document.getElementById('close-modal');
+    if (closeBtn) {
+        // Remove existing onclick handler
+        closeBtn.onclick = null;
+        
+        // Add new handler
+        closeBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('❌ Closing modal via close button');
+            modal.classList.add('hidden');
+            clearModalContent();
+        };
+    }
+    
+    // Remove existing modal click handler
+    modal.onclick = null;
+    
+    // Add new backdrop click handler
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('❌ Closing modal via backdrop click');
+            modal.classList.add('hidden');
+            clearModalContent();
+        }
+    };
+    
+    // Add ESC key handler
+    const handleEscKey = (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            console.log('❌ Closing modal via ESC key');
+            modal.classList.add('hidden');
+            clearModalContent();
+            document.removeEventListener('keydown', handleEscKey);
+        }
+    };
+    
+    document.addEventListener('keydown', handleEscKey);
+    
+    console.log('✅ Modal close handlers configured');
+}
+
+// =================================================================================
 // --- HISTORICAL DATA SYSTEM FOR ECONOMIC INDICATORS
 // =================================================================================
 
@@ -1896,23 +2140,23 @@ async function showHistoricalData(indicatorType) {
         switch (indicatorType) {
             case 'inflation':
                 data = await loadInflationHistoricalData();
-                title = 'Evolución de Inflación Mensual';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_monthly_inflation');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'annual-inflation':
                 data = await loadAnnualInflationHistoricalData();
-                title = 'Evolución de Inflación Interanual';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_annual_inflation');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'uva':
                 data = await loadUVAHistoricalData();
-                title = 'Evolución del Índice UVA';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_uva');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'risk':
                 data = await loadRiskHistoricalData();
-                title = 'Evolución del Riesgo País';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_risk');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'fixed-term':
                 data = await loadFixedTermHistoricalData();
@@ -1920,8 +2164,8 @@ async function showHistoricalData(indicatorType) {
                 if (data === null) {
                     return; // Exit early, modal already shown by loadFixedTermHistoricalData
                 }
-                title = 'Evolución de Plazos Fijos';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_fixed_term');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'fci':
                 data = await loadFCIHistoricalData();
@@ -1929,8 +2173,8 @@ async function showHistoricalData(indicatorType) {
                 if (data === null) {
                     return; // Exit early, modal already shown by loadFCIHistoricalData
                 }
-                title = 'Evolución de Fondos Comunes de Inversión';
-                subtitle = 'Datos de ArgentinaDatos API';
+                title = getTranslation('modal.evolution_fci');
+                subtitle = getTranslation('modal.data_source');
                 break;
             case 'holidays':
                 data = await loadHolidaysData();
@@ -2084,123 +2328,122 @@ async function loadFCIHistoricalData() {
 }
 
 function showFixedTermModal(data) {
+    console.log('🏦 Opening fixed term modal with data:', data.length, 'banks');
+    
     const modal = document.getElementById('historical-chart-modal');
     const chartTitle = document.getElementById('chart-title');
     const chartSubtitle = document.getElementById('chart-subtitle');
     const modalBody = document.querySelector('.modal-body');
     
-    if (modal && chartTitle && chartSubtitle && modalBody) {
-        chartTitle.textContent = 'Tasas de Plazo Fijo por Banco';
-        chartSubtitle.textContent = 'Tasas Nominales Anuales (TNA) - Clientes';
-        
-        // Filtrar solo bancos con tasas válidas
-        const validBanks = data.filter(item => item.tnaClientes !== null && item.tnaClientes > 0);
-        
-        // Crear contenido HTML para mostrar los datos
-        const contentHTML = `
-            <div class="fixed-term-content">
-                <div class="banks-grid">
-                    ${validBanks.map(bank => `
-                        <div class="bank-card">
-                            <div class="bank-header">
-                                <img src="${bank.logo}" alt="${bank.entidad}" class="bank-logo" onerror="this.style.display='none'">
-                                <h4 class="bank-name">${bank.entidad}</h4>
-                            </div>
-                            <div class="bank-rate">
-                                <span class="rate-value">${(bank.tnaClientes * 100).toFixed(2)}%</span>
-                                <span class="rate-label">TNA</span>
-                            </div>
-                            ${bank.enlace ? `<a href="${bank.enlace}" target="_blank" class="bank-link">Ver más</a>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        // Reemplazar el contenido del modal
-        modalBody.innerHTML = contentHTML;
-        
-        // Mostrar modal
-        modal.classList.remove('hidden');
-        
-        // Setup close functionality
-        const closeBtn = document.getElementById('close-modal');
-        if (closeBtn) {
-            closeBtn.onclick = () => {
-                modal.classList.add('hidden');
-            };
-        }
-        
-        // Close on backdrop click
-        modal.onclick = (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        };
+    if (!modal || !chartTitle || !chartSubtitle || !modalBody) {
+        console.error('❌ Modal elements not found for fixed term modal');
+        return;
     }
+    
+    // Clear any existing content and reset modal state
+    clearModalContent();
+    
+    // Set translated titles
+    chartTitle.textContent = getTranslation('modal.fixed_term_title') || 'Tasas de Plazo Fijo por Banco';
+    chartSubtitle.textContent = getTranslation('modal.fixed_term_subtitle') || 'Tasas Nominales Anuales (TNA) - Clientes';
+    
+    // Filtrar solo bancos con tasas válidas
+    const validBanks = data.filter(item => item.tnaClientes !== null && item.tnaClientes > 0);
+    
+    console.log(`💰 Showing ${validBanks.length} banks with valid rates`);
+    
+    // Crear contenido HTML para mostrar los datos
+    const contentHTML = `
+        <div class="fixed-term-content">
+            <div class="banks-grid">
+                ${validBanks.map(bank => `
+                    <div class="bank-card">
+                        <div class="bank-header">
+                            <img src="${bank.logo || ''}" alt="${bank.entidad}" class="bank-logo" onerror="this.style.display='none'">
+                            <h4 class="bank-name">${bank.entidad}</h4>
+                        </div>
+                        <div class="bank-rate">
+                            <span class="rate-value">${(bank.tnaClientes * 100).toFixed(2)}%</span>
+                            <span class="rate-label">${getTranslation('modal.tna_label') || 'TNA'}</span>
+                        </div>
+                        ${bank.enlace ? `<a href="${bank.enlace}" target="_blank" class="bank-link">${getTranslation('modal.see_more') || 'Ver más'}</a>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    
+    // Reemplazar el contenido del modal
+    modalBody.innerHTML = contentHTML;
+    
+    // Setup close functionality
+    setupModalCloseHandlers(modal, modalBody);
+    
+    // Mostrar modal
+    modal.classList.remove('hidden');
+    
+    console.log('✅ Fixed term modal opened successfully');
 }
 
 function showFCIModal(data) {
+    console.log('📊 Opening FCI modal with data:', data.length, 'funds');
+    console.log('FCI Data:', data); // Debug log
+    
     const modal = document.getElementById('historical-chart-modal');
     const chartTitle = document.getElementById('chart-title');
     const chartSubtitle = document.getElementById('chart-subtitle');
     const modalBody = document.querySelector('.modal-body');
     
-    if (modal && chartTitle && chartSubtitle && modalBody) {
-        chartTitle.textContent = 'Fondos Comunes de Inversión';
-        chartSubtitle.textContent = 'Patrimonio por Categoría - Mercado de Dinero';
-        
-        console.log('FCI Data:', data); // Debug log
-        
-        // Crear contenido HTML para mostrar los datos
-        const contentHTML = `
-            <div class="fci-content">
-                <div class="fci-grid">
-                    ${data.map(fci => {
-                        console.log('Processing FCI item:', fci); // Debug log
-                        return `
-                            <div class="fci-card">
-                                <div class="fci-header">
-                                    <h4 class="fci-name">${fci.fondo || 'Categoría no disponible'}</h4>
+    if (!modal || !chartTitle || !chartSubtitle || !modalBody) {
+        console.error('❌ Modal elements not found for FCI modal');
+        return;
+    }
+    
+    // Clear any existing content and reset modal state
+    clearModalContent();
+    
+    // Set translated titles
+    chartTitle.textContent = getTranslation('modal.fci_title') || 'Fondos Comunes de Inversión';
+    chartSubtitle.textContent = getTranslation('modal.fci_subtitle') || 'Patrimonio por Categoría - Mercado de Dinero';
+    
+    // Crear contenido HTML para mostrar los datos
+    const contentHTML = `
+        <div class="fci-content">
+            <div class="fci-grid">
+                ${data.map(fci => {
+                    console.log('Processing FCI item:', fci); // Debug log
+                    return `
+                        <div class="fci-card">
+                            <div class="fci-header">
+                                <h4 class="fci-name">${fci.fondo || getTranslation('modal.category_not_available') || 'Categoría no disponible'}</h4>
+                            </div>
+                            <div class="fci-data">
+                                <div class="fci-rate">
+                                    <span class="rate-value">${fci.patrimonio ? `$${(fci.patrimonio / 1000000).toFixed(1)}M` : 'N/A'}</span>
+                                    <span class="rate-label">${getTranslation('modal.patrimony') || 'Patrimonio'}</span>
                                 </div>
-                                <div class="fci-data">
-                                    <div class="fci-rate">
-                                        <span class="rate-value">${fci.patrimonio ? `$${(fci.patrimonio / 1000000).toFixed(1)}M` : 'N/A'}</span>
-                                        <span class="rate-label">Patrimonio</span>
-                                    </div>
-                                    <div class="fci-details">
-                                        <span class="detail-item">VCP: ${fci.vcp ? fci.vcp.toLocaleString() : 'N/A'}</span>
-                                        <span class="detail-item">CCP: ${fci.ccp ? fci.ccp.toLocaleString() : 'N/A'}</span>
-                                    </div>
+                                <div class="fci-details">
+                                    <span class="detail-item">VCP: ${fci.vcp ? fci.vcp.toLocaleString() : 'N/A'}</span>
+                                    <span class="detail-item">CCP: ${fci.ccp ? fci.ccp.toLocaleString() : 'N/A'}</span>
                                 </div>
                             </div>
-                        `;
-                    }).join('')}
-                </div>
+                        </div>
+                    `;
+                }).join('')}
             </div>
-        `;
-        
-        // Reemplazar el contenido del modal
-        modalBody.innerHTML = contentHTML;
-        
-        // Mostrar modal
-        modal.classList.remove('hidden');
-        
-        // Setup close functionality
-        const closeBtn = document.getElementById('close-modal');
-        if (closeBtn) {
-            closeBtn.onclick = () => {
-                modal.classList.add('hidden');
-            };
-        }
-        
-        // Close on backdrop click
-        modal.onclick = (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        };
-    }
+        </div>
+    `;
+    
+    // Reemplazar el contenido del modal
+    modalBody.innerHTML = contentHTML;
+    
+    // Setup close functionality
+    setupModalCloseHandlers(modal, modalBody);
+    
+    // Mostrar modal
+    modal.classList.remove('hidden');
+    
+    console.log('✅ FCI modal opened successfully');
 }
 
 function showHistoricalChartModal(data, title, subtitle, indicatorType) {
@@ -2298,21 +2541,33 @@ function filterDataByPeriod(data, period) {
 
 function getPeriodDisplayText(period) {
     const texts = {
-        '7d': 'Últimos 7 días',
-        '30d': 'Últimos 30 días',
-        '90d': 'Últimos 90 días',
-        '1y': 'Último año'
+        '7d': getTranslation('time_range.last_7_days'),
+        '30d': getTranslation('time_range.last_30_days'),
+        '90d': getTranslation('time_range.last_90_days'),
+        '1y': getTranslation('time_range.last_1_year')
     };
-    return texts[period] || 'Todos los datos';
+    return texts[period] || getTranslation('time_range.all_data') || 'All data';
 }
 
 function createEconomicIndicatorChart(data, indicatorType) {
-    const ctx = document.getElementById('historical-chart');
-    if (!ctx) return;
+    console.log(`📊 Creating economic indicator chart for ${indicatorType} with ${data.length} data points`);
     
-    // Destroy existing chart if it exists
+    const ctx = document.getElementById('historical-chart');
+    if (!ctx) {
+        console.error('❌ Chart canvas not found for economic indicator');
+        return;
+    }
+    
+    // Destroy existing charts
     if (window.economicChart) {
+        console.log('🔨 Destroying existing economic chart');
         window.economicChart.destroy();
+        window.economicChart = null;
+    }
+    if (historicalChart) {
+        console.log('🔨 Destroying existing historical chart');
+        historicalChart.destroy();
+        historicalChart = null;
     }
     
     // Prepare chart data
@@ -2326,6 +2581,12 @@ function createEconomicIndicatorChart(data, indicatorType) {
     
     const values = data.map(item => item.valor);
     
+    // Determine theme colors
+    const isDark = document.documentElement.classList.contains('dark');
+    const textColor = isDark ? '#ffffff' : '#000000';
+    const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+    const backgroundColor = isDark ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+    
     // Chart configuration
     const config = {
         type: 'line',
@@ -2335,17 +2596,21 @@ function createEconomicIndicatorChart(data, indicatorType) {
                 label: getIndicatorLabel(indicatorType),
                 data: values,
                 borderColor: getIndicatorColor(indicatorType),
-                backgroundColor: getIndicatorColor(indicatorType, 0.1),
+                backgroundColor: getIndicatorColor(indicatorType, isDark ? 0.6 : 0.3),
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
                 pointRadius: 4,
-                pointHoverRadius: 6
+                pointHoverRadius: 6,
+                pointBackgroundColor: getIndicatorColor(indicatorType),
+                pointBorderColor: textColor,
+                pointBorderWidth: 2
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            backgroundColor: backgroundColor,
             plugins: {
                 legend: {
                     display: false
@@ -2353,28 +2618,47 @@ function createEconomicIndicatorChart(data, indicatorType) {
                 tooltip: {
                     mode: 'index',
                     intersect: false,
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
+                    backgroundColor: backgroundColor,
+                    titleColor: textColor,
+                    bodyColor: textColor,
                     borderColor: getIndicatorColor(indicatorType),
-                    borderWidth: 1
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    callbacks: {
+                        label: function(context) {
+                            const suffix = indicatorType.includes('inflation') || indicatorType === 'risk' ? '%' : '';
+                            return `${context.dataset.label}: ${context.parsed.y.toLocaleString('es-AR')}${suffix}`;
+                        }
+                    }
                 }
             },
             scales: {
                 x: {
                     grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
+                        color: gridColor,
+                        borderColor: gridColor
                     },
                     ticks: {
-                        color: '#9ca3af'
+                        color: textColor,
+                        font: {
+                            size: 12
+                        }
                     }
                 },
                 y: {
                     grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
+                        color: gridColor,
+                        borderColor: gridColor
                     },
                     ticks: {
-                        color: '#9ca3af'
+                        color: textColor,
+                        font: {
+                            size: 12
+                        },
+                        callback: function(value) {
+                            const suffix = indicatorType.includes('inflation') || indicatorType === 'risk' ? '%' : '';
+                            return value.toLocaleString('es-AR') + suffix;
+                        }
                     }
                 }
             },
@@ -2387,6 +2671,8 @@ function createEconomicIndicatorChart(data, indicatorType) {
     };
     
     window.economicChart = new Chart(ctx, config);
+    
+    console.log('✅ Economic indicator chart created successfully');
 }
 
 function getIndicatorLabel(indicatorType) {
@@ -2429,13 +2715,21 @@ window.showHistoricalData = showHistoricalData;
 
 // Function to handle widget clicks and prevent event bubbling
 function handleWidgetClick(event, indicatorType) {
+    console.log(`🖱️ Widget clicked: ${indicatorType}`);
+    
     // Don't trigger if clicking on refresh button or its children
     if (event.target.closest('.refresh-btn')) {
+        console.log('🔄 Refresh button clicked, preventing widget modal');
         event.stopPropagation();
         return;
     }
     
+    // Prevent default behavior and bubbling
+    event.preventDefault();
+    event.stopPropagation();
+    
     // Show historical data
+    console.log(`📊 Opening historical data for ${indicatorType}`);
     showHistoricalData(indicatorType);
 }
 
@@ -2443,72 +2737,85 @@ function handleWidgetClick(event, indicatorType) {
 window.handleWidgetClick = handleWidgetClick;
 
 function showHolidaysModal(data) {
+    console.log('📅 Opening holidays modal with data:', data.total, 'holidays for', data.year);
+    
     const modal = document.getElementById('historical-chart-modal');
     const chartTitle = document.getElementById('chart-title');
     const chartSubtitle = document.getElementById('chart-subtitle');
     const modalBody = document.querySelector('.modal-body');
     
-    if (modal && chartTitle && chartSubtitle && modalBody) {
-        chartTitle.textContent = 'Feriados Nacionales 2025';
-        chartSubtitle.textContent = 'Calendario oficial completo';
-        
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        // Ordenar feriados por fecha
-        const sortedHolidays = data.holidays.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-        
-        const holidaysList = sortedHolidays
-            .map(holiday => {
-                const date = new Date(holiday.fecha);
-                const isPast = date < today;
-                const formattedDate = date.toLocaleDateString('es-AR', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                
-                return `<div class="holiday-item ${isPast ? 'past-holiday' : ''}">
-                    <div class="holiday-date ${isPast ? 'text-red-400' : ''}">${formattedDate}</div>
-                    <div class="holiday-name ${isPast ? 'text-red-400' : ''}">${holiday.nombre}</div>
-                </div>`;
-            })
-            .join('');
-        
-        const contentHTML = `
-            <div class="holidays-modal-content">
-                <div class="holidays-summary">
-                    <div class="holidays-count">${data.total} feriados en ${data.year}</div>
-                </div>
-                <div class="holidays-list">
-                    ${holidaysList}
-                </div>
-            </div>
-        `;
-        
-        // Reemplazar el contenido del modal
-        modalBody.innerHTML = contentHTML;
-        
-        // Mostrar modal
-        modal.classList.remove('hidden');
-        
-        // Setup close functionality
-        const closeBtn = document.getElementById('close-modal');
-        if (closeBtn) {
-            closeBtn.onclick = () => {
-                modal.classList.add('hidden');
-            };
-        }
-        
-        // Close on backdrop click
-        modal.onclick = (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        };
+    if (!modal || !chartTitle || !chartSubtitle || !modalBody) {
+        console.error('❌ Modal elements not found for holidays modal');
+        return;
     }
+    
+    // Clear any existing content and reset modal state
+    clearModalContent();
+    
+    // Set translated titles
+    chartTitle.textContent = getTranslation('modal.holidays_title') || `Feriados Nacionales ${data.year}`;
+    chartSubtitle.textContent = getTranslation('modal.holidays_subtitle') || 'Calendario oficial completo';
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // Ordenar feriados por fecha
+    const sortedHolidays = data.holidays.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+    
+    const holidaysList = sortedHolidays
+        .map(holiday => {
+            // Parse date correctly to avoid timezone issues
+            const date = parseHolidayDate(holiday.fecha);
+            const isPast = date < today;
+            const currentLang = getCurrentLanguage();
+            const locale = currentLang === 'en' ? 'en-US' : 'es-AR';
+            const formattedDate = date.toLocaleDateString(locale, {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Determine icon and status text based on whether holiday is past or future
+            const statusIcon = isPast ? '✅' : '📅';
+            const statusText = isPast ? 
+                (getTranslation('modal.holiday_past') || 'Pasado') : 
+                (getTranslation('modal.holiday_upcoming') || 'Próximo');
+            
+            return `<div class="holiday-item ${isPast ? 'holiday-past' : 'holiday-upcoming'}">
+                <div class="holiday-status">
+                    <span class="holiday-icon">${statusIcon}</span>
+                    <span class="holiday-status-text">${statusText}</span>
+                </div>
+                <div class="holiday-date">${formattedDate}</div>
+                <div class="holiday-name">${holiday.nombre}</div>
+            </div>`;
+        })
+        .join('');
+    
+    const contentHTML = `
+        <div class="holidays-modal-content">
+            <div class="holidays-summary">
+                <div class="holidays-count">${data.total} ${getTranslation('modal.holidays_in') || 'feriados en'} ${data.year}</div>
+            </div>
+            <div class="holidays-list">
+                ${holidaysList}
+            </div>
+        </div>
+    `;
+    
+    // Reemplazar el contenido del modal
+    modalBody.innerHTML = contentHTML;
+    
+    // Setup close functionality
+    setupModalCloseHandlers(modal, modalBody);
+    
+    // Mostrar modal
+    modal.classList.remove('hidden');
+    
+    console.log('✅ Holidays modal opened successfully');
 }
 
 // Make function available globally
+window.showHolidaysModal = showHolidaysModal; 
 window.showHolidaysModal = showHolidaysModal; 
