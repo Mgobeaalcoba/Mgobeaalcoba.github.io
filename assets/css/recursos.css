@@ -3027,4 +3027,16 @@ html.light .holiday-upcoming {
 
 .light .result-card.success .result-value {
     color: #16a34a;
+}
+
+/* === FIX: Eliminar borde y fondo gris de labels y descripciones en el form de Ganancias (modo claro) === */
+html.light .input-group label,
+html.light .input-group,
+html.light .input-section label,
+html.light .input-section legend,
+html.light .input-section small {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #1f2937 !important;
 } 
