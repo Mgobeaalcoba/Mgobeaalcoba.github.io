@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Recursos Útiles para Argentina | Calculadoras & Cotizaciones | MGA Resources</title>
+    <title>Recursos Útiles para Argentina | Calculadora & Cotizaciones | MGA Resources</title>
     
     <!-- Theme and Performance -->
     <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
@@ -250,7 +250,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text" data-translate="recursos_tools_title">Herramientas Disponibles</h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-translate="recursos_tools_desc">
-                    Accede a calculadoras y cotizaciones actualizadas para optimizar tus decisiones financieras
+                    Accede a calculadora de impuestos y cotizaciones actualizadas para optimizar tus decisiones financieras
                 </p>
             </div>
 
@@ -260,7 +260,7 @@
                     <i class="fas fa-calculator text-blue-400 mr-3"></i>
                     <span data-translate="recursos_calculators_title">Calculadoras</span>
                 </h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
                     <!-- Calculadora Impuesto a las Ganancias -->
                     <div class="resource-widget modern-widget" id="tax-calculator">
                         <div class="modern-header">
@@ -300,24 +300,7 @@
                         </div>
                     </div>
 
-                    <!-- Placeholder para futura calculadora -->
-                    <div class="resource-widget modern-widget coming-soon">
-                        <div class="modern-header">
-                            <div class="modern-title">
-                                <div class="modern-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="title-content">
-                                    <h4 data-translate="recursos_credit_calculator_title">Calculadora de Créditos</h4>
-                                    <p data-translate="recursos_credit_calculator_coming_soon">Próximamente</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget-content text-center py-8">
-                            <i class="fas fa-clock text-4xl text-gray-500 mb-4"></i>
-                            <p class="text-gray-400" data-translate="recursos_credit_calculator_desc">Esta calculadora estará disponible pronto</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -327,7 +310,7 @@
                     <i class="fas fa-chart-line text-green-400 mr-3"></i>
                     <span data-translate="recursos_quotes_title">Cotizaciones en Tiempo Real</span>
                 </h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
                     <!-- Widget de Cotizaciones -->
                     <div class="resource-widget modern-widget" id="currency-widget">
                         <div class="modern-header">
@@ -356,86 +339,7 @@
                         </div>
                     </div>
 
-                    <!-- Conversor de Monedas -->
-                    <div class="resource-widget modern-converter" id="currency-converter">
-                        <div class="converter-header">
-                            <div class="converter-title">
-                                <div class="converter-icon">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </div>
-                                <div class="title-content">
-                                    <h4 data-translate="recursos_converter_title">Conversor de Monedas</h4>
-                                    <p data-translate="recursos_converter_desc">Convierte entre ARS, USD, EUR, BRL</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="converter-body">
-                            <div class="conversion-container">
-                                <!-- From Currency -->
-                                <div class="currency-section from-section">
-                                    <label class="currency-label" data-translate="recursos_converter_from">Desde</label>
-                                    <div class="currency-card">
-                                        <div class="amount-input-wrapper">
-                                            <input type="number" id="from-amount" placeholder="100" class="amount-input">
-                                            <div class="input-decoration"></div>
-                                        </div>
-                                        <div class="currency-selector-wrapper">
-                                            <select id="from-currency" class="currency-selector">
-                                                <option value="ARS">🇦🇷 ARS</option>
-                                                <option value="USD">🇺🇸 USD</option>
-                                                <option value="EUR">🇪🇺 EUR</option>
-                                                <option value="BRL">🇧🇷 BRL</option>
-                                            </select>
-                                            <div class="selector-arrow">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Conversion Arrow -->
-                                <div class="conversion-arrow">
-                                    <div class="arrow-container">
-                                        <div class="arrow-circle">
-                                            <i class="fas fa-arrows-alt-v"></i>
-                                        </div>
-                                        <div class="arrow-line"></div>
-                                    </div>
-                                </div>
-
-                                <!-- To Currency -->
-                                <div class="currency-section to-section">
-                                    <label class="currency-label" data-translate="recursos_converter_to">Hacia</label>
-                                    <div class="currency-card result-card">
-                                        <div class="amount-input-wrapper">
-                                            <input type="number" id="to-amount" readonly class="amount-input result-input">
-                                            <div class="input-decoration result-decoration"></div>
-                                        </div>
-                                        <div class="currency-selector-wrapper">
-                                            <select id="to-currency" class="currency-selector">
-                                                <option value="USD">🇺🇸 USD</option>
-                                                <option value="ARS">🇦🇷 ARS</option>
-                                                <option value="EUR">🇪🇺 EUR</option>
-                                                <option value="BRL">🇧🇷 BRL</option>
-                                            </select>
-                                            <div class="selector-arrow">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Exchange Rate Info -->
-                            <div class="exchange-rate-info">
-                                <div class="rate-display">
-                                    <i class="fas fa-info-circle"></i>
-                                    <span id="exchange-rate-text">Ingresa una cantidad para ver la tasa de cambio</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -620,21 +524,37 @@
                     </button>
                 </div>
 
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FERIADOS NACIONALES -->
+    <section id="feriados" class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text" data-translate="recursos_holidays_section_title">Feriados Nacionales</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-translate="recursos_holidays_section_desc">
+                    Próximos feriados nacionales en Argentina - Calendario oficial 2025
+                </p>
+            </div>
+
+            <div class="holidays-full-width-widget">
                 <!-- Widget de Feriados -->
-                <div class="resource-widget modern-widget economic-widget" id="holidays-widget" onclick="handleWidgetClick(event, 'holidays')">
+                <div class="resource-widget modern-widget" id="holidays-widget" onclick="handleWidgetClick(event, 'holidays')">
                     <div class="modern-header">
                         <div class="modern-title">
                             <div class="modern-icon">
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="title-content">
-                                <h4 data-translate="recursos_holidays_title">Feriados Nacionales</h4>
-                                <p data-translate="recursos_holidays_desc">Calendario oficial 2025</p>
+                                <h4 data-translate="recursos_holidays_title">Próximos 3 Feriados</h4>
+                                <p data-translate="recursos_holidays_desc">Haz clic para ver el calendario completo</p>
                             </div>
                         </div>
                     </div>
                     <div class="widget-content">
-                        <div id="holidays-data" class="space-y-4">
+                        <div id="holidays-data" class="holidays-cards-container">
                             <div class="loading-spinner">
                                 <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
                                 <p class="mt-2 text-gray-400" data-translate="recursos_loading_holidays">Cargando feriados...</p>

@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeMobileMenu();
         initializeTaxCalculator();
         await initializeCurrencyWidget();
-        initializeCurrencyConverter();
         
         // Initialize economic indicators
         initializeEconomicIndicators();
@@ -482,14 +481,20 @@ function displayCurrencyRates() {
         container.appendChild(createCurrencyRateItem('USD', 'Dólar Estadounidense', '$', currencyRates.USD));
     }
     
-    // EUR Rates
-    if (currencyRates.EUR) {
-        container.appendChild(createCurrencyRateItem('EUR', 'Euro', '€', currencyRates.EUR));
-    }
-    
-    // BRL Rates
-    if (currencyRates.BRL) {
-        container.appendChild(createCurrencyRateItem('BRL', 'Real Brasileño', 'R$', currencyRates.BRL));
+    // EUR and BRL Rates - Group them in desktop for better space utilization
+    if (currencyRates.EUR || currencyRates.BRL) {
+        const eurBrlContainer = document.createElement('div');
+        eurBrlContainer.className = 'eur-brl-container';
+        
+        if (currencyRates.EUR) {
+            eurBrlContainer.appendChild(createCurrencyRateItem('EUR', 'Euro', '€', currencyRates.EUR));
+        }
+        
+        if (currencyRates.BRL) {
+            eurBrlContainer.appendChild(createCurrencyRateItem('BRL', 'Real Brasileño', 'R$', currencyRates.BRL));
+        }
+        
+        container.appendChild(eurBrlContainer);
     }
     
     // Add last update info
@@ -659,126 +664,7 @@ function getFallbackRates() {
     };
 }
 
-// =================================================================================
-// --- CURRENCY CONVERTER
-// =================================================================================
 
-function initializeCurrencyConverter() {
-    console.log('🔄 Initializing currency converter...');
-    
-    const fromAmountInput = document.getElementById('from-amount');
-    const fromCurrencySelect = document.getElementById('from-currency');
-    const toAmountInput = document.getElementById('to-amount');
-    const toCurrencySelect = document.getElementById('to-currency');
-    
-    // Add event listeners
-    [fromAmountInput, fromCurrencySelect, toCurrencySelect].forEach(element => {
-        if (element) {
-            element.addEventListener('input', convertCurrency);
-            element.addEventListener('change', convertCurrency);
-        }
-    });
-    
-    // Initial conversion
-    setTimeout(convertCurrency, 1000);
-}
-
-function convertCurrency() {
-    const fromAmount = parseFloat(document.getElementById('from-amount')?.value) || 0;
-    const fromCurrency = document.getElementById('from-currency')?.value;
-    const toCurrency = document.getElementById('to-currency')?.value;
-    const toAmountInput = document.getElementById('to-amount');
-    const exchangeRateText = document.getElementById('exchange-rate-text');
-    
-    if (!toAmountInput || !fromCurrency || !toCurrency) {
-        if (toAmountInput) toAmountInput.value = '';
-        updateExchangeRateInfo('', '');
-        return;
-    }
-    
-    const rate = getConversionRate(fromCurrency, toCurrency);
-    
-    if (fromAmount <= 0) {
-        toAmountInput.value = '';
-        updateExchangeRateInfo(fromCurrency, toCurrency, rate);
-        return;
-    }
-    
-    const convertedAmount = fromAmount * rate;
-    toAmountInput.value = convertedAmount.toFixed(2);
-    updateExchangeRateInfo(fromCurrency, toCurrency, rate);
-}
-
-function getConversionRate(from, to) {
-    if (from === to) return 1;
-    
-    // Base rates to ARS
-    const toARS = {
-        'USD': currencyRates?.USD?.blue?.sell || currencyRates?.USD?.oficial?.sell || 970,
-        'EUR': currencyRates?.EUR?.oficial?.sell || 1070,
-        'BRL': currencyRates?.BRL?.oficial?.sell || 195,
-        'ARS': 1
-    };
-    
-    // Convert through ARS
-    if (from === 'ARS') {
-        return 1 / toARS[to];
-    } else if (to === 'ARS') {
-        return toARS[from];
-    } else {
-        // Convert from -> ARS -> to
-        return toARS[from] / toARS[to];
-    }
-}
-
-function updateExchangeRateInfo(fromCurrency, toCurrency, rate) {
-    const exchangeRateText = document.getElementById('exchange-rate-text');
-    if (!exchangeRateText) return;
-    
-    if (!fromCurrency || !toCurrency || !rate) {
-        exchangeRateText.textContent = getTranslation('recursos_converter_rate_info');
-        return;
-    }
-    
-    if (fromCurrency === toCurrency) {
-        exchangeRateText.textContent = getTranslation('recursos_converter_same_currency');
-        return;
-    }
-    
-    // Currency symbols
-    const symbols = {
-        'ARS': '$',
-        'USD': '$',
-        'EUR': '€',
-        'BRL': 'R$'
-    };
-    
-    // Currency names with translations
-    const names = {
-        'ARS': getTranslation('currency.ars_name') || 'Peso Argentino',
-        'USD': getTranslation('currency.usd_name') || 'Dólar',
-        'EUR': getTranslation('currency.eur_name') || 'Euro',
-        'BRL': getTranslation('currency.brl_name') || 'Real'
-    };
-    
-    const fromSymbol = symbols[fromCurrency] || '';
-    const toSymbol = symbols[toCurrency] || '';
-    const fromName = names[fromCurrency] || fromCurrency;
-    const toName = names[toCurrency] || toCurrency;
-    
-    // Get rate type info for USD with translation
-    let rateInfo = '';
-    if ((fromCurrency === 'USD' || toCurrency === 'USD') && currencyRates?.USD?.blue) {
-        rateInfo = getTranslation('recursos_converter_blue_rate');
-    }
-    
-    // Create exchange rate info text
-    exchangeRateText.innerHTML = `
-        1 ${fromName} = ${toSymbol}${rate.toFixed(4)} ${toName}${rateInfo}
-        <span style="margin-left: 0.5rem; opacity: 0.7;">•</span>
-        <span style="margin-left: 0.5rem;">1 ${toName} = ${fromSymbol}${(1/rate).toFixed(4)} ${fromName}</span>
-    `;
-}
 
 // =================================================================================
 // --- REFRESH FUNCTIONALITY
@@ -798,7 +684,6 @@ async function refreshRates() {
         lastUpdateTime = 0;
         await loadCurrencyRates();
         displayCurrencyRates();
-        convertCurrency(); // Update converter with new rates
         
         if (refreshBtn) {
             refreshBtn.innerHTML = `<i class="fas fa-check mr-2"></i>${getTranslation('recursos_updated')}`;
@@ -959,8 +844,7 @@ function setLanguage(lang) {
         displayCurrencyRates();
     }
     
-    // Update converter info
-    convertCurrency();
+
     
     // Update button text if it's in "Updated" state
     const refreshBtn = document.querySelector('.refresh-btn');
@@ -1028,7 +912,6 @@ function initializeLanguage() {
 // Make functions available globally for onclick handlers
 window.calculateTax = calculateTax;
 window.refreshRates = refreshRates;
-window.convertCurrency = convertCurrency;
 
 // =================================================================================
 // --- HISTORICAL CHART SYSTEM
@@ -2015,26 +1898,45 @@ async function refreshHolidays() {
                     const date = parseHolidayDate(holiday.fecha);
                     const currentLang = getCurrentLanguage();
                     const locale = currentLang === 'en' ? 'en-US' : 'es-AR';
+                    
+                    // Formatear fecha completa
                     const formattedDate = date.toLocaleDateString(locale, {
                         weekday: 'long',
                         month: 'long',
                         day: 'numeric'
                     });
-                    return `<div class="holiday-item">
-                        <div class="holiday-date">${formattedDate}</div>
-                        <div class="holiday-name">${holiday.nombre}</div>
+                    
+                    // Formatear día del mes
+                    const dayNumber = date.getDate();
+                    
+                    // Formatear mes
+                    const monthName = date.toLocaleDateString(locale, {
+                        month: 'short'
+                    });
+                    
+                    // Calcular días hasta el feriado
+                    const diffTime = date.getTime() - today.getTime();
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    const daysText = diffDays === 0 ? 'Hoy' : 
+                                   diffDays === 1 ? 'Mañana' : 
+                                   `En ${diffDays} días`;
+                    
+                    return `<div class="holiday-card">
+                        <div class="holiday-card-header">
+                            <div class="holiday-date-number">${dayNumber}</div>
+                            <div class="holiday-date-month">${monthName}</div>
+                        </div>
+                        <div class="holiday-card-body">
+                            <div class="holiday-card-name">${holiday.nombre}</div>
+                            <div class="holiday-card-date">${formattedDate}</div>
+                            <div class="holiday-card-countdown">${daysText}</div>
+                        </div>
                     </div>`;
                 })
                 .join('');
             
-            holidaysData.innerHTML = `
-                <div class="holidays-summary">
-                    <div class="holidays-count">${getTranslation('holidays.next_3')}</div>
-                </div>
-                <div class="holidays-list">
-                    ${holidaysList}
-                </div>
-            `;
+            holidaysData.className = 'holidays-cards-container';
+            holidaysData.innerHTML = holidaysList;
         } else {
             holidaysData.innerHTML = `
                 <div class="error-message">
