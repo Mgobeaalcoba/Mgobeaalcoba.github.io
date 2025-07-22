@@ -227,102 +227,191 @@ function initializeMobileMenu() {
 function initializeTaxCalculator() {
     console.log('💰 Initializing tax calculator...');
     
-    // Add input event listeners for real-time calculation
-    const salaryInput = document.getElementById('annual-salary');
-    const deductionsInput = document.getElementById('deductions');
-    
-    if (salaryInput) {
-        salaryInput.addEventListener('input', () => {
-            if (salaryInput.value) {
-                calculateTax();
-            }
-        });
-    }
-    
-    if (deductionsInput) {
-        deductionsInput.addEventListener('input', () => {
-            if (salaryInput && salaryInput.value) {
-                calculateTax();
-            }
-        });
-    }
+    // Setup all event listeners and initial calculation
+    initializeTaxCalculatorEvents();
 }
 
 function calculateTax() {
-    const salaryInput = document.getElementById('annual-salary');
-    const deductionsInput = document.getElementById('deductions');
-    const resultDiv = document.getElementById('tax-result');
-    const annualTaxSpan = document.getElementById('annual-tax');
-    const monthlyTaxSpan = document.getElementById('monthly-tax');
+    // Parámetros fiscales actualizados para 2025 (valores hipotéticos)
+    const TAX_PARAMS = {
+        gni: 3588000,
+        deduccion_especial: 13634400,
+        conyuge: 3352000,
+        hijo: 1687000,
+        hijo_incapacitado: 3374000,
+        alquiler_tope: 3588000,
+        domestico_tope: 3588000,
+        hipotecario_tope: 20000,
+        aportes_porcentaje: 0.17,
+        medicos_facturado_porcentaje: 0.40,
+        ganancia_neta_tope_porcentaje: 0.05,
+        educacion_tope: 1566507,
+        seguro_vida_tope: 250000,
+        sepelio_tope: 150000,
+        escala: [
+            { limite: 0, fijo: 0, porcentaje: 0.05 },
+            { limite: 2990000, fijo: 149500, porcentaje: 0.09 },
+            { limite: 5980000, fijo: 418750, porcentaje: 0.12 },
+            { limite: 8970000, fijo: 777550, porcentaje: 0.15 },
+            { limite: 11960000, fijo: 1226050, porcentaje: 0.19 },
+            { limite: 17940000, fijo: 2362250, porcentaje: 0.23 },
+            { limite: 23920000, fijo: 3737650, porcentaje: 0.27 },
+            { limite: 35880000, fijo: 6966850, porcentaje: 0.31 },
+            { limite: 47840000, fijo: 10674450, porcentaje: 0.35 }
+        ]
+    };
+
+    // Obtener valores de los inputs
+    const salarioBrutoInput = document.getElementById('salario-bruto');
+    const incluirSACInput = document.getElementById('incluir-sac');
+    const deduccionConyugeInput = document.getElementById('deduccion-conyuge');
+    const deduccionHijosInput = document.getElementById('deduccion-hijos');
+    const deduccionHijosIncapInput = document.getElementById('deduccion-hijos-incap');
+    const deduccionAlquilerInput = document.getElementById('deduccion-alquiler');
+    const deduccionDomesticoInput = document.getElementById('deduccion-domestico');
+    const deduccionHipotecarioInput = document.getElementById('deduccion-hipotecario');
+    const deduccionMedicosInput = document.getElementById('deduccion-medicos');
+    const deduccionEducacionInput = document.getElementById('deduccion-educacion');
+    const deduccionDonacionesInput = document.getElementById('deduccion-donaciones');
+    const deduccionSeguroVidaInput = document.getElementById('deduccion-seguro-vida');
+    const deduccionSepelioInput = document.getElementById('deduccion-sepelio');
     
-    if (!salaryInput || !resultDiv) return;
-    
-    const annualSalary = parseFloat(salaryInput.value) || 0;
-    const deductions = parseFloat(deductionsInput?.value) || 0;
-    
-    if (annualSalary <= 0) {
-        resultDiv.classList.add('hidden');
+    if (!salarioBrutoInput) {
+        console.error('Tax calculator inputs not found');
         return;
     }
+
+    const salarioBrutoMensual = parseFloat(salarioBrutoInput.value) || 0;
+    const incluirSAC = incluirSACInput?.checked || false;
     
-    // Get tax brackets from config or use defaults
-    const taxBrackets = resourcesConfig?.resources?.calculators?.find(c => c.id === 'tax-calculator')?.calculations?.taxBrackets || getDefaultTaxBrackets();
-    const nonTaxableMinimum = resourcesConfig?.resources?.calculators?.find(c => c.id === 'tax-calculator')?.calculations?.nonTaxableMinimum || 2260473;
+    if (salarioBrutoMensual <= 0) {
+        updateTaxResults(0, salarioBrutoMensual, 0, 0);
+        return;
+    }
+
+    // 1. Ganancia Bruta Anual
+    const meses = incluirSAC ? 13 : 12;
+    const sueldoAnualBruto = incluirSAC ? salarioBrutoMensual * 13 : salarioBrutoMensual * 12;
+
+    // 2. Aportes obligatorios (17%)
+    const aportesAnuales = sueldoAnualBruto * TAX_PARAMS.aportes_porcentaje;
+
+    // 3. Deducciones personales
+    let deduccionesPersonales = TAX_PARAMS.gni + TAX_PARAMS.deduccion_especial;
     
-    // Calculate taxable income
-    const taxableIncome = Math.max(0, annualSalary - deductions - nonTaxableMinimum);
+    if (deduccionConyugeInput?.checked) {
+        deduccionesPersonales += TAX_PARAMS.conyuge;
+    }
     
-    // Calculate tax using brackets
-    let totalTax = 0;
-    let remainingIncome = taxableIncome;
+    deduccionesPersonales += (parseInt(deduccionHijosInput?.value) || 0) * TAX_PARAMS.hijo;
+    deduccionesPersonales += (parseInt(deduccionHijosIncapInput?.value) || 0) * TAX_PARAMS.hijo_incapacitado;
+
+    // 4. Ganancia neta antes de otras deducciones
+    const gananciaNetaAntesOtrasDeducciones = sueldoAnualBruto - aportesAnuales;
+    const topeGananciaNeta = gananciaNetaAntesOtrasDeducciones * TAX_PARAMS.ganancia_neta_tope_porcentaje;
+
+    // 5. Otras deducciones con topes
+    let otrasDeducciones = 0;
+    otrasDeducciones += Math.min(parseFloat(deduccionAlquilerInput?.value) || 0, TAX_PARAMS.alquiler_tope);
+    otrasDeducciones += Math.min(parseFloat(deduccionDomesticoInput?.value) || 0, TAX_PARAMS.domestico_tope);
+    otrasDeducciones += Math.min(parseFloat(deduccionHipotecarioInput?.value) || 0, TAX_PARAMS.hipotecario_tope);
     
-    for (const bracket of taxBrackets) {
-        if (remainingIncome <= 0) break;
-        
-        const bracketMin = Math.max(0, bracket.min - nonTaxableMinimum - deductions);
-        const bracketMax = bracket.max ? Math.max(0, bracket.max - nonTaxableMinimum - deductions) : Infinity;
-        
-        if (taxableIncome > bracketMin) {
-            const taxableInThisBracket = Math.min(remainingIncome, bracketMax - bracketMin);
-            if (taxableInThisBracket > 0) {
-                totalTax += taxableInThisBracket * bracket.rate;
-                remainingIncome -= taxableInThisBracket;
-            }
+    // Gastos médicos: 40% de lo facturado, con tope del 5% de ganancia neta
+    const gastosMedicosFacturados = parseFloat(deduccionMedicosInput?.value) || 0;
+    const deduccionMedicosCalculada = gastosMedicosFacturados * TAX_PARAMS.medicos_facturado_porcentaje;
+    otrasDeducciones += Math.min(deduccionMedicosCalculada, topeGananciaNeta);
+
+    otrasDeducciones += Math.min(parseFloat(deduccionEducacionInput?.value) || 0, TAX_PARAMS.educacion_tope);
+    otrasDeducciones += Math.min(parseFloat(deduccionDonacionesInput?.value) || 0, topeGananciaNeta);
+    otrasDeducciones += Math.min(parseFloat(deduccionSeguroVidaInput?.value) || 0, TAX_PARAMS.seguro_vida_tope);
+    otrasDeducciones += Math.min(parseFloat(deduccionSepelioInput?.value) || 0, TAX_PARAMS.sepelio_tope);
+    
+    // 6. Total deducciones
+    const totalDeducciones = aportesAnuales + deduccionesPersonales + otrasDeducciones;
+    
+    // 7. Ganancia Neta Imponible
+    const gananciaNetaImponible = Math.max(0, sueldoAnualBruto - totalDeducciones);
+
+    // 8. Aplicar escala progresiva
+    let impuestoAnual = 0;
+    for (let i = TAX_PARAMS.escala.length - 1; i >= 0; i--) {
+        const tramo = TAX_PARAMS.escala[i];
+        if (gananciaNetaImponible > tramo.limite) {
+            const excedente = gananciaNetaImponible - tramo.limite;
+            impuestoAnual = tramo.fijo + (excedente * tramo.porcentaje);
+            break;
         }
     }
+
+    // 9. Retención mensual
+    const retencionMensual = impuestoAnual / meses;
     
-    // Display results
-    const monthlyTax = totalTax / 12;
-    
-    if (annualTaxSpan) {
-        annualTaxSpan.textContent = formatCurrency(totalTax);
-    }
-    if (monthlyTaxSpan) {
-        monthlyTaxSpan.textContent = formatCurrency(monthlyTax);
-    }
-    
-    resultDiv.classList.remove('hidden');
-    resultDiv.classList.add('fade-in');
-    
-    // Add visual feedback
-    setTimeout(() => {
-        resultDiv.classList.remove('fade-in');
-    }, 500);
+    // 10. Sueldo neto y de bolsillo
+    const aportesMensuales = salarioBrutoMensual * TAX_PARAMS.aportes_porcentaje;
+    const sueldoNeto = salarioBrutoMensual - aportesMensuales;
+    const sueldoDeBolsillo = sueldoNeto - retencionMensual;
+
+    updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible);
 }
 
-function getDefaultTaxBrackets() {
-    return [
-        { min: 0, max: 2260473, rate: 0 },
-        { min: 2260473, max: 3390710, rate: 0.05 },
-        { min: 3390710, max: 4521000, rate: 0.09 },
-        { min: 4521000, max: 6781400, rate: 0.12 },
-        { min: 6781400, max: 9041800, rate: 0.15 },
-        { min: 9041800, max: 13562700, rate: 0.19 },
-        { min: 13562700, max: 18083600, rate: 0.23 },
-        { min: 18083600, max: 27125400, rate: 0.27 },
-        { min: 27125400, max: 36167200, rate: 0.31 },
-        { min: 36167200, max: null, rate: 0.35 }
-    ];
+function updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible) {
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('es-AR', { 
+            style: 'currency', 
+            currency: 'ARS',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(value);
+    };
+
+    // Actualizar elementos de resultado
+    const retencionEl = document.getElementById('resultado-retencion-mensual');
+    const bolsilloEl = document.getElementById('resultado-sueldo-bolsillo');
+    const anualEl = document.getElementById('resultado-impuesto-anual');
+    const imponibleEl = document.getElementById('resultado-ganancia-imponible');
+
+    if (retencionEl) retencionEl.textContent = formatCurrency(retencionMensual);
+    if (bolsilloEl) bolsilloEl.textContent = formatCurrency(sueldoDeBolsillo);
+    if (anualEl) anualEl.textContent = formatCurrency(impuestoAnual);
+    if (imponibleEl) imponibleEl.textContent = formatCurrency(gananciaNetaImponible);
+}
+
+// Función para sincronizar salario con slider
+function initializeTaxCalculatorEvents() {
+    const salarioBrutoInput = document.getElementById('salario-bruto');
+    const salarioSlider = document.getElementById('salario-slider');
+
+    if (salarioBrutoInput && salarioSlider) {
+        // Sincronizar input con slider
+        salarioBrutoInput.addEventListener('input', () => {
+            salarioSlider.value = salarioBrutoInput.value;
+            calculateTax();
+        });
+        
+        salarioSlider.addEventListener('input', () => {
+            salarioBrutoInput.value = salarioSlider.value;
+            calculateTax();
+        });
+
+        // Agregar eventos a todos los inputs
+        const allTaxInputs = [
+            'incluir-sac', 'deduccion-conyuge', 'deduccion-hijos', 'deduccion-hijos-incap',
+            'deduccion-alquiler', 'deduccion-domestico', 'deduccion-hipotecario', 
+            'deduccion-medicos', 'deduccion-educacion', 'deduccion-donaciones',
+            'deduccion-seguro-vida', 'deduccion-sepelio'
+        ];
+
+        allTaxInputs.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('change', calculateTax);
+                input.addEventListener('keyup', calculateTax);
+            }
+        });
+
+        // Calcular al cargar
+        calculateTax();
+    }
 }
 
 // =================================================================================
