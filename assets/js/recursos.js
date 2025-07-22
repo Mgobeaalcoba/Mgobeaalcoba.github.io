@@ -670,7 +670,11 @@ function createCurrencyRateItem(code, name, symbol, rates, forceType = null) {
                     e.stopPropagation();
                     const rateDisplayName = typeNames[type] || type.toUpperCase();
                     const currencyName = code === 'USD' ? 'Dólar' : code === 'EUR' ? 'Euro' : 'Real';
-                    const chartParameter = (code === 'EUR' || code === 'BRL') ? code : type;
+                    // Para el histórico, si es MEP, usar 'bolsa' como parámetro
+                    let chartParameter;
+                    if (code === 'USD' && type === 'mep') chartParameter = 'bolsa';
+                    else if (code === 'USD' && type === 'ccl') chartParameter = 'contadoconliqui';
+                    else chartParameter = (code === 'EUR' || code === 'BRL') ? code : type;
                     showHistoricalChart(chartParameter, `${currencyName} ${rateDisplayName}`);
                 });
             }
@@ -1069,11 +1073,55 @@ async function loadHistoricalData(casa, days = 7) {
             // Filter USD data
             const cutoffDate = new Date();
             cutoffDate.setDate(cutoffDate.getDate() - days);
-            
-            const filteredData = data
+            let filteredData = data
                 .filter(item => new Date(item.fecha) >= cutoffDate)
                 .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-            
+            // --- Corrección: agrupar por fecha y tomar el último registro de cada día ---
+            if (casa === 'bolsa' || casa === 'contadoconliqui') {
+                const grouped = {};
+                const registrosPorDia = {};
+                filteredData.forEach(item => {
+                    // Agrupar por fecha (ignorando hora)
+                    const fecha = item.fecha.split('T')[0];
+                    if (!registrosPorDia[fecha]) registrosPorDia[fecha] = [];
+                    registrosPorDia[fecha].push(item);
+                    // Siempre guardar el de mayor hora (más reciente)
+                    if (!grouped[fecha] || new Date(item.fecha) > new Date(grouped[fecha].fecha)) {
+                        grouped[fecha] = item;
+                    }
+                });
+                // Logging detallado
+                Object.entries(registrosPorDia).forEach(([fecha, arr]) => {
+                    const horas = arr.map(i => i.fecha);
+                    const elegido = grouped[fecha].fecha;
+                    console.log(`[AGRUPA] ${casa} ${fecha}: ${arr.length} registros. Horas: [${horas.join(', ')}]. Seleccionado: ${elegido}`);
+                });
+                filteredData = Object.values(grouped)
+                    .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+                    .map(item => {
+                        // Validar/corregir: venta >= compra
+                        let compra = parseFloat(item.compra);
+                        let venta = parseFloat(item.venta);
+                        if (venta < compra) venta = compra;
+                        return {
+                            ...item,
+                            compra,
+                            venta
+                        };
+                    });
+            } else {
+                // Para otros tipos, solo validar/corregir venta >= compra
+                filteredData = filteredData.map(item => {
+                    let compra = parseFloat(item.compra);
+                    let venta = parseFloat(item.venta);
+                    if (venta < compra) venta = compra;
+                    return {
+                        ...item,
+                        compra,
+                        venta
+                    };
+                });
+            }
             return filteredData;
         }
     } catch (error) {
