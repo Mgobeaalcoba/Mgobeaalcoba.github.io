@@ -14,7 +14,7 @@
 ## 🚀 Implementaciones Completadas
 
 ### 1. Corrección de Metadatos y Logos ✅
-**Archivos modificados:** `index.html`, `consulting.html`, `sitemap.xml`
+**Archivos modificados:** `index.html`, `consulting.html`, `recursos.html`, `sitemap.xml`
 
 - **Portfolio:** Cambio a `portfolio_claro_logo.png`
 - **Consulting:** Cambio a `logo_claro_recortado.png`

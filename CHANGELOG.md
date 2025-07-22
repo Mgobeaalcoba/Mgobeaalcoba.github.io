@@ -271,6 +271,7 @@ The system now provides immediate value to prospects while capturing high-qualit
 
 #### Added
 - **Complete Consulting Services Page** (`consulting.html`)
+- **Recursos Útiles Page** (`recursos.html`)
   - Professional services showcase with 3 main service packages
   - Interactive service pack cards with detailed modal presentations
   - Real-world case studies and examples section

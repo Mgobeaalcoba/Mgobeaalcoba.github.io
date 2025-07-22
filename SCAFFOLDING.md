@@ -26,6 +26,7 @@ Una plataforma integral de CV interactivo y consultoría profesional desarrollad
 Mgobeaalcoba.github.io/
 ├── index.html                 # Página principal CV (HTML limpio)
 ├── consulting.html            # Página servicios consultoría (HTML limpio)
+├── recursos.html             # Página recursos útiles/calculadoras (HTML limpio)
 ├── assets/
 │   ├── css/                   # Estilos organizados por módulos
 │   │   ├── base.css          # Reset y estilos base
@@ -229,6 +230,18 @@ Mgobeaalcoba.github.io/
 ## 🔄 **FLUJO INICIALIZACIÓN OPTIMIZADO**
 
 ### Main CV Page (`index.html`)
+1. **HTML Loading**: HTML limpio cargado
+2. **Logger Init**: Sistema logging inicializado (prod/dev detection)
+3. **Module Import**: `init.js` importa módulos necesarios
+4. **Mobile Menu**: Servicio centralizado inicializado
+5. **Image Optimizer**: Sistema lazy loading configurado
+6. **Theme Init**: Tema guardado aplicado
+7. **Translation Load**: Solo idioma activo cargado
+8. **Content Population**: Datos CV cargados idioma correcto
+9. **Intro Start**: Animación introducción inicia
+10. **Application Ready**: Usuario puede interactuar con CV
+
+### Recursos Útiles Page (`recursos.html`)
 1. **HTML Loading**: HTML limpio cargado
 2. **Logger Init**: Sistema logging inicializado (prod/dev detection)
 3. **Module Import**: `init.js` importa módulos necesarios

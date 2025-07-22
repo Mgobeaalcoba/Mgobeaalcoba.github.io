@@ -37,6 +37,7 @@ Una moderna plataforma web de CV/portfolio interactivo con servicios de consulto
 - **Bilingual Content**: Traducción completa ES/EN para todo el contenido de consultoría
 - **Modal System**: Interacciones modales avanzadas
 - **Integrated Navigation**: Flujo perfecto entre CV y páginas de consultoría
+- **Recursos Útiles**: Herramientas y calculadoras (`recursos.html`)
 
 ### 🎯 **Lead Generation System**
 - **Instant Pre-proposal Generation**: Formulario interactivo para crear propuestas PDF personalizadas
@@ -73,6 +74,7 @@ Una moderna plataforma web de CV/portfolio interactivo con servicios de consulto
 ```
 ├── index.html              # Página principal CV
 ├── consulting.html         # Página de servicios de consultoría
+├── recursos.html          # Página de recursos útiles y calculadoras
 ├── assets/
 │   ├── css/
 │   │   ├── main.css        # Estilos principales y variables CSS
@@ -190,6 +192,7 @@ import { initializeIndexMobileMenu, initializeConsultingMobileMenu } from './mob
 - Portfolio de proyectos
 - Modo terminal (dynamic import)
 - Soporte multi-tema
+- **Recursos Útiles (`/recursos.html`)**
 
 ### Consulting Services (`/consulting.html`)
 - Servicios profesionales de consultoría
