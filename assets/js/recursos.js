@@ -1917,9 +1917,9 @@ async function refreshHolidays() {
                     // Calcular días hasta el feriado
                     const diffTime = date.getTime() - today.getTime();
                     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                    const daysText = diffDays === 0 ? 'Hoy' : 
-                                   diffDays === 1 ? 'Mañana' : 
-                                   `En ${diffDays} días`;
+                    const daysText = diffDays === 0 ? getTranslation('holidays.today') : 
+                                   diffDays === 1 ? getTranslation('holidays.tomorrow') : 
+                                   getTranslation('holidays.in_days').replace('{days}', diffDays);
                     
                     return `<div class="holiday-card">
                         <div class="holiday-card-header">

@@ -2084,5 +2084,29 @@ export const translations = {
     "holidays.next_3": {
         es: "Próximos 3 feriados",
         en: "Next 3 holidays"
+    },
+    
+    // Holidays Section
+    "recursos_holidays_section_title": {
+        es: "Feriados Nacionales",
+        en: "National Holidays"
+    },
+    "recursos_holidays_section_desc": {
+        es: "Próximos feriados nacionales en Argentina - Calendario oficial 2025",
+        en: "Upcoming national holidays in Argentina - Official calendar 2025"
+    },
+    
+    // Holiday Countdown
+    "holidays.today": {
+        es: "Hoy",
+        en: "Today"
+    },
+    "holidays.tomorrow": {
+        es: "Mañana",
+        en: "Tomorrow"
+    },
+    "holidays.in_days": {
+        es: "En {days} días",
+        en: "In {days} days"
     }
 }; 
