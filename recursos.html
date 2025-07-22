@@ -466,7 +466,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('inflation-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="inflation-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -494,7 +494,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('annual-inflation-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="annual-inflation-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -522,7 +522,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('risk-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="risk-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -550,7 +550,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('fixed-term-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="fixed-term-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -578,7 +578,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('fci-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="fci-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -606,7 +606,7 @@
                         <span data-translate="recursos_error">Error al cargar datos</span>
                     </div>
                     <div class="widget-content" style="display: none;"></div>
-                    <button onclick="refreshWidget('uva-widget')" class="refresh-btn mt-4">
+                    <button class="refresh-btn mt-4" data-widget="uva-widget">
                         <i class="fas fa-sync-alt mr-2"></i>
                         <span data-translate="recursos_currency_update_btn">Actualizar</span>
                     </button>
@@ -632,26 +632,15 @@
                 <div class="resource-widget modern-widget glass-effect" id="holidays-widget" onclick="handleWidgetClick(event, 'holidays')">
                     <div class="modern-header">
                         <div class="modern-title">
-                            <div class="modern-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="title-content">
-                                <h4 data-translate="recursos_holidays_title">Próximos 3 Feriados</h4>
-                                <p data-translate="recursos_holidays_desc">Haz clic para ver el calendario completo</p>
+                            <span class="modern-icon"><i class="fas fa-calendar-alt"></i></span>
+                            <div>
+                                <h3 data-translate="recursos_holidays_section_title">Feriados Nacionales</h3>
+                                <p class="text-secondary" data-translate="recursos_holidays_section_desc">Calendario oficial actualizado</p>
                             </div>
                         </div>
                     </div>
                     <div class="widget-content">
-                        <div id="holidays-data" class="holidays-cards-container">
-                            <div class="loading-spinner">
-                                <i class="fas fa-spinner fa-spin text-2xl text-sky-400"></i>
-                                <p class="mt-2 text-gray-400" data-translate="recursos_loading_holidays">Cargando feriados...</p>
-                            </div>
-                        </div>
-                        <button onclick="refreshHolidays()" class="refresh-btn mt-4">
-                            <i class="fas fa-sync-alt mr-2"></i>
-                            <span data-translate="recursos_holidays_update_btn">Actualizar</span>
-                        </button>
+                        <div id="holidays-data"></div>
                     </div>
                 </div>
             </div>

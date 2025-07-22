@@ -3060,3 +3060,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// === FEEDBACK VISUAL PARA BOTONES DE ACTUALIZAR EN WIDGETS ECONÓMICOS ===
+function setupEconomicRefreshButtons() {
+    document.querySelectorAll('.refresh-btn[data-widget]').forEach(btn => {
+        btn.onclick = async function() {
+            const widgetId = btn.getAttribute('data-widget');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>${getTranslation('recursos_loading_quotes')}`;
+            btn.disabled = true;
+            try {
+                await refreshWidget(widgetId);
+                btn.innerHTML = `<i class="fas fa-check mr-2"></i>${getTranslation('recursos_updated')}`;
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            } catch (e) {
+                btn.innerHTML = `<i class="fas fa-exclamation-triangle mr-2"></i>${getTranslation('recursos_error')}`;
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }
+        };
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupEconomicRefreshButtons();
+});

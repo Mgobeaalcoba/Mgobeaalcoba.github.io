@@ -489,6 +489,14 @@ html.light .hero-section::before {
     padding: 2rem 1.5rem;
 }
 
+/* === SEPARACIÓN EXTRA PARA BOTÓN ACTUALIZAR EN WIDGETS === */
+.widget-content .refresh-btn,
+.indicator-card .refresh-btn,
+.resource-widget .refresh-btn {
+    margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
 /* =================================================================================
    --- FORM INPUTS
    ================================================================================= */
