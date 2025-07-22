@@ -2108,5 +2108,11 @@ export const translations = {
     "holidays.in_days": {
         es: "En {days} días",
         en: "In {days} days"
-    }
+    },
+    "header.recursos": { es: 'Recursos', en: 'Resources' },
+    "recursos_section_title": { es: 'Recursos Útiles Gratuitos', en: 'Free Useful Resources' },
+    "recursos_section_desc": { es: 'Accede a herramientas financieras actualizadas: calculadora de impuesto a las ganancias, cotizaciones de monedas en tiempo real y conversores. Todo gratis y sin registro.', en: 'Access up-to-date financial tools: income tax calculator, real-time currency quotes, and converters. All free and without registration.' },
+    "recursos_calculator_title": { es: 'Calculadora Fiscal', en: 'Tax Calculator' },
+    "recursos_live_quotes_title": { es: 'Cotizaciones Live', en: 'Live Quotes' },
+    "recursos_explore_btn": { es: 'Explorar Recursos Gratuitos', en: 'Explore Free Resources' }
 }; 

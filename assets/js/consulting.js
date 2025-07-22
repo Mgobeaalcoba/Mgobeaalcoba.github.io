@@ -4,6 +4,39 @@ import { translations } from './translations.js';
 import { initializeConsultingMobileMenu } from './mobile-menu.js';
 import { initializeImageOptimization } from './image-optimizer.js';
 
+// =================================================================================
+// --- FORCE SPANISH LANGUAGE BY DEFAULT
+// =================================================================================
+
+// SOLUCIÓN DEFINITIVA: Forzar idioma español INMEDIATAMENTE
+localStorage.setItem('language', 'es');
+document.documentElement.lang = 'es';
+
+// Refuerzo: función para actualizar visualmente los botones de idioma
+function updateLanguageButtons(lang) {
+    const langEs = document.getElementById('lang-es');
+    const langEn = document.getElementById('lang-en');
+    if (langEs && langEn) {
+        langEs.classList.remove('active');
+        langEn.classList.remove('active');
+        if (lang === 'es') {
+            langEs.classList.add('active');
+        } else {
+            langEn.classList.add('active');
+        }
+    }
+}
+
+// Forzar botones de idioma apenas el DOM esté disponible
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguageButtons('es');
+    });
+} else {
+    // Si el DOM ya está listo, ejecutar inmediatamente
+    updateLanguageButtons('es');
+}
+
 // THEME TOGGLE
 const themeToggle = document.getElementById('theme-toggle');
 const darkIcon = document.getElementById('dark-icon');

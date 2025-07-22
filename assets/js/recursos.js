@@ -41,34 +41,58 @@ let widgetDataCache = {
 // --- INITIALIZATION
 // =================================================================================
 
+// SOLUCIÓN DEFINITIVA: Forzar idioma español INMEDIATAMENTE
+localStorage.setItem('language', 'es');
+document.documentElement.lang = 'es';
+
+// Refuerzo: función para actualizar visualmente los botones de idioma
+function updateLanguageButtons(lang) {
+    const langEs = document.getElementById('lang-es');
+    const langEn = document.getElementById('lang-en');
+    if (langEs && langEn) {
+        langEs.classList.remove('active');
+        langEn.classList.remove('active');
+        if (lang === 'es') {
+            langEs.classList.add('active');
+        } else {
+            langEn.classList.add('active');
+        }
+    }
+}
+
+// Forzar botones de idioma apenas el DOM esté disponible
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguageButtons('es');
+    });
+} else {
+    // Si el DOM ya está listo, ejecutar inmediatamente
+    updateLanguageButtons('es');
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 Initializing Recursos Útiles page...');
-    
     try {
-        // Load configuration
+        // 1. El idioma ya está forzado a español arriba
+        const lang = 'es';
+        // 2. Inicializa módulos que NO dependen del idioma primero
         await loadResourcesConfig();
-        
-        // Initialize all modules
         initializeThemes();
-        await initializeLanguage();
         initializeMobileMenu();
         initializeTaxCalculator();
         await initializeCurrencyWidget();
-        
-        // Initialize economic indicators
-        initializeEconomicIndicators();
-        
-        // Initialize holidays widget
+        // 3. CLAVE: Cargar datos de widgets ANTES de setear idioma
+        await initializeEconomicIndicators();
+        // 4. AHORA sí, setear idioma (con datos en cache)
+        await setLanguage(lang);
+        await initializeLanguage();
         refreshHolidays();
-        
         console.log('✅ Recursos page initialized successfully');
-        
-        // Force language application after all content is loaded
-        setTimeout(async () => {
-            const currentLang = localStorage.getItem('language') || 'es';
-            await setLanguage(currentLang);
-            console.log('🔄 Forced language application:', currentLang);
-        }, 500);
+        // 5. Refuerzo final
+        setTimeout(() => {
+            refreshAllWidgetsLanguage();
+            updateLanguageButtons(lang);
+        }, 100);
     } catch (error) {
         console.error('❌ Error initializing recursos page:', error);
         showErrorMessage('Error al cargar la página. Por favor, recarga la página.');
@@ -935,60 +959,31 @@ async function setLanguage(lang) {
         refreshHolidays();
     }
     
+    // Refuerzo: actualizar botones de idioma
+    updateLanguageButtons(lang);
     console.log(`Language changed to: ${lang}`);
 }
 
+// En initializeLanguage, elimino duplicados y uso updateLanguageButtons
 async function initializeLanguage() {
     const langEs = document.getElementById('lang-es');
     const langEn = document.getElementById('lang-en');
-    
-    // Get saved language or default to Spanish
     let savedLang = localStorage.getItem('language') || 'es';
-    
-    // Set initial language
     await setLanguage(savedLang);
-    
-    // Update button states based on current language
-    if (langEs && langEn) {
-        langEs.classList.remove('active');
-        langEn.classList.remove('active');
-        if (savedLang === 'es') {
-            langEs.classList.add('active');
-        } else {
-            langEn.classList.add('active');
-        }
-    }
-    
-    // Force update button states after a short delay to ensure DOM is ready
-    setTimeout(() => {
-        if (langEs && langEn) {
-            langEs.classList.remove('active');
-            langEn.classList.remove('active');
-            const currentLang = localStorage.getItem('language') || 'es';
-            if (currentLang === 'es') {
-                langEs.classList.add('active');
-            } else {
-                langEn.classList.add('active');
-            }
-        }
-    }, 100);
-    
+    updateLanguageButtons(savedLang);
     // Language toggle handlers
     if (langEs) {
         langEs.addEventListener('click', async () => {
             await setLanguage('es');
             localStorage.setItem('language', 'es');
-            langEs.classList.add('active');
-            langEn.classList.remove('active');
+            updateLanguageButtons('es');
         });
     }
-    
     if (langEn) {
         langEn.addEventListener('click', async () => {
             await setLanguage('en');
             localStorage.setItem('language', 'en');
-            langEn.classList.add('active');
-            langEs.classList.remove('active');
+            updateLanguageButtons('en');
         });
     }
 }
