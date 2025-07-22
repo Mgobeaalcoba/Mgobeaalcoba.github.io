@@ -1918,8 +1918,8 @@ export const translations = {
         en: "Contact"
     },
     "recursos_footer_copyright": {
-        es: "© 2024 Mariano Gobea Alcoba. Todos los recursos son gratuitos y de código abierto.",
-        en: "© 2024 Mariano Gobea Alcoba. All resources are free and open source."
+        es: "© 2025 Mariano Gobea Alcoba. Todos los recursos son gratuitos y de código abierto.",
+        en: "© 2025 Mariano Gobea Alcoba. All resources are free and open source."
     },
     
     // Additional indicator labels
