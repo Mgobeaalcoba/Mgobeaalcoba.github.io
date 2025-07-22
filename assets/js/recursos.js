@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Initialize all modules
         initializeThemes();
-        initializeLanguage();
+        await initializeLanguage();
         initializeMobileMenu();
         initializeTaxCalculator();
         await initializeCurrencyWidget();
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log('✅ Recursos page initialized successfully');
         
         // Force language application after all content is loaded
-        setTimeout(() => {
+        setTimeout(async () => {
             const currentLang = localStorage.getItem('language') || 'es';
-            setLanguage(currentLang);
+            await setLanguage(currentLang);
             console.log('🔄 Forced language application:', currentLang);
         }, 500);
     } catch (error) {
@@ -302,8 +302,48 @@ function getDefaultTaxBrackets() {
 }
 
 // =================================================================================
-// --- CURRENCY MANAGEMENT WITH DOLARAPI INTEGRATION
+// --- CURRENCY MANAGEMENT WITH DOLARAPI INTEGRATION  
 // =================================================================================
+
+// Cache for previous day rates to calculate variations
+let previousDayRates = null;
+
+// Function to get previous day rate for comparison
+async function getPreviousDayRate(casa, type) {
+    try {
+        // Try to get yesterday's data (2 days to ensure we get data)
+        const historicalData = await loadHistoricalData(casa, 2);
+        if (historicalData && historicalData.length >= 2) {
+            // Get the second-to-last entry (previous day)
+            const previousDay = historicalData[historicalData.length - 2];
+            return type === 'sell' ? previousDay.venta : previousDay.compra;
+        }
+        return null;
+    } catch (error) {
+        console.log(`Could not load previous day data for ${casa}:`, error);
+        return null;
+    }
+}
+
+// Function to get variation emoji based on percentage
+function getVariationEmoji(percentage) {
+    if (percentage > 5) {
+        return ' 🔥'; // Fire for > 5%
+    } else if (percentage < -5) {
+        return ' 📉'; // Falling chart for < -5%
+    }
+    return '';
+}
+
+// Function to get variation emoji for percentage points (economic indicators)
+function getPercentagePointEmoji(percentagePoints) {
+    if (percentagePoints > 1) {
+        return ' 🔥'; // Fire for > +1pp
+    } else if (percentagePoints < -1) {
+        return ' 📉'; // Falling chart for < -1pp
+    }
+    return '';
+}
 
 async function loadCurrencyRates() {
     try {
@@ -552,21 +592,64 @@ function createCurrencyRateItem(code, name, symbol, rates) {
             const spread = values.buy && values.sell ? 
                 (((values.sell - values.buy) / values.buy) * 100).toFixed(1) : null;
                 
-            // Get premium vs official for non-official USD rates
-            const isUSD = code === 'USD';
-            const isOfficial = type === 'oficial';
-            let premium = '';
-            if (isUSD && !isOfficial && rates.oficial?.sell && values.sell) {
-                const premiumPerc = (((values.sell - rates.oficial.sell) / rates.oficial.sell) * 100).toFixed(1);
-                premium = `<span class="text-xs ${premiumPerc > 0 ? 'text-red-500' : 'text-green-500'}">
-                    ${premiumPerc > 0 ? '+' : ''}${premiumPerc}%
-                </span>`;
-            }
+            // Calculate variation vs previous day - Load data on demand
+            let variationDisplay = '';
+            
+            // Load historical data for this specific rate type
+            const loadVariationForType = async () => {
+                try {
+                    let historicalData = null;
+                    
+                    // Map rate types to API endpoints
+                    if (code === 'USD') {
+                        const apiTypeMap = {
+                            'oficial': 'oficial',
+                            'blue': 'blue', 
+                            'mep': 'bolsa',
+                            'ccl': 'contadoconliqui',
+                            'mayorista': 'mayorista',
+                            'tarjeta': 'tarjeta',
+                            'cripto': 'cripto'
+                        };
+                        const apiType = apiTypeMap[type];
+                        if (apiType) {
+                            historicalData = await loadHistoricalData(apiType, 2);
+                        }
+                    } else if (code === 'EUR' || code === 'BRL') {
+                        historicalData = await loadHistoricalData(code, 2);
+                    }
+                    
+                    if (historicalData && historicalData.length >= 2 && values.sell) {
+                        const previousDay = historicalData[historicalData.length - 2];
+                        const previousSell = previousDay.venta || previousDay.sell;
+                        
+                        if (previousSell && previousSell > 0) {
+                            const variationPerc = (((values.sell - previousSell) / previousSell) * 100);
+                            const variationEmoji = getVariationEmoji(variationPerc);
+                            const formattedPerc = variationPerc.toFixed(1);
+                            
+                            console.log(`📊 Variation: ${formattedPerc}% for ${code} ${type}`);
+                            
+                            const variationSpan = rateType.querySelector('.rate-variation');
+                            if (variationSpan) {
+                                variationSpan.innerHTML = `<span class="text-xs ${variationPerc > 0 ? 'text-red-500' : variationPerc < 0 ? 'text-green-500' : 'text-gray-500'}">
+                                    ${variationPerc > 0 ? '+' : ''}${formattedPerc}%
+                                </span>${variationEmoji}`;
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`Could not load variation for ${code} ${type}:`, error);
+                }
+            };
+            
+            // Start loading variation data asynchronously
+            setTimeout(loadVariationForType, 100);
             
             rateType.innerHTML = `
                 <div class="rate-label">
                     ${typeNames[type] || type.toUpperCase()}
-                    ${premium}
+                    <span class="rate-variation"></span>
                 </div>
                 <div class="rate-values">
                     ${values.buy ? `<div class="rate-buy">${getTranslation('currency.buy')}: $${values.buy.toFixed(2)}</div>` : ''}
@@ -801,7 +884,7 @@ function refreshAllWidgetsLanguage() {
 }
 
 // LANGUAGE SYSTEM - Following consulting.js pattern
-function setLanguage(lang) {
+async function setLanguage(lang) {
     document.documentElement.lang = lang;
     window.currentLanguage = lang; // Set global language reference
     
@@ -855,25 +938,34 @@ function setLanguage(lang) {
     // Refresh economic indicators widgets with new language
     refreshAllWidgetsLanguage();
     
+    // Refresh holidays cards with new language (only if data exists)
+    const holidaysData = document.getElementById('holidays-data');
+    if (holidaysData && !holidaysData.innerHTML.includes('loading-spinner')) {
+        refreshHolidays();
+    }
+    
     console.log(`Language changed to: ${lang}`);
 }
 
-function initializeLanguage() {
+async function initializeLanguage() {
     const langEs = document.getElementById('lang-es');
     const langEn = document.getElementById('lang-en');
     
-    // ALWAYS default to Spanish on recursos page to fix translation issues
-    let savedLang = 'es';
-    localStorage.setItem('language', 'es');
+    // Get saved language or default to Spanish
+    let savedLang = localStorage.getItem('language') || 'es';
     
-    // Set initial language to Spanish
-    setLanguage(savedLang);
+    // Set initial language
+    await setLanguage(savedLang);
     
-    // Update button states - ensure Spanish is always active initially
+    // Update button states based on current language
     if (langEs && langEn) {
         langEs.classList.remove('active');
         langEn.classList.remove('active');
-        langEs.classList.add('active');
+        if (savedLang === 'es') {
+            langEs.classList.add('active');
+        } else {
+            langEn.classList.add('active');
+        }
     }
     
     // Force update button states after a short delay to ensure DOM is ready
@@ -881,14 +973,19 @@ function initializeLanguage() {
         if (langEs && langEn) {
             langEs.classList.remove('active');
             langEn.classList.remove('active');
-            langEs.classList.add('active');
+            const currentLang = localStorage.getItem('language') || 'es';
+            if (currentLang === 'es') {
+                langEs.classList.add('active');
+            } else {
+                langEn.classList.add('active');
+            }
         }
     }, 100);
     
     // Language toggle handlers
     if (langEs) {
-        langEs.addEventListener('click', () => {
-            setLanguage('es');
+        langEs.addEventListener('click', async () => {
+            await setLanguage('es');
             localStorage.setItem('language', 'es');
             langEs.classList.add('active');
             langEn.classList.remove('active');
@@ -896,8 +993,8 @@ function initializeLanguage() {
     }
     
     if (langEn) {
-        langEn.addEventListener('click', () => {
-            setLanguage('en');
+        langEn.addEventListener('click', async () => {
+            await setLanguage('en');
             localStorage.setItem('language', 'en');
             langEn.classList.add('active');
             langEs.classList.remove('active');
@@ -1380,7 +1477,8 @@ async function loadInflationData() {
                 current: latest.valor,
                 previous: previous ? previous.valor : null,
                 date: latest.fecha,
-                variation: previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : null
+                variation: previous ? (latest.valor - previous.valor).toFixed(2) : null,
+                isPercentagePoints: true // Flag to indicate this uses percentage points
             };
         }
         
@@ -1414,7 +1512,8 @@ async function loadAnnualInflationData() {
                 current: latest.valor,
                 previous: previous ? previous.valor : null,
                 date: latest.fecha,
-                variation: previous ? ((latest.valor - previous.valor) / previous.valor * 100).toFixed(2) : null
+                variation: previous ? (latest.valor - previous.valor).toFixed(2) : null,
+                isPercentagePoints: true // Flag to indicate this uses percentage points
             };
         }
         
@@ -1599,19 +1698,23 @@ function updateWidgetContent(widgetId, data, type) {
         
         switch (type) {
             case 'inflation':
+                const inflationEmoji = data.variation && data.isPercentagePoints ? getPercentagePointEmoji(parseFloat(data.variation)) : '';
+                const inflationUnit = data.isPercentagePoints ? 'pp' : '%';
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.current}%</div>
                     <div class="indicator-label">${getTranslation('indicator.monthly_inflation')}</div>
-                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
+                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}${inflationUnit}${inflationEmoji}</div>` : ''}
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
                 break;
                 
             case 'annual-inflation':
+                const annualInflationEmoji = data.variation && data.isPercentagePoints ? getPercentagePointEmoji(parseFloat(data.variation)) : '';
+                const annualInflationUnit = data.isPercentagePoints ? 'pp' : '%';
                 contentDiv.innerHTML = `
                     <div class="indicator-value">${data.current}%</div>
                     <div class="indicator-label">${getTranslation('indicator.annual_inflation')}</div>
-                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}%</div>` : ''}
+                    ${data.variation ? `<div class="indicator-change ${data.variation > 0 ? 'positive' : 'negative'}">${data.variation > 0 ? '+' : ''}${data.variation}${annualInflationUnit}${annualInflationEmoji}</div>` : ''}
                     <div class="indicator-date">${formatDate(data.date)}</div>
                 `;
                 break;
