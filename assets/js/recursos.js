@@ -3017,3 +3017,46 @@ function showHolidaysModal(data) {
 // Make function available globally
 window.showHolidaysModal = showHolidaysModal; 
 window.showHolidaysModal = showHolidaysModal; 
+
+// =================================================================================
+// --- EVENT TRACKING FOR ANALYTICS (GA4)
+// =================================================================================
+
+function trackEventGA4(eventName, params = {}) {
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Track: Click en Calculadora de Ganancias
+    const taxCalculator = document.getElementById('tax-calculator-widget');
+    if (taxCalculator) {
+        taxCalculator.addEventListener('click', () => {
+            trackEventGA4('click_section_recursos', { section: 'tax_calculator' });
+        });
+    }
+
+    // Track: Clicks en tarjetas de cotizaciones
+    document.querySelectorAll('.currency-rate-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const currency = item.querySelector('.currency-title .currency-name')?.textContent?.trim() || '';
+            trackEventGA4('click_section_recursos', { section: 'currency_rates', detail: currency });
+        });
+    });
+
+    // Track: Clicks en widgets de indicadores económicos
+    document.querySelectorAll('.economic-widget').forEach(widget => {
+        widget.addEventListener('click', () => {
+            trackEventGA4('click_section_recursos', { section: 'economic_widget', detail: widget.id });
+        });
+    });
+
+    // Track: Click en widget de feriados
+    const holidaysWidget = document.getElementById('holidays-widget');
+    if (holidaysWidget) {
+        holidaysWidget.addEventListener('click', () => {
+            trackEventGA4('click_section_recursos', { section: 'holidays' });
+        });
+    }
+});
