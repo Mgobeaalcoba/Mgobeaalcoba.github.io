@@ -544,7 +544,7 @@ function displayCurrencyRates() {
     container.appendChild(updateInfo);
 }
 
-function createCurrencyRateItem(code, name, symbol, rates) {
+function createCurrencyRateItem(code, name, symbol, rates, forceType = null) {
     const item = document.createElement('div');
     item.className = 'currency-rate-item';
     
@@ -574,82 +574,31 @@ function createCurrencyRateItem(code, name, symbol, rates) {
     
     // Sort rates to show in preferred order
     const preferredOrder = ['oficial', 'blue', 'mep', 'ccl', 'mayorista', 'tarjeta', 'cripto'];
-    const sortedRates = Object.entries(rates).sort(([a], [b]) => {
+    let sortedRates = Object.entries(rates).sort(([a], [b]) => {
         const orderA = preferredOrder.indexOf(a);
         const orderB = preferredOrder.indexOf(b);
         if (orderA === -1) return 1;
         if (orderB === -1) return -1;
         return orderA - orderB;
     });
-    
-    // Add rate types with enhanced display
+    if (forceType) {
+        sortedRates = sortedRates.filter(([type]) => type === forceType);
+    }
     sortedRates.forEach(([type, values]) => {
         if (values && typeof values === 'object' && (values.buy || values.sell)) {
             const rateType = document.createElement('div');
             rateType.className = 'rate-type';
-            
             // Calculate spread percentage for USD types
             const spread = values.buy && values.sell ? 
                 (((values.sell - values.buy) / values.buy) * 100).toFixed(1) : null;
-                
-            // Calculate variation vs previous day - Load data on demand
-            let variationDisplay = '';
-            
-            // Load historical data for this specific rate type
-            const loadVariationForType = async () => {
-                try {
-                    let historicalData = null;
-                    
-                    // Map rate types to API endpoints
-                    if (code === 'USD') {
-                        const apiTypeMap = {
-                            'oficial': 'oficial',
-                            'blue': 'blue', 
-                            'mep': 'bolsa',
-                            'ccl': 'contadoconliqui',
-                            'mayorista': 'mayorista',
-                            'tarjeta': 'tarjeta',
-                            'cripto': 'cripto'
-                        };
-                        const apiType = apiTypeMap[type];
-                        if (apiType) {
-                            historicalData = await loadHistoricalData(apiType, 2);
-                        }
-                    } else if (code === 'EUR' || code === 'BRL') {
-                        historicalData = await loadHistoricalData(code, 2);
-                    }
-                    
-                    if (historicalData && historicalData.length >= 2 && values.sell) {
-                        const previousDay = historicalData[historicalData.length - 2];
-                        const previousSell = previousDay.venta || previousDay.sell;
-                        
-                        if (previousSell && previousSell > 0) {
-                            const variationPerc = (((values.sell - previousSell) / previousSell) * 100);
-                            const variationEmoji = getVariationEmoji(variationPerc);
-                            const formattedPerc = variationPerc.toFixed(1);
-                            
-                            console.log(`📊 Variation: ${formattedPerc}% for ${code} ${type}`);
-                            
-                            const variationSpan = rateType.querySelector('.rate-variation');
-                            if (variationSpan) {
-                                variationSpan.innerHTML = `<span class="text-xs ${variationPerc > 0 ? 'text-red-500' : variationPerc < 0 ? 'text-green-500' : 'text-gray-500'}">
-                                    ${variationPerc > 0 ? '+' : ''}${formattedPerc}%
-                                </span>${variationEmoji}`;
-                            }
-                        }
-                    }
-                } catch (error) {
-                    console.warn(`Could not load variation for ${code} ${type}:`, error);
-                }
-            };
-            
-            // Start loading variation data asynchronously
-            setTimeout(loadVariationForType, 100);
-            
+            // Variación porcentual SIEMPRE visible
+            const variationSpan = document.createElement('span');
+            variationSpan.className = 'rate-variation';
+            variationSpan.textContent = '...'; // loading
+            // Header con nombre y variación
             rateType.innerHTML = `
                 <div class="rate-label">
-                    ${typeNames[type] || type.toUpperCase()}
-                    <span class="rate-variation"></span>
+                    <span class="rate-type-name">${typeNames[type] || type.toUpperCase()}</span>
                 </div>
                 <div class="rate-values">
                     ${values.buy ? `<div class="rate-buy">${getTranslation('currency.buy')}: $${values.buy.toFixed(2)}</div>` : ''}
@@ -657,30 +606,70 @@ function createCurrencyRateItem(code, name, symbol, rates) {
                     ${spread ? `<div class="rate-spread text-xs">${getTranslation('currency.spread')}: ${spread}%</div>` : ''}
                 </div>
             `;
-            
-            // Make rate type clickable for historical charts
+            // Insertar el span de variación al lado del nombre
+            const labelDiv = rateType.querySelector('.rate-label');
+            labelDiv.appendChild(variationSpan);
+            // Cargar variación asíncrona
+            (async () => {
+                let historicalData = null;
+                if (code === 'USD') {
+                    const apiTypeMap = {
+                        'oficial': 'oficial',
+                        'blue': 'blue', 
+                        'mep': 'bolsa',
+                        'ccl': 'contadoconliqui',
+                        'mayorista': 'mayorista',
+                        'tarjeta': 'tarjeta',
+                        'cripto': 'cripto'
+                    };
+                    const apiType = apiTypeMap[type];
+                    if (apiType) {
+                        historicalData = await loadHistoricalData(apiType, 7); // Pedimos más días para asegurar datos
+                    }
+                } else if (code === 'EUR' || code === 'BRL') {
+                    historicalData = await loadHistoricalData(code, 7);
+                }
+                let display = '';
+                if (historicalData && historicalData.length >= 2 && values.sell) {
+                    // Ordenar por fecha descendente
+                    const sorted = historicalData.slice().sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+                    const mostRecent = sorted[0];
+                    // Buscar el primer registro con fecha distinta a la más reciente
+                    const prev = sorted.find(item => item.fecha !== mostRecent.fecha);
+                    const previousSell = prev ? (prev.venta || prev.sell) : null;
+                    // DEBUG: Mostrar valores en consola
+                    console.log(`[VARIACION] ${code} ${type} - Actual: ${values.sell} | Anterior: ${previousSell} | Fecha actual: ${mostRecent?.fecha} | Fecha anterior: ${prev?.fecha}`);
+                    if (previousSell && previousSell > 0) {
+                        const variationPerc = (((values.sell - previousSell) / previousSell) * 100);
+                        const formattedPerc = variationPerc.toFixed(1);
+                        let emoji = '';
+                        if (variationPerc > 5) emoji = '🔥';
+                        else if (variationPerc < -5) emoji = '📉';
+                        display = `<span class="text-xs ${variationPerc > 0 ? 'text-red-500' : variationPerc < 0 ? 'text-green-500' : 'text-gray-500'}">${variationPerc > 0 ? '+' : ''}${formattedPerc}%</span>${emoji}`;
+                    } else {
+                        display = `<span class="text-xs text-gray-500">0.0%</span>`;
+                    }
+                } else {
+                    // DEBUG: Mostrar si no hay suficientes datos
+                    console.warn(`[VARIACION] No hay suficientes datos históricos para ${code} ${type}.`);
+                    display = `<span class="text-xs text-gray-500">0.0%</span>`;
+                }
+                variationSpan.innerHTML = display;
+            })();
+            // Clickable para histórico
             const clickableTypes = {
                 'USD': ['oficial', 'blue', 'mep', 'ccl', 'mayorista', 'tarjeta', 'cripto'],
                 'EUR': ['oficial'],
                 'BRL': ['oficial']
             };
-            
             if (clickableTypes[code] && clickableTypes[code].includes(type)) {
                 rateType.classList.add('clickable');
-                
-                // Remove any existing click handlers
                 rateType.onclick = null;
-                
                 rateType.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    
                     const rateDisplayName = typeNames[type] || type.toUpperCase();
                     const currencyName = code === 'USD' ? 'Dólar' : code === 'EUR' ? 'Euro' : 'Real';
-                    
-                    console.log(`💱 Opening chart for ${code} ${type}: ${currencyName} ${rateDisplayName}`);
-                    
-                    // For EUR and BRL, pass the currency code instead of the rate type
                     const chartParameter = (code === 'EUR' || code === 'BRL') ? code : type;
                     showHistoricalChart(chartParameter, `${currencyName} ${rateDisplayName}`);
                 });
@@ -688,10 +677,8 @@ function createCurrencyRateItem(code, name, symbol, rates) {
             ratesGrid.appendChild(rateType);
         }
     });
-    
     item.appendChild(header);
     item.appendChild(ratesGrid);
-    
     return item;
 }
 
