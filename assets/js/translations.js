@@ -2137,5 +2137,53 @@ export const translations = {
     "tax.education_expenses": { es: 'Gastos de educación', en: 'Education expenses' },
     "tax.donations": { es: 'Donaciones', en: 'Donations' },
     "tax.life_insurance": { es: 'Seguros de vida y retiro', en: 'Life and retirement insurance' },
-    "tax.funeral_expenses": { es: 'Gastos de sepelio', en: 'Funeral expenses' }
+    "tax.funeral_expenses": { es: 'Gastos de sepelio', en: 'Funeral expenses' },
+    recursos_hero_topics: {
+        es: "Temas destacados: Ganancias cuarta categoría, retención de ganancias, ingresos personales, cotización del dólar blue, MEP y oficial, inflación mensual e interanual, deducciones y sueldos, economía argentina y más.",
+        en: "Featured topics: Fourth category income tax, income tax withholding, personal income, blue, MEP and official dollar rates, monthly and annual inflation, deductions and salaries, Argentine economy and more."
+    },
+    recursos_tools_title_seo: {
+        es: "Herramientas para Ganancias, Dólar e Inflación",
+        en: "Tools for Income Tax, Dollar and Inflation"
+    },
+    recursos_tools_desc_seo: {
+        es: "Calculadora de impuesto a las ganancias de cuarta categoría, cotizaciones del dólar (blue, MEP, oficial), indicadores de inflación y recursos para optimizar tus ingresos personales en Argentina.",
+        en: "Fourth category income tax calculator, blue, MEP and official dollar rates, inflation indicators and resources to optimize your personal income in Argentina."
+    },
+    recursos_faq_title: {
+        es: "Preguntas frecuentes sobre Ganancias, Dólar e Inflación en Argentina",
+        en: "Frequently Asked Questions about Income Tax, Dollar and Inflation in Argentina"
+    },
+    recursos_faq_q1: {
+        es: "¿Qué es el impuesto a las ganancias de cuarta categoría?",
+        en: "What is the fourth category income tax?"
+    },
+    recursos_faq_a1: {
+        es: "Es el tributo que grava los ingresos personales provenientes del trabajo en relación de dependencia, jubilaciones y pensiones. Nuestra calculadora te ayuda a estimar la retención mensual y el sueldo de bolsillo.",
+        en: "It is the tax levied on personal income from employment, pensions and retirements. Our calculator helps you estimate monthly withholding and take-home salary."
+    },
+    recursos_faq_q2: {
+        es: "¿Cómo se calcula la retención de ganancias?",
+        en: "How is income tax withholding calculated?"
+    },
+    recursos_faq_a2: {
+        es: "La retención se calcula considerando el salario bruto, deducciones personales y familiares, y otras deducciones admitidas por la AFIP. Utiliza nuestra herramienta para obtener un cálculo actualizado.",
+        en: "Withholding is calculated considering gross salary, personal and family deductions, and other deductions allowed by AFIP. Use our tool for an up-to-date calculation."
+    },
+    recursos_faq_q3: {
+        es: "¿Qué tipos de dólar existen en Argentina?",
+        en: "What types of dollar exist in Argentina?"
+    },
+    recursos_faq_a3: {
+        es: "En Argentina existen varios tipos de dólar: oficial, blue, MEP, contado con liqui (CCL), solidario, tarjeta, entre otros. Consulta las cotizaciones en tiempo real en esta página.",
+        en: "In Argentina there are several types of dollar: official, blue, MEP, contado con liqui (CCL), solidario, card, among others. Check real-time rates on this page."
+    },
+    recursos_faq_q4: {
+        es: "¿Cómo afecta la inflación a los ingresos personales?",
+        en: "How does inflation affect personal income?"
+    },
+    recursos_faq_a4: {
+        es: "La inflación reduce el poder adquisitivo de los ingresos personales. Aquí puedes consultar los últimos datos de inflación mensual e interanual y analizar su impacto en tu economía.",
+        en: "Inflation reduces the purchasing power of personal income. Here you can check the latest monthly and annual inflation data and analyze its impact on your finances."
+    }
 }; 
