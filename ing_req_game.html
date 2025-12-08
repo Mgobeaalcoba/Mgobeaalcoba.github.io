@@ -2,7 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>ReqQuest 3D: Office Edition</title>
     
     <!-- Import Three.js from CDN -->
@@ -18,10 +20,23 @@
     <div id="canvas-container"></div>
 
     <!-- Back to Portfolio Button -->
-    <a href="index.html" class="fixed top-4 left-4 z-[60] bg-slate-900/90 hover:bg-slate-800 text-white px-4 py-2 rounded-full border border-slate-700 shadow-xl transition-all duration-300 flex items-center gap-2 interactive backdrop-blur-sm hover:scale-105">
-        <span class="text-xl">←</span>
-        <span class="font-semibold text-sm">Volver al Portfolio</span>
+    <a href="index.html" class="fixed top-4 left-4 z-[60] bg-slate-900/90 hover:bg-slate-800 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-slate-700 shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2 interactive backdrop-blur-sm hover:scale-105 text-xs sm:text-sm">
+        <span class="text-lg sm:text-xl">←</span>
+        <span class="font-semibold hidden sm:inline">Volver al Portfolio</span>
+        <span class="font-semibold sm:hidden">Portfolio</span>
     </a>
+
+    <!-- Mobile Touch Controls -->
+    <div class="joystick-container" id="joystick-container">
+        <div class="joystick-base"></div>
+        <div class="joystick-stick" id="joystick-stick"></div>
+    </div>
+
+    <div class="mobile-controls" id="mobile-controls">
+        <div class="mobile-btn" id="btn-rotate-left">↶</div>
+        <div class="mobile-btn" id="btn-rotate-right">↷</div>
+        <div class="mobile-btn interact-btn" id="btn-interact">💬</div>
+    </div>
 
     <div id="game-ui" class="flex flex-col justify-between p-6">
         

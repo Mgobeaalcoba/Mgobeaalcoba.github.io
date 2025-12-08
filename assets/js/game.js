@@ -152,11 +152,25 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 let cameraAngle = Math.PI / 4; // 45 degrees initial
 let cameraZoom = 25;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ 
+    antialias: !detectMobile(), // Disable antialiasing on mobile for performance
+    powerPreference: detectMobile() ? 'low-power' : 'high-performance'
+});
+
+// Lower pixel ratio on mobile for better performance
+const pixelRatio = detectMobile() ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio;
+renderer.setPixelRatio(pixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 // Lighting
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
@@ -371,14 +385,125 @@ let isDialog = false;
 let isInvulnerable = false;
 let isBossScreenShowing = false;
 
+// --- MOBILE TOUCH CONTROLS ---
+let isMobile = false;
+let joystickActive = false;
+let joystickVector = { x: 0, z: 0 };
+let touchRotateLeft = false;
+let touchRotateRight = false;
+
+// Detect mobile device
+function detectMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+}
+
+// Initialize mobile controls
+function initMobileControls() {
+    isMobile = detectMobile();
+    
+    if (!isMobile) return;
+    
+    const joystickContainer = document.getElementById('joystick-container');
+    const joystickStick = document.getElementById('joystick-stick');
+    const btnRotateLeft = document.getElementById('btn-rotate-left');
+    const btnRotateRight = document.getElementById('btn-rotate-right');
+    const btnInteract = document.getElementById('btn-interact');
+    
+    // Joystick touch handling
+    let joystickTouch = null;
+    const joystickRadius = 60; // Half of base size
+    const stickRadius = 25;    // Half of stick size
+    
+    joystickContainer.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        joystickTouch = e.touches[0];
+        joystickActive = true;
+        updateJoystick(e.touches[0]);
+    });
+    
+    joystickContainer.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        if (joystickActive) {
+            updateJoystick(e.touches[0]);
+        }
+    });
+    
+    joystickContainer.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        joystickActive = false;
+        joystickVector = { x: 0, z: 0 };
+        joystickStick.style.transform = 'translate(-50%, -50%)';
+    });
+    
+    function updateJoystick(touch) {
+        const rect = joystickContainer.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        let deltaX = touch.clientX - centerX;
+        let deltaY = touch.clientY - centerY;
+        
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const maxDistance = joystickRadius - stickRadius;
+        
+        if (distance > maxDistance) {
+            const angle = Math.atan2(deltaY, deltaX);
+            deltaX = Math.cos(angle) * maxDistance;
+            deltaY = Math.sin(angle) * maxDistance;
+        }
+        
+        joystickStick.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`;
+        
+        // Normalize to -1 to 1 range
+        joystickVector.x = deltaX / maxDistance;
+        joystickVector.z = deltaY / maxDistance;
+    }
+    
+    // Rotation buttons
+    btnRotateLeft.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        touchRotateLeft = true;
+    });
+    
+    btnRotateLeft.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        touchRotateLeft = false;
+    });
+    
+    btnRotateRight.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        touchRotateRight = true;
+    });
+    
+    btnRotateRight.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        touchRotateRight = false;
+    });
+    
+    // Interact button
+    btnInteract.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        interact();
+    });
+    
+    // Update interact button visibility
+    setInterval(() => {
+        if (activeNPC && !isDialog) {
+            btnInteract.style.display = 'flex';
+        } else {
+            btnInteract.style.display = 'none';
+        }
+    }, 100);
+}
+
 function update(delta) {
     const time = Date.now() * 0.001;
 
     if(isDialog || isBossScreenShowing) return;
 
-    // Camera Rotation
-    if(keys['KeyQ']) cameraAngle += delta * 2;
-    if(keys['KeyE']) cameraAngle -= delta * 2;
+    // Camera Rotation (keyboard or touch)
+    if(keys['KeyQ'] || touchRotateLeft) cameraAngle += delta * 2;
+    if(keys['KeyE'] || touchRotateRight) cameraAngle -= delta * 2;
 
     // Player Movement relative to Camera
     const moveSpeed = 10;
@@ -388,10 +513,18 @@ function update(delta) {
     const forward = new THREE.Vector3(-Math.sin(cameraAngle), 0, -Math.cos(cameraAngle));
     const right = new THREE.Vector3(Math.cos(cameraAngle), 0, -Math.sin(cameraAngle));
 
+    // Keyboard controls
     if(keys['KeyW'] || keys['ArrowUp']) dir.add(forward);
     if(keys['KeyS'] || keys['ArrowDown']) dir.sub(forward);
     if(keys['KeyA'] || keys['ArrowLeft']) dir.sub(right);
     if(keys['KeyD'] || keys['ArrowRight']) dir.add(right);
+    
+    // Mobile joystick controls
+    if(joystickActive && (Math.abs(joystickVector.x) > 0.1 || Math.abs(joystickVector.z) > 0.1)) {
+        const joyForward = forward.clone().multiplyScalar(-joystickVector.z);
+        const joyRight = right.clone().multiplyScalar(joystickVector.x);
+        dir.add(joyForward).add(joyRight);
+    }
 
     let isMoving = false;
     if(dir.lengthSq() > 0) {
@@ -629,5 +762,6 @@ function animate() {
 
 // Init
 document.getElementById('loader').style.display = 'none';
+initMobileControls();
 animate();
 
