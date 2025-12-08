@@ -1,0 +1,100 @@
+/* ===========================================
+   REQQUEST 3D: OFFICE EDITION - GAME STYLES
+   =========================================== */
+
+/* Base Styles */
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    background-color: #0f172a; 
+    font-family: 'Inter', sans-serif; 
+    user-select: none; 
+}
+
+#game-ui { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; 
+}
+
+.interactive { 
+    pointer-events: auto; 
+}
+
+/* Animations */
+@keyframes fadeInUp { 
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+.animate-fade-in-up { 
+    animation: fadeInUp 0.8s ease-out forwards; 
+}
+
+@keyframes popIn { 
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    } 
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    } 
+}
+
+/* Dialog Box */
+.dialog-box {
+    background: rgba(15, 23, 42, 0.98);
+    border: 2px solid #64748b;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Button Options */
+.btn-option {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 1px solid #334155;
+    transition: all 0.2s;
+}
+
+.btn-option:hover {
+    transform: translateX(5px);
+    border-color: #6366f1;
+    background: #334155;
+}
+
+/* Damage Overlay */
+.damage-overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(220, 38, 38, 0.5) 100%);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.2s; 
+    z-index: 50;
+}
+
+/* Key Hint Badges */
+.key-hint {
+    border: 1px solid #475569; 
+    background: #1e293b; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-size: 0.8em; 
+    color: #94a3b8; 
+    font-weight: bold;
+}
+
