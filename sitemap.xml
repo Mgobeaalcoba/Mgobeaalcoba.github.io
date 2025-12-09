@@ -3,23 +3,23 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mgobeaalcoba.github.io/</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png</image:loc>
       <image:title>Mariano Gobea Alcoba - Portfolio Profesional</image:title>
-      <image:caption>Data &amp; Analytics Technical Leader en MercadoLibre</image:caption>
+      <image:caption>Data &amp; Analytics Technical Leader en MercadoLibre &amp; Docente en Soy Henry y UADE</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png</image:loc>
       <image:title>Mariano Gobea Alcoba - Foto de perfil</image:title>
-      <image:caption>Data &amp; Analytics Technical Leader</image:caption>
+      <image:caption>Technical Leader &amp; Docente - Especialista en Gamificación Educativa</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/consulting.html</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/recursos.html</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -41,9 +41,14 @@
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/ing_req_game.html</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png</image:loc>
+      <image:title>ReqQuest 3D: Office Edition - Juego Educativo</image:title>
+      <image:caption>Juego educativo interactivo 3D para aprender Ingeniería de Requerimientos mediante gamificación. Learning by Playing en acción.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/humans.txt</loc>

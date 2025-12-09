@@ -5,11 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ReqQuest 3D: Office Edition</title>
+    <title>ReqQuest 3D: Office Edition | Juego Educativo de Ingeniería de Requerimientos</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ReqQuest 3D: Juego educativo interactivo en 3D para aprender Ingeniería de Requerimientos. Explora una oficina virtual, resuelve desafíos y practica conceptos de manera gamificada. Desarrollado por Mariano Gobea Alcoba, docente en Soy Henry y UADE.">
+    <meta name="keywords" content="juego educativo, ingeniería de requerimientos, gamificación, learning by playing, educación tecnológica, ReqQuest 3D, Soy Henry, UADE, Mariano Gobea Alcoba, aprendizaje interactivo, juego 3D educativo">
+    <meta name="author" content="Mariano Gobea Alcoba">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ReqQuest 3D: Office Edition | Juego Educativo Interactivo">
+    <meta property="og:description" content="Aprende Ingeniería de Requerimientos jugando. Juego 3D interactivo con 13 desafíos, stakeholders y práctica real en oficina virtual.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    <meta property="og:url" content="https://mgobeaalcoba.github.io/ing_req_game.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReqQuest 3D - Mariano Gobea Alcoba">
+    <meta property="og:locale" content="es_AR">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MGobeaAlcoba">
+    <meta name="twitter:creator" content="@MGobeaAlcoba">
+    <meta name="twitter:title" content="ReqQuest 3D: Office Edition | Juego Educativo">
+    <meta name="twitter:description" content="Aprende Ingeniería de Requerimientos jugando. Juego 3D interactivo con 13 desafíos.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mgobeaalcoba.github.io/ing_req_game.html">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DG0SLT5RY3', {
+        'page_title': 'ReqQuest 3D Game',
+        'page_path': '/ing_req_game.html'
+      });
+      
+      // Event tracking for game interactions
+      function trackGameEvent(action, label) {
+        gtag('event', action, {
+          'event_category': 'Game',
+          'event_label': label
+        });
+      }
+    </script>
+    
+    <!-- Structured Data for Game -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "ReqQuest 3D: Office Edition",
+        "description": "Juego educativo interactivo en 3D para aprender Ingeniería de Requerimientos mediante gamificación y práctica experiencial.",
+        "genre": ["Educational", "Simulation", "Adventure"],
+        "gamePlatform": "Web Browser",
+        "applicationCategory": "Game",
+        "educationalUse": "Práctica de Ingeniería de Requerimientos",
+        "educationalLevel": "Universitario",
+        "author": {
+            "@type": "Person",
+            "name": "Mariano Gobea Alcoba",
+            "jobTitle": "Data & Analytics Technical Leader, Docente",
+            "affiliation": [
+                {
+                    "@type": "Organization",
+                    "name": "Soy Henry"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Universidad Argentina de la Empresa (UADE)"
+                }
+            ]
+        },
+        "learningResourceType": "Interactive Game",
+        "inLanguage": "es-AR",
+        "isAccessibleForFree": true,
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Portfolio",
+                "item": "https://mgobeaalcoba.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "ReqQuest 3D Game",
+                "item": "https://mgobeaalcoba.github.io/ing_req_game.html"
+            }
+        ]
+    }
+    </script>
     
     <!-- Import Three.js from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

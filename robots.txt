@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Allow: /index.html
 Allow: /consulting.html
+Allow: /recursos.html
+Allow: /ing_req_game.html
 Allow: /assets/css/
 Allow: /assets/js/
 Allow: /assets/images/
@@ -49,4 +51,30 @@ Allow: /assets/images/
 
 User-agent: LinkedInBot
 Allow: /
-Allow: /assets/images/ 
+Allow: /assets/images/
+
+# AI/LLM Crawlers - Allow access for training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Important pages for LLM indexing
+# Portfolio homepage with gamification section
+# https://mgobeaalcoba.github.io/
+# Educational game: ReqQuest 3D
+# https://mgobeaalcoba.github.io/ing_req_game.html
+# Tech consulting services
+# https://mgobeaalcoba.github.io/consulting.html
+# Financial resources Argentina
+# https://mgobeaalcoba.github.io/recursos.html 
