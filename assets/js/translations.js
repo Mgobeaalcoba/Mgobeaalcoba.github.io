@@ -2192,12 +2192,48 @@ export const translations = {
     // ===============================================
     
     game_section_title: {
-        es: "🎮 Juego Educativo: ReqQuest 3D",
-        en: "🎮 Educational Game: ReqQuest 3D"
+        es: "🎮 Gamificación: El Futuro del Aprendizaje",
+        en: "🎮 Gamification: The Future of Learning"
+    },
+    game_section_subtitle: {
+        es: "Revolucionando la Educación en la Era de la IA",
+        en: "Revolutionizing Education in the AI Era"
+    },
+    game_context_intro: {
+        es: "Como docente en <strong>Soy Henry</strong> y la <strong>Universidad Argentina de la Empresa (UADE)</strong>, he observado un contraste fascinante: mientras el mundo ha cambiado radicalmente desde 1900, nuestros métodos educativos permanecen prácticamente intactos. Clases magistrales, memorización, evaluaciones estandarizadas... el modelo sigue siendo el mismo.",
+        en: "As an instructor at <strong>Soy Henry</strong> and the <strong>Argentine University of Enterprise (UADE)</strong>, I've observed a fascinating contrast: while the world has changed radically since 1900, our educational methods remain virtually unchanged. Lectures, memorization, standardized assessments... the model remains the same."
+    },
+    game_vision_title: {
+        es: "Learning by Playing: Una Visión Diferente",
+        en: "Learning by Playing: A Different Vision"
+    },
+    game_vision_desc: {
+        es: "La inteligencia artificial no solo nos permite automatizar tareas; nos da la oportunidad de reimaginar completamente <strong>cómo aprendemos</strong>. El concepto de <strong>gamificación</strong> y <strong>aprendizaje experiencial</strong> no es nuevo, pero la IA lo hace escalable, personalizable y medible de formas antes imposibles.",
+        en: "Artificial intelligence doesn't just allow us to automate tasks; it gives us the opportunity to completely reimagine <strong>how we learn</strong>. The concept of <strong>gamification</strong> and <strong>experiential learning</strong> isn't new, but AI makes it scalable, customizable, and measurable in ways previously impossible."
+    },
+    game_why_matters_title: {
+        es: "¿Por Qué Importa Esto?",
+        en: "Why Does This Matter?"
+    },
+    game_why_point_1: {
+        es: "<strong>Engagement:</strong> Un estudiante jugando aprende sin darse cuenta, motivado por la curiosidad y el desafío, no por la nota.",
+        en: "<strong>Engagement:</strong> A student playing learns without realizing it, motivated by curiosity and challenge, not by grades."
+    },
+    game_why_point_2: {
+        es: "<strong>Retención:</strong> La práctica activa en contextos realistas genera memoria a largo plazo, no solo para el examen.",
+        en: "<strong>Retention:</strong> Active practice in realistic contexts generates long-term memory, not just for the exam."
+    },
+    game_why_point_3: {
+        es: "<strong>Feedback Inmediato:</strong> Los juegos enseñan por iteración: fallas, entiendes por qué, y vuelves a intentarlo al instante.",
+        en: "<strong>Immediate Feedback:</strong> Games teach through iteration: you fail, understand why, and try again instantly."
+    },
+    game_example_intro: {
+        es: "Como ejemplo de esta filosofía, desarrollé <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>:",
+        en: "As an example of this philosophy, I developed <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>:"
     },
     game_section_desc: {
-        es: "¿Te gusta aprender jugando? Prueba <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>, un juego interactivo en 3D donde practicas conceptos de <strong>Ingeniería de Requerimientos</strong> mientras exploras una oficina virtual y resuelves desafíos con diferentes stakeholders.",
-        en: "Do you like learning by playing? Try <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>, an interactive 3D game where you practice <strong>Requirements Engineering</strong> concepts while exploring a virtual office and solving challenges with different stakeholders."
+        es: "Un juego interactivo en 3D donde practicas conceptos de <strong>Ingeniería de Requerimientos</strong> mientras exploras una oficina virtual y resuelves desafíos con diferentes stakeholders. No hay slides. No hay memorización. Solo práctica, decisiones y aprendizaje natural.",
+        en: "An interactive 3D game where you practice <strong>Requirements Engineering</strong> concepts while exploring a virtual office and solving challenges with different stakeholders. No slides. No memorization. Just practice, decisions, and natural learning."
     },
     game_card_analyst_role: {
         es: "Rol de Analista",
@@ -2226,5 +2262,9 @@ export const translations = {
     game_play_button: {
         es: "Jugar Ahora",
         en: "Play Now"
+    },
+    game_teaching_experience: {
+        es: "Esta es mi contribución desde la docencia: experimentar con nuevas formas de enseñar para un mundo que ya no es el de 1900.",
+        en: "This is my contribution from teaching: experimenting with new ways of teaching for a world that is no longer that of 1900."
     }
 }; 
