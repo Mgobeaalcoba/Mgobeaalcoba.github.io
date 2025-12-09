@@ -2185,5 +2185,46 @@ export const translations = {
     recursos_faq_a4: {
         es: "La inflación reduce el poder adquisitivo de los ingresos personales. Aquí puedes consultar los últimos datos de inflación mensual e interanual y analizar su impacto en tu economía.",
         en: "Inflation reduces the purchasing power of personal income. Here you can check the latest monthly and annual inflation data and analyze its impact on your finances."
+    },
+    
+    // ===============================================
+    // GAME SECTION TRANSLATIONS (INDEX PAGE)
+    // ===============================================
+    
+    game_section_title: {
+        es: "🎮 Juego Educativo: ReqQuest 3D",
+        en: "🎮 Educational Game: ReqQuest 3D"
+    },
+    game_section_desc: {
+        es: "¿Te gusta aprender jugando? Prueba <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>, un juego interactivo en 3D donde practicas conceptos de <strong>Ingeniería de Requerimientos</strong> mientras exploras una oficina virtual y resuelves desafíos con diferentes stakeholders.",
+        en: "Do you like learning by playing? Try <strong class=\"text-indigo-400\">ReqQuest 3D: Office Edition</strong>, an interactive 3D game where you practice <strong>Requirements Engineering</strong> concepts while exploring a virtual office and solving challenges with different stakeholders."
+    },
+    game_card_analyst_role: {
+        es: "Rol de Analista",
+        en: "Analyst Role"
+    },
+    game_card_analyst_desc: {
+        es: "Resuelve desafíos",
+        en: "Solve challenges"
+    },
+    game_card_office_title: {
+        es: "Oficina 3D",
+        en: "3D Office"
+    },
+    game_card_office_desc: {
+        es: "Mundo interactivo",
+        en: "Interactive world"
+    },
+    game_card_challenges_title: {
+        es: "13 Desafíos",
+        en: "13 Challenges"
+    },
+    game_card_challenges_desc: {
+        es: "Aprendizaje práctico",
+        en: "Practical learning"
+    },
+    game_play_button: {
+        es: "Jugar Ahora",
+        en: "Play Now"
     }
 }; 
