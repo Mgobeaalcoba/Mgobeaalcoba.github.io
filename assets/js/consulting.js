@@ -312,6 +312,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('language') || 'es';
     console.log('[Consulting] Loaded language:', savedLang);
     
+    // Apply initial translations (CRITICAL FIX)
+    setLanguage(savedLang);
+    
     // Initialize typing phrases from translations
     if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[savedLang]) {
         window.typingPhrases = translations.consulting_typing_phrases[savedLang];

@@ -181,21 +181,110 @@ export const translations = {
     },
     // ================= CONSULTING PAGE TRANSLATIONS =================
     consulting_hero_title: {
-        es: "Transforme su Pyme con <span style='color: var(--primary-color);'>Inteligencia</span> y <span style='color: var(--primary-color);'>Automatización</span>",
-        en: "Transform your SME with <span style='color: var(--primary-color);'>Intelligence</span> and <span style='color: var(--primary-color);'>Automation</span>"
+        es: "Automatice su Primer Proceso <span style='color: var(--primary-color);'>100% Gratis</span>",
+        en: "Automate Your First Process <span style='color: var(--primary-color);'>100% Free</span>"
     },
     consulting_hero_subtitle: {
-        es: "Ayudamos a pymes a reducir costos operativos, optimizar procesos y tomar decisiones basadas en datos para que pueda enfocarse en lo que realmente importa: hacer crecer su negocio.",
-        en: "We help SMEs reduce operational costs, optimize processes and make data-driven decisions so you can focus on what really matters: growing your business."
+        es: "Descubra el potencial de la automatización sin compromiso. Le implementamos una automatización simple completamente gratis para que vea resultados reales en su negocio.",
+        en: "Discover the potential of automation without commitment. We implement a simple automation completely free so you can see real results in your business."
     },
     consulting_hero_main_cta: {
-        es: "Crear Pre-propuesta Instantánea",
-        en: "Create Instant Pre-proposal"
+        es: "Solicitar Mi Automatización Gratis",
+        en: "Request My Free Automation"
     },
     consulting_hero_secondary_cta: {
-        es: "Ver mi Perfil Técnico",
-        en: "View my Technical Profile"
+        es: "¿Cómo Funciona?",
+        en: "How It Works?"
     },
+    
+    // ========== HERO TRUST BADGES TRANSLATIONS ==========
+    consulting_trust_badge_no_card: {
+        es: "Sin tarjeta de crédito",
+        en: "No credit card"
+    },
+    consulting_trust_badge_no_commitment: {
+        es: "Sin compromiso",
+        en: "No commitment"
+    },
+    consulting_trust_badge_results: {
+        es: "Resultados en 2 semanas",
+        en: "Results in 2 weeks"
+    },
+    
+    // ========== FREE OFFER SECTION TRANSLATIONS ==========
+    consulting_free_offer_badge: {
+        es: "🎁 OFERTA EXCLUSIVA PARA PYMES",
+        en: "🎁 EXCLUSIVE OFFER FOR SMEs"
+    },
+    consulting_free_offer_title: {
+        es: "Su Primera Automatización: 100% Gratis",
+        en: "Your First Automation: 100% Free"
+    },
+    consulting_free_offer_subtitle: {
+        es: "Deje que le demostremos el valor de la automatización con un proyecto real en su empresa. Sin costo, sin letra chica.",
+        en: "Let us show you the value of automation with a real project in your company. No cost, no fine print."
+    },
+    consulting_free_step1_title: {
+        es: "1. Conversamos",
+        en: "1. We Talk"
+    },
+    consulting_free_step1_desc: {
+        es: "Identificamos un proceso simple y repetitivo en su negocio",
+        en: "We identify a simple and repetitive process in your business"
+    },
+    consulting_free_step2_title: {
+        es: "2. Lo Automatizamos",
+        en: "2. We Automate It"
+    },
+    consulting_free_step2_desc: {
+        es: "Implementamos la solución en 1-2 semanas, sin costo",
+        en: "We implement the solution in 1-2 weeks, at no cost"
+    },
+    consulting_free_step3_title: {
+        es: "3. Ve Resultados",
+        en: "3. See Results"
+    },
+    consulting_free_step3_desc: {
+        es: "Comprueba el ahorro de tiempo y decide si quiere continuar",
+        en: "Check the time savings and decide if you want to continue"
+    },
+    consulting_free_examples_title: {
+        es: "Ejemplos de automatizaciones gratis que podemos hacer:",
+        en: "Examples of free automations we can do:"
+    },
+    consulting_free_example1: {
+        es: "Extracción de datos de facturas por email",
+        en: "Invoice data extraction via email"
+    },
+    consulting_free_example2: {
+        es: "Notificaciones automáticas de vencimientos",
+        en: "Automatic due date notifications"
+    },
+    consulting_free_example3: {
+        es: "Sincronización entre Excel y Google Sheets",
+        en: "Synchronization between Excel and Google Sheets"
+    },
+    consulting_free_example4: {
+        es: "Generación automática de reportes semanales",
+        en: "Automatic generation of weekly reports"
+    },
+    consulting_free_example5: {
+        es: "Recordatorios de tareas por WhatsApp",
+        en: "Task reminders via WhatsApp"
+    },
+    consulting_free_example6: {
+        es: "Backup automático de archivos importantes",
+        en: "Automatic backup of important files"
+    },
+    consulting_free_cta_button: {
+        es: "Solicitar Mi Automatización Gratis Ahora",
+        en: "Request My Free Automation Now"
+    },
+    consulting_free_security_note: {
+        es: "No requiere tarjeta de crédito • Respuesta en menos de 24 horas",
+        en: "No credit card required • Response in less than 24 hours"
+    },
+    
     consulting_services_title: {
         es: "Un Socio Tecnológico para cada Necesidad",
         en: "A Technology Partner for Every Need"
@@ -229,12 +318,12 @@ export const translations = {
         en: "We turn your data into your most valuable asset. We create interactive dashboards so you have total visibility of your sales, costs and profitability in real time and from any device."
     },
     consulting_packs_title: {
-        es: "Packs de Crecimiento para Pymes",
-        en: "Growth Packs for SMEs"
+        es: "¿Le Gustó su Automatización Gratis?",
+        en: "Did You Like Your Free Automation?"
     },
     consulting_packs_subtitle: {
-        es: "Soluciones empaquetadas con un retorno de inversión claro y rápido.",
-        en: "Packaged solutions with clear and fast return on investment."
+        es: "Si quedó conforme con los resultados, podemos escalar con soluciones más avanzadas. Precios flexibles según sus necesidades.",
+        en: "If you're satisfied with the results, we can scale with more advanced solutions. Flexible pricing according to your needs."
     },
     consulting_examples_automation_title: {
         es: "Automatización en Acción: Casos Reales",
@@ -305,17 +394,36 @@ export const translations = {
         en: "Let's talk about your project"
     },
     consulting_footer_title: {
-        es: "¿Listo para dar el siguiente paso?",
-        en: "Ready to take the next step?"
+        es: "Solicite su Automatización Gratis Hoy",
+        en: "Request Your Free Automation Today"
     },
     consulting_footer_desc: {
-        es: "Agende una sesión de diagnóstico gratuita de 30 minutos. Sin compromiso, sin costo.<br>Solo una charla para explorar cómo la tecnología puede impulsar su negocio.",
-        en: "Schedule a free 30-minute diagnosis session. No commitment, no cost.<br>Just a conversation to explore how technology can boost your business."
+        es: "Déjenos demostrarle el valor de la automatización con un proyecto real. Sin tarjeta de crédito, sin compromisos. Solo resultados tangibles en 1-2 semanas.",
+        en: "Let us show you the value of automation with a real project. No credit card, no commitments. Just tangible results in 1-2 weeks."
     },
     consulting_footer_cta: {
-        es: "Agendar mi sesión gratuita",
-        en: "Schedule my free session"
+        es: "Solicitar Automatización Gratis",
+        en: "Request Free Automation"
     },
+    consulting_footer_cta_alt: {
+        es: "Agendar Consulta",
+        en: "Schedule Consultation"
+    },
+    
+    // Footer badges
+    consulting_footer_badge_free: {
+        es: "100% Gratis",
+        en: "100% Free"
+    },
+    consulting_footer_badge_no_card: {
+        es: "Sin tarjeta requerida",
+        en: "No card required"
+    },
+    consulting_footer_badge_24h: {
+        es: "Respuesta en 24hs",
+        en: "Response in 24hrs"
+    },
+    
     consulting_nav_portfolio: {
         es: "Mi Portfolio",
         en: "My Portfolio"
@@ -363,16 +471,16 @@ export const translations = {
 
     // ========== PACKS SECTION TRANSLATIONS ==========
     consulting_pack_starter_desc: {
-        es: "Ideal para empezar. Automatizamos un proceso manual doloroso para un impacto inmediato.",
-        en: "Ideal to get started. We automate a painful manual process for immediate impact."
+        es: "Perfecta para conocernos. Automatizamos un proceso simple de su empresa sin costo ni compromiso.",
+        en: "Perfect to get to know each other. We automate a simple process in your company at no cost or commitment."
     },
     consulting_pack_growth_desc: {
-        es: "Combinamos automatización de tareas con un chatbot para potenciar ventas y soporte.",
-        en: "We combine task automation with a chatbot to boost sales and support."
+        es: "Para empresas que quieren automatizar múltiples procesos y ver un impacto significativo.",
+        en: "For companies that want to automate multiple processes and see a significant impact."
     },
     consulting_pack_bi_desc: {
-        es: "Deje de decidir a ciegas. Le damos visibilidad total de su negocio en un solo panel.",
-        en: "Stop making blind decisions. We give you total visibility of your business in one panel."
+        es: "Transformación digital completa: automatización + inteligencia artificial + visualización de datos.",
+        en: "Complete digital transformation: automation + artificial intelligence + data visualization."
     },
     consulting_price_from: {
         es: "Desde",
@@ -891,68 +999,113 @@ export const translations = {
         en: "<li>Estimated savings: 15-20 hrs/month.</li><li><strong>Estimated Annual Savings: USD 3,600+</strong></li><li>Return on investment in ~3 months.</li>"
     },
     consulting_pack_growth_title: {
-        es: "Pack Crecimiento: IA + Automatización",
-        en: "Growth Pack: AI + Automation"
+        es: "Plan Automatización Pro: Escalamiento",
+        en: "Automation Pro Plan: Scaling"
     },
     
     // Pack titles (short versions for cards)
     consulting_pack_starter_name: {
-        es: "Pack Starter",
-        en: "Starter Pack"
+        es: "Prueba Gratis",
+        en: "Free Trial"
     },
     consulting_pack_growth_name: {
-        es: "Pack Crecimiento",
-        en: "Growth Pack"
+        es: "Automatización Pro",
+        en: "Automation Pro"
     },
     consulting_pack_bi_name: {
-        es: "Pack BI Express",
-        en: "BI Express Pack"
+        es: "IA & Analytics",
+        en: "AI & Analytics"
     },
+    
+    // Pack Free Card specific translations
+    consulting_pack_free_badges: {
+        es: "Sin tarjeta • Sin compromiso",
+        en: "No card • No commitment"
+    },
+    consulting_pack_free_cta: {
+        es: "Solicitar Ahora",
+        en: "Request Now"
+    },
+    
     consulting_pack_growth_services: {
-        es: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Todo lo del Pack Starter.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Implementación de Chatbot para WhatsApp/Web.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Respuesta a preguntas frecuentes 24/7.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Captura de leads automática.</li>",
-        en: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Everything from Starter Pack.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>WhatsApp/Web Chatbot implementation.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>24/7 FAQ responses.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Automatic lead capture.</li>"
+        es: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Múltiples automatizaciones personalizadas</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Integraciones con sus sistemas (CRM, ERP, Excel)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Soporte técnico prioritario incluido</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Actualizaciones y mejoras continuas</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Documentación completa</li>",
+        en: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Multiple custom automations</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Integrations with your systems (CRM, ERP, Excel)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Priority technical support included</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Continuous updates and improvements</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Complete documentation</li>"
     },
     consulting_pack_growth_timeline: {
-        es: "3 - 4 Semanas",
-        en: "3 - 4 Weeks"
+        es: "3 - 4 Semanas de implementación",
+        en: "3 - 4 Weeks implementation"
     },
     consulting_pack_growth_investment: {
-        es: "Inversión Única: USD 1,500",
-        en: "One-time Investment: USD 1,500"
+        es: "💰 Precios Flexibles: Desde USD 100/mes (recurrente) o Proyectos desde USD 300 (pago único)",
+        en: "💰 Flexible Pricing: From USD 100/month (recurring) or Projects from USD 300 (one-time)"
     },
     consulting_pack_growth_roi: {
-        es: "<li>Ahorro estimado: 30-40 hs/mes.</li><li><strong>Ahorro Anual Estimado: USD 6,000+</strong></li><li>Aumento de leads y satisfacción del cliente.</li>",
-        en: "<li>Estimated savings: 30-40 hrs/month.</li><li><strong>Estimated Annual Savings: USD 6,000+</strong></li><li>Increased leads and customer satisfaction.</li>"
+        es: "<li>✅ Ahorro promedio: 20-40 horas/mes</li><li><strong>📈 ROI: 300-500% en el primer año</strong></li><li>🎯 Escalable según crece su negocio</li><li>💡 Ideal si ya probó la automatización gratis y quedó conforme</li>",
+        en: "<li>✅ Average savings: 20-40 hours/month</li><li><strong>📈 ROI: 300-500% in the first year</strong></li><li>🎯 Scalable as your business grows</li><li>💡 Ideal if you already tried the free automation and were satisfied</li>"
     },
     consulting_pack_bi_title: {
-        es: "Pack BI Express: Decisiones con Datos",
-        en: "BI Express Pack: Data-Driven Decisions"
+        es: "Plan IA & Analytics: Transformación Digital Completa",
+        en: "AI & Analytics Plan: Complete Digital Transformation"
     },
     consulting_pack_bi_services: {
-        es: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Análisis de fuentes de datos (Excel, sistemas, etc.).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Creación de 1 Dashboard Interactivo (Ventas, Operaciones).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Actualización automática de datos.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Capacitación en uso y lectura del tablero.</li>",
-        en: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Data source analysis (Excel, systems, etc.).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Creation of 1 Interactive Dashboard (Sales, Operations).</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Automatic data updates.</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Training in dashboard use and reading.</li>"
+        es: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>✨ Todo del plan Automatización Pro</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🤖 Chatbot con IA para WhatsApp/Web (atención 24/7)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📊 Dashboard interactivo (ventas, operaciones, finanzas)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📈 Análisis predictivo y tendencias</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>💬 Análisis de sentimiento de clientes</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🎯 Soporte prioritario y consultoría continua</li>",
+        en: "<li><i class='fas fa-check-circle text-green-400 mr-2'></i>✨ Everything from Automation Pro plan</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🤖 AI Chatbot for WhatsApp/Web (24/7 support)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📊 Interactive dashboard (sales, operations, finance)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📈 Predictive analysis and trends</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>💬 Customer sentiment analysis</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🎯 Priority support and continuous consulting</li>"
     },
     consulting_pack_bi_timeline: {
-        es: "2 Semanas",
-        en: "2 Weeks"
+        es: "4 - 6 Semanas de implementación completa",
+        en: "4 - 6 Weeks complete implementation"
     },
     consulting_pack_bi_investment: {
-        es: "Inversión Única: USD 1,200",
-        en: "One-time Investment: USD 1,200"
+        es: "💰 Precios Flexibles: Desde USD 200/mes (recurrente) o Proyectos desde USD 500 (pago único)",
+        en: "💰 Flexible Pricing: From USD 200/month (recurring) or Projects from USD 500 (one-time)"
     },
     consulting_pack_bi_roi: {
-        es: "<li>Ahorro en horas de gerencia para armado de reportes.</li><li><strong>Valor anual por decisiones informadas: >USD 10,000</strong></li><li>Detección temprana de problemas y oportunidades.</li>",
-        en: "<li>Savings in management hours for report preparation.</li><li><strong>Annual value from informed decisions: >USD 10,000</strong></li><li>Early detection of problems and opportunities.</li>"
+        es: "<li>✅ Ahorro promedio: 40-60 horas/mes</li><li><strong>📈 ROI: 400-800% anualizado</strong></li><li>🎯 Decisiones basadas en datos en tiempo real</li><li>💡 Incremento promedio del 30-40% en eficiencia operativa</li><li>🚀 Para empresas que quieren transformación digital completa</li>",
+        en: "<li>✅ Average savings: 40-60 hours/month</li><li><strong>📈 ROI: 400-800% annualized</strong></li><li>🎯 Real-time data-driven decisions</li><li>💡 Average 30-40% increase in operational efficiency</li><li>🚀 For companies seeking complete digital transformation</li>"
+    },
+    
+    // ========== PRICING FLEXIBILITY SECTION TRANSLATIONS ==========
+    consulting_pricing_flexibility_title: {
+        es: "Precios Flexibles y Adaptados a su Negocio",
+        en: "Flexible Pricing Adapted to Your Business"
+    },
+    consulting_pricing_flexibility_desc_part1: {
+        es: "Cada empresa es única. Los precios son orientativos y se ajustan según la complejidad de su proyecto.",
+        en: "Every company is unique. Prices are indicative and adjusted according to the complexity of your project."
+    },
+    consulting_pricing_flexibility_desc_part2: {
+        es: "Puede optar por",
+        en: "You can opt for"
+    },
+    consulting_pricing_monthly: {
+        es: "pagos mensuales",
+        en: "monthly payments"
+    },
+    consulting_pricing_with_support: {
+        es: "con soporte continuo o",
+        en: "with continuous support or"
+    },
+    consulting_pricing_one_time: {
+        es: "proyectos únicos",
+        en: "one-time projects"
+    },
+    consulting_pricing_no_recurring: {
+        es: "sin recurrencia. ¡Conversemos!",
+        en: "without recurrence. Let's talk!"
+    },
+    consulting_pricing_quote_cta: {
+        es: "Solicitar Cotización Personalizada",
+        en: "Request Custom Quote"
     },
 
     // ========== PDF PROPOSAL FORM TRANSLATIONS ==========
     consulting_proposal_form_title: {
-        es: "Generar Pre-propuesta Personalizada",
-        en: "Generate Personalized Pre-proposal"
+        es: "Solicite su Automatización Gratis",
+        en: "Request Your Free Automation"
     },
     consulting_proposal_form_desc: {
-        es: "Complete sus datos para generar un PDF con una propuesta inicial y agilizar nuestro contacto.",
-        en: "Complete your information to generate a PDF with an initial proposal and streamline our contact."
+        es: "Complete sus datos y en menos de 24 horas nos contactamos para identificar qué proceso podemos automatizar gratis en su empresa. Sin compromisos.",
+        en: "Complete your information and within 24 hours we'll contact you to identify which process we can automate for free in your company. No commitments."
     },
     consulting_form_name_placeholder: {
         es: "Nombre y Apellido",
@@ -971,22 +1124,22 @@ export const translations = {
         en: "Industry (e.g. Retail, Services, etc.)"
     },
     consulting_form_problem_placeholder: {
-        es: "Describa brevemente su principal desafío o el proceso que busca mejorar...",
-        en: "Briefly describe your main challenge or the process you want to improve..."
+        es: "¿Qué proceso repetitivo le quita más tiempo en su empresa? (Ej: facturación, reportes, seguimiento, etc.)",
+        en: "What repetitive process takes the most time in your company? (e.g.: billing, reports, tracking, etc.)"
     },
     consulting_form_generate_btn: {
-        es: "Generar PDF y Contactar",
-        en: "Generate PDF and Contact"
+        es: "Solicitar Automatización Gratis",
+        en: "Request Free Automation"
     },
 
     // ========== CONTACT SUCCESS MODAL TRANSLATIONS ==========
     consulting_contact_success_title: {
-        es: "¡Propuesta Generada!",
-        en: "Proposal Generated!"
+        es: "¡Solicitud Recibida!",
+        en: "Request Received!"
     },
     consulting_contact_success_desc: {
-        es: "Su PDF se ha descargado. Ahora, demos el siguiente paso. ¡Contácteme para revisar la propuesta juntos!",
-        en: "Your PDF has been downloaded. Now, let's take the next step. Contact me to review the proposal together!"
+        es: "Perfecto, su PDF con la información se ha descargado. Ahora elija cómo prefiere que nos contactemos para coordinar su automatización gratis:",
+        en: "Perfect, your PDF with the information has been downloaded. Now choose how you prefer us to contact you to coordinate your free automation:"
     },
     consulting_contact_whatsapp: {
         es: "Contactar por WhatsApp",
@@ -999,8 +1152,8 @@ export const translations = {
 
     // ========== PDF TEMPLATE TRANSLATIONS ==========
     consulting_pdf_title: {
-        es: "Propuesta de Transformación Digital",
-        en: "Digital Transformation Proposal"
+        es: "Su Primera Automatización: 100% Gratis",
+        en: "Your First Automation: 100% Free"
     },
     consulting_pdf_for: {
         es: "Para:",
@@ -1057,8 +1210,8 @@ export const translations = {
         en: "I'm Mariano Gobea Alcoba. As Data & Analytics Technical Leader at MercadoLibre, I've spent the last 6 years designing and building large-scale data solutions that process millions of daily transactions. Now, I apply that enterprise experience to solve real-world challenges faced by SMEs, with a pragmatic approach and no \"smoke\"."
     },
     consulting_about_cta: {
-        es: "Transformemos su negocio juntos",
-        en: "Let's transform your business together"
+        es: "Solicitar Mi Automatización Gratis",
+        en: "Request My Free Automation"
     },
     
     // ========== METRICS TRANSLATIONS ==========
@@ -1081,18 +1234,26 @@ export const translations = {
     
     // ========== TESTIMONIAL TRANSLATIONS ==========
     consulting_testimonial_quote: {
-        es: "\"Mariano automatizó nuestro proceso de facturación que nos tomaba 12 horas semanales. Ahora se hace solo y sin errores. En 6 meses nos ahorró más de $15,000 en horas de trabajo. Su experiencia en MercadoLibre se nota en cada detalle.\"",
-        en: "\"Mariano automated our billing process that used to take us 12 hours weekly. Now it runs by itself without errors. In 6 months, it saved us over $15,000 in labor hours. His MercadoLibre experience shows in every detail.\""
+        es: "Empecé con la automatización gratis de extracción de facturas. Al ver los resultados, contraté 3 automatizaciones más. Ahorramos 18 horas semanales y $12,000 al año.",
+        en: "I started with the free invoice extraction automation. Seeing the results, I hired 3 more automations. We save 18 hours weekly and $12,000 per year."
     },
     consulting_testimonial_role: {
-        es: "CEO, Distribuidora San Martín (120 empleados)",
-        en: "CEO, Distribuidora San Martín (120 employees)"
+        es: "Dueña, Consultora Contable",
+        en: "Owner, Accounting Consultancy"
+    },
+    consulting_testimonial_quote_2: {
+        es: "La prueba gratis me convenció al instante. Después implementamos un chatbot y dashboard. El ROI fue del 400% en el primer año. Su experiencia en ML se nota.",
+        en: "The free trial convinced me instantly. Then we implemented a chatbot and dashboard. The ROI was 400% in the first year. His ML experience shows."
+    },
+    consulting_testimonial_role_2: {
+        es: "CEO, Distribuidora (120 empleados)",
+        en: "CEO, Distributor (120 employees)"
     },
     
     // ========== CTA SUBTITLE TRANSLATION ==========
     consulting_cta_subtitle: {
-        es: "Sesión de diagnóstico gratuita de 30 minutos • Sin compromiso",
-        en: "Free 30-minute diagnostic session • No commitment"
+        es: "Sin tarjeta de crédito • Sin compromisos • Resultados reales en 1-2 semanas",
+        en: "No credit card • No commitments • Real results in 1-2 weeks"
     },
     
     // ========== POSITION TRANSLATIONS ==========
