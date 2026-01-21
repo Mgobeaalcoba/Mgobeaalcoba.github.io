@@ -3047,4 +3047,389 @@ html.light .input-section small {
     border: none !important;
     box-shadow: none !important;
     color: #1f2937 !important;
+}
+
+/* =================================================================================
+   --- TAX CALCULATOR - ADVANCED STYLES (model_ganancias style)
+   ================================================================================= */
+
+.tax-calculator-container {
+    width: 100%;
+}
+
+.tax-header {
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.tax-header-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.tax-form-panel,
+.tax-results-panel,
+.tax-cases-panel,
+.tax-info-panel {
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.tax-results-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tax-results-panel > .grid {
+    flex-grow: 1;
+}
+
+.tax-results-panel > .grid > .tax-result-card {
+    flex-grow: 1;
+}
+
+/* Input Styles */
+.tax-input {
+    width: 100%;
+    padding: 0.625rem;
+    background: rgba(39, 39, 42, 0.8);
+    border: 1px solid rgba(113, 113, 122, 0.4);
+    border-radius: 0.375rem;
+    color: #e4e4e7;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    margin-top: 0.25rem;
+}
+
+.tax-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.tax-input-sm {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(39, 39, 42, 0.8);
+    border: 1px solid rgba(113, 113, 122, 0.4);
+    border-radius: 0.375rem;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    margin-top: 0.25rem;
+}
+
+.tax-input-sm:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.tax-slider {
+    width: 100%;
+    height: 0.5rem;
+    background: rgba(63, 63, 70, 0.8);
+    border-radius: 9999px;
+    appearance: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.tax-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.tax-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.tax-checkbox {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid rgba(113, 113, 122, 0.5);
+    border-radius: 0.25rem;
+    background: rgba(39, 39, 42, 0.8);
+    accent-color: #3b82f6;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Result Cards */
+.tax-result-card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.5rem;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .tax-result-card {
+        padding: 1.5rem 2rem;
+        min-height: 100px;
+    }
+}
+
+.tax-result-card.primary {
+    background: rgba(30, 58, 138, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+.tax-result-card.success {
+    background: rgba(20, 83, 45, 0.5);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.tax-result-card.neutral {
+    background: rgba(39, 39, 42, 0.8);
+    border: 1px solid rgba(63, 63, 70, 0.6);
+}
+
+/* Chart Container */
+.tax-chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 250px;
+}
+
+@media (min-width: 768px) {
+    .tax-chart-container {
+        max-width: 350px;
+        min-height: 300px;
+    }
+}
+
+/* Chart container - full width version */
+.tax-chart-container-wide {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .tax-chart-container-wide {
+        max-width: 100%;
+        min-height: 380px;
+    }
+}
+
+/* Case Study Buttons */
+.tax-case-button {
+    text-align: left;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.tax-case-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tax-case-button.default {
+    background: rgba(39, 39, 42, 0.8);
+    border-color: rgba(63, 63, 70, 0.6);
+}
+
+.tax-case-button.default:hover {
+    background: rgba(63, 63, 70, 0.8);
+}
+
+.tax-case-button.teal {
+    background: rgba(19, 78, 74, 0.5);
+    border-color: rgba(20, 184, 166, 0.4);
+}
+
+.tax-case-button.teal:hover {
+    background: rgba(19, 78, 74, 0.8);
+}
+
+.tax-case-button.indigo {
+    background: rgba(49, 46, 129, 0.5);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.tax-case-button.indigo:hover {
+    background: rgba(49, 46, 129, 0.8);
+}
+
+/* Tab Buttons */
+.tax-tab-button {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 2px solid transparent;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #a1a1aa;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tax-tab-button:hover {
+    color: #e4e4e7;
+    border-bottom-color: rgba(113, 113, 122, 0.5);
+}
+
+.tax-tab-button.active {
+    color: #eff6ff;
+    border-bottom-color: #3b82f6;
+    background: rgba(30, 58, 138, 0.3);
+}
+
+.tax-tab-pane {
+    padding-top: 1rem;
+}
+
+/* Scale Table */
+.tax-scale-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgba(63, 63, 70, 0.6);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-size: 0.8rem;
+}
+
+.tax-scale-table thead {
+    background: rgba(39, 39, 42, 0.8);
+}
+
+.tax-scale-table th {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.tax-scale-table tbody {
+    background: rgba(24, 24, 27, 0.6);
+}
+
+.tax-scale-table tbody tr {
+    border-bottom: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+.tax-scale-table tbody tr:nth-child(even) {
+    background: rgba(39, 39, 42, 0.4);
+}
+
+.tax-scale-table td {
+    padding: 0.5rem;
+    color: #d4d4d8;
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+}
+
+/* Light Mode Overrides */
+html.light .tax-input,
+html.light .tax-input-sm {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(209, 213, 219, 0.8);
+    color: #1f2937;
+}
+
+html.light .tax-slider {
+    background: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-checkbox {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-result-card.neutral {
+    background: rgba(243, 244, 246, 0.9);
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-case-button.default {
+    background: rgba(243, 244, 246, 0.9);
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-case-button.default:hover {
+    background: rgba(229, 231, 235, 0.9);
+}
+
+html.light .tax-case-button p {
+    color: #374151 !important;
+}
+
+html.light .tax-tab-button {
+    color: #6b7280;
+}
+
+html.light .tax-tab-button:hover {
+    color: #374151;
+}
+
+html.light .tax-tab-button.active {
+    color: #1e40af;
+    background: rgba(219, 234, 254, 0.5);
+}
+
+html.light .tax-scale-table {
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-scale-table thead {
+    background: rgba(243, 244, 246, 0.9);
+}
+
+html.light .tax-scale-table th {
+    color: #6b7280;
+}
+
+html.light .tax-scale-table tbody {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+html.light .tax-scale-table tbody tr {
+    border-bottom-color: rgba(229, 231, 235, 0.8);
+}
+
+html.light .tax-scale-table tbody tr:nth-child(even) {
+    background: rgba(249, 250, 251, 0.9);
+}
+
+html.light .tax-scale-table td {
+    color: #374151;
+}
+
+html.light .tax-tab-pane p,
+html.light .tax-tab-pane li {
+    color: #4b5563 !important;
+}
+
+html.light .tax-tab-pane h6 {
+    color: #1f2937 !important;
 } 

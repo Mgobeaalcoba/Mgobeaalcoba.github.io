@@ -232,32 +232,37 @@ function initializeTaxCalculator() {
 }
 
 function calculateTax() {
-    // Parámetros fiscales actualizados para 2025 (valores hipotéticos)
+    // Valores actualizados según Deducciones Art. 30 y Escala Art. 94 - Res. Gral. 4.003 AFIP
+    // Período: Enero a Junio 2026 (proyectados a Diciembre 2026)
     const TAX_PARAMS = {
-        gni: 3588000,
-        deduccion_especial: 13634400,
-        conyuge: 3352000,
-        hijo: 1687000,
-        hijo_incapacitado: 3374000,
-        alquiler_tope: 3588000,
-        domestico_tope: 3588000,
-        hipotecario_tope: 20000,
+        gni: 5151802.50,                    // Ganancia No Imponible Art. 30 inc. a)
+        deduccion_especial: 24728652.02,    // Deducción Especial Art. 30 inc. c) Apartado 2
+        conyuge: 4851964.66,                // Carga de familia - Cónyuge Art. 30 inc. b)
+        hijo: 2446863.48,                   // Carga de familia - Hijo Art. 30 inc. b)
+        hijo_incapacitado: 4893726.96,      // Carga de familia - Hijo incapacitado Art. 30 inc. b)
+        alquiler_tope: 5151802.50,          // Tope alquiler (igual al GNI)
+        domestico_tope: 5151802.50,         // Tope servicio doméstico (igual al GNI)
+        hipotecario_tope: 20000,            // Valor histórico sin actualizar
         aportes_porcentaje: 0.17,
+        // Topes para base imponible de aportes (Enero 2026)
+        aportes_base_minima: 117643.93,     // Tope mínimo base imponible aportes
+        aportes_base_maxima: 3823372.95,    // Tope máximo base imponible aportes
         medicos_facturado_porcentaje: 0.40,
         ganancia_neta_tope_porcentaje: 0.05,
-        educacion_tope: 1566507,
-        seguro_vida_tope: 250000,
-        sepelio_tope: 150000,
+        educacion_tope: 2250000,            // Valor actualizado proporcional
+        seguro_vida_tope: 360000,           // Valor actualizado proporcional
+        sepelio_tope: 216000,               // Valor actualizado proporcional
+        // Escala Art. 94 - Res. Gral. 4.003 AFIP - Período Ene-Jun 2026 (valores anuales)
         escala: [
             { limite: 0, fijo: 0, porcentaje: 0.05 },
-            { limite: 2990000, fijo: 149500, porcentaje: 0.09 },
-            { limite: 5980000, fijo: 418750, porcentaje: 0.12 },
-            { limite: 8970000, fijo: 777550, porcentaje: 0.15 },
-            { limite: 11960000, fijo: 1226050, porcentaje: 0.19 },
-            { limite: 17940000, fijo: 2362250, porcentaje: 0.23 },
-            { limite: 23920000, fijo: 3737650, porcentaje: 0.27 },
-            { limite: 35880000, fijo: 6966850, porcentaje: 0.31 },
-            { limite: 47840000, fijo: 10674450, porcentaje: 0.35 }
+            { limite: 2000030.09, fijo: 100001.50, porcentaje: 0.09 },
+            { limite: 4000060.17, fijo: 280004.21, porcentaje: 0.12 },
+            { limite: 6000090.26, fijo: 520007.82, porcentaje: 0.15 },
+            { limite: 9000135.40, fijo: 970014.59, porcentaje: 0.19 },
+            { limite: 18000270.80, fijo: 2680040.32, porcentaje: 0.23 },
+            { limite: 27000406.20, fijo: 4750071.46, porcentaje: 0.27 },
+            { limite: 40500609.30, fijo: 8395126.30, porcentaje: 0.31 },
+            { limite: 60750913.96, fijo: 14672720.74, porcentaje: 0.35 }
         ]
     };
 
@@ -285,7 +290,7 @@ function calculateTax() {
     const incluirSAC = incluirSACInput?.checked || false;
     
     if (salarioBrutoMensual <= 0) {
-        updateTaxResults(0, salarioBrutoMensual, 0, 0);
+        updateTaxResults(0, salarioBrutoMensual, 0, 0, salarioBrutoMensual, 0);
         return;
     }
 
@@ -293,8 +298,14 @@ function calculateTax() {
     const meses = incluirSAC ? 13 : 12;
     const sueldoAnualBruto = incluirSAC ? salarioBrutoMensual * 13 : salarioBrutoMensual * 12;
 
-    // 2. Aportes obligatorios (17%)
-    const aportesAnuales = sueldoAnualBruto * TAX_PARAMS.aportes_porcentaje;
+    // 2. Aportes obligatorios (17%) con topes de base imponible
+    // La base imponible para aportes tiene un mínimo y máximo mensual
+    const baseImponibleMensual = Math.min(
+        Math.max(salarioBrutoMensual, TAX_PARAMS.aportes_base_minima),
+        TAX_PARAMS.aportes_base_maxima
+    );
+    const aportesMensualesCalc = baseImponibleMensual * TAX_PARAMS.aportes_porcentaje;
+    const aportesAnuales = aportesMensualesCalc * meses;
 
     // 3. Deducciones personales
     let deduccionesPersonales = TAX_PARAMS.gni + TAX_PARAMS.deduccion_especial;
@@ -346,15 +357,18 @@ function calculateTax() {
     // 9. Retención mensual
     const retencionMensual = impuestoAnual / meses;
     
-    // 10. Sueldo neto y de bolsillo
-    const aportesMensuales = salarioBrutoMensual * TAX_PARAMS.aportes_porcentaje;
+    // 10. Sueldo neto y de bolsillo (usando aportes con topes)
+    const aportesMensuales = aportesMensualesCalc;
     const sueldoNeto = salarioBrutoMensual - aportesMensuales;
     const sueldoDeBolsillo = sueldoNeto - retencionMensual;
 
-    updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible);
+    updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible, salarioBrutoMensual, aportesMensuales);
 }
 
-function updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible) {
+// Variable global para el gráfico de composición del sueldo
+let composicionSueldoChart = null;
+
+function updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gananciaNetaImponible, salarioBruto, aportesMensuales) {
     const formatCurrency = (value) => {
         return new Intl.NumberFormat('es-AR', { 
             style: 'currency', 
@@ -374,6 +388,199 @@ function updateTaxResults(retencionMensual, sueldoDeBolsillo, impuestoAnual, gan
     if (bolsilloEl) bolsilloEl.textContent = formatCurrency(sueldoDeBolsillo);
     if (anualEl) anualEl.textContent = formatCurrency(impuestoAnual);
     if (imponibleEl) imponibleEl.textContent = formatCurrency(gananciaNetaImponible);
+    
+    // Actualizar gráfico
+    const chartData = [
+        Math.max(0, sueldoDeBolsillo),
+        Math.max(0, retencionMensual),
+        Math.max(0, aportesMensuales || 0)
+    ];
+    updateTaxChart(chartData);
+}
+
+// Helper para obtener etiquetas traducidas del gráfico
+function getTaxChartLabels() {
+    return [
+        getTranslation('tax.chart_take_home'),
+        getTranslation('tax.chart_income_tax'),
+        getTranslation('tax.chart_contributions')
+    ];
+}
+
+// Actualizar etiquetas del gráfico cuando cambia el idioma
+function updateTaxChartLabels() {
+    if (composicionSueldoChart) {
+        composicionSueldoChart.data.labels = getTaxChartLabels();
+        composicionSueldoChart.update();
+    }
+}
+
+// Inicializar gráfico de composición del sueldo
+function initTaxChart() {
+    const canvas = document.getElementById('composicionSueldoChart');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    composicionSueldoChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: getTaxChartLabels(),
+            datasets: [{
+                data: [1, 0, 0],
+                backgroundColor: ['#22c55e', '#3b82f6', '#64748b'],
+                borderColor: '#18181b',
+                borderWidth: 4,
+                hoverOffset: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#a1a1aa',
+                        padding: 15,
+                        font: { family: "'Inter', sans-serif", size: 11 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            if (label) label += ': ';
+                            if (context.parsed !== null) {
+                                label += new Intl.NumberFormat('es-AR', { 
+                                    style: 'currency', currency: 'ARS',
+                                    minimumFractionDigits: 0, maximumFractionDigits: 0
+                                }).format(context.parsed);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Actualizar datos del gráfico
+function updateTaxChart(data) {
+    if (composicionSueldoChart) {
+        composicionSueldoChart.data.datasets[0].data = data;
+        composicionSueldoChart.update();
+    }
+}
+
+// Función para cargar casos de estudio predefinidos
+function cargarCasoTax(caso) {
+    const salarioBrutoInput = document.getElementById('salario-bruto');
+    const salarioSlider = document.getElementById('salario-slider');
+    const deduccionConyugeInput = document.getElementById('deduccion-conyuge');
+    const deduccionHijosInput = document.getElementById('deduccion-hijos');
+    const deduccionHijosIncapInput = document.getElementById('deduccion-hijos-incap');
+    const deduccionAlquilerInput = document.getElementById('deduccion-alquiler');
+    const deduccionDomesticoInput = document.getElementById('deduccion-domestico');
+    const deduccionHipotecarioInput = document.getElementById('deduccion-hipotecario');
+    const deduccionMedicosInput = document.getElementById('deduccion-medicos');
+    const deduccionEducacionInput = document.getElementById('deduccion-educacion');
+    const deduccionDonacionesInput = document.getElementById('deduccion-donaciones');
+    const deduccionSeguroVidaInput = document.getElementById('deduccion-seguro-vida');
+    const deduccionSepelioInput = document.getElementById('deduccion-sepelio');
+
+    // Reset all deduction fields first
+    if (deduccionConyugeInput) deduccionConyugeInput.checked = false;
+    if (deduccionHijosInput) deduccionHijosInput.value = 0;
+    if (deduccionHijosIncapInput) deduccionHijosIncapInput.value = 0;
+    if (deduccionAlquilerInput) deduccionAlquilerInput.value = 0;
+    if (deduccionDomesticoInput) deduccionDomesticoInput.value = 0;
+    if (deduccionHipotecarioInput) deduccionHipotecarioInput.value = 0;
+    if (deduccionMedicosInput) deduccionMedicosInput.value = 0;
+    if (deduccionEducacionInput) deduccionEducacionInput.value = 0;
+    if (deduccionDonacionesInput) deduccionDonacionesInput.value = 0;
+    if (deduccionSeguroVidaInput) deduccionSeguroVidaInput.value = 0;
+    if (deduccionSepelioInput) deduccionSepelioInput.value = 0;
+
+    switch(caso) {
+        case 1: // Soltero
+            if (salarioBrutoInput) salarioBrutoInput.value = 2500000;
+            break;
+        case 2: // Casado 2 hijos
+            if (salarioBrutoInput) salarioBrutoInput.value = 4000000;
+            if (deduccionConyugeInput) deduccionConyugeInput.checked = true;
+            if (deduccionHijosInput) deduccionHijosInput.value = 2;
+            break;
+        case 3: // Soltero con alquiler
+            if (salarioBrutoInput) salarioBrutoInput.value = 3200000;
+            if (deduccionAlquilerInput) deduccionAlquilerInput.value = 3500000;
+            break;
+    }
+    
+    if (salarioSlider && salarioBrutoInput) {
+        salarioSlider.value = salarioBrutoInput.value;
+    }
+    
+    calculateTax();
+}
+
+// Función para cambiar tabs de información
+function changeTaxTab(event, tabId) {
+    // Ocultar todos los paneles
+    document.querySelectorAll('.tax-tab-pane').forEach(el => el.classList.add('hidden'));
+    // Mostrar el panel seleccionado
+    const targetPane = document.getElementById(tabId);
+    if (targetPane) targetPane.classList.remove('hidden');
+
+    // Desactivar todos los botones
+    document.querySelectorAll('.tax-tab-button').forEach(el => el.classList.remove('active'));
+    // Activar el botón actual
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+}
+
+// Poblar tabla de escala impositiva
+function fillTaxScaleTable() {
+    const TAX_PARAMS_ESCALA = [
+        { limite: 0, fijo: 0, porcentaje: 0.05 },
+        { limite: 2000030.09, fijo: 100001.50, porcentaje: 0.09 },
+        { limite: 4000060.17, fijo: 280004.21, porcentaje: 0.12 },
+        { limite: 6000090.26, fijo: 520007.82, porcentaje: 0.15 },
+        { limite: 9000135.40, fijo: 970014.59, porcentaje: 0.19 },
+        { limite: 18000270.80, fijo: 2680040.32, porcentaje: 0.23 },
+        { limite: 27000406.20, fijo: 4750071.46, porcentaje: 0.27 },
+        { limite: 40500609.30, fijo: 8395126.30, porcentaje: 0.31 },
+        { limite: 60750913.96, fijo: 14672720.74, porcentaje: 0.35 }
+    ];
+    
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(value);
+    };
+    
+    const tableBody = document.getElementById('escalaTableBody');
+    if (!tableBody) return;
+    
+    tableBody.innerHTML = '';
+    
+    TAX_PARAMS_ESCALA.forEach((tramo, index) => {
+        const row = document.createElement('tr');
+        const nextTramoLimite = TAX_PARAMS_ESCALA[index + 1] ? TAX_PARAMS_ESCALA[index + 1].limite : null;
+        
+        let rangoText = `Más de ${formatCurrency(tramo.limite)}`;
+        if (nextTramoLimite) {
+            rangoText += ` hasta ${formatCurrency(nextTramoLimite)}`;
+        }
+        
+        row.innerHTML = `
+            <td>${rangoText}</td>
+            <td>${formatCurrency(tramo.fijo)}</td>
+            <td>${tramo.porcentaje * 100}%</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
 }
 
 // Función para sincronizar salario con slider
@@ -408,6 +615,16 @@ function initializeTaxCalculatorEvents() {
                 input.addEventListener('keyup', calculateTax);
             }
         });
+
+        // Inicializar gráfico de composición del sueldo
+        initTaxChart();
+        
+        // Poblar tabla de escala impositiva
+        fillTaxScaleTable();
+        
+        // Mostrar primer tab por defecto
+        const firstTab = document.getElementById('tax-paso1');
+        if (firstTab) firstTab.classList.remove('hidden');
 
         // Calcular al cargar
         calculateTax();
@@ -1009,6 +1226,9 @@ async function setLanguage(lang) {
         }, 100);
     }
     
+    // Update tax chart labels
+    updateTaxChartLabels();
+    
     // Update placeholders
     const salaryInput = document.getElementById('annual-salary');
     if (salaryInput) {
@@ -1084,6 +1304,8 @@ async function initializeLanguage() {
 // Make functions available globally for onclick handlers
 window.calculateTax = calculateTax;
 window.refreshRates = refreshRates;
+window.cargarCasoTax = cargarCasoTax;
+window.changeTaxTab = changeTaxTab;
 
 // =================================================================================
 // --- HISTORICAL CHART SYSTEM

@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Impuesto a los Ingresos Personales 2025</title>
+    <title>Calculadora Impuesto a los Ingresos Personales 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo_claro_recortado.png&w=32&h=32&fit=contain&bg=FFFFFF&mask=circle&p=16">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://images.weserv.nl/?url=raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo_claro_recortado.png&w=16&h=16&fit=contain&bg=FFFFFF&mask=circle&p=16">
     <!-- Chosen Palette: Dark Mode Zinc -->
     <!-- Application Structure Plan: The SPA is designed as an interactive dashboard and educational tool, not a static report. The structure is task-oriented to empower the user: 1. A prominent, interactive calculator for immediate personal simulation. 2. Side-by-side results that update in real-time, including a visual pie chart for intuitive understanding of salary composition. 3. Pre-set case study buttons to guide users and demonstrate different scenarios effortlessly. 4. A clear, tabbed section explaining the calculation algorithm step-by-step. This structure was chosen because it directly answers the user's primary question ("How does this affect ME?") first, then provides the underlying logic and examples for deeper understanding, promoting exploration and learning over passive reading. -->
     <!-- Visualization & Content Choices: Report Info: Salary, deductions, tax brackets. -> Goal: Inform, Compare, Explain. -> Viz/Presentation Method: The core is an interactive form. Results are shown as large-font numbers in cards and a dynamic Chart.js donut chart. The donut chart's goal is to show the proportional relationship between take-home pay, taxes, and other deductions from the gross salary, which is more intuitive than just numbers. The step-by-step calculation is presented in organized text blocks within tabs to avoid overwhelming the user. Pre-set buttons for examples allow for quick comparison between different taxpayer profiles. -> Interaction: Sliders, inputs, and buttons trigger instant recalculation of all numerical outputs and the chart. Tabs allow users to progressively disclose information. -> Justification: This interactive model is superior to a static report for this topic, as tax calculation is personal and case-specific. Users learn by doing and seeing immediate feedback. -> Library/Method: Chart.js for the canvas-based donut chart. All other layouts and diagrams are structured HTML/CSS with Tailwind. -->
@@ -53,9 +56,9 @@
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
         <header class="text-center mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-zinc-100">Calculadora de Impuesto a los Ingresos Personales</h1>
-            <p class="mt-2 text-lg text-zinc-400">Valores y escalas actualizadas a Julio de 2025 (Valores Hipotéticos)</p>
+            <p class="mt-2 text-lg text-zinc-400">Valores y escalas actualizadas al período Enero-Junio de 2026 (Res. Gral. 4.003 AFIP)</p>
             <p class="mt-2 text-sm text-amber-300 bg-amber-900/50 border border-amber-800 rounded-md p-2 max-w-3xl mx-auto">
-                <strong>Atención:</strong> Esta es una herramienta de simulación con fines educativos. Los valores utilizados son proyecciones hipotéticas para 2025 y no constituyen asesoramiento financiero ni fiscal. Consulte siempre con un profesional contable.
+                <strong>Atención:</strong> Esta es una herramienta de simulación con fines educativos. Los valores utilizados corresponden a las deducciones personales del Art. 30 de la Ley de Ganancias para 2026 (Res. Gral. 4.003 AFIP) y no constituyen asesoramiento financiero ni fiscal. Consulte siempre con un profesional contable.
             </p>
         </header>
 
@@ -220,7 +223,7 @@
                         <p>De la ganancia bruta, se restan todas las deducciones permitidas por ley para obtener la "Ganancia Neta". Estas se dividen en tres grandes grupos:</p>
                         <ul class="list-disc list-inside space-y-2 text-zinc-400">
                             <li><strong>Aportes Obligatorios:</strong> Jubilación (11%), Ley 19.032 - PAMI (3%) y Obra Social (3%). Totalizan un 17% del salario bruto.</li>
-                            <li><strong>Deducciones Personales:</strong> Son montos fijos que la ley permite deducir según la situación personal del contribuyente. Para 2025, los valores anuales hipotéticos son:
+                            <li><strong>Deducciones Personales:</strong> Son montos fijos que la ley permite deducir según la situación personal del contribuyente. Para 2026, los valores anuales según Art. 30 son:
                                 <ul class="list-decimal list-inside ml-6 mt-2 bg-zinc-800 p-3 rounded-lg">
                                     <li>Ganancia No Imponible (GNI): <span class="font-semibold text-zinc-200" id="val_gni"></span></li>
                                     <li>Deducción Especial (para empleados): <span class="font-semibold text-zinc-200" id="val_de"></span></li>
@@ -264,36 +267,39 @@
         </section>
 
         <footer class="text-center mt-10 pt-6 border-t border-zinc-800">
-            <p class="text-sm text-zinc-500">&copy; 2025 Simulación de Impuestos. Un proyecto educativo. No es asesoramiento fiscal.</p>
+            <p class="text-sm text-zinc-500">&copy; 2026 Simulación de Impuestos. Un proyecto educativo. No es asesoramiento fiscal.</p>
         </footer>
     </div>
 
     <script>
+        // Valores actualizados según Deducciones Art. 30 - Res. Gral. 4.003 AFIP
+        // Período: Enero a Junio 2026 (proyectados a Diciembre 2026)
         const TAX_PARAMS = {
-            gni: 3588000,
-            deduccion_especial: 13634400,
-            conyuge: 3352000,
-            hijo: 1687000,
-            hijo_incapacitado: 3374000,
-            alquiler_tope: 3588000,
-            domestico_tope: 3588000,
-            hipotecario_tope: 20000, // Valor histórico sin actualizar
+            gni: 5151802.50,                    // Ganancia No Imponible Art. 30 inc. a)
+            deduccion_especial: 24728652.02,    // Deducción Especial Art. 30 inc. c) Apartado 2
+            conyuge: 4851964.66,                // Carga de familia - Cónyuge Art. 30 inc. b)
+            hijo: 2446863.48,                   // Carga de familia - Hijo Art. 30 inc. b)
+            hijo_incapacitado: 4893726.96,      // Carga de familia - Hijo incapacitado Art. 30 inc. b)
+            alquiler_tope: 5151802.50,          // Tope alquiler (igual al GNI)
+            domestico_tope: 5151802.50,         // Tope servicio doméstico (igual al GNI)
+            hipotecario_tope: 20000,            // Valor histórico sin actualizar
             aportes_porcentaje: 0.17,
             medicos_facturado_porcentaje: 0.40,
             ganancia_neta_tope_porcentaje: 0.05,
-            educacion_tope: 1566507,
-            seguro_vida_tope: 250000, // Valor hipotético actualizado
-            sepelio_tope: 150000, // Valor hipotético actualizado
+            educacion_tope: 2250000,            // Valor actualizado proporcional
+            seguro_vida_tope: 360000,           // Valor actualizado proporcional
+            sepelio_tope: 216000,               // Valor actualizado proporcional
+            // Escala Art. 94 - Res. Gral. 4.003 AFIP - Período Ene-Jun 2026 (valores anuales)
             escala: [
                 { limite: 0, fijo: 0, porcentaje: 0.05 },
-                { limite: 2990000, fijo: 149500, porcentaje: 0.09 },
-                { limite: 5980000, fijo: 418750, porcentaje: 0.12 },
-                { limite: 8970000, fijo: 777550, porcentaje: 0.15 },
-                { limite: 11960000, fijo: 1226050, porcentaje: 0.19 },
-                { limite: 17940000, fijo: 2362250, porcentaje: 0.23 },
-                { limite: 23920000, fijo: 3737650, porcentaje: 0.27 },
-                { limite: 35880000, fijo: 6966850, porcentaje: 0.31 },
-                { limite: 47840000, fijo: 10674450, porcentaje: 0.35 }
+                { limite: 2000030.09, fijo: 100001.50, porcentaje: 0.09 },
+                { limite: 4000060.17, fijo: 280004.21, porcentaje: 0.12 },
+                { limite: 6000090.26, fijo: 520007.82, porcentaje: 0.15 },
+                { limite: 9000135.40, fijo: 970014.59, porcentaje: 0.19 },
+                { limite: 18000270.80, fijo: 2680040.32, porcentaje: 0.23 },
+                { limite: 27000406.20, fijo: 4750071.46, porcentaje: 0.27 },
+                { limite: 40500609.30, fijo: 8395126.30, porcentaje: 0.31 },
+                { limite: 60750913.96, fijo: 14672720.74, porcentaje: 0.35 }
             ]
         };
 

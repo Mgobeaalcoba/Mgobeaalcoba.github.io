@@ -281,126 +281,219 @@
                     <i class="fas fa-calculator text-blue-400 mr-3"></i>
                     <span data-translate="recursos_calculators_title">Calculadoras</span>
                 </h3>
-                <div class="grid grid-cols-1 gap-8">
-                    <!-- Calculadora Impuesto a las Ganancias -->
-                    <div class="resource-widget modern-widget glass-effect" id="tax-calculator">
-                        <div class="modern-header">
-                            <div class="modern-title">
-                                <div class="modern-icon">
-                                    <i class="fas fa-receipt"></i>
+                
+                <!-- Calculadora Impuesto a las Ganancias - Diseño Mejorado -->
+                <div class="tax-calculator-container" id="tax-calculator">
+                    <!-- Header con disclaimer -->
+                    <div class="tax-header glass-effect mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="tax-header-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-zinc-100" data-translate="recursos_tax_calculator_title">Calculadora de Impuesto a los Ingresos Personales</h4>
+                                <p class="text-zinc-400" data-translate="recursos_tax_calculator_desc">Valores y escalas actualizadas al período Enero-Junio de 2026 (Res. Gral. 4.003 AFIP)</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-amber-300 bg-amber-900/50 border border-amber-800 rounded-md p-2" data-translate="tax.disclaimer">
+                            <strong>Importante:</strong> Esta herramienta simula la retención mensual proyectando un ingreso anual constante. Si sus ingresos varían significativamente durante el año, el cálculo real puede diferir. Los valores corresponden al Art. 30 y 94 de la Ley de Ganancias (Res. Gral. 4.003 AFIP, período Ene-Jun 2026). No constituye asesoramiento fiscal.
+                        </p>
+                    </div>
+
+                    <!-- Layout principal en dos columnas -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                        <!-- Columna izquierda: Formulario -->
+                        <div class="lg:col-span-2 tax-form-panel glass-effect">
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_input">1. Ingrese sus datos</h5>
+                            
+                            <div class="space-y-5">
+                                <!-- Salario -->
+                                <div>
+                                    <label for="salario-bruto" class="block text-sm font-medium text-zinc-300" data-translate="tax.monthly_salary">Salario Bruto Mensual (ARS)</label>
+                                    <input type="number" id="salario-bruto" class="tax-input" placeholder="Ej: 2500000" value="2500000">
+                                    <input type="range" id="salario-slider" min="500000" max="10000000" step="50000" value="2500000" class="tax-slider">
                                 </div>
-                                <div class="title-content">
-                                    <h4 data-translate="recursos_tax_calculator_title">Impuesto a las Ganancias</h4>
-                                    <p data-translate="recursos_tax_calculator_desc">Calcula tu retención mensual y sueldo de bolsillo</p>
+
+                                <!-- SAC Checkbox -->
+                                <div class="flex items-start gap-3">
+                                    <input id="incluir-sac" type="checkbox" class="tax-checkbox" checked>
+                                    <div>
+                                        <label for="incluir-sac" class="font-medium text-zinc-300" data-translate="tax.include_sac">Incluir SAC/Aguinaldo</label>
+                                        <p class="text-zinc-500 text-xs" data-translate="tax.sac_hint">Considera la doceava parte del SAC en el cálculo mensual.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Deducciones Personales -->
+                                <div>
+                                    <h6 class="text-md font-semibold text-zinc-200 mb-2" data-translate="tax.personal_deductions">Deducciones Personales</h6>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-3">
+                                            <input id="deduccion-conyuge" type="checkbox" class="tax-checkbox">
+                                            <label for="deduccion-conyuge" class="text-sm text-zinc-300" data-translate="tax.spouse_deduction">Cónyuge o unión convivencial a cargo</label>
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-hijos" class="block text-sm text-zinc-300" data-translate="tax.children_under_18">Hijos a cargo (&lt; 18 años)</label>
+                                            <input type="number" id="deduccion-hijos" value="0" min="0" class="tax-input">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-hijos-incap" class="block text-sm text-zinc-300" data-translate="tax.disabled_children">Hijos incapacitados para el trabajo</label>
+                                            <input type="number" id="deduccion-hijos-incap" value="0" min="0" class="tax-input">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Otras Deducciones -->
+                                <div>
+                                    <h6 class="text-md font-semibold text-zinc-200 mb-2" data-translate="tax.other_deductions">Otras Deducciones Anuales (ARS)</h6>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div>
+                                            <label for="deduccion-alquiler" class="block text-xs text-zinc-400" data-translate="tax.rent_deduction">Alquiler de vivienda</label>
+                                            <input type="number" id="deduccion-alquiler" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-domestico" class="block text-xs text-zinc-400" data-translate="tax.domestic_service">Servicio doméstico</label>
+                                            <input type="number" id="deduccion-domestico" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-hipotecario" class="block text-xs text-zinc-400" data-translate="tax.mortgage_interest">Intereses créd. hipotecario</label>
+                                            <input type="number" id="deduccion-hipotecario" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-medicos" class="block text-xs text-zinc-400" data-translate="tax.medical_expenses">Gastos médicos</label>
+                                            <input type="number" id="deduccion-medicos" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-educacion" class="block text-xs text-zinc-400" data-translate="tax.education_expenses">Gastos de educación</label>
+                                            <input type="number" id="deduccion-educacion" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-donaciones" class="block text-xs text-zinc-400" data-translate="tax.donations">Donaciones</label>
+                                            <input type="number" id="deduccion-donaciones" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-seguro-vida" class="block text-xs text-zinc-400" data-translate="tax.life_insurance">Seguros de vida y retiro</label>
+                                            <input type="number" id="deduccion-seguro-vida" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div>
+                                            <label for="deduccion-sepelio" class="block text-xs text-zinc-400" data-translate="tax.funeral_expenses">Gastos de sepelio</label>
+                                            <input type="number" id="deduccion-sepelio" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="widget-content">
-                            <!-- Datos Básicos: Salario y SAC -->
-                            <div class="input-section">
-                                <div class="input-group flex items-center gap-4">
-                                    <label for="salario-bruto" class="mb-0" data-translate="tax.monthly_salary">Salario Bruto Mensual (ARS)</label>
-                                    <input type="number" id="salario-bruto" placeholder="2500000" value="2500000" class="form-input max-w-xs">
-                                </div>
-                                <div class="input-group" style="margin-top: -1rem; margin-bottom: 1.5rem;">
-                                    <input type="range" id="salario-slider" min="500000" max="10000000" step="50000" value="2500000" class="w-full">
-                                </div>
-                                <div class="input-group flex items-center gap-2 mb-2">
-                                    <label for="incluir-sac" class="mb-0" data-translate="tax.include_sac">Incluir Sueldo Anual Complementario (SAC/Aguinaldo)</label>
-                                    <input type="checkbox" id="incluir-sac" checked class="form-checkbox">
-                                </div>
-                                <small class="text-gray-500 text-xs mt-1 block">Considera la doceava parte del SAC en el cálculo mensual</small>
-                            </div>
 
-                            <!-- Deducciones Personales -->
-                            <div class="input-section">
-                                <h5 class="font-semibold mb-3" data-translate="tax.personal_deductions">Deducciones Personales</h5>
-                                <div class="input-group flex items-center space-x-2">
-                                    <label for="deduccion-conyuge" class="mb-0" data-translate="tax.spouse_deduction">Cónyuge o unión convivencial a cargo</label>
-                                    <input type="checkbox" id="deduccion-conyuge" class="form-checkbox">
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="input-group">
-                                        <label for="deduccion-hijos" data-translate="tax.children_under_18">Hijos a cargo (&lt; 18 años)</label>
-                                        <input type="number" id="deduccion-hijos" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-hijos-incap" data-translate="tax.disabled_children">Hijos incapacitados</label>
-                                        <input type="number" id="deduccion-hijos-incap" value="0" min="0" class="form-input">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Otras Deducciones -->
-                            <div class="input-section">
-                                <h5 class="font-semibold mb-3" data-translate="tax.other_deductions">Otras Deducciones Anuales (ARS)</h5>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="input-group">
-                                        <label for="deduccion-alquiler" data-translate="tax.rent_deduction">Alquiler de vivienda</label>
-                                        <input type="number" id="deduccion-alquiler" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-domestico" data-translate="tax.domestic_service">Servicio doméstico</label>
-                                        <input type="number" id="deduccion-domestico" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-hipotecario" data-translate="tax.mortgage_interest">Intereses créd. hipotecario</label>
-                                        <input type="number" id="deduccion-hipotecario" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-medicos" data-translate="tax.medical_expenses">Gastos médicos</label>
-                                        <input type="number" id="deduccion-medicos" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-educacion" data-translate="tax.education_expenses">Gastos de educación</label>
-                                        <input type="number" id="deduccion-educacion" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-donaciones" data-translate="tax.donations">Donaciones</label>
-                                        <input type="number" id="deduccion-donaciones" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-seguro-vida" data-translate="tax.life_insurance">Seguros de vida y retiro</label>
-                                        <input type="number" id="deduccion-seguro-vida" value="0" min="0" class="form-input">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="deduccion-sepelio" data-translate="tax.funeral_expenses">Gastos de sepelio</label>
-                                        <input type="number" id="deduccion-sepelio" value="0" min="0" class="form-input">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button onclick="calculateTax()" class="calculate-btn">
-                                <i class="fas fa-calculator mr-2"></i>
-                                <span data-translate="recursos_tax_calculate_btn">Calcular</span>
-                            </button>
+                        <!-- Columna derecha: Resultados -->
+                        <div class="lg:col-span-3 tax-results-panel glass-effect">
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_results">2. Resultados de la Simulación</h5>
                             
-                            <!-- Resultados -->
-                            <div id="tax-result" class="result-display">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="result-card primary">
-                                        <span class="result-label" data-translate="tax.monthly_retention">Retención Mensual</span>
-                                        <span class="result-value" id="resultado-retencion-mensual">$0</span>
-                                    </div>
-                                    <div class="result-card success">
-                                        <span class="result-label" data-translate="tax.net_salary">Sueldo de Bolsillo</span>
-                                        <span class="result-value" id="resultado-sueldo-bolsillo">$0</span>
-                                    </div>
-                                    <div class="result-card secondary">
-                                        <span class="result-label" data-translate="tax.annual_tax">Impuesto Anual</span>
-                                        <span class="result-value" id="resultado-impuesto-anual">$0</span>
-                                    </div>
-                                    <div class="result-card secondary">
-                                        <span class="result-label" data-translate="tax.taxable_income">Ganancia Imponible</span>
-                                        <span class="result-value" id="resultado-ganancia-imponible">$0</span>
-                                    </div>
+                            <!-- Gráfico de dona - ancho completo -->
+                            <div class="flex flex-col items-center justify-center mb-6">
+                                <div class="tax-chart-container-wide">
+                                    <canvas id="composicionSueldoChart"></canvas>
+                                </div>
+                                <p class="text-center text-sm text-zinc-500 mt-2" data-translate="tax.chart_label">Composición del Salario Bruto</p>
+                            </div>
+                            
+                            <!-- Cards de resultados - 2 filas de 2 cards -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
+                                <div class="tax-result-card primary">
+                                    <p class="text-sm font-medium text-blue-300" data-translate="tax.monthly_retention">Retención Mensual Estimada</p>
+                                    <p id="resultado-retencion-mensual" class="text-2xl font-bold text-blue-200">$0</p>
+                                </div>
+                                <div class="tax-result-card success">
+                                    <p class="text-sm font-medium text-green-300" data-translate="tax.net_salary">Sueldo Neto de Bolsillo</p>
+                                    <p id="resultado-sueldo-bolsillo" class="text-2xl font-bold text-green-200">$0</p>
+                                </div>
+                                <div class="tax-result-card neutral">
+                                    <p class="text-sm font-medium text-zinc-400" data-translate="tax.annual_tax">Impuesto Anual Proyectado</p>
+                                    <p id="resultado-impuesto-anual" class="text-xl font-semibold text-zinc-200">$0</p>
+                                </div>
+                                <div class="tax-result-card neutral">
+                                    <p class="text-sm font-medium text-zinc-400" data-translate="tax.taxable_income">Ganancia Neta sujeta a Impuesto</p>
+                                    <p id="resultado-ganancia-imponible" class="text-xl font-semibold text-zinc-200">$0</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Sección de Casos de Estudio -->
+                    <div class="tax-cases-panel glass-effect mt-6">
+                        <h5 class="text-lg font-bold mb-3 text-zinc-200" data-translate="tax.section_scenarios">3. Explorar Escenarios (Ejemplos)</h5>
+                        <p class="text-zinc-400 text-sm mb-4" data-translate="tax.scenarios_desc">Seleccione un perfil para cargar automáticamente sus datos en la calculadora y ver los resultados.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <button onclick="cargarCasoTax(1)" class="tax-case-button default">
+                                <p class="font-semibold text-zinc-200" data-translate="tax.case1_title">Soltero/a, sin hijos</p>
+                                <p class="text-sm text-zinc-400" data-translate="tax.case1_salary">Salario: $2.500.000</p>
+                            </button>
+                            <button onclick="cargarCasoTax(2)" class="tax-case-button teal">
+                                <p class="font-semibold text-teal-200" data-translate="tax.case2_title">Casado/a con 2 hijos</p>
+                                <p class="text-sm text-teal-400" data-translate="tax.case2_salary">Salario: $4.000.000</p>
+                            </button>
+                            <button onclick="cargarCasoTax(3)" class="tax-case-button indigo">
+                                <p class="font-semibold text-indigo-200" data-translate="tax.case3_title">Soltero/a que alquila</p>
+                                <p class="text-sm text-indigo-400" data-translate="tax.case3_salary">Salario: $3.200.000, alquiler deducido</p>
+                            </button>
+                        </div>
+                    </div>
 
+                    <!-- Sección Educativa con Tabs -->
+                    <div class="tax-info-panel glass-effect mt-6">
+                        <h5 class="text-lg font-bold mb-3 text-zinc-200" data-translate="tax.section_howto">4. ¿Cómo se Calcula el Impuesto?</h5>
+                        <p class="text-zinc-400 text-sm mb-4" data-translate="tax.howto_desc">El cálculo de la retención mensual es un proceso que proyecta tus ingresos y deducciones anuales para determinar el impuesto total y luego lo divide por los meses del año.</p>
+                        
+                        <div class="mb-4 border-b border-zinc-700">
+                            <nav class="flex flex-wrap -mb-px gap-2" aria-label="Tabs">
+                                <button onclick="changeTaxTab(event, 'tax-paso1')" class="tax-tab-button active" data-translate="tax.tab_step1">Paso 1: Ganancia Bruta</button>
+                                <button onclick="changeTaxTab(event, 'tax-paso2')" class="tax-tab-button" data-translate="tax.tab_step2">Paso 2: Deducciones</button>
+                                <button onclick="changeTaxTab(event, 'tax-paso3')" class="tax-tab-button" data-translate="tax.tab_step3">Paso 3: Escala</button>
+                                <button onclick="changeTaxTab(event, 'tax-paso4')" class="tax-tab-button" data-translate="tax.tab_step4">Paso 4: Retención</button>
+                            </nav>
+                        </div>
+                        
+                        <div id="tax-tab-content">
+                            <div id="tax-paso1" class="tax-tab-pane space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="tax.step1_title">Paso 1: Determinar la Ganancia Bruta Anual</h6>
+                                <p class="text-zinc-400" data-translate="tax.step1_desc">Se proyecta el ingreso anual sumando los 12 salarios mensuales y el Sueldo Anual Complementario (SAC), también conocido como aguinaldo.</p>
+                                <div class="bg-zinc-800 p-3 rounded-lg">
+                                    <code class="text-sm text-zinc-300" data-translate="tax.step1_formula">Ganancia Bruta Anual = (Salario Bruto Mensual × 12) + SAC</code>
+                                </div>
+                            </div>
+                            <div id="tax-paso2" class="tax-tab-pane hidden space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="tax.step2_title">Paso 2: Restar las Deducciones Anuales</h6>
+                                <p class="text-zinc-400" data-translate="tax.step2_desc">De la ganancia bruta, se restan todas las deducciones permitidas por ley:</p>
+                                <ul class="list-disc list-inside space-y-2 text-zinc-400 text-sm">
+                                    <li data-translate="tax.step2_item1"><strong>Aportes Obligatorios:</strong> Jubilación (11%), PAMI (3%) y Obra Social (3%). Total: 17%.</li>
+                                    <li data-translate="tax.step2_item2"><strong>Deducciones Personales:</strong> GNI, Deducción Especial, Cónyuge, Hijos.</li>
+                                    <li data-translate="tax.step2_item3"><strong>Otras Deducciones:</strong> Alquileres, servicio doméstico, créditos hipotecarios, etc.</li>
+                                </ul>
+                            </div>
+                            <div id="tax-paso3" class="tax-tab-pane hidden space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="tax.step3_title">Paso 3: Aplicar la Escala Progresiva</h6>
+                                <p class="text-zinc-400" data-translate="tax.step3_desc">La Ganancia Neta sujeta a Impuesto se ubica en la escala progresiva del artículo 94 de la Ley, que establece un monto fijo más un porcentaje sobre el excedente.</p>
+                                <div class="overflow-x-auto">
+                                    <table id="escalaTable" class="tax-scale-table">
+                                        <thead>
+                                            <tr>
+                                                <th data-translate="tax.table_taxable">Ganancia Neta Imponible</th>
+                                                <th data-translate="tax.table_fixed">Monto Fijo (ARS)</th>
+                                                <th data-translate="tax.table_percent">% sobre Excedente</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="escalaTableBody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tax-paso4" class="tax-tab-pane hidden space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="tax.step4_title">Paso 4: Determinar la Retención Mensual</h6>
+                                <p class="text-zinc-400" data-translate="tax.step4_desc">El impuesto anual total se divide por la cantidad de meses considerados (12 o 13, dependiendo de si se prorratea el SAC).</p>
+                                <div class="bg-zinc-800 p-3 rounded-lg">
+                                    <code class="text-sm text-zinc-300" data-translate="tax.step4_formula">Retención Mensual = Impuesto Anual / 12 (o 13)</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

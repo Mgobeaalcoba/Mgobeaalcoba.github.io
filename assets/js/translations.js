@@ -1963,12 +1963,12 @@ export const translations = {
         en: "Access calculators and updated quotes to optimize your financial decisions"
     },
     "recursos_tax_calculator_title": {
-        es: "Impuesto a las Ganancias",
-        en: "Income Tax"
+        es: "Calculadora de Impuesto a los Ingresos Personales",
+        en: "Personal Income Tax Calculator"
     },
     "recursos_tax_calculator_desc": {
-        es: "Calcula tu impuesto anual en Argentina",
-        en: "Calculate your annual tax in Argentina"
+        es: "Valores y escalas actualizadas al período Enero-Junio de 2026 (Res. Gral. 4.003 AFIP)",
+        en: "Values and scales updated for January-June 2026 period (AFIP Res. Gen. 4.003)"
     },
     "recursos_tax_salary_label": {
         es: "Salario Bruto Anual (ARS)",
@@ -2299,6 +2299,50 @@ export const translations = {
     "tax.donations": { es: 'Donaciones', en: 'Donations' },
     "tax.life_insurance": { es: 'Seguros de vida y retiro', en: 'Life and retirement insurance' },
     "tax.funeral_expenses": { es: 'Gastos de sepelio', en: 'Funeral expenses' },
+    
+    // Tax Calculator - New sections
+    "tax.disclaimer": { 
+        es: '<strong>Importante:</strong> Esta herramienta simula la retención mensual proyectando un ingreso anual constante. Si sus ingresos varían significativamente durante el año, el cálculo real puede diferir. Los valores corresponden al Art. 30 y 94 de la Ley de Ganancias (Res. Gral. 4.003 AFIP, período Ene-Jun 2026). No constituye asesoramiento fiscal.', 
+        en: '<strong>Important:</strong> This tool simulates monthly withholding by projecting a constant annual income. If your income varies significantly during the year, actual results may differ. Values correspond to Art. 30 and 94 of the Income Tax Law (Res. Gen. 4.003 AFIP, Jan-Jun 2026 period). This is not tax advice.' 
+    },
+    "tax.section_input": { es: '1. Ingrese sus datos', en: '1. Enter your data' },
+    "tax.sac_hint": { es: 'Considera la doceava parte del SAC en el cálculo mensual.', en: 'Considers one twelfth of the 13th month salary in monthly calculation.' },
+    "tax.section_results": { es: '2. Resultados de la Simulación', en: '2. Simulation Results' },
+    "tax.chart_label": { es: 'Composición del Salario Bruto', en: 'Gross Salary Composition' },
+    "tax.chart_take_home": { es: 'Sueldo de Bolsillo', en: 'Take-home Salary' },
+    "tax.chart_income_tax": { es: 'Imp. Ganancias', en: 'Income Tax' },
+    "tax.chart_contributions": { es: 'Aportes (Jub, OS, PAMI)', en: 'Contributions (Ret, Health, PAMI)' },
+    "tax.section_scenarios": { es: '3. Explorar Escenarios (Ejemplos)', en: '3. Explore Scenarios (Examples)' },
+    "tax.scenarios_desc": { es: 'Seleccione un perfil para cargar automáticamente sus datos en la calculadora y ver los resultados.', en: 'Select a profile to automatically load its data into the calculator and view results.' },
+    "tax.case1_title": { es: 'Soltero/a, sin hijos', en: 'Single, no children' },
+    "tax.case1_salary": { es: 'Salario: $2.500.000', en: 'Salary: $2,500,000' },
+    "tax.case2_title": { es: 'Casado/a con 2 hijos', en: 'Married with 2 children' },
+    "tax.case2_salary": { es: 'Salario: $4.000.000', en: 'Salary: $4,000,000' },
+    "tax.case3_title": { es: 'Soltero/a que alquila', en: 'Single, renting' },
+    "tax.case3_salary": { es: 'Salario: $3.200.000, alquiler deducido', en: 'Salary: $3,200,000, rent deducted' },
+    "tax.section_howto": { es: '4. ¿Cómo se Calcula el Impuesto?', en: '4. How is the Tax Calculated?' },
+    "tax.howto_desc": { es: 'El cálculo de la retención mensual es un proceso que proyecta tus ingresos y deducciones anuales para determinar el impuesto total y luego lo divide por los meses del año.', en: 'The monthly withholding calculation projects your annual income and deductions to determine total tax, then divides it by the months of the year.' },
+    "tax.tab_step1": { es: 'Paso 1: Ganancia Bruta', en: 'Step 1: Gross Income' },
+    "tax.tab_step2": { es: 'Paso 2: Deducciones', en: 'Step 2: Deductions' },
+    "tax.tab_step3": { es: 'Paso 3: Escala', en: 'Step 3: Tax Scale' },
+    "tax.tab_step4": { es: 'Paso 4: Retención', en: 'Step 4: Withholding' },
+    "tax.step1_title": { es: 'Paso 1: Determinar la Ganancia Bruta Anual', en: 'Step 1: Determine Annual Gross Income' },
+    "tax.step1_desc": { es: 'Se proyecta el ingreso anual sumando los 12 salarios mensuales y el Sueldo Anual Complementario (SAC), también conocido como aguinaldo.', en: 'Annual income is projected by adding 12 monthly salaries plus the Annual Complementary Salary (SAC), also known as the 13th month bonus.' },
+    "tax.step1_formula": { es: 'Ganancia Bruta Anual = (Salario Bruto Mensual × 12) + SAC', en: 'Annual Gross Income = (Monthly Gross Salary × 12) + SAC' },
+    "tax.step2_title": { es: 'Paso 2: Restar las Deducciones Anuales', en: 'Step 2: Subtract Annual Deductions' },
+    "tax.step2_desc": { es: 'De la ganancia bruta, se restan todas las deducciones permitidas por ley:', en: 'From gross income, all legally allowed deductions are subtracted:' },
+    "tax.step2_item1": { es: '<strong>Aportes Obligatorios:</strong> Jubilación (11%), PAMI (3%) y Obra Social (3%). Total: 17%.', en: '<strong>Mandatory Contributions:</strong> Retirement (11%), PAMI (3%) and Health Insurance (3%). Total: 17%.' },
+    "tax.step2_item2": { es: '<strong>Deducciones Personales:</strong> GNI, Deducción Especial, Cónyuge, Hijos.', en: '<strong>Personal Deductions:</strong> Non-taxable minimum, Special Deduction, Spouse, Children.' },
+    "tax.step2_item3": { es: '<strong>Otras Deducciones:</strong> Alquileres, servicio doméstico, créditos hipotecarios, etc.', en: '<strong>Other Deductions:</strong> Rent, domestic service, mortgage loans, etc.' },
+    "tax.step3_title": { es: 'Paso 3: Aplicar la Escala Progresiva', en: 'Step 3: Apply Progressive Tax Scale' },
+    "tax.step3_desc": { es: 'La Ganancia Neta sujeta a Impuesto se ubica en la escala progresiva del artículo 94 de la Ley, que establece un monto fijo más un porcentaje sobre el excedente.', en: 'The Net Taxable Income is placed in the progressive scale of Article 94 of the Law, which establishes a fixed amount plus a percentage on the excess.' },
+    "tax.table_taxable": { es: 'Ganancia Neta Imponible', en: 'Net Taxable Income' },
+    "tax.table_fixed": { es: 'Monto Fijo (ARS)', en: 'Fixed Amount (ARS)' },
+    "tax.table_percent": { es: '% sobre Excedente', en: '% on Excess' },
+    "tax.step4_title": { es: 'Paso 4: Determinar la Retención Mensual', en: 'Step 4: Determine Monthly Withholding' },
+    "tax.step4_desc": { es: 'El impuesto anual total se divide por la cantidad de meses considerados (12 o 13, dependiendo de si se prorratea el SAC).', en: 'The total annual tax is divided by the number of months considered (12 or 13, depending on whether the SAC is prorated).' },
+    "tax.step4_formula": { es: 'Retención Mensual = Impuesto Anual / 12 (o 13)', en: 'Monthly Withholding = Annual Tax / 12 (or 13)' },
+    
     recursos_hero_topics: {
         es: "Temas destacados: Ganancias cuarta categoría, retención de ganancias, ingresos personales, cotización del dólar blue, MEP y oficial, inflación mensual e interanual, deducciones y sueldos, economía argentina y más.",
         en: "Featured topics: Fourth category income tax, income tax withholding, personal income, blue, MEP and official dollar rates, monthly and annual inflation, deductions and salaries, Argentine economy and more."
