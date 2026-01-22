@@ -1926,6 +1926,10 @@ export const translations = {
         es: "Cotizaciones",
         en: "Exchange Rates"
     },
+    "recursos_quick_tokens": {
+        es: "Tokens GenAI",
+        en: "GenAI Tokens"
+    },
     "recursos_quick_indicators": {
         es: "Indicadores",
         en: "Indicators"
@@ -2496,5 +2500,157 @@ export const translations = {
     game_teaching_experience: {
         es: "Esta es mi contribución desde la docencia: experimentar con nuevas formas de enseñar para un mundo que ya no es el de 1900.",
         en: "This is my contribution from teaching: experimenting with new ways of teaching for a world that is no longer that of 1900."
+    },
+
+    // =================================================================================
+    // --- TOKEN CALCULATOR TRANSLATIONS
+    // =================================================================================
+    "token.calculator_title": {
+        es: "Calculadora de Consumo de Tokens GenAI",
+        en: "GenAI Token Consumption Calculator"
+    },
+    "token.calculator_desc": {
+        es: "Compare costos de procesamiento en OpenAI, Claude, Gemini y xAI",
+        en: "Compare processing costs across OpenAI, Claude, Gemini and xAI"
+    },
+    "token.disclaimer": {
+        es: "<strong>Importante:</strong> Estimación basada en ~4 caracteres/token (aproximación estándar). El conteo real varía según el modelo y tokenizador. Precios actualizados a Enero 2026. No incluye caching ni descuentos por volumen.",
+        en: "<strong>Important:</strong> Estimation based on ~4 characters/token (standard approximation). Actual count varies by model and tokenizer. Prices updated to January 2026. Does not include caching or volume discounts."
+    },
+    "token.section_input": {
+        es: "1. Ingrese su texto",
+        en: "1. Enter your text"
+    },
+    "token.text_label": {
+        es: "Texto a analizar",
+        en: "Text to analyze"
+    },
+    "token.text_placeholder": {
+        es: "Pegue aquí el texto que desea analizar...",
+        en: "Paste here the text you want to analyze..."
+    },
+    "token.file_label": {
+        es: "O suba un archivo",
+        en: "Or upload a file"
+    },
+    "token.file_hint": {
+        es: "Arrastre un archivo aquí o haga clic para seleccionar",
+        en: "Drag a file here or click to select"
+    },
+    "token.output_ratio_label": {
+        es: "Ratio de tokens de output",
+        en: "Output token ratio"
+    },
+    "token.output_ratio_hint": {
+        es: "Estima cuántos tokens generará la respuesta (0.5x = respuesta corta, 3x = respuesta muy larga)",
+        en: "Estimate how many tokens the response will generate (0.5x = short response, 3x = very long response)"
+    },
+    "token.calculate_btn": {
+        es: "Calcular Costos",
+        en: "Calculate Costs"
+    },
+    "token.section_results": {
+        es: "2. Análisis y Costos",
+        en: "2. Analysis and Costs"
+    },
+    "token.stat_chars": {
+        es: "Caracteres",
+        en: "Characters"
+    },
+    "token.stat_words": {
+        es: "Palabras",
+        en: "Words"
+    },
+    "token.stat_tokens": {
+        es: "Tokens (est.)",
+        en: "Tokens (est.)"
+    },
+    "token.best_option": {
+        es: "Más económico:",
+        en: "Most affordable:"
+    },
+    "token.table_model": {
+        es: "Modelo",
+        en: "Model"
+    },
+    "token.table_input": {
+        es: "Input",
+        en: "Input"
+    },
+    "token.table_output": {
+        es: "Output",
+        en: "Output"
+    },
+    "token.table_total": {
+        es: "Total",
+        en: "Total"
+    },
+    "token.table_compare": {
+        es: "vs. Min",
+        en: "vs. Min"
+    },
+    "token.placeholder": {
+        es: "Ingrese texto o suba un archivo para ver los costos estimados",
+        en: "Enter text or upload a file to see estimated costs"
+    },
+    "token.section_info": {
+        es: "3. Información sobre Precios",
+        en: "3. Pricing Information"
+    },
+    "token.tab_pricing": {
+        es: "Precios por Modelo",
+        en: "Pricing by Model"
+    },
+    "token.tab_tokenization": {
+        es: "¿Qué es un Token?",
+        en: "What is a Token?"
+    },
+    "token.tab_tips": {
+        es: "Tips de Optimización",
+        en: "Optimization Tips"
+    },
+    "token.pricing_desc": {
+        es: "Precios por 1 millón de tokens (Enero 2026):",
+        en: "Prices per 1 million tokens (January 2026):"
+    },
+    "token.what_is_token_title": {
+        es: "¿Qué es un Token?",
+        en: "What is a Token?"
+    },
+    "token.what_is_token_desc": {
+        es: "Un token es la unidad mínima de texto que procesan los modelos de IA. Puede ser una palabra, parte de una palabra, o un caracter especial.",
+        en: "A token is the minimum unit of text that AI models process. It can be a word, part of a word, or a special character."
+    },
+    "token.tokenization_example": {
+        es: "<strong>Ejemplo:</strong> \"Hola mundo\" ≈ 2-3 tokens. \"Constitución\" ≈ 2-4 tokens.",
+        en: "<strong>Example:</strong> \"Hello world\" ≈ 2 tokens. \"Constitution\" ≈ 2-3 tokens."
+    },
+    "token.tokenization_approx": {
+        es: "Esta calculadora usa una aproximación de ~4 caracteres por token, que es un promedio razonable para texto en español/inglés.",
+        en: "This calculator uses an approximation of ~4 characters per token, which is a reasonable average for Spanish/English text."
+    },
+    "token.tips_title": {
+        es: "Tips para Optimizar Costos",
+        en: "Tips to Optimize Costs"
+    },
+    "token.tip_1": {
+        es: "<strong>Sé conciso:</strong> Prompts más cortos = menos tokens = menor costo.",
+        en: "<strong>Be concise:</strong> Shorter prompts = fewer tokens = lower cost."
+    },
+    "token.tip_2": {
+        es: "<strong>Usa modelos económicos:</strong> Para tareas simples, GPT-4o mini o Gemini Flash son muy efectivos.",
+        en: "<strong>Use affordable models:</strong> For simple tasks, GPT-4o mini or Gemini Flash are very effective."
+    },
+    "token.tip_3": {
+        es: "<strong>Aprovecha el caching:</strong> Muchos proveedores ofrecen descuentos por prompts repetidos.",
+        en: "<strong>Take advantage of caching:</strong> Many providers offer discounts for repeated prompts."
+    },
+    "token.tip_4": {
+        es: "<strong>Limita la respuesta:</strong> Usa parámetros como max_tokens para controlar la longitud de salida.",
+        en: "<strong>Limit the response:</strong> Use parameters like max_tokens to control output length."
+    },
+    "token.tip_5": {
+        es: "<strong>Batch requests:</strong> Agrupa solicitudes similares para mejor eficiencia.",
+        en: "<strong>Batch requests:</strong> Group similar requests for better efficiency."
     }
 }; 

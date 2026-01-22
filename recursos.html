@@ -216,6 +216,10 @@
                     <i class="fas fa-calculator mr-2"></i>
                     <span data-translate="recursos_quick_tax">Calculadora Ganancias</span>
                 </a>
+                <a href="#token-calculator" class="quick-nav-btn purple">
+                    <i class="fas fa-robot mr-2"></i>
+                    <span data-translate="recursos_quick_tokens">Tokens GenAI</span>
+                </a>
                 <a href="#cotizaciones" class="quick-nav-btn green">
                     <i class="fas fa-dollar-sign mr-2"></i>
                     <span data-translate="recursos_quick_quotes">Cotizaciones</span>
@@ -519,6 +523,205 @@
                                 <div class="bg-zinc-800 p-3 rounded-lg">
                                     <code class="text-sm text-zinc-300" data-translate="tax.step4_formula">Retención Mensual = Impuesto Anual / 12 (o 13)</code>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora de Consumo de Tokens GenAI -->
+                <div class="token-calculator-container mt-12" id="token-calculator">
+                    <!-- Header con disclaimer -->
+                    <div class="tax-header glass-effect mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="token-header-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-zinc-100" data-translate="token.calculator_title">Calculadora de Consumo de Tokens GenAI</h4>
+                                <p class="text-zinc-400" data-translate="token.calculator_desc">Compare costos de procesamiento en OpenAI, Claude, Gemini y xAI</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-amber-300 bg-amber-900/50 border border-amber-800 rounded-md p-2" data-translate="token.disclaimer">
+                            <strong>Importante:</strong> Estimación basada en ~4 caracteres/token (aproximación estándar). El conteo real varía según el modelo y tokenizador. Precios actualizados a Enero 2026. No incluye caching ni descuentos por volumen.
+                        </p>
+                    </div>
+
+                    <!-- Layout principal -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Columna izquierda: Input -->
+                        <div class="tax-form-panel glass-effect">
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="token.section_input">1. Ingrese su texto</h5>
+                            
+                            <div class="space-y-4">
+                                <!-- Textarea para texto -->
+                                <div>
+                                    <label for="token-text-input" class="block text-sm font-medium text-zinc-300 mb-2" data-translate="token.text_label">Texto a analizar</label>
+                                    <textarea id="token-text-input" rows="8" class="token-textarea" placeholder="Pegue aquí el texto que desea analizar..." data-translate-placeholder="token.text_placeholder"></textarea>
+                                </div>
+
+                                <!-- Subir archivo -->
+                                <div class="token-file-upload">
+                                    <label class="block text-sm font-medium text-zinc-300 mb-2" data-translate="token.file_label">O suba un archivo</label>
+                                    <div class="token-file-dropzone" id="token-dropzone">
+                                        <input type="file" id="token-file-input" accept=".txt,.csv,.doc,.docx,.pdf" class="hidden">
+                                        <div class="text-center">
+                                            <i class="fas fa-cloud-upload-alt text-3xl text-zinc-500 mb-2"></i>
+                                            <p class="text-zinc-400 text-sm" data-translate="token.file_hint">Arrastre un archivo aquí o haga clic para seleccionar</p>
+                                            <p class="text-zinc-500 text-xs mt-1">Formatos: .txt, .csv, .doc, .docx, .pdf</p>
+                                        </div>
+                                    </div>
+                                    <p id="token-file-name" class="text-sm text-green-400 mt-2 hidden"></p>
+                                </div>
+
+                                <!-- Slider de ratio output -->
+                                <div>
+                                    <label class="block text-sm font-medium text-zinc-300 mb-2" data-translate="token.output_ratio_label">Ratio de tokens de output</label>
+                                    <div class="flex items-center gap-4">
+                                        <input type="range" id="token-output-ratio" min="0.5" max="3" step="0.5" value="1" class="tax-slider flex-grow">
+                                        <span id="token-ratio-display" class="text-zinc-200 font-semibold min-w-[3rem] text-center">1x</span>
+                                    </div>
+                                    <p class="text-zinc-500 text-xs mt-1" data-translate="token.output_ratio_hint">Estima cuántos tokens generará la respuesta (0.5x = respuesta corta, 3x = respuesta muy larga)</p>
+                                </div>
+
+                                <!-- Botón Calcular -->
+                                <button onclick="calculateTokenCosts()" class="token-calculate-btn w-full">
+                                    <i class="fas fa-calculator mr-2"></i>
+                                    <span data-translate="token.calculate_btn">Calcular Costos</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Columna derecha: Resultados -->
+                        <div class="tax-results-panel glass-effect">
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="token.section_results">2. Análisis y Costos</h5>
+                            
+                            <!-- Estadísticas del texto -->
+                            <div id="token-stats" class="token-stats-grid mb-6">
+                                <div class="token-stat-card">
+                                    <i class="fas fa-font text-blue-400"></i>
+                                    <div>
+                                        <p class="text-xs text-zinc-400" data-translate="token.stat_chars">Caracteres</p>
+                                        <p id="token-char-count" class="text-lg font-bold text-zinc-200">0</p>
+                                    </div>
+                                </div>
+                                <div class="token-stat-card">
+                                    <i class="fas fa-paragraph text-green-400"></i>
+                                    <div>
+                                        <p class="text-xs text-zinc-400" data-translate="token.stat_words">Palabras</p>
+                                        <p id="token-word-count" class="text-lg font-bold text-zinc-200">0</p>
+                                    </div>
+                                </div>
+                                <div class="token-stat-card">
+                                    <i class="fas fa-coins text-amber-400"></i>
+                                    <div>
+                                        <p class="text-xs text-zinc-400" data-translate="token.stat_tokens">Tokens (est.)</p>
+                                        <p id="token-token-count" class="text-lg font-bold text-zinc-200">0</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mejor opción -->
+                            <div id="token-best-option" class="token-best-option hidden mb-4">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-trophy text-yellow-400"></i>
+                                    <span class="text-sm font-semibold text-yellow-300" data-translate="token.best_option">Más económico:</span>
+                                    <span id="token-best-model" class="text-lg font-bold text-yellow-200"></span>
+                                    <span id="token-best-price" class="text-sm text-yellow-400"></span>
+                                </div>
+                            </div>
+
+                            <!-- Tabla de resultados -->
+                            <div id="token-results-container" class="token-results-table-container hidden">
+                                <table class="token-results-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-translate="token.table_model">Modelo</th>
+                                            <th data-translate="token.table_input">Input</th>
+                                            <th data-translate="token.table_output">Output</th>
+                                            <th data-translate="token.table_total">Total</th>
+                                            <th data-translate="token.table_compare">vs. Min</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="token-results-body">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Placeholder inicial -->
+                            <div id="token-placeholder" class="text-center py-8">
+                                <i class="fas fa-keyboard text-4xl text-zinc-600 mb-3"></i>
+                                <p class="text-zinc-500" data-translate="token.placeholder">Ingrese texto o suba un archivo para ver los costos estimados</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección informativa con tabs -->
+                    <div class="tax-info-panel glass-effect mt-6">
+                        <h5 class="text-lg font-bold mb-3 text-zinc-200" data-translate="token.section_info">3. Información sobre Precios</h5>
+                        
+                        <div class="mb-4 border-b border-zinc-700">
+                            <nav class="flex flex-wrap -mb-px gap-2" aria-label="Token Info Tabs">
+                                <button onclick="changeTokenTab(event, 'token-pricing')" class="tax-tab-button active" data-translate="token.tab_pricing">Precios por Modelo</button>
+                                <button onclick="changeTokenTab(event, 'token-tokenization')" class="tax-tab-button" data-translate="token.tab_tokenization">¿Qué es un Token?</button>
+                                <button onclick="changeTokenTab(event, 'token-tips')" class="tax-tab-button" data-translate="token.tab_tips">Tips de Optimización</button>
+                            </nav>
+                        </div>
+                        
+                        <div id="token-tab-content">
+                            <!-- Tab: Precios -->
+                            <div id="token-pricing" class="tax-tab-pane space-y-3">
+                                <p class="text-zinc-400 text-sm" data-translate="token.pricing_desc">Precios por 1 millón de tokens (Enero 2026):</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                                    <div class="token-provider-card openai">
+                                        <h6 class="font-semibold text-green-300 mb-2"><i class="fas fa-brain mr-2"></i>OpenAI</h6>
+                                        <ul class="text-sm text-zinc-400 space-y-1">
+                                            <li>GPT-4o: $2.50 / $10.00</li>
+                                            <li>GPT-4o mini: $0.15 / $0.60</li>
+                                        </ul>
+                                    </div>
+                                    <div class="token-provider-card anthropic">
+                                        <h6 class="font-semibold text-orange-300 mb-2"><i class="fas fa-comment-dots mr-2"></i>Anthropic</h6>
+                                        <ul class="text-sm text-zinc-400 space-y-1">
+                                            <li>Claude Sonnet 4.5: $3.00 / $15.00</li>
+                                            <li>Claude Haiku 4.5: $1.00 / $5.00</li>
+                                            <li>Claude Opus 4.5: $5.00 / $25.00</li>
+                                        </ul>
+                                    </div>
+                                    <div class="token-provider-card google">
+                                        <h6 class="font-semibold text-blue-300 mb-2"><i class="fas fa-gem mr-2"></i>Google</h6>
+                                        <ul class="text-sm text-zinc-400 space-y-1">
+                                            <li>Gemini 2.5 Pro: $1.25 / $10.00</li>
+                                            <li>Gemini 2.5 Flash: $0.30 / $2.50</li>
+                                        </ul>
+                                    </div>
+                                    <div class="token-provider-card xai">
+                                        <h6 class="font-semibold text-purple-300 mb-2"><i class="fas fa-rocket mr-2"></i>xAI</h6>
+                                        <ul class="text-sm text-zinc-400 space-y-1">
+                                            <li>Grok 4: $3.00 / $15.00</li>
+                                            <li>Grok 4.1 Fast: $0.20 / $0.50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab: Tokenización -->
+                            <div id="token-tokenization" class="tax-tab-pane hidden space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="token.what_is_token_title">¿Qué es un Token?</h6>
+                                <p class="text-zinc-400" data-translate="token.what_is_token_desc">Un token es la unidad mínima de texto que procesan los modelos de IA. Puede ser una palabra, parte de una palabra, o un caracter especial.</p>
+                                <div class="bg-zinc-800 p-3 rounded-lg">
+                                    <p class="text-sm text-zinc-300" data-translate="token.tokenization_example"><strong>Ejemplo:</strong> "Hola mundo" ≈ 2-3 tokens. "Constitución" ≈ 2-4 tokens.</p>
+                                </div>
+                                <p class="text-zinc-400 text-sm" data-translate="token.tokenization_approx">Esta calculadora usa una aproximación de ~4 caracteres por token, que es un promedio razonable para texto en español/inglés.</p>
+                            </div>
+                            <!-- Tab: Tips -->
+                            <div id="token-tips" class="tax-tab-pane hidden space-y-3">
+                                <h6 class="font-semibold text-lg text-zinc-200" data-translate="token.tips_title">Tips para Optimizar Costos</h6>
+                                <ul class="list-disc list-inside space-y-2 text-zinc-400 text-sm">
+                                    <li data-translate="token.tip_1"><strong>Sé conciso:</strong> Prompts más cortos = menos tokens = menor costo.</li>
+                                    <li data-translate="token.tip_2"><strong>Usa modelos económicos:</strong> Para tareas simples, GPT-4o mini o Gemini Flash son muy efectivos.</li>
+                                    <li data-translate="token.tip_3"><strong>Aprovecha el caching:</strong> Muchos proveedores ofrecen descuentos por prompts repetidos.</li>
+                                    <li data-translate="token.tip_4"><strong>Limita la respuesta:</strong> Usa parámetros como max_tokens para controlar la longitud de salida.</li>
+                                    <li data-translate="token.tip_5"><strong>Batch requests:</strong> Agrupa solicitudes similares para mejor eficiencia.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -917,6 +1120,7 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="assets/js/token-calculator.js"></script>
     <script type="module" src="assets/js/recursos.js"></script>
 </body>
 </html> 

@@ -80,6 +80,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeThemes();
         initializeMobileMenu();
         initializeTaxCalculator();
+        // Initialize Token Calculator if function exists
+        if (typeof initializeTokenCalculator === 'function') {
+            initializeTokenCalculator();
+            console.log('🤖 Token calculator initialized');
+        }
         await initializeCurrencyWidget();
         // 3. CLAVE: Cargar datos de widgets ANTES de setear idioma
         await initializeEconomicIndicators();

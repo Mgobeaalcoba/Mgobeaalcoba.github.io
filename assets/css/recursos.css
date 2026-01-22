@@ -3544,4 +3544,360 @@ html.light .tax-tab-pane li {
 
 html.light .tax-tab-pane h6 {
     color: #1f2937 !important;
+}
+
+/* =================================================================================
+   --- TOKEN CALCULATOR STYLES
+   ================================================================================= */
+
+.token-calculator-container {
+    width: 100%;
+}
+
+.token-header-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Token Textarea */
+.token-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(39, 39, 42, 0.8);
+    border: 1px solid rgba(113, 113, 122, 0.4);
+    border-radius: 0.5rem;
+    color: #e4e4e7;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    min-height: 180px;
+    transition: all 0.2s ease;
+}
+
+.token-textarea:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.token-textarea::placeholder {
+    color: #71717a;
+}
+
+/* File Upload Dropzone */
+.token-file-dropzone {
+    border: 2px dashed rgba(113, 113, 122, 0.5);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(39, 39, 42, 0.4);
+}
+
+.token-file-dropzone:hover,
+.token-file-dropzone.dragover {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.token-file-dropzone.dragover i {
+    color: #8b5cf6;
+    transform: scale(1.1);
+}
+
+/* Calculate Button */
+.token-calculate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.token-calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+}
+
+.token-calculate-btn:active {
+    transform: translateY(0);
+}
+
+/* Stats Grid */
+.token-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.token-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(39, 39, 42, 0.6);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+.token-stat-card i {
+    font-size: 1.25rem;
+}
+
+/* Best Option Highlight */
+.token-best-option {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(245, 158, 11, 0.1));
+    border: 1px solid rgba(234, 179, 8, 0.4);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Results Table */
+.token-results-table-container {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(63, 63, 70, 0.6);
+}
+
+.token-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.token-results-table thead {
+    background: rgba(39, 39, 42, 0.8);
+}
+
+.token-results-table th {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(63, 63, 70, 0.6);
+}
+
+.token-results-table tbody tr {
+    border-bottom: 1px solid rgba(63, 63, 70, 0.4);
+    transition: background 0.2s ease;
+}
+
+.token-results-table tbody tr:hover {
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.token-results-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.token-results-table td {
+    padding: 0.75rem 0.5rem;
+    color: #d4d4d8;
+}
+
+.token-results-table .model-name {
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+.token-results-table .provider-badge {
+    display: inline-block;
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+    border-radius: 9999px;
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+
+.token-results-table .provider-badge.openai {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+.token-results-table .provider-badge.anthropic {
+    background: rgba(251, 146, 60, 0.2);
+    color: #fb923c;
+}
+
+.token-results-table .provider-badge.google {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+.token-results-table .provider-badge.xai {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+}
+
+.token-results-table .cost-cell {
+    font-family: ui-monospace, monospace;
+    font-size: 0.8rem;
+}
+
+.token-results-table .total-cell {
+    font-weight: 700;
+    color: #8b5cf6;
+}
+
+.token-results-table .compare-cell {
+    font-size: 0.75rem;
+}
+
+.token-results-table .compare-cell.best {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.token-results-table .compare-cell.normal {
+    color: #a1a1aa;
+}
+
+.token-results-table .compare-cell.expensive {
+    color: #f59e0b;
+}
+
+.token-results-table .compare-cell.very-expensive {
+    color: #ef4444;
+}
+
+/* Provider Cards in Info Section */
+.token-provider-card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+.token-provider-card.openai {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.token-provider-card.anthropic {
+    background: rgba(251, 146, 60, 0.1);
+    border-color: rgba(251, 146, 60, 0.3);
+}
+
+.token-provider-card.google {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.token-provider-card.xai {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .token-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .token-stat-card {
+        padding: 0.75rem;
+    }
+    
+    .token-results-table th,
+    .token-results-table td {
+        padding: 0.5rem 0.375rem;
+        font-size: 0.75rem;
+    }
+    
+    .token-results-table .provider-badge {
+        display: none;
+    }
+}
+
+/* Light Mode Overrides for Token Calculator */
+html.light .token-textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(209, 213, 219, 0.8);
+    color: #1f2937;
+}
+
+html.light .token-textarea::placeholder {
+    color: #9ca3af;
+}
+
+html.light .token-file-dropzone {
+    background: rgba(249, 250, 251, 0.8);
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .token-file-dropzone:hover,
+html.light .token-file-dropzone.dragover {
+    background: rgba(139, 92, 246, 0.05);
+    border-color: #8b5cf6;
+}
+
+html.light .token-stat-card {
+    background: rgba(249, 250, 251, 0.9);
+    border-color: rgba(229, 231, 235, 0.8);
+}
+
+html.light .token-stat-card p:first-of-type {
+    color: #6b7280 !important;
+}
+
+html.light .token-stat-card p:last-of-type {
+    color: #1f2937 !important;
+}
+
+html.light .token-best-option {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(245, 158, 11, 0.05));
+    border-color: rgba(234, 179, 8, 0.4);
+}
+
+html.light .token-results-table-container {
+    border-color: rgba(229, 231, 235, 0.8);
+}
+
+html.light .token-results-table thead {
+    background: rgba(249, 250, 251, 0.95);
+}
+
+html.light .token-results-table th {
+    color: #6b7280;
+    border-bottom-color: rgba(229, 231, 235, 0.8);
+}
+
+html.light .token-results-table tbody tr {
+    border-bottom-color: rgba(229, 231, 235, 0.6);
+}
+
+html.light .token-results-table td {
+    color: #374151;
+}
+
+html.light .token-results-table .model-name {
+    color: #1f2937;
+}
+
+html.light .token-provider-card {
+    border-color: rgba(209, 213, 219, 0.6);
+}
+
+html.light .token-provider-card h6 {
+    color: #1f2937 !important;
+}
+
+html.light .token-provider-card ul li {
+    color: #4b5563 !important;
 } 
