@@ -359,6 +359,67 @@ html.light .hero-section::before {
     background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
 }
 
+/* Quick Navigation Buttons */
+.quick-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.quick-nav-btn.blue {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #93c5fd;
+}
+
+.quick-nav-btn.blue:hover {
+    background: rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.quick-nav-btn.green {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+    color: #86efac;
+}
+
+.quick-nav-btn.green:hover {
+    background: rgba(34, 197, 94, 0.4);
+    transform: translateY(-2px);
+}
+
+.quick-nav-btn.purple {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.4);
+    color: #d8b4fe;
+}
+
+.quick-nav-btn.purple:hover {
+    background: rgba(168, 85, 247, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Light mode quick nav */
+html.light .quick-nav-btn.blue {
+    background: rgba(59, 130, 246, 0.15);
+    color: #1d4ed8;
+}
+
+html.light .quick-nav-btn.green {
+    background: rgba(34, 197, 94, 0.15);
+    color: #15803d;
+}
+
+html.light .quick-nav-btn.purple {
+    background: rgba(168, 85, 247, 0.15);
+    color: #7c3aed;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;

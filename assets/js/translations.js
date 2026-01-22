@@ -1914,6 +1914,22 @@ export const translations = {
         es: "Recursos Útiles",
         en: "Useful Resources"
     },
+    "recursos_page_title_short": {
+        es: "Herramientas Financieras Argentina",
+        en: "Argentina Financial Tools"
+    },
+    "recursos_quick_tax": {
+        es: "Calculadora Ganancias",
+        en: "Tax Calculator"
+    },
+    "recursos_quick_quotes": {
+        es: "Cotizaciones",
+        en: "Exchange Rates"
+    },
+    "recursos_quick_indicators": {
+        es: "Indicadores",
+        en: "Indicators"
+    },
     "recursos_page_subtitle": {
         es: "Herramientas financieras gratuitas y actualizadas para tomar mejores decisiones económicas en Argentina",
         en: "Free and updated financial tools to make better economic decisions in Argentina"
