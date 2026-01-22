@@ -79,9 +79,9 @@ export async function typeWords() {
     const { typingText } = getIntroElements();
     if (!typingText) return;
     
-    const introWords = ["Data & Analytics", "Technical Leadership", "Python", "Cloud Computing", "Business Intelligence", "Software Engineering"];
-    const introThemes = ['dark', 'light', 'terminal', 'dark', 'light', 'terminal'];
-    const introLanguages = ['es', 'en', 'es', 'en', 'es', 'en'];
+    const introWords = ["Data & Analytics", "GenAI", "Automations", "Technical Leadership", "Python", "Cloud Computing", "Business Intelligence", "Software Engineering"];
+    const introThemes = ['dark', 'light', 'terminal', 'dark', 'light', 'terminal', 'dark', 'light'];
+    const introLanguages = ['es', 'en', 'es', 'en', 'es', 'en', 'es', 'en'];
     
     for (let i = 0; i < introWords.length; i++) {
         if (introFinished) break;
