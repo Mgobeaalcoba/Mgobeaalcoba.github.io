@@ -240,18 +240,20 @@ function calculateTax() {
         conyuge: 4851964.66,                // Carga de familia - Cónyuge Art. 30 inc. b)
         hijo: 2446863.48,                   // Carga de familia - Hijo Art. 30 inc. b)
         hijo_incapacitado: 4893726.96,      // Carga de familia - Hijo incapacitado Art. 30 inc. b)
-        alquiler_tope: 5151802.50,          // Tope alquiler (igual al GNI)
-        domestico_tope: 5151802.50,         // Tope servicio doméstico (igual al GNI)
-        hipotecario_tope: 20000,            // Valor histórico sin actualizar
+        // Topes deducciones actualizados 2026 según normativa vigente
+        alquiler_porcentaje: 0.40,          // 40% del alquiler pagado es deducible
+        alquiler_tope: 5151802.50,          // Tope igual al GNI
+        domestico_tope: null,               // SIN TOPE según RG 5531/2024
+        hipotecario_tope: 20000,            // Valor histórico (vivienda única)
         aportes_porcentaje: 0.17,
         // Topes para base imponible de aportes (Enero 2026)
         aportes_base_minima: 117643.93,     // Tope mínimo base imponible aportes
         aportes_base_maxima: 3823372.95,    // Tope máximo base imponible aportes
-        medicos_facturado_porcentaje: 0.40,
-        ganancia_neta_tope_porcentaje: 0.05,
-        educacion_tope: 2250000,            // Valor actualizado proporcional
-        seguro_vida_tope: 360000,           // Valor actualizado proporcional
-        sepelio_tope: 216000,               // Valor actualizado proporcional
+        medicos_facturado_porcentaje: 0.40, // 40% de lo facturado
+        ganancia_neta_tope_porcentaje: 0.05, // 5% ganancia neta (médicos, donaciones)
+        educacion_tope: 2060721,            // 40% del GNI (5151802.50 * 0.40)
+        seguro_vida_tope: 655000,           // Actualizado 2026 (estimado +14.29% IPC)
+        sepelio_tope: 1136,                 // Actualizado 2026 (valor histórico bajo)
         // Escala Art. 94 - Res. Gral. 4.003 AFIP - Período Ene-Jun 2026 (valores anuales)
         escala: [
             { limite: 0, fijo: 0, porcentaje: 0.05 },
@@ -268,6 +270,7 @@ function calculateTax() {
 
     // Obtener valores de los inputs
     const salarioBrutoInput = document.getElementById('salario-bruto');
+    const ingresosExtraInput = document.getElementById('ingresos-extra');
     const incluirSACInput = document.getElementById('incluir-sac');
     const deduccionConyugeInput = document.getElementById('deduccion-conyuge');
     const deduccionHijosInput = document.getElementById('deduccion-hijos');
@@ -280,13 +283,21 @@ function calculateTax() {
     const deduccionDonacionesInput = document.getElementById('deduccion-donaciones');
     const deduccionSeguroVidaInput = document.getElementById('deduccion-seguro-vida');
     const deduccionSepelioInput = document.getElementById('deduccion-sepelio');
+    const deduccionInsumosInput = document.getElementById('deduccion-insumos');
     
     if (!salarioBrutoInput) {
         console.error('Tax calculator inputs not found');
         return;
     }
 
-    const salarioBrutoMensual = parseFloat(salarioBrutoInput.value) || 0;
+    // Parsear valores (removiendo separadores de miles si existen)
+    const parseFormattedNumber = (value) => {
+        if (!value) return 0;
+        return parseFloat(String(value).replace(/\./g, '').replace(/,/g, '.')) || 0;
+    };
+
+    const salarioBrutoMensual = parseFormattedNumber(salarioBrutoInput.value);
+    const ingresosExtraAnuales = parseFormattedNumber(ingresosExtraInput?.value);
     const incluirSAC = incluirSACInput?.checked || false;
     
     if (salarioBrutoMensual <= 0) {
@@ -294,9 +305,10 @@ function calculateTax() {
         return;
     }
 
-    // 1. Ganancia Bruta Anual
+    // 1. Ganancia Bruta Anual (incluyendo ingresos extra anuales como bono)
     const meses = incluirSAC ? 13 : 12;
-    const sueldoAnualBruto = incluirSAC ? salarioBrutoMensual * 13 : salarioBrutoMensual * 12;
+    const sueldoBase = incluirSAC ? salarioBrutoMensual * 13 : salarioBrutoMensual * 12;
+    const sueldoAnualBruto = sueldoBase + ingresosExtraAnuales;
 
     // 2. Aportes obligatorios (17%) con topes de base imponible
     // La base imponible para aportes tiene un mínimo y máximo mensual
@@ -322,20 +334,86 @@ function calculateTax() {
     const topeGananciaNeta = gananciaNetaAntesOtrasDeducciones * TAX_PARAMS.ganancia_neta_tope_porcentaje;
 
     // 5. Otras deducciones con topes
+    // Helper para obtener valor anualizado (si checkbox destildado = mensual, multiplicar x12)
+    const getDeduccionAnualizada = (inputValue, checkboxId, tope = null, porcentaje = 1) => {
+        const valorBase = parseFloat(inputValue) || 0;
+        const esAnual = document.getElementById(checkboxId)?.checked ?? true;
+        let valorAnual = esAnual ? valorBase : valorBase * 12;
+        // Aplicar porcentaje si corresponde (ej: alquiler 40%)
+        valorAnual = valorAnual * porcentaje;
+        // Aplicar tope si existe
+        if (tope !== null) {
+            valorAnual = Math.min(valorAnual, tope);
+        }
+        return valorAnual;
+    };
+
     let otrasDeducciones = 0;
-    otrasDeducciones += Math.min(parseFloat(deduccionAlquilerInput?.value) || 0, TAX_PARAMS.alquiler_tope);
-    otrasDeducciones += Math.min(parseFloat(deduccionDomesticoInput?.value) || 0, TAX_PARAMS.domestico_tope);
-    otrasDeducciones += Math.min(parseFloat(deduccionHipotecarioInput?.value) || 0, TAX_PARAMS.hipotecario_tope);
+    
+    // Alquiler: 40% del monto, tope GNI
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionAlquilerInput?.value, 
+        'deduccion-alquiler-anual', 
+        TAX_PARAMS.alquiler_tope, 
+        TAX_PARAMS.alquiler_porcentaje
+    );
+    
+    // Servicio doméstico: SIN TOPE según RG 5531/2024
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionDomesticoInput?.value, 
+        'deduccion-domestico-anual', 
+        TAX_PARAMS.domestico_tope // null = sin tope
+    );
+    
+    // Hipotecario: tope fijo
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionHipotecarioInput?.value, 
+        'deduccion-hipotecario-anual', 
+        TAX_PARAMS.hipotecario_tope
+    );
     
     // Gastos médicos: 40% de lo facturado, con tope del 5% de ganancia neta
-    const gastosMedicosFacturados = parseFloat(deduccionMedicosInput?.value) || 0;
-    const deduccionMedicosCalculada = gastosMedicosFacturados * TAX_PARAMS.medicos_facturado_porcentaje;
+    const gastosMedicosAnualizados = getDeduccionAnualizada(
+        deduccionMedicosInput?.value, 
+        'deduccion-medicos-anual'
+    );
+    const deduccionMedicosCalculada = gastosMedicosAnualizados * TAX_PARAMS.medicos_facturado_porcentaje;
     otrasDeducciones += Math.min(deduccionMedicosCalculada, topeGananciaNeta);
 
-    otrasDeducciones += Math.min(parseFloat(deduccionEducacionInput?.value) || 0, TAX_PARAMS.educacion_tope);
-    otrasDeducciones += Math.min(parseFloat(deduccionDonacionesInput?.value) || 0, topeGananciaNeta);
-    otrasDeducciones += Math.min(parseFloat(deduccionSeguroVidaInput?.value) || 0, TAX_PARAMS.seguro_vida_tope);
-    otrasDeducciones += Math.min(parseFloat(deduccionSepelioInput?.value) || 0, TAX_PARAMS.sepelio_tope);
+    // Educación: tope 40% del GNI
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionEducacionInput?.value, 
+        'deduccion-educacion-anual', 
+        TAX_PARAMS.educacion_tope
+    );
+    
+    // Donaciones: tope 5% ganancia neta
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionDonacionesInput?.value, 
+        'deduccion-donaciones-anual', 
+        topeGananciaNeta
+    );
+    
+    // Seguros de vida: tope actualizado
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionSeguroVidaInput?.value, 
+        'deduccion-seguro-vida-anual', 
+        TAX_PARAMS.seguro_vida_tope
+    );
+    
+    // Sepelio: tope histórico
+    otrasDeducciones += getDeduccionAnualizada(
+        deduccionSepelioInput?.value, 
+        'deduccion-sepelio-anual', 
+        TAX_PARAMS.sepelio_tope
+    );
+    
+    // Gastos de insumos de trabajo (SIN TOPE)
+    otrasDeducciones += getDeduccionAnualizada(
+        parseFormattedNumber(deduccionInsumosInput?.value), 
+        'deduccion-insumos-anual', 
+        null // sin tope
+    );
     
     // 6. Total deducciones
     const totalDeducciones = aportesAnuales + deduccionesPersonales + otrasDeducciones;
@@ -478,6 +556,7 @@ function updateTaxChart(data) {
 function cargarCasoTax(caso) {
     const salarioBrutoInput = document.getElementById('salario-bruto');
     const salarioSlider = document.getElementById('salario-slider');
+    const ingresosExtraInput = document.getElementById('ingresos-extra');
     const deduccionConyugeInput = document.getElementById('deduccion-conyuge');
     const deduccionHijosInput = document.getElementById('deduccion-hijos');
     const deduccionHijosIncapInput = document.getElementById('deduccion-hijos-incap');
@@ -489,6 +568,7 @@ function cargarCasoTax(caso) {
     const deduccionDonacionesInput = document.getElementById('deduccion-donaciones');
     const deduccionSeguroVidaInput = document.getElementById('deduccion-seguro-vida');
     const deduccionSepelioInput = document.getElementById('deduccion-sepelio');
+    const deduccionInsumosInput = document.getElementById('deduccion-insumos');
 
     // Reset all deduction fields first
     if (deduccionConyugeInput) deduccionConyugeInput.checked = false;
@@ -502,6 +582,19 @@ function cargarCasoTax(caso) {
     if (deduccionDonacionesInput) deduccionDonacionesInput.value = 0;
     if (deduccionSeguroVidaInput) deduccionSeguroVidaInput.value = 0;
     if (deduccionSepelioInput) deduccionSepelioInput.value = 0;
+    if (deduccionInsumosInput) deduccionInsumosInput.value = 0;
+    if (ingresosExtraInput) ingresosExtraInput.value = 0;
+
+    // Reset checkboxes anuales a checked (anual por defecto)
+    const annualCheckboxIds = [
+        'deduccion-alquiler-anual', 'deduccion-domestico-anual', 'deduccion-hipotecario-anual',
+        'deduccion-medicos-anual', 'deduccion-educacion-anual', 'deduccion-donaciones-anual',
+        'deduccion-seguro-vida-anual', 'deduccion-sepelio-anual', 'deduccion-insumos-anual'
+    ];
+    annualCheckboxIds.forEach(id => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) checkbox.checked = true;
+    });
 
     switch(caso) {
         case 1: // Soltero
@@ -516,12 +609,20 @@ function cargarCasoTax(caso) {
             if (salarioBrutoInput) salarioBrutoInput.value = 3200000;
             if (deduccionAlquilerInput) deduccionAlquilerInput.value = 3500000;
             break;
+        case 4: // Con bono anual
+            if (salarioBrutoInput) salarioBrutoInput.value = 3500000;
+            if (ingresosExtraInput) ingresosExtraInput.value = 7000000;
+            break;
     }
     
     if (salarioSlider && salarioBrutoInput) {
-        salarioSlider.value = salarioBrutoInput.value;
+        // Parsear valor sin formato
+        const rawValue = String(salarioBrutoInput.value).replace(/\./g, '');
+        salarioSlider.value = rawValue;
     }
     
+    // Formatear los inputs después de cargar
+    formatTaxInputs();
     calculateTax();
 }
 
@@ -583,24 +684,79 @@ function fillTaxScaleTable() {
     });
 }
 
+// Función para formatear número con separadores de miles (formato argentino)
+function formatNumberWithSeparators(value) {
+    if (!value && value !== 0) return '';
+    const numericValue = String(value).replace(/\D/g, '');
+    if (!numericValue) return '';
+    return parseInt(numericValue, 10).toLocaleString('es-AR');
+}
+
+// Función para obtener valor numérico de input formateado
+function getNumericValue(input) {
+    if (!input || !input.value) return 0;
+    return parseFloat(String(input.value).replace(/\./g, '').replace(/,/g, '.')) || 0;
+}
+
+// Función para formatear todos los inputs de tax
+function formatTaxInputs() {
+    const formattedInputs = document.querySelectorAll('.tax-input-formatted');
+    formattedInputs.forEach(input => {
+        const numericValue = getNumericValue(input);
+        if (numericValue > 0) {
+            input.value = formatNumberWithSeparators(numericValue);
+        }
+    });
+}
+
 // Función para sincronizar salario con slider
 function initializeTaxCalculatorEvents() {
     const salarioBrutoInput = document.getElementById('salario-bruto');
     const salarioSlider = document.getElementById('salario-slider');
+    const ingresosExtraInput = document.getElementById('ingresos-extra');
+    const deduccionInsumosInput = document.getElementById('deduccion-insumos');
 
     if (salarioBrutoInput && salarioSlider) {
-        // Sincronizar input con slider
+        // Configurar formateo para inputs con separadores de miles
+        const formattedInputs = [salarioBrutoInput, ingresosExtraInput, deduccionInsumosInput];
+        
+        formattedInputs.forEach(input => {
+            if (input) {
+                input.addEventListener('blur', () => {
+                    const numericValue = getNumericValue(input);
+                    if (numericValue > 0) {
+                        input.value = formatNumberWithSeparators(numericValue);
+                    } else {
+                        input.value = '0';
+                    }
+                    calculateTax();
+                });
+                
+                input.addEventListener('focus', () => {
+                    // Al hacer foco, mostrar solo el número sin formato para editar
+                    const numericValue = getNumericValue(input);
+                    input.value = numericValue > 0 ? numericValue : '';
+                });
+                
+                input.addEventListener('input', () => {
+                    calculateTax();
+                });
+            }
+        });
+
+        // Sincronizar input de salario con slider
         salarioBrutoInput.addEventListener('input', () => {
-            salarioSlider.value = salarioBrutoInput.value;
+            const numericValue = getNumericValue(salarioBrutoInput);
+            salarioSlider.value = numericValue;
             calculateTax();
         });
         
         salarioSlider.addEventListener('input', () => {
-            salarioBrutoInput.value = salarioSlider.value;
+            salarioBrutoInput.value = formatNumberWithSeparators(salarioSlider.value);
             calculateTax();
         });
 
-        // Agregar eventos a todos los inputs
+        // Agregar eventos a todos los inputs (incluyendo nuevos)
         const allTaxInputs = [
             'incluir-sac', 'deduccion-conyuge', 'deduccion-hijos', 'deduccion-hijos-incap',
             'deduccion-alquiler', 'deduccion-domestico', 'deduccion-hipotecario', 
@@ -608,11 +764,26 @@ function initializeTaxCalculatorEvents() {
             'deduccion-seguro-vida', 'deduccion-sepelio'
         ];
 
+        // Checkboxes de anual/mensual para deducciones
+        const annualCheckboxes = [
+            'deduccion-alquiler-anual', 'deduccion-domestico-anual', 'deduccion-hipotecario-anual',
+            'deduccion-medicos-anual', 'deduccion-educacion-anual', 'deduccion-donaciones-anual',
+            'deduccion-seguro-vida-anual', 'deduccion-sepelio-anual', 'deduccion-insumos-anual'
+        ];
+
         allTaxInputs.forEach(id => {
             const input = document.getElementById(id);
             if (input) {
                 input.addEventListener('change', calculateTax);
                 input.addEventListener('keyup', calculateTax);
+            }
+        });
+
+        // Eventos para checkboxes de anual
+        annualCheckboxes.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (checkbox) {
+                checkbox.addEventListener('change', calculateTax);
             }
         });
 
@@ -626,10 +797,16 @@ function initializeTaxCalculatorEvents() {
         const firstTab = document.getElementById('tax-paso1');
         if (firstTab) firstTab.classList.remove('hidden');
 
+        // Formatear inputs inicialmente
+        formatTaxInputs();
+
         // Calcular al cargar
         calculateTax();
     }
 }
+
+// Exponer función de formateo globalmente
+window.formatTaxInputs = formatTaxInputs;
 
 // =================================================================================
 // --- CURRENCY MANAGEMENT WITH DOLARAPI INTEGRATION  

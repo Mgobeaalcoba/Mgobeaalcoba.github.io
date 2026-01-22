@@ -3168,6 +3168,35 @@ html.light .input-section small {
     flex-shrink: 0;
 }
 
+/* Mini checkbox para toggle anual/mensual */
+.tax-checkbox-mini {
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 1px solid rgba(113, 113, 122, 0.5);
+    border-radius: 0.15rem;
+    background: rgba(39, 39, 42, 0.8);
+    accent-color: #10b981;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.tax-annual-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.tax-annual-toggle:hover span {
+    color: #a1a1aa;
+}
+
+.tax-deduction-row {
+    background: rgba(39, 39, 42, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
 /* Result Cards */
 .tax-result-card {
     padding: 1.25rem 1.5rem;
@@ -3276,6 +3305,15 @@ html.light .input-section small {
     background: rgba(49, 46, 129, 0.8);
 }
 
+.tax-case-button.amber {
+    background: rgba(120, 53, 15, 0.5);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.tax-case-button.amber:hover {
+    background: rgba(120, 53, 15, 0.8);
+}
+
 /* Tab Buttons */
 .tax-tab-button {
     padding: 0.75rem 0.5rem;
@@ -3361,9 +3399,22 @@ html.light .tax-slider {
     background: rgba(209, 213, 219, 0.8);
 }
 
-html.light .tax-checkbox {
+html.light .tax-checkbox,
+html.light .tax-checkbox-mini {
     background: rgba(255, 255, 255, 0.9);
     border-color: rgba(209, 213, 219, 0.8);
+}
+
+html.light .tax-deduction-row {
+    background: rgba(243, 244, 246, 0.5);
+}
+
+html.light .tax-annual-toggle span {
+    color: #6b7280;
+}
+
+html.light .tax-annual-toggle:hover span {
+    color: #374151;
 }
 
 html.light .tax-result-card.neutral {

@@ -300,18 +300,50 @@
                         </p>
                     </div>
 
+                    <!-- Sección de Casos de Estudio - PRIMERO para guiar al usuario -->
+                    <div class="tax-cases-panel glass-effect mb-6">
+                        <h5 class="text-lg font-bold mb-3 text-zinc-200" data-translate="tax.section_scenarios">1. Explorar Escenarios (Ejemplos)</h5>
+                        <p class="text-zinc-400 text-sm mb-4" data-translate="tax.scenarios_desc">Seleccione un perfil para cargar automáticamente sus datos en la calculadora y ver los resultados.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <button onclick="cargarCasoTax(1)" class="tax-case-button default">
+                                <p class="font-semibold text-zinc-200" data-translate="tax.case1_title">Soltero/a, sin hijos</p>
+                                <p class="text-sm text-zinc-400" data-translate="tax.case1_salary">Salario: $2.500.000</p>
+                            </button>
+                            <button onclick="cargarCasoTax(2)" class="tax-case-button teal">
+                                <p class="font-semibold text-teal-200" data-translate="tax.case2_title">Casado/a con 2 hijos</p>
+                                <p class="text-sm text-teal-400" data-translate="tax.case2_salary">Salario: $4.000.000</p>
+                            </button>
+                            <button onclick="cargarCasoTax(3)" class="tax-case-button indigo">
+                                <p class="font-semibold text-indigo-200" data-translate="tax.case3_title">Soltero/a que alquila</p>
+                                <p class="text-sm text-indigo-400" data-translate="tax.case3_salary">Salario: $3.200.000, alquiler deducido</p>
+                            </button>
+                            <button onclick="cargarCasoTax(4)" class="tax-case-button amber">
+                                <p class="font-semibold text-amber-200" data-translate="tax.case4_title">Con bono anual</p>
+                                <p class="text-sm text-amber-400" data-translate="tax.case4_salary">Salario: $3.500.000 + bono $7.000.000</p>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Layout principal en dos columnas -->
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
                         <!-- Columna izquierda: Formulario -->
                         <div class="lg:col-span-2 tax-form-panel glass-effect">
-                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_input">1. Ingrese sus datos</h5>
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_input">2. Ingrese sus datos</h5>
                             
                             <div class="space-y-5">
                                 <!-- Salario -->
                                 <div>
                                     <label for="salario-bruto" class="block text-sm font-medium text-zinc-300" data-translate="tax.monthly_salary">Salario Bruto Mensual (ARS)</label>
-                                    <input type="number" id="salario-bruto" class="tax-input" placeholder="Ej: 2500000" value="2500000">
+                                    <input type="text" id="salario-bruto" class="tax-input tax-input-formatted" placeholder="Ej: 2.500.000" value="2500000" inputmode="numeric">
                                     <input type="range" id="salario-slider" min="500000" max="10000000" step="50000" value="2500000" class="tax-slider">
+                                    <p class="text-zinc-500 text-xs mt-1" data-translate="tax.slider_hint">Deslice para ajustar el monto rápidamente</p>
+                                </div>
+
+                                <!-- Ingresos Extra Anuales (Bono) -->
+                                <div>
+                                    <label for="ingresos-extra" class="block text-sm font-medium text-zinc-300" data-translate="tax.extra_income">Ingresos Extra Anuales (Bono, etc.)</label>
+                                    <input type="text" id="ingresos-extra" class="tax-input tax-input-formatted" placeholder="Ej: 5.000.000" value="0" inputmode="numeric">
+                                    <p class="text-zinc-500 text-xs mt-1" data-translate="tax.extra_income_hint">Incluya bonos anuales, gratificaciones u otros ingresos adicionales.</p>
                                 </div>
 
                                 <!-- SAC Checkbox -->
@@ -344,39 +376,99 @@
 
                                 <!-- Otras Deducciones -->
                                 <div>
-                                    <h6 class="text-md font-semibold text-zinc-200 mb-2" data-translate="tax.other_deductions">Otras Deducciones Anuales (ARS)</h6>
+                                    <h6 class="text-md font-semibold text-zinc-200 mb-2" data-translate="tax.other_deductions">Otras Deducciones (ARS)</h6>
+                                    <p class="text-xs text-zinc-500 mb-3" data-translate="tax.deductions_hint">Marque "Anual" si el monto es anual. Si no, se considera mensual y se multiplica ×12.</p>
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <div>
-                                            <label for="deduccion-alquiler" class="block text-xs text-zinc-400" data-translate="tax.rent_deduction">Alquiler de vivienda</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-alquiler" class="text-xs text-zinc-400" data-translate="tax.rent_deduction">Alquiler de vivienda</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-alquiler-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-alquiler" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-domestico" class="block text-xs text-zinc-400" data-translate="tax.domestic_service">Servicio doméstico</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-domestico" class="text-xs text-zinc-400" data-translate="tax.domestic_service">Servicio doméstico</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-domestico-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-domestico" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-hipotecario" class="block text-xs text-zinc-400" data-translate="tax.mortgage_interest">Intereses créd. hipotecario</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-hipotecario" class="text-xs text-zinc-400" data-translate="tax.mortgage_interest">Intereses créd. hipotecario</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-hipotecario-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-hipotecario" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-medicos" class="block text-xs text-zinc-400" data-translate="tax.medical_expenses">Gastos médicos</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-medicos" class="text-xs text-zinc-400" data-translate="tax.medical_expenses">Gastos médicos</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-medicos-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-medicos" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-educacion" class="block text-xs text-zinc-400" data-translate="tax.education_expenses">Gastos de educación</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-educacion" class="text-xs text-zinc-400" data-translate="tax.education_expenses">Gastos de educación</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-educacion-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-educacion" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-donaciones" class="block text-xs text-zinc-400" data-translate="tax.donations">Donaciones</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-donaciones" class="text-xs text-zinc-400" data-translate="tax.donations">Donaciones</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-donaciones-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-donaciones" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-seguro-vida" class="block text-xs text-zinc-400" data-translate="tax.life_insurance">Seguros de vida y retiro</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-seguro-vida" class="text-xs text-zinc-400" data-translate="tax.life_insurance">Seguros de vida y retiro</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-seguro-vida-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-seguro-vida" value="0" min="0" class="tax-input-sm">
                                         </div>
-                                        <div>
-                                            <label for="deduccion-sepelio" class="block text-xs text-zinc-400" data-translate="tax.funeral_expenses">Gastos de sepelio</label>
+                                        <div class="tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-sepelio" class="text-xs text-zinc-400" data-translate="tax.funeral_expenses">Gastos de sepelio</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-sepelio-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
                                             <input type="number" id="deduccion-sepelio" value="0" min="0" class="tax-input-sm">
+                                        </div>
+                                        <div class="sm:col-span-2 tax-deduction-row">
+                                            <div class="flex items-center justify-between mb-1">
+                                                <label for="deduccion-insumos" class="text-xs text-zinc-400" data-translate="tax.work_supplies">Gastos de insumos de trabajo</label>
+                                                <label class="tax-annual-toggle">
+                                                    <input type="checkbox" id="deduccion-insumos-anual" class="tax-checkbox-mini" checked>
+                                                    <span class="text-xs text-zinc-500" data-translate="tax.annual">Anual</span>
+                                                </label>
+                                            </div>
+                                            <input type="text" id="deduccion-insumos" class="tax-input-sm tax-input-formatted" value="0" inputmode="numeric">
+                                            <p class="text-zinc-500 text-xs mt-1" data-translate="tax.work_supplies_hint">Herramientas, equipamiento, etc. Sin tope.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -385,7 +477,7 @@
 
                         <!-- Columna derecha: Resultados -->
                         <div class="lg:col-span-3 tax-results-panel glass-effect">
-                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_results">2. Resultados de la Simulación</h5>
+                            <h5 class="text-lg font-bold mb-4 text-zinc-200" data-translate="tax.section_results">3. Resultados de la Simulación</h5>
                             
                             <!-- Gráfico de dona - ancho completo -->
                             <div class="flex flex-col items-center justify-center mb-6">
@@ -414,26 +506,6 @@
                                     <p id="resultado-ganancia-imponible" class="text-xl font-semibold text-zinc-200">$0</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Sección de Casos de Estudio -->
-                    <div class="tax-cases-panel glass-effect mt-6">
-                        <h5 class="text-lg font-bold mb-3 text-zinc-200" data-translate="tax.section_scenarios">3. Explorar Escenarios (Ejemplos)</h5>
-                        <p class="text-zinc-400 text-sm mb-4" data-translate="tax.scenarios_desc">Seleccione un perfil para cargar automáticamente sus datos en la calculadora y ver los resultados.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <button onclick="cargarCasoTax(1)" class="tax-case-button default">
-                                <p class="font-semibold text-zinc-200" data-translate="tax.case1_title">Soltero/a, sin hijos</p>
-                                <p class="text-sm text-zinc-400" data-translate="tax.case1_salary">Salario: $2.500.000</p>
-                            </button>
-                            <button onclick="cargarCasoTax(2)" class="tax-case-button teal">
-                                <p class="font-semibold text-teal-200" data-translate="tax.case2_title">Casado/a con 2 hijos</p>
-                                <p class="text-sm text-teal-400" data-translate="tax.case2_salary">Salario: $4.000.000</p>
-                            </button>
-                            <button onclick="cargarCasoTax(3)" class="tax-case-button indigo">
-                                <p class="font-semibold text-indigo-200" data-translate="tax.case3_title">Soltero/a que alquila</p>
-                                <p class="text-sm text-indigo-400" data-translate="tax.case3_salary">Salario: $3.200.000, alquiler deducido</p>
-                            </button>
                         </div>
                     </div>
 
