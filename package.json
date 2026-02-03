@@ -1,7 +1,7 @@
 {
   "name": "mgobeaalcoba-cv-consulting",
-  "version": "2.0.0",
-  "description": "Interactive CV & Consulting Platform for Mariano Gobea Alcoba - Data & Analytics Technical Leader with integrated professional consulting services",
+  "version": "3.0.0",
+  "description": "Interactive CV & Consulting Platform with Traffic Growth Features: Investment Dashboard, Technical Blog, Salary Simulator & Newsletter System - Data & Analytics Technical Leader",
   "main": "index.html",
   "scripts": {
     "dev": "live-server --port=3000 --open=/",

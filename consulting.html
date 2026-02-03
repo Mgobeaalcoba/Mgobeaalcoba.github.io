@@ -229,6 +229,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-6">
                 <a href="/" class="text-sm hover:text-sky-400 transition-colors" data-translate="consulting_nav_portfolio">Mi Portfolio</a>
+                <a href="blog.html" class="text-sm hover:text-sky-400 transition-colors" data-translate="nav_blog">Blog</a>
                 <a href="recursos.html" class="text-sm hover:text-sky-400 transition-colors" data-translate="header.recursos">Recursos</a>
                 <a href="#services" class="text-sm hover:text-sky-400 transition-colors" data-translate="consulting_nav_services">Servicios</a>
                 <a href="#about" class="text-sm hover:text-sky-400 transition-colors" data-translate="consulting_nav_about">Sobre Mí</a>
@@ -256,6 +257,7 @@
         <div id="mobile-nav" class="md:hidden hidden fixed top-16 left-0 right-0 z-40 glass-effect border-t border-gray-600/50">
             <div class="container mx-auto px-4 py-4 space-y-3">
                 <a href="/" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_portfolio">Mi Portfolio</a>
+                <a href="blog.html" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_blog">Blog</a>
                 <a href="recursos.html" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="header.recursos">Recursos Útiles</a>
                 <a href="#services" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_services">Servicios</a>
                 <a href="#about" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_about">Sobre Mí</a>
@@ -976,6 +978,37 @@
 
     </main>
     
+    <!-- Newsletter Banner - DESACTIVADO (Código listo para activar cuando se necesite) -->
+    <!-- 
+    <div id="newsletter-banner" class="newsletter-banner">
+        <div class="container mx-auto max-w-6xl px-4 py-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="newsletter-content text-center md:text-left">
+                    <h4 class="text-xl font-bold">
+                        📬 <span data-translate="newsletter_title">The Data Digest</span>
+                    </h4>
+                    <p class="text-sm text-secondary" data-translate="newsletter_desc">
+                        Noticias de datos + tips financieros cada semana
+                    </p>
+                </div>
+                
+                <form id="footer-newsletter-form" class="newsletter-form">
+                    <input 
+                        type="email" 
+                        placeholder="tu@email.com" 
+                        required
+                        id="footer-email"
+                        class="newsletter-input"
+                        data-translate-placeholder="newsletter_email_placeholder">
+                    <button type="submit" class="btn-primary">
+                        <span data-translate="newsletter_subscribe">Suscribirme</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    -->
+    
     <!-- FOOTER -->
     <footer id="contact" class="bg-gray-800/50 text-center py-12">
         <div class="container mx-auto max-w-4xl px-4">
@@ -1364,5 +1397,38 @@
     </div>
 
     <script src="assets/js/consulting.js" type="module" defer></script>
+    
+    <!-- Newsletter System - DESACTIVADO temporalmente -->
+    <!-- 
+    <script type="module" src="assets/js/newsletter.js"></script>
+    <script>
+      // Newsletter footer form handler
+      document.addEventListener('DOMContentLoaded', () => {
+        const newsletterForm = document.getElementById('footer-newsletter-form');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('footer-email').value;
+            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            try {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+              
+              const { default: newsletter } = await import('./assets/js/newsletter.js');
+              await newsletter.subscribe(email, '', 'footer');
+              
+              newsletterForm.innerHTML = '<p class="success-message text-center">✅ ¡Gracias! Revisa tu email para confirmar.</p>';
+            } catch (error) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+              alert(error.message || 'Error al suscribirse. Por favor intenta nuevamente.');
+            }
+          });
+        }
+      });
+    </script>
+    -->
 </body>
 </html>

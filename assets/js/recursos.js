@@ -5,6 +5,7 @@
 // =================================================================================
 
 import { translations } from './translations.js';
+import { InvestmentDashboard } from './dashboard-inversiones.js';
 
 // =================================================================================
 // --- TRANSLATION HELPER
@@ -88,6 +89,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         await initializeCurrencyWidget();
         // 3. CLAVE: Cargar datos de widgets ANTES de setear idioma
         await initializeEconomicIndicators();
+        // 3.5. Inicializar Dashboard de Inversiones
+        await initializeInvestmentDashboard();
         // 4. AHORA sí, setear idioma (con datos en cache)
         await setLanguage(lang);
         await initializeLanguage();
@@ -1009,6 +1012,51 @@ async function initializeCurrencyWidget() {
         await loadCurrencyRates();
         displayCurrencyRates();
     }, resourcesConfig?.settings?.refreshInterval || 1800000);
+}
+
+// =================================================================================
+// --- INVESTMENT DASHBOARD INITIALIZATION
+// =================================================================================
+
+async function initializeInvestmentDashboard() {
+    console.log('📊 Initializing Investment Dashboard...');
+    
+    try {
+        const dashboardSection = document.getElementById('dashboard-salud-economica');
+        if (!dashboardSection) {
+            console.log('Dashboard section not found, skipping initialization');
+            return;
+        }
+
+        // Verificar que Chart.js esté disponible
+        if (typeof Chart === 'undefined') {
+            console.error('❌ Chart.js not loaded!');
+            throw new Error('Chart.js library not available');
+        }
+
+        const dashboard = new InvestmentDashboard();
+        await dashboard.initialize('investment-comparison-chart');
+        
+        console.log('✅ Investment Dashboard initialized successfully');
+    } catch (error) {
+        console.error('❌ Error initializing Investment Dashboard:', error);
+        console.error('Error stack:', error.stack);
+        
+        // Mostrar error en el dashboard
+        const errorDiv = document.querySelector('#dashboard-salud-economica .glass-effect');
+        if (errorDiv) {
+            errorDiv.innerHTML = `
+                <div class="error-message text-center py-12">
+                    <i class="fas fa-exclamation-circle text-4xl text-red-400 mb-4"></i>
+                    <p class="text-lg mb-2">Error al cargar el dashboard</p>
+                    <p class="text-sm text-secondary">${error.message}</p>
+                    <button onclick="window.location.reload()" class="btn-primary mt-4">
+                        <i class="fas fa-redo mr-2"></i>Recargar Página
+                    </button>
+                </div>
+            `;
+        }
+    }
 }
 
 function displayCurrencyRates() {

@@ -2652,5 +2652,329 @@ export const translations = {
     "token.tip_5": {
         es: "<strong>Batch requests:</strong> Agrupa solicitudes similares para mejor eficiencia.",
         en: "<strong>Batch requests:</strong> Group similar requests for better efficiency."
+    },
+
+    // ============== DASHBOARD SALUD ECONÓMICA ==============
+    "dashboard_title": {
+        es: "Dashboard: Salud Económica",
+        en: "Dashboard: Economic Health"
+    },
+    "dashboard_subtitle": {
+        es: "Tasas anuales mes a mes: TNA Plazo Fijo vs Devaluación Dólar vs Inflación IPC",
+        en: "Monthly annual rates: Fixed Term APR vs Dollar Devaluation vs CPI Inflation"
+    },
+    "dashboard_period_3m": {
+        es: "3 meses",
+        en: "3 months"
+    },
+    "dashboard_period_6m": {
+        es: "6 meses",
+        en: "6 months"
+    },
+    "dashboard_period_12m": {
+        es: "12 meses",
+        en: "12 months"
+    },
+    "dashboard_plazo_fijo": {
+        es: "Plazo Fijo (12m)",
+        en: "Fixed Term (12m)"
+    },
+    "dashboard_dolar_mep": {
+        es: "Dólar MEP (12m)",
+        en: "MEP Dollar (12m)"
+    },
+    "dashboard_inflacion": {
+        es: "Inflación (12m)",
+        en: "Inflation (12m)"
+    },
+    "dashboard_rendimiento": {
+        es: "Rendimiento",
+        en: "Return"
+    },
+    "dashboard_share": {
+        es: "Compartir en Redes",
+        en: "Share on Social"
+    },
+    "dashboard_share_desc": {
+        es: "Descarga una imagen del dashboard para compartir",
+        en: "Download a dashboard image to share"
+    },
+    "dashboard_widget_title": {
+        es: "¿Dónde conviene tu dinero hoy?",
+        en: "Where should you invest today?"
+    },
+    "dashboard_widget_desc": {
+        es: "Tasas anuales actuales de inversiones en Argentina",
+        en: "Current annual rates for investments in Argentina"
+    },
+    "dashboard_widget_link": {
+        es: "Ver análisis completo",
+        en: "View full analysis"
+    },
+    "recursos_quick_dashboard": {
+        es: "Dashboard Salud",
+        en: "Health Dashboard"
+    },
+
+    // ============== BLOG ==============
+    "nav_blog": {
+        es: "Blog",
+        en: "Blog"
+    },
+    "blog_title": {
+        es: "Data Engineering en las Trincheras",
+        en: "Data Engineering in the Trenches"
+    },
+    "blog_page_title_short": {
+        es: "Data Engineering en las Trincheras",
+        en: "Data Engineering in the Trenches"
+    },
+    "blog_subtitle": {
+        es: "Insights reales desde MercadoLibre y el mundo de los datos",
+        en: "Real insights from MercadoLibre and the data world"
+    },
+    "blog_category_all": {
+        es: "Todos",
+        en: "All"
+    },
+    "blog_category_data_engineering": {
+        es: "Data Engineering",
+        en: "Data Engineering"
+    },
+    "blog_category_python": {
+        es: "Python",
+        en: "Python"
+    },
+    "blog_category_automation": {
+        es: "Automatización",
+        en: "Automation"
+    },
+    "blog_category_business_intelligence": {
+        es: "Business Intelligence",
+        en: "Business Intelligence"
+    },
+    "blog_loading": {
+        es: "Cargando posts...",
+        en: "Loading posts..."
+    },
+    "blog_no_posts": {
+        es: "No hay posts en esta categoría.",
+        en: "No posts in this category."
+    },
+    "blog_no_videos": {
+        es: "Próximamente: Masterclass y tutoriales.",
+        en: "Coming soon: Masterclass and tutorials."
+    },
+    "blog_read_more": {
+        es: "Leer más",
+        en: "Read more"
+    },
+    "blog_videos_title": {
+        es: "Masterclass y Tutoriales",
+        en: "Masterclass and Tutorials"
+    },
+    "blog_videos_subtitle": {
+        es: "Contenido original de Mariano Gobea",
+        en: "Original content by Mariano Gobea"
+    },
+    "blog_posts_title": {
+        es: "Posts Técnicos",
+        en: "Technical Posts"
+    },
+    "blog_quick_videos": {
+        es: "Videos",
+        en: "Videos"
+    },
+    "blog_quick_posts": {
+        es: "Posts",
+        en: "Posts"
+    },
+    "blog_footer_about": {
+        es: "Sobre el Blog",
+        en: "About the Blog"
+    },
+    "blog_footer_about_text": {
+        es: "Comparto mi experiencia como Technical Leader en MercadoLibre y mis conocimientos en Data Engineering, Python y automatización.",
+        en: "I share my experience as Technical Leader at MercadoLibre and my knowledge in Data Engineering, Python, and automation."
+    },
+    "blog_footer_links": {
+        es: "Enlaces",
+        en: "Links"
+    },
+    "blog_footer_social": {
+        es: "Sígueme",
+        en: "Follow me"
+    },
+    "blog_nav_portfolio": {
+        es: "Portfolio",
+        en: "Portfolio"
+    },
+    "blog_nav_consulting": {
+        es: "Consultoría",
+        en: "Consulting"
+    },
+    "blog_nav_blog": {
+        es: "Blog",
+        en: "Blog"
+    },
+    "blog_nav_recursos": {
+        es: "Recursos",
+        en: "Resources"
+    },
+    "blog_back": {
+        es: "Volver al blog",
+        en: "Back to blog"
+    },
+    "blog_related_posts": {
+        es: "Posts Relacionados",
+        en: "Related Posts"
+    },
+    "blog_follow_title": {
+        es: "Seguime en mis redes:",
+        en: "Follow me on social:"
+    },
+    "blog_follow_x": {
+        es: "X",
+        en: "X"
+    },
+    "blog_follow_linkedin": {
+        es: "LinkedIn",
+        en: "LinkedIn"
+    },
+    "blog_follow_github": {
+        es: "GitHub",
+        en: "GitHub"
+    },
+
+    // ============== SIMULADOR SUELDO ==============
+    "simulador_tab_bruto_neto": {
+        es: "Calcular Neto (desde Bruto)",
+        en: "Calculate Net (from Gross)"
+    },
+    "simulador_tab_neto_bruto": {
+        es: "Simular Bruto Necesario",
+        en: "Simulate Required Gross"
+    },
+    "simulador_title": {
+        es: "Simulador de Sueldo Bruto Necesario",
+        en: "Required Gross Salary Simulator"
+    },
+    "simulador_desc": {
+        es: "Ingresa el sueldo neto que querés recibir en mano y te calculamos cuánto deberías pedir en bruto.",
+        en: "Enter the net salary you want to receive and we'll calculate how much you should ask for in gross."
+    },
+    "simulador_neto_deseado": {
+        es: "Sueldo Neto Deseado (ARS)",
+        en: "Desired Net Salary (ARS)"
+    },
+    "simulador_neto_hint": {
+        es: "El dinero que querés recibir en tu cuenta cada mes",
+        en: "The money you want to receive in your account each month"
+    },
+    "simulador_situacion": {
+        es: "Situación Familiar",
+        en: "Family Situation"
+    },
+    "simulador_conyuge": {
+        es: "Cónyuge a cargo",
+        en: "Dependent spouse"
+    },
+    "simulador_hijos": {
+        es: "Hijos a cargo",
+        en: "Dependent children"
+    },
+    "simulador_alquiler": {
+        es: "Alquiler mensual (opcional)",
+        en: "Monthly rent (optional)"
+    },
+    "simulador_alquiler_hint": {
+        es: "Se puede deducir hasta 40% del alquiler pagado",
+        en: "Up to 40% of rent paid can be deducted"
+    },
+    "simulador_calcular": {
+        es: "Calcular Bruto Necesario",
+        en: "Calculate Required Gross"
+    },
+    "simulador_resultado_title": {
+        es: "Resultado del Simulador",
+        en: "Simulator Result"
+    },
+    "simulador_bruto_label": {
+        es: "Sueldo Bruto que deberías pedir:",
+        en: "Gross salary you should ask for:"
+    },
+    "simulador_desglose": {
+        es: "Desglose Mensual:",
+        en: "Monthly Breakdown:"
+    },
+    "simulador_bruto_mensual": {
+        es: "Bruto Mensual",
+        en: "Monthly Gross"
+    },
+    "simulador_aportes": {
+        es: "Aportes",
+        en: "Contributions"
+    },
+    "simulador_ganancias": {
+        es: "Retención Ganancias",
+        en: "Income Tax Withholding"
+    },
+    "simulador_neto_final": {
+        es: "Neto en Mano",
+        en: "Net in Hand"
+    },
+    "simulador_tip_title": {
+        es: "Tip para la negociación:",
+        en: "Negotiation tip:"
+    },
+    "simulador_tip_desc": {
+        es: "Pedí entre {min} y {max} para tener margen de negociación.",
+        en: "Ask between {min} and {max} to have negotiation margin."
+    },
+    "simulador_nueva": {
+        es: "Nueva Simulación",
+        en: "New Simulation"
+    },
+
+    // ============== NEWSLETTER ==============
+    "newsletter_title": {
+        es: "The Data Digest",
+        en: "The Data Digest"
+    },
+    "newsletter_desc": {
+        es: "Noticias de datos + tips financieros cada semana",
+        en: "Data news + financial tips every week"
+    },
+    "newsletter_email_placeholder": {
+        es: "tu@email.com",
+        en: "your@email.com"
+    },
+    "newsletter_subscribe": {
+        es: "Suscribirme",
+        en: "Subscribe"
+    },
+    "newsletter_popup_title": {
+        es: "📬 The Data Digest",
+        en: "📬 The Data Digest"
+    },
+    "newsletter_popup_desc": {
+        es: "Recibe cada semana: 3 noticias clave de Datos, 1 tip financiero para Argentina y acceso anticipado a nuevo contenido.",
+        en: "Receive every week: 3 key Data news, 1 financial tip for Argentina, and early access to new content."
+    },
+    "newsletter_popup_button": {
+        es: "Suscribirme Gratis",
+        en: "Subscribe Free"
+    },
+    "newsletter_privacy": {
+        es: "Sin spam. Cancela cuando quieras.",
+        en: "No spam. Cancel anytime."
+    },
+    "newsletter_success_title": {
+        es: "¡Gracias por suscribirte!",
+        en: "Thank you for subscribing!"
+    },
+    "newsletter_success_desc": {
+        es: "Revisa tu email para confirmar la suscripción.",
+        en: "Check your email to confirm subscription."
     }
 }; 

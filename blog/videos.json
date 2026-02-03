@@ -1,0 +1,77 @@
+{
+  "videos": [
+    {
+      "id": "video-1",
+      "youtubeId": "u8hgIp-0YIY",
+      "title": {
+        "es": "Model Context Protocol (MCP) + Demo en Cursor",
+        "en": "Model Context Protocol (MCP) + Cursor Demo"
+      },
+      "description": {
+        "es": "Aprende sobre Model Context Protocol y ve una demostración práctica en Cursor IDE. Conceptos avanzados de ingeniería de datos y arquitecturas escalables.",
+        "en": "Learn about Model Context Protocol and watch a practical demo in Cursor IDE. Advanced data engineering concepts and scalable architectures."
+      },
+      "category": "data-engineering",
+      "duration": "N/A",
+      "date": "2026-02-01",
+      "featured": true,
+      "tags": ["data-engineering", "architecture", "mcp", "cursor"]
+    },
+    {
+      "id": "video-2",
+      "youtubeId": "_gNzUsDOH1w",
+      "title": {
+        "es": "Cómo crear un sistema RAG con Python + OpenAI",
+        "en": "How to build a RAG system with Python + OpenAI"
+      },
+      "description": {
+        "es": "Clase completa de AI Engineering: aprende a implementar Retrieval Augmented Generation (RAG) con Python y OpenAI para aplicaciones GenAI en producción.",
+        "en": "Complete AI Engineering class: learn to implement Retrieval Augmented Generation (RAG) with Python and OpenAI for GenAI production applications."
+      },
+      "category": "genai",
+      "duration": "N/A",
+      "date": "2026-02-05",
+      "featured": true,
+      "tags": ["genai", "rag", "python", "openai"]
+    },
+    {
+      "id": "video-3",
+      "youtubeId": "vi3NEkdZGaI",
+      "title": {
+        "es": "Procesamiento de datos en Python: CSV a Análisis",
+        "en": "Data Processing in Python: From CSV to Analysis"
+      },
+      "description": {
+        "es": "Live session sobre procesamiento y transformación de datos con Python. De archivos CSV a tablas listas para análisis con Pandas y mejores prácticas.",
+        "en": "Live session on data processing and transformation with Python. From CSV files to analysis-ready tables with Pandas and best practices."
+      },
+      "category": "live-session",
+      "duration": "N/A",
+      "date": "2026-02-10",
+      "featured": true,
+      "tags": ["python", "pandas", "data-processing"]
+    }
+  ],
+  "playlists": [
+    {
+      "id": "playlist-python-data",
+      "name": "Serie: Python para Data Engineering",
+      "description": "Serie completa de tutoriales de Python aplicado a ingeniería de datos",
+      "videos": ["video-placeholder-1", "video-placeholder-2"],
+      "thumbnail": ""
+    },
+    {
+      "id": "playlist-mercadolibre",
+      "name": "Insights desde MercadoLibre",
+      "description": "Experiencias y aprendizajes trabajando en una de las tech companies más grandes de Latinoamérica",
+      "videos": ["video-placeholder-1", "video-placeholder-3"],
+      "thumbnail": ""
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-01",
+    "totalVideos": 3,
+    "note": "Replace youtubeId values with real YouTube video IDs when available"
+  }
+}

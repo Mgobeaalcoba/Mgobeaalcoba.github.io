@@ -20,26 +20,44 @@ Una plataforma integral de CV interactivo y consultoría profesional desarrollad
 - ✅ **Code Splitting**: Carga bajo demanda de features
 - ✅ **Lazy Loading**: Optimización de recursos y imágenes
 
-## 🏗️ Project Structure (Actual - Enero 2026)
+### **🆕 Traffic Growth Features (V3.0 - 2026)**
+- ✅ **Dashboard Inversiones**: Comparador en tiempo real con datos de APIs
+- ✅ **Blog Técnico**: Sistema Markdown + videos YouTube para SEO
+- ✅ **Simulador Sueldo**: Calculadora inversa para negociaciones
+- ✅ **Newsletter**: Sistema de captura de audiencia con Mailchimp
+
+## 🏗️ Project Structure (Actual - Febrero 2026)
 
 ```
 Mgobeaalcoba.github.io/
 │
 ├── 📄 PÁGINAS HTML
-│   ├── index.html                 # Página principal CV (Portfolio)
+│   ├── index.html                 # Página principal CV (Portfolio) + Widget Dashboard
 │   ├── consulting.html            # Página servicios consultoría
-│   ├── recursos.html              # Recursos útiles/calculadoras financieras
+│   ├── recursos.html              # Recursos útiles/calculadoras/dashboard/simulador
+│   ├── blog.html                  # 🆕 Blog técnico con posts y videos
+│   ├── blog-post.html             # 🆕 Template para posts individuales
 │   ├── ing_req_game.html          # Juego interactivo de Ingeniería de Requisitos
 │   └── model_ganancias.html       # Modelo calculadora ganancias (legacy/standalone)
+│
+├── 📁 blog/                       # 🆕 Contenido del blog
+│   ├── 📁 posts/                  # Posts en Markdown
+│   │   ├── 2026-02-01-optimizar-queries-mercadolibre.md
+│   │   ├── 2026-02-08-python-automatizar-impuestos-argentina.md
+│   │   ├── 2026-02-15-errores-comunes-data-pipelines.md
+│   │   └── 2026-02-22-negociacion-salarial-it-argentina-2026.md
+│   ├── blog-index.json            # Metadata de posts
+│   └── videos.json                # Catálogo de videos YouTube
 │
 ├── 📁 assets/
 │   │
 │   ├── 📁 css/                    # Estilos organizados por módulos
 │   │   ├── base.css               # Reset y estilos base (169 lines)
 │   │   ├── main.css               # Estilos principales y variables CSS (225 lines)
-│   │   ├── components.css         # Estilos componentes compartidos (389 lines)
+│   │   ├── components.css         # Estilos componentes compartidos (1000+ lines)
 │   │   ├── consulting.css         # Estilos específicos consultoría (190 lines)
-│   │   ├── recursos.css           # Estilos página recursos (3400+ lines)
+│   │   ├── recursos.css           # Estilos página recursos + dashboard (4000+ lines)
+│   │   ├── blog.css               # 🆕 Estilos blog y posts (400+ lines) (V3.0)
 │   │   ├── game.css               # Estilos juego requisitos (400+ lines)
 │   │   ├── terminal.css           # Estilos modo terminal (76 lines)
 │   │   ├── intro.css              # Estilos animación introducción (252 lines)
@@ -51,14 +69,18 @@ Mgobeaalcoba.github.io/
 │   │   ├── init.js                # ⚡ Script inicialización principal
 │   │   ├── main.js                # ⚡ Lógica aplicación principal
 │   │   ├── consulting.js          # ⚡ Funcionalidad página consultoría
-│   │   ├── recursos.js            # ⚡ Funcionalidad página recursos (3200+ lines)
+│   │   ├── recursos.js            # ⚡ Funcionalidad página recursos (3500+ lines)
 │   │   ├── game.js                # 🎮 Lógica juego ingeniería requisitos
 │   │   ├── logger.js              # 🆕 Sistema logging condicional dev/prod
 │   │   ├── mobile-menu.js         # 🆕 Servicio centralizado menú móvil
 │   │   ├── image-optimizer.js     # 🆕 Sistema optimización imágenes lazy
 │   │   ├── translation-loader.js  # 🆕 Carga lazy traducciones
+│   │   ├── dashboard-inversiones.js  # 🆕 Dashboard salud económica (V3.0)
+│   │   ├── simulador-sueldo.js    # 🆕 Simulador neto/bruto (V3.0)
+│   │   ├── blog.js                # 🆕 Sistema de blog Markdown (V3.0)
+│   │   ├── newsletter.js          # 🆕 Newsletter subscription system (V3.0)
 │   │   ├── data-index.js          # ⚡ Datos CV específicos index (code splitting)
-│   │   ├── translations.js        # ⚡ Traducciones completas ES/EN (800+ keys)
+│   │   ├── translations.js        # ⚡ Traducciones completas ES/EN (900+ keys)
 │   │   ├── terminal.js            # ⚡ Funcionalidad terminal (dynamic import)
 │   │   ├── themes.js              # ⚡ Gestión temas (dark/light/terminal)
 │   │   ├── intro.js               # ⚡ Animación introducción
@@ -119,31 +141,34 @@ Mgobeaalcoba.github.io/
 ### **Mapa de Navegación**
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         index.html                               │
-│                     (Portfolio Principal)                        │
-│  ┌─────────┬─────────┬─────────────────┬──────────────────────┐  │
-│  │    ↓    │    ↓    │        ↓        │          ↓           │  │
-│  ▼         ▼         ▼                 ▼                      │  │
-│consulting recursos  ing_req_game   Secciones internas:       │  │
-│  .html    .html      .html         #about, #projects,        │  │
-│                                    #experience, #contact      │  │
-└─────────────────────────────────────────────────────────────────┘
-        │         │
-        │         │
-        ▼         ▼
-┌───────────────┐ ┌───────────────┐
-│ consulting    │ │   recursos    │
-│    .html      │◄┼►   .html     │
-│               │ │               │
-│ Secciones:    │ │ Secciones:    │
-│ #services     │ │ #calculadoras │
-│ #packs        │ │ #cotizaciones │
-│ #examples     │ │ #indicadores  │
-│ #process      │ │               │
-│ #about        │ │               │
-│ #contact      │ │               │
-└───────────────┘ └───────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                         index.html                                   │
+│                  (Portfolio Principal + Widget Dashboard)            │
+│  ┌─────────┬─────────┬─────────┬─────────────────┬────────────────┐ │
+│  │    ↓    │    ↓    │    ↓    │        ↓        │       ↓        │ │
+│  ▼         ▼         ▼         ▼                 ▼                │ │
+│consulting blog   recursos  ing_req_game   Secciones internas:   │ │
+│  .html    .html   .html      .html         #about, #projects,   │ │
+│                                            #experience, #contact │ │
+└─────────────────────────────────────────────────────────────────────┘
+        │         │        │
+        │         │        │
+        ▼         ▼        ▼
+┌───────────────┐ ┌───────────────┐ ┌──────────────────────┐
+│ consulting    │ │   blog.html   │ │   recursos.html      │
+│    .html      │ │               │ │                      │
+│               │ │ Secciones:    │ │ Secciones:           │
+│ Secciones:    │ │ - Posts list  │ │ #calculadoras        │
+│ #services     │ │ - Categories  │ │ #dashboard 🆕        │
+│ #packs        │ │ - Videos      │ │ #cotizaciones        │
+│ #examples     │ │               │ │ #indicadores         │
+│ #process      │ │ Posts:        │ │                      │
+│ #about        │ │ blog-post.html│ │ Features:            │
+│ #contact      │ │ (dynamic)     │ │ - Simulador 🆕       │
+└───────────────┘ └───────────────┘ └──────────────────────┘
+        ◄──────────────┬──────────────►
+                   Newsletter Banner
+                   (presente en todas)
 
 Nota: model_ganancias.html es standalone (sin navegación directa)
 ```
@@ -152,9 +177,11 @@ Nota: model_ganancias.html es standalone (sin navegación directa)
 
 | Página | Propósito | CSS | JS | Navegación |
 |--------|-----------|-----|----|-----------| 
-| `index.html` | Portfolio/CV principal | `styles.css` (importa todos) | `init.js` (module) | Hub central |
-| `consulting.html` | Servicios consultoría | `consulting.css` | `consulting.js` | Bidireccional con index y recursos |
-| `recursos.html` | Herramientas financieras | `base.css`, `themes.css`, `components.css`, `recursos.css` | `recursos.js` | Bidireccional con index y consulting |
+| `index.html` | Portfolio/CV principal + Widget Dashboard | `styles.css` (importa todos) | `init.js`, `dashboard-inversiones.js` | Hub central |
+| `consulting.html` | Servicios consultoría | `consulting.css` | `consulting.js`, `newsletter.js` | Bidireccional con todas |
+| `blog.html` | 🆕 Blog técnico posts/videos | `blog.css` | `blog.js`, `newsletter.js` | Bidireccional con todas |
+| `blog-post.html` | 🆕 Post individual dinámico | `blog.css` | `blog.js` | Desde blog.html |
+| `recursos.html` | Herramientas + Dashboard + Simulador | `recursos.css` | `recursos.js`, `dashboard-inversiones.js`, `simulador-sueldo.js`, `newsletter.js` | Bidireccional con todas |
 | `ing_req_game.html` | Juego educativo | `game.css` | `game.js` | Solo retorno a index |
 | `model_ganancias.html` | Calculadora standalone | Inline (Tailwind CDN) | Inline | Sin navegación (legacy) |
 
@@ -495,8 +522,60 @@ npm run lint             # Code linting
 - Navegación responsive
 - Funcionalidad completa
 
+## 🚀 **NUEVAS CARACTERÍSTICAS V3.0 (FEBRERO 2026)**
+
+### **Objetivo: Traffic Growth & User Engagement**
+
+La versión 3.0 introduce 4 funcionalidades estratégicas diseñadas para aumentar tráfico recurrente y autoridad SEO:
+
+#### 1️⃣ **Dashboard de Salud Económica**
+- **Ubicación**: `recursos.html#dashboard-salud-economica` + widget en `index.html`
+- **Funcionalidad**: Comparador visual de Plazo Fijo vs Dólar MEP vs Inflación
+- **Datos**: APIs argentinas en tiempo real (dolarApi, argentinadatos)
+- **Features**: Períodos configurables (7, 30, 90 días), exportar imagen para compartir
+- **Objetivo**: Tráfico recurrente diario (check de inversiones)
+
+#### 2️⃣ **Blog Técnico "Data Engineering en las Trincheras"**
+- **Ubicación**: `blog.html` + posts individuales en `blog-post.html`
+- **Sistema**: Markdown con frontmatter YAML + videos YouTube embebidos
+- **Contenido Inicial**: 4 posts técnicos SEO-optimizados
+- **Features**: Filtros por categoría, related posts, social sharing
+- **Objetivo**: Tráfico orgánico SEO + thought leadership
+
+#### 3️⃣ **Simulador Sueldo Neto/Bruto**
+- **Ubicación**: `recursos.html#calculadoras` (tab 2 de calculadora)
+- **Funcionalidad**: Calculadora inversa (ingresá neto deseado → obtené bruto necesario)
+- **Algoritmo**: Newton-Raphson iterativo con aportes + impuesto a las Ganancias
+- **Features**: Situación familiar, rango de negociación (±5%), desglose completo
+- **Objetivo**: Viralidad social (herramienta para entrevistas laborales)
+
+#### 4️⃣ **Newsletter "The Data Digest"**
+- **Ubicación**: Footer banner en todas las páginas + popup opcional (30s delay)
+- **Sistema**: Mailchimp integration (listo para configurar)
+- **Smart Logic**: No molesta si suscrito, respeta cooldown, desktop-only popup
+- **Contenido**: 3 noticias Data + 1 tip financiero semanal
+- **Objetivo**: Captura y retención de audiencia
+
+### **Métricas Esperadas**
+
+| Feature | Objetivo Mes 1 | Tipo Tráfico |
+|---------|---------------|--------------|
+| Dashboard | >100 usuarios diarios | Recurrente |
+| Blog | +200% tráfico orgánico | SEO/Orgánico |
+| Simulador | >500 usos/mes | Viral/Social |
+| Newsletter | >100 suscriptores | Retención |
+
+### **Impacto en Arquitectura**
+
+- **+4 nuevos módulos JS**: dashboard-inversiones.js, blog.js, simulador-sueldo.js, newsletter.js
+- **+2 nuevas páginas HTML**: blog.html, blog-post.html
+- **+1 nuevo CSS module**: blog.css
+- **+80 translation keys**: Cobertura bilingüe completa
+- **+~31KB bundle**: Impacto mínimo con lazy loading
+- **+5 URLs en sitemap**: SEO coverage expandido
+
 ---
 
-**Última actualización: Enero 2026**
+**Última actualización: Febrero 2026**
 
-*Este scaffolding representa una arquitectura enterprise-ready con performance de primera clase.* 🚀
+*Este scaffolding representa una arquitectura enterprise-ready con performance de primera clase y features estratégicas para crecimiento de audiencia.* 🚀

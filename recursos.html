@@ -39,8 +39,8 @@
     <link rel="preload" as="image" href="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
     
     <!-- SEO Meta Tags Mejoradas -->
-    <meta name="description" content="Recursos útiles y herramientas para Argentina: Calculadora de Impuesto a las Ganancias de cuarta categoría, cotización del dólar (blue, MEP, oficial), ingresos personales, inflación, y más. Todo lo que necesitas para tomar mejores decisiones económicas en Argentina.">
-    <meta name="keywords" content="ganancias, impuesto a las ganancias, cuarta categoría, ingresos personales, dólar, dólar blue, dólar MEP, cotización dólar, inflación, calculadora ganancias, AFIP, economía argentina, recursos financieros, herramientas económicas, retención ganancias, sueldo de bolsillo, impuestos, cotizaciones, índice de precios, inflación mensual, inflación interanual, dólar oficial, dólar solidario, dólar tarjeta, dólar turista, dólar ahorro, dólar bolsa, dólar contado con liqui, dólar CCL, dólar cripto, dólar MEP, dólar blue hoy, ingresos brutos, deducciones ganancias, retenciones, sueldos, salario, Argentina, Mariano Gobea Alcoba">
+    <meta name="description" content="Recursos útiles y herramientas para Argentina: Calculadora de Impuesto a las Ganancias, Dashboard de Salud Económica (comparador Plazo Fijo vs Dólar MEP vs Inflación), Simulador de Sueldo Neto/Bruto para negociaciones, cotizaciones en tiempo real (dólar blue, MEP, oficial) e indicadores económicos. Todo lo que necesitas para decisiones financieras inteligentes.">
+    <meta name="keywords" content="ganancias, impuesto a las ganancias, cuarta categoría, ingresos personales, dólar, dólar blue, dólar MEP, cotización dólar, inflación, calculadora ganancias, AFIP, economía argentina, recursos financieros, herramientas económicas, retención ganancias, sueldo de bolsillo, simulador sueldo, calculadora sueldo neto bruto, negociación salarial, dashboard inversiones, comparador plazo fijo dolar, donde invertir argentina, impuestos, cotizaciones, índice de precios, inflación mensual, inflación interanual, dólar oficial, dólar solidario, dólar tarjeta, dólar turista, dólar ahorro, dólar bolsa, dólar contado con liqui, dólar CCL, dólar cripto, dólar MEP, dólar blue hoy, ingresos brutos, deducciones ganancias, retenciones, sueldos, salario, Argentina, Mariano Gobea Alcoba">
     <meta name="author" content="Mariano Gobea Alcoba">
     
     <!-- Keywords for Resources -->
@@ -49,8 +49,8 @@
     <meta name="distribution" content="global">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Recursos Útiles Argentina | Calculadoras & Cotizaciones | MGA Resources">
-    <meta property="og:description" content="Herramientas financieras gratuitas para Argentina: Calculadora de Impuesto a las Ganancias y cotizaciones de monedas en tiempo real. Optimiza tus decisiones económicas con datos actualizados.">
+    <meta property="og:title" content="Recursos Útiles Argentina | Calculadoras, Dashboard Inversiones & Simulador Sueldo | MGA Resources">
+    <meta property="og:description" content="Herramientas financieras gratuitas: Calculadora de Ganancias, Dashboard comparador de inversiones (PF vs Dólar vs Inflación), Simulador sueldo neto/bruto para negociaciones y cotizaciones en tiempo real. Optimiza tus decisiones económicas con datos actualizados.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png">
     <meta property="og:url" content="https://mgobeaalcoba.github.io/recursos.html">
     <meta property="og:type" content="website">
@@ -94,6 +94,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -160,6 +161,9 @@
                 <a href="consulting.html" class="nav-link" data-translate="recursos_nav_consulting">
                     <i class="fas fa-briefcase mr-1"></i>Consultoría
                 </a>
+                <a href="blog.html" class="nav-link" data-translate="nav_blog">
+                    <i class="fas fa-blog mr-1"></i>Blog
+                </a>
                 <a href="#calculadoras" class="nav-link" data-translate="recursos_calculators_title">Calculadoras</a>
                 <a href="#cotizaciones" class="nav-link" data-translate="recursos_nav_quotes">Cotizaciones</a>
                 <a href="#indicadores" class="nav-link" data-translate="recursos_indicators_title">Indicadores</a>
@@ -190,6 +194,9 @@
                 </a>
                 <a href="consulting.html" class="mobile-nav-link" data-translate="recursos_nav_consulting">
                     <i class="fas fa-briefcase mr-2"></i>Consultoría
+                </a>
+                <a href="blog.html" class="mobile-nav-link" data-translate="nav_blog">
+                    <i class="fas fa-blog mr-2"></i>Blog
                 </a>
                 <a href="#calculadoras" class="mobile-nav-link" data-translate="recursos_calculators_title">
                     <i class="fas fa-calculator mr-2"></i>Calculadoras
@@ -223,6 +230,10 @@
                 <a href="#cotizaciones" class="quick-nav-btn green">
                     <i class="fas fa-dollar-sign mr-2"></i>
                     <span data-translate="recursos_quick_quotes">Cotizaciones</span>
+                </a>
+                <a href="#dashboard-salud-economica" class="quick-nav-btn orange">
+                    <i class="fas fa-chart-pie mr-2"></i>
+                    <span data-translate="recursos_quick_dashboard">Dashboard Salud</span>
                 </a>
                 <a href="#indicadores" class="quick-nav-btn purple">
                     <i class="fas fa-chart-line mr-2"></i>
@@ -769,6 +780,60 @@
         </div>
     </section>
 
+    <!-- DASHBOARD SALUD ECONÓMICA -->
+    <section id="dashboard-salud-economica" class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text" data-translate="dashboard_title">
+                    Dashboard: Salud Económica
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-translate="dashboard_subtitle">
+                    Tasas anuales mes a mes: TNA Plazo Fijo vs Devaluación Dólar vs Inflación IPC
+                </p>
+            </div>
+
+            <div class="glass-effect p-6 md:p-8 rounded-lg">
+                <!-- Selector de período -->
+                <div class="flex justify-center gap-3 mb-6">
+                    <button class="period-btn" data-period="3">
+                        <span data-translate="dashboard_period_3m">3 meses</span>
+                    </button>
+                    <button class="period-btn" data-period="6">
+                        <span data-translate="dashboard_period_6m">6 meses</span>
+                    </button>
+                    <button class="period-btn active" data-period="12">
+                        <span data-translate="dashboard_period_12m">12 meses</span>
+                    </button>
+                </div>
+                
+                <!-- Gráfico comparativo -->
+                <div class="chart-container mb-8" style="position: relative; height: 400px;">
+                    <canvas id="investment-comparison-chart"></canvas>
+                    <div id="chart-loading" class="text-center py-12">
+                        <i class="fas fa-spinner fa-spin text-3xl text-primary mb-4"></i>
+                        <p class="text-secondary">Cargando dashboard...</p>
+                    </div>
+                </div>
+                
+                <!-- Resumen de rendimientos -->
+                <div id="investment-summary" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <!-- Cards generados dinámicamente -->
+                </div>
+                
+                <!-- Botón compartir -->
+                <div class="text-center">
+                    <button id="share-dashboard" class="btn-primary">
+                        <i class="fas fa-share-alt mr-2"></i>
+                        <span data-translate="dashboard_share">Compartir en Redes</span>
+                    </button>
+                    <p class="text-sm text-gray-400 mt-2" data-translate="dashboard_share_desc">
+                        Descarga una imagen del dashboard para compartir
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- INDICADORES ECONÓMICOS -->
     <section id="indicadores" class="py-16 px-4">
         <div class="container mx-auto max-w-6xl">
@@ -1022,6 +1087,37 @@
         </div>
     </section>
 
+    <!-- Newsletter Banner - DESACTIVADO (Código listo para activar cuando se necesite) -->
+    <!-- 
+    <div id="newsletter-banner" class="newsletter-banner">
+        <div class="container mx-auto max-w-6xl px-4 py-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="newsletter-content text-center md:text-left">
+                    <h4 class="text-xl font-bold">
+                        📬 <span data-translate="newsletter_title">The Data Digest</span>
+                    </h4>
+                    <p class="text-sm text-secondary" data-translate="newsletter_desc">
+                        Noticias de datos + tips financieros cada semana
+                    </p>
+                </div>
+                
+                <form id="footer-newsletter-form" class="newsletter-form">
+                    <input 
+                        type="email" 
+                        placeholder="tu@email.com" 
+                        required
+                        id="footer-email"
+                        class="newsletter-input"
+                        data-translate-placeholder="newsletter_email_placeholder">
+                    <button type="submit" class="btn-primary">
+                        <span data-translate="newsletter_subscribe">Suscribirme</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    -->
+
     <!-- FOOTER -->
     <footer class="footer-section py-12 px-4 border-t border-gray-700">
         <div class="container mx-auto max-w-6xl">
@@ -1122,5 +1218,38 @@
     <!-- JavaScript -->
     <script src="assets/js/token-calculator.js"></script>
     <script type="module" src="assets/js/recursos.js"></script>
+    
+    <!-- Newsletter System - DESACTIVADO temporalmente -->
+    <!-- 
+    <script type="module" src="assets/js/newsletter.js"></script>
+    <script>
+      // Newsletter footer form handler
+      document.addEventListener('DOMContentLoaded', () => {
+        const newsletterForm = document.getElementById('footer-newsletter-form');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('footer-email').value;
+            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            try {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+              
+              const { default: newsletter } = await import('./assets/js/newsletter.js');
+              await newsletter.subscribe(email, '', 'footer');
+              
+              newsletterForm.innerHTML = '<p class="success-message text-center">✅ ¡Gracias! Revisa tu email para confirmar.</p>';
+            } catch (error) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+              alert(error.message || 'Error al suscribirse. Por favor intenta nuevamente.');
+            }
+          });
+        }
+      });
+    </script>
+    -->
 </body>
 </html> 

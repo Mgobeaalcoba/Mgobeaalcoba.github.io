@@ -248,6 +248,7 @@
                 <a href="#about" class="hover:text-sky-400 transition-colors" data-translate="nav_about">Sobre mí</a>
                 <a href="#projects" class="hover:text-sky-400 transition-colors" data-translate="nav_projects">Proyectos</a>
                 <a href="#experience" class="hover:text-sky-400 transition-colors" data-translate="nav_experience">Experiencia</a>
+                <a href="blog.html" class="hover:text-sky-400 transition-colors" data-translate="nav_blog">Blog</a>
                 <a href="recursos.html" class="hover:text-sky-400 transition-colors" data-translate="header.recursos">Recursos</a>
                 <a href="#contact" class="hover:text-sky-400 transition-colors" data-translate="nav_contact">Contacto</a>
                 <a href="consulting.html" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_btn">Servicios de Consultoría</a>
@@ -277,6 +278,7 @@
                 <a href="#about" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_about">Sobre mí</a>
                 <a href="#projects" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_projects">Proyectos</a>
                 <a href="#experience" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_experience">Experiencia</a>
+                <a href="blog.html" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_blog">Blog</a>
                 <a href="recursos.html" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="header.recursos">Recursos Útiles</a>
                 <a href="#contact" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="nav_contact">Contacto</a>
                 <a href="consulting.html" class="block py-2 px-4 main-cta text-white text-center font-semibold rounded-lg" data-translate="consulting_btn">Servicios de Consultoría</a>
@@ -557,6 +559,38 @@
             </div>
             <!-- ========== RIGHT COLUMN ========== -->
             <div class="lg:col-span-2 space-y-8">
+                <!-- Dashboard Widget Mini - Versión Simplificada -->
+                <section id="dashboard-widget" class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-semibold border-b-0" data-translate="dashboard_widget_title">¿Dónde conviene tu dinero hoy?</h3>
+                        <i class="fas fa-chart-line text-2xl text-primary"></i>
+                    </div>
+                    <p class="text-secondary text-sm mb-4" data-translate="dashboard_widget_desc">
+                        Comparador de inversiones en Argentina (últimos 12 meses)
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                        <div class="stat-card glass-effect p-4 rounded-lg text-center hover:scale-105 transition-transform">
+                            <span class="block text-xs text-secondary mb-1">🏦 Plazo Fijo</span>
+                            <span class="value text-2xl font-bold text-green-400">~36%</span>
+                            <p class="text-xs text-secondary mt-1">TNA actual</p>
+                        </div>
+                        <div class="stat-card glass-effect p-4 rounded-lg text-center hover:scale-105 transition-transform">
+                            <span class="block text-xs text-secondary mb-1">💵 Dólar MEP</span>
+                            <span class="value text-2xl font-bold text-blue-400">~18%</span>
+                            <p class="text-xs text-secondary mt-1">Devaluación anual</p>
+                        </div>
+                        <div class="stat-card glass-effect p-4 rounded-lg text-center hover:scale-105 transition-transform">
+                            <span class="block text-xs text-secondary mb-1">📈 Inflación</span>
+                            <span class="value text-2xl font-bold text-red-400">~32%</span>
+                            <p class="text-xs text-secondary mt-1">IPC (bajando)</p>
+                        </div>
+                    </div>
+                    <a href="recursos.html#dashboard-salud-economica" class="text-primary text-sm hover:underline flex items-center justify-center gap-2 font-semibold">
+                        <span data-translate="dashboard_widget_link">Ver Dashboard Completo con Gráficos Interactivos</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </section>
+                
                 <!-- Featured Projects -->
                 <section id="projects" class="p-6 glass-effect rounded-xl avoid-break animate-on-scroll">
                     <h3 class="text-2xl font-semibold mb-4 border-b pb-2 border-bottom" data-translate="projects_title">Proyectos Destacados</h3>
@@ -575,6 +609,37 @@
 
             </div>
         </main>
+
+        <!-- Newsletter Banner - DESACTIVADO (Código listo para activar cuando se necesite) -->
+        <!-- 
+        <div id="newsletter-banner" class="newsletter-banner">
+            <div class="container mx-auto max-w-6xl px-4 py-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="newsletter-content text-center md:text-left">
+                        <h4 class="text-xl font-bold">
+                            📬 <span data-translate="newsletter_title">The Data Digest</span>
+                        </h4>
+                        <p class="text-sm text-secondary" data-translate="newsletter_desc">
+                            Noticias de datos + tips financieros cada semana
+                        </p>
+                    </div>
+                    
+                    <form id="footer-newsletter-form" class="newsletter-form">
+                        <input 
+                            type="email" 
+                            placeholder="tu@email.com" 
+                            required
+                            id="footer-email"
+                            class="newsletter-input"
+                            data-translate-placeholder="newsletter_email_placeholder">
+                        <button type="submit" class="btn-primary">
+                            <span data-translate="newsletter_subscribe">Suscribirme</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        -->
 
         <footer id="page-footer" class="text-center text-secondary mt-16 animate-on-scroll">
             <p>&copy; 2025 Mariano Gobea Alcoba. <span data-translate="footer_design">Diseñado con</span> <i class="fas fa-heart text-red-500"></i> <span data-translate="footer_location">en Buenos Aires</span>.</p>
@@ -598,5 +663,40 @@
     
     <!-- Custom JavaScript -->
     <script type="module" src="assets/js/init.js"></script>
+    
+    <!-- Newsletter System - DESACTIVADO temporalmente -->
+    <!-- 
+    <script type="module" src="assets/js/newsletter.js"></script>
+    <script>
+      // Newsletter footer form handler
+      document.addEventListener('DOMContentLoaded', () => {
+        const newsletterForm = document.getElementById('footer-newsletter-form');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('footer-email').value;
+            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            try {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+              
+              const { default: newsletter } = await import('./assets/js/newsletter.js');
+              await newsletter.subscribe(email, '', 'footer');
+              
+              newsletterForm.innerHTML = '<p class="success-message text-center">✅ ¡Gracias! Revisa tu email para confirmar.</p>';
+            } catch (error) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+              alert(error.message || 'Error al suscribirse. Por favor intenta nuevamente.');
+            }
+          });
+        }
+      });
+    </script>
+    -->
+    
+    <!-- Dashboard Widget - Valores estáticos, dashboard completo en recursos.html -->
 </body>
 </html>

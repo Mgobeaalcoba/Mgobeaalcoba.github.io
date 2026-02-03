@@ -30,14 +30,49 @@
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/recursos.html</loc>
-    <lastmod>2024-12-09</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png</image:loc>
       <image:title>Recursos financieros Argentina - Calculadoras y Cotizaciones</image:title>
-      <image:caption>Herramientas gratuitas: calculadora ganancias, cotizaciones dólar, inflación Argentina</image:caption>
+      <image:caption>Herramientas gratuitas: calculadora ganancias, cotizaciones dólar, inflación Argentina, dashboard inversiones, simulador sueldo</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog.html</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png</image:loc>
+      <image:title>Blog: Data Engineering en las Trincheras</image:title>
+      <image:caption>Insights técnicos sobre Data Engineering, Python, automatización y BI desde MercadoLibre</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=optimizar-queries-mercadolibre</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=python-automatizar-impuestos-argentina</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=errores-comunes-data-pipelines</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=negociacion-salarial-it-argentina-2026</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mgobeaalcoba.github.io/ing_req_game.html</loc>

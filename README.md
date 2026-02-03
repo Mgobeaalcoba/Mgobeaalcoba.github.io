@@ -4,6 +4,12 @@ Una moderna plataforma web de CV/portfolio interactivo con servicios de consulto
 
 ## 🚀 Características Principales
 
+### 🆕 **NUEVAS FEATURES V3.0 (2026) - TRAFFIC GROWTH**
+- **Dashboard de Salud Económica**: Comparador visual de inversiones (Plazo Fijo vs Dólar MEP vs Inflación) con datos en tiempo real
+- **Blog Técnico**: "Data Engineering en las Trincheras" con posts en Markdown y videos YouTube
+- **Simulador Sueldo**: Calculadora inversa (Neto → Bruto) para negociaciones salariales
+- **Newsletter System**: "The Data Digest" con banner footer y popup inteligente
+
 ### ⚡ **RENDIMIENTO OPTIMIZADO (2024)**
 - **Bundle Size Reducido**: -40% (315KB → 190KB inicial)
 - **Code Splitting**: Módulos cargados bajo demanda
@@ -38,6 +44,62 @@ Una moderna plataforma web de CV/portfolio interactivo con servicios de consulto
 - **Modal System**: Interacciones modales avanzadas
 - **Integrated Navigation**: Flujo perfecto entre CV y páginas de consultoría
 - **Recursos Útiles**: Herramientas y calculadoras (`recursos.html`)
+
+### ✨ **Nuevas Features 2026 - Traffic & Engagement**
+
+#### 📊 Dashboard de Salud Económica
+Herramienta interactiva para comparar tasas anuales de inversiones en Argentina:
+- **Comparación Visual**: TNA Plazo Fijo vs Devaluación Dólar vs Inflación IPC
+- **Períodos Flexibles**: 3, 6 o 12 meses (tasas anuales mes a mes)
+- **Datos Realistas**: Inflación bajando gradualmente (tendencia 2025-2026)
+- **Gráfico Interactivo**: Chart.js con evolución mensual de tasas
+- **Compartir Social**: Exporta imagen del dashboard para redes
+- **Widget Resumen**: Mini dashboard en homepage
+- **Cache Inteligente**: 30 minutos para performance óptima
+
+#### 📝 Blog: Data Engineering en las Trincheras
+Sistema de blog completo con contenido técnico y educativo:
+- **Posts en Markdown**: Sistema de publicación con frontmatter YAML
+- **Categorías**: Data Engineering, Python, Automatización, Business Intelligence
+- **Videos YouTube**: Masterclass y tutoriales embebidos
+- **Filtros Dinámicos**: Por categoría y tags
+- **SEO Optimizado**: Meta tags, Open Graph, structured data
+- **Posts Relacionados**: Sugerencias basadas en categoría y tags
+- **Share Buttons**: Twitter, LinkedIn, copy link
+
+**Posts Completos** (17 totales):
+- Optimización de queries SQL en MercadoLibre
+- Python para automatizar declaración de Ganancias
+- Errores comunes en pipelines de datos
+- Guía para negociación salarial IT 2026
+- BigQuery: Reducción de costos 70%
+- GenAI en producción: Checklist 15 puntos
+- Airflow vs Prefect 2026
+- Python Async para pipelines
+- Vector Databases para RAG
+- dbt Analytics Engineering
+- LangChain vs LlamaIndex
+- Pandas vs Polars benchmark
+- Streamlit dashboards
+- Kafka basics
+- ChatGPT API trucos avanzados
+- Docker para data engineers
+- SQL Window Functions
+- +3 posts bonus adicionales
+
+#### 📬 Newsletter "The Data Digest"
+Sistema de captura de audiencia para engagement recurrente:
+- **Banner Footer**: Presente en todas las páginas
+- **Popup Inteligente**: Aparece después de 30s (solo desktop)
+- **Smart Logic**: No molesta si ya está suscrito o cerró popup
+- **Mailchimp Ready**: Integración con servicio de email marketing
+- **Double Opt-in**: GDPR compliant
+- **Analytics Tracking**: Conversiones trackeadas por fuente
+
+**Contenido Semanal Planeado:**
+- 3 noticias clave de Data & IA
+- 1 tip financiero para Argentina
+- Acceso anticipado a nuevo contenido
 
 ### 🎯 **Lead Generation System**
 - **Instant Pre-proposal Generation**: Formulario interactivo para crear propuestas PDF personalizadas

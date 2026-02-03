@@ -404,10 +404,36 @@ html.light .hero-section::before {
     transform: translateY(-2px);
 }
 
+.quick-nav-btn.orange {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: rgba(249, 115, 22, 0.4);
+    color: #fdba74;
+}
+
+.quick-nav-btn.orange:hover {
+    background: rgba(249, 115, 22, 0.4);
+    transform: translateY(-2px);
+}
+
 /* Light mode quick nav */
 html.light .quick-nav-btn.blue {
     background: rgba(59, 130, 246, 0.15);
     color: #1d4ed8;
+}
+
+html.light .quick-nav-btn.green {
+    background: rgba(34, 197, 94, 0.15);
+    color: #15803d;
+}
+
+html.light .quick-nav-btn.purple {
+    background: rgba(168, 85, 247, 0.15);
+    color: #7c3aed;
+}
+
+html.light .quick-nav-btn.orange {
+    background: rgba(249, 115, 22, 0.15);
+    color: #c2410c;
 }
 
 html.light .quick-nav-btn.green {
@@ -3900,4 +3926,271 @@ html.light .token-provider-card h6 {
 
 html.light .token-provider-card ul li {
     color: #4b5563 !important;
+}
+
+/* =================================================================
+   DASHBOARD SALUD ECONÓMICA
+   ================================================================= */
+
+#dashboard-salud-economica .glass-effect {
+    backdrop-filter: blur(10px);
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.period-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.period-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.period-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+#investment-summary .stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#investment-summary .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#investment-summary .stat-card.positive {
+    border-left: 4px solid rgb(34, 197, 94);
+}
+
+#investment-summary .stat-card.negative {
+    border-left: 4px solid rgb(239, 68, 68);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.stat-value.positive {
+    color: rgb(34, 197, 94);
+}
+
+.stat-value.negative {
+    color: rgb(239, 68, 68);
+}
+
+.stat-subtitle {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Widget en index.html */
+#dashboard-widget .stat-card {
+    transition: transform 0.3s ease;
+}
+
+#dashboard-widget .stat-card:hover {
+    transform: scale(1.05);
+}
+
+#dashboard-widget .stat-card .value {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Responsive para dashboard */
+@media (max-width: 768px) {
+    .chart-container {
+        padding: 1rem;
+        height: 300px !important;
+    }
+    
+    #investment-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .period-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* =================================================================
+   CALCULATOR TABS
+   ================================================================= */
+
+.calculator-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================================================
+   SIMULADOR STYLES
+   ================================================================= */
+
+#simulador-resultado {
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-highlight {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.breakdown-item {
+    transition: transform 0.3s ease;
+}
+
+.breakdown-item:hover {
+    transform: translateX(4px);
+}
+
+.tip-box {
+    animation: fadeIn 0.6s ease 0.3s both;
+}
+
+.btn-secondary {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+/* Responsive para tabs */
+@media (max-width: 768px) {
+    .calculator-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .result-highlight span.text-4xl {
+        font-size: 2.5rem;
+    }
 } 
