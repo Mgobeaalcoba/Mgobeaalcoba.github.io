@@ -610,8 +610,7 @@
             </div>
         </main>
 
-        <!-- Newsletter Banner - DESACTIVADO (Código listo para activar cuando se necesite) -->
-        <!-- 
+        <!-- Newsletter Banner -->
         <div id="newsletter-banner" class="newsletter-banner">
             <div class="container mx-auto max-w-6xl px-4 py-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -639,7 +638,6 @@
                 </div>
             </div>
         </div>
-        -->
 
         <footer id="page-footer" class="text-center text-secondary mt-16 animate-on-scroll">
             <p>&copy; 2025 Mariano Gobea Alcoba. <span data-translate="footer_design">Diseñado con</span> <i class="fas fa-heart text-red-500"></i> <span data-translate="footer_location">en Buenos Aires</span>.</p>
@@ -664,11 +662,10 @@
     <!-- Custom JavaScript -->
     <script type="module" src="assets/js/init.js"></script>
     
-    <!-- Newsletter System - DESACTIVADO temporalmente -->
-    <!-- 
+    <!-- Newsletter System -->
     <script type="module" src="assets/js/newsletter.js"></script>
     <script>
-      // Newsletter footer form handler
+      // Newsletter footer form handler with analytics
       document.addEventListener('DOMContentLoaded', () => {
         const newsletterForm = document.getElementById('footer-newsletter-form');
         if (newsletterForm) {
@@ -685,6 +682,25 @@
               const { default: newsletter } = await import('./assets/js/newsletter.js');
               await newsletter.subscribe(email, '', 'footer');
               
+              // 🎯 ANALYTICS: Track newsletter signup
+              if (typeof gtag === 'function') {
+                gtag('event', 'newsletter_signup', {
+                  event_category: 'engagement',
+                  method: 'footer_form',
+                  page: 'portfolio',
+                  value: 20
+                });
+                
+                gtag('event', 'generate_lead', {
+                  currency: 'USD',
+                  value: 20,
+                  lead_source: 'newsletter',
+                  page: 'portfolio'
+                });
+                
+                console.log('[Analytics] Newsletter signup tracked');
+              }
+              
               newsletterForm.innerHTML = '<p class="success-message text-center">✅ ¡Gracias! Revisa tu email para confirmar.</p>';
             } catch (error) {
               submitBtn.disabled = false;
@@ -695,7 +711,6 @@
         }
       });
     </script>
-    -->
     
     <!-- Dashboard Widget - Valores estáticos, dashboard completo en recursos.html -->
 </body>

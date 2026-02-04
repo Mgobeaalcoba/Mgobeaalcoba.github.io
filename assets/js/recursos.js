@@ -562,6 +562,18 @@ function updateTaxChart(data) {
 
 // Función para cargar casos de estudio predefinidos
 function cargarCasoTax(caso) {
+    // 🎯 ANALYTICS: Track case study usage
+    const caseNames = ['', 'soltero_sin_hijos', 'casado_2_hijos', 'soltero_alquila', 'con_bono_anual'];
+    if (typeof gtag === 'function' && caso >= 1 && caso <= 4) {
+        gtag('event', 'tax_case_study_used', {
+            event_category: 'tool_usage',
+            case_number: caso,
+            case_name: caseNames[caso],
+            value: 3
+        });
+        console.log('[Analytics] Tax case study tracked:', caseNames[caso]);
+    }
+    
     const salarioBrutoInput = document.getElementById('salario-bruto');
     const salarioSlider = document.getElementById('salario-slider');
     const ingresosExtraInput = document.getElementById('ingresos-extra');
@@ -1305,6 +1317,16 @@ function getFallbackRates() {
 // =================================================================================
 
 async function refreshRates() {
+    // 🎯 ANALYTICS: Track currency refresh
+    if (typeof gtag === 'function') {
+        gtag('event', 'currency_refresh', {
+            event_category: 'widget_interaction',
+            widget_type: 'currency_rates',
+            value: 2
+        });
+        console.log('[Analytics] Currency refresh tracked');
+    }
+    
     const refreshBtn = document.querySelector('.refresh-btn');
     const originalText = refreshBtn?.innerHTML;
     
@@ -2780,6 +2802,16 @@ async function showHistoricalData(indicatorType) {
     try {
         console.log(`📊 Loading historical data for ${indicatorType}...`);
         
+        // 🎯 ANALYTICS: Track historical chart view
+        if (typeof gtag === 'function') {
+            gtag('event', 'historical_chart_view', {
+                event_category: 'widget_interaction',
+                indicator: indicatorType,
+                value: 3
+            });
+            console.log('[Analytics] Historical chart viewed:', indicatorType);
+        }
+        
         let data = null;
         let title = '';
         let subtitle = '';
@@ -3144,6 +3176,18 @@ function setupTimeFilters(data, indicatorType) {
             filter.classList.add('active');
             
             const period = filter.getAttribute('data-period');
+            
+            // 🎯 ANALYTICS: Track period change in historical chart
+            if (typeof gtag === 'function') {
+                gtag('event', 'historical_chart_period_change', {
+                    event_category: 'widget_interaction',
+                    indicator: indicatorType,
+                    period: period,
+                    value: 2
+                });
+                console.log('[Analytics] Historical chart period changed:', indicatorType, period);
+            }
+            
             const filteredData = filterDataByPeriod(data, period);
             
             // Update chart with filtered data
@@ -3372,6 +3416,16 @@ function handleWidgetClick(event, indicatorType) {
         console.log('🔄 Refresh button clicked, preventing widget modal');
         event.stopPropagation();
         return;
+    }
+    
+    // 🎯 ANALYTICS: Track indicator widget click
+    if (typeof gtag === 'function') {
+        gtag('event', 'indicator_click', {
+            event_category: 'widget_interaction',
+            indicator_type: indicatorType,
+            value: 2
+        });
+        console.log('[Analytics] Indicator clicked:', indicatorType);
     }
     
     // Prevent default behavior and bubbling

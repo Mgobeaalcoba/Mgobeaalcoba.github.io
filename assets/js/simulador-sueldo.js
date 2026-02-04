@@ -45,6 +45,9 @@ export class SalarioSimulator {
   calcularBrutoNecesario(netoDeseado, config = {}) {
     logger.debug('SalarioSimulator', 'Calculating bruto from neto', { netoDeseado, config });
     
+    // 🎯 ANALYTICS: Track tax calculator usage
+    this.trackTaxCalculatorUsage(netoDeseado, config);
+    
     // Validación
     if (isNaN(netoDeseado) || netoDeseado <= 0) {
       throw new Error('El sueldo neto debe ser mayor a 0');
@@ -282,6 +285,40 @@ export class SalarioSimulator {
     });
     
     return tabla;
+  }
+
+  /**
+   * 🎯 ANALYTICS: Track tax calculator usage
+   */
+  trackTaxCalculatorUsage(netoDeseado, config) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'tax_calculator_use', {
+        event_category: 'tool_usage',
+        neto_deseado: Math.round(netoDeseado / 1000) * 1000, // Round to thousands
+        tiene_conyuge: config.conyuge || false,
+        num_hijos: config.hijos || 0,
+        tiene_alquiler: (config.alquiler && config.alquiler > 0) || false,
+        value: 5 // Tool usage value
+      });
+      
+      logger.debug('SalarioSimulator', 'Tax calculator usage tracked');
+    }
+  }
+
+  /**
+   * 🎯 ANALYTICS: Track case study usage
+   */
+  trackCaseStudyUsage(caseNumber, caseName) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'tax_case_study_used', {
+        event_category: 'tool_usage',
+        case_number: caseNumber,
+        case_name: caseName,
+        value: 3
+      });
+      
+      logger.debug('SalarioSimulator', 'Case study tracked', { caseNumber, caseName });
+    }
   }
 }
 

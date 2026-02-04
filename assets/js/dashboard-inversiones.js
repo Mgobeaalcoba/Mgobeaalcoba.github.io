@@ -331,11 +331,14 @@ export class InvestmentDashboard {
         periodButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Track event
-        this.trackEvent('dashboard_view', {
-          event_category: 'engagement',
-          period: `${period}months`
-        });
+        // 🎯 ANALYTICS: Track period change
+        if (typeof gtag === 'function') {
+          gtag('event', 'investment_dashboard_period_change', {
+            event_category: 'dashboard_interaction',
+            period: `${period}m`,
+            value: 3
+          });
+        }
 
         // Regenerar datos y actualizar visualización
         this.generateMonthlyData(period);
@@ -348,10 +351,16 @@ export class InvestmentDashboard {
     const shareBtn = document.getElementById('share-dashboard');
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
-        this.trackEvent('dashboard_share', {
-          event_category: 'social',
-          period: `${this.period}months`
-        });
+        // 🎯 ANALYTICS: Track dashboard share (GA4 standard event)
+        if (typeof gtag === 'function') {
+          gtag('event', 'share', {
+            method: 'image',
+            content_type: 'dashboard',
+            item_id: 'investment_dashboard',
+            period: `${this.period}m`,
+            value: 5
+          });
+        }
         this.generateShareableImage();
       });
     }

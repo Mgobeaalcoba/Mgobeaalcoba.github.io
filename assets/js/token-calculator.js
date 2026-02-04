@@ -103,6 +103,9 @@ function calculateTokenCosts() {
     const inputTokens = estimateTokens(text);
     const outputTokens = Math.ceil(inputTokens * outputRatio);
     
+    // 🎯 ANALYTICS: Track token calculator usage
+    trackTokenCalculatorUsage(inputTokens, outputTokens, outputRatio);
+    
     // Update statistics display
     updateStatDisplay('token-char-count', formatNumber(charCount));
     updateStatDisplay('token-word-count', formatNumber(wordCount));
@@ -357,6 +360,9 @@ async function handleFileUpload(file) {
             fileNameDisplay.classList.remove('hidden');
         }
         
+        // 🎯 ANALYTICS: Track file upload
+        trackTokenFileUpload(extension, file.size);
+        
         // Update stats
         const charCount = text.length;
         const wordCount = countWords(text);
@@ -466,6 +472,51 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+/**
+ * 🎯 ANALYTICS: Track token calculator usage
+ */
+function trackTokenCalculatorUsage(inputTokens, outputTokens, outputRatio) {
+    if (typeof gtag === 'function') {
+        // Get selected models (best 3)
+        const results = [];
+        for (const [modelName, pricing] of Object.entries(TOKEN_PRICING)) {
+            const costs = calculateModelCost(inputTokens, outputTokens, pricing);
+            results.push({
+                model: modelName,
+                totalCost: costs.total
+            });
+        }
+        results.sort((a, b) => a.totalCost - b.totalCost);
+        const topModels = results.slice(0, 3).map(r => r.model).join(',');
+        
+        gtag('event', 'token_calculator_use', {
+            event_category: 'tool_usage',
+            input_tokens: Math.round(inputTokens / 100) * 100, // Round to hundreds
+            output_ratio: outputRatio,
+            models_compared: topModels,
+            value: 5
+        });
+        
+        console.log('[Analytics] Token calculator usage tracked');
+    }
+}
+
+/**
+ * 🎯 ANALYTICS: Track file upload
+ */
+function trackTokenFileUpload(fileExtension, fileSize) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'token_file_upload', {
+            event_category: 'tool_usage',
+            file_type: fileExtension,
+            file_size_kb: Math.round(fileSize / 1024),
+            value: 3
+        });
+        
+        console.log('[Analytics] Token file upload tracked');
+    }
 }
 
 // Export functions for global access

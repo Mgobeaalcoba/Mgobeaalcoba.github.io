@@ -6,6 +6,86 @@
 function startGame() {
     document.getElementById('intro-screen').classList.add('hidden');
     // Audio context could start here if added later
+    
+    // 🎯 ANALYTICS: Track game start
+    trackGameStart();
+}
+
+// 🎯 ANALYTICS FUNCTIONS
+function trackGameStart() {
+    if (typeof gtag === 'function') {
+        gtag('event', 'game_start', {
+            event_category: 'gamification',
+            game_name: 'ReqQuest 3D',
+            value: 10
+        });
+        console.log('[Analytics] Game start tracked');
+    }
+}
+
+function trackChallengeCompleted(npcId, npcName, isCorrect) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'challenge_solved', {
+            event_category: 'gamification',
+            challenge_id: npcId,
+            challenge_name: npcName,
+            success: isCorrect,
+            value: isCorrect ? 5 : 1
+        });
+        console.log('[Analytics] Challenge tracked:', npcId, isCorrect);
+    }
+}
+
+function trackLevelProgress(completedCount, totalChallenges) {
+    if (typeof gtag === 'function') {
+        const progress = Math.round((completedCount / totalChallenges) * 100);
+        gtag('event', 'level_progress', {
+            event_category: 'gamification',
+            challenges_completed: completedCount,
+            total_challenges: totalChallenges,
+            progress_percent: progress,
+            value: 3
+        });
+        console.log('[Analytics] Level progress tracked:', progress + '%');
+    }
+}
+
+function trackGameComplete(finalRep, finalBudget, totalTime) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'game_complete', {
+            event_category: 'gamification',
+            final_reputation: finalRep,
+            final_budget: finalBudget,
+            total_time_minutes: Math.round(totalTime / 60),
+            challenges_completed: 13,
+            value: 50 // Very high value for game completion
+        });
+        console.log('[Analytics] Game completion tracked');
+    }
+}
+
+function trackBossUnlocked() {
+    if (typeof gtag === 'function') {
+        gtag('event', 'boss_unlocked', {
+            event_category: 'gamification',
+            challenges_before_boss: 12,
+            value: 15
+        });
+        console.log('[Analytics] Boss unlocked tracked');
+    }
+}
+
+function trackStakeholderInteraction(npcId, npcName, npcRole) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'stakeholder_interaction', {
+            event_category: 'gamification',
+            stakeholder_id: npcId,
+            stakeholder_name: npcName,
+            stakeholder_role: npcRole,
+            value: 2
+        });
+        console.log('[Analytics] Stakeholder interaction tracked:', npcName);
+    }
 }
 
 // --- GAME DATA ---
@@ -665,6 +745,9 @@ function interact() {
         const panel = document.getElementById('dialog-panel');
         panel.classList.remove('hidden');
 
+        // 🎯 ANALYTICS: Track stakeholder interaction
+        trackStakeholderInteraction(activeNPC.data.id, activeNPC.data.name, activeNPC.data.role);
+
         // Fill Data
         document.getElementById('npc-name').innerText = activeNPC.data.name;
         document.getElementById('npc-role').innerText = activeNPC.data.role;
@@ -695,6 +778,9 @@ function resolveOption(opt) {
     document.getElementById('hud-rep').innerText = GAME_DATA.reputation;
     document.getElementById('hud-budget').innerText = GAME_DATA.budget;
 
+    // 🎯 ANALYTICS: Track challenge completion
+    trackChallengeCompleted(activeNPC.data.id, activeNPC.data.name, opt.correct);
+
     // Show Feedback
     const cont = document.getElementById('options-container');
     cont.innerHTML = `
@@ -710,6 +796,9 @@ function resolveOption(opt) {
         if(!GAME_DATA.completed.includes(activeNPC.data.id)) {
             GAME_DATA.completed.push(activeNPC.data.id);
             document.getElementById('hud-progress').innerText = GAME_DATA.completed.length;
+            
+            // 🎯 ANALYTICS: Track level progress
+            trackLevelProgress(GAME_DATA.completed.length, 13);
             
             // Remove indicator
             if(activeNPC.model.indicator) {
@@ -736,6 +825,10 @@ function showWinScreen() {
     document.getElementById('final-rep').innerText = GAME_DATA.reputation + '%';
     document.getElementById('final-budget').innerText = '$' + GAME_DATA.budget + 'k';
     
+    // 🎯 ANALYTICS: Track game completion
+    const totalTime = clock.getElapsedTime(); // Get total time from clock
+    trackGameComplete(GAME_DATA.reputation, GAME_DATA.budget, totalTime);
+    
     // Show screen
     document.getElementById('win-screen').classList.remove('hidden');
 }
@@ -743,6 +836,9 @@ function showWinScreen() {
 function showBossScreen() {
     isBossScreenShowing = true;
     document.getElementById('boss-screen').classList.remove('hidden');
+    
+    // 🎯 ANALYTICS: Track boss unlocked
+    trackBossUnlocked();
 }
 
 window.closeBossScreen = function() {
