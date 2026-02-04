@@ -4,52 +4,77 @@
       "id": "video-1",
       "youtubeId": "u8hgIp-0YIY",
       "title": {
-        "es": "Model Context Protocol (MCP) + Demo en Cursor",
-        "en": "Model Context Protocol (MCP) + Cursor Demo"
+        "es": "Aprende Model Context Protocol (MCP) + demo real en Cursor",
+        "en": "Learn Model Context Protocol (MCP) + real Cursor demo"
       },
       "description": {
-        "es": "Aprende sobre Model Context Protocol y ve una demostración práctica en Cursor IDE. Conceptos avanzados de ingeniería de datos y arquitecturas escalables.",
-        "en": "Learn about Model Context Protocol and watch a practical demo in Cursor IDE. Advanced data engineering concepts and scalable architectures."
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead en Mercado Libre. Aprende cómo conectar modelos de IA con tus datos mediante Model Context Protocol y ve una demostración práctica en Cursor IDE.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn how to connect AI models with your data using Model Context Protocol and watch a practical demo in Cursor IDE."
       },
       "category": "data-engineering",
-      "duration": "N/A",
-      "date": "2026-02-01",
+      "duration": "31:28",
+      "date": "2026-01-29",
+      "uploadDate": "2026-01-29T02:27:50-08:00",
+      "channel": "Henry",
       "featured": true,
-      "tags": ["data-engineering", "architecture", "mcp", "cursor"]
+      "tags": ["data-engineering", "architecture", "mcp", "cursor", "ai", "mercadolibre"]
     },
     {
       "id": "video-2",
       "youtubeId": "_gNzUsDOH1w",
       "title": {
-        "es": "Cómo crear un sistema RAG con Python + OpenAI",
-        "en": "How to build a RAG system with Python + OpenAI"
+        "es": "Cómo crear un sistema RAG con Python + OpenAI (Clase AI Engineering)",
+        "en": "How to build a RAG system with Python + OpenAI (AI Engineering Class)"
       },
       "description": {
-        "es": "Clase completa de AI Engineering: aprende a implementar Retrieval Augmented Generation (RAG) con Python y OpenAI para aplicaciones GenAI en producción.",
-        "en": "Complete AI Engineering class: learn to implement Retrieval Augmented Generation (RAG) with Python and OpenAI for GenAI production applications."
+        "es": "Clase completa de AI Engineering: aprende a implementar Retrieval Augmented Generation (RAG) con Python y OpenAI para aplicaciones GenAI en producción. Conceptos fundamentales, arquitectura y código práctico.",
+        "en": "Complete AI Engineering class: learn to implement Retrieval Augmented Generation (RAG) with Python and OpenAI for production GenAI applications. Fundamental concepts, architecture and practical code."
       },
       "category": "genai",
-      "duration": "N/A",
-      "date": "2026-02-05",
+      "duration": "55:51",
+      "date": "2025-12-04",
+      "uploadDate": "2025-12-04T03:06:31-08:00",
+      "channel": "Henry",
       "featured": true,
-      "tags": ["genai", "rag", "python", "openai"]
+      "tags": ["genai", "rag", "python", "openai", "ai-engineering", "llm"]
     },
     {
       "id": "video-3",
       "youtubeId": "vi3NEkdZGaI",
       "title": {
-        "es": "Procesamiento de datos en Python: CSV a Análisis",
-        "en": "Data Processing in Python: From CSV to Analysis"
+        "es": "Procesamiento de datos en Python: De CSV a tablas listas para Análisis",
+        "en": "Data Processing in Python: From CSV to Analysis-Ready Tables"
       },
       "description": {
-        "es": "Live session sobre procesamiento y transformación de datos con Python. De archivos CSV a tablas listas para análisis con Pandas y mejores prácticas.",
-        "en": "Live session on data processing and transformation with Python. From CSV files to analysis-ready tables with Pandas and best practices."
+        "es": "Live session sobre procesamiento y transformación de datos con Python. Aprende a convertir archivos CSV a tablas listas para análisis usando Pandas, mejores prácticas de limpieza de datos y optimización de pipelines.",
+        "en": "Live session on data processing and transformation with Python. Learn to convert CSV files to analysis-ready tables using Pandas, data cleaning best practices and pipeline optimization."
       },
-      "category": "live-session",
-      "duration": "N/A",
-      "date": "2026-02-10",
+      "category": "python",
+      "duration": "47:10",
+      "date": "2024-10-10",
+      "uploadDate": "2024-10-10T04:05:38-07:00",
+      "channel": "Henry",
       "featured": true,
-      "tags": ["python", "pandas", "data-processing"]
+      "tags": ["python", "pandas", "data-processing", "csv", "data-cleaning", "etl"]
+    },
+    {
+      "id": "video-4",
+      "youtubeId": "Q9dYQVIudbI",
+      "title": {
+        "es": "IA para Marketing | Automatiza y crea contenido con n8n, JinaAI y Notion",
+        "en": "AI for Marketing | Automate and create content with n8n, JinaAI and Notion"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea. Aprende a crear tu propia 'content machine' automatizada usando IA. Integración de n8n, JinaAI y Notion para automatizar la creación de contenido de marketing con inteligencia artificial.",
+        "en": "Live masterclass with Mariano Gobea. Learn to create your own automated 'content machine' using AI. Integration of n8n, JinaAI and Notion to automate marketing content creation with artificial intelligence."
+      },
+      "category": "automation",
+      "duration": "1:04:13",
+      "date": "2026-02-03",
+      "uploadDate": "2026-02-03T15:14:54-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "marketing", "n8n", "notion", "content-creation", "no-code"]
     }
   ],
   "playlists": [
@@ -69,9 +94,10 @@
     }
   ],
   "metadata": {
-    "version": "1.0.0",
-    "lastUpdated": "2026-02-01",
-    "totalVideos": 3,
-    "note": "Replace youtubeId values with real YouTube video IDs when available"
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-04",
+    "totalVideos": 4,
+    "dataSource": "YouTube - Real metadata extracted via browser automation",
+    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-04. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
   }
 }

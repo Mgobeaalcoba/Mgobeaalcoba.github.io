@@ -2749,6 +2749,10 @@ export const translations = {
         es: "Automatización",
         en: "Automation"
     },
+    "blog_category_genai": {
+        es: "IA Generativa",
+        en: "Generative AI"
+    },
     "blog_category_business_intelligence": {
         es: "Business Intelligence",
         en: "Business Intelligence"
