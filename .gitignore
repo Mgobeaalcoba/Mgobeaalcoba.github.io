@@ -30,4 +30,19 @@ yarn-error.log*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Internal documentation and work files (exclude from git)
+# Exclude all .md files in root directory
+/*.md
+
+# But keep conventional/public documentation
+!README.md
+!CHANGELOG.md
+!LICENSE.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+
+# Keep all blog posts and content markdown files
+!blog/**/*.md
+!assets/docs/**/*.md 
