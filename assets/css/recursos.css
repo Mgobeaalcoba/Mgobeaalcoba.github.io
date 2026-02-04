@@ -1077,12 +1077,20 @@ html.light .refresh-btn:hover {
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .currency-rate-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-color);
+}
+
+/* Desktop: Asegurar que ocupe todo el ancho disponible */
+@media (min-width: 1024px) {
+    .currency-rate-item {
+        padding: 2rem;
+    }
 }
 
 .currency-header {
@@ -1103,11 +1111,41 @@ html.light .refresh-btn:hover {
     gap: 0.75rem;
 }
 
+/* Desktop: Títulos más prominentes */
+@media (min-width: 1024px) {
+    .currency-title {
+        font-size: 1.75rem;
+        gap: 1rem;
+    }
+}
+
+/* Large screens: Mayor jerarquía visual */
+@media (min-width: 1400px) {
+    .currency-title {
+        font-size: 2rem;
+        gap: 1.25rem;
+    }
+}
+
 .currency-symbol {
     font-size: 1.75rem;
     color: var(--primary-color);
     font-weight: 800;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop: Símbolos más grandes y prominentes */
+@media (min-width: 1024px) {
+    .currency-symbol {
+        font-size: 2.25rem;
+    }
+}
+
+/* Large screens: Mayor impacto visual */
+@media (min-width: 1400px) {
+    .currency-symbol {
+        font-size: 2.75rem;
+    }
 }
 
 .currency-name {
@@ -1116,31 +1154,51 @@ html.light .refresh-btn:hover {
 
 .currency-rates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     width: 100%;
     text-align: center;
 }
 
-/* Desktop: Mejor organización con columnas más grandes */
+/* Tablet: 2 columnas desde 768px */
+@media (min-width: 768px) {
+    .currency-rates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop: Máximo 2 columnas con tarjetas más anchas y espaciosas */
 @media (min-width: 1024px) {
     .currency-rates-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        max-width: 1400px;
+        max-width: 900px;
         margin: 0 auto;
     }
 }
 
-/* Extra large screens: Limitar a máximo 4 columnas */
+/* Large screens: Mantener 2 columnas pero más espaciadas */
 @media (min-width: 1400px) {
     .currency-rates-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
     }
 }
 
-/* EUR/BRL Container - Group for better space utilization */
+/* Extra large screens: Mantener 2 columnas espaciosas */
+@media (min-width: 1800px) {
+    .currency-rates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+/* EUR/BRL Container - Estructura optimizada */
 .eur-brl-container {
     display: flex;
     flex-direction: column;
@@ -1148,32 +1206,30 @@ html.light .refresh-btn:hover {
     width: 100%;
 }
 
-/* Desktop: EUR and BRL side by side */
-@media (min-width: 1024px) {
-    .eur-brl-container {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        width: 100%;
-    }
-    
-    .eur-brl-container .currency-rate-item {
-        flex: 1;
-        max-width: 50%;
+.eur-brl-container .currency-rate-item {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Desktop: EUR y BRL con una sola columna centrada */
+@media (min-width: 768px) {
+    .eur-brl-container .currency-rates-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
 
-/* Mobile: EUR and BRL stacked (default behavior) */
-@media (max-width: 1023px) {
-    .eur-brl-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+/* Large screens: Tarjeta más ancha y elegante */
+@media (min-width: 1024px) {
+    .eur-brl-container .currency-rates-grid {
+        max-width: 550px;
     }
-    
-    .eur-brl-container .currency-rate-item {
-        width: 100%;
-        max-width: none;
+}
+
+@media (min-width: 1400px) {
+    .eur-brl-container .currency-rates-grid {
+        max-width: 600px;
     }
 }
 
@@ -1185,20 +1241,39 @@ html.light .refresh-btn:hover {
     background: var(--input-bg, var(--card-background));
     border-radius: 16px;
     border: 1px solid var(--border-color);
-    min-width: 200px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 140px;
 }
 
-/* Desktop: Mejorar spacing y tamaño */
+/* Tablet y Desktop: Tarjetas más espaciosas con 2 columnas */
+@media (min-width: 768px) {
+    .rate-type {
+        padding: 1.75rem;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        min-height: 160px;
+    }
+}
+
+/* Desktop: Aún más espacioso */
 @media (min-width: 1024px) {
     .rate-type {
-        padding: 1.5rem;
-        min-width: 280px;
+        padding: 2rem;
         border-radius: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        min-height: 180px;
+    }
+}
+
+/* Large screens: Máximo espaciado y elegancia */
+@media (min-width: 1400px) {
+    .rate-type {
+        padding: 2.5rem;
+        min-height: 200px;
     }
 }
 
@@ -1268,11 +1343,28 @@ html.light .refresh-btn:hover {
     line-height: 1.2;
 }
 
-/* Desktop: Tipografía mejorada */
+/* Tablet: Tipografía ligeramente mayor */
+@media (min-width: 768px) {
+    .rate-label {
+        font-size: 0.95rem;
+        margin-bottom: 0.85rem;
+    }
+}
+
+/* Desktop: Tipografía mejorada y espaciosa */
 @media (min-width: 1024px) {
     .rate-label {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
+        font-weight: 700;
+    }
+}
+
+/* Large screens: Mayor énfasis */
+@media (min-width: 1400px) {
+    .rate-label {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -1282,6 +1374,20 @@ html.light .refresh-btn:hover {
     align-items: center;
     gap: 0.5rem;
     width: 100%;
+}
+
+/* Desktop: Mayor separación entre valores */
+@media (min-width: 1024px) {
+    .rate-values {
+        gap: 0.75rem;
+    }
+}
+
+/* Large screens: Espacio generoso */
+@media (min-width: 1400px) {
+    .rate-values {
+        gap: 1rem;
+    }
 }
 
 .rate-buy, .rate-sell {
@@ -1323,6 +1429,22 @@ html.light .refresh-btn:hover {
     font-size: 0.75rem;
     margin-top: 0.25rem;
     opacity: 0.8;
+}
+
+/* Desktop: Spread más visible */
+@media (min-width: 1024px) {
+    .rate-spread {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Large screens: Mayor legibilidad */
+@media (min-width: 1400px) {
+    .rate-spread {
+        font-size: 0.95rem;
+        margin-top: 0.75rem;
+    }
 }
 
 .rate-change {
