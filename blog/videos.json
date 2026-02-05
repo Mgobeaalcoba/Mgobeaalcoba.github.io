@@ -75,6 +75,25 @@
       "channel": "Henry",
       "featured": true,
       "tags": ["automation", "ai", "marketing", "n8n", "notion", "content-creation", "no-code"]
+    },
+    {
+      "id": "video-5",
+      "youtubeId": "H-5wJEDNkLk",
+      "title": {
+        "es": "IA para Ventas: automatiza el research de leads y aumenta respuestas con IA y n8n",
+        "en": "AI for Sales: automate lead research and increase responses with AI and n8n"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead de Mercado Libre. Aprende cómo usar IA para automatizar el research de leads y mejorar la personalización en ventas. A través de un flujo en n8n, cada vez que entra un lead al CRM, la IA investiga la empresa, analiza información relevante y genera un icebreaker personalizado listo para enviar.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn how to use AI to automate lead research and improve sales personalization. Through an n8n workflow, every time a lead enters the CRM, AI researches the company, analyzes relevant information and generates a personalized icebreaker ready to send."
+      },
+      "category": "automation",
+      "duration": "45:28",
+      "date": "2026-02-04",
+      "uploadDate": "2026-02-04T10:00:00-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "sales", "n8n", "crm", "hubspot", "lead-research", "personalization"]
     }
   ],
   "playlists": [
@@ -95,9 +114,9 @@
   ],
   "metadata": {
     "version": "2.0.0",
-    "lastUpdated": "2026-02-04",
-    "totalVideos": 4,
+    "lastUpdated": "2026-02-05",
+    "totalVideos": 5,
     "dataSource": "YouTube - Real metadata extracted via browser automation",
-    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-04. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
+    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-05. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
   }
 }
