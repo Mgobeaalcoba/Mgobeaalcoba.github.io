@@ -49,6 +49,41 @@ export const techStackData = {
 // Updated projects with only concrete technology tags
 export const projectsData = [
     { 
+        id: 17, 
+        tags: ['JavaScript', 'HTML', 'n8n', 'AI', 'Python', 'Git'], 
+        title: { es: "[n8n-AI Automation] Serie de MasterClasses: Automatización con IA", en: "[n8n-AI Automation] MasterClass Series: AI Automation" }, 
+        description: { es: "Serie de masterclasses sobre automatización con IA y n8n para Henry Bootcamp. Incluye workflows completos de Marketing (Content Factory), Ventas (Lead Automation) y Finanzas (Monitor Financiero) con stack tecnológico 100% gratuito.", en: "AI automation and n8n masterclass series for Henry Bootcamp. Includes complete workflows for Marketing (Content Factory), Sales (Lead Automation), and Finance (Financial Monitor) with 100% free tech stack." }, 
+        link: "https://github.com/Mgobeaalcoba/ai_automation_henry_masterclass" 
+    },
+    { 
+        id: 18, 
+        tags: ['JavaScript', 'HTML', 'CSS', 'Git', 'Terminal'], 
+        title: { es: "[Portfolio Web] CV Interactivo & Consultoría", en: "[Web Portfolio] Interactive CV & Consulting" }, 
+        description: { es: "Plataforma web moderna de CV/portfolio interactivo con servicios de consultoría, blog técnico 'Data Engineering en las Trincheras', dashboard de salud económica y calculadoras financieras. Optimizado para performance (-40% bundle size) con arquitectura modular enterprise-ready.", en: "Modern interactive CV/portfolio web platform with consulting services, technical blog 'Data Engineering in the Trenches', economic health dashboard, and financial calculators. Optimized for performance (-40% bundle size) with enterprise-ready modular architecture." }, 
+        link: "https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io" 
+    },
+    { 
+        id: 19, 
+        tags: ['Python', 'PyPI', 'n8n', 'Git', 'Terminal'], 
+        title: { es: "[Python-n8n] SDK y CLI n8n-flow-manager", en: "[Python-n8n] n8n-flow-manager SDK & CLI" }, 
+        description: { es: "SDK y CLI avanzado en Python para interactuar con la API pública de n8n. Incluye operaciones async, modelos type-safe con Pydantic, templates Jinja2 e integración con CI/CD para DevOps workflows. Publicado en PyPI con +11 estrellas en GitHub.", en: "Advanced Python SDK and CLI to interact with n8n Public API. Includes async operations, type-safe Pydantic models, Jinja2 templates, and CI/CD integration for DevOps workflows. Published on PyPI with +11 GitHub stars." }, 
+        link: "https://github.com/Mgobeaalcoba/n8n-flow-manager" 
+    },
+    { 
+        id: 20, 
+        tags: ['Python', 'AI', 'SQLite', 'Git', 'Terminal'], 
+        title: { es: "[MCP-FastMCP] Model Context Protocol para Cursor IDE", en: "[MCP-FastMCP] Model Context Protocol for Cursor IDE" }, 
+        description: { es: "Proyecto educacional de demostración profesional para enseñar cómo conectar sistemas empresariales a IAs mediante Model Context Protocol (MCP) en Cursor IDE. Incluye servidor MCP con 3 herramientas para consultar tickets de soporte técnico.", en: "Professional educational demo project teaching how to connect enterprise systems to AIs via Model Context Protocol (MCP) in Cursor IDE. Includes MCP server with 3 tools for querying technical support tickets." }, 
+        link: "https://github.com/Mgobeaalcoba/mcp_henry_masterclass" 
+    },
+    { 
+        id: 21, 
+        tags: ['Python', 'AI', 'RAG', 'LLM', 'Git', 'Terminal'], 
+        title: { es: "[RAG-LangChain] Cerebro Corporativo con RAG", en: "[RAG-LangChain] Corporate Brain with RAG" }, 
+        description: { es: "Demostración práctica de RAG (Retrieval Augmented Generation) para dar 'memoria' a los LLMs con documentación privada. Usa LangChain, ChromaDB y embeddings gratuitos de HuggingFace para construir un sistema de knowledge management empresarial.", en: "Practical demonstration of RAG (Retrieval Augmented Generation) to give 'memory' to LLMs with private documentation. Uses LangChain, ChromaDB, and free HuggingFace embeddings to build an enterprise knowledge management system." }, 
+        link: "https://github.com/Mgobeaalcoba/masterclass_henry_ai_engineering" 
+    },
+    { 
         id: 1, 
         tags: ['Python', 'Pandas', 'PyPI', 'Git', 'Terminal'], 
         title: { es: "[Python-Pandas] Paquete PyPI Missing-mga", en: "[Python-Pandas] Missing-mga Pandas API extends PyPI package" }, 
