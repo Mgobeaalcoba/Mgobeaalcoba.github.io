@@ -94,6 +94,25 @@
       "channel": "Henry",
       "featured": true,
       "tags": ["automation", "ai", "sales", "n8n", "crm", "hubspot", "lead-research", "personalization"]
+    },
+    {
+      "id": "video-6",
+      "youtubeId": "zjmdge-1B0M",
+      "title": {
+        "es": "IA para finanzas | Crea tu monitor de tendencias financieras con n8n, JinaAI Y OpenRouter",
+        "en": "AI for Finance | Build your financial trends monitor with n8n, JinaAI and OpenRouter"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead de Mercado Libre. Aprende a construir un sistema de monitoreo financiero automático con IA que analiza noticias 24/7, detecta señales relevantes y te envía alertas solo cuando realmente pasa algo importante. Una clase práctica para entender cómo aplicar IA y automatización en finanzas reales, trabajando con datos no estructurados y sistemas inteligentes.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn to build an automatic financial monitoring system with AI that analyzes news 24/7, detects relevant signals and sends you alerts only when something important really happens. A practical class to understand how to apply AI and automation in real finance, working with unstructured data and intelligent systems."
+      },
+      "category": "automation",
+      "duration": "39:33",
+      "date": "2026-01-29",
+      "uploadDate": "2026-01-29T10:34:46-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "finance", "n8n", "monitoring", "financial-news", "openrouter", "jinaai"]
     }
   ],
   "playlists": [
@@ -114,9 +133,9 @@
   ],
   "metadata": {
     "version": "2.0.0",
-    "lastUpdated": "2026-02-05",
-    "totalVideos": 5,
+    "lastUpdated": "2026-02-06",
+    "totalVideos": 6,
     "dataSource": "YouTube - Real metadata extracted via browser automation",
-    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-05. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
+    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-06. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
   }
 }
