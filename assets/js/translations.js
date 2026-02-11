@@ -3038,8 +3038,8 @@ export const translations = {
         en: "Thank you for subscribing!"
     },
     "newsletter_success_desc": {
-        es: "Revisa tu email para confirmar la suscripción.",
-        en: "Check your email to confirm subscription."
+        es: "Recibirás 'The Data Digest' cada semana en tu email.",
+        en: "You'll receive 'The Data Digest' weekly in your email."
     },
 
     // ============== TALENT DEVELOPMENT SERVICES ==============

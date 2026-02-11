@@ -1,28 +1,25 @@
 // newsletter.js - Newsletter subscription system "The Data Digest"
+// Modified to use n8n webhook instead of Mailchimp
 import logger from './logger.js';
 
 /**
- * NewsletterManager - Sistema de suscripción a newsletter
+ * NewsletterManager - Sistema de suscripción a newsletter con n8n
  */
 export class NewsletterManager {
   constructor() {
-    // Configuración Mailchimp
-    // NOTA: Estos valores deben actualizarse con los valores reales de Mailchimp
-    this.mailchimpConfig = {
-      // Endpoint público de Mailchimp para suscripción
-      // Formato: https://XXXXX.usXX.list-manage.com/subscribe/post?u=USER_ID&id=LIST_ID
-      publicEndpoint: '', // TODO: Configurar con cuenta Mailchimp real
-      
-      // Estos valores se obtienen del formulario embedded de Mailchimp
-      userId: '', // TODO: Configurar
-      listId: ''  // TODO: Configurar
+    // Configuración n8n webhook
+    this.webhookConfig = {
+      endpoint: 'https://mgobeaalcoba.app.n8n.cloud/webhook/recibir-email',
+      timeout: 10000 // 10 segundos timeout
     };
     
     this.hasShownPopup = false;
+    
+    logger.debug('Newsletter', 'Initialized with n8n webhook:', this.webhookConfig.endpoint);
   }
 
   /**
-   * Suscribir email al newsletter
+   * Suscribir email al newsletter via n8n webhook
    */
   async subscribe(email, name = '', source = 'footer') {
     try {
@@ -30,105 +27,75 @@ export class NewsletterManager {
       
       // Validación
       if (!this.isValidEmail(email)) {
-        throw new Error('Email inválido');
+        throw new Error('Email inválido. Por favor verifica el formato.');
       }
       
-      // Si no hay endpoint configurado, simular success
-      if (!this.mailchimpConfig.publicEndpoint) {
-        logger.warn('Newsletter', 'Mailchimp not configured, simulating subscription');
-        
-        // Guardar localmente para testing
-        localStorage.setItem('newsletter_subscribed', 'true');
-        localStorage.setItem('newsletter_email', email);
-        
-        // Track event
-        this.trackSubscription(source);
-        
-        return { success: true, message: 'Suscripción simulada (Mailchimp pendiente de configuración)' };
-      }
+      // Preparar payload para n8n
+      const payload = {
+        email: email,
+        name: name || '',
+        source: source,
+        page: window.location.pathname,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        language: document.documentElement.lang || 'es'
+      };
       
-      // Submit real via JSONP (Mailchimp requirement)
-      return new Promise((resolve, reject) => {
-        const form = document.createElement('form');
-        form.action = this.mailchimpConfig.publicEndpoint;
-        form.method = 'POST';
-        form.target = 'hidden-iframe-newsletter';
-        
-        // Email input
-        const emailInput = document.createElement('input');
-        emailInput.type = 'email';
-        emailInput.name = 'EMAIL';
-        emailInput.value = email;
-        form.appendChild(emailInput);
-        
-        // Name input (opcional)
-        if (name) {
-          const nameInput = document.createElement('input');
-          nameInput.type = 'text';
-          nameInput.name = 'FNAME';
-          nameInput.value = name;
-          form.appendChild(nameInput);
-        }
-        
-        // Source tracking
-        const sourceInput = document.createElement('input');
-        sourceInput.type = 'hidden';
-        sourceInput.name = 'SOURCE';
-        sourceInput.value = source;
-        form.appendChild(sourceInput);
-        
-        // Anti-bot field (honeypot)
-        const botField = document.createElement('input');
-        botField.type = 'text';
-        botField.name = 'b_' + this.mailchimpConfig.userId + '_' + this.mailchimpConfig.listId;
-        botField.style.position = 'absolute';
-        botField.style.left = '-5000px';
-        botField.setAttribute('aria-hidden', 'true');
-        form.appendChild(botField);
-        
-        // Create hidden iframe
-        let iframe = document.getElementById('hidden-iframe-newsletter');
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.name = 'hidden-iframe-newsletter';
-          iframe.id = 'hidden-iframe-newsletter';
-          iframe.style.display = 'none';
-          document.body.appendChild(iframe);
-        }
-        
-        // Handle response
-        iframe.onload = () => {
-          // Guardar suscripción exitosa
-          localStorage.setItem('newsletter_subscribed', 'true');
-          localStorage.setItem('newsletter_email', email);
-          localStorage.setItem('newsletter_date', new Date().toISOString());
-          
-          // Track event
-          this.trackSubscription(source);
-          
-          logger.success('Newsletter', 'Subscription successful', { email, source });
-          resolve({ success: true });
-        };
-        
-        iframe.onerror = () => {
-          logger.error('Newsletter', 'Subscription failed (iframe error)');
-          reject(new Error('Error de red. Por favor intenta nuevamente.'));
-        };
-        
-        // Submit form
-        document.body.appendChild(form);
-        form.submit();
-        
-        // Cleanup después de un delay
-        setTimeout(() => {
-          if (document.body.contains(form)) {
-            document.body.removeChild(form);
-          }
-        }, 1000);
+      logger.debug('Newsletter', 'Sending to n8n webhook', payload);
+      
+      // Enviar POST a n8n webhook
+      const response = await fetch(this.webhookConfig.endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(this.webhookConfig.timeout)
       });
+      
+      if (!response.ok) {
+        throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+      }
+      
+      // Intentar parsear respuesta
+      let responseData;
+      try {
+        responseData = await response.json();
+        logger.debug('Newsletter', 'n8n response:', responseData);
+      } catch (e) {
+        // Si no es JSON, está ok (n8n puede devolver texto plano)
+        logger.debug('Newsletter', 'n8n response (non-JSON):', await response.text());
+        responseData = { success: true };
+      }
+      
+      // Guardar suscripción exitosa en localStorage
+      localStorage.setItem('newsletter_subscribed', 'true');
+      localStorage.setItem('newsletter_email', email);
+      localStorage.setItem('newsletter_date', new Date().toISOString());
+      localStorage.setItem('newsletter_source', source);
+      
+      // Track event en analytics
+      this.trackSubscription(source, email);
+      
+      logger.success('Newsletter', 'Subscription successful via n8n', { email, source });
+      
+      return { 
+        success: true, 
+        message: '¡Suscripción exitosa! Recibirás "The Data Digest" cada semana.',
+        data: responseData 
+      };
+      
     } catch (error) {
       logger.error('Newsletter subscription error:', error);
-      throw error;
+      
+      // Mensajes de error específicos
+      if (error.name === 'AbortError') {
+        throw new Error('La solicitud tardó demasiado. Por favor intenta nuevamente.');
+      } else if (error.message.includes('Failed to fetch')) {
+        throw new Error('Error de conexión. Verifica tu internet e intenta nuevamente.');
+      } else {
+        throw new Error(error.message || 'Error al suscribirse. Por favor intenta nuevamente.');
+      }
     }
   }
 
@@ -272,7 +239,7 @@ export class NewsletterManager {
           <div class="success-message text-center">
             <i class="fas fa-check-circle text-6xl text-green-400 mb-4"></i>
             <h3 class="text-2xl font-bold mb-2">¡Gracias por suscribirte!</h3>
-            <p class="text-secondary">Revisa tu email para confirmar la suscripción.</p>
+            <p class="text-secondary">Recibirás "The Data Digest" cada semana en tu email.</p>
           </div>
         `;
         
@@ -307,14 +274,28 @@ export class NewsletterManager {
   /**
    * Track subscription event in Google Analytics
    */
-  trackSubscription(source) {
+  trackSubscription(source, email) {
     if (typeof gtag === 'function') {
-      gtag('event', 'newsletter_subscribe', {
-        'event_category': 'conversion',
+      // Track newsletter signup
+      gtag('event', 'newsletter_signup', {
+        'event_category': 'engagement',
         'event_label': source,
-        'value': 15 // Valor estimado de un suscriptor
+        'method': source,
+        'page': window.location.pathname,
+        'value': 20 // Valor estimado de un suscriptor
       });
-      logger.debug('Newsletter', 'Subscription tracked in GA', { source });
+      
+      // Track as lead generation
+      gtag('event', 'generate_lead', {
+        'currency': 'USD',
+        'value': 20,
+        'lead_source': 'newsletter',
+        'source': source
+      });
+      
+      logger.debug('Newsletter', 'Subscription tracked in GA', { source, email });
+    } else {
+      logger.warn('Newsletter', 'Google Analytics not available for tracking');
     }
   }
 
