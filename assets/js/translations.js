@@ -181,20 +181,28 @@ export const translations = {
     },
     // ================= CONSULTING PAGE TRANSLATIONS =================
     consulting_hero_title: {
-        es: "Automatice su Primer Proceso <span style='color: var(--primary-color);'>100% Gratis</span>",
-        en: "Automate Your First Process <span style='color: var(--primary-color);'>100% Free</span>"
+        es: "Consultoría Tech 360° para Empresas y Profesionales",
+        en: "360° Tech Consulting for Companies and Professionals"
     },
     consulting_hero_subtitle: {
-        es: "Descubra el potencial de la automatización sin compromiso. Le implementamos una automatización simple completamente gratis para que vea resultados reales en su negocio.",
-        en: "Discover the potential of automation without commitment. We implement a simple automation completely free so you can see real results in your business."
+        es: "Automatización • IA Aplicada • Business Intelligence • Mentorías • Cursos • Recruiting Tech",
+        en: "Automation • Applied AI • Business Intelligence • Mentoring • Courses • Tech Recruiting"
+    },
+    consulting_hero_description: {
+        es: "Transforme su negocio con tecnología y desarrolle talento tech de clase mundial. Desde automatización de procesos hasta reclutamiento especializado.",
+        en: "Transform your business with technology and develop world-class tech talent. From process automation to specialized recruitment."
     },
     consulting_hero_main_cta: {
-        es: "Solicitar Mi Automatización Gratis",
-        en: "Request My Free Automation"
+        es: "Ver Todos los Servicios",
+        en: "View All Services"
     },
     consulting_hero_secondary_cta: {
-        es: "¿Cómo Funciona?",
-        en: "How It Works?"
+        es: "🎁 Automatización Gratis",
+        en: "🎁 Free Automation"
+    },
+    consulting_hero_tertiary_cta: {
+        es: "Agendar Consulta",
+        en: "Schedule Consultation"
     },
     
     // ========== HERO TRUST BADGES TRANSLATIONS ==========
@@ -209,6 +217,44 @@ export const translations = {
     consulting_trust_badge_results: {
         es: "Resultados en 2 semanas",
         en: "Results in 2 weeks"
+    },
+    consulting_trust_badge_experience: {
+        es: "6 años MercadoLibre",
+        en: "6 years MercadoLibre"
+    },
+    consulting_trust_badge_teacher: {
+        es: "Docente Henry & UADE",
+        en: "Instructor Henry & UADE"
+    },
+    consulting_trust_badge_projects: {
+        es: "15+ proyectos exitosos",
+        en: "15+ successful projects"
+    },
+
+    // ========== VALUE PROPOSITIONS SECTION ==========
+    consulting_value_props_business_title: {
+        es: "Para su Negocio",
+        en: "For Your Business"
+    },
+    consulting_value_props_business_desc: {
+        es: "Automatización, IA y dashboards para optimizar operaciones, reducir costos y tomar mejores decisiones.",
+        en: "Automation, AI and dashboards to optimize operations, reduce costs and make better decisions."
+    },
+    consulting_value_props_team_title: {
+        es: "Para su Equipo",
+        en: "For Your Team"
+    },
+    consulting_value_props_team_desc: {
+        es: "Capacitación intensiva en grupos reducidos para upskilling en SQL, Python, Data Science, GenAI y Power BI.",
+        en: "Intensive training in small groups for upskilling in SQL, Python, Data Science, GenAI and Power BI."
+    },
+    consulting_value_props_career_title: {
+        es: "Para Usted",
+        en: "For You"
+    },
+    consulting_value_props_career_desc: {
+        es: "Mentoría 1-a-1 para acelerar su carrera tech y encontrar el talento especializado que su empresa necesita.",
+        en: "1-on-1 mentoring to accelerate your tech career and find the specialized talent your company needs."
     },
     
     // ========== FREE OFFER SECTION TRANSLATIONS ==========
@@ -432,6 +478,18 @@ export const translations = {
         es: "Servicios",
         en: "Services"
     },
+    consulting_nav_services: {
+        es: "Servicios",
+        en: "Services"
+    },
+    consulting_nav_success_stories: {
+        es: "Casos de Éxito",
+        en: "Success Stories"
+    },
+    consulting_nav_pricing: {
+        es: "Precios",
+        en: "Pricing"
+    },
     consulting_nav_packs: {
         es: "Packs",
         en: "Packs"
@@ -441,12 +499,12 @@ export const translations = {
         en: "Examples"
     },
     consulting_nav_process: {
-        es: "Nuestro Proceso",
-        en: "Our Process"
+        es: "Proceso",
+        en: "Process"
     },
     consulting_nav_about: {
-        es: "Quién Soy",
-        en: "Who I Am"
+        es: "Sobre Mí",
+        en: "About Me"
     },
     consulting_nav_contact: {
         es: "Agendar Diagnóstico",
@@ -454,18 +512,20 @@ export const translations = {
     },
     consulting_typing_phrases: {
         es: [
-            "Reduzca costos operativos.",
-            "Automatice tareas repetitivas.",
-            "Tome decisiones basadas en datos.",
-            "Libere a su equipo para crear valor.",
-            "Mejore la atención al cliente."
+            "Automatice procesos y libere tiempo valioso.",
+            "Implemente IA para decisiones inteligentes.",
+            "Visualice sus datos en tiempo real.",
+            "Acelere su carrera tech con mentoría experta.",
+            "Capacite equipos en tecnologías clave.",
+            "Encuentre el talento tech perfecto en 3 semanas."
         ],
         en: [
-            "Reduce operational costs.",
-            "Automate repetitive tasks.",
-            "Make data-driven decisions.",
-            "Free your team to create value.",
-            "Improve customer service."
+            "Automate processes and free valuable time.",
+            "Implement AI for intelligent decisions.",
+            "Visualize your data in real-time.",
+            "Accelerate your tech career with expert mentoring.",
+            "Train teams in key technologies.",
+            "Find the perfect tech talent in 3 weeks."
         ]
     },
 
@@ -3136,8 +3196,8 @@ export const translations = {
         en: "From basic SELECT to Window Functions. Query optimization and performance. Project: Dashboard with real KPIs."
     },
     "consulting_course_sql_price": {
-        es: "USD 450/persona",
-        en: "USD 450/person"
+        es: "USD 650/persona",
+        en: "USD 650/person"
     },
 
     // Course 2: Python Analytics
@@ -3154,8 +3214,8 @@ export const translations = {
         en: "Pandas, NumPy, Matplotlib, Seaborn. Web scraping and APIs. Project: Complete EDA + executive report."
     },
     "consulting_course_python_price": {
-        es: "USD 550/persona",
-        en: "USD 550/person"
+        es: "USD 800/persona",
+        en: "USD 800/person"
     },
 
     // Course 3: Data Science
@@ -3172,8 +3232,8 @@ export const translations = {
         en: "Supervised/unsupervised ML. Feature engineering, validation, deployment. Project: Predictive model in production."
     },
     "consulting_course_ds_price": {
-        es: "USD 600/persona",
-        en: "USD 600/person"
+        es: "USD 850/persona",
+        en: "USD 850/person"
     },
 
     // Course 4: GenAI
@@ -3190,8 +3250,8 @@ export const translations = {
         en: "Advanced prompting, RAG, LangChain. n8n for intelligent workflows. Project: AI chatbot + real automation."
     },
     "consulting_course_genai_price": {
-        es: "USD 500/persona",
-        en: "USD 500/person"
+        es: "USD 700/persona",
+        en: "USD 700/person"
     },
 
     // Course 5: Power BI
@@ -3244,8 +3304,8 @@ export const translations = {
         en: "Investment"
     },
     "consulting_courses_investment_individual": {
-        es: "Individual: USD 400-600 según duración del curso",
-        en: "Individual: USD 400-600 depending on course duration"
+        es: "Individual: USD 600-850 según duración del curso",
+        en: "Individual: USD 600-850 depending on course duration"
     },
     "consulting_courses_investment_business": {
         es: "Empresas (2-4 personas): 15% de descuento",
@@ -3390,12 +3450,12 @@ export const translations = {
         en: "Investment"
     },
     "consulting_recruiting_investment_success": {
-        es: "Success-Based (recomendado): USD 1,500 solo si contrata al candidato. Sin costo upfront. Garantía: 3 meses de reemplazo sin cargo si no funciona.",
-        en: "Success-Based (recommended): USD 1,500 only if you hire the candidate. No upfront cost. Guarantee: 3 months replacement at no charge if it doesn't work."
+        es: "Success-Based (recomendado): USD 3,000 solo si contrata al candidato. Sin costo upfront. Garantía: 3 meses de reemplazo sin cargo si no funciona.",
+        en: "Success-Based (recommended): USD 3,000 only if you hire the candidate. No upfront cost. Guarantee: 3 months replacement at no charge if it doesn't work."
     },
     "consulting_recruiting_investment_retainer": {
-        es: "Retainer Mensual: USD 800/mes con búsquedas ilimitadas. Ideal para empresas con hiring recurrente. Incluye 2 búsquedas activas simultáneas.",
-        en: "Monthly Retainer: USD 800/month with unlimited searches. Ideal for companies with recurring hiring. Includes 2 simultaneous active searches."
+        es: "Retainer Mensual: USD 1,500/mes con 1 búsqueda activa o USD 2,000/mes con 2 búsquedas simultáneas. Ideal para empresas con hiring recurrente.",
+        en: "Monthly Retainer: USD 1,500/month with 1 active search or USD 2,000/month with 2 simultaneous searches. Ideal for companies with recurring hiring."
     },
     "consulting_recruiting_modal_why_us": {
         es: "Por Qué Somos Diferentes",
@@ -3432,5 +3492,259 @@ export const translations = {
     "consulting_recruiting_modal_cta": {
         es: "Solicitar Discovery Call",
         en: "Request Discovery Call"
+    },
+
+    // ============== SUCCESS STORIES SECTION ==============
+    "consulting_success_stories_title": {
+        es: "Resultados Reales de Clientes Reales",
+        en: "Real Results from Real Clients"
+    },
+    "consulting_success_stories_subtitle": {
+        es: "Casos de éxito medibles en cada uno de nuestros servicios",
+        en: "Measurable success stories in each of our services"
+    },
+
+    // Success Story - Automation
+    "consulting_success_automation_client": {
+        es: "Pyme de Servicios",
+        en: "Service SME"
+    },
+    "consulting_success_automation_service": {
+        es: "Automatización de facturación y cobranzas",
+        en: "Invoicing and collections automation"
+    },
+    "consulting_success_automation_metric1": {
+        es: "18hrs",
+        en: "18hrs"
+    },
+    "consulting_success_automation_metric1_label": {
+        es: "Ahorro semanal",
+        en: "Weekly savings"
+    },
+    "consulting_success_automation_metric2": {
+        es: "$12K",
+        en: "$12K"
+    },
+    "consulting_success_automation_metric2_label": {
+        es: "Ahorro anual",
+        en: "Annual savings"
+    },
+
+    // Success Story - AI
+    "consulting_success_ai_client": {
+        es: "E-commerce",
+        en: "E-commerce"
+    },
+    "consulting_success_ai_service": {
+        es: "Chatbot WhatsApp con IA para atención 24/7",
+        en: "WhatsApp AI Chatbot for 24/7 support"
+    },
+    "consulting_success_ai_metric1": {
+        es: "60%",
+        en: "60%"
+    },
+    "consulting_success_ai_metric1_label": {
+        es: "Consultas resueltas",
+        en: "Queries resolved"
+    },
+    "consulting_success_ai_metric2": {
+        es: "24/7",
+        en: "24/7"
+    },
+    "consulting_success_ai_metric2_label": {
+        es: "Disponibilidad",
+        en: "Availability"
+    },
+
+    // Success Story - BI
+    "consulting_success_bi_client": {
+        es: "Distribuidora",
+        en: "Distributor"
+    },
+    "consulting_success_bi_service": {
+        es: "Dashboard de ventas y rentabilidad en tiempo real",
+        en: "Real-time sales and profitability dashboard"
+    },
+    "consulting_success_bi_metric1": {
+        es: "18%",
+        en: "18%"
+    },
+    "consulting_success_bi_metric1_label": {
+        es: "Aumento rentabilidad",
+        en: "Profitability increase"
+    },
+    "consulting_success_bi_metric2": {
+        es: "3 meses",
+        en: "3 months"
+    },
+    "consulting_success_bi_metric2_label": {
+        es: "ROI",
+        en: "ROI"
+    },
+
+    // Success Story - Mentoring
+    "consulting_success_mentoring_client": {
+        es: "Data Analyst Jr",
+        en: "Jr Data Analyst"
+    },
+    "consulting_success_mentoring_service": {
+        es: "Transición a Sr Data Engineer en 8 meses",
+        en: "Transition to Sr Data Engineer in 8 months"
+    },
+    "consulting_success_mentoring_metric1": {
+        es: "45%",
+        en: "45%"
+    },
+    "consulting_success_mentoring_metric1_label": {
+        es: "Aumento salarial",
+        en: "Salary increase"
+    },
+    "consulting_success_mentoring_metric2": {
+        es: "Remote",
+        en: "Remote"
+    },
+    "consulting_success_mentoring_metric2_label": {
+        es: "Oferta internacional",
+        en: "International offer"
+    },
+
+    // Success Story - Courses
+    "consulting_success_courses_client": {
+        es: "Equipo Analytics (3p)",
+        en: "Analytics Team (3p)"
+    },
+    "consulting_success_courses_service": {
+        es: "Curso SQL intensivo → Autonomía completa en queries",
+        en: "Intensive SQL course → Full autonomy in queries"
+    },
+    "consulting_success_courses_metric1": {
+        es: "100%",
+        en: "100%"
+    },
+    "consulting_success_courses_metric1_label": {
+        es: "Proyectos aprobados",
+        en: "Projects approved"
+    },
+    "consulting_success_courses_metric2": {
+        es: "5 sem",
+        en: "5 weeks"
+    },
+    "consulting_success_courses_metric2_label": {
+        es: "Autonomía lograda",
+        en: "Autonomy achieved"
+    },
+
+    // Success Story - Recruiting
+    "consulting_success_recruiting_client": {
+        es: "Startup Fintech",
+        en: "Fintech Startup"
+    },
+    "consulting_success_recruiting_service": {
+        es: "Sr Data Engineer colocado en 3 semanas",
+        en: "Sr Data Engineer placed in 3 weeks"
+    },
+    "consulting_success_recruiting_metric1": {
+        es: "3 sem",
+        en: "3 weeks"
+    },
+    "consulting_success_recruiting_metric1_label": {
+        es: "Proceso total",
+        en: "Total process"
+    },
+    "consulting_success_recruiting_metric2": {
+        es: "18m+",
+        en: "18m+"
+    },
+    "consulting_success_recruiting_metric2_label": {
+        es: "Retención",
+        en: "Retention"
+    },
+
+    // ============== PRICING OVERVIEW SECTION ==============
+    "consulting_pricing_title": {
+        es: "Precios Transparentes",
+        en: "Transparent Pricing"
+    },
+    "consulting_pricing_subtitle": {
+        es: "Sin sorpresas. Estos son nuestros precios reales.",
+        en: "No surprises. These are our real prices."
+    },
+    "consulting_pricing_business": {
+        es: "Para Empresas",
+        en: "For Companies"
+    },
+    "consulting_pricing_professionals": {
+        es: "Para Profesionales",
+        en: "For Professionals"
+    },
+    "consulting_pricing_recruiting": {
+        es: "Reclutamiento Tech",
+        en: "Tech Recruiting"
+    },
+    "consulting_pricing_automation_project": {
+        es: "Automatización (proyecto)",
+        en: "Automation (project)"
+    },
+    "consulting_pricing_ai_project": {
+        es: "Chatbot IA (proyecto)",
+        en: "AI Chatbot (project)"
+    },
+    "consulting_pricing_bi_project": {
+        es: "Dashboard BI (proyecto)",
+        en: "BI Dashboard (project)"
+    },
+    "consulting_pricing_recurring": {
+        es: "Recurrente (soporte)",
+        en: "Recurring (support)"
+    },
+    "consulting_pricing_mentoring_single": {
+        es: "Mentoría (sesión)",
+        en: "Mentoring (session)"
+    },
+    "consulting_pricing_mentoring_pack": {
+        es: "Mentoría (pack 4)",
+        en: "Mentoring (4-pack)"
+    },
+    "consulting_pricing_mentoring_monthly": {
+        es: "Mentoría (mensual)",
+        en: "Mentoring (monthly)"
+    },
+    "consulting_pricing_courses": {
+        es: "Cursos intensivos",
+        en: "Intensive courses"
+    },
+    "consulting_pricing_recruiting_success": {
+        es: "Success-based",
+        en: "Success-based"
+    },
+    "consulting_pricing_recruiting_retainer1": {
+        es: "Retainer (1 búsqueda)",
+        en: "Retainer (1 search)"
+    },
+    "consulting_pricing_recruiting_retainer2": {
+        es: "Retainer (2 búsquedas)",
+        en: "Retainer (2 searches)"
+    },
+    "consulting_pricing_free_badge": {
+        es: "🎁 Primera gratis",
+        en: "🎁 First one free"
+    },
+    "consulting_pricing_max_4": {
+        es: "Máx 4 personas",
+        en: "Max 4 people"
+    },
+    "consulting_pricing_guarantee": {
+        es: "Garantía 3 meses",
+        en: "3-month guarantee"
+    },
+
+    // ============== UNIFIED SERVICES SECTION ==============
+    "consulting_all_services_title": {
+        es: "Todos Nuestros Servicios",
+        en: "All Our Services"
+    },
+    "consulting_all_services_subtitle": {
+        es: "Soluciones integrales para empresas y profesionales tech. Haga clic en cada servicio para ver detalles completos.",
+        en: "Comprehensive solutions for companies and tech professionals. Click on each service to see full details."
     }
-}; 
+};

@@ -5,6 +5,9 @@ import { initializeConsultingMobileMenu } from './mobile-menu.js';
 import { initializeImageOptimization } from './image-optimizer.js';
 
 // =================================================================================
+// Note: Modal functions are now defined in inline script in HTML
+// This ensures they're globally available for onclick handlers
+// =================================================================================
 // --- FORCE SPANISH LANGUAGE BY DEFAULT
 // =================================================================================
 
@@ -12,73 +15,44 @@ import { initializeImageOptimization } from './image-optimizer.js';
 localStorage.setItem('language', 'es');
 document.documentElement.lang = 'es';
 
-// Refuerzo: función para actualizar visualmente los botones de idioma
-function updateLanguageButtons(lang) {
-    const langEs = document.getElementById('lang-es');
-    const langEn = document.getElementById('lang-en');
-    if (langEs && langEn) {
-        langEs.classList.remove('active');
-        langEn.classList.remove('active');
-        if (lang === 'es') {
-            langEs.classList.add('active');
-        } else {
-            langEn.classList.add('active');
-        }
-    }
-}
+// Language buttons now use onclick inline and are managed by global function
+// Initial state is set in inline script in HTML
 
-// Forzar botones de idioma apenas el DOM esté disponible
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        updateLanguageButtons('es');
-    });
-} else {
-    // Si el DOM ya está listo, ejecutar inmediatamente
-    updateLanguageButtons('es');
-}
-
-// THEME TOGGLE
-const themeToggle = document.getElementById('theme-toggle');
-const darkIcon = document.getElementById('dark-icon');
-const lightIcon = document.getElementById('light-icon');
-const docHtml = document.documentElement;
-
-if (localStorage.getItem('theme') === 'light') {
-    docHtml.classList.remove('dark');
-    docHtml.classList.add('light');
-    darkIcon.classList.remove('hidden');
-    lightIcon.classList.add('hidden');
-}
-
-themeToggle.addEventListener('click', () => {
-    docHtml.classList.toggle('dark');
-    docHtml.classList.toggle('light');
-    darkIcon.classList.toggle('hidden');
-    lightIcon.classList.toggle('hidden');
-    localStorage.setItem('theme', docHtml.classList.contains('dark') ? 'dark' : 'light');
-});
+// THEME TOGGLE - Now handled by global function in inline script
+// Theme initialization happens in inline script for immediate effect
 
 // LANGUAGE TOGGLE
 function setLanguage(lang) {
+    console.log('[Module] setLanguage called with:', lang);
     document.documentElement.lang = lang;
     
     // Update all elements with data-translate attribute
-    document.querySelectorAll('[data-translate]').forEach(el => {
+    const elementsToTranslate = document.querySelectorAll('[data-translate]');
+    console.log('[Module] Translating', elementsToTranslate.length, 'elements');
+    
+    elementsToTranslate.forEach(el => {
         const key = el.getAttribute('data-translate');
         if (translations[key] && translations[key][lang]) {
             el.innerHTML = translations[key][lang];
+        } else {
+            console.warn('[Module] Translation key not found:', key);
         }
     });
+    
+    console.log('[Module] All elements translated');
     
     // Update typing phrases
     if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[lang]) {
         window.typingPhrases = translations.consulting_typing_phrases[lang];
-        logger.debug('Language', 'Updated typing phrases for language', { lang, phrases: window.typingPhrases });
+        console.log('[Module] Updated typing phrases:', window.typingPhrases);
         // Restart typing animation with new phrases
         const typingText = document.getElementById('typing-text');
         if (typingText) {
             restartTypingEffect();
+            console.log('[Module] Typing effect restarted with new language');
         }
+    } else {
+        console.warn('[Module] No typing phrases found for language:', lang);
     }
     
     // Update pack data-attributes
@@ -86,6 +60,10 @@ function setLanguage(lang) {
     
     // Update example data-attributes  
     updateExampleDataAttributes(lang);
+    
+    // Update form placeholders
+    updateFormPlaceholders(lang);
+    updateDataPlaceholders(lang);
     
     // Save language preference
     localStorage.setItem('language', lang);
@@ -95,7 +73,17 @@ function setLanguage(lang) {
     const langEnBtn = document.getElementById('lang-en');
     if (langEsBtn) langEsBtn.classList.toggle('active', lang === 'es');
     if (langEnBtn) langEnBtn.classList.toggle('active', lang === 'en');
+    
+    console.log('[Module] Language updated successfully to:', lang);
 }
+
+// Export setLanguage to global scope IMMEDIATELY for inline functions
+window.setLanguageFromModule = function(lang) {
+    console.log('[Module] setLanguageFromModule called with:', lang);
+    setLanguage(lang);
+};
+
+console.log('[Module] ✅ setLanguageFromModule exposed globally');
 
 // MOBILE MENU
 const initializeMobileMenu = initializeConsultingMobileMenu;
@@ -161,18 +149,21 @@ function updateExampleDataAttributes(lang) {
 }
 
 // TYPING EFFECT
-// Initialize phrases globally so they can be updated by language change
+// Initialize with NEW phrases globally so they can be updated by language change
 window.typingPhrases = [
-    "Reduzca costos operativos.",
-    "Automatice tareas repetitivas.",
-    "Tome decisiones basadas en datos.",
-    "Libere a su equipo para crear valor.",
-    "Mejore la atención al cliente."
+    "Automatice procesos y libere tiempo valioso.",
+    "Implemente IA para decisiones inteligentes.",
+    "Visualice sus datos en tiempo real.",
+    "Acelere su carrera tech con mentoría experta.",
+    "Capacite equipos en tecnologías clave.",
+    "Encuentre el talento tech perfecto en 3 semanas."
 ];
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 let typingTimeout;
+
+console.log('[TypingEffect] Initial phrases loaded:', window.typingPhrases);
 
 function type() {
     const typingText = document.getElementById('typing-text');
@@ -243,66 +234,48 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
     });
 }, appearOptions);
 
-// MODAL LOGIC (Generic) - GLOBAL FUNCTIONS
-window.openModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.add('active');
-}
-
-window.closeModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.remove('active');
-}
-
-// FUNCTION TO TRANSITION FROM SERVICE MODAL TO PROPOSAL MODAL
-window.openProposalFromService = function(serviceModalId) {
-    // Close the service modal first
-    const serviceModal = document.getElementById(serviceModalId);
-    if (serviceModal) {
-        serviceModal.classList.remove('active');
-        setTimeout(() => {
-            serviceModal.style.display = 'none';
-        }, 300);
-    }
-    
-    // Then open the proposal modal after a short delay
-    setTimeout(() => {
-        openModal('proposal-form-modal');
-    }, 350);
-}
-
 // EXAMPLE MODAL
-const exampleModal = document.getElementById('example-modal');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalStory = document.getElementById('modal-story');
-const exampleCards = document.querySelectorAll('.example-card');
-
 function openExampleModal(card) {
-    modalImg.src = card.dataset.imgSrc;
-    modalImg.alt = card.dataset.title;
-    modalTitle.textContent = card.dataset.title;
-    modalStory.textContent = card.dataset.story;
-    openModal('example-modal');
+    console.log('[ExampleModal] Opening example modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalStory = document.getElementById('modal-story');
+    
+    if (modalImg && modalTitle && modalStory) {
+        modalImg.src = card.dataset.imgSrc;
+        modalImg.alt = card.dataset.title;
+        modalTitle.textContent = card.dataset.title;
+        modalStory.textContent = card.dataset.story;
+        window.openModal('example-modal');
+    } else {
+        console.error('[ExampleModal] Modal elements not found');
+    }
 }
 
 // PACK MODAL
-const packModal = document.getElementById('pack-modal');
-const packModalTitle = document.getElementById('pack-modal-title');
-const packModalServices = document.getElementById('pack-modal-services');
-const packModalTimeline = document.getElementById('pack-modal-timeline');
-const packModalInvestment = document.getElementById('pack-modal-investment');
-const packModalRoi = document.getElementById('pack-modal-roi');
-const packCards = document.querySelectorAll('.pack-card');
-
 function openPackModal(card) {
-    packModalTitle.textContent = card.dataset.title;
-    packModalServices.innerHTML = card.dataset.services;
-    packModalTimeline.innerHTML = `<i class="fas fa-clock w-5 mr-2"></i>${card.dataset.timeline}`;
-    packModalInvestment.innerHTML = `<i class="fas fa-dollar-sign w-5 mr-2"></i>${card.dataset.investment}`;
-    packModalRoi.innerHTML = card.dataset.roi;
-    openModal('pack-modal');
+    console.log('[PackModal] Opening pack modal');
+    const packModalTitle = document.getElementById('pack-modal-title');
+    const packModalServices = document.getElementById('pack-modal-services');
+    const packModalTimeline = document.getElementById('pack-modal-timeline');
+    const packModalInvestment = document.getElementById('pack-modal-investment');
+    const packModalRoi = document.getElementById('pack-modal-roi');
+    
+    if (packModalTitle && packModalServices) {
+        packModalTitle.textContent = card.dataset.title;
+        packModalServices.innerHTML = card.dataset.services;
+        packModalTimeline.innerHTML = `<i class="fas fa-clock w-5 mr-2"></i>${card.dataset.timeline}`;
+        packModalInvestment.innerHTML = `<i class="fas fa-dollar-sign w-5 mr-2"></i>${card.dataset.investment}`;
+        packModalRoi.innerHTML = card.dataset.roi;
+        window.openModal('pack-modal');
+    } else {
+        console.error('[PackModal] Modal elements not found');
+    }
 }
+
+// Make modal functions globally accessible
+window.openExampleModal = openExampleModal;
+window.openPackModal = openPackModal;
 
 // Initialize all functionalities on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -318,14 +291,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize typing phrases from translations
     if (translations.consulting_typing_phrases && translations.consulting_typing_phrases[savedLang]) {
         window.typingPhrases = translations.consulting_typing_phrases[savedLang];
-        console.log('[Consulting] Loaded typing phrases:', window.typingPhrases);
+        console.log('[Consulting] Loaded typing phrases from translations:', window.typingPhrases);
+    } else {
+        console.warn('[Consulting] No typing phrases in translations, using defaults');
     }
     
-    // Initialize typing effect
-    setTimeout(() => {
-        console.log('[Consulting] Starting typing effect...');
+    // Initialize typing effect - Start immediately, no delay
+    console.log('[Consulting] Starting typing effect...');
+    console.log('[Consulting] Current phrases:', window.typingPhrases);
+    const typingTextElement = document.getElementById('typing-text');
+    console.log('[Consulting] Typing text element found:', !!typingTextElement);
+    
+    if (typingTextElement) {
+        // Start typing immediately
         type();
-    }, 500); // Small delay to ensure DOM is fully ready
+        console.log('[Consulting] Typing effect started successfully');
+    } else {
+        console.error('[Consulting] CRITICAL: typing-text element not found in DOM!');
+        // Try again with delay as fallback
+        setTimeout(() => {
+            const retryElement = document.getElementById('typing-text');
+            if (retryElement) {
+                console.log('[Consulting] Retry successful, starting typing effect');
+                type();
+            }
+        }, 1000);
+    }
     
     // Initialize fade-in animations
     faders.forEach(fader => {
@@ -334,85 +325,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize example cards
-    exampleCards.forEach(card => {
-        card.addEventListener('click', () => openExampleModal(card));
+    const exampleCards = document.querySelectorAll('.example-card');
+    console.log('[Examples] Found example cards:', exampleCards.length);
+    exampleCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            console.log('[Examples] Example card clicked:', index);
+            openExampleModal(card);
+        });
     });
     
     // Initialize pack cards
-    packCards.forEach(card => {
-        card.addEventListener('click', () => openPackModal(card));
-    });
-    
-    // Initialize modal close functionality
-    const closeButtons = document.querySelectorAll('.modal-close-btn');
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const modal = btn.closest('.modal');
-            if (modal) {
-                modal.classList.remove('active');
-            }
+    const packCards = document.querySelectorAll('.pack-card');
+    console.log('[Packs] Found pack cards:', packCards.length);
+    packCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            console.log('[Packs] Pack card clicked:', index);
+            openPackModal(card);
         });
     });
     
-    // Close modal when clicking outside
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-    });
+    // Note: Escape key handler is now in inline script in HTML
+    console.log('[Modal] Event listeners setup complete');
     
-    // Prevent modal from closing when clicking inside modal content
-    const modalContents = document.querySelectorAll('.modal-content');
-    modalContents.forEach(content => {
-        content.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    });
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const activeModal = document.querySelector('.modal.active');
-            if (activeModal) {
-                activeModal.classList.remove('active');
-            }
-        }
-    });
-    
-    // Initialize language buttons
-    const langEsBtn = document.getElementById('lang-es');
-    const langEnBtn = document.getElementById('lang-en');
-    
-    if (langEsBtn) {
-        langEsBtn.addEventListener('click', () => setLanguage('es'));
-    }
-    if (langEnBtn) {
-        langEnBtn.addEventListener('click', () => setLanguage('en'));
-    }
-    
-    // Set initial language
+    // Set initial language (buttons now use onclick inline)
     setLanguage(savedLang);
+    console.log('[Language] Initial language set to:', savedLang);
     
     // Initialize mobile menu with delay to ensure DOM is fully ready
     setTimeout(() => {
         initializeMobileMenu();
     }, 100);
     
-    console.log('[Consulting] Initialization complete');
-    
     // Initialize PDF proposal functionality
     initializeProposalGenerator();
     
-    // Initialize service modals
-    initializeServiceModals();
-    
-    // Timeline will be initialized after all functions are defined
-    
-    
+    console.log('[Consulting] Initialization complete');
 });
 
 // ============== PDF PROPOSAL FUNCTIONALITY ==============
@@ -421,8 +368,15 @@ function initializeProposalGenerator() {
     const openModalBtn = document.getElementById('open-proposal-modal-btn');
     const proposalForm = document.getElementById('proposal-form');
     
+    console.log('[ProposalGenerator] Initializing...');
+    console.log('[ProposalGenerator] Button found:', !!openModalBtn);
+    console.log('[ProposalGenerator] Form found:', !!proposalForm);
+    
     if (openModalBtn) {
-        openModalBtn.addEventListener('click', () => openModal('proposal-form-modal'));
+        openModalBtn.addEventListener('click', () => {
+            console.log('[ProposalGenerator] Button clicked, opening modal...');
+            openModal('proposal-form-modal');
+        });
     }
 
     if (proposalForm) {
@@ -519,6 +473,8 @@ function setupContactLinks(data) {
 
 // Function to update form placeholders when language changes
 function updateFormPlaceholders(lang) {
+    console.log('[Module] Updating form placeholders for language:', lang);
+    
     const placeholderElements = [
         { id: 'user-name', key: 'consulting_form_name_placeholder' },
         { id: 'user-email', key: 'consulting_form_email_placeholder' },
@@ -527,20 +483,34 @@ function updateFormPlaceholders(lang) {
         { id: 'user-problem', key: 'consulting_form_problem_placeholder' }
     ];
 
+    let updated = 0;
     placeholderElements.forEach(({ id, key }) => {
         const element = document.getElementById(id);
         if (element && translations[key] && translations[key][lang]) {
             element.placeholder = translations[key][lang];
+            updated++;
+        } else {
+            console.warn('[Module] Placeholder element or translation not found:', id, key);
+        }
+    });
+    
+    console.log('[Module] Updated', updated, 'of', placeholderElements.length, 'form placeholders');
+}
+
+// Also update elements with data-translate-placeholder attribute
+function updateDataPlaceholders(lang) {
+    const elementsWithPlaceholder = document.querySelectorAll('[data-translate-placeholder]');
+    console.log('[Module] Updating', elementsWithPlaceholder.length, 'data-translate-placeholder elements');
+    
+    elementsWithPlaceholder.forEach(el => {
+        const key = el.getAttribute('data-translate-placeholder');
+        if (translations[key] && translations[key][lang]) {
+            el.placeholder = translations[key][lang];
         }
     });
 }
 
-// Override the setLanguage function to include form placeholders
-const originalSetLanguage = setLanguage;
-setLanguage = function(lang) {
-    originalSetLanguage(lang);
-    updateFormPlaceholders(lang);
-};
+// Form placeholders are now updated within setLanguage function
 
 // ============== ANIMATED PROCESS TIMELINE ==============
 // (Moved before DOMContentLoaded to be available when called)
@@ -692,62 +662,82 @@ function initializeProcessTimeline() {
 // ============== SERVICE MODALS FUNCTIONALITY ==============
 
 function initializeServiceModals() {
+    console.log('[Services] Initializing service modals...');
+    
     const serviceCards = document.querySelectorAll('.service-card');
+    console.log('[Services] Found service cards:', serviceCards.length);
+    
     const serviceModals = {
-        'automation': document.getElementById('automation-service-modal'),
-        'ai': document.getElementById('ai-service-modal'),
-        'bi': document.getElementById('bi-service-modal'),
-        'mentoring': document.getElementById('mentoring-service-modal'),
-        'courses': document.getElementById('courses-service-modal'),
-        'recruiting': document.getElementById('recruiting-service-modal')
+        'automation': 'automation-service-modal',
+        'ai': 'ai-service-modal',
+        'bi': 'bi-service-modal',
+        'mentoring': 'mentoring-service-modal',
+        'courses': 'courses-service-modal',
+        'recruiting': 'recruiting-service-modal'
     };
+    
+    // Verify modals exist
+    Object.keys(serviceModals).forEach(key => {
+        const modalElement = document.getElementById(serviceModals[key]);
+        console.log(`[Services] Modal '${key}':`, modalElement ? '✅ Found' : '❌ NOT FOUND');
+    });
 
     // Add click listeners to service cards
-    serviceCards.forEach(card => {
+    serviceCards.forEach((card, index) => {
+        const service = card.getAttribute('data-service');
+        console.log(`[Services] Setting up card ${index} with service:`, service);
+        
         card.addEventListener('click', () => {
-            const service = card.getAttribute('data-service');
-            const modal = serviceModals[service];
+            console.log(`[Services] 🖱️ Card clicked for service:`, service);
+            const modalId = serviceModals[service];
             
-            if (modal) {
-                modal.style.display = 'flex';
-                setTimeout(() => {
-                    modal.classList.add('active');
-                }, 10);
+            if (modalId) {
+                console.log(`[Services] Opening modal ID:`, modalId);
+                // Use global openModal function
+                window.openModal(modalId);
+            } else {
+                console.error(`[Services] ❌ Modal ID not found for service:`, service);
+            }
+        });
+    });
+
+    console.log('[Services] ✅ Service modals initialized successfully');
+}
+
+// ============== IMAGE ERROR HANDLING ==============
+
+function initializeImageErrorHandling() {
+    const workflowImages = document.querySelectorAll('.workflow-image');
+    
+    workflowImages.forEach(img => {
+        img.addEventListener('error', function() {
+            console.warn('[Images] Failed to load image:', this.src);
+            
+            // Replace with placeholder
+            const parent = this.parentElement;
+            if (parent) {
+                // Create icon placeholder
+                const placeholder = document.createElement('div');
+                placeholder.className = 'example-placeholder bg-gradient-to-br from-gray-800/80 to-gray-900/60 flex items-center justify-center min-h-[200px] rounded-lg';
+                placeholder.innerHTML = `
+                    <div class="text-center p-4">
+                        <i class="fas fa-image text-5xl text-gray-600 mb-2"></i>
+                        <p class="text-xs text-gray-500">Imagen no disponible</p>
+                    </div>
+                `;
                 
-                console.log(`[Services] ${service} modal opened`);
+                parent.replaceChild(placeholder, this);
+                console.log('[Images] Replaced failed image with placeholder');
             }
         });
-    });
-
-    // Add close functionality to all service modals
-    Object.values(serviceModals).forEach(modal => {
-        if (!modal) return;
         
-        const closeBtn = modal.querySelector('.modal-close-btn');
-        
-        // Close on button click
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                closeServiceModal(modal);
-            });
-        }
-        
-        // Close on overlay click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeServiceModal(modal);
-            }
+        // Verify image loaded successfully
+        img.addEventListener('load', function() {
+            console.log('[Images] Image loaded successfully:', this.alt);
         });
     });
-
-    function closeServiceModal(modal) {
-        modal.classList.remove('active');
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 300);
-    }
-
-    console.log('[Services] Service modals initialized');
+    
+    console.log('[Images] Error handling initialized for', workflowImages.length, 'images');
 }
 
 // ============== ANIMATED METRICS COUNTERS ==============
@@ -1093,30 +1083,9 @@ function initializeAnalyticsTracking() {
         }
     });
 
-    // Track language changes (user behavior)
-    document.addEventListener('click', (e) => {
-        const langBtn = e.target.closest('[data-lang]');
-        if (langBtn) {
-            const language = langBtn.getAttribute('data-lang');
-            trackEvent('language_change', {
-                language: language,
-                previous_language: document.documentElement.lang,
-                engagement_type: 'language_switch'
-            });
-        }
-    });
+    // Language tracking is now handled within setLanguageGlobal() function
 
-    // Track theme changes (user behavior)
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            trackEvent('theme_change', {
-                theme: isDark ? 'light' : 'dark',
-                engagement_type: 'theme_toggle'
-            });
-        });
-    }
+    // Theme tracking is now handled within toggleThemeGlobal() function
 
     // Track social media clicks
     document.addEventListener('click', (e) => {
@@ -1182,8 +1151,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Initialize other modules with minimal delay
         setTimeout(async () => {
             try {
-                initializeProcessTimeline();
+                // Process timeline removed - no longer needed
+                // initializeProcessTimeline();
                 initializeMetricsCounters();
+                initializeServiceModals();
+                initializeImageErrorHandling();
                 
                 // Initialize image optimization
                 await initializeImageOptimization();

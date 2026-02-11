@@ -45,4 +45,14 @@ Thumbs.db
 
 # Keep all blog posts and content markdown files
 !blog/**/*.md
-!assets/docs/**/*.md 
+!assets/docs/**/*.md
+
+# Private/confidential documents (pricing, competitive analysis, internal docs)
+/private/
+private/**/* 
+
+# Tasks and notes
+/tasks/
+/notes/
+/tasks/**/*
+/notes/**/*

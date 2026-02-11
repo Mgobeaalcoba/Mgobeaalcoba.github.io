@@ -238,11 +238,11 @@
             <div class="flex items-center space-x-3">
                 <!-- Language Controls -->
                 <div class="flex bg-gray-700/50 light:bg-gray-200/50 backdrop-blur-sm rounded-full border border-gray-600/50">
-                    <button id="lang-es" class="control-btn" data-lang="es">ES</button>
-                    <button id="lang-en" class="control-btn" data-lang="en">EN</button>
+                    <button id="lang-es" class="control-btn" data-lang="es" onclick="setLanguageGlobal('es')">ES</button>
+                    <button id="lang-en" class="control-btn" data-lang="en" onclick="setLanguageGlobal('en')">EN</button>
                 </div>
                 <!-- Theme Toggle -->
-                <button id="theme-toggle" class="control-btn">
+                <button id="theme-toggle" class="control-btn" onclick="toggleThemeGlobal()">
                     <i class="fas fa-sun hidden" id="dark-icon"></i>
                     <i class="fas fa-moon" id="light-icon"></i>
                 </button>
@@ -272,213 +272,470 @@
         <!-- HERO SECTION -->
         <section class="text-center mb-16 fade-in">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight" data-translate="consulting_hero_title">
-                Automatice su Primer Proceso
-                <span style="color: var(--primary-color);"> 100% Gratis</span>
+                Consultoría Tech 360° para Empresas y Profesionales
             </h1>
+            <p class="text-xl md:text-2xl mb-4" style="color: var(--primary-color);" data-translate="consulting_hero_subtitle">
+                Automatización • IA Aplicada • Business Intelligence • Mentorías • Cursos • Recruiting Tech
+            </p>
             <div class="text-lg md:text-xl text-secondary h-14 flex items-center justify-center">
                 <span id="typing-text"></span><span class="typing-cursor"></span>
             </div>
-            <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary" data-translate="consulting_hero_subtitle">
-                Descubra el potencial de la automatización sin compromiso. Le implementamos una automatización simple completamente gratis para que vea resultados reales en su negocio.
+            <p class="max-w-3xl mx-auto mt-4 text-lg text-secondary" data-translate="consulting_hero_description">
+                Transforme su negocio con tecnología y desarrolle talento tech de clase mundial. Desde automatización de procesos hasta reclutamiento especializado.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button id="open-proposal-modal-btn" class="w-full sm:w-auto main-cta text-white font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base shadow-[0_0_20px_rgba(56,189,248,0.4)]" data-translate="consulting_hero_main_cta">
-                    <i class="fas fa-gift mr-2"></i>Solicitar Mi Automatización Gratis
-                </button>
-                <a href="#how-it-works" class="w-full sm:w-auto secondary-cta font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base">
-                    <span data-translate="consulting_hero_secondary_cta">¿Cómo Funciona?</span> <i class="fas fa-arrow-down ml-2 text-sm"></i>
+                <a href="#services" class="w-full sm:w-auto main-cta text-white font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+                    <i class="fas fa-th-large mr-2"></i><span data-translate="consulting_hero_main_cta">Ver Todos los Servicios</span>
                 </a>
+                <button id="open-proposal-modal-btn" onclick="openModal('proposal-form-modal')" class="w-full sm:w-auto secondary-cta font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base">
+                    <span data-translate="consulting_hero_secondary_cta">🎁 Automatización Gratis</span>
+                </button>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="w-full sm:w-auto secondary-cta font-bold px-8 py-3 rounded-full text-center text-sm sm:text-base">
+                    <i class="fas fa-calendar-alt mr-2"></i><span data-translate="consulting_hero_tertiary_cta">Agendar Consulta</span>
+                </button>
             </div>
             <!-- Trust Badges -->
             <div class="mt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-secondary">
                 <div class="flex items-center gap-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
-                    <span data-translate="consulting_trust_badge_no_card">Sin tarjeta de crédito</span>
+                    <i class="fas fa-building text-sky-400"></i>
+                    <span data-translate="consulting_trust_badge_experience">6 años MercadoLibre</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
-                    <span data-translate="consulting_trust_badge_no_commitment">Sin compromiso</span>
+                    <i class="fas fa-chalkboard-teacher text-sky-400"></i>
+                    <span data-translate="consulting_trust_badge_teacher">Docente Henry & UADE</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
-                    <span data-translate="consulting_trust_badge_results">Resultados en 2 semanas</span>
+                    <i class="fas fa-trophy text-sky-400"></i>
+                    <span data-translate="consulting_trust_badge_projects">15+ proyectos exitosos</span>
                 </div>
             </div>
         </section>
 
-        <!-- FREE OFFER HIGHLIGHT SECTION -->
-        <section id="how-it-works" class="mb-24">
-            <div class="max-w-4xl mx-auto glass-effect rounded-2xl p-8 md:p-12 border-2 border-sky-400/30">
-                <div class="text-center mb-8">
-                    <div class="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-4">
-                        <span data-translate="consulting_free_offer_badge">🎁 OFERTA EXCLUSIVA PARA PYMES</span>
+        <!-- VALUE PROPOSITIONS SECTION -->
+        <section class="mb-24">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Para su Negocio -->
+                <div class="text-center p-8 glass-effect rounded-2xl fade-in hover:scale-105 transition-transform duration-300" style="animation-delay: 100ms;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-sky-500/10 flex items-center justify-center">
+                        <i class="fas fa-building text-4xl text-sky-400"></i>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="consulting_free_offer_title">Su Primera Automatización: 100% Gratis</h2>
-                    <p class="text-lg text-secondary" data-translate="consulting_free_offer_subtitle">
-                        Deje que le demostremos el valor de la automatización con un proyecto real en su empresa. Sin costo, sin letra chica.
+                    <h3 class="text-xl font-bold mb-3" data-translate="consulting_value_props_business_title">Para su Negocio</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_value_props_business_desc">
+                        Automatización, IA y dashboards para optimizar operaciones, reducir costos y tomar mejores decisiones.
                     </p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-sky-500/10 flex items-center justify-center">
-                            <i class="fas fa-comments text-3xl text-sky-400"></i>
-                        </div>
-                        <h4 class="font-bold mb-2" data-translate="consulting_free_step1_title">1. Conversamos</h4>
-                        <p class="text-sm text-secondary" data-translate="consulting_free_step1_desc">Identificamos un proceso simple y repetitivo en su negocio</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-cyan-500/10 flex items-center justify-center">
-                            <i class="fas fa-cogs text-3xl text-cyan-400"></i>
-                        </div>
-                        <h4 class="font-bold mb-2" data-translate="consulting_free_step2_title">2. Lo Automatizamos</h4>
-                        <p class="text-sm text-secondary" data-translate="consulting_free_step2_desc">Implementamos la solución en 1-2 semanas, sin costo</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                            <i class="fas fa-chart-line text-3xl text-emerald-400"></i>
-                        </div>
-                        <h4 class="font-bold mb-2" data-translate="consulting_free_step3_title">3. Ve Resultados</h4>
-                        <p class="text-sm text-secondary" data-translate="consulting_free_step3_desc">Comprueba el ahorro de tiempo y decide si quiere continuar</p>
+                    <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+                        <span class="px-3 py-1 bg-sky-500/10 rounded-full text-sky-400">Automatización</span>
+                        <span class="px-3 py-1 bg-sky-500/10 rounded-full text-sky-400">IA</span>
+                        <span class="px-3 py-1 bg-sky-500/10 rounded-full text-sky-400">BI</span>
                     </div>
                 </div>
 
-                <div class="bg-gray-800/50 rounded-xl p-6 mb-6">
-                    <h5 class="font-semibold text-sky-400 mb-3" data-translate="consulting_free_examples_title">Ejemplos de automatizaciones gratis que podemos hacer:</h5>
-                    <ul class="grid md:grid-cols-2 gap-3 text-sm text-secondary">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example1">Extracción de datos de facturas por email</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example2">Notificaciones automáticas de vencimientos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example3">Sincronización entre Excel y Google Sheets</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example4">Generación automática de reportes semanales</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example5">Recordatorios de tareas por WhatsApp</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
-                            <span data-translate="consulting_free_example6">Backup automático de archivos importantes</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="text-center">
-                    <button onclick="document.getElementById('open-proposal-modal-btn').click()" class="main-cta text-white font-bold px-10 py-4 rounded-full text-lg shadow-xl">
-                        <i class="fas fa-rocket mr-2"></i><span data-translate="consulting_free_cta_button">Solicitar Mi Automatización Gratis Ahora</span>
-                    </button>
-                    <p class="text-xs text-secondary mt-3" data-translate="consulting_free_security_note">
-                        <i class="fas fa-lock mr-1"></i> No requiere tarjeta de crédito • Respuesta en menos de 24 horas
+                <!-- Para su Equipo -->
+                <div class="text-center p-8 glass-effect rounded-2xl fade-in hover:scale-105 transition-transform duration-300" style="animation-delay: 300ms;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                        <i class="fas fa-users text-4xl text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-translate="consulting_value_props_team_title">Para su Equipo</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_value_props_team_desc">
+                        Capacitación intensiva en grupos reducidos para upskilling en SQL, Python, Data Science, GenAI y Power BI.
                     </p>
+                    <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+                        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-indigo-400">Cursos</span>
+                        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-indigo-400">4 personas max</span>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="mb-24">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_services_title">Un Socio Tecnológico para cada Necesidad</h2>
-                <p class="mt-2 text-lg text-secondary" data-translate="consulting_services_subtitle">Ofrecemos soluciones modulares que se adaptan a su nivel de madurez digital.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 <!-- Service Card 1: Automation -->
-                 <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="automation">
-                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_automation_title">Automatización de Procesos</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_automation_desc">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                <!-- Para Usted -->
+                <div class="text-center p-8 glass-effect rounded-2xl fade-in hover:scale-105 transition-transform duration-300" style="animation-delay: 500ms;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-amber-500/10 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-4xl text-amber-400"></i>
                     </div>
-                </div>
-                <!-- Service Card 2: GenAI -->
-                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 400ms;" data-service="ai">
-                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-brain"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_ai_desc">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
-                    </div>
-                </div>
-                <!-- Service Card 3: BI -->
-                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 600ms;" data-service="bi">
-                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-chart-pie"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_bi_title">Business Intelligence & Datos</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_bi_desc">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs text-sky-400 font-medium" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    <h3 class="text-xl font-bold mb-3" data-translate="consulting_value_props_career_title">Para Usted</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_value_props_career_desc">
+                        Mentoría 1-a-1 para acelerar su carrera tech y encontrar el talento especializado que su empresa necesita.
+                    </p>
+                    <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+                        <span class="px-3 py-1 bg-amber-500/10 rounded-full text-amber-400">Mentorías</span>
+                        <span class="px-3 py-1 bg-amber-500/10 rounded-full text-amber-400">Recruiting</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TALENT DEVELOPMENT SERVICES SECTION -->
-        <section id="talent-services" class="mb-24 p-8 rounded-3xl" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2);">
-            <div class="text-center mb-12">
-                <div class="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-4">
-                    ✨ NUEVO: DESARROLLO DE TALENTO TECH
+        <!-- FREE OFFER TEASER (Compacto) -->
+        <div id="how-it-works" class="mb-20 max-w-4xl mx-auto bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-2 border-green-400/30 rounded-2xl p-6 md:p-8">
+            <div class="text-center">
+                <div class="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-3">
+                    <span data-translate="consulting_free_offer_badge">🎁 OFERTA EXCLUSIVA PARA PYMES</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_talent_section_title">Impulse su Carrera y Equipo Tech</h2>
-                <p class="mt-2 text-lg text-secondary" data-translate="consulting_talent_section_subtitle">Mentoría, capacitación y reclutamiento especializado para profesionales y empresas tech</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 4: Mentoring -->
-                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="mentoring">
-                    <div class="feature-icon bg-amber-500/10 rounded-xl mb-4"><i class="fas fa-user-graduate" style="color: #f59e0b;"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_mentoring_title">Mentorías Tech Personalizadas</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_mentoring_desc">Destranque su carrera tech con mentoría personalizada. Desde debugging de código hasta transición a roles senior. Sesiones prácticas enfocadas en sus desafíos reales.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs font-medium cursor-pointer" style="color: #f59e0b;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
-                    </div>
-                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2" data-translate="consulting_free_offer_title">Su Primera Automatización: 100% Gratis</h3>
+                <p class="text-secondary mb-4 text-sm md:text-base" data-translate="consulting_free_offer_subtitle">
+                    Compruebe el valor antes de invertir. Automatización simple implementada en 1-2 semanas, 100% gratis.
+                </p>
                 
-                <!-- Service Card 5: Courses -->
-                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 400ms;" data-service="courses">
-                    <div class="feature-icon bg-indigo-500/10 rounded-xl mb-4"><i class="fas fa-users" style="color: #6366f1;"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_courses_title">Cursos Intensivos para Equipos</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_courses_desc">UpSkilling en grupos ultra-reducidos (máx 4 personas). SQL, Analytics, Data Science, GenAI y Automatización. Atención personalizada + proyecto real incluido.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs font-medium cursor-pointer" style="color: #6366f1;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
-                    </div>
+                <div class="flex flex-wrap justify-center gap-3 mb-4 text-xs text-secondary">
+                    <span class="flex items-center"><i class="fas fa-check text-green-400 mr-1"></i><span data-translate="consulting_trust_badge_no_card">Sin tarjeta</span></span>
+                    <span class="flex items-center"><i class="fas fa-check text-green-400 mr-1"></i><span data-translate="consulting_trust_badge_no_commitment">Sin compromiso</span></span>
+                    <span class="flex items-center"><i class="fas fa-check text-green-400 mr-1"></i><span data-translate="consulting_trust_badge_results">2 semanas</span></span>
                 </div>
-                
-                <!-- Service Card 6: Recruiting -->
-                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 600ms;" data-service="recruiting">
-                    <div class="feature-icon bg-teal-500/10 rounded-xl mb-4"><i class="fas fa-user-check" style="color: #14b8a6;"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_recruiting_title">Reclutamiento Tech Especializado</h3>
-                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_recruiting_desc">Encontramos y evaluamos talento en Data, GenAI y Automation. Evaluación técnica real por un Technical Leader con 6+ años en MercadoLibre.</p>
-                    <div class="mt-4 text-center">
-                        <span class="text-xs font-medium cursor-pointer" style="color: #14b8a6;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
-                    </div>
-                </div>
+
+                <button onclick="openModal('proposal-form-modal')" class="main-cta text-white font-bold px-8 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-gift mr-2"></i><span data-translate="consulting_free_cta_button">Solicitar Mi Automatización Gratis Ahora</span>
+                </button>
             </div>
-        </section>
+        </div>
 
         <!-- SECONDARY NAVIGATION -->
         <div class="sticky top-16 z-40 py-4 mb-8 glass-effect border-b border-gray-600/30">
             <div class="container mx-auto max-w-6xl px-4">
-                <nav class="flex justify-center items-center space-x-6 md:space-x-8 text-sm">
-                    <a href="#packs" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium" data-translate="consulting_nav_packs">
-                        <i class="fas fa-box mr-2"></i>Packs
+                <nav class="flex justify-center items-center space-x-4 md:space-x-6 text-sm flex-wrap">
+                    <a href="#services" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium">
+                        <i class="fas fa-th-large mr-2"></i><span data-translate="consulting_nav_services">Servicios</span>
+                    </a>
+                    <a href="#success-stories" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium">
+                        <i class="fas fa-trophy mr-2"></i><span>Casos de Éxito</span>
+                    </a>
+                    <a href="#pricing" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium">
+                        <i class="fas fa-dollar-sign mr-2"></i><span>Precios</span>
                     </a>
                     <a href="#examples" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium" data-translate="consulting_nav_examples">
                         <i class="fas fa-lightbulb mr-2"></i>Ejemplos
                     </a>
-                    <a href="#process" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium" data-translate="consulting_nav_process">
-                        <i class="fas fa-cogs mr-2"></i>Nuestro Proceso
+                    <a href="#about" class="secondary-nav-link hover:text-sky-400 transition-colors font-medium" data-translate="consulting_nav_about">
+                        <i class="fas fa-user mr-2"></i>Sobre Mí
                     </a>
                 </nav>
             </div>
         </div>
+
+        <!-- ALL SERVICES UNIFIED SECTION -->
+        <section id="services" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_all_services_title">Todos Nuestros Servicios</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_all_services_subtitle">Soluciones integrales para empresas y profesionales tech. Haga clic en cada servicio para ver detalles completos.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Automation -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 100ms;" data-service="automation" onclick="openModal('automation-service-modal')">
+                    <div class="feature-icon bg-sky-500/10 rounded-xl mb-4"><i class="fas fa-robot" style="color: #0ea5e9;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_automation_title">Automatización de Procesos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_automation_desc">Liberamos a su equipo de tareas manuales y repetitivas. Desde la carga de facturas hasta el seguimiento de cobranzas, dejamos que los "robots" hagan el trabajo pesado para que su equipo pueda crear valor.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #0ea5e9;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2: GenAI -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="ai" onclick="openModal('ai-service-modal')">
+                    <div class="feature-icon bg-purple-500/10 rounded-xl mb-4"><i class="fas fa-brain" style="color: #a855f7;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_ai_desc">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #a855f7;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3: BI -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 300ms;" data-service="bi" onclick="openModal('bi-service-modal')">
+                    <div class="feature-icon bg-cyan-500/10 rounded-xl mb-4"><i class="fas fa-chart-pie" style="color: #06b6d4;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_bi_title">Business Intelligence & Datos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_bi_desc">Convertimos sus datos en su activo más valioso. Creamos tableros de control interactivos (dashboards) para que tenga visibilidad total de sus ventas, costos y rentabilidad en tiempo real y desde cualquier dispositivo.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #06b6d4;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4: Mentoring -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 400ms;" data-service="mentoring" onclick="openModal('mentoring-service-modal')">
+                    <div class="feature-icon bg-amber-500/10 rounded-xl mb-4"><i class="fas fa-user-graduate" style="color: #f59e0b;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_mentoring_title">Mentorías Tech Personalizadas</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_mentoring_desc">Destranque su carrera tech con mentoría personalizada. Desde debugging de código hasta transición a roles senior. Sesiones prácticas enfocadas en sus desafíos reales.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #f59e0b;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5: Courses -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 500ms;" data-service="courses" onclick="openModal('courses-service-modal')">
+                    <div class="feature-icon bg-indigo-500/10 rounded-xl mb-4"><i class="fas fa-users" style="color: #6366f1;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_courses_title">Cursos Intensivos para Equipos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_courses_desc">UpSkilling en grupos ultra-reducidos (máx 4 personas). SQL, Analytics, Data Science, GenAI y Automatización. Atención personalizada + proyecto real incluido.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #6366f1;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6: Recruiting -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 600ms;" data-service="recruiting" onclick="openModal('recruiting-service-modal')">
+                    <div class="feature-icon bg-teal-500/10 rounded-xl mb-4"><i class="fas fa-user-check" style="color: #14b8a6;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_recruiting_title">Reclutamiento Tech Especializado</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_recruiting_desc">Encontramos y evaluamos talento en Data, GenAI y Automation. Evaluación técnica real por un Technical Leader con 6+ años en MercadoLibre.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium service-cta-text" style="color: #14b8a6;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUCCESS STORIES SECTION -->
+        <section id="success-stories" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_success_stories_title">Resultados Reales de Clientes Reales</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_success_stories_subtitle">Casos de éxito medibles en cada uno de nuestros servicios</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Success Story 1: Automation -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 100ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-3xl text-sky-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-sky-500/20 rounded-full">
+                            AUTOMATIZACIÓN
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_automation_client">Pyme de Servicios</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_automation_service">
+                        Automatización de facturación y cobranzas
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-green-400" data-translate="consulting_success_automation_metric1">18hrs</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_automation_metric1_label">Ahorro semanal</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-green-400" data-translate="consulting_success_automation_metric2">$12K</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_automation_metric2_label">Ahorro anual</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 2: AI -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 200ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-brain text-3xl text-purple-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-purple-500/20 rounded-full">
+                            IA APLICADA
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_ai_client">E-commerce</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_ai_service">
+                        Chatbot WhatsApp con IA para atención 24/7
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-purple-400" data-translate="consulting_success_ai_metric1">60%</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_ai_metric1_label">Consultas resueltas</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-purple-400" data-translate="consulting_success_ai_metric2">24/7</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_ai_metric2_label">Disponibilidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 3: BI -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 300ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-pie text-3xl text-cyan-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-cyan-500/20 rounded-full">
+                            BUSINESS INTELLIGENCE
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_bi_client">Distribuidora</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_bi_service">
+                        Dashboard de ventas y rentabilidad en tiempo real
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-cyan-400" data-translate="consulting_success_bi_metric1">18%</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_bi_metric1_label">Aumento rentabilidad</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-cyan-400" data-translate="consulting_success_bi_metric2">3 meses</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_bi_metric2_label">ROI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 4: Mentoring -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 400ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-user-graduate text-3xl text-amber-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-amber-500/20 rounded-full">
+                            MENTORÍA
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_mentoring_client">Data Analyst Jr</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_mentoring_service">
+                        Transición a Sr Data Engineer en 8 meses
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-amber-400" data-translate="consulting_success_mentoring_metric1">45%</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_mentoring_metric1_label">Aumento salarial</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-amber-400" data-translate="consulting_success_mentoring_metric2">Remote</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_mentoring_metric2_label">Oferta internacional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 5: Courses -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 500ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-3xl text-indigo-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-indigo-500/20 rounded-full">
+                            CURSOS
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_courses_client">Equipo Analytics (3p)</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_courses_service">
+                        Curso SQL intensivo → Autonomía completa en queries
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-indigo-400" data-translate="consulting_success_courses_metric1">100%</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_courses_metric1_label">Proyectos aprobados</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-indigo-400" data-translate="consulting_success_courses_metric2">5 sem</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_courses_metric2_label">Autonomía lograda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 6: Recruiting -->
+                <div class="glass-effect rounded-2xl p-6 fade-in" style="animation-delay: 600ms;">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-user-check text-3xl text-teal-400 mr-3"></i>
+                        <span class="text-xs font-bold px-3 py-1 bg-teal-500/20 rounded-full">
+                            RECRUITING
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2" data-translate="consulting_success_recruiting_client">Startup Fintech</h4>
+                    <p class="text-secondary text-sm mb-4" data-translate="consulting_success_recruiting_service">
+                        Sr Data Engineer colocado en 3 semanas
+                    </p>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-teal-400" data-translate="consulting_success_recruiting_metric1">3 sem</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_recruiting_metric1_label">Proceso total</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-teal-400" data-translate="consulting_success_recruiting_metric2">18m+</p>
+                                <p class="text-xs text-secondary" data-translate="consulting_success_recruiting_metric2_label">Retención</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING OVERVIEW SECTION -->
+        <section id="pricing" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_pricing_title">Precios Transparentes</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_pricing_subtitle">Sin sorpresas. Estos son nuestros precios reales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Para Empresas -->
+                <div class="glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-sky-400 flex items-center">
+                        <i class="fas fa-building mr-2"></i>
+                        <span data-translate="consulting_pricing_business">Para Empresas</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm text-secondary">
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_automation_project">Automatización (proyecto)</span>
+                            <strong class="text-white">$600</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_ai_project">Chatbot IA (proyecto)</span>
+                            <strong class="text-white">$800</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_bi_project">Dashboard BI (proyecto)</span>
+                            <strong class="text-white">$800</strong>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <span data-translate="consulting_pricing_recurring">Recurrente (soporte)</span>
+                            <strong class="text-white">$100-200/mes</strong>
+                        </li>
+                    </ul>
+                    <div class="mt-4 text-center pt-3 border-t border-gray-700/50">
+                        <span class="text-xs text-green-400 font-bold" data-translate="consulting_pricing_free_badge">🎁 Primera gratis</span>
+                    </div>
+                </div>
+
+                <!-- Para Profesionales -->
+                <div class="glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-amber-400 flex items-center">
+                        <i class="fas fa-user-graduate mr-2"></i>
+                        <span data-translate="consulting_pricing_professionals">Para Profesionales</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm text-secondary">
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_mentoring_single">Mentoría (sesión)</span>
+                            <strong class="text-white">$100</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_mentoring_pack">Mentoría (pack 4)</span>
+                            <strong class="text-white">$350</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_mentoring_monthly">Mentoría (mensual)</span>
+                            <strong class="text-white">$280/mes</strong>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <span data-translate="consulting_pricing_courses">Cursos intensivos</span>
+                            <strong class="text-white">$600-850</strong>
+                        </li>
+                    </ul>
+                    <div class="mt-4 text-center pt-3 border-t border-gray-700/50">
+                        <span class="text-xs text-amber-400 font-bold" data-translate="consulting_pricing_max_4">Máx 4 personas</span>
+                    </div>
+                </div>
+
+                <!-- Recruiting -->
+                <div class="glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-teal-400 flex items-center">
+                        <i class="fas fa-user-check mr-2"></i>
+                        <span data-translate="consulting_pricing_recruiting">Reclutamiento Tech</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm text-secondary">
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_recruiting_success">Success-based</span>
+                            <strong class="text-white">$3,000</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700/50 pb-2">
+                            <span data-translate="consulting_pricing_recruiting_retainer1">Retainer (1 búsqueda)</span>
+                            <strong class="text-white">$1,500/mes</strong>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <span data-translate="consulting_pricing_recruiting_retainer2">Retainer (2 búsquedas)</span>
+                            <strong class="text-white">$2,000/mes</strong>
+                        </li>
+                    </ul>
+                    <div class="mt-4 text-center pt-3 border-t border-gray-700/50">
+                        <span class="text-xs text-teal-400 font-bold" data-translate="consulting_pricing_guarantee">Garantía 3 meses</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- PACKS SECTION -->
         <section id="packs" class="mb-24">
@@ -488,7 +745,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Pack 1: FREE -->
-                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col border-2 border-green-400/50 relative overflow-hidden">
+                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col border-2 border-green-400/50 relative overflow-hidden" onclick="openModal('proposal-form-modal')">
                     <div class="absolute top-0 right-0 bg-gradient-to-l from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
                         RECOMENDADO
                     </div>
@@ -513,17 +770,17 @@
                     <div class="mt-auto border-t border-gray-700 pt-4 text-center">
                         <p class="text-4xl font-bold text-green-400 mb-2">GRATIS</p>
                         <p class="text-xs text-secondary mb-4" data-translate="consulting_pack_free_badges">Sin tarjeta • Sin compromiso</p>
-                        <button onclick="document.getElementById('open-proposal-modal-btn').click()" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 rounded-lg transition">
+                        <button onclick="openModal('proposal-form-modal')" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 rounded-lg transition">
                             <span data-translate="consulting_pack_free_cta">Solicitar Ahora</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Pack 2: Starter Paid -->
-                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" data-title="Plan Automatización Pro: Escalamiento" 
+                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" onclick="openPackModalInline(this)" data-title="Plan Automatización Pro: Escalamiento" 
                     data-services="<li><i class='fas fa-check-circle text-green-400 mr-2'></i>Múltiples automatizaciones personalizadas</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Integraciones con sus sistemas (CRM, ERP, Excel)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Soporte técnico prioritario incluido</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Actualizaciones y mejoras continuas</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>Documentación completa</li>"
                     data-timeline="3 - 4 Semanas de implementación"
-                    data-investment="💰 Precios Flexibles: Desde USD 100/mes (recurrente) o Proyectos desde USD 300 (pago único)"
+                    data-investment="💰 Precios Flexibles: Desde USD 100/mes (recurrente) o Proyectos desde USD 600 (pago único)"
                     data-roi="<li>✅ Ahorro promedio: 20-40 horas/mes</li><li><strong>📈 ROI: 300-500% en el primer año</strong></li><li>🎯 Escalable según crece su negocio</li><li>💡 Ideal si ya probó la automatización gratis y quedó conforme</li>">
                     <div class="text-center mb-4">
                         <i class="fas fa-robot text-4xl text-sky-400"></i>
@@ -546,7 +803,7 @@
                     <div class="mt-auto border-t border-gray-700 pt-4 text-center">
                         <p class="text-sm text-secondary mb-1">Desde</p>
                         <p class="text-3xl font-bold mb-1">USD 100<span class="text-lg text-secondary">/mes</span></p>
-                        <p class="text-xs text-sky-400 mb-3">o proyectos desde USD 300</p>
+                        <p class="text-xs text-sky-400 mb-3">o proyectos desde USD 600</p>
                         <div class="text-center">
                             <span class="text-xs text-sky-400 font-medium cursor-pointer" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
                         </div>
@@ -554,10 +811,10 @@
                 </div>
 
                 <!-- Pack 3: IA + BI -->
-                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" data-title="Plan IA & Analytics: Transformación Digital Completa" 
+                <div class="pack-card glass-effect rounded-2xl p-6 flex flex-col cursor-pointer" onclick="openPackModalInline(this)" data-title="Plan IA & Analytics: Transformación Digital Completa" 
                     data-services="<li><i class='fas fa-check-circle text-green-400 mr-2'></i>✨ Todo del plan Automatización Pro</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🤖 Chatbot con IA para WhatsApp/Web (atención 24/7)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📊 Dashboard interactivo (ventas, operaciones, finanzas)</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>📈 Análisis predictivo y tendencias</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>💬 Análisis de sentimiento de clientes</li><li><i class='fas fa-check-circle text-green-400 mr-2'></i>🎯 Soporte prioritario y consultoría continua</li>"
                     data-timeline="4 - 6 Semanas de implementación completa"
-                    data-investment="💰 Precios Flexibles: Desde USD 200/mes (recurrente) o Proyectos desde USD 500 (pago único)"
+                    data-investment="💰 Precios Flexibles: Desde USD 200/mes (recurrente) o Proyectos desde USD 800 (pago único)"
                     data-roi="<li>✅ Ahorro promedio: 40-60 horas/mes</li><li><strong>📈 ROI: 400-800% anualizado</strong></li><li>🎯 Decisiones basadas en datos en tiempo real</li><li>💡 Incremento promedio del 30-40% en eficiencia operativa</li><li>🚀 Para empresas que quieren transformación digital completa</li>">
                     <div class="text-center mb-4">
                         <i class="fas fa-brain text-4xl text-purple-400"></i>
@@ -580,7 +837,7 @@
                     <div class="mt-auto border-t border-gray-700 pt-4 text-center">
                         <p class="text-sm text-secondary mb-1">Desde</p>
                         <p class="text-3xl font-bold mb-1">USD 200<span class="text-lg text-secondary">/mes</span></p>
-                        <p class="text-xs text-purple-400 mb-3">o proyectos desde USD 500</p>
+                        <p class="text-xs text-purple-400 mb-3">o proyectos desde USD 800</p>
                         <div class="text-center">
                             <span class="text-xs text-sky-400 font-medium cursor-pointer" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
                         </div>
@@ -597,7 +854,7 @@
                     <span data-translate="consulting_pricing_flexibility_desc_part2">Puede optar por</span> <strong class="text-sky-400" data-translate="consulting_pricing_monthly">pagos mensuales</strong> <span data-translate="consulting_pricing_with_support">con soporte continuo o</span>
                     <strong class="text-sky-400" data-translate="consulting_pricing_one_time">proyectos únicos</strong> <span data-translate="consulting_pricing_no_recurring">sin recurrencia. ¡Conversemos!</span>
                 </p>
-                <button onclick="document.getElementById('open-proposal-modal-btn').click()" class="mt-4 secondary-cta font-bold px-6 py-2 rounded-full text-sm">
+                <button onclick="openModal('proposal-form-modal')" class="mt-4 secondary-cta font-bold px-6 py-2 rounded-full text-sm">
                     <i class="fas fa-calculator mr-2"></i><span data-translate="consulting_pricing_quote_cta">Solicitar Cotización Personalizada</span>
                 </button>
             </div>
@@ -614,9 +871,9 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
                     <!-- NEW - Workflow 1: Ventas -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 100ms;" data-img-src="assets/images/ventas_flow.png" data-title="Automatización de Ventas" data-story="Una tienda online perdía ventas por carritos abandonados y no podía competir en precios. Automatizamos su proceso de ventas: 1) Emails automáticos de recuperación de carrito (30min, 2hrs, 24hrs), 2) Monitoreo y ajuste automático de precios vs competencia, 3) Ofertas de productos complementarios basadas en historial de compra, 4) Descuentos automáticos por lealtad. Resultado: 40% más conversiones, 25% mayor ticket promedio y 60% menos carritos abandonados.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 100ms;" data-img-src="assets/images/ventas_flow.png" data-title="Automatización de Ventas" data-story="Una tienda online perdía ventas por carritos abandonados y no podía competir en precios. Automatizamos su proceso de ventas: 1) Emails automáticos de recuperación de carrito (30min, 2hrs, 24hrs), 2) Monitoreo y ajuste automático de precios vs competencia, 3) Ofertas de productos complementarios basadas en historial de compra, 4) Descuentos automáticos por lealtad. Resultado: 40% más conversiones, 25% mayor ticket promedio y 60% menos carritos abandonados." onclick="openExampleModalInline(this)">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img data-src="assets/images/ventas_flow.png" alt="Flujo de automatización de ventas" class="workflow-image" loading="lazy">
+                            <img src="assets/images/ventas_flow.png" alt="Flujo de automatización de ventas" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-sky-900/50 to-blue-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-shopping-cart text-5xl text-sky-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Automatización de Ventas</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_sales_automation_title">Automatización de Ventas</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_sales_automation_desc">Recuperación automática de carritos abandonados, alertas de precios competitivos y sugerencias inteligentes de upselling/cross-selling.</p>
@@ -626,9 +883,9 @@
                     </div>
                     
                     <!-- NEW - Workflow 2: Recursos Humanos -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 200ms;" data-img-src="assets/images/rrhh_flow.png" data-title="Automatización de RRHH" data-story="Una consultora perdía tiempo valioso en procesos manuales de recursos humanos. Automatizamos su gestión de personal: 1) Onboarding automático: creación de cuentas, accesos y asignación de equipos, 2) Envío programado de documentación y checklist de bienvenida, 3) Procesamiento de reembolsos con IA desde fotos de tickets, 4) Seguimiento automático de evaluaciones de desempeño. Ahorro de tiempo: Onboarding de 8hrs a 2hrs, reembolsos de 3hrs a 15min semanales.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 200ms;" data-img-src="assets/images/rrhh_flow.png" data-title="Automatización de RRHH" data-story="Una consultora perdía tiempo valioso en procesos manuales de recursos humanos. Automatizamos su gestión de personal: 1) Onboarding automático: creación de cuentas, accesos y asignación de equipos, 2) Envío programado de documentación y checklist de bienvenida, 3) Procesamiento de reembolsos con IA desde fotos de tickets, 4) Seguimiento automático de evaluaciones de desempeño. Ahorro de tiempo: Onboarding de 8hrs a 2hrs, reembolsos de 3hrs a 15min semanales.">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img data-src="assets/images/rrhh_flow.png" alt="Flujo de automatización de recursos humanos" class="workflow-image" loading="lazy">
+                            <img src="assets/images/rrhh_flow.png" alt="Flujo de automatización de recursos humanos" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-purple-900/50 to-pink-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-users-cog text-5xl text-purple-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Automatización de RRHH</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_hr_automation_title">Automatización de RRHH</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_hr_automation_desc">Onboarding automático de nuevos empleados y procesamiento inteligente de reembolsos de gastos con IA.</p>
@@ -638,9 +895,9 @@
                     </div>
                     
                     <!-- NEW - Workflow 3: Operaciones -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 300ms;" data-img-src="assets/images/operation_flow.png" data-title="Automatización Operativa" data-story="Una pyme de servicios tenía operaciones lentas y costosas. Automatizamos sus procesos operativos clave: 1) Facturación automática desde órdenes de servicio con envío por email, 2) Recordatorios automáticos de vencimiento de pagos, 3) Sistema inteligente de tickets que categoriza y deriva consultas al especialista correcto, 4) Actualización automática de inventario y reportes operativos. Eficiencia operativa: Facturación de 12hrs a 1hr semanal, 70% de consultas resueltas en menos de 2hrs.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 300ms;" data-img-src="assets/images/operation_flow.png" data-title="Automatización Operativa" data-story="Una pyme de servicios tenía operaciones lentas y costosas. Automatizamos sus procesos operativos clave: 1) Facturación automática desde órdenes de servicio con envío por email, 2) Recordatorios automáticos de vencimiento de pagos, 3) Sistema inteligente de tickets que categoriza y deriva consultas al especialista correcto, 4) Actualización automática de inventario y reportes operativos. Eficiencia operativa: Facturación de 12hrs a 1hr semanal, 70% de consultas resueltas en menos de 2hrs.">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img data-src="assets/images/operation_flow.png" alt="Flujo de automatización operativa" class="workflow-image" loading="lazy">
+                            <img src="assets/images/operation_flow.png" alt="Flujo de automatización operativa" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-green-900/50 to-emerald-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-cogs text-5xl text-green-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Automatización Operativa</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_operations_automation_title">Automatización Operativa</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_operations_automation_desc">Facturación automática inteligente y sistema de soporte al cliente con derivación automática por especialidad.</p>
@@ -650,9 +907,12 @@
                     </div>
                     
                     <!-- Workflow 4 (anteriormente 1) -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 400ms;" data-img-src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" data-title="Automatización de Contenido para Redes" data-story="Una agencia de marketing digital pasaba más de 10 horas semanales copiando y pegando contenido desde Notion a LinkedIn para sus clientes. Implementamos este flujo que lo hace automáticamente cada día a las 9 AM, liberando al equipo para que se enfoque en la estrategia y la creatividad, no en tareas repetitivas.">
-                        <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://miro.medium.com/v2/resize:fit:1358/1*yEUGIR8d-ZBoIvDMNTyTNw.png" alt="Workflow de automatización de contenido para redes sociales" class="workflow-image">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 400ms;" data-img-src="assets/images/marketing_flow.png" data-title="Automatización de Contenido para Redes" data-story="Una agencia de marketing digital pasaba más de 10 horas semanales copiando y pegando contenido desde Notion a LinkedIn para sus clientes. Implementamos este flujo que lo hace automáticamente cada día a las 9 AM, liberando al equipo para que se enfoque en la estrategia y la creatividad, no en tareas repetitivas.">
+                        <div class="block rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-sky-900/50 to-purple-900/50 flex items-center justify-center min-h-[200px]">
+                            <div class="text-center p-4">
+                                <i class="fas fa-share-alt text-5xl text-sky-400 mb-2"></i>
+                                <p class="text-sm text-secondary">Automatización de Redes Sociales</p>
+                            </div>
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_social_title">Automatización de Contenido para Redes</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_social_desc">Este flujo toma publicaciones desde Notion, las procesa con IA y las publica automáticamente en LinkedIn, ahorrando horas en gestión de contenidos.</p>
@@ -662,9 +922,12 @@
                     </div>
                     
                     <!-- Workflow 5 (anteriormente 2) -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 500ms;" data-img-src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" data-title="Reportes de Performance Automatizados" data-story="El dueño de una pyme de retail perdía medio día cada lunes consolidando reportes de Facebook, Twitter y LinkedIn en un único Excel para entender el rendimiento. Ahora, recibe un email cada lunes a las 8 AM con un link a un reporte unificado y visual, permitiéndole tomar decisiones estratégicas antes de empezar la semana.">
-                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2025/03/social_media_reporting_workflow-1024x418.png" alt="Workflow de reportes automáticos de redes sociales" class="workflow-image">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 500ms;" data-img-src="assets/images/operation_flow.png" data-title="Reportes de Performance Automatizados" data-story="El dueño de una pyme de retail perdía medio día cada lunes consolidando reportes de Facebook, Twitter y LinkedIn en un único Excel para entender el rendimiento. Ahora, recibe un email cada lunes a las 8 AM con un link a un reporte unificado y visual, permitiéndole tomar decisiones estratégicas antes de empezar la semana.">
+                         <div class="block rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 flex items-center justify-center min-h-[200px]">
+                            <div class="text-center p-4">
+                                <i class="fas fa-chart-bar text-5xl text-emerald-400 mb-2"></i>
+                                <p class="text-sm text-secondary">Reportes Automáticos</p>
+                            </div>
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_reports_title">Reportes de Performance Automatizados</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_reports_desc">Cada semana, este workflow recolecta métricas de redes sociales, las unifica en Google Sheets y envía un reporte consolidado por email.</p>
@@ -674,9 +937,9 @@
                     </div>
                     
                     <!-- NEW - Workflow 6: Marketing -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" style="animation-delay: 600ms;" data-img-src="assets/images/marketing_flow.png" data-title="Automatización de Marketing" data-story="Una inmobiliaria perdía leads porque no tenía seguimiento sistemático de prospectos. Automatizamos su marketing digital: 1) Captura automática de leads desde web/redes sociales, 2) Secuencias de emails personalizados según el tipo de propiedad de interés, 3) Scoring automático de leads calientes/fríos, 4) Recordatorios automáticos para el equipo de ventas sobre follow-ups, 5) Campañas de remarketing para visitantes del sitio web. Resultado: 60% más leads calificados, 35% más conversiones y 80% menos leads perdidos por falta de seguimiento.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" style="animation-delay: 600ms;" data-img-src="assets/images/marketing_flow.png" data-title="Automatización de Marketing" data-story="Una inmobiliaria perdía leads porque no tenía seguimiento sistemático de prospectos. Automatizamos su marketing digital: 1) Captura automática de leads desde web/redes sociales, 2) Secuencias de emails personalizados según el tipo de propiedad de interés, 3) Scoring automático de leads calientes/fríos, 4) Recordatorios automáticos para el equipo de ventas sobre follow-ups, 5) Campañas de remarketing para visitantes del sitio web. Resultado: 60% más leads calificados, 35% más conversiones y 80% menos leads perdidos por falta de seguimiento.">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img data-src="assets/images/marketing_flow.png" alt="Flujo de automatización de marketing" class="workflow-image" loading="lazy">
+                            <img src="assets/images/marketing_flow.png" alt="Flujo de automatización de marketing" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-indigo-900/50 to-purple-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-bullhorn text-5xl text-indigo-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Automatización de Marketing</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_marketing_automation_title">Automatización de Marketing</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_marketing_automation_desc">Lead nurturing automático, secuencias de email personalizadas y scoring inteligente de prospectos para maximizar conversiones.</p>
@@ -695,9 +958,9 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- AI Example 1 -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" data-title="Chatbot de Soporte 24/7" data-story="Una empresa de servicios recibía más de 50 consultas diarias por WhatsApp sobre horarios, precios y ubicación. Implementamos un chatbot que responde el 80% de estas preguntas al instante, 24/7. El equipo de soporte ahora solo se ocupa de los casos complejos, la satisfacción del cliente aumentó un 30% y se capturan leads incluso fuera del horario laboral.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" data-title="Chatbot de Soporte 24/7" data-story="Una empresa de servicios recibía más de 50 consultas diarias por WhatsApp sobre horarios, precios y ubicación. Implementamos un chatbot que responde el 80% de estas preguntas al instante, 24/7. El equipo de soporte ahora solo se ocupa de los casos complejos, la satisfacción del cliente aumentó un 30% y se capturan leads incluso fuera del horario laboral.">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" alt="Ejemplo de un chatbot para atención al cliente" class="workflow-image">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/chatbot.jpg" alt="Ejemplo de un chatbot para atención al cliente" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-purple-900/50 to-pink-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-comments text-5xl text-purple-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Chatbot IA</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_chatbot_title">Chatbot de Soporte 24/7</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_chatbot_desc">Un asistente virtual que responde preguntas frecuentes, filtra consultas y deriva casos complejos, mejorando la satisfacción del cliente y liberando a su equipo.</p>
@@ -706,9 +969,9 @@
                         </div>
                     </div>
                     <!-- AI Example 2 -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" data-title="Análisis Inteligente de Feedback" data-story="Una cadena de restaurantes quería entender las miles de reseñas online que recibían. Creamos un sistema que analiza automáticamente cada comentario, lo clasifica (comida, servicio, limpieza) y detecta el sentimiento (positivo, negativo, neutro). Esto les permitió identificar que la 'lentitud en el servicio de mediodía' era un problema recurrente en una sucursal y tomar acciones correctivas inmediatas.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" data-title="Análisis Inteligente de Feedback" data-story="Una cadena de restaurantes quería entender las miles de reseñas online que recibían. Creamos un sistema que analiza automáticamente cada comentario, lo clasifica (comida, servicio, limpieza) y detecta el sentimiento (positivo, negativo, neutro). Esto les permitió identificar que la 'lentitud en el servicio de mediodía' era un problema recurrente en una sucursal y tomar acciones correctivas inmediatas.">
                          <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" alt="Ejemplo de análisis de sentimiento con IA" class="workflow-image">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/feedback.jpg" alt="Ejemplo de análisis de sentimiento con IA" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-cyan-900/50 to-blue-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-comment-dots text-5xl text-cyan-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Análisis de Feedback</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_feedback_title">Análisis Inteligente de Feedback</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_feedback_desc">Utilizamos IA para analizar miles de comentarios de clientes y reseñas, detectando patrones y oportunidades de mejora de forma automática.</p>
@@ -727,9 +990,9 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                     <!-- BI Example 1 -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" data-title="Dashboard de Ventas en Tiempo Real" data-story="Una distribuidora dependía de reportes de Excel semanales que no reflejaban la realidad del momento. Implementamos un dashboard conectado directamente a su sistema de facturación. Ahora, el gerente de ventas puede ver desde su celular las ventas por vendedor, por producto y por región, actualizadas cada hora. Esto les permitió lanzar promociones flash y ajustar estrategias en el mismo día.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" data-title="Dashboard de Ventas en Tiempo Real" data-story="Una distribuidora dependía de reportes de Excel semanales que no reflejaban la realidad del momento. Implementamos un dashboard conectado directamente a su sistema de facturación. Ahora, el gerente de ventas puede ver desde su celular las ventas por vendedor, por producto y por región, actualizadas cada hora. Esto les permitió lanzar promociones flash y ajustar estrategias en el mismo día.">
                         <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" alt="Ejemplo de un dashboard de ventas en Power BI o Looker Studio" class="workflow-image">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/ventas.jpg" alt="Ejemplo de un dashboard de ventas en Power BI o Looker Studio" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-cyan-900/50 to-teal-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-chart-line text-5xl text-cyan-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Dashboard de Ventas</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_sales_title">Dashboard de Ventas en Tiempo Real</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_sales_desc">Visualice sus KPIs de ventas, compare periodos y filtre por vendedor o producto con un panel interactivo y siempre actualizado.</p>
@@ -738,9 +1001,9 @@
                         </div>
                     </div>
                     <!-- BI Example 2 -->
-                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" data-title="Control de Inventario y Operaciones" data-story="Una pyme de manufactura sufría constantes quiebres de stock en materias primas clave, frenando la producción. Creamos un dashboard de control de inventario que no solo muestra el stock actual, sino que proyecta el consumo y alerta automáticamente cuando un item llega a su punto de reorden. Las paradas de producción por falta de material se redujeron en un 90%.">
+                    <div class="example-card glass-effect rounded-2xl p-6 fade-in cursor-pointer" onclick="openExampleModalInline(this)" data-img-src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" data-title="Control de Inventario y Operaciones" data-story="Una pyme de manufactura sufría constantes quiebres de stock en materias primas clave, frenando la producción. Creamos un dashboard de control de inventario que no solo muestra el stock actual, sino que proyecta el consumo y alerta automáticamente cuando un item llega a su punto de reorden. Las paradas de producción por falta de material se redujeron en un 90%.">
                          <div class="block rounded-lg overflow-hidden mb-4 bg-gray-700">
-                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" alt="Ejemplo de un dashboard de control de inventario" class="workflow-image">
+                            <img src="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/inventario.jpg" alt="Ejemplo de un dashboard de control de inventario" class="workflow-image" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'example-placeholder bg-gradient-to-br from-emerald-900/50 to-green-900/50 flex items-center justify-center min-h-[200px]\'><div class=\'text-center p-4\'><i class=\'fas fa-boxes text-5xl text-emerald-400 mb-2\'></i><p class=\'text-sm text-secondary\'>Control de Inventario</p></div></div>';">
                         </div>
                         <h4 class="font-bold text-lg mb-1" data-translate="consulting_example_inventory_title">Control de Inventario y Operaciones</h4>
                         <p class="text-secondary text-sm" data-translate="consulting_example_inventory_desc">Monitoree niveles de stock y rotación de productos. Anticipe quiebres de stock y optimice sus compras basándose en datos, no en intuición.</p>
@@ -751,160 +1014,6 @@
                 </div>
             </div>
 
-        </section>
-        
-        <!-- PROCESS SECTION -->
-        <section id="process" class="mb-24">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_process_title">Nuestro Proceso: Ágil y Transparente</h2>
-                <p class="mt-2 text-lg text-secondary" data-translate="consulting_process_subtitle">Un camino claro desde el problema hasta la solución, con resultados visibles en cada etapa.</p>
-            </div>
-            
-            <!-- PROFESSIONAL TIMELINE -->
-            <div class="max-w-4xl mx-auto mb-12">
-                <div class="relative">
-                    <!-- Main timeline track -->
-                    <div class="absolute top-6 left-0 right-0 h-1 bg-gray-700/50 rounded-full"></div>
-                    <div id="process-progress" class="absolute top-6 left-0 h-1 bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 rounded-full transition-all duration-1500 ease-out shadow-[0_0_15px_rgba(56,189,248,0.4)]" style="width: 0%"></div>
-                    
-                    <!-- Timeline nodes -->
-                    <div class="flex justify-between items-center relative">
-                        <!-- Node 1 -->
-                        <div class="timeline-node flex flex-col items-center group cursor-pointer" data-step="1">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-3 border-gray-600 flex items-center justify-center text-white font-bold text-lg transition-all duration-500 hover:scale-110 step-node shadow-xl relative z-10">
-                                <span class="timeline-number">1</span>
-                            </div>
-                            <div class="mt-3 text-center">
-                                <div class="text-xs font-semibold text-sky-300 opacity-80 group-hover:opacity-100 transition-opacity">
-                                    <span data-translate="consulting_timeline_diagnosis">Diagnóstico</span>
-                                </div>
-                                <div class="text-xs text-gray-400 mt-1">
-                                    <span data-translate="consulting_timeline_quick_wins">& Quick Wins</span>
-                                </div>
-                            </div>
-                            <!-- Activation glow -->
-                            <div class="absolute top-0 w-12 h-12 rounded-full bg-sky-400/30 scale-0 transition-transform duration-700 step-glow"></div>
-                        </div>
-                        
-                        <!-- Node 2 -->
-                        <div class="timeline-node flex flex-col items-center group cursor-pointer" data-step="2">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-3 border-gray-600 flex items-center justify-center text-white font-bold text-lg transition-all duration-500 hover:scale-110 step-node shadow-xl relative z-10">
-                                <span class="timeline-number">2</span>
-                            </div>
-                            <div class="mt-3 text-center">
-                                <div class="text-xs font-semibold text-sky-300 opacity-80 group-hover:opacity-100 transition-opacity">
-                                    <span data-translate="consulting_timeline_prototype">Prototipo</span>
-                                </div>
-                                <div class="text-xs text-gray-400 mt-1">
-                                    <span data-translate="consulting_timeline_mvp">MVP Funcional</span>
-                                </div>
-                            </div>
-                            <!-- Activation glow -->
-                            <div class="absolute top-0 w-12 h-12 rounded-full bg-cyan-400/30 scale-0 transition-transform duration-700 step-glow"></div>
-                        </div>
-                        
-                        <!-- Node 3 -->
-                        <div class="timeline-node flex flex-col items-center group cursor-pointer" data-step="3">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-3 border-gray-600 flex items-center justify-center text-white font-bold text-lg transition-all duration-500 hover:scale-110 step-node shadow-xl relative z-10">
-                                <span class="timeline-number">3</span>
-                            </div>
-                            <div class="mt-3 text-center">
-                                <div class="text-xs font-semibold text-sky-300 opacity-80 group-hover:opacity-100 transition-opacity">
-                                    <span data-translate="consulting_timeline_deployment">Despliegue</span>
-                                </div>
-                                <div class="text-xs text-gray-400 mt-1">
-                                    <span data-translate="consulting_timeline_scaling">& Escalamiento</span>
-                                </div>
-                            </div>
-                            <!-- Activation glow -->
-                            <div class="absolute top-0 w-12 h-12 rounded-full bg-emerald-400/30 scale-0 transition-transform duration-700 step-glow"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="relative max-w-4xl mx-auto">
-                <!-- The animated connecting line -->
-                <div class="absolute left-1/2 top-10 bottom-10 w-0.5 bg-sky-500/30 hidden md:block"></div>
-                <div id="animated-line" class="absolute left-1/2 top-10 w-0.5 bg-gradient-to-b from-sky-400 to-cyan-400 h-0 hidden md:block transition-all duration-2000 ease-out"></div>
-                <!-- Step 1 -->
-                <div class="relative mb-8 md:mb-12 process-step" data-step="1">
-                    <div class="md:flex items-center md:flex-row-reverse">
-                        <div class="md:w-1/2 text-left md:pl-12 mb-8 md:mb-0">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-400/50 flex items-center justify-center text-sky-400 font-bold text-sm mr-3">
-                                    <span class="step-counter">1</span>
-                                </div>
-                                <span class="text-sky-400 font-semibold text-sm" data-translate="consulting_timeline_step_1">Paso 1</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step1_title">Diagnóstico y Quick Wins</h4>
-                            <p class="text-secondary text-sm" data-translate="consulting_step1_desc">Analizamos sus procesos, identificamos los cuellos de botella y le presentamos un plan con victorias rápidas y de alto impacto.</p>
-                            <div class="mt-4 text-xs text-sky-300 opacity-0 step-detail">
-                                ⏱️ <strong>2-3 días</strong> | 🎯 <strong>ROI inmediato</strong>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 flex justify-center md:justify-start mb-8 md:mb-0">
-                            <div class="relative w-32 h-32 md:w-24 md:h-24 flex items-center justify-center bg-gray-700/50 rounded-full border-2 border-sky-500/50 step-icon-container">
-                                <div class="step-icon-bg absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-full opacity-0"></div>
-                                <i class="fas fa-search-plus text-4xl md:text-3xl text-sky-400 step-icon search-icon relative z-10"></i>
-                                <div class="absolute inset-0 rounded-full step-pulse"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Step 2 -->
-                <div class="relative mb-8 md:mb-12 process-step" data-step="2">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 text-left md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400 font-bold text-sm mr-3">
-                                    <span class="step-counter">2</span>
-                                </div>
-                                <span class="text-cyan-400 font-semibold text-sm" data-translate="consulting_timeline_step_2">Paso 2</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step2_title">Implementación del Prototipo</h4>
-                            <p class="text-secondary text-sm" data-translate="consulting_step2_desc">En 2-3 semanas, construimos y entregamos una primera versión funcional (MVP) de la automatización o dashboard para que vea el valor inmediatamente.</p>
-                            <div class="mt-4 text-xs text-sky-300 opacity-0 step-detail">
-                                ⏱️ <strong>2-3 semanas</strong> | 🚀 <strong>MVP funcional</strong>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 flex justify-center mb-8 md:mb-0">
-                            <div class="relative w-32 h-32 md:w-24 md:h-24 flex items-center justify-center bg-gray-700/50 rounded-full border-2 border-sky-500/50 step-icon-container">
-                                <div class="step-icon-bg absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-full opacity-0"></div>
-                                <i class="fas fa-cogs text-4xl md:text-3xl text-sky-400 step-icon cogs-icon relative z-10"></i>
-                                <div class="absolute inset-0 rounded-full step-pulse"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Step 3 -->
-                <div class="relative process-step" data-step="3">
-                    <div class="md:flex items-center md:flex-row-reverse">
-                        <div class="md:w-1/2 text-left md:pl-12 mb-8 md:mb-0">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-400 font-bold text-sm mr-3">
-                                    <span class="step-counter">3</span>
-                                </div>
-                                <span class="text-emerald-400 font-semibold text-sm" data-translate="consulting_timeline_step_3">Paso 3</span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2" data-translate="consulting_step3_title">Despliegue, Capacitación y Escalamiento</h4>
-                            <p class="text-secondary text-sm" data-translate="consulting_step3_desc">Ponemos la solución en producción, capacitamos a su equipo para que la gestione y planificamos los siguientes pasos para una mejora continua.</p>
-                            <div class="mt-4 text-xs text-sky-300 opacity-0 step-detail">
-                                ⏱️ <strong>1 semana</strong> | 📈 <strong>Escalamiento continuo</strong>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 flex justify-center md:justify-start mb-8 md:mb-0">
-                            <div class="relative w-32 h-32 md:w-24 md:h-24 flex items-center justify-center bg-gray-700/50 rounded-full border-2 border-sky-500/50 step-icon-container">
-                                <div class="step-icon-bg absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-full opacity-0"></div>
-                                <i class="fas fa-rocket text-4xl md:text-3xl text-sky-400 step-icon rocket-icon relative z-10"></i>
-                                <div class="absolute inset-0 rounded-full step-pulse"></div>
-                                <!-- Rocket trail effect -->
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 rocket-trail"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ABOUT & CTA SECTION -->
@@ -1009,7 +1118,7 @@
 
             <!-- CTA -->
             <div class="text-center">
-                <button onclick="document.getElementById('open-proposal-modal-btn').click()" class="main-cta text-white font-bold px-8 py-4 rounded-full inline-block text-lg shadow-xl hover:shadow-2xl transition-all duration-300" data-translate="consulting_about_cta">
+                <button onclick="openModal('proposal-form-modal')" class="main-cta text-white font-bold px-8 py-4 rounded-full inline-block text-lg shadow-xl hover:shadow-2xl transition-all duration-300" data-translate="consulting_about_cta">
                     <i class="fas fa-gift mr-2"></i>Solicitar Mi Automatización Gratis
                 </button>
                 <div class="mt-4 text-sm text-secondary" data-translate="consulting_cta_subtitle">
@@ -1066,7 +1175,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-                <button onclick="document.getElementById('open-proposal-modal-btn').click()" class="w-full sm:w-auto main-cta text-white font-bold px-10 py-4 rounded-full text-lg shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+                <button onclick="openModal('proposal-form-modal')" class="w-full sm:w-auto main-cta text-white font-bold px-10 py-4 rounded-full text-lg shadow-[0_0_20px_rgba(56,189,248,0.4)]">
                     <i class="fas fa-gift mr-2"></i> <span data-translate="consulting_footer_cta">Solicitar Automatización Gratis</span>
                 </button>
                 <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="w-full sm:w-auto secondary-cta font-bold px-8 py-4 rounded-full text-lg">
@@ -1096,9 +1205,9 @@
     </footer>
 
     <!-- MODAL FOR EXAMPLES -->
-                <div id="example-modal" class="modal-overlay modal">
-                <div class="modal-content glass-effect">
-                            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+                <div id="example-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'example-modal')">
+        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
+                            <button class="modal-close-btn" onclick="closeModal('example-modal')"><i class="fas fa-times"></i></button>
             <img id="modal-img" src="" alt="Ejemplo de caso de uso" class="w-full h-auto max-h-[50vh] object-contain rounded-lg mb-4">
             <h4 id="modal-title" class="text-2xl font-bold mb-2"></h4>
             <p id="modal-story" class="text-secondary leading-relaxed"></p>
@@ -1106,9 +1215,9 @@
     </div>
 
     <!-- MODAL FOR PACKS -->
-                <div id="pack-modal" class="modal-overlay modal">
-                <div class="modal-content glass-effect">
-                            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+                <div id="pack-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'pack-modal')">
+        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
+                            <button class="modal-close-btn" onclick="closeModal('pack-modal')"><i class="fas fa-times"></i></button>
             <h4 id="pack-modal-title" class="text-2xl font-bold mb-4"></h4>
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
@@ -1131,9 +1240,9 @@
     </div>
 
     <!-- MODAL PARA FORMULARIO DE PROPUESTA -->
-    <div id="proposal-form-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="proposal-form-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'proposal-form-modal')">
+        <div class="modal-content glass-effect" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('proposal-form-modal')"><i class="fas fa-times"></i></button>
             <div class="text-center mb-6">
                 <div class="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-3">
                     🎁 OFERTA EXCLUSIVA
@@ -1164,9 +1273,9 @@
     </div>
 
     <!-- MODAL PARA OPCIONES DE CONTACTO -->
-    <div id="contact-options-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect text-center">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="contact-options-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'contact-options-modal')">
+        <div class="modal-content glass-effect text-center" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('contact-options-modal')"><i class="fas fa-times"></i></button>
             <i class="fas fa-check-circle text-5xl text-green-400 mb-4"></i>
             <h4 class="text-2xl font-bold mb-2" data-translate="consulting_contact_success_title">¡Solicitud Recibida!</h4>
             <p class="text-secondary mb-6" data-translate="consulting_contact_success_desc">
@@ -1186,9 +1295,9 @@
     <!-- MODALES DETALLADOS DE SERVICIOS -->
     
     <!-- MODAL DE AUTOMATIZACIÓN -->
-    <div id="automation-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-4xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="automation-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'automation-service-modal')">
+        <div class="modal-content glass-effect max-w-4xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('automation-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-robot text-3xl"></i></div>
                 <h4 class="text-3xl font-bold" data-translate="consulting_automation_modal_title">Automatización de Procesos</h4>
@@ -1247,7 +1356,7 @@
                     🎁 EMPIECE GRATIS
                 </div>
                 <p class="text-secondary text-sm mb-4">
-                    Pruebe el valor de la automatización con un proyecto real sin costo. Si quedó conforme, escalamos con planes desde <strong class="text-sky-400">USD 100/mes</strong>.
+                    Pruebe el valor de la automatización con un proyecto real sin costo. Si quedó conforme, escalamos con planes desde <strong class="text-sky-400">USD 100/mes</strong> o proyectos desde <strong class="text-sky-400">USD 600</strong>.
                 </p>
                 <button onclick="openProposalFromService('automation-service-modal')" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-lg transition">
                     <i class="fas fa-gift mr-2"></i><span data-translate="consulting_automation_modal_cta">Solicitar Automatización Gratis</span>
@@ -1257,9 +1366,9 @@
     </div>
 
     <!-- MODAL DE INTELIGENCIA ARTIFICIAL -->
-    <div id="ai-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-4xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="ai-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'ai-service-modal')">
+        <div class="modal-content glass-effect max-w-4xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('ai-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-brain text-3xl"></i></div>
                 <h4 class="text-3xl font-bold" data-translate="consulting_ai_modal_title">Inteligencia Artificial Aplicada</h4>
@@ -1318,7 +1427,7 @@
                     🎁 PRUEBE SIN RIESGO
                 </div>
                 <p class="text-secondary text-sm mb-4">
-                    Comience con una automatización simple gratis. Si le gusta, incorporamos IA con planes desde <strong class="text-purple-400">USD 200/mes</strong> o proyectos desde <strong class="text-purple-400">USD 500</strong>.
+                    Comience con una automatización simple gratis. Si le gusta, incorporamos IA con planes desde <strong class="text-purple-400">USD 200/mes</strong> o proyectos desde <strong class="text-purple-400">USD 800</strong>.
                 </p>
                 <button onclick="openProposalFromService('ai-service-modal')" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-lg transition">
                     <i class="fas fa-gift mr-2"></i><span data-translate="consulting_ai_modal_cta">Empezar con Automatización Gratis</span>
@@ -1328,9 +1437,9 @@
     </div>
 
     <!-- MODAL DE BUSINESS INTELLIGENCE -->
-    <div id="bi-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-4xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="bi-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'bi-service-modal')">
+        <div class="modal-content glass-effect max-w-4xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('bi-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-chart-pie text-3xl"></i></div>
                 <h4 class="text-3xl font-bold" data-translate="consulting_bi_modal_title">Business Intelligence & Datos</h4>
@@ -1389,7 +1498,7 @@
                     🎁 COMIENCE SIN COSTO
                 </div>
                 <p class="text-secondary text-sm mb-4">
-                    Pruebe primero una automatización gratis. Después agregamos dashboards con planes desde <strong class="text-cyan-400">USD 200/mes</strong> o proyectos desde <strong class="text-cyan-400">USD 500</strong>.
+                    Pruebe primero una automatización gratis. Después agregamos dashboards con planes desde <strong class="text-cyan-400">USD 200/mes</strong> o proyectos desde <strong class="text-cyan-400">USD 800</strong>.
                 </p>
                 <button onclick="openProposalFromService('bi-service-modal')" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-lg transition">
                     <i class="fas fa-gift mr-2"></i><span data-translate="consulting_bi_modal_cta">Solicitar Automatización Gratis</span>
@@ -1401,9 +1510,9 @@
     <!-- ============== TALENT DEVELOPMENT MODALS ============== -->
 
     <!-- MODAL DE MENTORÍAS -->
-    <div id="mentoring-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-4xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="mentoring-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'mentoring-service-modal')">
+        <div class="modal-content glass-effect max-w-4xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('mentoring-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-amber-500/10 rounded-xl mr-4"><i class="fas fa-user-graduate text-3xl" style="color: #f59e0b;"></i></div>
                 <div>
@@ -1451,7 +1560,7 @@
                         <div class="bg-gray-800/50 rounded-lg p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="font-semibold text-white">Sesión Única</span>
-                                <span class="text-2xl font-bold text-amber-400">$80</span>
+                                <span class="text-2xl font-bold text-amber-400">$100</span>
                             </div>
                             <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_single">60 minutos - Ideal para consultas puntuales</p>
                         </div>
@@ -1459,7 +1568,7 @@
                         <div class="bg-gray-800/50 rounded-lg p-4 border border-amber-400/30">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="font-semibold text-white">Pack 4 Sesiones</span>
-                                <span class="text-2xl font-bold text-amber-400">$280</span>
+                                <span class="text-2xl font-bold text-amber-400">$350</span>
                             </div>
                             <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_pack">Ahorro 12% - Seguimiento continuo recomendado</p>
                         </div>
@@ -1467,7 +1576,7 @@
                         <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg p-4 border border-amber-400/50">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="font-semibold text-white">Mentoría Mensual</span>
-                                <span class="text-2xl font-bold text-amber-400">$250</span>
+                                <span class="text-2xl font-bold text-amber-400">$280</span>
                             </div>
                             <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_monthly">2 sesiones + consultas async ilimitadas</p>
                         </div>
@@ -1508,9 +1617,9 @@
     </div>
 
     <!-- MODAL DE CURSOS -->
-    <div id="courses-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-5xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="courses-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'courses-service-modal')">
+        <div class="modal-content glass-effect max-w-5xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('courses-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-indigo-500/10 rounded-xl mr-4"><i class="fas fa-users text-3xl" style="color: #6366f1;"></i></div>
                 <div>
@@ -1539,7 +1648,7 @@
                                     <p class="text-xs text-secondary" data-translate="consulting_course_sql_duration">5 semanas - 10 clases</p>
                                 </div>
                             </div>
-                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_sql_price">$450</span>
+                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_sql_price">$650</span>
                         </div>
                         <p class="text-sm text-secondary" data-translate="consulting_course_sql_content">De SELECT básico a Window Functions. Optimización de queries y performance. Proyecto: Dashboard con KPIs reales.</p>
                     </div>
@@ -1554,7 +1663,7 @@
                                     <p class="text-xs text-secondary" data-translate="consulting_course_python_duration">6 semanas - 12 clases</p>
                                 </div>
                             </div>
-                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_python_price">$550</span>
+                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_python_price">$800</span>
                         </div>
                         <p class="text-sm text-secondary" data-translate="consulting_course_python_content">Pandas, NumPy, Matplotlib, Seaborn. Web scraping y APIs. Proyecto: EDA completo + reporte ejecutivo.</p>
                     </div>
@@ -1569,7 +1678,7 @@
                                     <p class="text-xs text-secondary" data-translate="consulting_course_ds_duration">6 semanas - 12 clases</p>
                                 </div>
                             </div>
-                            <span class="text-xl font-bold text-purple-400" data-translate="consulting_course_ds_price">$600</span>
+                            <span class="text-xl font-bold text-purple-400" data-translate="consulting_course_ds_price">$850</span>
                         </div>
                         <p class="text-sm text-secondary" data-translate="consulting_course_ds_content">ML supervisado/no supervisado. Feature engineering, validación, deployment. Proyecto: Modelo predictivo en producción.</p>
                     </div>
@@ -1584,7 +1693,7 @@
                                     <p class="text-xs text-secondary" data-translate="consulting_course_genai_duration">5 semanas - 10 clases</p>
                                 </div>
                             </div>
-                            <span class="text-xl font-bold text-cyan-400" data-translate="consulting_course_genai_price">$500</span>
+                            <span class="text-xl font-bold text-cyan-400" data-translate="consulting_course_genai_price">$700</span>
                         </div>
                         <p class="text-sm text-secondary" data-translate="consulting_course_genai_content">Prompting avanzado, RAG, LangChain. n8n para workflows inteligentes. Proyecto: Chatbot con IA + automatización real.</p>
                     </div>
@@ -1621,7 +1730,7 @@
                 <div>
                     <h5 class="font-semibold mb-3 text-purple-400 text-lg" data-translate="consulting_courses_modal_investment">Inversión</h5>
                     <ul class="text-secondary space-y-2 text-sm">
-                        <li class="flex items-start"><i class="fas fa-dollar-sign text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_individual">Individual: USD 400-600 según duración</span></li>
+                        <li class="flex items-start"><i class="fas fa-dollar-sign text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_individual">Individual: USD 600-850 según duración</span></li>
                         <li class="flex items-start"><i class="fas fa-building text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_business">Empresas (2-4 personas): 15% descuento</span></li>
                         <li class="flex items-start"><i class="fas fa-tag text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_earlybird">Early Bird: 10% descuento (2 semanas antes)</span></li>
                     </ul>
@@ -1671,9 +1780,9 @@
     </div>
 
     <!-- MODAL DE RECRUITING -->
-    <div id="recruiting-service-modal" class="modal-overlay modal">
-        <div class="modal-content glass-effect max-w-5xl">
-            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+    <div id="recruiting-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'recruiting-service-modal')">
+        <div class="modal-content glass-effect max-w-5xl" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeModal('recruiting-service-modal')"><i class="fas fa-times"></i></button>
             <div class="flex items-center mb-6">
                 <div class="feature-icon bg-teal-500/10 rounded-xl mr-4"><i class="fas fa-user-check text-3xl" style="color: #14b8a6;"></i></div>
                 <div>
@@ -1762,12 +1871,12 @@
                     <div class="space-y-3">
                         <div class="bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-lg p-4 border border-teal-400/30">
                             <p class="font-semibold text-white mb-1">Success-Based ⭐</p>
-                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_success">USD 1,500 solo si contrata. Sin costo upfront. Garantía: 3 meses de reemplazo.</p>
+                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_success">USD 3,000 solo si contrata. Sin costo upfront. Garantía: 3 meses de reemplazo.</p>
                         </div>
                         
                         <div class="bg-gray-800/50 rounded-lg p-4">
                             <p class="font-semibold text-white mb-1">Retainer Mensual</p>
-                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_retainer">USD 800/mes búsquedas ilimitadas. 2 búsquedas simultáneas.</p>
+                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_retainer">USD 1,500/mes con 1 búsqueda activa. USD 2,000/mes con 2 búsquedas simultáneas.</p>
                         </div>
                     </div>
                 </div>
@@ -1842,7 +1951,213 @@
          </div>
     </div>
 
-    <script src="assets/js/consulting.js" type="module" defer></script>
+    <!-- Modal Functions (Must load IMMEDIATELY) -->
+    <script>
+        console.log('[Modal] Defining global modal functions...');
+        
+        // SIMPLIFIED modal functions - no delays, direct DOM manipulation
+        window.openModal = function(modalId) {
+            console.log('[Modal] openModal called with:', modalId);
+            const modal = document.getElementById(modalId);
+            console.log('[Modal] Modal element found:', !!modal);
+            
+            if (modal) {
+                // Force display and active state immediately
+                modal.style.display = 'flex';
+                modal.classList.add('active');
+                // Disable body scroll
+                document.body.style.overflow = 'hidden';
+                console.log('[Modal] Modal opened:', modalId);
+            } else {
+                console.error('[Modal] Modal element not found:', modalId);
+            }
+        }
+
+        window.closeModal = function(modalId) {
+            console.log('[Modal] closeModal called with:', modalId);
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.classList.remove('active');
+                modal.style.display = 'none';
+                // Re-enable body scroll
+                document.body.style.overflow = '';
+                console.log('[Modal] Modal closed:', modalId);
+            }
+        }
+
+        window.openProposalFromService = function(serviceModalId) {
+            console.log('[Modal] openProposalFromService called with:', serviceModalId);
+            // Close service modal
+            closeModal(serviceModalId);
+            // Open proposal modal immediately
+            setTimeout(() => {
+                openModal('proposal-form-modal');
+            }, 100);
+        }
+        
+        // Global close handler for clicking outside
+        window.closeModalOnOverlay = function(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+        
+        // Global function for opening example modal
+        window.openExampleModalInline = function(element) {
+            console.log('[ExampleModal] Opening from inline onclick');
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalStory = document.getElementById('modal-story');
+            
+            if (modalImg && modalTitle && modalStory && element.dataset) {
+                modalImg.src = element.dataset.imgSrc || '';
+                modalImg.alt = element.dataset.title || '';
+                modalTitle.textContent = element.dataset.title || '';
+                modalStory.textContent = element.dataset.story || '';
+                openModal('example-modal');
+            }
+        }
+        
+        // Global function for opening pack modal
+        window.openPackModalInline = function(element) {
+            console.log('[PackModal] Opening from inline onclick');
+            const packModalTitle = document.getElementById('pack-modal-title');
+            const packModalServices = document.getElementById('pack-modal-services');
+            const packModalTimeline = document.getElementById('pack-modal-timeline');
+            const packModalInvestment = document.getElementById('pack-modal-investment');
+            const packModalRoi = document.getElementById('pack-modal-roi');
+            
+            if (packModalTitle && packModalServices && element.dataset) {
+                packModalTitle.textContent = element.dataset.title || '';
+                packModalServices.innerHTML = element.dataset.services || '';
+                packModalTimeline.innerHTML = '<i class="fas fa-clock w-5 mr-2"></i>' + (element.dataset.timeline || '');
+                packModalInvestment.innerHTML = '<i class="fas fa-dollar-sign w-5 mr-2"></i>' + (element.dataset.investment || '');
+                packModalRoi.innerHTML = element.dataset.roi || '';
+                openModal('pack-modal');
+            }
+        }
+        
+        console.log('[Modal] ✅ Global modal system ready');
+    </script>
+
+    <!-- Theme and Language Controls (Global Functions) -->
+    <script>
+        console.log('[Controls] Defining global theme and language functions...');
+        
+        // Global function to toggle theme
+        window.toggleThemeGlobal = function() {
+            console.log('[Theme] Toggle theme clicked');
+            const docHtml = document.documentElement;
+            const darkIcon = document.getElementById('dark-icon');
+            const lightIcon = document.getElementById('light-icon');
+            
+            // Toggle classes
+            docHtml.classList.toggle('dark');
+            docHtml.classList.toggle('light');
+            
+            // Toggle icons
+            if (darkIcon && lightIcon) {
+                darkIcon.classList.toggle('hidden');
+                lightIcon.classList.toggle('hidden');
+            }
+            
+            // Save to localStorage
+            const theme = docHtml.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            console.log('[Theme] Theme changed to:', theme);
+            
+            // Track analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'theme_change', {
+                    theme: theme,
+                    engagement_type: 'theme_toggle'
+                });
+            }
+        }
+        
+        // Global function to set language
+        window.setLanguageGlobal = function(lang) {
+            console.log('[Language] Setting language to:', lang);
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update button states
+            const langEsBtn = document.getElementById('lang-es');
+            const langEnBtn = document.getElementById('lang-en');
+            
+            if (langEsBtn && langEnBtn) {
+                langEsBtn.classList.remove('active');
+                langEnBtn.classList.remove('active');
+                
+                if (lang === 'es') {
+                    langEsBtn.classList.add('active');
+                } else {
+                    langEnBtn.classList.add('active');
+                }
+            }
+            
+            // Trigger module's setLanguage with retry mechanism
+            function trySetLanguage(attempts = 0) {
+                if (window.setLanguageFromModule) {
+                    console.log('[Language] ✅ Calling module translation function (attempt', attempts + 1, ')');
+                    window.setLanguageFromModule(lang);
+                } else if (attempts < 10) {
+                    console.warn('[Language] ⏳ Module not ready yet, retry', attempts + 1, 'of 10...');
+                    setTimeout(() => trySetLanguage(attempts + 1), 100);
+                } else {
+                    console.error('[Language] ❌ Module failed to load after 10 attempts');
+                }
+            }
+            
+            trySetLanguage();
+            
+            // Track analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'language_change', {
+                    language: lang,
+                    engagement_type: 'language_switch'
+                });
+            }
+            
+            console.log('[Language] Language changed to:', lang);
+        }
+        
+        // Initialize theme on load
+        if (localStorage.getItem('theme') === 'light') {
+            const docHtml = document.documentElement;
+            const darkIcon = document.getElementById('dark-icon');
+            const lightIcon = document.getElementById('light-icon');
+            
+            docHtml.classList.remove('dark');
+            docHtml.classList.add('light');
+            
+            if (darkIcon && lightIcon) {
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            }
+        }
+        
+        // Initialize language buttons on load
+        const savedLang = localStorage.getItem('language') || 'es';
+        const langEsBtn = document.getElementById('lang-es');
+        const langEnBtn = document.getElementById('lang-en');
+        
+        if (langEsBtn && langEnBtn) {
+            langEsBtn.classList.remove('active');
+            langEnBtn.classList.remove('active');
+            
+            if (savedLang === 'es') {
+                langEsBtn.classList.add('active');
+            } else {
+                langEnBtn.classList.add('active');
+            }
+        }
+        
+        console.log('[Controls] ✅ Theme and language controls ready');
+    </script>
+    
+    <script src="assets/js/consulting.js" type="module"></script>
     
     <!-- Newsletter System - DESACTIVADO temporalmente -->
     <!-- 

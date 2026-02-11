@@ -69,13 +69,30 @@ body {
     50% { opacity: 0; }
 }
 .feature-icon {
-    color: var(--primary-color);
     font-size: 2rem;
     width: 60px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.feature-icon i {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .feature-icon i {
+    transform: scale(1.1);
+}
+
+/* Service CTA text hover effect */
+.service-cta-text {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover .service-cta-text {
+    opacity: 0.8;
+    transform: translateX(5px);
 }
 .fade-in {
     animation: fadeIn 1s ease-in-out forwards;
@@ -91,9 +108,68 @@ body {
     object-fit: cover;
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(55, 65, 81, 0.6));
 }
+
+.workflow-image:not([src]),
+.workflow-image[src=""] {
+    display: none;
+}
+
 .example-card:hover .workflow-image {
     transform: scale(1.03);
+}
+
+/* Placeholder icons for examples without images */
+.example-placeholder {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    min-height: 200px;
+}
+
+.example-card:hover .example-placeholder {
+    transform: scale(1.03);
+}
+
+/* Image loading error handling */
+.workflow-image {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(55, 65, 81, 0.7));
+}
+
+.workflow-image[src*="assets/images/"] {
+    /* Ensure local images load properly */
+    display: block;
+}
+
+/* Add subtle loading indicator for images */
+.workflow-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(14, 165, 233, 0.3);
+    border-top-color: rgba(14, 165, 233, 0.8);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    opacity: 0;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Show loading spinner only while image is loading */
+.workflow-image[src]:not([complete]) {
+    position: relative;
+}
+
+.workflow-image[src]:not([complete])::before {
+    opacity: 1;
 }
 .modal-overlay {
     position: fixed;
@@ -103,7 +179,7 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -111,7 +187,9 @@ body {
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
 }
+
 .modal-overlay.active {
+    display: flex;
     opacity: 1;
     pointer-events: auto;
 }
@@ -1103,19 +1181,32 @@ header nav {
     50% { transform: scale(1.1); opacity: 0.8; }
 }
 
-/* Mentoring service color scheme (amber) */
+/* Unified hover effects for all service cards */
+.service-card[data-service="automation"]:hover {
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 10px 40px rgba(14, 165, 233, 0.15);
+}
+
+.service-card[data-service="ai"]:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 10px 40px rgba(168, 85, 247, 0.15);
+}
+
+.service-card[data-service="bi"]:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 40px rgba(6, 182, 212, 0.15);
+}
+
 .service-card[data-service="mentoring"]:hover {
     border-color: rgba(245, 158, 11, 0.3);
     box-shadow: 0 10px 40px rgba(245, 158, 11, 0.15);
 }
 
-/* Courses service color scheme (indigo) */
 .service-card[data-service="courses"]:hover {
     border-color: rgba(99, 102, 241, 0.3);
     box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
 }
 
-/* Recruiting service color scheme (teal) */
 .service-card[data-service="recruiting"]:hover {
     border-color: rgba(20, 184, 166, 0.3);
     box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
@@ -1135,7 +1226,44 @@ html.light #recruiting-service-modal .modal-content {
     border: 1px solid rgba(209, 213, 219, 0.8) !important;
 }
 
-/* Light mode color adjustments for amber (mentoring) */
+/* Light mode color adjustments for all service cards */
+
+/* Automation service (sky) */
+html.light .service-card[data-service="automation"] .feature-icon i {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+html.light .service-card[data-service="automation"] .service-cta-text {
+    color: #0369a1 !important; /* sky-700 */
+}
+
+/* AI service (purple) */
+html.light .service-card[data-service="ai"] .feature-icon i {
+    color: #7c3aed !important; /* purple-600 */
+}
+
+html.light .service-card[data-service="ai"] .service-cta-text {
+    color: #7c3aed !important; /* purple-600 */
+}
+
+/* BI service (cyan) */
+html.light .service-card[data-service="bi"] .feature-icon i {
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+html.light .service-card[data-service="bi"] .service-cta-text {
+    color: #0891b2 !important; /* cyan-600 */
+}
+
+/* Mentoring service (amber) */
+html.light .service-card[data-service="mentoring"] .feature-icon i {
+    color: #d97706 !important; /* amber-600 */
+}
+
+html.light .service-card[data-service="mentoring"] .service-cta-text {
+    color: #d97706 !important; /* amber-600 */
+}
+
 html.light #mentoring-service-modal .text-amber-400 {
     color: #d97706 !important; /* amber-600 for better contrast */
 }
@@ -1144,15 +1272,15 @@ html.light #mentoring-service-modal .text-orange-400 {
     color: #ea580c !important; /* orange-600 for better contrast */
 }
 
-html.light .service-card[data-service="mentoring"] .feature-icon i {
-    color: #d97706 !important; /* amber-600 */
+/* Courses service (indigo) */
+html.light .service-card[data-service="courses"] .feature-icon i {
+    color: #4f46e5 !important; /* indigo-600 */
 }
 
-html.light #talent-services .text-xs[style*="color: #f59e0b"] {
-    color: #d97706 !important; /* amber-600 for click text */
+html.light .service-card[data-service="courses"] .service-cta-text {
+    color: #4f46e5 !important; /* indigo-600 */
 }
 
-/* Light mode color adjustments for indigo (courses) */
 html.light #courses-service-modal .text-indigo-400 {
     color: #4f46e5 !important; /* indigo-600 for better contrast */
 }
@@ -1161,29 +1289,21 @@ html.light #courses-service-modal .text-purple-400 {
     color: #7c3aed !important; /* purple-600 for better contrast */
 }
 
-html.light .service-card[data-service="courses"] .feature-icon i {
-    color: #4f46e5 !important; /* indigo-600 */
+/* Recruiting service (teal) */
+html.light .service-card[data-service="recruiting"] .feature-icon i {
+    color: #0d9488 !important; /* teal-600 */
 }
 
-html.light #talent-services .text-xs[style*="color: #6366f1"] {
-    color: #4f46e5 !important; /* indigo-600 for click text */
+html.light .service-card[data-service="recruiting"] .service-cta-text {
+    color: #0d9488 !important; /* teal-600 */
 }
 
-/* Light mode color adjustments for teal (recruiting) */
 html.light #recruiting-service-modal .text-teal-400 {
     color: #0d9488 !important; /* teal-600 for better contrast */
 }
 
 html.light #recruiting-service-modal .text-cyan-400 {
     color: #0891b2 !important; /* cyan-600 for better contrast */
-}
-
-html.light .service-card[data-service="recruiting"] .feature-icon i {
-    color: #0d9488 !important; /* teal-600 */
-}
-
-html.light #talent-services .text-xs[style*="color: #14b8a6"] {
-    color: #0d9488 !important; /* teal-600 for click text */
 }
 
 /* Light mode badge improvements */
@@ -1241,4 +1361,88 @@ html.light .fa-check.text-teal-400 {
 
 html.light .fa-check-circle.text-teal-400 {
     color: #0d9488 !important; /* teal-600 */
+}
+
+/* ===============================================
+   SUCCESS STORIES & PRICING SECTIONS - LIGHT MODE
+   =============================================== */
+
+/* Success Stories section */
+html.light #success-stories .bg-gray-800\/50 {
+    background-color: rgba(243, 244, 246, 0.8) !important;
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+html.light #success-stories .text-sky-400 {
+    color: #0369a1 !important;
+}
+
+html.light #success-stories .text-purple-400 {
+    color: #7c3aed !important;
+}
+
+html.light #success-stories .text-cyan-400 {
+    color: #0891b2 !important;
+}
+
+html.light #success-stories .text-amber-400 {
+    color: #d97706 !important;
+}
+
+html.light #success-stories .text-indigo-400 {
+    color: #4f46e5 !important;
+}
+
+html.light #success-stories .text-teal-400 {
+    color: #0d9488 !important;
+}
+
+html.light #success-stories .text-green-400 {
+    color: #16a34a !important;
+}
+
+/* Pricing section */
+html.light #pricing .text-sky-400 {
+    color: #0369a1 !important;
+}
+
+html.light #pricing .text-amber-400 {
+    color: #d97706 !important;
+}
+
+html.light #pricing .text-teal-400 {
+    color: #0d9488 !important;
+}
+
+html.light #pricing .text-green-400 {
+    color: #16a34a !important;
+}
+
+html.light #pricing .border-gray-700\/50 {
+    border-color: rgba(209, 213, 219, 0.5) !important;
+}
+
+/* Value propositions section */
+html.light .bg-sky-500\/10 {
+    background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+html.light .bg-indigo-500\/10 {
+    background-color: rgba(99, 102, 241, 0.1) !important;
+}
+
+html.light .bg-amber-500\/10 {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+html.light .text-sky-400 {
+    color: #0369a1 !important;
+}
+
+html.light .text-indigo-400 {
+    color: #4f46e5 !important;
+}
+
+html.light .text-amber-400 {
+    color: #d97706 !important;
 }
