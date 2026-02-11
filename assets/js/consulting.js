@@ -696,7 +696,10 @@ function initializeServiceModals() {
     const serviceModals = {
         'automation': document.getElementById('automation-service-modal'),
         'ai': document.getElementById('ai-service-modal'),
-        'bi': document.getElementById('bi-service-modal')
+        'bi': document.getElementById('bi-service-modal'),
+        'mentoring': document.getElementById('mentoring-service-modal'),
+        'courses': document.getElementById('courses-service-modal'),
+        'recruiting': document.getElementById('recruiting-service-modal')
     };
 
     // Add click listeners to service cards
@@ -944,16 +947,34 @@ function initializeAnalyticsTracking() {
     serviceCards.forEach((card, index) => {
         card.addEventListener('click', () => {
             const service = card.getAttribute('data-service') || `service_${index}`;
+            
+            // Define service-specific values
+            const serviceValues = {
+                'automation': { value: 75, price: 100 },
+                'ai': { value: 100, price: 200 },
+                'bi': { value: 100, price: 200 },
+                'mentoring': { value: 80, price: 80 },
+                'courses': { value: 500, price: 500 },
+                'recruiting': { value: 1500, price: 1500 }
+            };
+            
+            const serviceData = serviceValues[service] || { value: 75, price: 75 };
+            const category = ['mentoring', 'courses', 'recruiting'].includes(service) 
+                ? 'talent_development' 
+                : 'consulting_service';
+            
             trackConversion('begin_checkout', {
                 service_type: service,
-                section: 'services',
-                value: 75,
+                section: service === 'mentoring' || service === 'courses' || service === 'recruiting' 
+                    ? 'talent_services' 
+                    : 'services',
+                value: serviceData.value,
                 items: [{
                     item_id: service,
                     item_name: service,
-                    item_category: 'consulting_service',
+                    item_category: category,
                     quantity: 1,
-                    price: 75
+                    price: serviceData.price
                 }]
             });
         });

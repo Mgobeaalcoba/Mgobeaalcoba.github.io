@@ -2980,5 +2980,457 @@ export const translations = {
     "newsletter_success_desc": {
         es: "Revisa tu email para confirmar la suscripción.",
         en: "Check your email to confirm subscription."
+    },
+
+    // ============== TALENT DEVELOPMENT SERVICES ==============
+    
+    // Section titles
+    "consulting_talent_section_title": {
+        es: "Impulse su Carrera y Equipo Tech",
+        en: "Boost Your Career and Tech Team"
+    },
+    "consulting_talent_section_subtitle": {
+        es: "Mentoría, capacitación y reclutamiento especializado para profesionales y empresas tech",
+        en: "Mentoring, training, and specialized recruitment for tech professionals and companies"
+    },
+
+    // ============== MENTORING SERVICE ==============
+    
+    // Card
+    "consulting_mentoring_title": {
+        es: "Mentorías Tech Personalizadas",
+        en: "1-on-1 Tech Mentoring"
+    },
+    "consulting_mentoring_desc": {
+        es: "Destranque su carrera tech con mentoría personalizada. Desde debugging de código hasta transición a roles senior. Sesiones prácticas enfocadas en sus desafíos reales.",
+        en: "Unlock your tech career with personalized mentoring. From code debugging to transitioning to senior roles. Practical sessions focused on your real challenges."
+    },
+
+    // Modal
+    "consulting_mentoring_modal_title": {
+        es: "Mentorías Tech Personalizadas",
+        en: "1-on-1 Tech Mentoring"
+    },
+    "consulting_mentoring_modal_subtitle": {
+        es: "De Developer a Leader: Su Mentor con Experiencia Real",
+        en: "From Developer to Leader: Your Mentor with Real Experience"
+    },
+    "consulting_mentoring_modal_intro": {
+        es: "6+ años en MercadoLibre, de ingeniero a Technical Leader. Docente en Henry y UADE. Conozco el camino porque lo recorrí.",
+        en: "6+ years at MercadoLibre, from engineer to Technical Leader. Instructor at Henry and UADE. I know the path because I walked it."
+    },
+    "consulting_mentoring_modal_what_we_solve": {
+        es: "Qué Resolvemos Juntos",
+        en: "What We Solve Together"
+    },
+    "consulting_mentoring_benefit_1": {
+        es: "Consultas Técnicas Puntuales: SQL complejo, arquitectura de pipelines, optimización de dashboards",
+        en: "Specific Technical Queries: Complex SQL, pipeline architecture, dashboard optimization"
+    },
+    "consulting_mentoring_benefit_2": {
+        es: "Crecimiento Profesional: Transición junior → senior, preparación entrevistas, negociación salarial",
+        en: "Professional Growth: Junior → senior transition, interview prep, salary negotiation"
+    },
+    "consulting_mentoring_benefit_3": {
+        es: "Proyectos de Portfolio: Guía para crear proyectos impactantes que llaman la atención",
+        en: "Portfolio Projects: Guidance to create impactful projects that get attention"
+    },
+    "consulting_mentoring_benefit_4": {
+        es: "Decisiones de Arquitectura: RAG, LLMs, ML pipelines, BI stack, cloud design",
+        en: "Architecture Decisions: RAG, LLMs, ML pipelines, BI stack, cloud design"
+    },
+    "consulting_mentoring_benefit_5": {
+        es: "Mindset de Liderazgo: De IC a Tech Lead, gestión de equipos, stakeholder management",
+        en: "Leadership Mindset: From IC to Tech Lead, team management, stakeholder management"
+    },
+    "consulting_mentoring_modal_format": {
+        es: "Formato y Precios",
+        en: "Format and Pricing"
+    },
+    "consulting_mentoring_format_single": {
+        es: "Sesión Única: USD 80 (60 minutos) - Ideal para consultas puntuales",
+        en: "Single Session: USD 80 (60 minutes) - Ideal for specific queries"
+    },
+    "consulting_mentoring_format_pack": {
+        es: "Pack 4 Sesiones: USD 280 (ahorro 12%) - Seguimiento continuo recomendado",
+        en: "4-Session Pack: USD 280 (12% savings) - Recommended for continuous tracking"
+    },
+    "consulting_mentoring_format_monthly": {
+        es: "Mentoría Mensual: USD 250/mes - 2 sesiones + consultas async ilimitadas por Slack/WhatsApp",
+        en: "Monthly Mentoring: USD 250/month - 2 sessions + unlimited async queries via Slack/WhatsApp"
+    },
+    "consulting_mentoring_modal_ideal_for": {
+        es: "Ideal Para",
+        en: "Ideal For"
+    },
+    "consulting_mentoring_ideal_1": {
+        es: "Data Analysts queriendo ser Data Engineers",
+        en: "Data Analysts wanting to become Data Engineers"
+    },
+    "consulting_mentoring_ideal_2": {
+        es: "Engineers junior apuntando a roles senior",
+        en: "Junior engineers aiming for senior roles"
+    },
+    "consulting_mentoring_ideal_3": {
+        es: "Profesionales de otras áreas transitando a tech",
+        en: "Professionals from other areas transitioning to tech"
+    },
+    "consulting_mentoring_ideal_4": {
+        es: "Freelancers armando portfolio para conseguir clientes",
+        en: "Freelancers building portfolio to get clients"
+    },
+    "consulting_mentoring_modal_success": {
+        es: "Caso de Éxito",
+        en: "Success Story"
+    },
+    "consulting_mentoring_success_story": {
+        es: "Juan, Data Analyst con 2 años de experiencia, pasó a Sr Data Engineer en 8 meses de mentoría. Resultado: aumento salarial del 45% + oferta remote internacional.",
+        en: "Juan, Data Analyst with 2 years experience, became Sr Data Engineer in 8 months of mentoring. Result: 45% salary increase + international remote offer."
+    },
+    "consulting_mentoring_modal_cta": {
+        es: "Agendar Primera Sesión",
+        en: "Schedule First Session"
+    },
+
+    // ============== COURSES SERVICE ==============
+    
+    // Card
+    "consulting_courses_title": {
+        es: "Cursos Intensivos para Equipos",
+        en: "Intensive Team Training"
+    },
+    "consulting_courses_desc": {
+        es: "UpSkilling en grupos ultra-reducidos (máx 4 personas). SQL, Analytics, Data Science, GenAI y Automatización. Atención personalizada + proyecto real incluido.",
+        en: "UpSkilling in ultra-small groups (max 4 people). SQL, Analytics, Data Science, GenAI and Automation. Personalized attention + real project included."
+    },
+
+    // Modal
+    "consulting_courses_modal_title": {
+        es: "Cursos Intensivos para Equipos",
+        en: "Intensive Team Training"
+    },
+    "consulting_courses_modal_subtitle": {
+        es: "Capacitación Tech Boutique: Grupos de Máximo 4 Personas",
+        en: "Boutique Tech Training: Groups of Maximum 4 People"
+    },
+    "consulting_courses_modal_intro": {
+        es: "No más cursos masivos donde sos un número. Aquí cada participante importa. Contenido práctico + proyectos reales + feedback individualizado.",
+        en: "No more massive courses where you're just a number. Here every participant matters. Practical content + real projects + individualized feedback."
+    },
+    "consulting_courses_modal_available": {
+        es: "Cursos Disponibles",
+        en: "Available Courses"
+    },
+    
+    // Course 1: SQL
+    "consulting_course_sql_title": {
+        es: "SQL para Analytics",
+        en: "SQL for Analytics"
+    },
+    "consulting_course_sql_duration": {
+        es: "5 semanas - 10 clases",
+        en: "5 weeks - 10 classes"
+    },
+    "consulting_course_sql_content": {
+        es: "De SELECT básico a Window Functions. Optimización de queries y performance. Proyecto: Dashboard con KPIs reales.",
+        en: "From basic SELECT to Window Functions. Query optimization and performance. Project: Dashboard with real KPIs."
+    },
+    "consulting_course_sql_price": {
+        es: "USD 450/persona",
+        en: "USD 450/person"
+    },
+
+    // Course 2: Python Analytics
+    "consulting_course_python_title": {
+        es: "Python para Data Analytics",
+        en: "Python for Data Analytics"
+    },
+    "consulting_course_python_duration": {
+        es: "6 semanas - 12 clases",
+        en: "6 weeks - 12 classes"
+    },
+    "consulting_course_python_content": {
+        es: "Pandas, NumPy, Matplotlib, Seaborn. Web scraping y APIs. Proyecto: EDA completo + reporte ejecutivo.",
+        en: "Pandas, NumPy, Matplotlib, Seaborn. Web scraping and APIs. Project: Complete EDA + executive report."
+    },
+    "consulting_course_python_price": {
+        es: "USD 550/persona",
+        en: "USD 550/person"
+    },
+
+    // Course 3: Data Science
+    "consulting_course_ds_title": {
+        es: "Data Science End-to-End",
+        en: "Data Science End-to-End"
+    },
+    "consulting_course_ds_duration": {
+        es: "6 semanas - 12 clases",
+        en: "6 weeks - 12 classes"
+    },
+    "consulting_course_ds_content": {
+        es: "ML supervisado/no supervisado. Feature engineering, validación, deployment. Proyecto: Modelo predictivo en producción.",
+        en: "Supervised/unsupervised ML. Feature engineering, validation, deployment. Project: Predictive model in production."
+    },
+    "consulting_course_ds_price": {
+        es: "USD 600/persona",
+        en: "USD 600/person"
+    },
+
+    // Course 4: GenAI
+    "consulting_course_genai_title": {
+        es: "GenAI & Automatización Práctica",
+        en: "GenAI & Practical Automation"
+    },
+    "consulting_course_genai_duration": {
+        es: "5 semanas - 10 clases",
+        en: "5 weeks - 10 classes"
+    },
+    "consulting_course_genai_content": {
+        es: "Prompting avanzado, RAG, LangChain. n8n para workflows inteligentes. Proyecto: Chatbot con IA + automatización real.",
+        en: "Advanced prompting, RAG, LangChain. n8n for intelligent workflows. Project: AI chatbot + real automation."
+    },
+    "consulting_course_genai_price": {
+        es: "USD 500/persona",
+        en: "USD 500/person"
+    },
+
+    // Course 5: Power BI
+    "consulting_course_powerbi_title": {
+        es: "Power BI Avanzado",
+        en: "Advanced Power BI"
+    },
+    "consulting_course_powerbi_duration": {
+        es: "4 semanas - 8 clases",
+        en: "4 weeks - 8 classes"
+    },
+    "consulting_course_powerbi_content": {
+        es: "Modelado de datos, DAX, visualización. Storytelling con datos. Proyecto: Dashboard ejecutivo completo.",
+        en: "Data modeling, DAX, visualization. Data storytelling. Project: Complete executive dashboard."
+    },
+    "consulting_course_powerbi_price": {
+        es: "USD 400/persona",
+        en: "USD 400/person"
+    },
+
+    // Format
+    "consulting_courses_modal_format": {
+        es: "Formato del Curso",
+        en: "Course Format"
+    },
+    "consulting_courses_format_schedule": {
+        es: "2 clases por semana (2 horas cada una)",
+        en: "2 classes per week (2 hours each)"
+    },
+    "consulting_courses_format_modality": {
+        es: "Modalidad: Online sincrónico vía Google Meet",
+        en: "Modality: Online synchronous via Google Meet"
+    },
+    "consulting_courses_format_includes": {
+        es: "Incluye: Grabaciones + materiales + ejercicios + proyecto final",
+        en: "Includes: Recordings + materials + exercises + final project"
+    },
+    "consulting_courses_format_support": {
+        es: "Soporte async por Slack durante todo el curso",
+        en: "Async support via Slack throughout the course"
+    },
+    "consulting_courses_format_certificate": {
+        es: "Certificado con proyecto final aprobado",
+        en: "Certificate with approved final project"
+    },
+
+    // Investment
+    "consulting_courses_modal_investment": {
+        es: "Inversión",
+        en: "Investment"
+    },
+    "consulting_courses_investment_individual": {
+        es: "Individual: USD 400-600 según duración del curso",
+        en: "Individual: USD 400-600 depending on course duration"
+    },
+    "consulting_courses_investment_business": {
+        es: "Empresas (2-4 personas): 15% de descuento",
+        en: "Companies (2-4 people): 15% discount"
+    },
+    "consulting_courses_investment_earlybird": {
+        es: "Early Bird: 10% de descuento inscribiéndose 2 semanas antes",
+        en: "Early Bird: 10% discount enrolling 2 weeks before"
+    },
+
+    // Ideal for
+    "consulting_courses_modal_ideal_for": {
+        es: "Ideal Para",
+        en: "Ideal For"
+    },
+    "consulting_courses_ideal_1": {
+        es: "Equipos pequeños buscando upskilling coordinado",
+        en: "Small teams seeking coordinated upskilling"
+    },
+    "consulting_courses_ideal_2": {
+        es: "Profesionales que prefieren aprendizaje colaborativo",
+        en: "Professionals who prefer collaborative learning"
+    },
+    "consulting_courses_ideal_3": {
+        es: "Empresas invirtiendo en capacitación de su talento",
+        en: "Companies investing in talent training"
+    },
+    "consulting_courses_ideal_4": {
+        es: "Grupos de estudio queriendo instructor experto",
+        en: "Study groups wanting expert instructor"
+    },
+
+    // Next dates
+    "consulting_courses_modal_next_dates": {
+        es: "Próximas Fechas",
+        en: "Upcoming Dates"
+    },
+    "consulting_courses_dates_march": {
+        es: "Cursada Marzo 2026: SQL + GenAI",
+        en: "March 2026 Session: SQL + GenAI"
+    },
+    "consulting_courses_dates_april": {
+        es: "Cursada Abril 2026: Python Analytics + Power BI",
+        en: "April 2026 Session: Python Analytics + Power BI"
+    },
+    "consulting_courses_dates_may": {
+        es: "Cursada Mayo 2026: Data Science",
+        en: "May 2026 Session: Data Science"
+    },
+    "consulting_courses_modal_cta": {
+        es: "Reservar mi Lugar",
+        en: "Reserve My Spot"
+    },
+
+    // ============== RECRUITING SERVICE ==============
+    
+    // Card
+    "consulting_recruiting_title": {
+        es: "Reclutamiento Tech Especializado",
+        en: "Specialized Tech Recruitment"
+    },
+    "consulting_recruiting_desc": {
+        es: "Encontramos y evaluamos talento en Data, GenAI y Automation. Evaluación técnica real por un Technical Leader con 6+ años en MercadoLibre.",
+        en: "We find and evaluate talent in Data, GenAI and Automation. Real technical evaluation by a Technical Leader with 6+ years at MercadoLibre."
+    },
+
+    // Modal
+    "consulting_recruiting_modal_title": {
+        es: "Reclutamiento Tech Especializado",
+        en: "Specialized Tech Recruitment"
+    },
+    "consulting_recruiting_modal_subtitle": {
+        es: "Reclutamiento con Evaluación Técnica Real",
+        en: "Recruitment with Real Technical Evaluation"
+    },
+    "consulting_recruiting_modal_intro": {
+        es: "No contrate a ciegas. Evaluamos candidatos con el mismo rigor que usamos en MercadoLibre. Usted recibe un reporte técnico detallado de cada finalista.",
+        en: "Don't hire blindly. We evaluate candidates with the same rigor we use at MercadoLibre. You receive a detailed technical report for each finalist."
+    },
+    "consulting_recruiting_modal_process": {
+        es: "Nuestro Proceso",
+        en: "Our Process"
+    },
+    "consulting_recruiting_step1_title": {
+        es: "Semana 1: Discovery",
+        en: "Week 1: Discovery"
+    },
+    "consulting_recruiting_step1_desc": {
+        es: "Workshop con stakeholders. Definición precisa del perfil. Identificación de red flags técnicos y culturales.",
+        en: "Workshop with stakeholders. Precise profile definition. Identification of technical and cultural red flags."
+    },
+    "consulting_recruiting_step2_title": {
+        es: "Semana 2: Sourcing & Pre-screening",
+        en: "Week 2: Sourcing & Pre-screening"
+    },
+    "consulting_recruiting_step2_desc": {
+        es: "Búsqueda activa en LinkedIn + comunidades tech. Pre-screening de CVs (descartamos 80% rápido). Primera llamada telefónica con candidatos prometedores.",
+        en: "Active search on LinkedIn + tech communities. CV pre-screening (discard 80% fast). First phone call with promising candidates."
+    },
+    "consulting_recruiting_step3_title": {
+        es: "Semana 3: Evaluación Técnica",
+        en: "Week 3: Technical Evaluation"
+    },
+    "consulting_recruiting_step3_desc": {
+        es: "Challenge técnico realista. Entrevista técnica profunda (60min) por mí directamente. Code review con feedback detallado. Verificación de referencias.",
+        en: "Realistic technical challenge. Deep technical interview (60min) by me directly. Code review with detailed feedback. Reference verification."
+    },
+    "consulting_recruiting_step4_title": {
+        es: "Semana 4: Cierre",
+        en: "Week 4: Closing"
+    },
+    "consulting_recruiting_step4_desc": {
+        es: "Presentación de 2-3 finalistas con scoring comparativo. Acompañamiento en entrevistas finales. Negociación salarial y offer letter.",
+        en: "Presentation of 2-3 finalists with comparative scoring. Support in final interviews. Salary negotiation and offer letter."
+    },
+    "consulting_recruiting_modal_profiles": {
+        es: "Perfiles que Reclutamos",
+        en: "Profiles We Recruit"
+    },
+    "consulting_recruiting_profile_1": {
+        es: "Data Analyst / Data Engineer (Junior → Senior)",
+        en: "Data Analyst / Data Engineer (Junior → Senior)"
+    },
+    "consulting_recruiting_profile_2": {
+        es: "BI Developer / BI Analyst",
+        en: "BI Developer / BI Analyst"
+    },
+    "consulting_recruiting_profile_3": {
+        es: "ML Engineer / Data Scientist",
+        en: "ML Engineer / Data Scientist"
+    },
+    "consulting_recruiting_profile_4": {
+        es: "Automation Engineer",
+        en: "Automation Engineer"
+    },
+    "consulting_recruiting_profile_5": {
+        es: "GenAI Engineer",
+        en: "GenAI Engineer"
+    },
+    "consulting_recruiting_modal_investment": {
+        es: "Inversión",
+        en: "Investment"
+    },
+    "consulting_recruiting_investment_success": {
+        es: "Success-Based (recomendado): USD 1,500 solo si contrata al candidato. Sin costo upfront. Garantía: 3 meses de reemplazo sin cargo si no funciona.",
+        en: "Success-Based (recommended): USD 1,500 only if you hire the candidate. No upfront cost. Guarantee: 3 months replacement at no charge if it doesn't work."
+    },
+    "consulting_recruiting_investment_retainer": {
+        es: "Retainer Mensual: USD 800/mes con búsquedas ilimitadas. Ideal para empresas con hiring recurrente. Incluye 2 búsquedas activas simultáneas.",
+        en: "Monthly Retainer: USD 800/month with unlimited searches. Ideal for companies with recurring hiring. Includes 2 simultaneous active searches."
+    },
+    "consulting_recruiting_modal_why_us": {
+        es: "Por Qué Somos Diferentes",
+        en: "Why We're Different"
+    },
+    "consulting_recruiting_why_1": {
+        es: "Evaluación Real: Yo evalúo técnicamente (Technical Leader MercadoLibre)",
+        en: "Real Evaluation: I evaluate technically (Technical Leader MercadoLibre)"
+    },
+    "consulting_recruiting_why_2": {
+        es: "Network de Calidad: Acceso a comunidades tech de Argentina",
+        en: "Quality Network: Access to tech communities in Argentina"
+    },
+    "consulting_recruiting_why_3": {
+        es: "Proceso Ágil: 2-3 semanas promedio (vs 6-8 semanas tradicionales)",
+        en: "Agile Process: 2-3 weeks average (vs 6-8 weeks traditional)"
+    },
+    "consulting_recruiting_why_4": {
+        es: "Transparencia: Feedback continuo + reporte técnico detallado",
+        en: "Transparency: Continuous feedback + detailed technical report"
+    },
+    "consulting_recruiting_why_5": {
+        es: "Garantía: 3 meses de reemplazo sin costo adicional",
+        en: "Guarantee: 3 months replacement at no additional cost"
+    },
+    "consulting_recruiting_modal_success": {
+        es: "Caso de Éxito",
+        en: "Success Story"
+    },
+    "consulting_recruiting_success_story": {
+        es: "Startup fintech necesitaba Sr Data Engineer. 15 candidatos evaluados, 3 finalistas presentados en 3 semanas. Contrataron al candidato que sigue en la empresa 18 meses después con performance excepcional.",
+        en: "Fintech startup needed Sr Data Engineer. 15 candidates evaluated, 3 finalists presented in 3 weeks. Hired the candidate who remains in the company 18 months later with exceptional performance."
+    },
+    "consulting_recruiting_modal_cta": {
+        es: "Solicitar Discovery Call",
+        en: "Request Discovery Call"
     }
 }; 

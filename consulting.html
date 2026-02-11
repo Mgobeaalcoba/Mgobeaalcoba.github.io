@@ -421,6 +421,48 @@
             </div>
         </section>
 
+        <!-- TALENT DEVELOPMENT SERVICES SECTION -->
+        <section id="talent-services" class="mb-24 p-8 rounded-3xl" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2);">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-4">
+                    ✨ NUEVO: DESARROLLO DE TALENTO TECH
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold" data-translate="consulting_talent_section_title">Impulse su Carrera y Equipo Tech</h2>
+                <p class="mt-2 text-lg text-secondary" data-translate="consulting_talent_section_subtitle">Mentoría, capacitación y reclutamiento especializado para profesionales y empresas tech</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 4: Mentoring -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="mentoring">
+                    <div class="feature-icon bg-amber-500/10 rounded-xl mb-4"><i class="fas fa-user-graduate" style="color: #f59e0b;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_mentoring_title">Mentorías Tech Personalizadas</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_mentoring_desc">Destranque su carrera tech con mentoría personalizada. Desde debugging de código hasta transición a roles senior. Sesiones prácticas enfocadas en sus desafíos reales.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium cursor-pointer" style="color: #f59e0b;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5: Courses -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 400ms;" data-service="courses">
+                    <div class="feature-icon bg-indigo-500/10 rounded-xl mb-4"><i class="fas fa-users" style="color: #6366f1;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_courses_title">Cursos Intensivos para Equipos</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_courses_desc">UpSkilling en grupos ultra-reducidos (máx 4 personas). SQL, Analytics, Data Science, GenAI y Automatización. Atención personalizada + proyecto real incluido.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium cursor-pointer" style="color: #6366f1;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6: Recruiting -->
+                <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 600ms;" data-service="recruiting">
+                    <div class="feature-icon bg-teal-500/10 rounded-xl mb-4"><i class="fas fa-user-check" style="color: #14b8a6;"></i></div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_recruiting_title">Reclutamiento Tech Especializado</h3>
+                    <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_recruiting_desc">Encontramos y evaluamos talento en Data, GenAI y Automation. Evaluación técnica real por un Technical Leader con 6+ años en MercadoLibre.</p>
+                    <div class="mt-4 text-center">
+                        <span class="text-xs font-medium cursor-pointer" style="color: #14b8a6;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SECONDARY NAVIGATION -->
         <div class="sticky top-16 z-40 py-4 mb-8 glass-effect border-b border-gray-600/30">
             <div class="container mx-auto max-w-6xl px-4">
@@ -1352,6 +1394,410 @@
                 <button onclick="openProposalFromService('bi-service-modal')" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-lg transition">
                     <i class="fas fa-gift mr-2"></i><span data-translate="consulting_bi_modal_cta">Solicitar Automatización Gratis</span>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============== TALENT DEVELOPMENT MODALS ============== -->
+
+    <!-- MODAL DE MENTORÍAS -->
+    <div id="mentoring-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-4xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-amber-500/10 rounded-xl mr-4"><i class="fas fa-user-graduate text-3xl" style="color: #f59e0b;"></i></div>
+                <div>
+                    <h4 class="text-3xl font-bold" data-translate="consulting_mentoring_modal_title">Mentorías Tech Personalizadas</h4>
+                    <p class="text-lg text-secondary mt-1" data-translate="consulting_mentoring_modal_subtitle">De Developer a Leader: Su Mentor con Experiencia Real</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <p class="text-secondary leading-relaxed" data-translate="consulting_mentoring_modal_intro">
+                    6+ años en MercadoLibre, de ingeniero a Technical Leader. Docente en Henry y UADE. Conozco el camino porque lo recorrí.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <h5 class="font-semibold mb-4 text-amber-400 text-lg" data-translate="consulting_mentoring_modal_what_we_solve">Qué Resolvemos Juntos</h5>
+                    <ul class="text-secondary space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-code text-amber-400 mr-2 mt-1 flex-shrink-0"></i>
+                            <span data-translate="consulting_mentoring_benefit_1">Consultas Técnicas Puntuales: SQL complejo, arquitectura de pipelines, optimización de dashboards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-amber-400 mr-2 mt-1 flex-shrink-0"></i>
+                            <span data-translate="consulting_mentoring_benefit_2">Crecimiento Profesional: Transición junior → senior, preparación entrevistas, negociación salarial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-project-diagram text-amber-400 mr-2 mt-1 flex-shrink-0"></i>
+                            <span data-translate="consulting_mentoring_benefit_3">Proyectos de Portfolio: Guía para crear proyectos impactantes que llaman la atención</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-brain text-amber-400 mr-2 mt-1 flex-shrink-0"></i>
+                            <span data-translate="consulting_mentoring_benefit_4">Decisiones de Arquitectura: RAG, LLMs, ML pipelines, BI stack, cloud design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-users-cog text-amber-400 mr-2 mt-1 flex-shrink-0"></i>
+                            <span data-translate="consulting_mentoring_benefit_5">Mindset de Liderazgo: De IC a Tech Lead, gestión de equipos, stakeholder management</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4 text-orange-400 text-lg" data-translate="consulting_mentoring_modal_format">Formato y Precios</h5>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800/50 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-white">Sesión Única</span>
+                                <span class="text-2xl font-bold text-amber-400">$80</span>
+                            </div>
+                            <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_single">60 minutos - Ideal para consultas puntuales</p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-lg p-4 border border-amber-400/30">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-white">Pack 4 Sesiones</span>
+                                <span class="text-2xl font-bold text-amber-400">$280</span>
+                            </div>
+                            <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_pack">Ahorro 12% - Seguimiento continuo recomendado</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg p-4 border border-amber-400/50">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-white">Mentoría Mensual</span>
+                                <span class="text-2xl font-bold text-amber-400">$250</span>
+                            </div>
+                            <p class="text-xs text-secondary" data-translate="consulting_mentoring_format_monthly">2 sesiones + consultas async ilimitadas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h5 class="font-semibold mb-3 text-amber-400" data-translate="consulting_mentoring_modal_ideal_for">Ideal Para</h5>
+                    <ul class="text-secondary space-y-2 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-amber-400 mr-2"></i><span data-translate="consulting_mentoring_ideal_1">Data Analysts queriendo ser Data Engineers</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-amber-400 mr-2"></i><span data-translate="consulting_mentoring_ideal_2">Engineers junior apuntando a roles senior</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-amber-400 mr-2"></i><span data-translate="consulting_mentoring_ideal_3">Profesionales de otras áreas transitando a tech</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-amber-400 mr-2"></i><span data-translate="consulting_mentoring_ideal_4">Freelancers armando portfolio</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-3 text-green-400" data-translate="consulting_mentoring_modal_success">Caso de Éxito</h5>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_mentoring_success_story">
+                            Juan, Data Analyst con 2 años de experiencia, pasó a Sr Data Engineer en 8 meses de mentoría. Resultado: aumento salarial del 45% + oferta remote internacional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-400/30 rounded-xl p-6 text-center">
+                <p class="text-secondary text-sm mb-4">
+                    <strong class="text-amber-400">Primera sesión sin riesgo:</strong> Si no le aporta valor, le devolvemos su dinero.
+                </p>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 py-3 rounded-lg transition">
+                    <i class="fas fa-calendar-check mr-2"></i><span data-translate="consulting_mentoring_modal_cta">Agendar Primera Sesión</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CURSOS -->
+    <div id="courses-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-5xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-indigo-500/10 rounded-xl mr-4"><i class="fas fa-users text-3xl" style="color: #6366f1;"></i></div>
+                <div>
+                    <h4 class="text-3xl font-bold" data-translate="consulting_courses_modal_title">Cursos Intensivos para Equipos</h4>
+                    <p class="text-lg text-secondary mt-1" data-translate="consulting_courses_modal_subtitle">Capacitación Tech Boutique: Grupos de Máximo 4 Personas</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <p class="text-secondary leading-relaxed" data-translate="consulting_courses_modal_intro">
+                    No más cursos masivos donde sos un número. Aquí cada participante importa. Contenido práctico + proyectos reales + feedback individualizado.
+                </p>
+            </div>
+
+            <div class="mb-8">
+                <h5 class="font-semibold mb-4 text-indigo-400 text-xl" data-translate="consulting_courses_modal_available">Cursos Disponibles</h5>
+                
+                <div class="space-y-4">
+                    <!-- Course 1: SQL -->
+                    <div class="bg-gray-800/50 rounded-lg p-5 border border-indigo-400/20 hover:border-indigo-400/50 transition">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-database text-2xl text-indigo-400 mr-3"></i>
+                                <div>
+                                    <h6 class="font-bold text-lg" data-translate="consulting_course_sql_title">SQL para Analytics</h6>
+                                    <p class="text-xs text-secondary" data-translate="consulting_course_sql_duration">5 semanas - 10 clases</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_sql_price">$450</span>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_course_sql_content">De SELECT básico a Window Functions. Optimización de queries y performance. Proyecto: Dashboard con KPIs reales.</p>
+                    </div>
+
+                    <!-- Course 2: Python Analytics -->
+                    <div class="bg-gray-800/50 rounded-lg p-5 border border-indigo-400/20 hover:border-indigo-400/50 transition">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fab fa-python text-2xl text-indigo-400 mr-3"></i>
+                                <div>
+                                    <h6 class="font-bold text-lg" data-translate="consulting_course_python_title">Python para Data Analytics</h6>
+                                    <p class="text-xs text-secondary" data-translate="consulting_course_python_duration">6 semanas - 12 clases</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_python_price">$550</span>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_course_python_content">Pandas, NumPy, Matplotlib, Seaborn. Web scraping y APIs. Proyecto: EDA completo + reporte ejecutivo.</p>
+                    </div>
+
+                    <!-- Course 3: Data Science -->
+                    <div class="bg-gray-800/50 rounded-lg p-5 border border-purple-400/20 hover:border-purple-400/50 transition">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-2xl text-purple-400 mr-3"></i>
+                                <div>
+                                    <h6 class="font-bold text-lg" data-translate="consulting_course_ds_title">Data Science End-to-End</h6>
+                                    <p class="text-xs text-secondary" data-translate="consulting_course_ds_duration">6 semanas - 12 clases</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-bold text-purple-400" data-translate="consulting_course_ds_price">$600</span>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_course_ds_content">ML supervisado/no supervisado. Feature engineering, validación, deployment. Proyecto: Modelo predictivo en producción.</p>
+                    </div>
+
+                    <!-- Course 4: GenAI -->
+                    <div class="bg-gray-800/50 rounded-lg p-5 border border-cyan-400/20 hover:border-cyan-400/50 transition">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-robot text-2xl text-cyan-400 mr-3"></i>
+                                <div>
+                                    <h6 class="font-bold text-lg" data-translate="consulting_course_genai_title">GenAI & Automatización Práctica</h6>
+                                    <p class="text-xs text-secondary" data-translate="consulting_course_genai_duration">5 semanas - 10 clases</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-bold text-cyan-400" data-translate="consulting_course_genai_price">$500</span>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_course_genai_content">Prompting avanzado, RAG, LangChain. n8n para workflows inteligentes. Proyecto: Chatbot con IA + automatización real.</p>
+                    </div>
+
+                    <!-- Course 5: Power BI -->
+                    <div class="bg-gray-800/50 rounded-lg p-5 border border-indigo-400/20 hover:border-indigo-400/50 transition">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-bar text-2xl text-indigo-400 mr-3"></i>
+                                <div>
+                                    <h6 class="font-bold text-lg" data-translate="consulting_course_powerbi_title">Power BI Avanzado</h6>
+                                    <p class="text-xs text-secondary" data-translate="consulting_course_powerbi_duration">4 semanas - 8 clases</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-bold text-indigo-400" data-translate="consulting_course_powerbi_price">$400</span>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_course_powerbi_content">Modelado de datos, DAX, visualización. Storytelling con datos. Proyecto: Dashboard ejecutivo completo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h5 class="font-semibold mb-3 text-indigo-400 text-lg" data-translate="consulting_courses_modal_format">Formato del Curso</h5>
+                    <ul class="text-secondary space-y-2 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1"></i><span data-translate="consulting_courses_format_schedule">2 clases por semana (2 horas cada una)</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1"></i><span data-translate="consulting_courses_format_modality">Modalidad: Online sincrónico vía Google Meet</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1"></i><span data-translate="consulting_courses_format_includes">Incluye: Grabaciones + materiales + ejercicios + proyecto final</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1"></i><span data-translate="consulting_courses_format_support">Soporte async por Slack durante todo el curso</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1"></i><span data-translate="consulting_courses_format_certificate">Certificado con proyecto final aprobado</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-3 text-purple-400 text-lg" data-translate="consulting_courses_modal_investment">Inversión</h5>
+                    <ul class="text-secondary space-y-2 text-sm">
+                        <li class="flex items-start"><i class="fas fa-dollar-sign text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_individual">Individual: USD 400-600 según duración</span></li>
+                        <li class="flex items-start"><i class="fas fa-building text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_business">Empresas (2-4 personas): 15% descuento</span></li>
+                        <li class="flex items-start"><i class="fas fa-tag text-purple-400 mr-2 mt-1"></i><span data-translate="consulting_courses_investment_earlybird">Early Bird: 10% descuento (2 semanas antes)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h5 class="font-semibold mb-3 text-indigo-400" data-translate="consulting_courses_modal_ideal_for">Ideal Para</h5>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="bg-gray-800/50 rounded-lg p-3 text-sm text-secondary flex items-center">
+                        <i class="fas fa-users text-indigo-400 mr-2"></i>
+                        <span data-translate="consulting_courses_ideal_1">Equipos pequeños buscando upskilling coordinado</span>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-3 text-sm text-secondary flex items-center">
+                        <i class="fas fa-handshake text-indigo-400 mr-2"></i>
+                        <span data-translate="consulting_courses_ideal_2">Profesionales que prefieren aprendizaje colaborativo</span>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-3 text-sm text-secondary flex items-center">
+                        <i class="fas fa-building text-indigo-400 mr-2"></i>
+                        <span data-translate="consulting_courses_ideal_3">Empresas invirtiendo en capacitación</span>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-3 text-sm text-secondary flex items-center">
+                        <i class="fas fa-book-reader text-indigo-400 mr-2"></i>
+                        <span data-translate="consulting_courses_ideal_4">Grupos de estudio con instructor experto</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-400/30 rounded-xl p-4 mb-6">
+                <h5 class="font-semibold mb-2 text-indigo-400" data-translate="consulting_courses_modal_next_dates">Próximas Fechas</h5>
+                <div class="grid md:grid-cols-3 gap-3 text-sm text-secondary">
+                    <div class="flex items-center"><i class="fas fa-calendar text-indigo-400 mr-2"></i><span data-translate="consulting_courses_dates_march">Marzo 2026: SQL + GenAI</span></div>
+                    <div class="flex items-center"><i class="fas fa-calendar text-purple-400 mr-2"></i><span data-translate="consulting_courses_dates_april">Abril 2026: Python + Power BI</span></div>
+                    <div class="flex items-center"><i class="fas fa-calendar text-cyan-400 mr-2"></i><span data-translate="consulting_courses_dates_may">Mayo 2026: Data Science</span></div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold px-8 py-3 rounded-lg transition">
+                    <i class="fas fa-graduation-cap mr-2"></i><span data-translate="consulting_courses_modal_cta">Reservar mi Lugar</span>
+                </button>
+                <p class="text-xs text-secondary mt-3">
+                    <i class="fas fa-info-circle mr-1"></i> Cupos limitados a 4 personas por cursada
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE RECRUITING -->
+    <div id="recruiting-service-modal" class="modal-overlay modal">
+        <div class="modal-content glass-effect max-w-5xl">
+            <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="flex items-center mb-6">
+                <div class="feature-icon bg-teal-500/10 rounded-xl mr-4"><i class="fas fa-user-check text-3xl" style="color: #14b8a6;"></i></div>
+                <div>
+                    <h4 class="text-3xl font-bold" data-translate="consulting_recruiting_modal_title">Reclutamiento Tech Especializado</h4>
+                    <p class="text-lg text-secondary mt-1" data-translate="consulting_recruiting_modal_subtitle">Reclutamiento con Evaluación Técnica Real</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <p class="text-secondary leading-relaxed" data-translate="consulting_recruiting_modal_intro">
+                    No contrate a ciegas. Evaluamos candidatos con el mismo rigor que usamos en MercadoLibre. Usted recibe un reporte técnico detallado de cada finalista.
+                </p>
+            </div>
+
+            <div class="mb-8">
+                <h5 class="font-semibold mb-4 text-teal-400 text-xl" data-translate="consulting_recruiting_modal_process">Nuestro Proceso (2-3 semanas)</h5>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- Step 1 -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-teal-400">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 font-bold mr-3">1</div>
+                            <h6 class="font-bold" data-translate="consulting_recruiting_step1_title">Discovery</h6>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_recruiting_step1_desc">Workshop con stakeholders. Definición precisa del perfil. Identificación de red flags.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-cyan-400">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mr-3">2</div>
+                            <h6 class="font-bold" data-translate="consulting_recruiting_step2_title">Sourcing & Pre-screening</h6>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_recruiting_step2_desc">Búsqueda activa en LinkedIn + comunidades tech. Pre-screening de CVs (descartamos 80% rápido).</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-emerald-400">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold mr-3">3</div>
+                            <h6 class="font-bold" data-translate="consulting_recruiting_step3_title">Evaluación Técnica</h6>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_recruiting_step3_desc">Challenge técnico realista. Entrevista técnica profunda por mí directamente. Code review con feedback detallado.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-purple-400">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold mr-3">4</div>
+                            <h6 class="font-bold" data-translate="consulting_recruiting_step4_title">Cierre</h6>
+                        </div>
+                        <p class="text-sm text-secondary" data-translate="consulting_recruiting_step4_desc">Presentación de 2-3 finalistas con scoring. Acompañamiento en negociación y offer letter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h5 class="font-semibold mb-3 text-teal-400 text-lg" data-translate="consulting_recruiting_modal_profiles">Perfiles que Reclutamos</h5>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <div class="bg-gray-800/30 rounded px-3 py-2 text-sm text-secondary flex items-center">
+                        <i class="fas fa-database text-teal-400 mr-2 text-xs"></i>
+                        <span data-translate="consulting_recruiting_profile_1">Data Analyst / Engineer</span>
+                    </div>
+                    <div class="bg-gray-800/30 rounded px-3 py-2 text-sm text-secondary flex items-center">
+                        <i class="fas fa-chart-bar text-cyan-400 mr-2 text-xs"></i>
+                        <span data-translate="consulting_recruiting_profile_2">BI Developer / Analyst</span>
+                    </div>
+                    <div class="bg-gray-800/30 rounded px-3 py-2 text-sm text-secondary flex items-center">
+                        <i class="fas fa-brain text-purple-400 mr-2 text-xs"></i>
+                        <span data-translate="consulting_recruiting_profile_3">ML Engineer / Data Scientist</span>
+                    </div>
+                    <div class="bg-gray-800/30 rounded px-3 py-2 text-sm text-secondary flex items-center">
+                        <i class="fas fa-cogs text-indigo-400 mr-2 text-xs"></i>
+                        <span data-translate="consulting_recruiting_profile_4">Automation Engineer</span>
+                    </div>
+                    <div class="bg-gray-800/30 rounded px-3 py-2 text-sm text-secondary flex items-center">
+                        <i class="fas fa-robot text-cyan-400 mr-2 text-xs"></i>
+                        <span data-translate="consulting_recruiting_profile_5">GenAI Engineer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h5 class="font-semibold mb-3 text-teal-400" data-translate="consulting_recruiting_modal_investment">Inversión</h5>
+                    <div class="space-y-3">
+                        <div class="bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-lg p-4 border border-teal-400/30">
+                            <p class="font-semibold text-white mb-1">Success-Based ⭐</p>
+                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_success">USD 1,500 solo si contrata. Sin costo upfront. Garantía: 3 meses de reemplazo.</p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-lg p-4">
+                            <p class="font-semibold text-white mb-1">Retainer Mensual</p>
+                            <p class="text-sm text-secondary" data-translate="consulting_recruiting_investment_retainer">USD 800/mes búsquedas ilimitadas. 2 búsquedas simultáneas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-3 text-cyan-400" data-translate="consulting_recruiting_modal_why_us">Por Qué Somos Diferentes</h5>
+                    <ul class="text-secondary space-y-2 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-teal-400 mr-2 mt-1"></i><span data-translate="consulting_recruiting_why_1">Evaluación Real por Technical Leader MercadoLibre</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-teal-400 mr-2 mt-1"></i><span data-translate="consulting_recruiting_why_2">Network de comunidades tech Argentina</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-teal-400 mr-2 mt-1"></i><span data-translate="consulting_recruiting_why_3">Proceso Ágil: 2-3 semanas</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-teal-400 mr-2 mt-1"></i><span data-translate="consulting_recruiting_why_4">Transparencia total + reportes técnicos</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-teal-400 mr-2 mt-1"></i><span data-translate="consulting_recruiting_why_5">Garantía 3 meses sin costo adicional</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-800/50 rounded-lg p-4 mb-6">
+                <h5 class="font-semibold mb-2 text-green-400" data-translate="consulting_recruiting_modal_success">Caso de Éxito</h5>
+                <p class="text-sm text-secondary" data-translate="consulting_recruiting_success_story">
+                    Startup fintech necesitaba Sr Data Engineer. 15 candidatos evaluados, 3 finalistas presentados en 3 semanas. Contrataron al candidato que sigue en la empresa 18 meses después con performance excepcional.
+                </p>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-bold px-8 py-3 rounded-lg transition">
+                    <i class="fas fa-handshake mr-2"></i><span data-translate="consulting_recruiting_modal_cta">Solicitar Discovery Call</span>
+                </button>
+                <p class="text-xs text-secondary mt-3">
+                    <i class="fas fa-clock mr-1"></i> Discovery call de 60 minutos • 100% gratis • Sin compromiso
+                </p>
             </div>
         </div>
     </div>

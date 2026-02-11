@@ -1076,3 +1076,169 @@ header nav {
         font-size: 1rem;
     }
 }
+
+/* ===============================================
+   TALENT DEVELOPMENT SERVICES STYLES
+   =============================================== */
+
+/* Talent services section distinctive styling */
+#talent-services {
+    position: relative;
+    overflow: hidden;
+}
+
+#talent-services::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Mentoring service color scheme (amber) */
+.service-card[data-service="mentoring"]:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 10px 40px rgba(245, 158, 11, 0.15);
+}
+
+/* Courses service color scheme (indigo) */
+.service-card[data-service="courses"]:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
+}
+
+/* Recruiting service color scheme (teal) */
+.service-card[data-service="recruiting"]:hover {
+    border-color: rgba(20, 184, 166, 0.3);
+    box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
+}
+
+/* Light mode adjustments for talent services */
+html.light #talent-services {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08)) !important;
+    border: 1px solid rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Light mode modal content for new services */
+html.light #mentoring-service-modal .modal-content,
+html.light #courses-service-modal .modal-content,
+html.light #recruiting-service-modal .modal-content {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(209, 213, 219, 0.8) !important;
+}
+
+/* Light mode color adjustments for amber (mentoring) */
+html.light #mentoring-service-modal .text-amber-400 {
+    color: #d97706 !important; /* amber-600 for better contrast */
+}
+
+html.light #mentoring-service-modal .text-orange-400 {
+    color: #ea580c !important; /* orange-600 for better contrast */
+}
+
+html.light .service-card[data-service="mentoring"] .feature-icon i {
+    color: #d97706 !important; /* amber-600 */
+}
+
+html.light #talent-services .text-xs[style*="color: #f59e0b"] {
+    color: #d97706 !important; /* amber-600 for click text */
+}
+
+/* Light mode color adjustments for indigo (courses) */
+html.light #courses-service-modal .text-indigo-400 {
+    color: #4f46e5 !important; /* indigo-600 for better contrast */
+}
+
+html.light #courses-service-modal .text-purple-400 {
+    color: #7c3aed !important; /* purple-600 for better contrast */
+}
+
+html.light .service-card[data-service="courses"] .feature-icon i {
+    color: #4f46e5 !important; /* indigo-600 */
+}
+
+html.light #talent-services .text-xs[style*="color: #6366f1"] {
+    color: #4f46e5 !important; /* indigo-600 for click text */
+}
+
+/* Light mode color adjustments for teal (recruiting) */
+html.light #recruiting-service-modal .text-teal-400 {
+    color: #0d9488 !important; /* teal-600 for better contrast */
+}
+
+html.light #recruiting-service-modal .text-cyan-400 {
+    color: #0891b2 !important; /* cyan-600 for better contrast */
+}
+
+html.light .service-card[data-service="recruiting"] .feature-icon i {
+    color: #0d9488 !important; /* teal-600 */
+}
+
+html.light #talent-services .text-xs[style*="color: #14b8a6"] {
+    color: #0d9488 !important; /* teal-600 for click text */
+}
+
+/* Light mode badge improvements */
+html.light #talent-services .bg-gradient-to-r.from-indigo-500.to-purple-500 {
+    background: linear-gradient(to right, #4f46e5, #7c3aed) !important; /* indigo-600 to purple-600 */
+}
+
+/* Modal step number circles in light mode */
+html.light .bg-teal-500\/20 {
+    background-color: rgba(20, 184, 166, 0.15) !important;
+    color: #0d9488 !important; /* teal-600 */
+}
+
+html.light .text-teal-400 {
+    color: #0d9488 !important; /* teal-600 */
+}
+
+html.light .border-teal-400 {
+    border-color: #0d9488 !important;
+}
+
+/* Ensure readability of all text in talent service modals */
+html.light #mentoring-service-modal .text-secondary,
+html.light #courses-service-modal .text-secondary,
+html.light #recruiting-service-modal .text-secondary {
+    color: #4b5563 !important; /* gray-600 */
+}
+
+html.light #mentoring-service-modal .text-white,
+html.light #courses-service-modal .text-white,
+html.light #recruiting-service-modal .text-white {
+    color: #111827 !important; /* gray-900 */
+}
+
+/* Pricing card improvements in light mode */
+html.light #mentoring-service-modal .bg-gray-800\/50,
+html.light #courses-service-modal .bg-gray-800\/50,
+html.light #recruiting-service-modal .bg-gray-800\/50 {
+    background-color: rgba(243, 244, 246, 0.8) !important; /* gray-100 */
+    border: 1px solid rgba(209, 213, 219, 0.6) !important;
+}
+
+/* Check icons in light mode */
+html.light .fa-check.text-amber-400 {
+    color: #d97706 !important; /* amber-600 */
+}
+
+html.light .fa-check.text-indigo-400 {
+    color: #4f46e5 !important; /* indigo-600 */
+}
+
+html.light .fa-check.text-teal-400 {
+    color: #0d9488 !important; /* teal-600 */
+}
+
+html.light .fa-check-circle.text-teal-400 {
+    color: #0d9488 !important; /* teal-600 */
+}
