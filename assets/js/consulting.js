@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('[Consulting] Initialization complete');
 });
 
-// ============== PDF PROPOSAL FUNCTIONALITY ==============
+// ============== PROPOSAL FORM WITH N8N WEBHOOK ==============
 
 function initializeProposalGenerator() {
     const openModalBtn = document.getElementById('open-proposal-modal-btn');
@@ -400,13 +400,18 @@ function initializeProposalGenerator() {
             };
 
             try {
-                await generatePDF(userData);
+                // Enviar a n8n webhook
+                await sendToN8nWebhook(userData);
+                
+                // Setup contact links (mantener funcionalidad WhatsApp/Email)
                 setupContactLinks(userData);
+                
+                // Cerrar modal de formulario y abrir modal de éxito
                 closeModal('proposal-form-modal');
                 openModal('contact-options-modal');
             } catch (error) {
-                console.error('Error generating proposal:', error);
-                alert('Hubo un error al generar la propuesta. Por favor, intente de nuevo.');
+                console.error('Error sending proposal:', error);
+                alert(error.message || 'Hubo un error al enviar la solicitud. Por favor, intente de nuevo.');
             } finally {
                 generatePdfBtn.disabled = false;
                 btnText.style.display = 'inline';
@@ -414,6 +419,91 @@ function initializeProposalGenerator() {
                 proposalForm.reset();
             }
         });
+    }
+}
+
+async function sendToN8nWebhook(userData) {
+    const webhookUrl = 'https://mgobeaalcoba.app.n8n.cloud/webhook/solicitud-automatizacion';
+    
+    // Preparar payload enriquecido
+    const payload = {
+        // Datos del formulario
+        name: userData.name,
+        email: userData.email,
+        company: userData.company,
+        industry: userData.industry,
+        problem: userData.problem,
+        
+        // Metadata adicional
+        timestamp: new Date().toISOString(),
+        page: window.location.pathname,
+        referrer: document.referrer || 'direct',
+        language: document.documentElement.lang || 'es',
+        userAgent: navigator.userAgent,
+        
+        // Contexto del negocio
+        formType: 'automatizacion-gratis',
+        source: 'consulting-page'
+    };
+    
+    console.log('[ProposalForm] Sending to n8n webhook:', payload);
+    
+    try {
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: AbortSignal.timeout(15000) // 15 segundos timeout
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+        }
+        
+        // Intentar parsear respuesta
+        let responseData;
+        try {
+            responseData = await response.json();
+            console.log('[ProposalForm] n8n response:', responseData);
+        } catch (e) {
+            console.log('[ProposalForm] n8n response (non-JSON):', await response.text());
+            responseData = { success: true };
+        }
+        
+        // Track analytics
+        if (typeof gtag === 'function') {
+            gtag('event', 'form_submit', {
+                form_id: 'proposal_form',
+                section: 'proposal_form',
+                value: 300,
+                conversion_type: 'automation_request'
+            });
+            
+            gtag('event', 'generate_lead', {
+                currency: 'USD',
+                value: 300,
+                lead_source: 'automation_request',
+                company: userData.company,
+                industry: userData.industry
+            });
+        }
+        
+        console.log('[ProposalForm] ✅ Form sent successfully to n8n');
+        return responseData;
+        
+    } catch (error) {
+        console.error('[ProposalForm] Error sending to n8n:', error);
+        
+        // Mensajes de error específicos
+        if (error.name === 'AbortError') {
+            throw new Error('La solicitud tardó demasiado. Por favor intenta nuevamente.');
+        } else if (error.message.includes('Failed to fetch')) {
+            throw new Error('Error de conexión. Verifica tu internet e intenta nuevamente.');
+        } else {
+            throw error;
+        }
     }
 }
 

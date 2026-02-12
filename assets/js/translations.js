@@ -821,8 +821,8 @@ export const translations = {
         en: "A service SME reduced invoice processing from 15 weekly hours to 2 hours, saving USD 3,600 annually in administrative work hours."
     },
     consulting_automation_modal_cta: {
-        es: "Crear Mi Propuesta de Automatización",
-        en: "Create My Automation Proposal"
+        es: "Agendar Consulta Gratuita",
+        en: "Schedule Free Consultation"
     },
     
     // AI Modal
@@ -919,8 +919,8 @@ export const translations = {
         en: "A service company increased its response rate from 20% to 85% by implementing a chatbot that handles 200+ monthly queries automatically."
     },
     consulting_ai_modal_cta: {
-        es: "Crear Mi Asistente IA Personalizado",
-        en: "Create My Personalized AI Assistant"
+        es: "Agendar Consulta sobre IA",
+        en: "Schedule AI Consultation"
     },
     
     // BI Modal
@@ -1017,8 +1017,22 @@ export const translations = {
         en: "A distributor identified products with negative margins and optimized their portfolio, increasing profitability by 18% in 3 months."
     },
     consulting_bi_modal_cta: {
-        es: "Crear Mi Dashboard Personalizado",
-        en: "Create My Personalized Dashboard"
+        es: "Agendar Consulta sobre BI",
+        en: "Schedule BI Consultation"
+    },
+    
+    // Modal footer descriptions
+    consulting_automation_footer_desc: {
+        es: "Comience con una consulta gratuita: Conversemos sobre cómo la automatización puede transformar su negocio.",
+        en: "Start with a free consultation: Let's talk about how automation can transform your business."
+    },
+    consulting_ai_footer_desc: {
+        es: "Explore el potencial de la IA: Agenda una sesión para descubrir cómo la IA puede potenciar su negocio.",
+        en: "Explore AI potential: Schedule a session to discover how AI can power your business."
+    },
+    consulting_bi_footer_desc: {
+        es: "Tome decisiones basadas en datos: Conversemos sobre cómo visualizar sus KPIs en tiempo real.",
+        en: "Make data-driven decisions: Let's talk about how to visualize your KPIs in real-time."
     },
     consulting_modal_what_includes: {
         es: "¿Qué incluye?",
@@ -1198,8 +1212,8 @@ export const translations = {
         en: "Request Received!"
     },
     consulting_contact_success_desc: {
-        es: "Perfecto, su PDF con la información se ha descargado. Ahora elija cómo prefiere que nos contactemos para coordinar su automatización gratis:",
-        en: "Perfect, your PDF with the information has been downloaded. Now choose how you prefer us to contact you to coordinate your free automation:"
+        es: "Perfecto, hemos recibido su solicitud. Elija cómo prefiere que nos contactemos para coordinar su automatización gratis:",
+        en: "Perfect, we have received your request. Choose how you prefer us to contact you to coordinate your free automation:"
     },
     consulting_contact_whatsapp: {
         es: "Contactar por WhatsApp",
