@@ -152,7 +152,9 @@ function updateExampleDataAttributes(lang) {
 // Initialize with NEW phrases globally so they can be updated by language change
 window.typingPhrases = [
     "Automatice procesos y libere tiempo valioso.",
+    "MVPs operativos en horas, no en meses.",
     "Implemente IA para decisiones inteligentes.",
+    "Su ramp-up con GenAI: resultados desde el día uno.",
     "Visualice sus datos en tiempo real.",
     "Acelere su carrera tech con mentoría experta.",
     "Capacite equipos en tecnologías clave.",

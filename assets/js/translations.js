@@ -189,9 +189,87 @@ export const translations = {
         en: "Automation • Applied AI • Business Intelligence • Mentoring • Courses • Tech Recruiting"
     },
     consulting_hero_description: {
-        es: "Transforme su negocio con tecnología y desarrolle talento tech de clase mundial. Desde automatización de procesos hasta reclutamiento especializado.",
-        en: "Transform your business with technology and develop world-class tech talent. From process automation to specialized recruitment."
+        es: "Ayudamos a empresas ágiles a hacer su ramp-up con GenAI y automatización: MVPs operativos en horas, no meses. Desde automatización de procesos hasta reclutamiento especializado.",
+        en: "We help agile companies ramp up with GenAI and automation: operational MVPs in hours, not months. From process automation to specialized recruitment."
     },
+    // ========== PARADIGM SHIFT SECTION TRANSLATIONS ==========
+    consulting_paradigm_eyebrow: {
+        es: "El Cambio de Paradigma",
+        en: "The Paradigm Shift"
+    },
+    consulting_paradigm_headline_1: {
+        es: "Durante años, el desarrollo a medida era lento y prohibitivo.",
+        en: "For years, custom software development was slow and prohibitively expensive."
+    },
+    consulting_paradigm_headline_2: {
+        es: "Ese techo se rompió.",
+        en: "That ceiling shattered."
+    },
+    consulting_paradigm_intro: {
+        es: "La combinación de GenAI con flujos de automatización avanzada permite resolver problemas estructurales con MVPs operativos en horas. No prototipos para mostrar en una reunión: soluciones funcionales que eliminan fricciones históricas en la operación diaria.",
+        en: "The combination of GenAI with advanced automation flows allows you to solve structural problems with operational MVPs in hours. Not prototypes to show in a meeting — functional solutions that eliminate historical friction in daily operations."
+    },
+    consulting_paradigm_before_label: {
+        es: "Antes de GenAI",
+        en: "Before GenAI"
+    },
+    consulting_paradigm_before_1: {
+        es: "Desarrollo a medida: meses de espera y presupuestos fuera del alcance PyME",
+        en: "Custom development: months of waiting and budgets out of SMB reach"
+    },
+    consulting_paradigm_before_2: {
+        es: "Techo de cristal: las grandes empresas tenían ventaja estructural permanente",
+        en: "Glass ceiling: large companies had a permanent structural advantage"
+    },
+    consulting_paradigm_before_3: {
+        es: "Ciertos problemas operativos se aceptaban como \"el costo de hacer negocios\"",
+        en: "Certain operational problems were accepted as \"the cost of doing business\""
+    },
+    consulting_paradigm_before_4: {
+        es: "Tu competencia tardaba semanas en resolver lo que vos tardabas semanas también",
+        en: "Your competitors took weeks to solve what took you weeks too"
+    },
+    consulting_paradigm_break: {
+        es: "Ese techo se rompió",
+        en: "That ceiling shattered"
+    },
+    consulting_paradigm_after_label: {
+        es: "Hoy con GenAI + Automatización",
+        en: "Today with GenAI + Automation"
+    },
+    consulting_paradigm_after_1: {
+        es: "MVPs funcionales operativos en horas, no en meses ni con grandes presupuestos",
+        en: "Functional operational MVPs in hours, not months, without large budgets"
+    },
+    consulting_paradigm_after_2: {
+        es: "Empresas ágiles superan en ejecución a estructuras mucho más grandes y burocráticas",
+        en: "Agile companies outperform much larger and more bureaucratic structures in execution"
+    },
+    consulting_paradigm_after_3: {
+        es: "La eficiencia dejó de ser una ventaja competitiva: es el requisito mínimo para existir",
+        en: "Efficiency is no longer a competitive advantage — it's the minimum requirement to exist"
+    },
+    consulting_paradigm_after_4: {
+        es: "Tu competencia ya puede resolver en una tarde lo que antes llevaba semanas",
+        en: "Your competition can now solve in an afternoon what used to take weeks"
+    },
+    consulting_paradigm_window: {
+        es: "<strong>La brecha con las grandes empresas se cerró</strong>, pero la ventana de oportunidad para tomar ventaja también es corta. No subirse a esta ola ahora no es una decisión conservadora: es una garantía de quedar fuera del mercado en el corto o mediano plazo. <strong>Nuestro foco es precisamente ese ramp-up.</strong>",
+        en: "<strong>The gap with large companies has closed</strong>, but the window of opportunity to gain an advantage is also short. Not jumping on this wave now is not a conservative decision — it's a guarantee of being left out of the market in the short or medium term. <strong>Our focus is precisely that ramp-up.</strong>"
+    },
+    consulting_urgency_strip: {
+        es: "La ventana de oportunidad es corta. Tu competencia ya lo está evaluando.",
+        en: "The window of opportunity is short. Your competition is already evaluating it."
+    },
+    consulting_ai_mvp_badge: {
+        es: "MVP en 24-72 hs",
+        en: "MVP in 24-72 hrs"
+    },
+    consulting_ai_mvp_desc: {
+        es: "Solución funcional, no solo un prototipo",
+        en: "Functional solution, not just a prototype"
+    },
+    // ========== END PARADIGM SHIFT SECTION ==========
     consulting_hero_main_cta: {
         es: "Ver Todos los Servicios",
         en: "View All Services"
@@ -513,7 +591,9 @@ export const translations = {
     consulting_typing_phrases: {
         es: [
             "Automatice procesos y libere tiempo valioso.",
+            "MVPs operativos en horas, no en meses.",
             "Implemente IA para decisiones inteligentes.",
+            "Su ramp-up con GenAI: resultados desde el día uno.",
             "Visualice sus datos en tiempo real.",
             "Acelere su carrera tech con mentoría experta.",
             "Capacite equipos en tecnologías clave.",
@@ -521,7 +601,9 @@ export const translations = {
         ],
         en: [
             "Automate processes and free valuable time.",
+            "Operational MVPs in hours, not months.",
             "Implement AI for intelligent decisions.",
+            "Your GenAI ramp-up: results from day one.",
             "Visualize your data in real-time.",
             "Accelerate your tech career with expert mentoring.",
             "Train teams in key technologies.",

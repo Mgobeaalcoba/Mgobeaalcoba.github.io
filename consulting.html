@@ -233,7 +233,7 @@
                 <a href="recursos.html" class="text-sm hover:text-sky-400 transition-colors" data-translate="header.recursos">Recursos</a>
                 <a href="#services" class="text-sm hover:text-sky-400 transition-colors" data-translate="consulting_nav_services">Servicios</a>
                 <a href="#about" class="text-sm hover:text-sky-400 transition-colors" data-translate="consulting_nav_about">Sobre Mí</a>
-                <a href="#contact" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_nav_contact">Agendar Diagnóstico</a>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="main-cta text-white font-semibold px-4 py-2 rounded-full text-sm" data-translate="consulting_nav_contact">Agendar Diagnóstico</button>
             </div>
             <div class="flex items-center space-x-3">
                 <!-- Language Controls -->
@@ -261,7 +261,7 @@
                 <a href="recursos.html" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="header.recursos">Recursos Útiles</a>
                 <a href="#services" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_services">Servicios</a>
                 <a href="#about" class="block py-2 px-4 hover:bg-gray-700/50 rounded-lg transition-colors" data-translate="consulting_nav_about">Sobre Mí</a>
-                <a href="#contact" class="block py-2 px-4 main-cta text-white text-center font-semibold rounded-lg" data-translate="consulting_nav_contact">Agendar Diagnóstico</a>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mariano-gobea-mercadolibre/30min'});return false;" class="block w-full py-2 px-4 main-cta text-white text-center font-semibold rounded-lg" data-translate="consulting_nav_contact">Agendar Diagnóstico</button>
             </div>
         </div>
     </header>
@@ -308,6 +308,91 @@
                     <i class="fas fa-trophy text-sky-400"></i>
                     <span data-translate="consulting_trust_badge_projects">15+ proyectos exitosos</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- PARADIGM SHIFT SECTION -->
+        <section class="paradigm-section fade-in" style="animation-delay: 200ms;">
+            <div class="text-center mb-2">
+                <span class="inline-block text-xs font-bold tracking-widest uppercase text-amber-400 mb-3" data-translate="consulting_paradigm_eyebrow">El Cambio de Paradigma</span>
+                <h2 class="paradigm-headline">
+                    <span data-translate="consulting_paradigm_headline_1">Durante años, el desarrollo a medida era lento y prohibitivo.</span>
+                    <span class="break-word mt-1" data-translate="consulting_paradigm_headline_2">Ese techo se rompió.</span>
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto text-secondary text-base leading-relaxed" data-translate="consulting_paradigm_intro">
+                    La combinación de GenAI con flujos de automatización avanzada permite resolver problemas estructurales con MVPs operativos en horas. No prototipos para mostrar en una reunión: soluciones funcionales que eliminan fricciones históricas en la operación diaria.
+                </p>
+            </div>
+
+            <div class="paradigm-grid">
+                <!-- ANTES -->
+                <div class="paradigm-card paradigm-card-before fade-in" style="animation-delay: 300ms;">
+                    <div class="paradigm-card-label before">
+                        <i class="fas fa-lock"></i>
+                        <span data-translate="consulting_paradigm_before_label">Antes de GenAI</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fas fa-times-circle text-red-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_before_1">Desarrollo a medida: meses de espera y presupuestos fuera del alcance PyME</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle text-red-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_before_2">Techo de cristal: las grandes empresas tenían ventaja estructural permanente</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle text-red-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_before_3">Ciertos problemas operativos se aceptaban como "el costo de hacer negocios"</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle text-red-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_before_4">Tu competencia tardaba semanas en resolver lo que vos tardabas semanas también</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- QUIEBRE -->
+                <div class="paradigm-break">
+                    <div class="paradigm-break-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="paradigm-break-text" data-translate="consulting_paradigm_break">Ese techo se rompió</div>
+                    <div class="paradigm-break-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- AHORA -->
+                <div class="paradigm-card paradigm-card-after fade-in" style="animation-delay: 400ms;">
+                    <div class="paradigm-card-label after">
+                        <i class="fas fa-rocket"></i>
+                        <span data-translate="consulting_paradigm_after_label">Hoy con GenAI + Automatización</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_after_1">MVPs funcionales operativos en horas, no en meses ni con grandes presupuestos</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_after_2">Empresas ágiles superan en ejecución a estructuras mucho más grandes y burocráticas</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_after_3">La eficiencia dejó de ser una ventaja competitiva: es el requisito mínimo para existir</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 li-icon"></i>
+                            <span data-translate="consulting_paradigm_after_4">Tu competencia ya puede resolver en una tarde lo que antes llevaba semanas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Ventana de oportunidad -->
+            <div class="paradigm-window fade-in" style="animation-delay: 500ms;">
+                <i class="fas fa-hourglass-half text-amber-400 mr-2"></i>
+                <span data-translate="consulting_paradigm_window">
+                    <strong>La brecha con las grandes empresas se cerró</strong>, pero la ventana de oportunidad para tomar ventaja también es corta.
+                    No subirse a esta ola ahora no es una decisión conservadora: es una garantía de quedar fuera del mercado en el corto o mediano plazo.
+                    <strong>Nuestro foco es precisamente ese ramp-up.</strong>
+                </span>
             </div>
         </section>
 
@@ -379,6 +464,11 @@
                     <span class="flex items-center"><i class="fas fa-check text-green-400 mr-1"></i><span data-translate="consulting_trust_badge_results">2 semanas</span></span>
                 </div>
 
+                <div class="urgency-strip mx-auto max-w-lg">
+                    <i class="fas fa-clock"></i>
+                    <span data-translate="consulting_urgency_strip">La ventana de oportunidad es corta. Tu competencia ya lo está evaluando.</span>
+                </div>
+
                 <button onclick="openModal('proposal-form-modal')" class="main-cta text-white font-bold px-8 py-3 rounded-full shadow-lg">
                     <i class="fas fa-gift mr-2"></i><span data-translate="consulting_free_cta_button">Solicitar Mi Automatización Gratis Ahora</span>
                 </button>
@@ -429,7 +519,10 @@
                 <!-- Service Card 2: GenAI -->
                 <div class="p-8 glass-effect rounded-2xl fade-in cursor-pointer hover:scale-105 transition-transform duration-300 service-card" style="animation-delay: 200ms;" data-service="ai" onclick="openModal('ai-service-modal')">
                     <div class="feature-icon bg-purple-500/10 rounded-xl mb-4"><i class="fas fa-brain" style="color: #a855f7;"></i></div>
-                    <h3 class="text-xl font-bold mb-2" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
+                    <div class="flex items-center gap-2 mb-2 flex-wrap">
+                        <h3 class="text-xl font-bold" data-translate="consulting_ai_title">Inteligencia Artificial Aplicada</h3>
+                        <span class="mvp-badge"><i class="fas fa-bolt"></i><span data-translate="consulting_ai_mvp_badge">MVP en 24-72 hs</span></span>
+                    </div>
                     <p class="text-secondary text-sm leading-relaxed" data-translate="consulting_ai_desc">Potenciamos su comunicación y soporte con IA. Creamos chatbots inteligentes para WhatsApp y asistentes que generan contenido de marketing, responden emails y resumen reportes automáticamente.</p>
                     <div class="mt-4 text-center">
                         <span class="text-xs font-medium service-cta-text" style="color: #a855f7;" data-translate="consulting_click_to_learn">Haz clic para conocer más →</span>
@@ -1366,9 +1459,15 @@
     <div id="ai-service-modal" class="modal-overlay modal" onclick="closeModalOnOverlay(event, 'ai-service-modal')">
         <div class="modal-content glass-effect max-w-4xl" onclick="event.stopPropagation()">
             <button class="modal-close-btn" onclick="closeModal('ai-service-modal')"><i class="fas fa-times"></i></button>
-            <div class="flex items-center mb-6">
+            <div class="flex items-center mb-6 flex-wrap gap-3">
                 <div class="feature-icon bg-sky-500/10 rounded-xl mr-4"><i class="fas fa-brain text-3xl"></i></div>
-                <h4 class="text-3xl font-bold" data-translate="consulting_ai_modal_title">Inteligencia Artificial Aplicada</h4>
+                <div>
+                    <h4 class="text-3xl font-bold" data-translate="consulting_ai_modal_title">Inteligencia Artificial Aplicada</h4>
+                    <div class="mt-1">
+                        <span class="mvp-badge"><i class="fas fa-bolt"></i><span data-translate="consulting_ai_mvp_badge">MVP en 24-72 hs</span></span>
+                        <span class="ml-2 text-xs text-secondary" data-translate="consulting_ai_mvp_desc">Solución funcional, no solo un prototipo</span>
+                    </div>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
