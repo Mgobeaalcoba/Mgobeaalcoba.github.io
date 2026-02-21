@@ -1,0 +1,165 @@
+{
+  "lang": "English",
+  "langCode": "en",
+  "nav": {
+    "products": "Products",
+    "about": "About Us",
+    "preCooling": "Pre-Cooling",
+    "europe": "Europe",
+    "contact": "Contact",
+    "store": "Online Store",
+    "cta": "Get a Quote"
+  },
+  "hero": {
+    "headline": "Innovation and Comfort",
+    "highlight": "for Every Vehicle",
+    "subheadline": "Specialists in evaporative cooling, air conditioning, and heating systems for motorhomes, trucks, and special vehicles. Patented technology for maximum comfort.",
+    "cta": "View Products",
+    "ctaSecondary": "Contact Us",
+    "statYears": "Years of experience",
+    "statDealers": "Official dealers",
+    "statCategories": "Product categories",
+    "statLanguages": "Support languages"
+  },
+  "about": {
+    "sectionLabel": "Our Story",
+    "title": "30 years leading vehicle climatization",
+    "description": "At Neil Climatizadores, we have dedicated over 30 years to designing, manufacturing, and installing evaporative cooling systems for vehicles. We stand out for our innovative «Pre-Cooling System» (Patent AR-031005B1), a unique technological achievement in the Latin American and European markets.",
+    "description2": "Since our beginnings, we have maintained a firm focus with clear goals: Quality, Development, Service, and Commitment. We remain firm in our commitment to the environment, developing products that optimize energy efficiency.",
+    "pillars": [
+      { "title": "Quality", "desc": "The best materials and advanced technology for maximum quality in every product." },
+      { "title": "Development", "desc": "Constantly searching for new technologies to daily improve the quality of our equipment." },
+      { "title": "Service", "desc": "We provide the best customer service with clear answers to every query." },
+      { "title": "Commitment", "desc": "Continuous improvement and permanent commitment to the customer and environment." }
+    ],
+    "qualityPolicy": "Quality Policy",
+    "qualityDesc": "Our organization is committed to continuously improving the effectiveness of our system, anticipating potential non-conformities to ensure a higher level of customer satisfaction.",
+    "mediaTitle": "Neil in the media",
+    "mediaSub": "Recognized by leaders in the transport and motorhome industry"
+  },
+  "products": {
+    "sectionLabel": "Our Products",
+    "title": "Solutions for every need",
+    "subtitle": "Evaporative coolers, air conditioning, heaters, and energy solutions for motorhomes, trucks, and special vehicles.",
+    "categories": {
+      "climatizadores": {
+        "title": "Evaporative Coolers",
+        "subtitle": "Exclusive Pre-Cooling System",
+        "description": "Evaporative coolers with the exclusive Pre-Cooling System (Patent AR-031005B1). Ultra-slim, 100% silent, and low power consumption.",
+        "badge": "Exclusive Patent"
+      },
+      "aire-acondicionado": {
+        "title": "Air Conditioning",
+        "subtitle": "Inverter Technology 12V/24V",
+        "description": "Inverter air conditioners running on 12V and 24V for motorhomes and trucks. High efficiency with low battery consumption.",
+        "badge": "Inverter"
+      },
+      "calderas": {
+        "title": "Diesel Heaters",
+        "subtitle": "Efficient heating 12V/24V",
+        "description": "High-efficiency diesel heaters for vehicles. 100% silent operation without needing the engine on, and maximum winter comfort.",
+        "badge": "Diesel"
+      },
+      "energia": {
+        "title": "Energy & Solar",
+        "subtitle": "Portable generators",
+        "description": "Genki and Bluetti lines of portable solar generators, solar kits, and charging stations. Autonomous energy for your adventures.",
+        "badge": "Solar"
+      },
+      "accesorios": {
+        "title": "Accessories",
+        "subtitle": "More for your vehicle",
+        "description": "Electric 12V Carjack and TPMS tire pressure monitoring system. Practical solutions for the demanding traveller.",
+        "badge": "12V"
+      }
+    },
+    "specsTitle": "Specifications",
+    "viewMore": "View more",
+    "buyNow": "Buy now",
+    "newBadge": "New",
+    "patentedBadge": "Patented"
+  },
+  "preCooling": {
+    "sectionLabel": "Exclusive Technology",
+    "title": "Pre-Cooling System",
+    "highlight": "Patent AR-031005B1",
+    "description": "The exclusive Pre-Cooling System, patented by Neil (Patent: AR-031005B1), achieves maximum cooling power while maintaining a fresh and pleasant climate inside the vehicle.",
+    "description2": "Unlike conventional coolers, the Pre-Cooling system activates pre-cooling of the water before distribution, achieving significantly lower temperatures with the same energy consumption.",
+    "features": [
+      { "title": "Maximum Cooling", "desc": "Temperature up to 8°C lower than conventional systems" },
+      { "title": "100% Silent", "desc": "State-of-the-art Brushless pumps, no noise or vibration" },
+      { "title": "Low Power Draw", "desc": "Superior energy efficiency, extends battery life" },
+      { "title": "Anti-Spill", "desc": "Sealed system that prevents water spills on curves and braking" }
+    ],
+    "cta": "View Coolers"
+  },
+  "europe": {
+    "sectionLabel": "International Presence",
+    "title": "Neil in Europe",
+    "description": "Neil coolers are sold throughout Europe for the demanding motorhome market. Their excellent performance, low battery consumption, and unmatched aesthetics make them an ideal companion for motorhome adventures.",
+    "description2": "We have official dealers in France, Italy, Spain, Portugal, Germany, and the United Kingdom, providing technical support and warranty in each country.",
+    "cta": "Find a Dealer",
+    "dealersTitle": "Official Dealers",
+    "countries": ["France", "Italy", "Spain", "Portugal", "Germany", "United Kingdom"]
+  },
+  "contact": {
+    "sectionLabel": "Let's talk",
+    "title": "Contact Us",
+    "subtitle": "We are available for technical queries, quotes, and support across all our markets.",
+    "formTypes": [
+      { "id": "consulta", "label": "General Inquiry" },
+      { "id": "cotizacion", "label": "Request a Quote" },
+      { "id": "soporte", "label": "Technical Support" },
+      { "id": "revendedor", "label": "Become a Dealer" }
+    ],
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country",
+      "vehicle": "Vehicle type",
+      "product": "Product of interest",
+      "message": "Message",
+      "type": "Inquiry type"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@email.com",
+      "phone": "+1 XXX XXX XXXX",
+      "country": "Your country",
+      "vehicle": "Motorhome, Truck, Van...",
+      "product": "Slim Full, HDK 2800...",
+      "message": "Tell us how we can help you..."
+    },
+    "cta": "Send Inquiry",
+    "sending": "Sending...",
+    "success": "Inquiry sent! We will reply within 24 hours.",
+    "error": "Error sending. Please try again.",
+    "whatsappSales": "WhatsApp Sales",
+    "whatsappSupport": "WhatsApp Support",
+    "storeLink": "Buy in Online Store",
+    "addressTitle": "Headquarters",
+    "schedule": "Monday to Friday 9:00 - 18:00 hs"
+  },
+  "footer": {
+    "tagline": "Technology that travels with you",
+    "copyright": "© 2025 Neil Climatizadores. All rights reserved.",
+    "linkPrivacy": "Privacy Policy",
+    "linkTerms": "Terms & Conditions",
+    "linkDealers": "Dealers",
+    "linkSupport": "Technical Support",
+    "contactTitle": "Contact",
+    "followTitle": "Follow Us"
+  },
+  "salesProposal": {
+    "badge": "COMMERCIAL PROPOSAL",
+    "disclaimer": "This section is temporary and will not be visible to the final client",
+    "headline": "Neil deserves a digital presence as innovative as its products",
+    "legacyTitle": "Current site",
+    "newTitle": "New proposal",
+    "impactTitle": "Business impact",
+    "automationsTitle": "Automations by department",
+    "consultingCta": "View more automation projects",
+    "signatureLabel": "Prepared by"
+  }
+}

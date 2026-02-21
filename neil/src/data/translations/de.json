@@ -1,0 +1,165 @@
+{
+  "lang": "Deutsch",
+  "langCode": "de",
+  "nav": {
+    "products": "Produkte",
+    "about": "Über Uns",
+    "preCooling": "Vorkühlung",
+    "europe": "Europa",
+    "contact": "Kontakt",
+    "store": "Online-Shop",
+    "cta": "Angebot Anfordern"
+  },
+  "hero": {
+    "headline": "Innovation und Komfort",
+    "highlight": "für Jedes Fahrzeug",
+    "subheadline": "Spezialisten für Verdunstungskühlung, Klimaanlage und Heizung für Wohnmobile, LKWs und Spezialfahrzeuge. Patentierte Technologie für maximalen Komfort.",
+    "cta": "Produkte Ansehen",
+    "ctaSecondary": "Kontaktieren",
+    "statYears": "Jahre Erfahrung",
+    "statDealers": "Offizielle Händler",
+    "statCategories": "Produktkategorien",
+    "statLanguages": "Supportsprachen"
+  },
+  "about": {
+    "sectionLabel": "Unsere Geschichte",
+    "title": "30 Jahre führend in der Fahrzeugklimatisierung",
+    "description": "Bei Neil Climatizadores widmen wir uns seit über 30 Jahren dem Design, der Herstellung und Installation von Verdunstungskühlern für Fahrzeuge. Wir zeichnen uns durch unser innovatives «Vorkühlungssystem» (Patent AR-031005B1) aus, eine einzigartige technologische Leistung auf den lateinamerikanischen und europäischen Märkten.",
+    "description2": "Seit unseren Anfängen haben wir einen klaren Fokus beibehalten: Qualität, Entwicklung, Service und Engagement. Wir bleiben unserem Umweltengagement treu und entwickeln Produkte, die die Energieeffizienz optimieren.",
+    "pillars": [
+      { "title": "Qualität", "desc": "Beste Materialien und fortschrittliche Technologie für maximale Qualität in jedem Produkt." },
+      { "title": "Entwicklung", "desc": "Ständig auf der Suche nach neuen Technologien, um täglich die Qualität unserer Geräte zu verbessern." },
+      { "title": "Service", "desc": "Wir bieten unseren Kunden den besten Service mit klaren Antworten auf jede Anfrage." },
+      { "title": "Engagement", "desc": "Kontinuierliche Verbesserung und dauerhaftes Engagement gegenüber Kunden und Umwelt." }
+    ],
+    "qualityPolicy": "Qualitätspolitik",
+    "qualityDesc": "Unsere Organisation ist der kontinuierlichen Verbesserung der Wirksamkeit unseres Systems verpflichtet, indem wir potenzielle Nichtkonformitäten antizipieren, um ein höheres Maß an Kundenzufriedenheit zu gewährleisten.",
+    "mediaTitle": "Neil in den Medien",
+    "mediaSub": "Anerkannt von Führungskräften der Transport- und Wohnmobilbranche"
+  },
+  "products": {
+    "sectionLabel": "Unsere Produkte",
+    "title": "Lösungen für jeden Bedarf",
+    "subtitle": "Verdunstungskühler, Klimaanlage, Heizung und Energie für Wohnmobile, LKWs und Spezialfahrzeuge.",
+    "categories": {
+      "climatizadores": {
+        "title": "Verdunstungskühler",
+        "subtitle": "Exklusives Vorkühlungssystem",
+        "description": "Verdunstungskühler mit dem exklusiven Vorkühlungssystem (Patent AR-031005B1). Ultra-flach, 100% lautlos und niedriger Stromverbrauch.",
+        "badge": "Exklusivpatent"
+      },
+      "aire-acondicionado": {
+        "title": "Klimaanlage",
+        "subtitle": "Inverter-Technologie 12V/24V",
+        "description": "Klimaanlagen mit Inverter-Technologie 12V und 24V für Wohnmobile und LKWs. Hohe Effizienz bei niedrigem Batterieverbrauch.",
+        "badge": "Inverter"
+      },
+      "calderas": {
+        "title": "Diesel-Heizungen",
+        "subtitle": "Effiziente Heizung 12V/24V",
+        "description": "Hocheffiziente Diesel-Heizungen für Fahrzeuge. 100% geräuschloses Betrieb ohne laufenden Motor und maximaler Winterkomfort.",
+        "badge": "Diesel"
+      },
+      "energia": {
+        "title": "Energie & Solar",
+        "subtitle": "Tragbare Generatoren",
+        "description": "Genki und Bluetti Linien tragbarer Solargeneratoren, Solarkits und Ladestationen. Autonome Energie für Ihre Abenteuer.",
+        "badge": "Solar"
+      },
+      "accesorios": {
+        "title": "Zubehör",
+        "subtitle": "Mehr für Ihr Fahrzeug",
+        "description": "Elektrischer 12V-Wagenheber und TPMS-Reifendrucküberwachungssystem. Praktische Lösungen für den anspruchsvollen Reisenden.",
+        "badge": "12V"
+      }
+    },
+    "specsTitle": "Spezifikationen",
+    "viewMore": "Mehr sehen",
+    "buyNow": "Kaufen",
+    "newBadge": "Neu",
+    "patentedBadge": "Patentiert"
+  },
+  "preCooling": {
+    "sectionLabel": "Exklusive Technologie",
+    "title": "Vorkühlungssystem",
+    "highlight": "Patent AR-031005B1",
+    "description": "Das exklusive Vorkühlungssystem, patentiert von Neil (Patent: AR-031005B1), erreicht maximale Kühlleistung und hält dabei das Klima im Fahrzeuginneren frisch und angenehm.",
+    "description2": "Im Gegensatz zu herkömmlichen Kühlern aktiviert das Vorkühlungssystem eine Vorkühlung des Wassers vor der Verteilung, wodurch signifikant niedrigere Temperaturen bei gleichem Energieverbrauch erreicht werden.",
+    "features": [
+      { "title": "Maximale Kühlung", "desc": "Temperatur bis zu 8°C niedriger als herkömmliche Systeme" },
+      { "title": "100% Lautlos", "desc": "Bürstenlose Pumpen der neuesten Generation, ohne Lärm oder Vibration" },
+      { "title": "Niedriger Verbrauch", "desc": "Überlegene Energieeffizienz, verlängert die Lebensdauer der Batterie" },
+      { "title": "Überlaufsicher", "desc": "Versiegeltes System, das Wasserüberläufe bei Kurven und Bremsungen verhindert" }
+    ],
+    "cta": "Kühler Ansehen"
+  },
+  "europe": {
+    "sectionLabel": "Internationale Präsenz",
+    "title": "Neil in Europa",
+    "description": "Neil-Kühler werden im gesamten europäischen Kontinent für den anspruchsvollen Wohnmobil-Markt vertrieben. Ihre ausgezeichnete Leistung, ihr niedriger Batteriekonsum und ihre unvergleichliche Ästhetik machen sie zum idealen Begleiter für Wohnmobil-Abenteuer.",
+    "description2": "Wir verfügen über offizielle Händler in Frankreich, Italien, Spanien, Portugal, Deutschland und dem Vereinigten Königreich, die in jedem Land technischen Support und Garantie bieten.",
+    "cta": "Händler Finden",
+    "dealersTitle": "Offizielle Händler",
+    "countries": ["Frankreich", "Italien", "Spanien", "Portugal", "Deutschland", "Vereinigtes Königreich"]
+  },
+  "contact": {
+    "sectionLabel": "Sprechen wir",
+    "title": "Kontaktieren Sie Uns",
+    "subtitle": "Wir stehen für technische Anfragen, Angebote und Support in allen unseren Märkten zur Verfügung.",
+    "formTypes": [
+      { "id": "consulta", "label": "Allgemeine Anfrage" },
+      { "id": "cotizacion", "label": "Angebot Anfordern" },
+      { "id": "soporte", "label": "Technischer Support" },
+      { "id": "revendedor", "label": "Händler werden" }
+    ],
+    "fields": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "country": "Land",
+      "vehicle": "Fahrzeugtyp",
+      "product": "Interessantes Produkt",
+      "message": "Nachricht",
+      "type": "Art der Anfrage"
+    },
+    "placeholders": {
+      "name": "Ihr Name",
+      "email": "sie@email.com",
+      "phone": "+49 XXX XXXXXXX",
+      "country": "Ihr Land",
+      "vehicle": "Wohnmobil, LKW, Transporter...",
+      "product": "Slim Full, HDK 2800...",
+      "message": "Sagen Sie uns, wie wir Ihnen helfen können..."
+    },
+    "cta": "Anfrage Senden",
+    "sending": "Wird gesendet...",
+    "success": "Anfrage gesendet! Wir antworten innerhalb von 24 Stunden.",
+    "error": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+    "whatsappSales": "WhatsApp Vertrieb",
+    "whatsappSupport": "WhatsApp Support",
+    "storeLink": "Im Online-Shop kaufen",
+    "addressTitle": "Hauptsitz",
+    "schedule": "Montag bis Freitag 9:00 - 18:00 Uhr"
+  },
+  "footer": {
+    "tagline": "Technologie, die Sie begleitet",
+    "copyright": "© 2025 Neil Climatizadores. Alle Rechte vorbehalten.",
+    "linkPrivacy": "Datenschutzrichtlinie",
+    "linkTerms": "Allgemeine Geschäftsbedingungen",
+    "linkDealers": "Händler",
+    "linkSupport": "Technischer Support",
+    "contactTitle": "Kontakt",
+    "followTitle": "Folgen Sie uns"
+  },
+  "salesProposal": {
+    "badge": "KOMMERZIELLES ANGEBOT",
+    "disclaimer": "Dieser Abschnitt ist temporär und wird für den Endkunden nicht sichtbar sein",
+    "headline": "Neil verdient eine digitale Präsenz, die seiner Innovation gerecht wird",
+    "legacyTitle": "Aktuelle Website",
+    "newTitle": "Neues Angebot",
+    "impactTitle": "Geschäftliche Auswirkungen",
+    "automationsTitle": "Automatisierungen nach Abteilung",
+    "consultingCta": "Weitere Automatisierungsprojekte ansehen",
+    "signatureLabel": "Erstellt von"
+  }
+}

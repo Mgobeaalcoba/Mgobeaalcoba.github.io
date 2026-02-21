@@ -48,6 +48,11 @@ export default function Footer() {
                   <a href="#productos" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">{item}</a>
                 </li>
               ))}
+              <li>
+                <a href="/neil-site/tienda/" className="text-orange-400 hover:text-orange-300 text-sm font-semibold transition-colors flex items-center gap-1 mt-1">
+                  🛒 Tienda Online
+                </a>
+              </li>
             </ul>
           </div>
 

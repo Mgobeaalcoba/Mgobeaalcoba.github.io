@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   CSS CUSTOM PROPERTIES
+   ========================================= */
+:root {
+  --cyan: #0CC1C1;
+  --orange-neil: #FF6B35;
+  --navy-950: #000000;
+  --navy-900: #0B1120;
+  --navy-800: #0D1628;
+}
+
+/* =========================================
+   BASE RESET
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(12, 193, 193, 0.3) transparent;
+}
+
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb {
+  background: rgba(12, 193, 193, 0.3);
+  border-radius: 3px;
+}
+
+body {
+  background-color: var(--navy-950);
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   GLASSMORPHISM UTILITY
+   ========================================= */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(13, 22, 40, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================
+   GLOW EFFECTS
+   ========================================= */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(12, 193, 193, 0.3), 0 0 60px rgba(12, 193, 193, 0.1);
+}
+
+.glow-cyan-hover:hover {
+  box-shadow: 0 0 30px rgba(12, 193, 193, 0.5), 0 0 80px rgba(12, 193, 193, 0.15);
+}
+
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3), 0 0 60px rgba(255, 107, 53, 0.1);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(12, 193, 193, 0.5);
+}
+
+/* =========================================
+   GRADIENT BACKGROUNDS
+   ========================================= */
+.gradient-dark-hero {
+  background: linear-gradient(135deg, #000000 0%, #0B1120 50%, #0D1628 100%);
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #0CC1C1, #14e8e8, #2D4F8F);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #FF6B35, #ff8c60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   GRID BACKGROUND DECORATION
+   ========================================= */
+.bg-grid-cyan {
+  background-image: 
+    linear-gradient(rgba(12, 193, 193, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 193, 193, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* =========================================
+   PROPOSAL CTA BUTTON (floating animated)
+   ========================================= */
+@keyframes ctaGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ctaRing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.5); }
+  50%       { box-shadow: 0 0 0 14px rgba(255, 107, 53, 0); }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+.proposal-cta-btn {
+  animation: ctaRing 2.5s ease-in-out infinite, ctaPulse 3s ease-in-out infinite;
+}
+
+.proposal-cta-bg {
+  background: linear-gradient(
+    135deg,
+    #FF6B35,
+    #ff8c60,
+    #0CC1C1,
+    #FF6B35
+  );
+  background-size: 300% 300%;
+  animation: ctaGradient 3s ease infinite;
+}
+
+.proposal-cta-ring {
+  pointer-events: none;
+}
+
+.proposal-pulse {
+  pointer-events: none;
+}
+
+/* =========================================
+   SECTION TRANSITIONS
+   ========================================= */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   PRODUCT CARD HOVER
+   ========================================= */
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(12, 193, 193, 0.08);
+}
+
+/* =========================================
+   ORANGE NEIL ACCENT UTILITIES
+   ========================================= */
+.border-orange-neil { border-color: #FF6B35; }
+.bg-orange-neil { background-color: #FF6B35; }
+.text-orange-neil { color: #FF6B35; }
+.bg-orange-neil\/10 { background-color: rgba(255, 107, 53, 0.1); }
+.bg-orange-neil\/20 { background-color: rgba(255, 107, 53, 0.2); }
+.border-orange-neil\/30 { border-color: rgba(255, 107, 53, 0.3); }
+.border-orange-neil\/40 { border-color: rgba(255, 107, 53, 0.4); }
+
+/* =========================================
+   LINK STYLES
+   ========================================= */
+a {
+  transition: color 0.2s ease;
+}
+
+/* =========================================
+   RESPONSIVE OVERFLOW FIX
+   ========================================= */
+.overflow-x-clip {
+  overflow-x: clip;
+}
+
+/* =========================================
+   SELECTION COLOR
+   ========================================= */
+::selection {
+  background: rgba(12, 193, 193, 0.3);
+  color: #ffffff;
+}

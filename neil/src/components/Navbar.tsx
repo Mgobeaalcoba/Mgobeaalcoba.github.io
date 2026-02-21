@@ -136,9 +136,7 @@ export default function Navbar() {
 
             {/* Store link */}
             <a
-              href={ContentRepository.getContact().store}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/neil-site/tienda/"
               onClick={() => trackCtaClick('store_nav')}
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-orange-neil/40 text-orange-neil hover:bg-orange-neil/10 transition-all duration-200 text-sm font-medium"
             >
@@ -205,6 +203,13 @@ export default function Navbar() {
                     </button>
                   ))}
                 </div>
+                <a
+                  href="/neil-site/tienda/"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-center py-3 px-4 border border-orange-neil/40 text-orange-neil font-bold rounded-xl text-sm"
+                >
+                  {t.nav.store}
+                </a>
                 <a
                   href="#contacto"
                   onClick={() => setMobileOpen(false)}

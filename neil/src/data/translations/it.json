@@ -1,0 +1,165 @@
+{
+  "lang": "Italiano",
+  "langCode": "it",
+  "nav": {
+    "products": "Prodotti",
+    "about": "Chi Siamo",
+    "preCooling": "Pre-Raffreddamento",
+    "europe": "Europa",
+    "contact": "Contatti",
+    "store": "Negozio Online",
+    "cta": "Richiedi Preventivo"
+  },
+  "hero": {
+    "headline": "Innovazione e Comfort",
+    "highlight": "per Ogni Veicolo",
+    "subheadline": "Specialisti in raffrescamento evaporativo, aria condizionata e riscaldamento per camper, autocarri e veicoli speciali. Tecnologia brevettata per il massimo comfort.",
+    "cta": "Vedi Prodotti",
+    "ctaSecondary": "Contattaci",
+    "statYears": "Anni di esperienza",
+    "statDealers": "Rivenditori ufficiali",
+    "statCategories": "Categorie di prodotti",
+    "statLanguages": "Lingue di supporto"
+  },
+  "about": {
+    "sectionLabel": "La Nostra Storia",
+    "title": "30 anni alla guida della climatizzazione veicolare",
+    "description": "Da Neil Climatizadores ci dedichiamo da oltre 30 anni alla progettazione, produzione e installazione di raffrescatori evaporativi per veicoli. Ci distinguiamo per l'innovativo «Sistema di Pre-Raffreddamento» (Brevetto AR-031005B1), un risultato tecnologico unico nel mercato latinoamericano ed europeo.",
+    "description2": "Sin dagli inizi abbiamo mantenuto un focus solido con obiettivi chiari: Qualità, Sviluppo, Servizio e Impegno. Rimaniamo fermi nel nostro impegno ambientale, sviluppando prodotti che ottimizzano l'efficienza energetica.",
+    "pillars": [
+      { "title": "Qualità", "desc": "I migliori materiali e tecnologia avanzata per la massima qualità in ogni prodotto." },
+      { "title": "Sviluppo", "desc": "Costantemente alla ricerca di nuove tecnologie per migliorare giorno dopo giorno la qualità dei nostri apparecchi." },
+      { "title": "Servizio", "desc": "Offriamo il miglior servizio ai nostri clienti con risposte chiare ad ogni richiesta." },
+      { "title": "Impegno", "desc": "Miglioramento continuo e impegno permanente verso il cliente e l'ambiente." }
+    ],
+    "qualityPolicy": "Politica della Qualità",
+    "qualityDesc": "La nostra organizzazione è impegnata nel miglioramento continuo dell'efficacia del nostro sistema, anticipando possibili non conformità per garantire un maggiore livello di soddisfazione del cliente.",
+    "mediaTitle": "Neil sui media",
+    "mediaSub": "Riconosciuto dai leader del settore dei trasporti e del camper"
+  },
+  "products": {
+    "sectionLabel": "I Nostri Prodotti",
+    "title": "Soluzioni per ogni esigenza",
+    "subtitle": "Raffrescatori evaporativi, aria condizionata, caldaie e sistemi energetici per camper, autocarri e veicoli speciali.",
+    "categories": {
+      "climatizadores": {
+        "title": "Raffrescatori Evaporativi",
+        "subtitle": "Esclusivo Sistema di Pre-Raffreddamento",
+        "description": "Raffrescatori evaporativi con il esclusivo Sistema di Pre-Raffreddamento (Brevetto AR-031005B1). Ultra-piatti, 100% silenziosi e a basso consumo.",
+        "badge": "Brevetto Esclusivo"
+      },
+      "aire-acondicionado": {
+        "title": "Aria Condizionata",
+        "subtitle": "Tecnologia Inverter 12V/24V",
+        "description": "Aria condizionata con tecnologia Inverter a 12V e 24V per camper e autocarri. Alta efficienza con basso consumo della batteria.",
+        "badge": "Inverter"
+      },
+      "calderas": {
+        "title": "Riscaldatori Diesel",
+        "subtitle": "Riscaldamento efficiente 12V/24V",
+        "description": "Riscaldatori diesel ad alta efficienza per veicoli. Funzionamento 100% silenzioso senza bisogno di tenere il motore acceso e massimo comfort invernale.",
+        "badge": "Diesel"
+      },
+      "energia": {
+        "title": "Energia & Solare",
+        "subtitle": "Generatori portatili",
+        "description": "Linee Genki e Bluetti di generatori solari portatili, kit solari e stazioni di ricarica. Energia autonoma per le tue avventure.",
+        "badge": "Solare"
+      },
+      "accesorios": {
+        "title": "Accessori",
+        "subtitle": "Di più per il tuo veicolo",
+        "description": "Carjack elettrico 12V e sistema TPMS di monitoraggio della pressione degli pneumatici. Soluzioni pratiche per il viaggiatore esigente.",
+        "badge": "12V"
+      }
+    },
+    "specsTitle": "Specifiche",
+    "viewMore": "Vedi di più",
+    "buyNow": "Acquista",
+    "newBadge": "Nuovo",
+    "patentedBadge": "Brevettato"
+  },
+  "preCooling": {
+    "sectionLabel": "Tecnologia Esclusiva",
+    "title": "Sistema di Pre-Raffreddamento",
+    "highlight": "Brevetto AR-031005B1",
+    "description": "L'esclusivo Sistema di Pre-Raffreddamento, brevettato da Neil (Brevetto: AR-031005B1), raggiunge la massima potenza di raffrescamento mantenendo un clima fresco e piacevole all'interno del veicolo.",
+    "description2": "A differenza dei raffrescatori convenzionali, il sistema di Pre-Raffreddamento attiva un pre-raffreddamento dell'acqua prima della distribuzione, ottenendo temperature significativamente più basse con lo stesso consumo energetico.",
+    "features": [
+      { "title": "Massimo Raffrescamento", "desc": "Temperatura fino a 8°C inferiore rispetto ai sistemi convenzionali" },
+      { "title": "100% Silenzioso", "desc": "Pompe Brushless di ultima generazione, senza rumore né vibrazione" },
+      { "title": "Basso Consumo", "desc": "Efficienza energetica superiore, prolunga la vita della batteria" },
+      { "title": "Anti-Versamento", "desc": "Sistema sigillato che evita versamenti d'acqua in curva e in frenata" }
+    ],
+    "cta": "Vedi Raffrescatori"
+  },
+  "europe": {
+    "sectionLabel": "Presenza Internazionale",
+    "title": "Neil in Europa",
+    "description": "I raffrescatori Neil sono commercializzati in tutto il continente europeo per l'esigente mercato dei camper. Le loro eccellenti prestazioni, il basso consumo della batteria e l'estetica ineguagliabile li rendono un complemento ideale per l'avventura in autocaravan.",
+    "description2": "Disponiamo di rivenditori ufficiali in Francia, Italia, Spagna, Portogallo, Germania e Regno Unito, fornendo supporto tecnico e garanzia in ogni paese.",
+    "cta": "Trova un Rivenditore",
+    "dealersTitle": "Rivenditori Ufficiali",
+    "countries": ["Francia", "Italia", "Spagna", "Portogallo", "Germania", "Regno Unito"]
+  },
+  "contact": {
+    "sectionLabel": "Parliamo",
+    "title": "Contattaci",
+    "subtitle": "Siamo disponibili per richieste tecniche, preventivi e supporto in tutti i nostri mercati.",
+    "formTypes": [
+      { "id": "consulta", "label": "Richiesta Generale" },
+      { "id": "cotizacion", "label": "Richiedi un Preventivo" },
+      { "id": "soporte", "label": "Supporto Tecnico" },
+      { "id": "revendedor", "label": "Diventa Rivenditore" }
+    ],
+    "fields": {
+      "name": "Nome completo",
+      "email": "Email",
+      "phone": "Telefono",
+      "country": "Paese",
+      "vehicle": "Tipo di veicolo",
+      "product": "Prodotto di interesse",
+      "message": "Messaggio",
+      "type": "Tipo di richiesta"
+    },
+    "placeholders": {
+      "name": "Il tuo nome",
+      "email": "tu@email.com",
+      "phone": "+39 XXX XXX XXXX",
+      "country": "Il tuo paese",
+      "vehicle": "Camper, Autocarro, Furgone...",
+      "product": "Slim Full, HDK 2800...",
+      "message": "Dicci come possiamo aiutarti..."
+    },
+    "cta": "Invia Richiesta",
+    "sending": "Invio in corso...",
+    "success": "Richiesta inviata! Risponderemo entro 24 ore.",
+    "error": "Errore nell'invio. Riprova.",
+    "whatsappSales": "WhatsApp Vendite",
+    "whatsappSupport": "WhatsApp Supporto",
+    "storeLink": "Acquista nel Negozio Online",
+    "addressTitle": "Sede Principale",
+    "schedule": "Lunedì a Venerdì 9:00 - 18:00 hs"
+  },
+  "footer": {
+    "tagline": "Tecnologia che ti accompagna",
+    "copyright": "© 2025 Neil Climatizadores. Tutti i diritti riservati.",
+    "linkPrivacy": "Politica sulla Privacy",
+    "linkTerms": "Termini e Condizioni",
+    "linkDealers": "Rivenditori",
+    "linkSupport": "Supporto Tecnico",
+    "contactTitle": "Contatti",
+    "followTitle": "Seguici"
+  },
+  "salesProposal": {
+    "badge": "PROPOSTA COMMERCIALE",
+    "disclaimer": "Questa sezione è temporanea e non sarà visibile al cliente finale",
+    "headline": "Neil merita una presenza digitale all'altezza della sua innovazione",
+    "legacyTitle": "Sito attuale",
+    "newTitle": "Nuova proposta",
+    "impactTitle": "Impatto sul business",
+    "automationsTitle": "Automazioni per area",
+    "consultingCta": "Vedi altri progetti di automazione",
+    "signatureLabel": "Preparato da"
+  }
+}

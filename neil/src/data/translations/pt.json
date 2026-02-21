@@ -1,0 +1,165 @@
+{
+  "lang": "Português",
+  "langCode": "pt",
+  "nav": {
+    "products": "Produtos",
+    "about": "Sobre Nós",
+    "preCooling": "Pré-Resfriamento",
+    "europe": "Europa",
+    "contact": "Contato",
+    "store": "Loja Online",
+    "cta": "Solicitar Orçamento"
+  },
+  "hero": {
+    "headline": "Inovação e Conforto",
+    "highlight": "para Cada Veículo",
+    "subheadline": "Especialistas em climatização evaporativa, ar-condicionado e aquecimento para motorhomes, caminhões e veículos especiais. Tecnologia patenteada para o máximo conforto.",
+    "cta": "Ver Produtos",
+    "ctaSecondary": "Fale Conosco",
+    "statYears": "Anos de experiência",
+    "statDealers": "Revendedores oficiais",
+    "statCategories": "Categorias de produtos",
+    "statLanguages": "Idiomas de suporte"
+  },
+  "about": {
+    "sectionLabel": "Nossa História",
+    "title": "30 anos liderando a climatização veicular",
+    "description": "Na Neil Climatizadores, nos dedicamos há mais de 30 anos ao design, fabricação e instalação de climatizadores evaporativos para veículos. Destacamo-nos pelo nosso inovador «Sistema de Pré-Resfriamento» (Patente AR-031005B1), uma conquista tecnológica única nos mercados latino-americano e europeu.",
+    "description2": "Desde o início, mantivemos um foco firme com objetivos claros: Qualidade, Desenvolvimento, Serviço e Compromisso. Mantemo-nos firmes em nosso compromisso com o meio ambiente, desenvolvendo produtos que otimizam a eficiência energética.",
+    "pillars": [
+      { "title": "Qualidade", "desc": "Os melhores materiais e tecnologia avançada para máxima qualidade em cada produto." },
+      { "title": "Desenvolvimento", "desc": "Constantemente em busca de novas tecnologias para melhorar cada dia a qualidade dos nossos equipamentos." },
+      { "title": "Serviço", "desc": "Oferecemos o melhor atendimento aos nossos clientes com respostas claras a cada consulta." },
+      { "title": "Compromisso", "desc": "Melhoria contínua e compromisso permanente com o cliente e o meio ambiente." }
+    ],
+    "qualityPolicy": "Política de Qualidade",
+    "qualityDesc": "Nossa organização está comprometida com a melhoria contínua da eficácia do nosso sistema, antecipando possíveis não conformidades para garantir um maior nível de satisfação do cliente.",
+    "mediaTitle": "Neil na mídia",
+    "mediaSub": "Reconhecido pelos líderes do setor de transporte e motorhome"
+  },
+  "products": {
+    "sectionLabel": "Nossos Produtos",
+    "title": "Soluções para cada necessidade",
+    "subtitle": "Climatizadores evaporativos, ar-condicionado, caldeiras e energia para motorhomes, caminhões e veículos especiais.",
+    "categories": {
+      "climatizadores": {
+        "title": "Climatizadores Evaporativos",
+        "subtitle": "Sistema de Pré-Resfriamento Exclusivo",
+        "description": "Climatizadores evaporativos com o exclusivo Sistema de Pré-Resfriamento (Patente AR-031005B1). Ultra-planos, 100% silenciosos e baixo consumo.",
+        "badge": "Patente Exclusiva"
+      },
+      "aire-acondicionado": {
+        "title": "Ar-Condicionado",
+        "subtitle": "Tecnologia Inverter 12V/24V",
+        "description": "Ar-condicionados com tecnologia Inverter 12V e 24V para motorhomes e caminhões. Alta eficiência com baixo consumo de bateria.",
+        "badge": "Inverter"
+      },
+      "calderas": {
+        "title": "Aquecedores Diesel",
+        "subtitle": "Aquecimento eficiente 12V/24V",
+        "description": "Aquecedores diesel de alta eficiência para veículos. Funcionamento 100% silencioso sem necessidade de manter o motor ligado e máximo conforto no inverno.",
+        "badge": "Diesel"
+      },
+      "energia": {
+        "title": "Energia & Solar",
+        "subtitle": "Geradores portáteis",
+        "description": "Linhas Genki e Bluetti de geradores solares portáteis, kits solares e estações de carregamento. Energia autônoma para suas aventuras.",
+        "badge": "Solar"
+      },
+      "accesorios": {
+        "title": "Acessórios",
+        "subtitle": "Mais para o seu veículo",
+        "description": "Macaco elétrico 12V e sistema TPMS de monitoramento de pressão dos pneus. Soluções práticas para o viajante exigente.",
+        "badge": "12V"
+      }
+    },
+    "specsTitle": "Especificações",
+    "viewMore": "Ver mais",
+    "buyNow": "Comprar",
+    "newBadge": "Novo",
+    "patentedBadge": "Patenteado"
+  },
+  "preCooling": {
+    "sectionLabel": "Tecnologia Exclusiva",
+    "title": "Sistema de Pré-Resfriamento",
+    "highlight": "Patente AR-031005B1",
+    "description": "O exclusivo Sistema de Pré-Resfriamento, patenteado pela Neil (Patente: AR-031005B1), alcança máximo poder de resfriamento mantendo um clima fresco e agradável no interior do veículo.",
+    "description2": "Ao contrário dos climatizadores convencionais, o sistema de Pré-Resfriamento ativa um pré-resfriamento da água antes de sua distribuição, obtendo temperaturas significativamente mais baixas com o mesmo consumo energético.",
+    "features": [
+      { "title": "Máximo Resfriamento", "desc": "Temperatura até 8°C mais baixa do que os sistemas convencionais" },
+      { "title": "100% Silencioso", "desc": "Bombas Brushless de última geração, sem ruído ou vibração" },
+      { "title": "Baixo Consumo", "desc": "Eficiência energética superior, prolonga a vida da bateria" },
+      { "title": "Anti-Derramamento", "desc": "Sistema vedado que evita derramamentos de água em curvas e frenagens" }
+    ],
+    "cta": "Ver Climatizadores"
+  },
+  "europe": {
+    "sectionLabel": "Presença Internacional",
+    "title": "Neil na Europa",
+    "description": "Os climatizadores Neil são comercializados em todo o continente europeu para o exigente mercado de motorhomes. Seu excelente desempenho, baixo consumo de bateria e estética incomparável os tornam um complemento ideal para aventuras em autocaravana.",
+    "description2": "Contamos com revendedores oficiais na França, Itália, Espanha, Portugal, Alemanha e Reino Unido, fornecendo suporte técnico e garantia em cada país.",
+    "cta": "Encontrar Revendedor",
+    "dealersTitle": "Revendedores Oficiais",
+    "countries": ["França", "Itália", "Espanha", "Portugal", "Alemanha", "Reino Unido"]
+  },
+  "contact": {
+    "sectionLabel": "Vamos conversar",
+    "title": "Fale Conosco",
+    "subtitle": "Estamos disponíveis para consultas técnicas, orçamentos e suporte em todos os nossos mercados.",
+    "formTypes": [
+      { "id": "consulta", "label": "Consulta Geral" },
+      { "id": "cotizacion", "label": "Solicitar Orçamento" },
+      { "id": "soporte", "label": "Suporte Técnico" },
+      { "id": "revendedor", "label": "Quero ser Revendedor" }
+    ],
+    "fields": {
+      "name": "Nome completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "country": "País",
+      "vehicle": "Tipo de veículo",
+      "product": "Produto de interesse",
+      "message": "Mensagem",
+      "type": "Tipo de consulta"
+    },
+    "placeholders": {
+      "name": "Seu nome",
+      "email": "voce@email.com",
+      "phone": "+55 11 XXXX-XXXX",
+      "country": "Seu país",
+      "vehicle": "Motorhome, Caminhão, Van...",
+      "product": "Slim Full, HDK 2800...",
+      "message": "Conte-nos como podemos ajudá-lo..."
+    },
+    "cta": "Enviar Consulta",
+    "sending": "Enviando...",
+    "success": "Consulta enviada! Responderemos em menos de 24 horas.",
+    "error": "Erro ao enviar. Por favor tente novamente.",
+    "whatsappSales": "WhatsApp Vendas",
+    "whatsappSupport": "WhatsApp Suporte",
+    "storeLink": "Comprar na Loja Online",
+    "addressTitle": "Sede Principal",
+    "schedule": "Segunda a Sexta 9:00 - 18:00 hs"
+  },
+  "footer": {
+    "tagline": "Tecnologia que te acompanha",
+    "copyright": "© 2025 Neil Climatizadores. Todos os direitos reservados.",
+    "linkPrivacy": "Política de Privacidade",
+    "linkTerms": "Termos e Condições",
+    "linkDealers": "Revendedores",
+    "linkSupport": "Suporte Técnico",
+    "contactTitle": "Contato",
+    "followTitle": "Siga-nos"
+  },
+  "salesProposal": {
+    "badge": "PROPOSTA COMERCIAL",
+    "disclaimer": "Esta seção é temporária e não será visível para o cliente final",
+    "headline": "Neil merece uma presença digital à altura da sua inovação",
+    "legacyTitle": "Site atual",
+    "newTitle": "Nova proposta",
+    "impactTitle": "Impacto no negócio",
+    "automationsTitle": "Automações por área",
+    "consultingCta": "Ver mais projetos de automação",
+    "signatureLabel": "Preparado por"
+  }
+}
