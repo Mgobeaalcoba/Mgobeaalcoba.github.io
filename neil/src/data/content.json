@@ -3,7 +3,14 @@
     "siteName": "Neil Climatizadores",
     "siteUrl": "https://neil.com.ar",
     "language": "es",
-    "availableLangs": ["es", "en", "it", "fr", "pt", "de"],
+    "availableLangs": [
+      "es",
+      "en",
+      "it",
+      "fr",
+      "pt",
+      "de"
+    ],
     "googleSiteVerification": ""
   },
   "brand": {
@@ -12,7 +19,7 @@
     "tagline": "Tecnología que te acompaña",
     "founded": "1990s",
     "yearsOfExperience": "30+",
-    "logo": "/neil-site/images/logo-neil.png",
+    "logo": "/neil-site/images/logo-neil-transparent.png",
     "logo02": "/neil-site/images/logo-neil-02.png",
     "faviconN": "/neil-site/favicon.png",
     "patent": "AR-031005B1",
@@ -35,10 +42,22 @@
       "/neil-site/images/caldera.png"
     ],
     "stats": [
-      { "value": "30+", "labelKey": "hero.statYears" },
-      { "value": "100s", "labelKey": "hero.statDealers" },
-      { "value": "5", "labelKey": "hero.statCategories" },
-      { "value": "6", "labelKey": "hero.statLanguages" }
+      {
+        "value": "30+",
+        "labelKey": "hero.statYears"
+      },
+      {
+        "value": "100s",
+        "labelKey": "hero.statDealers"
+      },
+      {
+        "value": "5",
+        "labelKey": "hero.statCategories"
+      },
+      {
+        "value": "6",
+        "labelKey": "hero.statLanguages"
+      }
     ]
   },
   "products": {
@@ -54,45 +73,67 @@
             "id": "slim-full",
             "name": "Slim Full",
             "image": "/neil-site/images/slim-full.png",
-            "specs": { "height": "9cm", "airflow": "700 m³/h", "voltage": "12V/24V", "controlType": "Bluetooth APP" }
+            "specs": {
+              "height": "9cm",
+              "airflow": "700 m³/h",
+              "voltage": "12V/24V",
+              "controlType": "Bluetooth APP"
+            }
           },
           {
             "id": "master",
             "name": "Master",
             "image": "/neil-site/images/master.png",
-            "specs": { "voltage": "12V/24V", "controlType": "Digital" }
+            "specs": {
+              "voltage": "12V/24V",
+              "controlType": "Digital"
+            }
           },
           {
             "id": "camper",
             "name": "Neil Camper",
             "image": "/neil-site/images/slim-full.png",
-            "specs": { "voltage": "12V/24V", "controlType": "Digital" }
+            "specs": {
+              "voltage": "12V/24V",
+              "controlType": "Digital"
+            }
           },
           {
             "id": "camper-patagonia",
             "name": "Camper Patagonia",
             "image": "/neil-site/images/slim-full.png",
-            "specs": { "voltage": "12V/24V", "controlType": "Digital" },
+            "specs": {
+              "voltage": "12V/24V",
+              "controlType": "Digital"
+            },
             "badge": "new"
           },
           {
             "id": "camper-solar",
             "name": "Camper Solar",
             "image": "/neil-site/images/slim-full.png",
-            "specs": { "voltage": "12V/24V", "controlType": "Digital + Solar" },
+            "specs": {
+              "voltage": "12V/24V",
+              "controlType": "Digital + Solar"
+            },
             "badge": "new"
           },
           {
             "id": "premium-700",
             "name": "Premium 700",
             "image": "/neil-site/images/master.png",
-            "specs": { "airflow": "700 m³/h", "voltage": "12V/24V" }
+            "specs": {
+              "airflow": "700 m³/h",
+              "voltage": "12V/24V"
+            }
           },
           {
             "id": "essence",
             "name": "Essence",
             "image": "/neil-site/images/master.png",
-            "specs": { "voltage": "12V/24V" }
+            "specs": {
+              "voltage": "12V/24V"
+            }
           }
         ]
       },
@@ -107,19 +148,31 @@
             "id": "hdk2200",
             "name": "HDK 2200",
             "image": "/neil-site/images/hdk-2200.png",
-            "specs": { "voltage": "12V/24V", "application": "Motorhome", "technology": "Inverter" }
+            "specs": {
+              "voltage": "12V/24V",
+              "application": "Motorhome",
+              "technology": "Inverter"
+            }
           },
           {
             "id": "hdk2800",
             "name": "HDK 2800",
             "image": "/neil-site/images/hdk-2800.png",
-            "specs": { "voltage": "12V/24V", "application": "Camiones", "technology": "Inverter" }
+            "specs": {
+              "voltage": "12V/24V",
+              "application": "Camiones",
+              "technology": "Inverter"
+            }
           },
           {
             "id": "hdk3300",
             "name": "HDK 3300",
             "image": "/neil-site/images/hdk-3300.png",
-            "specs": { "voltage": "24V", "application": "Camiones", "technology": "Inverter" }
+            "specs": {
+              "voltage": "24V",
+              "application": "Camiones",
+              "technology": "Inverter"
+            }
           }
         ]
       },
@@ -169,19 +222,28 @@
             "id": "genki-800",
             "name": "Genki 800W",
             "image": "/neil-site/images/genki.png",
-            "specs": { "power": "800W", "recharge": "Red / Auto / Solar" }
+            "specs": {
+              "power": "800W",
+              "recharge": "Red / Auto / Solar"
+            }
           },
           {
             "id": "genki-1200",
             "name": "Genki 1200W",
             "image": "/neil-site/images/genki.png",
-            "specs": { "power": "1200W", "recharge": "Red / Auto / Solar" }
+            "specs": {
+              "power": "1200W",
+              "recharge": "Red / Auto / Solar"
+            }
           },
           {
             "id": "kit-solar",
             "name": "Kit Solar Neil",
             "image": "/neil-site/images/kit-solar.png",
-            "specs": { "power": "360W", "regulator": "MPPT 40A" }
+            "specs": {
+              "power": "360W",
+              "regulator": "MPPT 40A"
+            }
           }
         ]
       },
@@ -195,13 +257,18 @@
             "id": "carjack",
             "name": "Carjack 12V",
             "image": "/neil-site/images/carjack.png",
-            "specs": { "voltage": "12V", "type": "Gato eléctrico" }
+            "specs": {
+              "voltage": "12V",
+              "type": "Gato eléctrico"
+            }
           },
           {
             "id": "tpms",
             "name": "TPMS",
             "image": "/neil-site/images/tpms.png",
-            "specs": { "type": "Medidor de presión de neumáticos" }
+            "specs": {
+              "type": "Medidor de presión de neumáticos"
+            }
           }
         ]
       }
@@ -230,8 +297,16 @@
       "country": "Argentina",
       "fullAddress": "Av. Bicentenario 459, Merlo, Bs. As."
     },
-    "emails": ["info@neil.com.ar", "ventas@neil.com.ar", "sales@neil.com.ar"],
-    "phones": ["(54-220) 486-5578", "(54-11) 6385 0209", "0800-222-0177"],
+    "emails": [
+      "info@neil.com.ar",
+      "ventas@neil.com.ar",
+      "sales@neil.com.ar"
+    ],
+    "phones": [
+      "(54-220) 486-5578",
+      "(54-11) 6385 0209",
+      "0800-222-0177"
+    ],
     "whatsapp": {
       "sales": "https://wa.me/5491143850209",
       "support": "https://wa.me/5492204865578"
@@ -245,10 +320,22 @@
   },
   "footer": {
     "links": [
-      { "key": "footer.linkPrivacy", "url": "https://neil.com.ar/politica-de-privacidad/" },
-      { "key": "footer.linkTerms", "url": "https://neil.com.ar/terminos-y-condiciones/" },
-      { "key": "footer.linkDealers", "url": "https://neil.com.ar/revendedores/" },
-      { "key": "footer.linkSupport", "url": "https://neil.com.ar/soporte-tecnico/" }
+      {
+        "key": "footer.linkPrivacy",
+        "url": "https://neil.com.ar/politica-de-privacidad/"
+      },
+      {
+        "key": "footer.linkTerms",
+        "url": "https://neil.com.ar/terminos-y-condiciones/"
+      },
+      {
+        "key": "footer.linkDealers",
+        "url": "https://neil.com.ar/revendedores/"
+      },
+      {
+        "key": "footer.linkSupport",
+        "url": "https://neil.com.ar/soporte-tecnico/"
+      }
     ]
   },
   "automations": {
@@ -262,10 +349,22 @@
         "Lead recibe email de confirmación personalizado en su idioma"
       ],
       "techStack": [
-        { "name": "n8n", "role": "Orquestador de workflows" },
-        { "name": "Gmail API", "role": "Notificaciones automáticas" },
-        { "name": "Google Sheets", "role": "Registro de leads" },
-        { "name": "WhatsApp Business API", "role": "Alertas al equipo de ventas" }
+        {
+          "name": "n8n",
+          "role": "Orquestador de workflows"
+        },
+        {
+          "name": "Gmail API",
+          "role": "Notificaciones automáticas"
+        },
+        {
+          "name": "Google Sheets",
+          "role": "Registro de leads"
+        },
+        {
+          "name": "WhatsApp Business API",
+          "role": "Alertas al equipo de ventas"
+        }
       ],
       "benefits": [
         "Respuesta en < 5 minutos al cliente",
@@ -283,10 +382,22 @@
         "Seguimiento automático a las 48hs si no hay respuesta"
       ],
       "techStack": [
-        { "name": "n8n", "role": "Generación de flujo de cotización" },
-        { "name": "PDF API", "role": "Generación de cotización en PDF" },
-        { "name": "Gmail API", "role": "Envío automatizado" },
-        { "name": "Airtable / CRM", "role": "Seguimiento de oportunidades" }
+        {
+          "name": "n8n",
+          "role": "Generación de flujo de cotización"
+        },
+        {
+          "name": "PDF API",
+          "role": "Generación de cotización en PDF"
+        },
+        {
+          "name": "Gmail API",
+          "role": "Envío automatizado"
+        },
+        {
+          "name": "Airtable / CRM",
+          "role": "Seguimiento de oportunidades"
+        }
       ],
       "benefits": [
         "Cotización automática en minutos",
@@ -319,10 +430,22 @@
     },
     "impactTitle": "Impacto en el negocio",
     "impactItems": [
-      { "value": "−80%", "label": "Tiempo de respuesta a leads" },
-      { "value": "×3", "label": "Conversión de visitante a cotización" },
-      { "value": "$0", "label": "Hosting anual" },
-      { "value": "6", "label": "Idiomas para mercado global" }
+      {
+        "value": "−80%",
+        "label": "Tiempo de respuesta a leads"
+      },
+      {
+        "value": "×3",
+        "label": "Conversión de visitante a cotización"
+      },
+      {
+        "value": "$0",
+        "label": "Hosting anual"
+      },
+      {
+        "value": "6",
+        "label": "Idiomas para mercado global"
+      }
     ],
     "departments": [
       {
