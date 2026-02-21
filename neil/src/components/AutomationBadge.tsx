@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, X, CheckCircle } from 'lucide-react';
@@ -8,6 +8,103 @@ import type { AutomationEntry } from '@/types/content';
 
 interface Props {
   automation: AutomationEntry;
+}
+
+// Portal-based modal: AnimatePresence lives INSIDE the portal so Framer Motion
+// can track enter/exit without being disrupted by the portal boundary.
+function AutomationModal({ automation, onClose }: { automation: AutomationEntry; onClose: () => void }) {
+  // Prevent body scroll while open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return createPortal(
+    <>
+      {/* Backdrop */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998]"
+        onClick={onClose}
+      />
+
+      {/* Centering wrapper — flex centering is independent of Framer Motion transforms */}
+      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4 pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          className="w-full max-w-lg pointer-events-auto"
+        >
+          <div className="bg-navy-800 border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/60 max-h-[85vh] overflow-y-auto">
+            <div className="flex items-start justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-orange-neil/20 flex items-center justify-center">
+                  <Zap className="text-orange-neil" size={18} />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg leading-tight">{automation.title}</h3>
+                  <p className="text-slate-500 text-xs">n8n · Automatización activa</p>
+                </div>
+              </div>
+              <button
+                onClick={onClose}
+                className="text-slate-500 hover:text-white transition-colors p-1"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Steps */}
+            <div className="mb-5">
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Flujo automático</p>
+              <div className="space-y-2">
+                {automation.steps.map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-neil/20 border border-orange-neil/30 flex items-center justify-center">
+                      <span className="text-orange-neil text-xs font-bold">{i + 1}</span>
+                    </div>
+                    <p className="text-slate-300 text-sm leading-relaxed">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tech stack */}
+            <div className="mb-5">
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Stack tecnológico</p>
+              <div className="flex flex-wrap gap-2">
+                {automation.techStack.map((tech) => (
+                  <div key={tech.name} className="px-3 py-1.5 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 text-xs">
+                    <span className="text-cyan-accent font-semibold">{tech.name}</span>
+                    <span className="text-slate-400 ml-1">· {tech.role}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div>
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Beneficios</p>
+              <div className="space-y-2">
+                {automation.benefits.map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-cyan-accent flex-shrink-0" />
+                    <p className="text-slate-300 text-sm">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </>,
+    document.body
+  );
 }
 
 export default function AutomationBadge({ automation }: Props) {
@@ -23,91 +120,13 @@ export default function AutomationBadge({ automation }: Props) {
         Automatización
       </button>
 
+      {/* AnimatePresence wraps the component, not the portal call */}
       <AnimatePresence>
-        {open && typeof document !== 'undefined' && createPortal(
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998]"
-              onClick={() => setOpen(false)}
-            />
-
-            {/* Centering wrapper — no transforms so Framer Motion doesn't conflict */}
-            <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4 pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-lg pointer-events-auto"
-            >
-              <div className="bg-navy-800 border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/60 max-h-[85vh] overflow-y-auto">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-orange-neil/20 flex items-center justify-center">
-                      <Zap className="text-orange-neil" size={18} />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-bold text-lg leading-tight">{automation.title}</h3>
-                      <p className="text-slate-500 text-xs">n8n · Automatización activa</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="text-slate-500 hover:text-white transition-colors p-1"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-
-                {/* Steps */}
-                <div className="mb-5">
-                  <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Flujo automático</p>
-                  <div className="space-y-2">
-                    {automation.steps.map((step, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-neil/20 border border-orange-neil/30 flex items-center justify-center">
-                          <span className="text-orange-neil text-xs font-bold">{i + 1}</span>
-                        </div>
-                        <p className="text-slate-300 text-sm leading-relaxed">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Tech stack */}
-                <div className="mb-5">
-                  <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Stack tecnológico</p>
-                  <div className="flex flex-wrap gap-2">
-                    {automation.techStack.map((tech) => (
-                      <div key={tech.name} className="px-3 py-1.5 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 text-xs">
-                        <span className="text-cyan-accent font-semibold">{tech.name}</span>
-                        <span className="text-slate-400 ml-1">· {tech.role}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Benefits */}
-                <div>
-                  <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-3">Beneficios</p>
-                  <div className="space-y-2">
-                    {automation.benefits.map((benefit, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle size={14} className="text-cyan-accent flex-shrink-0" />
-                        <p className="text-slate-300 text-sm">{benefit}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            </div>
-          </>,
-          document.body
+        {open && (
+          <AutomationModal
+            automation={automation}
+            onClose={() => setOpen(false)}
+          />
         )}
       </AnimatePresence>
     </>
