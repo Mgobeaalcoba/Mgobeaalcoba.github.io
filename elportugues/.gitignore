@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Next.js build output (intermediate — el output final va a /elportugues-site/)
+.next/
+out/
+
+# Environment (contiene URLs de n8n y GA4 — NO subir)
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
