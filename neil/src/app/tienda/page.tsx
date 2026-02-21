@@ -331,12 +331,14 @@ function AutomationModal({ automation, onClose }: { automation: StoreAutomation;
         className="fixed inset-0 bg-black/75 backdrop-blur-sm z-[9998]"
         onClick={onClose}
       />
+      {/* Centering wrapper — no transforms so Framer Motion doesn't interfere */}
+      <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '1rem', pointerEvents: 'none' }}>
       <motion.div
         initial={{ opacity: 0, scale: 0.92, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.92, y: 24 }}
         transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-        style={{ position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999, width: '100%', maxWidth: '34rem', padding: '0 1rem' }}
+        style={{ width: '100%', maxWidth: '34rem', pointerEvents: 'auto' }}
       >
         <div className="bg-[#0d1829] border border-white/10 rounded-3xl shadow-2xl shadow-black/60 max-h-[88vh] overflow-y-auto">
           {/* Header */}
@@ -406,6 +408,7 @@ function AutomationModal({ automation, onClose }: { automation: StoreAutomation;
           </div>
         </div>
       </motion.div>
+      </div>
     </>,
     document.body
   );

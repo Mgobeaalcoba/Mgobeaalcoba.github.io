@@ -35,13 +35,14 @@ export default function AutomationBadge({ automation }: Props) {
               onClick={() => setOpen(false)}
             />
 
-            {/* Modal — centered via portal, no parent transform interference */}
+            {/* Centering wrapper — no transforms so Framer Motion doesn't conflict */}
+            <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '1rem', pointerEvents: 'none' }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999, width: '100%', maxWidth: '32rem', padding: '0 1rem' }}
+              style={{ width: '100%', maxWidth: '32rem', pointerEvents: 'auto' }}
             >
               <div className="bg-navy-800 border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/60 max-h-[85vh] overflow-y-auto">
                 <div className="flex items-start justify-between mb-6">
@@ -104,6 +105,7 @@ export default function AutomationBadge({ automation }: Props) {
                 </div>
               </div>
             </motion.div>
+            </div>
           </>,
           document.body
         )}
