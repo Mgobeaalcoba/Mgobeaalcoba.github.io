@@ -332,13 +332,13 @@ function AutomationModal({ automation, onClose }: { automation: StoreAutomation;
         onClick={onClose}
       />
       {/* Centering wrapper — no transforms so Framer Motion doesn't interfere */}
-      <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '1rem', pointerEvents: 'none' }}>
+      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4 pointer-events-none">
       <motion.div
         initial={{ opacity: 0, scale: 0.92, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.92, y: 24 }}
         transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-        style={{ width: '100%', maxWidth: '34rem', pointerEvents: 'auto' }}
+        className="w-full max-w-lg pointer-events-auto"
       >
         <div className="bg-[#0d1829] border border-white/10 rounded-3xl shadow-2xl shadow-black/60 max-h-[88vh] overflow-y-auto">
           {/* Header */}

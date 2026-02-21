@@ -36,13 +36,13 @@ export default function AutomationBadge({ automation }: Props) {
             />
 
             {/* Centering wrapper — no transforms so Framer Motion doesn't conflict */}
-            <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '1rem', pointerEvents: 'none' }}>
+            <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ width: '100%', maxWidth: '32rem', pointerEvents: 'auto' }}
+              className="w-full max-w-lg pointer-events-auto"
             >
               <div className="bg-navy-800 border border-white/10 rounded-3xl p-6 shadow-2xl shadow-black/60 max-h-[85vh] overflow-y-auto">
                 <div className="flex items-start justify-between mb-6">
