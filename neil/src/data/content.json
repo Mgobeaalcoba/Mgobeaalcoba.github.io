@@ -36,9 +36,8 @@
   },
   "hero": {
     "backgroundImages": [
-      "/neil-site/images/slim-full.png",
-      "/neil-site/images/hdk-2200.png",
-      "/neil-site/images/hdk-2200-v2.png",
+      "/neil-site/images/hero-climatizadores.jpg",
+      "/neil-site/images/hero-aire.jpg",
       "/neil-site/images/caldera.png"
     ],
     "stats": [
