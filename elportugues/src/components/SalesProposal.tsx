@@ -7,6 +7,7 @@ import {
   CheckCircle2, XCircle, ExternalLink, Zap, TrendingUp, AlertTriangle,
   type LucideProps,
 } from 'lucide-react';
+import { trackConsultingClick } from '@/lib/gtag';
 import type { SalesProposal as SalesProposalData } from '@/types/content';
 
 interface SalesProposalProps {
@@ -239,6 +240,7 @@ export default function SalesProposal({ data }: SalesProposalProps) {
               href={data.consultingUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackConsultingClick}
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#0CC1C1] text-black font-bold text-sm hover:bg-[#14e8e8] transition-colors duration-200 shadow-lg shadow-cyan-accent/20"
             >
               {data.consultingCta}

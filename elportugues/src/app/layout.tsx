@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import ContentRepository from '@/services/contentService';
-import { GA_MEASUREMENT_ID } from '@/lib/gtag';
+
+// GA property compartido con mgobeaalcoba.github.io — mismo panel, tráfico separado por page_location
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-DG0SLT5RY3';
 
 const { description, keywords, siteName } = ContentRepository.getMeta();
 
@@ -35,22 +37,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        {GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });
-              `}
-            </Script>
-          </>
-        )}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              page_path: window.location.pathname,
+              custom_map: {
+                dimension1: 'site_section',
+                dimension2: 'client_name'
+              }
+            });
+            gtag('set', { 'site_section': 'elportugues', 'client_name': 'El Portugues SA' });
+          `}
+        </Script>
       </head>
       <body className="bg-black text-white antialiased">{children}</body>
     </html>

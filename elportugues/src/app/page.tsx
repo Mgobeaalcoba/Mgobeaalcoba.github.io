@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 import SalesProposal from '@/components/SalesProposal';
 import Footer from '@/components/Footer';
 import ScrollTracker from '@/components/ScrollTracker';
+import ProposalCTA from '@/components/ProposalCTA';
 
 export default function HomePage() {
   const hero = ContentRepository.getHero();
@@ -29,6 +30,7 @@ export default function HomePage() {
   return (
     <>
       <ScrollTracker />
+      <ProposalCTA />
       <Navbar links={footer.links} brandName={brand.name} logo={brand.logo} />
       <main>
         <Hero data={hero} />

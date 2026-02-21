@@ -86,4 +86,62 @@ body {
   background: linear-gradient(90deg, #0CC1C1, transparent);
 }
 
+/* ── Proposal CTA Button ─────────────────────────────────────── */
+@keyframes ctaGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ctaRing {
+  0%   { background-position: 0% 50%; opacity: 0.8; }
+  50%  { background-position: 100% 50%; opacity: 1; }
+  100% { background-position: 0% 50%; opacity: 0.8; }
+}
+
+@keyframes ctaPulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.proposal-cta-btn {
+  min-width: 100px;
+}
+
+.proposal-cta-bg {
+  background: linear-gradient(
+    135deg,
+    #0CC1C1,
+    #2D4F8F,
+    #7C3AED,
+    #0CC1C1,
+    #059669,
+    #D97706,
+    #0CC1C1
+  );
+  background-size: 400% 400%;
+  animation: ctaGradient 3s ease infinite;
+}
+
+.proposal-cta-ring {
+  background: linear-gradient(
+    135deg,
+    #0CC1C1,
+    #7C3AED,
+    #D97706,
+    #059669,
+    #0CC1C1
+  );
+  background-size: 400% 400%;
+  animation: ctaRing 2.5s ease infinite;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+.proposal-pulse {
+  border: 2px solid rgba(12, 193, 193, 0.8);
+  animation: ctaPulse 2s ease-out infinite;
+}
+
 
