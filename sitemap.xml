@@ -91,4 +91,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+  <!-- Next.js migrated routes -->
+  <url>
+    <loc>https://mgobeaalcoba.github.io/cv-site/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/cv-site/consulting/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/cv-site/blog/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mgobeaalcoba.github.io/cv-site/recursos/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset> 

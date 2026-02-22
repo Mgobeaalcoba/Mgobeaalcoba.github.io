@@ -1,0 +1,153 @@
+3:I[9275,[],""]
+5:I[1343,[],""]
+6:I[4080,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],""]
+7:I[5064,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],"ThemeProvider"]
+8:I[8155,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],"LanguageProvider"]
+4:["slug","dbt-analytics-engineering","d"]
+0:["08lYOBk8r1W2jzpC3pV_g",[[["",{"children":["blog",{"children":[["slug","dbt-analytics-engineering","d"],{"children":["__PAGE__?{\"slug\":\"dbt-analytics-engineering\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","dbt-analytics-engineering","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/cv-site/_next/static/css/b17aae8afacf69dc.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L9"]]]]]
+a:I[3655,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+b:I[1592,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+c:I[231,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],""]
+e:I[5190,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+d:T101d,<h2>El Antes y Después de dbt</h2>
+<p>Antes de dbt, los pipelines de transformación eran un <strong>desastre</strong>:</p>
+<ul>
+<li>SQL scripts en Jupyter notebooks</li>
+<li>Copy-paste de queries</li>
+<li>Zero testing</li>
+<li>Deploy manual con copy-paste a producción</li>
+</ul>
+<p>dbt cambió todo.</p>
+<h2>¿Qué es dbt?</h2>
+<p><strong>Data Build Tool</strong>: Framework para transformaciones SQL con:</p>
+<ul>
+<li>Versionado (Git)</li>
+<li>Testing automático</li>
+<li>Documentación auto-generada</li>
+<li>Lineage de datos</li>
+<li>CI/CD integration</li>
+</ul>
+<h2>Tu Primer Modelo dbt</h2>
+<pre><code class="language-sql">-- models/staging/stg_transactions.sql
+{{
+  config(
+    materialized='view'
+  )
+}}
+
+SELECT
+    transaction_id,
+    user_id,
+    CAST(amount AS FLOAT64) as amount,
+    DATE(created_at) as transaction_date,
+    country_code
+FROM {{ source('raw', 'transactions') }}
+WHERE amount > 0
+</code></pre>
+<h2>Testing Built-in</h2>
+<pre><code class="language-yaml"># models/staging/schema.yml
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Transactions staging table"
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false
+</code></pre>
+<p>Correr tests:</p>
+<pre><code class="language-bash">dbt test --select stg_transactions
+</code></pre>
+<h2>Documentación Automática</h2>
+<pre><code class="language-yaml">models:
+  - name: stg_transactions
+    description: "Cleaned and validated transactions"
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier"
+      - name: user_id
+        description: "Reference to users table"
+</code></pre>
+<p>Generar docs:</p>
+<pre><code class="language-bash">dbt docs generate
+dbt docs serve  # Localhost:8080
+</code></pre>
+<p>Resultado: <strong>Documentación visual con lineage graph</strong>.</p>
+<h2>Incremental Models (Para Tablas Grandes)</h2>
+<pre><code class="language-sql">{{
+  config(
+    materialized='incremental',
+    unique_key='transaction_id'
+  )
+}}
+
+SELECT * FROM {{ source('raw', 'transactions') }}
+
+{% if is_incremental() %}
+  WHERE created_at > (SELECT MAX(created_at) FROM {{ this }})
+{% endif %}
+</code></pre>
+<p>Solo procesa <strong>datos nuevos</strong> en cada corrida.</p>
+<h2>Macros: DRY en SQL</h2>
+<pre><code class="language-sql">-- macros/calculate_margin.sql
+{% macro calculate_margin(revenue, cost) %}
+  ROUND((({{ revenue }} - {{ cost }}) / {{ revenue }}) * 100, 2)
+{% endmacro %}
+
+-- Usar en modelos
+SELECT
+  product_id,
+  {{ calculate_margin('revenue', 'cost') }} as margin_percent
+FROM products
+</code></pre>
+<h2>Deployment con GitHub Actions</h2>
+<pre><code class="language-yaml"># .github/workflows/dbt.yml
+name: dbt CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dbt-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dbt
+        run: pip install dbt-bigquery
+      - name: Run dbt
+        run: |
+          dbt deps
+          dbt test
+          dbt run --target prod
+</code></pre>
+<h2>Por Qué Adoptamos dbt en MercadoLibre</h2>
+<ol>
+<li><strong>Version control</strong>: Todos los cambios en Git</li>
+<li><strong>Testing</strong>: Captura errores antes de producción</li>
+<li><strong>Documentación</strong>: Self-documenting codebase</li>
+<li><strong>Reusabilidad</strong>: Macros eliminan duplicación</li>
+<li><strong>Collaboration</strong>: Analysts y engineers usan mismo tool</li>
+</ol>
+<h2>Alternativas</h2>
+<ul>
+<li><strong>Dataform</strong> (Google, similar syntax)</li>
+<li><strong>SQLMesh</strong> (Más features, más complejo)</li>
+<li><strong>Plain SQL</strong> (No lo hagas en 2026)</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Si hacés analytics engineering y no usás dbt, <strong>estás perdiendo tiempo y dinero</strong>.</p>
+<p>La inversión de aprender dbt se paga en semanas.</p>
+<hr>
+<p><em>¿Implementando dbt? Puedo ayudarte: <a href="https://mgobeaalcoba.github.io/consulting.html">Consultoría BI</a></em></p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$La",null,{}],["$","$Lb",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lc",null,{"href":"/cv-site/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"dbt: La herramienta que cambió el Analytics Engineering"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Por qué dbt se convirtió en el estándar de la industria y cómo empezar a usarlo."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"4 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","dbt",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"dbt"]}],["$","span","analytics-engineering",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"analytics-engineering"]}],["$","span","sql",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"sql"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10","dangerouslySetInnerHTML":{"__html":"$d"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lc",null,{"href":"/cv-site/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lc",null,{"href":"/cv-site/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$Le",null,{}]]}]
+9:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"dbt: La herramienta que cambió el Analytics Engineering | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Por qué dbt se convirtió en el estándar de la industria y cómo empezar a usarlo."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"dbt: La herramienta que cambió el Analytics Engineering"}],["$","meta","11",{"property":"og:description","content":"Por qué dbt se convirtió en el estándar de la industria y cómo empezar a usarlo."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-04-05"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"dbt: La herramienta que cambió el Analytics Engineering"}],["$","meta","19",{"name":"twitter:description","content":"Por qué dbt se convirtió en el estándar de la industria y cómo empezar a usarlo."}],["$","link","20",{"rel":"icon","href":"/cv-site/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+1:null
