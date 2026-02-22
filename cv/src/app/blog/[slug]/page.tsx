@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-300 mb-4">Post no encontrado</h1>
-            <Link href="/cv-site/blog/" className="text-sky-400 hover:text-sky-300">
+            <Link href="/blog/" className="text-sky-400 hover:text-sky-300">
               ← Volver al blog
             </Link>
           </div>
@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         {/* Back link */}
         <Link
-          href="/cv-site/blog/"
+          href="/blog/"
           className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8"
         >
           <ArrowLeft size={14} />
@@ -130,13 +130,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           </p>
           <div className="flex gap-4">
             <Link
-              href="/cv-site/blog/"
+              href="/blog/"
               className="text-sm text-sky-400 hover:text-sky-300 transition-colors"
             >
               ← Otros artículos
             </Link>
             <Link
-              href="/cv-site/consulting/"
+              href="/consulting/"
               className="text-sm text-sky-400 hover:text-sky-300 transition-colors"
             >
               Consultoría →

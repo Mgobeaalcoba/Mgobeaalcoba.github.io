@@ -4,6 +4,10 @@ import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import Hero from '@/components/cv/Hero';
 import About from '@/components/cv/About';
+import ConsultingTeaser from '@/components/cv/ConsultingTeaser';
+import RecursosTeaser from '@/components/cv/RecursosTeaser';
+import Gamification from '@/components/cv/Gamification';
+import DashboardWidgetMini from '@/components/cv/DashboardWidgetMini';
 import Experience from '@/components/cv/Experience';
 import Projects from '@/components/cv/Projects';
 import Education from '@/components/cv/Education';
@@ -19,6 +23,10 @@ export default function HomePage() {
       <Hero />
       <Terminal />
       <About />
+      <ConsultingTeaser />
+      <RecursosTeaser />
+      <Gamification />
+      <DashboardWidgetMini />
       <Experience />
       <Projects />
       <Education />

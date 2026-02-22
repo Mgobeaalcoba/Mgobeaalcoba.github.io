@@ -27,7 +27,7 @@ export default function PostCard({ post, index }: PostCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
     >
-      <Link href={`/cv-site/blog/${post.slug}/`} className="block group">
+      <Link href={`/blog/${post.slug}/`} className="block group">
         <article className="glass rounded-2xl p-6 glow-border hover:scale-[1.01] transition-all duration-200 h-full flex flex-col gap-4">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <span

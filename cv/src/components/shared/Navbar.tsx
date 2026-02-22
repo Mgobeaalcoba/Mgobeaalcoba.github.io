@@ -10,10 +10,10 @@ import type { Theme } from '@/contexts/ThemeContext';
 import Image from 'next/image';
 
 const NAV_LINKS = [
-  { href: '/cv-site/', labelKey: 'nav_portfolio' },
-  { href: '/cv-site/consulting/', labelKey: 'nav_consulting' },
-  { href: '/cv-site/blog/', labelKey: 'nav_blog' },
-  { href: '/cv-site/recursos/', labelKey: 'nav_recursos' },
+  { href: '/', labelKey: 'nav_portfolio' },
+  { href: '/consulting/', labelKey: 'nav_consulting' },
+  { href: '/blog/', labelKey: 'nav_blog' },
+  { href: '/recursos/', labelKey: 'nav_recursos' },
 ];
 
 const THEME_ICONS: Record<Theme, React.ReactNode> = {
@@ -22,6 +22,34 @@ const THEME_ICONS: Record<Theme, React.ReactNode> = {
   terminal: <Terminal size={16} />,
 };
 
+function NavLogo({ isConsultingPage }: { isConsultingPage: boolean }) {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark' || theme === 'terminal';
+
+  if (isConsultingPage) {
+    return (
+      <Image
+        src={isDark ? '/cv-site/consulting-logo-dark.png' : '/cv-site/favicon.png'}
+        alt="MGA Tech Consulting"
+        width={160}
+        height={67}
+        className="h-9 w-auto object-contain"
+        priority
+      />
+    );
+  }
+  return (
+    <Image
+      src={isDark ? '/cv-site/portfolio-logo-dark.png' : '/cv-site/portfolio-logo.png'}
+      alt="MGA Portfolio"
+      width={160}
+      height={67}
+      className="h-9 w-auto object-contain"
+      priority
+    />
+  );
+}
+
 export default function Navbar() {
   const { theme, cycleTheme } = useTheme();
   const { lang, setLang, t } = useLanguage();
@@ -29,14 +57,20 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isConsultingPage = pathname.includes('/consulting') ||
+    pathname.includes('/blog') ||
+    pathname.includes('/recursos');
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isActive = (href: string) =>
-    pathname === href || pathname === href.replace('/cv-site', '');
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/' || pathname === '';
+    return pathname.startsWith(href.replace(/\/$/, ''));
+  };
 
   return (
     <nav
@@ -47,19 +81,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/cv-site/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-sky-500/30">
-              <Image
-                src="/cv-site/logo.png"
-                alt="MGA Logo"
-                width={32}
-                height={32}
-                className="object-cover"
-              />
-            </div>
-            <span className="font-bold text-sky-400 group-hover:text-sky-300 transition-colors">
-              MGA
-            </span>
+          <Link href="/" className="flex items-center group">
+            <NavLogo isConsultingPage={isConsultingPage} />
           </Link>
 
           {/* Desktop nav links */}

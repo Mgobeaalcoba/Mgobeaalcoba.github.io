@@ -81,7 +81,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 mb-8">
               <Link
-                href="/cv-site/consulting/"
+                href="/consulting/"
                 onClick={() => events.consultingClick()}
                 className="flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all duration-200 hover:scale-105"
               >
@@ -121,7 +121,7 @@ export default function Hero() {
                 </a>
               ))}
               <Link
-                href="/cv-site/consulting/"
+                href="/consulting/"
                 className="glass p-2.5 rounded-lg text-gray-400 hover:text-sky-400 border border-transparent transition-all"
                 title="Consulting"
               >

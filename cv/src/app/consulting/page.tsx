@@ -8,6 +8,7 @@ import Services from '@/components/consulting/Services';
 import CaseStudies from '@/components/consulting/CaseStudies';
 import Process from '@/components/consulting/Process';
 import ConsultingContact from '@/components/consulting/ConsultingContact';
+import Testimonials from '@/components/consulting/Testimonials';
 
 export const metadata: Metadata = {
   title: 'Consultoría Tecnológica | Automatización IA & BI para PyMEs',
@@ -28,6 +29,7 @@ export default function ConsultingPage() {
       <ConsultingHero />
       <Services />
       <CaseStudies />
+      <Testimonials />
       <Process />
       <ConsultingContact />
       <NewsletterBanner />
