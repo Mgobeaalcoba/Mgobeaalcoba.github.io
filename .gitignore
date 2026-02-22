@@ -11,9 +11,9 @@
 /elportugues/.next/
 
 # Next.js root-level build artifacts (regenerated on each deploy)
-/icon.png
+# NOTE: icon.png and 404.html MUST be tracked — GitHub Pages serves them from the repo.
+# Only exclude index.txt (RSC manifest, never served to browsers).
 /index.txt
-/404.html
 
 # Build files
 /dist
