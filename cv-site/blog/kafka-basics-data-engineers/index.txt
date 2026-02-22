@@ -1,0 +1,157 @@
+3:I[9275,[],""]
+5:I[1343,[],""]
+6:I[4080,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],""]
+7:I[5064,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],"ThemeProvider"]
+8:I[8155,["185","static/chunks/app/layout-fb60b1be0b9cef95.js"],"LanguageProvider"]
+4:["slug","kafka-basics-data-engineers","d"]
+0:["08lYOBk8r1W2jzpC3pV_g",[[["",{"children":["blog",{"children":[["slug","kafka-basics-data-engineers","d"],{"children":["__PAGE__?{\"slug\":\"kafka-basics-data-engineers\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","kafka-basics-data-engineers","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/cv-site/_next/static/css/b17aae8afacf69dc.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L9"]]]]]
+a:I[3655,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+b:I[1592,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+c:I[231,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],""]
+e:I[5190,["790","static/chunks/790-d05df062d97d6d7c.js","177","static/chunks/177-161dd3e1fcaad9a3.js","308","static/chunks/app/blog/%5Bslug%5D/page-6a61a92d1376cc3b.js"],"default"]
+d:T152e,<h2>¿Qué Es Kafka en Una Frase?</h2>
+<p><strong>Sistema de mensajería distribuido y ultra-rápido</strong> para mover datos en tiempo real entre sistemas.</p>
+<h2>Conceptos Clave</h2>
+<h3>1. Topics</h3>
+<p>Categorías donde se publican mensajes.</p>
+<pre><code class="language-python"># Publicar mensaje a topic "transactions"
+producer.send('transactions', value={'user_id': 123, 'amount': 5000})
+</code></pre>
+<h3>2. Particiones</h3>
+<p>Topics divididos en particiones para <strong>paralelismo</strong>.</p>
+<pre><code>Topic: transactions (3 partitions)
+├── Partition 0: [msg1, msg4, msg7, ...]
+├── Partition 1: [msg2, msg5, msg8, ...]
+└── Partition 2: [msg3, msg6, msg9, ...]
+</code></pre>
+<h3>3. Consumer Groups</h3>
+<p>Múltiples consumers procesando el mismo topic en paralelo.</p>
+<pre><code class="language-python"># Consumer 1 lee partitions 0-1
+# Consumer 2 lee partition 2
+# = 2x throughput
+</code></pre>
+<h2>Producer Example (Python)</h2>
+<pre><code class="language-python">from kafka import KafkaProducer
+import json
+
+producer = KafkaProducer(
+    bootstrap_servers=['localhost:9092'],
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+)
+
+# Enviar mensaje
+producer.send('transactions', {
+    'transaction_id': '123abc',
+    'user_id': 456,
+    'amount': 5000,
+    'timestamp': '2026-05-03T10:30:00Z'
+})
+
+producer.flush()
+</code></pre>
+<h2>Consumer Example</h2>
+<pre><code class="language-python">from kafka import KafkaConsumer
+
+consumer = KafkaConsumer(
+    'transactions',
+    bootstrap_servers=['localhost:9092'],
+    group_id='analytics-group',
+    value_deserializer=lambda m: json.loads(m.decode('utf-8'))
+)
+
+for message in consumer:
+    data = message.value
+    print(f"Processing transaction {data['transaction_id']}")
+    # Tu lógica de procesamiento aquí
+</code></pre>
+<h2>Kafka en Arquitectura Real</h2>
+<pre><code>[Web App] ─┬─> Kafka Topic: "events"
+[Mobile]  ─┤
+[API]     ─┘
+           │
+           ├─> Consumer Group 1 (Real-time analytics)
+           ├─> Consumer Group 2 (BigQuery sink)
+           ├─> Consumer Group 3 (ML predictions)
+           └─> Consumer Group 4 (Alerting system)
+</code></pre>
+<p><strong>Un mensaje → Múltiples consumers independientes.</strong></p>
+<h2>Cuándo Usar Kafka</h2>
+<h3>✅ Casos de Uso Ideales</h3>
+<ol>
+<li><strong>Event Streaming</strong>: Trackear eventos de usuario</li>
+<li><strong>Log Aggregation</strong>: Centralizar logs de múltiples servicios</li>
+<li><strong>CDC (Change Data Capture)</strong>: Replicar cambios de DB</li>
+<li><strong>Microservices Communication</strong>: Desacoplar servicios</li>
+</ol>
+<h3>❌ Cuándo NO Usar Kafka</h3>
+<ol>
+<li><strong>Baja volumetría</strong>: &#x3C;100 mensajes/seg (overkill)</li>
+<li><strong>No necesitás replay</strong>: Queue simple alcanza</li>
+<li><strong>Team chico sin DevOps</strong>: Complejidad operacional alta</li>
+<li><strong>Latencia ultra-baja</strong>: Redis Streams puede ser mejor</li>
+</ol>
+<h2>Kafka vs Alternatives</h2>
+<p>| Feature | Kafka | RabbitMQ | Redis Streams |
+|---------|-------|----------|---------------|
+| <strong>Throughput</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>Latency</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>Durability</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| <strong>Replay</strong> | ⭐⭐⭐⭐⭐ | ❌ | ⭐⭐⭐⭐ |
+| <strong>Complexity</strong> | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |</p>
+<h2>Errores Comunes</h2>
+<h3>1. No Configurar Partitions Key</h3>
+<pre><code class="language-python"># ❌ Sin key: mensajes en particiones random
+producer.send('topic', value=data)
+
+# ✅ Con key: mismo user siempre en misma partition (orden garantizado)
+producer.send('topic', key=str(user_id).encode(), value=data)
+</code></pre>
+<h3>2. No Hacer Commit</h3>
+<pre><code class="language-python"># ❌ Auto-commit puede perder mensajes
+consumer = KafkaConsumer(enable_auto_commit=True)
+
+# ✅ Commit manual después de procesar
+consumer = KafkaConsumer(enable_auto_commit=False)
+
+for message in consumer:
+    process(message.value)
+    consumer.commit()  # Solo commitear si procesamiento exitoso
+</code></pre>
+<h3>3. Ignorar Backpressure</h3>
+<pre><code class="language-python"># ✅ Limitar batch size
+consumer = KafkaConsumer(
+    max_poll_records=100,  # Procesar 100 mensajes máximo por poll
+    max_poll_interval_ms=300000  # 5 minutos para procesar batch
+)
+</code></pre>
+<h2>Setup Rápido con Docker</h2>
+<pre><code class="language-yaml">version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+  
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+</code></pre>
+<p>Levantar:</p>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
+<h2>Conclusión</h2>
+<p>Kafka es intimidante al principio, pero <strong>vale la pena aprenderlo</strong>.</p>
+<p>Es el estándar de facto para streaming de datos en 2026.</p>
+<p>Dominarlo te hace más valioso como data engineer.</p>
+<hr>
+<p><em>¿Implementando Kafka? Te ayudo: <a href="https://mgobeaalcoba.github.io/consulting.html">Servicios de Automatización</a></em></p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$La",null,{}],["$","$Lb",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lc",null,{"href":"/cv-site/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Kafka para Data Engineers: Lo esencial en 10 minutos"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Todo lo que un data engineer necesita saber sobre Kafka sin el ruido."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"2 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","kafka",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"kafka"]}],["$","span","streaming",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"streaming"]}],["$","span","real-time",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"real-time"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10","dangerouslySetInnerHTML":{"__html":"$d"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lc",null,{"href":"/cv-site/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lc",null,{"href":"/cv-site/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$Le",null,{}]]}]
+9:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Kafka para Data Engineers: Lo esencial en 10 minutos | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Todo lo que un data engineer necesita saber sobre Kafka sin el ruido."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Kafka para Data Engineers: Lo esencial en 10 minutos"}],["$","meta","11",{"property":"og:description","content":"Todo lo que un data engineer necesita saber sobre Kafka sin el ruido."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-05-03"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Kafka para Data Engineers: Lo esencial en 10 minutos"}],["$","meta","19",{"name":"twitter:description","content":"Todo lo que un data engineer necesita saber sobre Kafka sin el ruido."}],["$","link","20",{"rel":"icon","href":"/cv-site/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+1:null

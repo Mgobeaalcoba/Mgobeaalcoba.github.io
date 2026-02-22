@@ -1,0 +1,141 @@
+{
+  "videos": [
+    {
+      "id": "video-1",
+      "youtubeId": "u8hgIp-0YIY",
+      "title": {
+        "es": "Aprende Model Context Protocol (MCP) + demo real en Cursor",
+        "en": "Learn Model Context Protocol (MCP) + real Cursor demo"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead en Mercado Libre. Aprende cómo conectar modelos de IA con tus datos mediante Model Context Protocol y ve una demostración práctica en Cursor IDE.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn how to connect AI models with your data using Model Context Protocol and watch a practical demo in Cursor IDE."
+      },
+      "category": "data-engineering",
+      "duration": "31:28",
+      "date": "2026-01-29",
+      "uploadDate": "2026-01-29T02:27:50-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["data-engineering", "architecture", "mcp", "cursor", "ai", "mercadolibre"]
+    },
+    {
+      "id": "video-2",
+      "youtubeId": "_gNzUsDOH1w",
+      "title": {
+        "es": "Cómo crear un sistema RAG con Python + OpenAI (Clase AI Engineering)",
+        "en": "How to build a RAG system with Python + OpenAI (AI Engineering Class)"
+      },
+      "description": {
+        "es": "Clase completa de AI Engineering: aprende a implementar Retrieval Augmented Generation (RAG) con Python y OpenAI para aplicaciones GenAI en producción. Conceptos fundamentales, arquitectura y código práctico.",
+        "en": "Complete AI Engineering class: learn to implement Retrieval Augmented Generation (RAG) with Python and OpenAI for production GenAI applications. Fundamental concepts, architecture and practical code."
+      },
+      "category": "genai",
+      "duration": "55:51",
+      "date": "2025-12-04",
+      "uploadDate": "2025-12-04T03:06:31-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["genai", "rag", "python", "openai", "ai-engineering", "llm"]
+    },
+    {
+      "id": "video-3",
+      "youtubeId": "vi3NEkdZGaI",
+      "title": {
+        "es": "Procesamiento de datos en Python: De CSV a tablas listas para Análisis",
+        "en": "Data Processing in Python: From CSV to Analysis-Ready Tables"
+      },
+      "description": {
+        "es": "Live session sobre procesamiento y transformación de datos con Python. Aprende a convertir archivos CSV a tablas listas para análisis usando Pandas, mejores prácticas de limpieza de datos y optimización de pipelines.",
+        "en": "Live session on data processing and transformation with Python. Learn to convert CSV files to analysis-ready tables using Pandas, data cleaning best practices and pipeline optimization."
+      },
+      "category": "python",
+      "duration": "47:10",
+      "date": "2024-10-10",
+      "uploadDate": "2024-10-10T04:05:38-07:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["python", "pandas", "data-processing", "csv", "data-cleaning", "etl"]
+    },
+    {
+      "id": "video-4",
+      "youtubeId": "Q9dYQVIudbI",
+      "title": {
+        "es": "IA para Marketing | Automatiza y crea contenido con n8n, JinaAI y Notion",
+        "en": "AI for Marketing | Automate and create content with n8n, JinaAI and Notion"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea. Aprende a crear tu propia 'content machine' automatizada usando IA. Integración de n8n, JinaAI y Notion para automatizar la creación de contenido de marketing con inteligencia artificial.",
+        "en": "Live masterclass with Mariano Gobea. Learn to create your own automated 'content machine' using AI. Integration of n8n, JinaAI and Notion to automate marketing content creation with artificial intelligence."
+      },
+      "category": "automation",
+      "duration": "1:04:13",
+      "date": "2026-02-03",
+      "uploadDate": "2026-02-03T15:14:54-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "marketing", "n8n", "notion", "content-creation", "no-code"]
+    },
+    {
+      "id": "video-5",
+      "youtubeId": "H-5wJEDNkLk",
+      "title": {
+        "es": "IA para Ventas: automatiza el research de leads y aumenta respuestas con IA y n8n",
+        "en": "AI for Sales: automate lead research and increase responses with AI and n8n"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead de Mercado Libre. Aprende cómo usar IA para automatizar el research de leads y mejorar la personalización en ventas. A través de un flujo en n8n, cada vez que entra un lead al CRM, la IA investiga la empresa, analiza información relevante y genera un icebreaker personalizado listo para enviar.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn how to use AI to automate lead research and improve sales personalization. Through an n8n workflow, every time a lead enters the CRM, AI researches the company, analyzes relevant information and generates a personalized icebreaker ready to send."
+      },
+      "category": "automation",
+      "duration": "45:28",
+      "date": "2026-02-02",
+      "uploadDate": "2026-02-02T10:00:00-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "sales", "n8n", "crm", "hubspot", "lead-research", "personalization"]
+    },
+    {
+      "id": "video-6",
+      "youtubeId": "zjmdge-1B0M",
+      "title": {
+        "es": "IA para finanzas | Crea tu monitor de tendencias financieras con n8n, JinaAI Y OpenRouter",
+        "en": "AI for Finance | Build your financial trends monitor with n8n, JinaAI and OpenRouter"
+      },
+      "description": {
+        "es": "Masterclass en vivo con Mariano Gobea, Tech Lead de Mercado Libre. Aprende a construir un sistema de monitoreo financiero automático con IA que analiza noticias 24/7, detecta señales relevantes y te envía alertas solo cuando realmente pasa algo importante. Una clase práctica para entender cómo aplicar IA y automatización en finanzas reales, trabajando con datos no estructurados y sistemas inteligentes.",
+        "en": "Live masterclass with Mariano Gobea, Tech Lead at Mercado Libre. Learn to build an automatic financial monitoring system with AI that analyzes news 24/7, detects relevant signals and sends you alerts only when something important really happens. A practical class to understand how to apply AI and automation in real finance, working with unstructured data and intelligent systems."
+      },
+      "category": "automation",
+      "duration": "39:33",
+      "date": "2026-02-04",
+      "uploadDate": "2026-02-04T10:34:46-08:00",
+      "channel": "Henry",
+      "featured": true,
+      "tags": ["automation", "ai", "finance", "n8n", "monitoring", "financial-news", "openrouter", "jinaai"]
+    }
+  ],
+  "playlists": [
+    {
+      "id": "playlist-python-data",
+      "name": "Serie: Python para Data Engineering",
+      "description": "Serie completa de tutoriales de Python aplicado a ingeniería de datos",
+      "videos": ["video-placeholder-1", "video-placeholder-2"],
+      "thumbnail": ""
+    },
+    {
+      "id": "playlist-mercadolibre",
+      "name": "Insights desde MercadoLibre",
+      "description": "Experiencias y aprendizajes trabajando en una de las tech companies más grandes de Latinoamérica",
+      "videos": ["video-placeholder-1", "video-placeholder-3"],
+      "thumbnail": ""
+    }
+  ],
+  "metadata": {
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-06",
+    "totalVideos": 6,
+    "dataSource": "YouTube - Real metadata extracted via browser automation",
+    "note": "All video metadata (dates, durations, titles) verified directly from YouTube as of 2026-02-06. Dates are in ISO 8601 format (YYYY-MM-DD) for consistency."
+  }
+}

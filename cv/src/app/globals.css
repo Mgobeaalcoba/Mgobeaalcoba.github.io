@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   CSS CUSTOM PROPERTIES — THEME SYSTEM
+   ================================================================ */
+
+:root {
+  --bg: #111827;
+  --bg-card: rgba(31, 41, 55, 0.5);
+  --text: #d1d5db;
+  --text-secondary: #9ca3af;
+  --primary: #38bdf8;
+  --border: rgba(255, 255, 255, 0.1);
+  --scrollbar-thumb: #4b5563;
+  --scrollbar-track: #374151;
+}
+
+html.light-mode {
+  --bg: #f9fafb;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --text: #1f2937;
+  --text-secondary: #4b5563;
+  --primary: #0ea5e9;
+  --border: rgba(0, 0, 0, 0.1);
+  --scrollbar-thumb: #d1d5db;
+  --scrollbar-track: #e5e7eb;
+}
+
+html.terminal-mode {
+  --bg: #0a0a0a;
+  --bg-card: rgba(0, 255, 0, 0.05);
+  --text: #00ff00;
+  --text-secondary: #00cc00;
+  --primary: #00ff00;
+  --border: rgba(0, 255, 0, 0.2);
+}
+
+/* ================================================================
+   BASE STYLES
+   ================================================================ */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================================================================
+   CUSTOM SCROLLBAR
+   ================================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* ================================================================
+   GLASS MORPHISM UTILITIES
+   ================================================================ */
+
+.glass {
+  backdrop-filter: blur(12px);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.glow-border {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+/* ================================================================
+   GRADIENT TEXT
+   ================================================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================================
+   DECORATIVE GRID BACKGROUND
+   ================================================================ */
+
+.grid-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   TIMELINE STYLES
+   ================================================================ */
+
+.timeline-line {
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #38bdf8, rgba(56, 189, 248, 0.1));
+}
+
+/* ================================================================
+   TERMINAL STYLES
+   ================================================================ */
+
+.terminal-font {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ================================================================
+   PRINT STYLES FOR PDF
+   ================================================================ */
+
+@media print {
+  nav,
+  .no-print,
+  .terminal-section {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print-section {
+    break-inside: avoid;
+  }
+}
+
+/* ================================================================
+   SECTION ANIMATIONS (Framer Motion complement)
+   ================================================================ */
+
+.section-title {
+  @apply text-2xl font-bold mb-8;
+  color: var(--primary);
+}
+
+/* ================================================================
+   LIGHT MODE OVERRIDES
+   ================================================================ */
+
+html.light-mode .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light-mode .glow-border {
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+html.light-mode .gradient-text {
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ================================================================
+   TERMINAL MODE OVERRIDES
+   ================================================================ */
+
+html.terminal-mode body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+html.terminal-mode .glass {
+  background: rgba(0, 255, 0, 0.05);
+  border-color: rgba(0, 255, 0, 0.2);
+}
+
+html.terminal-mode .gradient-text {
+  background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
