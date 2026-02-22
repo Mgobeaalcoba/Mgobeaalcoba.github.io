@@ -2,6 +2,7 @@ import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 import Hero from '@/components/cv/Hero';
 import About from '@/components/cv/About';
 import ConsultingTeaser from '@/components/cv/ConsultingTeaser';
@@ -28,6 +29,7 @@ export default function HomePage() {
       <Contact />
       <NewsletterBanner />
       <Footer />
+      <FloatingCTA label="Agenda un espacio conmigo" site_section="cv" />
     </main>
   );
 }

@@ -73,6 +73,7 @@ export default function NewsletterBanner() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onFocus={() => events.newsletterFormFocus(typeof window !== 'undefined' ? window.location.pathname : '/')}
                 placeholder={t('newsletter_placeholder')}
                 className="flex-1 glass px-4 py-2 rounded-lg text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-sky-500 border border-white/10"
                 required

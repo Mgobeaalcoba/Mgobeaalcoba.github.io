@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import { events } from '@/lib/gtag';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
@@ -19,30 +20,37 @@ import Testimonials from '@/components/consulting/Testimonials';
 import Process from '@/components/consulting/Process';
 import ConsultingContact from '@/components/consulting/ConsultingContact';
 import ProposalModal from '@/components/consulting/ProposalModal';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 
 export default function ConsultingPageClient() {
   const [proposalOpen, setProposalOpen] = useState(false);
 
+  const openProposal = useCallback(() => {
+    events.proposalModalOpen();
+    setProposalOpen(true);
+  }, []);
+
   return (
     <main className="min-h-screen relative">
-      <ScrollTracker />
+      <ScrollTracker site_section="consulting" />
       <Navbar />
-      <ConsultingHero onOpenProposal={() => setProposalOpen(true)} />
+      <ConsultingHero onOpenProposal={openProposal} />
       <ParadigmShift />
-      <FreeOfferBanner onOpenProposal={() => setProposalOpen(true)} />
+      <FreeOfferBanner onOpenProposal={openProposal} />
       <ValuePropositions />
       <Services />
       <SuccessStories />
       <PricingOverview />
       <CaseStudies />
       <ClientPortfolio />
-      <AboutConsulting onOpenProposal={() => setProposalOpen(true)} />
+      <AboutConsulting onOpenProposal={openProposal} />
       <Testimonials />
       <Process />
       <ConsultingContact />
       <NewsletterBanner />
       <Footer />
       <ProposalModal isOpen={proposalOpen} onClose={() => setProposalOpen(false)} />
+      <FloatingCTA label="Conozcámonos" site_section="consulting" />
     </main>
   );
 }

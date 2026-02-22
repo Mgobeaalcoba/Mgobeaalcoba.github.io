@@ -4,6 +4,7 @@ import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import BlogClientPage from './BlogClientPage';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 import { getAllPostsMeta, getCategories } from '@/lib/blog';
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function BlogPage() {
       <BlogClientPage posts={posts} categories={categories} />
       <NewsletterBanner />
       <Footer />
+      <FloatingCTA label="Quiero saber más" site_section="blog" />
     </main>
   );
 }

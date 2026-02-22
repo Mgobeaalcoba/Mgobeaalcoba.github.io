@@ -3,7 +3,11 @@
 import { useEffect, useRef } from 'react';
 import { events } from '@/lib/gtag';
 
-export default function ScrollTracker() {
+interface ScrollTrackerProps {
+  site_section?: string;
+}
+
+export default function ScrollTracker({ site_section = 'cv' }: ScrollTrackerProps) {
   const reported = useRef(new Set<number>());
 
   useEffect(() => {
@@ -18,14 +22,14 @@ export default function ScrollTracker() {
       THRESHOLDS.forEach((threshold) => {
         if (percent >= threshold && !reported.current.has(threshold)) {
           reported.current.add(threshold);
-          events.scrollDepth(threshold);
+          events.scrollDepth(threshold, site_section);
         }
       });
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [site_section]);
 
   // Section view tracking via IntersectionObserver
   useEffect(() => {
@@ -37,7 +41,7 @@ export default function ScrollTracker() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const name = entry.target.getAttribute('data-section') || '';
-            events.sectionView(name);
+            events.sectionView(name, site_section);
             observer.unobserve(entry.target);
           }
         });
@@ -47,7 +51,7 @@ export default function ScrollTracker() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [site_section]);
 
   return null;
 }

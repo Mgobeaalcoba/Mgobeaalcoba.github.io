@@ -2,10 +2,12 @@
 
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Calendar, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Calendar, Send, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 import CalendlyButton from '@/components/shared/CalendlyButton';
+
+const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/recibir-email';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -13,11 +15,44 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [started, setStarted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFirstFocus = () => {
+    if (!started) {
+      setStarted(true);
+      events.contactFormStart('cv');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    events.leadFormSent('cv');
-    setSent(true);
+    if (loading) return;
+    setLoading(true);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          source: 'cv-portfolio-contact',
+          form_type: 'contact_portfolio',
+          page: typeof window !== 'undefined' ? window.location.pathname : '/',
+          timestamp: new Date().toISOString(),
+          userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+          language: typeof document !== 'undefined' ? document.documentElement.lang : 'es',
+        }),
+        signal: AbortSignal.timeout(10000),
+      });
+    } catch {
+      // Show success even on network error to avoid user frustration
+    } finally {
+      setLoading(false);
+      events.leadFormSent('cv', 'contact_portfolio');
+      setSent(true);
+    }
   };
 
   return (
@@ -97,8 +132,10 @@ export default function Contact() {
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    onFocus={handleFirstFocus}
                     className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
                     required
+                    disabled={loading}
                   />
                 </div>
                 <div>
@@ -107,8 +144,10 @@ export default function Contact() {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onFocus={handleFirstFocus}
                     className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
                     required
+                    disabled={loading}
                   />
                 </div>
                 <div>
@@ -116,16 +155,19 @@ export default function Contact() {
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    onFocus={handleFirstFocus}
                     rows={4}
                     className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors resize-none"
                     required
+                    disabled={loading}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm disabled:opacity-70"
                 >
-                  <Send size={15} />
+                  {loading ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
                   {t('contact_send')}
                 </button>
               </form>

@@ -4,6 +4,7 @@ import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import RecursosClient from './RecursosClient';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 
 export const metadata: Metadata = {
   title: 'Recursos Financieros | Calculadoras y Dashboard Argentina',
@@ -28,6 +29,7 @@ export default function RecursosPage() {
       <RecursosClient />
       <NewsletterBanner />
       <Footer />
+      <FloatingCTA label="Conóceme más" site_section="recursos" />
     </main>
   );
 }
