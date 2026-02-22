@@ -29,7 +29,7 @@ export default function HomePage() {
       <Contact />
       <NewsletterBanner />
       <Footer />
-      <FloatingCTA label="Agenda un espacio conmigo" site_section="cv" />
+      <FloatingCTA labelKey="floating_cta_cv" site_section="cv" />
     </main>
   );
 }

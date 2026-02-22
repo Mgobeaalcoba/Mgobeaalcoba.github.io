@@ -50,7 +50,7 @@ export default function ConsultingPageClient() {
       <NewsletterBanner />
       <Footer />
       <ProposalModal isOpen={proposalOpen} onClose={() => setProposalOpen(false)} />
-      <FloatingCTA label="Conozcámonos" site_section="consulting" />
+      <FloatingCTA labelKey="floating_cta_consulting" site_section="consulting" />
     </main>
   );
 }

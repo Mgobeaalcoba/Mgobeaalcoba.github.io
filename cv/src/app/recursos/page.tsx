@@ -29,7 +29,7 @@ export default function RecursosPage() {
       <RecursosClient />
       <NewsletterBanner />
       <Footer />
-      <FloatingCTA label="Conóceme más" site_section="recursos" />
+      <FloatingCTA labelKey="floating_cta_recursos" site_section="recursos" />
     </main>
   );
 }

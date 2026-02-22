@@ -29,7 +29,7 @@ export default function BlogPage() {
       <BlogClientPage posts={posts} categories={categories} />
       <NewsletterBanner />
       <Footer />
-      <FloatingCTA label="Quiero saber más" site_section="blog" />
+      <FloatingCTA labelKey="floating_cta_blog" site_section="blog" />
     </main>
   );
 }
