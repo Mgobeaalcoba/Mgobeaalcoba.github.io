@@ -321,15 +321,17 @@ function formatInput(n: number): string {
   return Math.round(n).toLocaleString('es-AR');
 }
 
-function DoughnutChart({ netMonthly, aportes, tax, gross }: {
-  netMonthly: number; aportes: number; tax: number; gross: number;
+function DoughnutChart({ netMonthly, aportes, tax }: {
+  netMonthly: number; aportes: number; tax: number;
 }) {
+  // Always derive the total from the actual components so the chart is always 100%.
+  const gross = netMonthly + aportes + tax;
   if (gross <= 0) return null;
   const r = 38;
   const circ = 2 * Math.PI * r;
-  const netPct = Math.max(0, Math.min(1, netMonthly / gross));
-  const aportesPct = Math.max(0, Math.min(1, aportes / gross));
-  const taxPct = Math.max(0, Math.min(1, tax / gross));
+  const netPct = netMonthly / gross;
+  const aportesPct = aportes / gross;
+  const taxPct = tax / gross;
 
   const netLen = netPct * circ;
   const aportesLen = aportesPct * circ;
@@ -422,9 +424,10 @@ export default function TaxCalculator() {
     setResult(calculateTax(scenario.inputs));
   };
 
+  // Recalculate whenever any input changes so result is always in sync.
   useEffect(() => {
     setResult(calculateTax(inputs));
-  }, []);
+  }, [inputs]);
 
   return (
     <div className="space-y-6">
@@ -691,7 +694,6 @@ export default function TaxCalculator() {
                     netMonthly={Math.max(0, result.netMonthly)}
                     aportes={result.aportesMensuales}
                     tax={Math.max(0, result.monthlyTax)}
-                    gross={inputs.grossSalary}
                   />
                 </div>
               </div>
