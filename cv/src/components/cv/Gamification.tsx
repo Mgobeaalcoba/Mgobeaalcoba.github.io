@@ -1,11 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CheckCircle } from 'lucide-react';
+import ReqQuestModal from '@/components/cv/ReqQuestModal';
 
 export default function Gamification() {
   const { lang } = useLanguage();
+  const [gameOpen, setGameOpen] = useState(false);
 
   return (
     <motion.section
@@ -95,14 +98,12 @@ export default function Gamification() {
             ))}
           </div>
 
-          <a
-            href="https://mgobeaalcoba.github.io/ing_req_game.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setGameOpen(true)}
             className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
           >
             🎮 {lang === 'es' ? 'Jugar Ahora' : 'Play Now'}
-          </a>
+          </button>
 
           <p className="text-xs text-gray-500 italic text-center mt-3">
             {lang === 'es'
@@ -111,6 +112,8 @@ export default function Gamification() {
           </p>
         </div>
       </div>
+
+      <ReqQuestModal isOpen={gameOpen} onClose={() => setGameOpen(false)} />
     </motion.section>
   );
 }
