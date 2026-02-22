@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.',
     images: [
       {
-        url: 'https://mgobeaalcoba.github.io/cv-site/logo.png',
+        url: 'https://mgobeaalcoba.github.io/images/logo.png',
         width: 1200,
         height: 630,
         alt: 'Mariano Gobea Alcoba',
@@ -43,8 +43,7 @@ export const metadata: Metadata = {
     creator: '@MGobeaAlcoba',
   },
   icons: {
-    icon: '/cv-site/favicon.png',
-    apple: '/cv-site/favicon.png',
+    apple: '/images/favicon-192.png',
   },
   robots: {
     index: true,

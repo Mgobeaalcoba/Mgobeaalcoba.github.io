@@ -1,0 +1,257 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+6:I[84080,["223","static/chunks/223-af2330a6fb348319.js","185","static/chunks/app/layout-d6f26fcc1963b964.js"],""]
+7:I[45064,["223","static/chunks/223-af2330a6fb348319.js","185","static/chunks/app/layout-d6f26fcc1963b964.js"],"ThemeProvider"]
+8:I[78155,["223","static/chunks/223-af2330a6fb348319.js","185","static/chunks/app/layout-d6f26fcc1963b964.js"],"LanguageProvider"]
+9:I[74541,["223","static/chunks/223-af2330a6fb348319.js","185","static/chunks/app/layout-d6f26fcc1963b964.js"],"default"]
+a:I[78458,["411","static/chunks/411-492359e6f17b6d31.js","878","static/chunks/878-a29680cbe3281057.js","160","static/chunks/app/not-found-a80cb46b8408a4ea.js"],"default"]
+4:["slug","genai-produccion-checklist","d"]
+0:["1yWWZt11NwQckGZvaqICa",[[["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__?{\"slug\":\"genai-produccion-checklist\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$La",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/2aa5050433ce7d19.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lb"]]]]]
+c:I[53655,["411","static/chunks/411-492359e6f17b6d31.js","324","static/chunks/324-b7d1f52fa65230ef.js","177","static/chunks/177-d3f1f7ea96e8e7b0.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+d:I[61592,["411","static/chunks/411-492359e6f17b6d31.js","324","static/chunks/324-b7d1f52fa65230ef.js","177","static/chunks/177-d3f1f7ea96e8e7b0.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[231,["411","static/chunks/411-492359e6f17b6d31.js","324","static/chunks/324-b7d1f52fa65230ef.js","177","static/chunks/177-d3f1f7ea96e8e7b0.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+10:I[65190,["411","static/chunks/411-492359e6f17b6d31.js","324","static/chunks/324-b7d1f52fa65230ef.js","177","static/chunks/177-d3f1f7ea96e8e7b0.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:T21a3,<h2>La Realidad de GenAI en Producción</h2>
+<p>Hacer un demo de ChatGPT es fácil. <strong>Llevarlo a producción sin que explote es otra cosa.</strong></p>
+<p>He visto proyectos de GenAI fallar por cosas básicas que nadie chequeó antes del deploy.</p>
+<h2>Pre-Deploy Checklist</h2>
+<h3>1. Rate Limits &#x26; Throttling</h3>
+<pre><code class="language-python">from ratelimit import limits, sleep_and_retry
+
+@sleep_and_retry
+@limits(calls=50, period=60)  # 50 llamadas por minuto
+def call_llm(prompt):
+    return openai.ChatCompletion.create(...)
+</code></pre>
+<p><strong>Por qué:</strong> Las APIs de LLM tienen límites estrictos.</p>
+<h3>2. Timeout Configuration</h3>
+<pre><code class="language-python">import openai
+openai.api_timeout = 30  # 30 segundos máximo
+
+# Con manejo de timeout
+try:
+    response = openai.ChatCompletion.create(...)
+except openai.error.Timeout:
+    logger.warning("LLM timeout, usando fallback")
+    return fallback_response()
+</code></pre>
+<h3>3. Cost Monitoring</h3>
+<pre><code class="language-python"># Trackear tokens por request
+def track_llm_cost(prompt_tokens, completion_tokens, model="gpt-4"):
+    costs = {
+        "gpt-4": {"input": 0.03, "output": 0.06},  # por 1K tokens
+        "gpt-3.5-turbo": {"input": 0.0005, "output": 0.0015}
+    }
+    
+    cost = (prompt_tokens / 1000 * costs[model]["input"] +
+            completion_tokens / 1000 * costs[model]["output"])
+    
+    # Log a metrics system
+    metrics.increment('llm_cost_usd', cost)
+</code></pre>
+<h3>4. Prompt Versioning</h3>
+<pre><code class="language-python">PROMPTS = {
+    "v1": "Clasifica este email: {text}",
+    "v2": "Sos un clasificador experto. Email: {text}. Categorías: [spam, importante, normal]"
+}
+
+# Usar versiones para A/B testing
+response = call_llm(PROMPTS["v2"].format(text=email_text))
+</code></pre>
+<h3>5. Output Validation</h3>
+<pre><code class="language-python">from pydantic import BaseModel
+
+class LLMResponse(BaseModel):
+    category: str
+    confidence: float
+    reasoning: str
+
+# Validar siempre la respuesta
+try:
+    validated = LLMResponse.parse_raw(llm_output)
+except ValidationError:
+    logger.error("LLM returned invalid format")
+    return fallback_response()
+</code></pre>
+<h3>6. Fallback Strategy</h3>
+<pre><code class="language-python">def classify_with_fallback(text):
+    try:
+        # Intentar LLM
+        return classify_with_llm(text)
+    except Exception as e:
+        logger.warning(f"LLM failed: {e}, using rule-based fallback")
+        return classify_with_rules(text)  # Fallback tradicional
+</code></pre>
+<h3>7. Content Moderation</h3>
+<pre><code class="language-python">from better_profanity import profanity
+
+def moderate_input(text):
+    if profanity.contains_profanity(text):
+        raise ValueError("Contenido inapropiado detectado")
+    
+    if len(text) > 5000:  # Límite razonable
+        raise ValueError("Input demasiado largo")
+    
+    return text
+</code></pre>
+<h3>8. PII Detection</h3>
+<pre><code class="language-python">import re
+
+def remove_pii(text):
+    # Email
+    text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '[EMAIL]', text)
+    
+    # Teléfono argentino
+    text = re.sub(r'\+?54\s?9?\s?\d{2,4}\s?\d{4}\s?\d{4}', '[PHONE]', text)
+    
+    # DNI
+    text = re.sub(r'\b\d{8}\b', '[DNI]', text)
+    
+    return text
+</code></pre>
+<h3>9. Caching Inteligente</h3>
+<pre><code class="language-python">import hashlib
+import redis
+
+cache = redis.Redis()
+
+def cached_llm_call(prompt, ttl=3600):
+    # Hash del prompt
+    cache_key = hashlib.md5(prompt.encode()).hexdigest()
+    
+    # Check cache
+    cached = cache.get(cache_key)
+    if cached:
+        return cached.decode()
+    
+    # Call LLM
+    response = call_llm(prompt)
+    
+    # Save to cache
+    cache.setex(cache_key, ttl, response)
+    
+    return response
+</code></pre>
+<h3>10. Retry Logic con Exponential Backoff</h3>
+<pre><code class="language-python">from tenacity import retry, stop_after_attempt, wait_exponential
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=2, max=10)
+)
+def call_llm_with_retry(prompt):
+    return openai.ChatCompletion.create(...)
+</code></pre>
+<h3>11. Monitoring &#x26; Alerting</h3>
+<pre><code class="language-python"># Métricas clave a trackear
+metrics = {
+    'llm_calls_total': Counter(),
+    'llm_errors_total': Counter(),
+    'llm_latency_seconds': Histogram(),
+    'llm_cost_usd': Gauge(),
+    'llm_tokens_used': Counter()
+}
+
+def monitored_llm_call(prompt):
+    start_time = time.time()
+    
+    try:
+        metrics['llm_calls_total'].inc()
+        response = call_llm(prompt)
+        metrics['llm_latency_seconds'].observe(time.time() - start_time)
+        return response
+    except Exception as e:
+        metrics['llm_errors_total'].inc()
+        raise
+</code></pre>
+<h3>12. Multimodal Support</h3>
+<pre><code class="language-python">def call_llm_with_image(prompt, image_url):
+    return openai.ChatCompletion.create(
+        model="gpt-4-vision",
+        messages=[{
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url": image_url}
+            ]
+        }]
+    )
+</code></pre>
+<h3>13. Token Estimation (Antes de llamar)</h3>
+<pre><code class="language-python">def estimate_tokens(text):
+    # Aproximación: ~4 caracteres por token
+    return len(text) // 4
+
+def is_prompt_too_expensive(prompt, max_cost=0.10):
+    estimated_tokens = estimate_tokens(prompt)
+    estimated_cost = estimated_tokens / 1000 * 0.03  # GPT-4 input
+    
+    if estimated_cost > max_cost:
+        raise ValueError(f"Prompt demasiado costoso: ${estimated_cost:.2f}")
+    
+    return True
+</code></pre>
+<h3>14. A/B Testing de Prompts</h3>
+<pre><code class="language-python">import random
+
+def get_prompt_variant():
+    variants = ["v1", "v2", "v3"]
+    return random.choice(variants)
+
+# Log para comparar performance
+variant = get_prompt_variant()
+response = call_llm(PROMPTS[variant].format(text=input_text))
+
+metrics.record('prompt_variant', variant, {
+    'success': response.success,
+    'user_satisfaction': calculate_satisfaction(response)
+})
+</code></pre>
+<h3>15. Graceful Degradation</h3>
+<pre><code class="language-python">def smart_classification(text):
+    # Intentar orden de menor a mayor costo
+    
+    # 1. Rule-based (gratis, rápido)
+    if simple_rules_can_handle(text):
+        return rule_based_classify(text)
+    
+    # 2. Small model (barato)
+    try:
+        return call_llm(text, model="gpt-3.5-turbo")
+    except Exception:
+        pass
+    
+    # 3. Large model (costoso, solo si es necesario)
+    try:
+        return call_llm(text, model="gpt-4")
+    except Exception:
+        # 4. Fallback final
+        return default_classification()
+</code></pre>
+<h2>Checklist Completo</h2>
+<p>Antes de deploy a producción:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Rate limits configurados</li>
+<li class="task-list-item"><input type="checkbox" disabled> Timeouts definidos</li>
+<li class="task-list-item"><input type="checkbox" disabled> Cost monitoring activo</li>
+<li class="task-list-item"><input type="checkbox" disabled> Prompts versionados</li>
+<li class="task-list-item"><input type="checkbox" disabled> Output validation implementada</li>
+<li class="task-list-item"><input type="checkbox" disabled> Fallback strategy funcional</li>
+<li class="task-list-item"><input type="checkbox" disabled> Content moderation activa</li>
+<li class="task-list-item"><input type="checkbox" disabled> PII detection implementada</li>
+<li class="task-list-item"><input type="checkbox" disabled> Cache configurado</li>
+<li class="task-list-item"><input type="checkbox" disabled> Retry logic con backoff</li>
+<li class="task-list-item"><input type="checkbox" disabled> Monitoring &#x26; alerting activos</li>
+<li class="task-list-item"><input type="checkbox" disabled> Multimodal support (si aplica)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Token estimation habilitado</li>
+<li class="task-list-item"><input type="checkbox" disabled> A/B testing preparado</li>
+<li class="task-list-item"><input type="checkbox" disabled> Graceful degradation implementada</li>
+</ul>
+<h2>Conclusión</h2>
+<p>GenAI en producción requiere <strong>ingeniería sólida</strong>, no solo buenas prompts.</p>
+<p>Estos 15 puntos son la diferencia entre un POC y un sistema production-ready.</p>
+<hr>
+<p><em>¿Implementando GenAI? Consultame: <a href="https://mgobeaalcoba.github.io/consulting.html">Servicios de Consultoría</a></em></p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Lc",null,{}],["$","$Ld",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Le",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}],["$","span","llm",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"llm"]}],["$","span","production",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"production"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Le",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Le",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L10",null,{}]]}]
+b:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"GenAI en Producción: Checklist de 15 puntos antes de deploy | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","meta","11",{"property":"og:description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-03-08"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","meta","19",{"name":"twitter:description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

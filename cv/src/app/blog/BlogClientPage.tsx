@@ -41,7 +41,29 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
             <BookOpen size={28} className="text-sky-400" />
             <h1 className="text-4xl font-black gradient-text">{t('blog_title')}</h1>
           </div>
-          <p className="text-gray-400 text-lg max-w-2xl">{t('blog_subtitle')}</p>
+          <p className="text-gray-400 text-lg max-w-2xl mb-6">{t('blog_subtitle')}</p>
+
+          {/* Quick Navigation */}
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#videos"
+              className="flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/30 text-red-400 rounded-full text-sm font-medium hover:bg-red-500/30 transition-all"
+            >
+              🎬 {lang === 'es' ? 'Videos de YouTube' : 'YouTube Videos'}
+            </a>
+            <a
+              href="#posts"
+              className="flex items-center gap-2 px-4 py-2 bg-sky-500/20 border border-sky-500/30 text-sky-400 rounded-full text-sm font-medium hover:bg-sky-500/30 transition-all"
+            >
+              📝 {lang === 'es' ? 'Artículos' : 'Articles'}
+            </a>
+            <a
+              href="#latest"
+              className="flex items-center gap-2 px-4 py-2 glass border border-white/10 text-gray-400 rounded-full text-sm font-medium hover:text-white transition-all"
+            >
+              🆕 {lang === 'es' ? 'Más recientes' : 'Most recent'}
+            </a>
+          </div>
         </motion.div>
       </section>
 
@@ -78,9 +100,14 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
         </div>
       </section>
 
+      {/* Videos section */}
+      <div id="videos">
+        <VideoSection />
+      </div>
+
       {/* Posts grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <section id="posts" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-20">
+        <div id="latest" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filtered.map((post, i) => (
             <PostCard key={post.slug} post={post} index={i} />
           ))}
@@ -92,9 +119,6 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
           </div>
         )}
       </section>
-
-      {/* Videos section */}
-      <VideoSection />
     </>
   );
 }

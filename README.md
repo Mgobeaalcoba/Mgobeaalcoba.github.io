@@ -1,454 +1,135 @@
-# Mariano Gobea Alcoba - Interactive CV & Consulting Portfolio
+# Mgobeaalcoba.github.io — Multi-Site Portfolio
 
-Una moderna plataforma web de CV/portfolio interactivo con servicios de consultoría integrados, que muestra la experiencia como Data & Analytics Technical Leader en Mercado Libre y servicios profesionales de consultoría.
-
-## 🚀 Características Principales
-
-### 🆕 **NUEVAS FEATURES V3.0 (2026) - TRAFFIC GROWTH**
-- **Dashboard de Salud Económica**: Comparador visual de inversiones (Plazo Fijo vs Dólar MEP vs Inflación) con datos en tiempo real
-- **Blog Técnico**: "Data Engineering en las Trincheras" con posts en Markdown y videos YouTube
-- **Simulador Sueldo**: Calculadora inversa (Neto → Bruto) para negociaciones salariales
-- **Newsletter System**: "The Data Digest" con banner footer y popup inteligente
-
-### ⚡ **RENDIMIENTO OPTIMIZADO (2024)**
-- **Bundle Size Reducido**: -40% (315KB → 190KB inicial)
-- **Code Splitting**: Módulos cargados bajo demanda
-- **Lazy Loading**: Imágenes diferidas (300KB+ solo cuando se necesiten)
-- **Logging Condicional**: Sin logs en producción
-- **Zero Duplicación**: Código duplicado eliminado completamente
-
-### 🏗️ **ARQUITECTURA MODERNA**
-- **Modular Design**: Separación clara de responsabilidades
-- **ES6+ Modules**: Import/export estructura limpia
-- **Dynamic Imports**: Carga diferida para features opcionales
-- **Centralized Services**: Logger, Mobile Menu, Image Optimizer
-- **Translation Loader**: Sistema de traducciones lazy loading
-
-### 🎯 Core Features
-- **Interactive Terminal Mode**: Interfaz de línea de comandos con comandos personalizados
-- **Matrix Effect**: Efecto visual inspirado en The Matrix (carga dinámica)
-- **Multi-language Support**: Sistema completo de traducción ES/EN con lazy loading
-- **Theme Switching**: Temas Dark, Light y Terminal
-- **Responsive Design**: Optimizado para todos los dispositivos
-- **PDF Export**: Descarga de CV como PDF
-- **Interactive Timeline**: Timeline interactivo de experiencia
-- **Project Filtering**: Filtros de proyectos por tecnología
-- **Analytics Integration**: Integración con Google Analytics
-
-### 🆕 Consulting Features
-- **Dedicated Consulting Page**: Showcase completo de servicios (`consulting.html`)
-- **Interactive Service Packs**: Presentaciones modales detalladas
-- **Case Studies**: Ejemplos reales de automatización e IA
-- **Process Visualization**: Metodología paso a paso
-- **Bilingual Content**: Traducción completa ES/EN para todo el contenido de consultoría
-- **Modal System**: Interacciones modales avanzadas
-- **Integrated Navigation**: Flujo perfecto entre CV y páginas de consultoría
-- **Recursos Útiles**: Herramientas y calculadoras (`recursos.html`)
-
-### ✨ **Nuevas Features 2026 - Traffic & Engagement**
-
-#### 📊 Dashboard de Salud Económica
-Herramienta interactiva para comparar tasas anuales de inversiones en Argentina:
-- **Comparación Visual**: TNA Plazo Fijo vs Devaluación Dólar vs Inflación IPC
-- **Períodos Flexibles**: 3, 6 o 12 meses (tasas anuales mes a mes)
-- **Datos Realistas**: Inflación bajando gradualmente (tendencia 2025-2026)
-- **Gráfico Interactivo**: Chart.js con evolución mensual de tasas
-- **Compartir Social**: Exporta imagen del dashboard para redes
-- **Widget Resumen**: Mini dashboard en homepage
-- **Cache Inteligente**: 30 minutos para performance óptima
-
-#### 📝 Blog: Data Engineering en las Trincheras
-Sistema de blog completo con contenido técnico y educativo:
-- **Posts en Markdown**: Sistema de publicación con frontmatter YAML
-- **Categorías**: Data Engineering, Python, Automatización, Business Intelligence
-- **Videos YouTube**: Masterclass y tutoriales embebidos
-- **Filtros Dinámicos**: Por categoría y tags
-- **SEO Optimizado**: Meta tags, Open Graph, structured data
-- **Posts Relacionados**: Sugerencias basadas en categoría y tags
-- **Share Buttons**: Twitter, LinkedIn, copy link
-
-**Posts Completos** (17 totales):
-- Optimización de queries SQL en MercadoLibre
-- Python para automatizar declaración de Ganancias
-- Errores comunes en pipelines de datos
-- Guía para negociación salarial IT 2026
-- BigQuery: Reducción de costos 70%
-- GenAI en producción: Checklist 15 puntos
-- Airflow vs Prefect 2026
-- Python Async para pipelines
-- Vector Databases para RAG
-- dbt Analytics Engineering
-- LangChain vs LlamaIndex
-- Pandas vs Polars benchmark
-- Streamlit dashboards
-- Kafka basics
-- ChatGPT API trucos avanzados
-- Docker para data engineers
-- SQL Window Functions
-- +3 posts bonus adicionales
-
-#### 📬 Newsletter "The Data Digest"
-Sistema de captura de audiencia para engagement recurrente:
-- **Banner Footer**: Presente en todas las páginas
-- **Popup Inteligente**: Aparece después de 30s (solo desktop)
-- **Smart Logic**: No molesta si ya está suscrito o cerró popup
-- **Mailchimp Ready**: Integración con servicio de email marketing
-- **Double Opt-in**: GDPR compliant
-- **Analytics Tracking**: Conversiones trackeadas por fuente
-
-**Contenido Semanal Planeado:**
-- 3 noticias clave de Data & IA
-- 1 tip financiero para Argentina
-- Acceso anticipado a nuevo contenido
-
-### 🎯 **Lead Generation System**
-- **Instant Pre-proposal Generation**: Formulario interactivo para crear propuestas PDF personalizadas
-- **Real-time PDF Creation**: Usando html2canvas + jsPDF para documentos profesionales
-- **Multi-channel Contact**: Integración automatizada WhatsApp y Email
-- **Form Validation**: Validación en tiempo real con feedback visual
-- **Personalized Output**: Documentos de propuesta específicos de la empresa
-- **Conversion Optimization**: Proceso optimizado de 3 clics
-
-## 🛠️ Tech Stack
-
-### **Frontend Optimizado**
-- **Core**: HTML5, CSS3, Vanilla JavaScript ES6+ Modules
-- **Styling**: Tailwind CSS + Custom CSS Modules con variables centralizadas
-- **Icons**: Font Awesome
-- **Architecture**: Modular ES6 con separación limpia de responsabilidades
-
-### **Performance & Optimization**
-- **Logger Service**: Sistema de logging condicional dev/prod
-- **Image Optimizer**: Lazy loading con IntersectionObserver
-- **Translation Loader**: Carga bajo demanda de idiomas
-- **Mobile Menu Service**: Sistema centralizado de navegación móvil
-- **Dynamic Imports**: Terminal y features opcionales cargados dinámicamente
-
-### **Integrations**
-- **PDF Generation**: html2canvas + jsPDF
-- **Form Processing**: Validación en tiempo real y generación de contenido dinámico
-- **Contact Integration**: WhatsApp Web API + automatización de cliente de email
-- **Analytics**: Google Analytics
-- **Scheduling**: Integración Calendly
-
-## 📁 Project Structure (Optimizada)
-
-```
-├── index.html              # Página principal CV
-├── consulting.html         # Página de servicios de consultoría
-├── recursos.html          # Página de recursos útiles y calculadoras
-├── assets/
-│   ├── css/
-│   │   ├── main.css        # Estilos principales y variables CSS
-│   │   ├── consulting.css  # Estilos específicos de página de consultoría
-│   │   ├── components.css  # Estilos de componentes reutilizables
-│   │   ├── themes.css      # Estilos específicos de temas
-│   │   ├── terminal.css    # Estilos de modo terminal
-│   │   ├── intro.css       # Estilos de animación de introducción
-│   │   ├── base.css        # Reset y estilos base
-│   │   └── styles.css      # Archivo principal de importación CSS
-│   ├── js/
-│   │   ├── app.js          # Orquestador principal de aplicación
-│   │   ├── init.js         # Script de inicialización principal
-│   │   ├── main.js         # Lógica de aplicación principal
-│   │   ├── consulting.js   # Funcionalidad de página de consultoría
-│   │   ├── logger.js       # ⚡ Sistema de logging condicional
-│   │   ├── mobile-menu.js  # ⚡ Servicio centralizado de menú móvil
-│   │   ├── image-optimizer.js # ⚡ Sistema de optimización de imágenes
-│   │   ├── translation-loader.js # ⚡ Carga lazy de traducciones
-│   │   ├── data-index.js   # ⚡ Datos específicos para index (code splitting)
-│   │   ├── translations.js # Traducciones completas ES/EN
-│   │   ├── terminal.js     # ⚡ Funcionalidad terminal (dynamic import)
-│   │   ├── themes.js       # Gestión de temas
-│   │   ├── intro.js        # Animación de introducción
-│   │   ├── pdf.js          # Generación de PDF
-│   │   ├── utils.js        # Funciones utilitarias
-│   │   └── config.js       # Constantes de configuración
-│   └── images/
-│       ├── profile.png     # Imagen de perfil (preload crítico)
-│       ├── chatbot.jpg     # ⚡ Caso de estudio consultoría (lazy)
-│       ├── feedback.jpg    # ⚡ Ejemplo análisis IA (lazy)
-│       ├── ventas.jpg      # ⚡ Ejemplo dashboard ventas (lazy)
-│       ├── inventario.jpg  # ⚡ Ejemplo control inventario (lazy)
-│       └── meli.jpg        # Logo MercadoLibre
-├── package.json
-├── README.md
-├── CHANGELOG.md
-├── SCAFFOLDING.md
-├── CODE_ANALYSIS.md        # ⚡ Análisis completo de código
-└── LICENSE
-```
-
-## ⚡ **MEJORAS CRÍTICAS IMPLEMENTADAS**
-
-### **🟢 1/4: Sistema de Logging Condicional**
-```javascript
-// Producción: Solo warn/error (silencioso)
-// Desarrollo: Logs completos con timestamp y contexto
-logger.debug('Component', 'Message', { data });
-logger.success('Component', 'Success message');
-logger.error('Error message', error);
-```
-- **✅ 50+ console.logs eliminados** de producción
-- **✅ Detección automática** de entorno prod/dev
-- **✅ Logs estructurados** con contexto en desarrollo
-
-### **🟢 2/4: Code Splitting & Lazy Loading**
-```javascript
-// Dynamic imports para features opcionales
-const terminalModule = await import('./terminal.js');
-const translations = await import('./translation-loader.js');
-```
-- **✅ Bundle inicial reducido -64KB (-25%)**
-- **✅ data.js** → `data-index.js` (específico por página)
-- **✅ Terminal module** cargado solo en CLI mode
-- **✅ Traducciones** cargadas bajo demanda por idioma
-
-### **🟢 3/4: Eliminación de Código Duplicado**
-```javascript
-// Antes: Duplicado en init.js y consulting.js
-// Después: Centralizado en mobile-menu.js
-import { initializeIndexMobileMenu, initializeConsultingMobileMenu } from './mobile-menu.js';
-```
-- **✅ ~120 líneas de código duplicado eliminadas**
-- **✅ Mobile menu centralizado** con API flexible
-- **✅ Device detection unificado** en utils.js
-- **✅ DRY principles** aplicados en toda la base de código
-
-### **🟢 4/4: Optimización de Imágenes**
-```javascript
-// Lazy loading inteligente con placeholders
-<img data-src="image.jpg" loading="lazy" class="workflow-image">
-```
-- **✅ 300KB+ de imágenes diferidas** (solo cargan cuando se ven)
-- **✅ Profile image preload** para LCP optimizado
-- **✅ WebP detection** automático
-- **✅ Placeholders SVG** con transiciones suaves
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io.git
-   cd Mgobeaalcoba.github.io
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   Navigate to `http://localhost:3000`
-
-## 🌐 Site Navigation
-
-### Main CV Page (`/index.html`)
-- Experiencia completa de CV interactivo
-- Habilidades técnicas y experiencia
-- Portfolio de proyectos
-- Modo terminal (dynamic import)
-- Soporte multi-tema
-- **Recursos Útiles (`/recursos.html`)**
-
-### Consulting Services (`/consulting.html`)
-- Servicios profesionales de consultoría
-- Paquetes de servicios y precios
-- Casos de estudio reales y ejemplos
-- Metodología de proceso
-- Contacto y programación
-
-## 🎮 Terminal Commands
-
-Cuando esté en modo terminal, puede usar estos comandos:
-
-- `help` - Mostrar comandos disponibles
-- `about` - Mostrar información acerca de
-- `experience` - Mostrar experiencia laboral
-- `education` - Mostrar historial educativo
-- `projects [--tag <technology>]` - Mostrar proyectos (opcionalmente filtrados)
-- `contact` - Mostrar información de contacto
-- `neofetch` - Mostrar información del sistema
-- `matrix` - Iniciar efecto matrix
-- `clear` - Limpiar terminal
-- `gui` - Volver a vista normal
-
-## 🎨 Themes
-
-- **Dark Mode**: Tema por defecto con fondo oscuro y efectos de vidrio
-- **Light Mode**: Tema de luz limpio para mejor legibilidad
-- **Terminal Mode**: Experiencia completa de interfaz de línea de comandos
-
-## 🌍 Internationalization
-
-### Soporte Bilingüe Completo
-- **Spanish (ES)**: Idioma por defecto
-- **English (EN)**: Traducción completa incluyendo:
-  - Contenido y secciones de CV
-  - Servicios de consultoría y descripciones
-  - Contenido modal e interacciones
-  - Comandos de terminal y respuestas
-  - Elementos de UI y navegación
-
-### Features
-- **Dynamic Switching**: No se requiere recarga de página
-- **Persistent Preferences**: Idioma guardado en localStorage
-- **Synchronized State**: Idioma consistente en ambas páginas
-- **Content Adaptation**: Efectos de tipeo dinámico y contenido modal
-- **Lazy Loading**: ⚡ Solo se carga el idioma activo
-
-## 📱 Responsive Design
-
-El sitio web es completamente responsive y optimizado para:
-- **Desktop** (1200px+): Experiencia completa de características
-- **Tablet** (768px - 1199px): Layouts adaptados
-- **Mobile** (< 768px): Interfaz optimizada para touch
-
-## 🔧 Customization
-
-### Adding New Content
-
-#### CV Projects
-Editar `assets/js/data-index.js` y agregar al array `projectsData`.
-
-#### Work Experience
-Editar `assets/js/data-index.js` y agregar al array `experienceData`.
-
-#### Consulting Services
-Editar `assets/js/consulting.js` y `consulting.html` para nuevos servicios.
-
-#### Translations
-Agregar nuevas claves a `assets/js/translations.js` para ES y EN.
-
-### Technical Modifications
-
-#### New Themes
-1. Agregar variables CSS en `assets/css/main.css`
-2. Actualizar lógica de tema en `assets/js/themes.js`
-3. Probar en todas las páginas y modos
-
-#### New Features
-1. Crear archivo JS modular en `assets/js/`
-2. Importar en `assets/js/app.js` o archivo relevante
-3. Agregar CSS correspondiente si es necesario
-4. Actualizar documentación
-
-## 📊 Performance Metrics
-
-### **Antes vs Después de Optimizaciones**
-
-| Métrica | Antes | Después | Mejora |
-|---------|-------|---------|--------|
-| **Bundle JS Inicial** | 315KB | 190KB | **-40%** |
-| **Imágenes Iniciales** | 470KB | 108KB | **-77%** |
-| **Console Logs Prod** | 50+ logs | 0 logs | **-100%** |
-| **Código Duplicado** | 120+ líneas | 0 líneas | **-100%** |
-| **Time to Interactive** | ~2.5s | ~1.5s | **+40%** |
-
-### **Core Web Vitals Estimados**
-- **LCP**: Mejorado con image preload y lazy loading
-- **FID**: Optimizado con code splitting
-- **CLS**: Mejorado con placeholders de imagen
-
-## 📊 Analytics & Tracking
-
-- **Page Views**: Ambas páginas CV y consultoría
-- **User Interactions**: Cambios de idioma, cambios de tema
-- **Navigation Flow**: Recorrido de usuario entre páginas
-- **Modal Engagement**: Interacciones de paquetes de servicios
-- **Contact Events**: Seguimiento de generación de leads
-- **Performance Monitoring**: ⚡ Core Web Vitals tracking
-
-## 🔒 Security & Performance
-
-- **XSS Prevention**: Sanitización y validación de entrada
-- **CSP**: Implementación de Content Security Policy
-- **HTTPS**: Conexiones seguras
-- **Optimized Assets**: CSS/JS minificado
-- **Lazy Loading**: ⚡ Carga optimizada de imágenes
-- **Caching**: Optimización de caché del navegador
-- **Production Logging**: ⚡ Logs de debug eliminados en producción
-
-## 🚀 Deployment
-
-### GitHub Pages
-- **Automatic Deployment**: Push a rama main
-- **Custom Domain**: Configuración de dominio profesional
-- **HTTPS**: Certificado SSL automático
-- **CDN**: Entrega global de contenido
-
-### Performance Optimizations
-- **Modular Loading**: ⚡ Módulos ES6 para carga eficiente
-- **Dynamic Imports**: ⚡ Características cargadas bajo demanda
-- **Image Optimization**: ⚡ WebP support y lazy loading
-- **Bundle Splitting**: ⚡ Separación por página y características
-
-## 🧪 Development
-
-### **Debug Mode**
-```javascript
-// Automáticamente detectado en localhost
-// Logs completos disponibles en desarrollo
-logger.debug('Component', 'Development message');
-```
-
-### **Production Mode**
-```javascript
-// Automáticamente detectado en *.github.io
-// Solo errores críticos loggeados
-// Bundle optimizado y limpio
-```
-
-### **Testing**
-```bash
-# Ejecutar en desarrollo
-npm run dev
-
-# Verificar optimizaciones
-npm run analyze
-
-# Linting
-npm run lint
-```
-
-## 📚 Documentation
-
-- **README.md** - Documentación principal (este archivo)
-- **SCAFFOLDING.md** - Arquitectura y estructura detallada
-- **CODE_ANALYSIS.md** - Análisis completo de optimizaciones
-- **CHANGELOG.md** - Historial detallado de cambios
-
-## 🏆 **LOGROS DE OPTIMIZACIÓN**
-
-### **✅ Arquitectura Enterprise-Ready**
-- Modular, mantenible, escalable
-- Zero código duplicado
-- Separación clara de responsabilidades
-- Logging profesional con contexto
-
-### **✅ Performance Optimizado**
-- Bundle size reducido 40%
-- Lazy loading implementado
-- Core Web Vitals mejorados
-- Time to Interactive +40%
-
-### **✅ Developer Experience**
-- Debugging limpio (dev vs prod)
-- Arquitectura clara y documentada
-- APIs consistentes y bien documentadas
-- Build process optimizado
-
-### **✅ User Experience**
-- Carga más rápida
-- Imágenes lazy loading suaves
-- Navegación responsive optimizada
-- Funcionalidad completa mantenida
+> Repositorio principal de presencia digital de **Mariano Gobea Alcoba** y proyectos de clientes de **MGA Tech Consulting**.  
+> Stack: **Next.js 14+ · TypeScript · Tailwind CSS · Framer Motion**
 
 ---
 
-Este proyecto representa un portfolio/CV profesional totalmente optimizado con arquitectura enterprise-ready, performance de primera clase y experiencia de usuario excepcional. 🚀 
+## Arquitectura del Repositorio
+
+```
+/                               ← Build estático del portfolio (Next.js)
+├── index.html                  ← Portfolio personal (/)
+├── consulting/                 ← Consultoría tecnológica (/consulting)
+├── blog/                       ← Blog técnico (/blog) + fuentes markdown
+│   ├── blog-index.json         ← Índice de posts
+│   ├── videos.json             ← Videos del blog
+│   └── posts/                  ← Markdown de cada post
+├── recursos/                   ← Recursos financieros (/recursos)
+├── resources/                  ← Redirect → /recursos/
+├── _next/                      ← Chunks JS/CSS del portfolio
+├── images/                     ← Imágenes servidas del portfolio
+├── videos/                     ← Videos servidos del portfolio
+│
+├── neil-site/                  ← Build estático: Neil Climatizadores
+├── elportugues-site/           ← Build estático: El Portugués S.A.
+│
+├── cv/                         ← Fuente Next.js del portfolio
+│   ├── src/                    ← Código fuente (app, components, lib, data)
+│   └── public/                 ← Assets estáticos
+│       ├── images/             ← Imágenes del portfolio
+│       ├── videos/             ← Videos del portfolio
+│       └── favicon.png         ← Favicon circular (generado desde assets/images/logo.png)
+│
+├── neil/                       ← Fuente Next.js de Neil Climatizadores
+├── elportugues/                ← Fuente Next.js de El Portugués S.A.
+│
+├── assets/                     ← Assets fuente originales
+│   ├── images/                 ← Imágenes fuente originales (logos, profile, etc.)
+│   └── videos/                 ← Videos fuente originales
+│
+├── scripts/                    ← Scripts utilitarios
+│   └── gen-favicon.mjs         ← Generador de favicon circular
+│
+├── tasks/                      ← Documentación interna / planes de trabajo
+│   └── docs/                   ← PDFs y documentos de referencia
+│
+├── private/                    ← Archivos privados (no publicar)
+│
+├── neil.html                   ← Redirect → /neil-site/
+└── elportugues.html            ← Redirect → /elportugues-site/
+```
+
+---
+
+## URLs del Portfolio Principal
+
+| URL | Contenido |
+|-----|-----------|
+| `/` | Portfolio personal de Mariano Gobea Alcoba |
+| `/consulting/` | Consultoría tecnológica MGA Tech |
+| `/blog/` | Blog: "Data Engineering en las Trincheras" |
+| `/recursos/` | Calculadoras financieras, cotizaciones, indicadores |
+| `/resources/` | Redirect → `/recursos/` |
+
+## URLs de Sitios de Clientes
+
+| URL | Cliente |
+|-----|---------|
+| `/neil-site/` | Neil Climatizadores |
+| `/elportugues-site/` | El Portugués S.A. |
+
+---
+
+## Scripts raíz (`package.json`)
+
+| Comando | Acción |
+|---------|--------|
+| `npm run dev` | Dev server del portfolio (localhost:3000) |
+| `npm run dev:neil` | Dev server de Neil (localhost:3001) |
+| `npm run dev:elportugues` | Dev server de El Portugués |
+| `npm run build` | Build del portfolio |
+| `npm run build:neil` | Build de Neil |
+| `npm run build:elportugues` | Build de El Portugués |
+| `npm run deploy` | Build + sync completo del portfolio al root |
+| `npm run deploy:neil` | Build + sync de Neil → `/neil-site/` |
+| `npm run deploy:elportugues` | Build + sync de El Portugués → `/elportugues-site/` |
+
+### Deploy manual del portfolio (equivalente a `npm run deploy`)
+
+```bash
+cd cv && npm run build
+
+# Assets estáticos + root HTML
+rsync -a --exclude='_next' --exclude='consulting' --exclude='recursos' --exclude='blog' cv/out/ ./
+
+# Bundles JS/CSS
+rsync -a --delete cv/out/_next/ ./_next/
+
+# Páginas
+rsync -a --delete cv/out/consulting/ ./consulting/
+rsync -a --delete cv/out/recursos/ ./recursos/
+
+# Blog (sin --delete para preservar .json/.md fuentes)
+rsync -a cv/out/blog/ ./blog/
+```
+
+### Regenerar favicon
+
+```bash
+node scripts/gen-favicon.mjs
+# Luego rebuild + deploy
+```
+
+---
+
+## Stack Tecnológico
+
+| Capa | Tecnología |
+|------|-----------|
+| Framework | Next.js 14+ (App Router, Static Export) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS + @tailwindcss/typography |
+| Animaciones | Framer Motion |
+| Iconos | Lucide React |
+| Markdown | remark + remark-html + remark-gfm |
+| Analytics | Google Analytics 4 (G-DG0SLT5RY3) |
+| Automatización | n8n webhook |
+| Hosting | GitHub Pages |
+
+---
+
+## Autor
+
+**Mariano Gobea Alcoba** — Data & Analytics Technical Leader en MercadoLibre  
+[mgobeaalcoba.github.io](https://mgobeaalcoba.github.io) · [LinkedIn](https://www.linkedin.com/in/mariano-gobea-alcoba/) · [GitHub](https://github.com/Mgobeaalcoba)

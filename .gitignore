@@ -1,6 +1,20 @@
 # Dependencies
 /node_modules
 
+# Next.js build output directories (managed by deploy scripts)
+/cv/out/
+/neil/out/
+/elportugues/out/
+/.next/
+/cv/.next/
+/neil/.next/
+/elportugues/.next/
+
+# Next.js root-level build artifacts (regenerated on each deploy)
+/icon.png
+/index.txt
+/404.html
+
 # Build files
 /dist
 /build

@@ -8,10 +8,7 @@ import ConsultingTeaser from '@/components/cv/ConsultingTeaser';
 import RecursosTeaser from '@/components/cv/RecursosTeaser';
 import Gamification from '@/components/cv/Gamification';
 import DashboardWidgetMini from '@/components/cv/DashboardWidgetMini';
-import Experience from '@/components/cv/Experience';
-import Projects from '@/components/cv/Projects';
-import Education from '@/components/cv/Education';
-import Skills from '@/components/cv/Skills';
+import FilteredPortfolioSections from '@/components/cv/FilteredPortfolioSections';
 import Contact from '@/components/cv/Contact';
 import Terminal from '@/components/cv/Terminal';
 
@@ -27,10 +24,7 @@ export default function HomePage() {
       <RecursosTeaser />
       <Gamification />
       <DashboardWidgetMini />
-      <Experience />
-      <Projects />
-      <Education />
-      <Skills />
+      <FilteredPortfolioSections />
       <Contact />
       <NewsletterBanner />
       <Footer />

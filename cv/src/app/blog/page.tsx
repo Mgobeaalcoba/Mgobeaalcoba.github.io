@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog Técnico - Mariano Gobea Alcoba',
     description: 'Data Engineering en las Trincheras: artículos técnicos sobre IA, Python y datos.',
-    url: 'https://mgobeaalcoba.github.io/cv-site/blog/',
+    url: 'https://mgobeaalcoba.github.io/blog/',
   },
 };
 

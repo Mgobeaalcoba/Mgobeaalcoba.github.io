@@ -6,6 +6,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ContentRepository } from '@/services/contentService';
 import { events } from '@/lib/gtag';
+import { useFilter } from '@/contexts/FilterContext';
 
 const INITIAL_SHOW = 6;
 
@@ -17,16 +18,21 @@ export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
   const allProjects = ContentRepository.getProjects();
+  const { activeTag: globalTag } = useFilter();
 
   // Collect unique tags
   const tags = ['all', ...Array.from(new Set(allProjects.flatMap((p) => p.tags))).slice(0, 12)];
 
+  // Use global filter if set (from Skills section), otherwise use local filter
+  const effectiveTag = globalTag !== 'all' ? globalTag : activeTag;
+
   const filtered =
-    activeTag === 'all'
+    effectiveTag === 'all'
       ? allProjects
-      : allProjects.filter((p) => p.tags.includes(activeTag));
+      : allProjects.filter((p) => p.tags.includes(effectiveTag));
 
   const visible = showAll ? filtered : filtered.slice(0, INITIAL_SHOW);
+  const { setActiveTag: setGlobalTag } = useFilter();
 
   return (
     <section id="projects" data-section="projects" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,14 +44,30 @@ export default function Projects() {
       >
         <h2 className="section-title">{t('projects_title')}</h2>
 
+        {/* Global filter indicator */}
+        {globalTag !== 'all' && (
+          <div className="flex items-center gap-2 mb-4 p-3 bg-sky-500/10 border border-sky-500/20 rounded-xl">
+            <span className="text-xs text-sky-400">
+              🔍 {lang === 'es' ? 'Filtro activo desde Skills:' : 'Filter active from Skills:'}{' '}
+              <strong className="text-sky-300">{globalTag}</strong>
+            </span>
+            <button
+              onClick={() => { setGlobalTag('all'); setActiveTag('all'); setShowAll(false); }}
+              className="ml-auto text-xs text-gray-400 hover:text-white glass px-2 py-0.5 rounded-full"
+            >
+              ✕ {lang === 'es' ? 'Limpiar' : 'Clear'}
+            </button>
+          </div>
+        )}
+
         {/* Tag filters */}
         <div className="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
             <button
               key={tag}
-              onClick={() => { setActiveTag(tag); setShowAll(false); }}
+              onClick={() => { setActiveTag(tag); setGlobalTag('all'); setShowAll(false); }}
               className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                activeTag === tag
+                effectiveTag === tag && globalTag === 'all'
                   ? 'bg-sky-500 text-white border-sky-500'
                   : 'glass border-white/10 text-gray-400 hover:text-sky-400 hover:border-sky-500/30'
               }`}

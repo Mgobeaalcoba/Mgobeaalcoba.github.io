@@ -3,14 +3,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, Calendar, Github, Linkedin, Twitter, Mail, ExternalLink, Loader2 } from 'lucide-react';
+import { Download, Calendar, Github, Linkedin, Twitter, Mail, ExternalLink, Loader2, Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
   const [downloading, setDownloading] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadCV = async () => {
     if (downloading) return;
@@ -26,6 +29,29 @@ export default function Hero() {
     }
   };
 
+  // React's static export doesn't serialize the `muted` attribute to HTML.
+  // The browser blocks autoplay on unmuted videos before JS hydrates.
+  // Fix: create the video element entirely in JS so muted is set before any autoplay attempt.
+  useEffect(() => {
+    const container = videoContainerRef.current;
+    if (!container) return;
+
+    const video = document.createElement('video');
+    video.src = '/videos/Video_Corregido_Con_Logo.mp4';
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.className = 'absolute inset-0 w-full h-full object-cover';
+    container.appendChild(video);
+    videoRef.current = video;
+
+    video.play().catch(() => {});
+
+    return () => { video.remove(); };
+  }, []);
+
   const stats = [
     { value: '6+', label: { es: 'Años MercadoLibre', en: 'Years MercadoLibre' } },
     { value: '30+', label: { es: 'Proyectos GitHub', en: 'GitHub Projects' } },
@@ -34,16 +60,34 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
-      {/* Decorative gradient */}
+    <section className="hero-video-bg relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
+      {/* Video container — video is injected via useEffect so muted attr is set before autoplay */}
+      <div ref={videoContainerRef} className="absolute inset-0" />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/65" />
+
+      {/* Decorative gradients (subtle on top of video) */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
       </div>
+
+      {/* Sound toggle — fixed to top-right corner of section */}
+      <button
+        onClick={() => {
+          const next = !muted;
+          setMuted(next);
+          if (videoRef.current) videoRef.current.muted = next;
+        }}
+        className="absolute top-20 right-4 z-20 glass p-2.5 rounded-full text-white/70 hover:text-white transition-colors"
+        title={muted ? (lang === 'es' ? 'Activar sonido' : 'Unmute') : (lang === 'es' ? 'Silenciar' : 'Mute')}
+      >
+        {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+      </button>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text */}
+          {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,18 +105,18 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black leading-tight mb-4">
-              <span className="text-gray-100">Mariano</span>
+              <span className="text-white drop-shadow-lg">Mariano</span>
               <br />
               <span className="gradient-text">Gobea Alcoba</span>
             </h1>
 
-            <p className="text-sky-400 font-semibold text-lg mb-3">
+            <p className="text-sky-400 font-semibold text-lg mb-3 drop-shadow">
               {lang === 'es'
                 ? 'Data & Analytics Technical Leader'
                 : 'Data & Analytics Technical Leader'}
             </p>
 
-            <p className="text-gray-400 text-base mb-8 max-w-lg leading-relaxed">
+            <p className="text-gray-300 text-base mb-8 max-w-lg leading-relaxed drop-shadow">
               {lang === 'es'
                 ? 'Mercado Libre · Buenos Aires, Argentina · +6 años liderando equipos de datos e IA'
                 : 'Mercado Libre · Buenos Aires, Argentina · +6 years leading data & AI teams'}
@@ -114,7 +158,7 @@ export default function Hero() {
                   target={href.startsWith('mailto') ? undefined : '_blank'}
                   rel="noopener noreferrer"
                   onClick={() => events.socialClick(label.toLowerCase())}
-                  className="glass p-2.5 rounded-lg text-gray-400 hover:text-sky-400 hover:border-sky-500/30 border border-transparent transition-all"
+                  className="glass p-2.5 rounded-lg text-gray-300 hover:text-sky-400 hover:border-sky-500/30 border border-white/10 transition-all"
                   title={label}
                 >
                   {icon}
@@ -122,7 +166,7 @@ export default function Hero() {
               ))}
               <Link
                 href="/consulting/"
-                className="glass p-2.5 rounded-lg text-gray-400 hover:text-sky-400 border border-transparent transition-all"
+                className="glass p-2.5 rounded-lg text-gray-300 hover:text-sky-400 border border-white/10 transition-all"
                 title="Consulting"
               >
                 <ExternalLink size={18} />
@@ -130,7 +174,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Photo + stats */}
+          {/* Right: Photo + stats */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -139,26 +183,32 @@ export default function Hero() {
           >
             {/* Profile photo */}
             <div className="relative">
-              <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-sky-500/30 glow-border">
+              <div className="w-44 h-44 rounded-full overflow-hidden border-4 border-sky-500/60 shadow-2xl shadow-sky-500/30 ring-4 ring-white/10">
                 <Image
-                  src="/cv-site/profile.png"
+                  src="/images/profile.png"
                   alt="Mariano Gobea Alcoba"
-                  width={224}
-                  height={224}
-                  className="object-cover object-top"
+                  width={176}
+                  height={176}
+                  className="object-cover object-top w-full h-full"
                   priority
                 />
               </div>
               {/* MercadoLibre badge */}
-              <div className="absolute -bottom-2 -right-2 glass rounded-xl p-1.5 border border-yellow-500/30">
+              <div className="absolute -bottom-1 -right-1 glass rounded-lg p-1 border border-yellow-500/40">
                 <Image
-                  src="/cv-site/meli.jpg"
+                  src="/images/meli.jpg"
                   alt="MercadoLibre"
-                  width={40}
-                  height={40}
-                  className="rounded-lg"
+                  width={32}
+                  height={32}
+                  className="rounded-md"
                 />
               </div>
+            </div>
+
+            {/* Name / title under photo */}
+            <div className="text-center">
+              <p className="text-white font-bold text-xl leading-tight drop-shadow-lg">Mariano Gobea Alcoba</p>
+              <p className="text-sky-300 text-sm font-medium drop-shadow-lg mt-1">Data &amp; Analytics Leader</p>
             </div>
 
             {/* Stats grid */}
@@ -166,7 +216,7 @@ export default function Hero() {
               {stats.map((stat) => (
                 <div key={stat.value} className="glass rounded-xl p-4 text-center glow-border">
                   <div className="text-2xl font-black gradient-text">{stat.value}</div>
-                  <div className="text-xs text-gray-400 mt-1">{stat.label[lang]}</div>
+                  <div className="text-xs text-gray-300 mt-1">{stat.label[lang]}</div>
                 </div>
               ))}
             </div>

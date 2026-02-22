@@ -1,99 +1,164 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { BarChart2, RefreshCw } from 'lucide-react';
+import { useEffect, useState, useCallback } from 'react';
+import { BarChart2, RefreshCw, Share2 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-interface InvestmentData {
-  plazoFijo30: number | null;
-  inflacionMensual: number | null;
-  mepRate: number | null;
-  loading: boolean;
-  error: boolean;
+type Period = '3m' | '6m' | '12m';
+
+interface MonthData {
+  fecha: string;
+  valor: number;
+}
+
+interface ChartData {
+  labels: string[];
+  plazoFijo: (number | null)[];
+  dolarMep: (number | null)[];
+  inflacion: (number | null)[];
+}
+
+interface LiveData {
+  mepNow: number | null;
+  inflacionNow: number | null;
+  plazoFijoNow: number;
   lastUpdated: string;
 }
 
-export default function InvestmentDashboard() {
-  const [data, setData] = useState<InvestmentData>({
-    plazoFijo30: null,
-    inflacionMensual: null,
-    mepRate: null,
-    loading: true,
-    error: false,
-    lastUpdated: '',
-  });
+const PLAZO_FIJO_MONTHLY_RATES: Record<string, number> = {
+  '2024-01': 9.0, '2024-02': 9.0, '2024-03': 7.2, '2024-04': 5.4,
+  '2024-05': 5.0, '2024-06': 4.5, '2024-07': 4.0, '2024-08': 3.8,
+  '2024-09': 3.5, '2024-10': 3.2, '2024-11': 3.0, '2024-12': 2.9,
+  '2025-01': 2.85, '2025-02': 2.8, '2025-03': 2.75, '2025-04': 2.7,
+  '2025-05': 2.7, '2025-06': 2.65, '2025-07': 2.6, '2025-08': 2.55,
+  '2025-09': 2.5, '2025-10': 2.5, '2025-11': 2.5, '2025-12': 2.5,
+  '2026-01': 2.75, '2026-02': 2.75,
+};
 
-  async function fetchData() {
-    setData((prev) => ({ ...prev, loading: true, error: false }));
+function getMonthLabel(fecha: string): string {
+  const [y, m] = fecha.split('-');
+  const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+  return `${months[parseInt(m) - 1]} ${y.slice(2)}`;
+}
+
+function getMepMonthly(mepPrice: number, prevMepPrice: number): number {
+  if (prevMepPrice === 0) return 0;
+  return ((mepPrice - prevMepPrice) / prevMepPrice) * 100;
+}
+
+// Simple SVG line chart
+function LineChart({ data, period }: { data: ChartData; period: Period }) {
+  if (!data.labels.length) return null;
+
+  const width = 560;
+  const height = 220;
+  const padding = { top: 20, right: 20, bottom: 40, left: 45 };
+  const chartW = width - padding.left - padding.right;
+  const chartH = height - padding.top - padding.bottom;
+
+  const allVals = [
+    ...data.plazoFijo.filter(Boolean) as number[],
+    ...data.dolarMep.filter(Boolean) as number[],
+    ...data.inflacion.filter(Boolean) as number[],
+  ];
+  const minVal = Math.min(-1, ...allVals);
+  const maxVal = Math.max(15, ...allVals);
+  const valRange = maxVal - minVal;
+
+  const toX = (i: number) => padding.left + (i / (data.labels.length - 1)) * chartW;
+  const toY = (v: number) => padding.top + chartH - ((v - minVal) / valRange) * chartH;
+
+  const buildPath = (vals: (number | null)[]) => {
+    const pts = vals.map((v, i) => v != null ? `${toX(i)},${toY(v)}` : null).filter(Boolean);
+    if (pts.length < 2) return '';
+    return `M ${pts.join(' L ')}`;
+  };
+
+  const zeroY = toY(0);
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="w-full" style={{ maxHeight: 220 }}>
+      {/* Grid */}
+      {[-0, 5, 10, 15].map((val) => (
+        <g key={val}>
+          <line x1={padding.left} y1={toY(val)} x2={width - padding.right} y2={toY(val)} stroke="rgba(255,255,255,0.07)" strokeDasharray="4" />
+          <text x={padding.left - 5} y={toY(val)} textAnchor="end" fill="#9ca3af" fontSize="9" dominantBaseline="middle">{val}%</text>
+        </g>
+      ))}
+      {/* Zero line */}
+      <line x1={padding.left} y1={zeroY} x2={width - padding.right} y2={zeroY} stroke="rgba(255,255,255,0.2)" />
+
+      {/* Lines */}
+      <path d={buildPath(data.plazoFijo)} fill="none" stroke="#38bdf8" strokeWidth="2" />
+      <path d={buildPath(data.dolarMep)} fill="none" stroke="#4ade80" strokeWidth="2" />
+      <path d={buildPath(data.inflacion)} fill="none" stroke="#f87171" strokeWidth="2" />
+
+      {/* X labels */}
+      {data.labels.map((label, i) => {
+        if (data.labels.length > 6 && i % 2 !== 0) return null;
+        return (
+          <text key={i} x={toX(i)} y={height - 8} textAnchor="middle" fill="#6b7280" fontSize="9">
+            {label}
+          </text>
+        );
+      })}
+    </svg>
+  );
+}
+
+export default function InvestmentDashboard() {
+  const { lang } = useLanguage();
+  const [period, setPeriod] = useState<Period>('12m');
+  const [chartData, setChartData] = useState<ChartData>({ labels: [], plazoFijo: [], dolarMep: [], inflacion: [] });
+  const [liveData, setLiveData] = useState<LiveData>({ mepNow: null, inflacionNow: null, plazoFijoNow: 2.75, lastUpdated: '' });
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = useCallback(async () => {
+    setLoading(true);
     try {
-      // Fetch MEP rate from dolarapi
-      const [mepRes, argdatRes] = await Promise.allSettled([
-        fetch('https://dolarapi.com/v1/dolares/bolsa'),
+      const months = period === '3m' ? 3 : period === '6m' ? 6 : 12;
+
+      const [inflRes, mepRes] = await Promise.allSettled([
         fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacion'),
+        fetch('https://dolarapi.com/v1/dolares/bolsa'),
       ]);
 
-      let mepRate: number | null = null;
-      let inflacionMensual: number | null = null;
+      let inflArray: MonthData[] = [];
+      let mepNow: number | null = null;
 
+      if (inflRes.status === 'fulfilled' && inflRes.value.ok) {
+        inflArray = await inflRes.value.json();
+      }
       if (mepRes.status === 'fulfilled' && mepRes.value.ok) {
         const d = await mepRes.value.json();
-        mepRate = d.venta ?? null;
+        mepNow = d.venta ?? null;
       }
 
-      if (argdatRes.status === 'fulfilled' && argdatRes.value.ok) {
-        const d = await argdatRes.value.json();
-        if (Array.isArray(d) && d.length > 0) {
-          inflacionMensual = d[d.length - 1]?.valor ?? null;
-        }
-      }
+      const lastInflData = inflArray.slice(-months);
+      const labels = lastInflData.map((d) => getMonthLabel(d.fecha));
+      const inflacion = lastInflData.map((d) => d.valor);
+      const inflacionNow = inflArray.length > 0 ? inflArray[inflArray.length - 1]?.valor : null;
 
-      // Approximate TNA plazo fijo (BCRA data - static approximation)
-      const plazoFijo30 = 2.75; // approximate monthly rate (%)
+      const plazoFijo = lastInflData.map((d) => PLAZO_FIJO_MONTHLY_RATES[d.fecha] ?? 2.75);
+      const dolarMep = lastInflData.map((_) => null as number | null); // no historical MEP available
 
-      setData({
-        plazoFijo30,
-        inflacionMensual,
-        mepRate,
-        loading: false,
-        error: false,
-        lastUpdated: new Date().toLocaleTimeString('es-AR'),
-      });
+      setChartData({ labels, plazoFijo, dolarMep, inflacion });
+      setLiveData({ mepNow, inflacionNow, plazoFijoNow: 2.75, lastUpdated: new Date().toLocaleTimeString('es-AR') });
     } catch {
-      setData((prev) => ({ ...prev, loading: false, error: true }));
+      // keep previous
+    } finally {
+      setLoading(false);
     }
-  }
+  }, [period]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
-  const metrics = [
-    {
-      label: 'Plazo Fijo 30d',
-      value: data.plazoFijo30,
-      unit: '% mensual',
-      color: 'text-sky-400',
-      bg: 'bg-sky-500/10',
-      border: 'border-sky-500/20',
-      icon: '🏦',
-    },
-    {
-      label: 'Inflación mensual',
-      value: data.inflacionMensual,
-      unit: '%',
-      color: 'text-red-400',
-      bg: 'bg-red-500/10',
-      border: 'border-red-500/20',
-      icon: '📈',
-    },
-    {
-      label: 'Dólar MEP',
-      value: data.mepRate,
-      unit: 'ARS',
-      color: 'text-green-400',
-      bg: 'bg-green-500/10',
-      border: 'border-green-500/20',
-      icon: '💵',
-    },
+  const METRICS = [
+    { label: { es: 'Plazo Fijo 30d', en: 'Fixed Term 30d' }, value: `${liveData.plazoFijoNow.toFixed(2)}%`, sub: { es: 'mensual (est.)', en: 'monthly (est.)' }, color: 'text-sky-400', icon: '🏦' },
+    { label: { es: 'Inflación mensual', en: 'Monthly inflation' }, value: liveData.inflacionNow != null ? `${liveData.inflacionNow.toFixed(1)}%` : '—', sub: { es: 'IPC (INDEC)', en: 'CPI (INDEC)' }, color: 'text-red-400', icon: '📈' },
+    { label: { es: 'Dólar MEP', en: 'MEP Dollar' }, value: liveData.mepNow != null ? `$${liveData.mepNow.toLocaleString('es-AR')}` : '—', sub: { es: 'precio de venta', en: 'selling price' }, color: 'text-green-400', icon: '💵' },
   ];
 
   return (
@@ -101,55 +166,94 @@ export default function InvestmentDashboard() {
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
           <BarChart2 size={20} className="text-sky-400" />
-          <h3 className="font-bold text-gray-100">Dashboard de Inversiones</h3>
+          <div>
+            <h3 className="font-bold text-gray-100">{lang === 'es' ? 'Dashboard de Inversiones' : 'Investment Dashboard'}</h3>
+            <p className="text-xs text-gray-500">{lang === 'es' ? 'Plazo Fijo vs Inflación mensual' : 'Fixed Term vs Monthly Inflation'}</p>
+          </div>
         </div>
-        <button
-          onClick={fetchData}
-          disabled={data.loading}
-          className="glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors disabled:opacity-50"
-        >
-          <RefreshCw size={14} className={data.loading ? 'animate-spin' : ''} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => {
+              if (typeof window !== 'undefined' && navigator.share) {
+                navigator.share({ title: 'Dashboard Inversiones Argentina', url: window.location.href });
+              } else {
+                navigator.clipboard?.writeText(window.location.href);
+              }
+            }}
+            className="glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"
+            title={lang === 'es' ? 'Compartir' : 'Share'}
+          >
+            <Share2 size={14} />
+          </button>
+          <button
+            onClick={fetchData}
+            disabled={loading}
+            className="glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors disabled:opacity-50"
+          >
+            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
+          </button>
+        </div>
       </div>
 
-      <div className="space-y-3">
-        {metrics.map(({ label, value, unit, color, bg, border, icon }) => (
-          <div key={label} className={`${bg} border ${border} rounded-xl p-4 flex items-center justify-between`}>
-            <div className="flex items-center gap-3">
-              <span className="text-xl">{icon}</span>
-              <span className="text-sm text-gray-300">{label}</span>
-            </div>
-            {data.loading ? (
-              <div className="h-6 w-20 bg-gray-700 rounded animate-pulse" />
-            ) : data.error ? (
-              <span className="text-red-400 text-sm">Error</span>
-            ) : (
-              <span className={`font-bold text-lg ${color}`}>
-                {value != null
-                  ? unit === 'ARS'
-                    ? `$${value.toLocaleString('es-AR')}`
-                    : `${value.toFixed(2)}${unit}`
-                  : '—'}
-              </span>
-            )}
+      {/* Live metrics */}
+      <div className="grid grid-cols-3 gap-3 mb-5">
+        {METRICS.map((m) => (
+          <div key={m.label.es} className="bg-white/5 rounded-xl p-3 text-center">
+            <div className="text-lg mb-1">{m.icon}</div>
+            <p className={`text-lg font-bold ${m.color}`}>{loading ? '...' : m.value}</p>
+            <p className="text-xs text-gray-500">{m.label[lang]}</p>
+            <p className="text-xs text-gray-600">{m.sub[lang]}</p>
           </div>
         ))}
       </div>
 
-      {data.plazoFijo30 != null && data.inflacionMensual != null && (
-        <div className={`mt-4 p-4 rounded-xl text-sm ${
-          data.plazoFijo30 >= data.inflacionMensual
-            ? 'bg-green-500/10 border border-green-500/20 text-green-300'
-            : 'bg-red-500/10 border border-red-500/20 text-red-300'
-        }`}>
-          {data.plazoFijo30 >= data.inflacionMensual
-            ? `✅ Plazo Fijo (${data.plazoFijo30}%) supera inflación (${data.inflacionMensual}%)`
-            : `⚠️ Inflación (${data.inflacionMensual}%) supera Plazo Fijo (${data.plazoFijo30}%)`}
+      {/* Period selector */}
+      <div className="flex gap-2 mb-4">
+        {(['3m', '6m', '12m'] as Period[]).map((p) => (
+          <button
+            key={p}
+            onClick={() => setPeriod(p)}
+            className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
+              period === p ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'
+            }`}
+          >
+            {p === '3m' ? '3 meses' : p === '6m' ? '6 meses' : '12 meses'}
+          </button>
+        ))}
+      </div>
+
+      {/* Chart */}
+      {loading ? (
+        <div className="h-48 flex items-center justify-center">
+          <RefreshCw size={24} className="text-sky-400 animate-spin" />
+        </div>
+      ) : (
+        <div className="mb-3">
+          <LineChart data={chartData} period={period} />
         </div>
       )}
 
-      {data.lastUpdated && !data.loading && (
-        <p className="text-gray-600 text-xs mt-3">Actualizado: {data.lastUpdated}</p>
+      {/* Legend */}
+      <div className="flex gap-4 text-xs text-gray-400 mb-3">
+        <span className="flex items-center gap-1.5"><span className="w-3 h-0.5 bg-sky-400 inline-block" />{lang === 'es' ? 'Plazo Fijo' : 'Fixed Term'}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-0.5 bg-red-400 inline-block" />{lang === 'es' ? 'Inflación' : 'Inflation'}</span>
+      </div>
+
+      {liveData.lastUpdated && (
+        <p className="text-xs text-gray-600">{lang === 'es' ? 'Actualizado:' : 'Updated:'} {liveData.lastUpdated}</p>
+      )}
+
+      {/* Comparison note */}
+      {liveData.inflacionNow != null && (
+        <div className={`mt-3 p-3 rounded-xl text-xs ${
+          liveData.plazoFijoNow >= liveData.inflacionNow
+            ? 'bg-green-500/10 border border-green-500/20 text-green-300'
+            : 'bg-red-500/10 border border-red-500/20 text-red-300'
+        }`}>
+          {liveData.plazoFijoNow >= liveData.inflacionNow
+            ? `✅ ${lang === 'es' ? 'Plazo Fijo' : 'Fixed Term'} (${liveData.plazoFijoNow}%) ${lang === 'es' ? 'supera inflación' : 'beats inflation'} (${liveData.inflacionNow}%)`
+            : `⚠️ ${lang === 'es' ? 'Inflación' : 'Inflation'} (${liveData.inflacionNow}%) ${lang === 'es' ? 'supera Plazo Fijo' : 'beats Fixed Term'} (${liveData.plazoFijoNow}%)`}
+        </div>
       )}
     </div>
   );

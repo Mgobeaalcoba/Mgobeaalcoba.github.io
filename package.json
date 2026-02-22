@@ -1,68 +1,40 @@
 {
-  "name": "mgobeaalcoba-cv-consulting",
-  "version": "3.0.0",
-  "description": "Interactive CV & Consulting Platform with Traffic Growth Features: Investment Dashboard, Technical Blog, Salary Simulator & Newsletter System - Data & Analytics Technical Leader",
-  "main": "index.html",
-  "scripts": {
-    "dev": "live-server --port=3000 --open=/",
-    "dev:cv": "live-server --port=3000 --open=/index.html",
-    "dev:consulting": "live-server --port=3000 --open=/consulting.html",
-    "build": "echo 'Build process would go here'",
-    "lint": "echo 'Linting would go here'",
-    "format": "prettier --write '**/*.{html,css,js}'",
-    "test": "echo 'Testing would go here'",
-    "deploy": "echo 'GitHub Pages deployment is automatic on push to main'"
-  },
-  "keywords": [
-    "cv",
-    "portfolio",
-    "consulting",
-    "data-analytics",
-    "technical-leader",
-    "interactive",
-    "business-intelligence",
-    "automation",
-    "artificial-intelligence",
-    "bilingual",
-    "spanish",
-    "english",
-    "professional-services",
-    "modal-system",
-    "responsive-design",
-    "es6-modules"
-  ],
+  "name": "mgobeaalcoba-github-io",
+  "version": "4.0.0",
+  "description": "Multi-site portfolio: Mariano Gobea Alcoba — Data & Analytics Technical Leader. Next.js 14+ static sites for personal portfolio, MGA Tech Consulting, and client projects.",
   "author": "Mariano Gobea Alcoba",
-  "license": "MIT",
-  "devDependencies": {
-    "live-server": "^1.2.2",
-    "prettier": "^3.0.0"
-  },
-  "dependencies": {},
+  "license": "UNLICENSED",
+  "homepage": "https://mgobeaalcoba.github.io/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io.git"
   },
-  "homepage": "https://mgobeaalcoba.github.io/",
-  "browserslist": [
-    "defaults",
-    "not IE 11",
-    "> 1%",
-    "last 2 versions"
+  "scripts": {
+    "dev": "cd cv && npm run dev",
+    "dev:neil": "cd neil && npm run dev",
+    "dev:elportugues": "cd elportugues && npm run dev",
+    "build": "cd cv && npm run build",
+    "build:neil": "cd neil && npm run build",
+    "build:elportugues": "cd elportugues && npm run build",
+    "deploy": "npm run build && rsync -a --exclude='_next' --exclude='consulting' --exclude='recursos' --exclude='blog' cv/out/ ./ && rsync -a --delete cv/out/_next/ ./_next/ && rsync -a --delete cv/out/consulting/ ./consulting/ && rsync -a --delete cv/out/recursos/ ./recursos/ && rsync -a cv/out/blog/ ./blog/ && rm -f ./index.txt ./favicon.png ./favicon-32.png",
+    "deploy:neil": "npm run build:neil && rsync -a --delete neil/out/ ./neil-site/",
+    "deploy:elportugues": "npm run build:elportugues && rsync -a --delete elportugues/out/ ./elportugues-site/",
+    "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "sharp": "^0.34.5"
+  },
+  "keywords": [
+    "portfolio",
+    "consulting",
+    "nextjs",
+    "data-analytics",
+    "technical-leader",
+    "typescript",
+    "tailwindcss"
   ],
   "engines": {
-    "node": ">=14.0.0"
-  },
-  "directories": {
-    "css": "assets/css",
-    "js": "assets/js",
-    "images": "assets/images"
-  },
-  "files": [
-    "index.html",
-    "consulting.html",
-    "assets/",
-    "README.md",
-    "CHANGELOG.md",
-    "SCAFFOLDING.md"
-  ]
-} 
+    "node": ">=18.0.0"
+  }
+}

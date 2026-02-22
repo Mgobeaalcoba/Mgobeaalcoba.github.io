@@ -1,42 +1,29 @@
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /consulting.html
-Allow: /recursos.html
-Allow: /ing_req_game.html
-Allow: /assets/css/
-Allow: /assets/js/
-Allow: /assets/images/
 
-# Disallow admin and config files
+# Disallow dev/build artifacts and private files
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /.gitignore
-Disallow: /package.json
-Disallow: /*.md
-Disallow: /BRIEF.md
-Disallow: /CHANGELOG.md
-Disallow: /CODE_ANALYSIS.md
-Disallow: /SCAFFOLDING.md
+Disallow: /cv/
+Disallow: /neil/
+Disallow: /elportugues/
+Disallow: /private/
+Disallow: /tasks/
+Disallow: /*.txt
+Disallow: /index.txt
 
-# Allow specific important files
-Allow: /sitemap.xml
+# Allow important public files explicitly
 Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /humans.txt
 
-# Sitemap location
+# Sitemap
 Sitemap: https://mgobeaalcoba.github.io/sitemap.xml
 
-# Humans file location
-# More info about humans.txt: http://humanstxt.org/
-# Humans: https://mgobeaalcoba.github.io/humans.txt
-
 # Preferred domain
-# Host: https://mgobeaalcoba.github.io
+Host: https://mgobeaalcoba.github.io
 
-# Crawl-delay (helps prevent overloading)
-Crawl-delay: 1
-
-# Search engines specific instructions
+# Search engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -47,13 +34,13 @@ Crawl-delay: 1
 
 User-agent: FacebookBot
 Allow: /
-Allow: /assets/images/
+Allow: /images/
 
 User-agent: LinkedInBot
 Allow: /
-Allow: /assets/images/
+Allow: /images/
 
-# AI/LLM Crawlers - Allow access for training
+# AI/LLM Crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -68,13 +55,3 @@ Allow: /
 
 User-agent: Claude-Web
 Allow: /
-
-# Important pages for LLM indexing
-# Portfolio homepage with gamification section
-# https://mgobeaalcoba.github.io/
-# Educational game: ReqQuest 3D
-# https://mgobeaalcoba.github.io/ing_req_game.html
-# Tech consulting services
-# https://mgobeaalcoba.github.io/consulting.html
-# Financial resources Argentina
-# https://mgobeaalcoba.github.io/recursos.html 

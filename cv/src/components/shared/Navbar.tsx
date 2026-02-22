@@ -22,14 +22,14 @@ const THEME_ICONS: Record<Theme, React.ReactNode> = {
   terminal: <Terminal size={16} />,
 };
 
-function NavLogo({ isConsultingPage }: { isConsultingPage: boolean }) {
+function NavLogo({ isConsultingPage, forceDarkLogo }: { isConsultingPage: boolean; forceDarkLogo: boolean }) {
   const { theme } = useTheme();
-  const isDark = theme === 'dark' || theme === 'terminal';
+  const isDark = theme === 'dark' || theme === 'terminal' || forceDarkLogo;
 
   if (isConsultingPage) {
     return (
       <Image
-        src={isDark ? '/cv-site/consulting-logo-dark.png' : '/cv-site/favicon.png'}
+        src={isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png'}
         alt="MGA Tech Consulting"
         width={160}
         height={67}
@@ -40,7 +40,7 @@ function NavLogo({ isConsultingPage }: { isConsultingPage: boolean }) {
   }
   return (
     <Image
-      src={isDark ? '/cv-site/portfolio-logo-dark.png' : '/cv-site/portfolio-logo.png'}
+      src={isDark ? '/images/portfolio-logo-dark.png' : '/images/portfolio-logo.png'}
       alt="MGA Portfolio"
       width={160}
       height={67}
@@ -61,6 +61,13 @@ export default function Navbar() {
     pathname.includes('/blog') ||
     pathname.includes('/recursos');
 
+  // On the portfolio page the hero always has a dark video background.
+  // When not yet scrolled and in light mode the transparent navbar would have
+  // dark text over the dark video → unreadable. CSS class nav-on-dark-bg
+  // restores the light-palette with higher specificity than the !important rules.
+  const isPortfolioPage = !isConsultingPage;
+  const forceWhiteText = isPortfolioPage && !scrolled && theme === 'light';
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -76,13 +83,13 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'glass shadow-lg' : 'bg-transparent'
-      }`}
+      } ${forceWhiteText ? 'nav-on-dark-bg' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <NavLogo isConsultingPage={isConsultingPage} />
+            <NavLogo isConsultingPage={isConsultingPage} forceDarkLogo={forceWhiteText} />
           </Link>
 
           {/* Desktop nav links */}
@@ -92,9 +99,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                  isActive(link.href)
-                    ? 'text-sky-400'
-                    : 'text-gray-300 dark:text-gray-300'
+                  isActive(link.href) ? 'text-sky-400' : 'text-gray-300'
                 }`}
               >
                 {t(link.labelKey)}

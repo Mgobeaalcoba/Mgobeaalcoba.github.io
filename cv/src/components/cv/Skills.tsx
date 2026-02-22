@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ContentRepository } from '@/services/contentService';
+import { useFilter } from '@/contexts/FilterContext';
 
 const CATEGORY_ICONS: Record<string, string> = {
   'Fullstack & Data': '💻',
@@ -23,6 +24,7 @@ export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const techStack = ContentRepository.getTechStack();
+  const { activeTag, setActiveTag } = useFilter();
 
   return (
     <section id="skills" data-section="skills" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,14 +50,23 @@ export default function Skills() {
                 <h3 className="text-sm font-semibold text-gray-200 truncate">{category}</h3>
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {(skills as string[]).map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-xs px-2 py-0.5 bg-sky-500/10 text-sky-300 rounded-full border border-sky-500/20 hover:bg-sky-500/20 transition-colors cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {(skills as string[]).map((skill) => {
+                  const isActive = activeTag === skill;
+                  return (
+                    <button
+                      key={skill}
+                      onClick={() => setActiveTag(isActive ? 'all' : skill)}
+                      title={isActive ? 'Quitar filtro' : `Filtrar por ${skill}`}
+                      className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
+                        isActive
+                          ? 'bg-sky-500 text-white border-sky-500 shadow-lg shadow-sky-500/20'
+                          : 'bg-sky-500/10 text-sky-300 border-sky-500/20 hover:bg-sky-500/25 cursor-pointer'
+                      }`}
+                    >
+                      {skill}
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           ))}

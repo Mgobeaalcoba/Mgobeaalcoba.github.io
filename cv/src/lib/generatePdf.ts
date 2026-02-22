@@ -115,7 +115,7 @@ export async function generateCVPdf(lang: Lang = 'es'): Promise<void> {
   const certs = ContentRepository.getCertifications();
 
   // --- Header ---
-  const profileImg = await loadImageBase64('/cv-site/profile.png');
+  const profileImg = await loadImageBase64('/images/profile.png');
   const imgSize = 35;
 
   if (profileImg) {

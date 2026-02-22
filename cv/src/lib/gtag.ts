@@ -44,6 +44,9 @@ export const events = {
   blogClick: () =>
     event('blog_click', { site_section: 'cv' }),
 
+  newsletterSubscribe: (page: string) =>
+    event('newsletter_subscribe', { page, site_section: page }),
+
   leadFormSent: (page: string) =>
     event('lead_form_sent', { page, site_section: page }),
 

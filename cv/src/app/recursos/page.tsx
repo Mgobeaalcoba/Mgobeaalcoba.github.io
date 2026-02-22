@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Recursos Financieros Argentina - MGA',
     description: 'Calculadoras y herramientas financieras: Ganancias 2026, Simulador Sueldo, Cotizaciones.',
-    url: 'https://mgobeaalcoba.github.io/cv-site/recursos/',
+    url: 'https://mgobeaalcoba.github.io/recursos/',
   },
 };
 

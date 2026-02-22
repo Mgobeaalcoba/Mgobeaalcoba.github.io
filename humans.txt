@@ -9,44 +9,52 @@ Location: Buenos Aires, Argentina
 /* SITE */
 Site: https://mgobeaalcoba.github.io/
 Repository: https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io
-Standards: HTML5, CSS3, JavaScript ES6+, Semantic Web
-Components: Google Analytics, GitHub Pages, Tailwind CSS
-Software: VS Code, Git, Adobe Creative Suite
+Standards: HTML5, TypeScript, React, Semantic Web
+Hosting: GitHub Pages
+
+/* TECHNOLOGIES USED */
+Framework: Next.js 14+ (App Router, Static Export)
+Language: TypeScript
+Styles: Tailwind CSS + @tailwindcss/typography
+Animations: Framer Motion
+Icons: Lucide React
+Markdown: remark + remark-html + remark-gfm
+Analytics: Google Analytics 4
+Automation: n8n webhook
+Images: sharp (favicon generation)
+IDE: Cursor / Visual Studio Code
+Version Control: Git / GitHub
+
+/* CLIENT SITES */
+Neil Climatizadores: https://mgobeaalcoba.github.io/neil-site/
+El Portugués S.A.: https://mgobeaalcoba.github.io/elportugues-site/
 
 /* THANKS */
 Fonts: Inter by Rasmus Andersson (https://rsms.me/inter/)
-Icons: Font Awesome by Dave Gandy (https://fontawesome.com/)
+Icons: Lucide (https://lucide.dev/)
 Hosting: GitHub Pages
-CDN: jsDelivr, Google Fonts
-Inspiration: Modern portfolio design trends and technical documentation sites
-
-/* LAST UPDATE */
-Last update: 2025/01/29
-Language: Spanish / English
-Doctype: HTML5
-IDE: Visual Studio Code
-
-/* TECHNOLOGIES USED */
-Frontend: HTML5, CSS3, JavaScript ES6+, Tailwind CSS
-Backend Integrations: Google Analytics, Calendly API
-Tools: GitHub Actions, Git Version Control
-Performance: Image optimization, CDN usage, Lazy loading
-SEO: Structured data, Open Graph, Twitter Cards, Sitemap
+CDN: Google Fonts
+Scheduling: Calendly
 
 /* STATS */
 Initial Release: 2024
-Total Lines of Code: 2000+
-Pages: 2 (Portfolio, Consulting)
+Major Rewrite (Next.js): 2026
+Pages: 4 (Portfolio, Consulting, Blog, Recursos)
 Supported Languages: Spanish, English
 Mobile Responsive: Yes
-Accessibility: WCAG 2.1 AA Compliant
 Performance Score: 95+ (Lighthouse)
+
+/* LAST UPDATE */
+Last update: 2026/02/22
+Language: Spanish / English
+Doctype: HTML5
 
 /* CONTACT FOR BUSINESS */
 Services: Data Engineering, Technical Leadership, Process Automation
 Consulting: Business Intelligence, AI Implementation, System Architecture
 Response Time: Within 24 hours
-Preferred Contact: WhatsApp +54-9-11-27475569 or Email
+Preferred Contact: gobeamariano@gmail.com or LinkedIn
+
 
                               .-.
                              (o o)
@@ -55,4 +63,4 @@ Preferred Contact: WhatsApp +54-9-11-27475569 or Email
                       |  Thanks for     |
                       |  visiting!      |
                       |                 |
-                      +---oOO-------OOo-+ 
+                      +---oOO-------OOo-+

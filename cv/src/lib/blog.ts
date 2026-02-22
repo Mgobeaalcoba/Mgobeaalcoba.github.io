@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
 import blogIndex from '@/data/blog-index.json';
 
 const POSTS_DIR = path.join(process.cwd(), '..', 'blog', 'posts');
@@ -41,7 +42,9 @@ export async function getPostBySlug(slug: string): Promise<PostWithContent | nul
   const postMeta = (blogIndex.posts as PostMeta[]).find((p) => p.slug === slug);
   if (!postMeta) return null;
 
-  const filePath = path.join(POSTS_DIR, postMeta.file);
+  // Normalize file field — some entries include "blog/posts/" prefix
+  const fileName = postMeta.file.replace(/^blog\/posts\//, '').replace(/^blog\//, '');
+  const filePath = path.join(POSTS_DIR, fileName);
 
   if (!fs.existsSync(filePath)) {
     return {
@@ -54,7 +57,10 @@ export async function getPostBySlug(slug: string): Promise<PostWithContent | nul
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { content } = matter(fileContents);
 
-  const processedContent = await remark().use(html).process(content);
+  const processedContent = await remark()
+    .use(remarkGfm)
+    .use(html, { sanitize: false })
+    .process(content);
   const contentHtml = processedContent.toString();
 
   return { ...postMeta, contentHtml, rawContent: content };

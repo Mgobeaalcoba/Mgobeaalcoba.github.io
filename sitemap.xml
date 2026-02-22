@@ -1,119 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ===== MAIN PAGES ===== -->
   <url>
     <loc>https://mgobeaalcoba.github.io/</loc>
-    <lastmod>2024-12-09</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/portfolio_claro_logo.png</image:loc>
-      <image:title>Mariano Gobea Alcoba - Portfolio Profesional</image:title>
-      <image:caption>Data &amp; Analytics Technical Leader en MercadoLibre &amp; Docente en Soy Henry y UADE</image:caption>
+      <image:loc>https://mgobeaalcoba.github.io/images/logo.png</image:loc>
+      <image:title>Mariano Gobea Alcoba — Portfolio Profesional</image:title>
+      <image:caption>Data &amp; Analytics Technical Leader en MercadoLibre. Buenos Aires, Argentina.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png</image:loc>
-      <image:title>Mariano Gobea Alcoba - Foto de perfil</image:title>
-      <image:caption>Technical Leader &amp; Docente - Especialista en Gamificación Educativa</image:caption>
+      <image:loc>https://mgobeaalcoba.github.io/images/profile.png</image:loc>
+      <image:title>Mariano Gobea Alcoba — Foto de perfil</image:title>
+      <image:caption>Technical Leader especialista en Data Engineering, IA y Business Intelligence.</image:caption>
     </image:image>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/consulting.html</loc>
-    <lastmod>2024-12-09</lastmod>
+    <loc>https://mgobeaalcoba.github.io/consulting/</loc>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png</image:loc>
-      <image:title>MGA Tech Consulting - Logo</image:title>
-      <image:caption>Consultoría tecnológica para automatización y BI</image:caption>
+      <image:loc>https://mgobeaalcoba.github.io/images/logo.png</image:loc>
+      <image:title>MGA Tech Consulting — Consultoría tecnológica</image:title>
+      <image:caption>Automatización, Business Intelligence e IA para PyMEs argentinas.</image:caption>
     </image:image>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/recursos.html</loc>
-    <lastmod>2026-02-03</lastmod>
+    <loc>https://mgobeaalcoba.github.io/blog/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mgobeaalcoba.github.io/images/logo.png</image:loc>
+      <image:title>Blog: Data Engineering en las Trincheras</image:title>
+      <image:caption>Insights técnicos sobre Data Engineering, Python, automatización y BI desde MercadoLibre.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/recursos/</loc>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png</image:loc>
-      <image:title>Recursos financieros Argentina - Calculadoras y Cotizaciones</image:title>
-      <image:caption>Herramientas gratuitas: calculadora ganancias, cotizaciones dólar, inflación Argentina, dashboard inversiones, simulador sueldo</image:caption>
+      <image:loc>https://mgobeaalcoba.github.io/images/logo.png</image:loc>
+      <image:title>Recursos financieros Argentina — Calculadoras y Cotizaciones</image:title>
+      <image:caption>Herramientas gratuitas: calculadora ganancias, cotizaciones dólar, inflación, indicadores económicos.</image:caption>
     </image:image>
   </url>
+
+  <!-- ===== BLOG POSTS ===== -->
   <url>
-    <loc>https://mgobeaalcoba.github.io/blog.html</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/logo.png</image:loc>
-      <image:title>Blog: Data Engineering en las Trincheras</image:title>
-      <image:caption>Insights técnicos sobre Data Engineering, Python, automatización y BI desde MercadoLibre</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=optimizar-queries-mercadolibre</loc>
+    <loc>https://mgobeaalcoba.github.io/blog/optimizar-queries-mercadolibre/</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=python-automatizar-impuestos-argentina</loc>
+    <loc>https://mgobeaalcoba.github.io/blog/python-automatizar-impuestos-argentina/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=errores-comunes-data-pipelines</loc>
+    <loc>https://mgobeaalcoba.github.io/blog/errores-comunes-data-pipelines/</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/blog-post.html?slug=negociacion-salarial-it-argentina-2026</loc>
+    <loc>https://mgobeaalcoba.github.io/blog/negociacion-salarial-it-argentina-2026/</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/ing_req_game.html</loc>
-    <lastmod>2024-12-09</lastmod>
+    <loc>https://mgobeaalcoba.github.io/blog/bigquery-costos-optimizacion/</loc>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png</image:loc>
-      <image:title>ReqQuest 3D: Office Edition - Juego Educativo</image:title>
-      <image:caption>Juego educativo interactivo 3D para aprender Ingeniería de Requerimientos mediante gamificación. Learning by Playing en acción.</image:caption>
-    </image:image>
+    <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/humans.txt</loc>
-    <lastmod>2025-01-29</lastmod>
+    <loc>https://mgobeaalcoba.github.io/blog/genai-produccion-checklist/</loc>
+    <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.7</priority>
   </url>
-  <!-- Next.js migrated routes -->
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/cv-site/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://mgobeaalcoba.github.io/blog/airflow-vs-prefect-2026/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/cv-site/consulting/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://mgobeaalcoba.github.io/blog/python-async-data-pipelines/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/cv-site/blog/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://mgobeaalcoba.github.io/blog/vector-databases-guia-practica/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://mgobeaalcoba.github.io/cv-site/recursos/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://mgobeaalcoba.github.io/blog/dbt-analytics-engineering/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-</urlset> 
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/langchain-vs-llamaindex/</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/pandas-vs-polars-performance/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/streamlit-dashboards-rapidos/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/kafka-basics-data-engineers/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/chatgpt-api-trucos-avanzados/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/docker-data-engineers/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/sql-window-functions-guia/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/prompt-engineering-productividad/</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/data-quality-great-expectations/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/automatizar-reportes-python/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/blog/embeddings-explicados-simple/</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===== CLIENT SITES ===== -->
+  <url>
+    <loc>https://mgobeaalcoba.github.io/neil-site/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mgobeaalcoba.github.io/elportugues-site/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

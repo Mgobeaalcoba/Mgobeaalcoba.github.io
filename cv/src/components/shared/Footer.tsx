@@ -17,8 +17,8 @@ export default function Footer() {
     pathname.includes('/recursos');
 
   const logoSrc = isConsultingPage
-    ? (isDark ? '/cv-site/consulting-logo-dark.png' : '/cv-site/favicon.png')
-    : (isDark ? '/cv-site/portfolio-logo-dark.png' : '/cv-site/portfolio-logo.png');
+    ? (isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png')
+    : (isDark ? '/images/portfolio-logo-dark.png' : '/images/portfolio-logo.png');
 
   const logoAlt = isConsultingPage ? 'MGA Tech Consulting' : 'MGA Portfolio';
 

@@ -2,23 +2,21 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Briefcase, BarChart2, TrendingUp, Wrench, Bot, Activity, Calendar, HelpCircle } from 'lucide-react';
+import { Calculator, BarChart2, TrendingUp, Wrench, Bot, Activity, Calendar, HelpCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TaxCalculator from '@/components/recursos/TaxCalculator';
 import TokenCalculator from '@/components/recursos/TokenCalculator';
-import SalarySimulator from '@/components/recursos/SalarySimulator';
 import InvestmentDashboard from '@/components/recursos/InvestmentDashboard';
 import ExchangeRates from '@/components/recursos/ExchangeRates';
 import EconomicIndicators from '@/components/recursos/EconomicIndicators';
 import HolidaysArgentina from '@/components/recursos/HolidaysArgentina';
 import FAQRecursos from '@/components/recursos/FAQRecursos';
 
-type Tab = 'calculator' | 'tokens' | 'salary' | 'dashboard' | 'rates' | 'indicators' | 'holidays' | 'faq';
+type Tab = 'calculator' | 'tokens' | 'dashboard' | 'rates' | 'indicators' | 'holidays' | 'faq';
 
 const TABS: { id: Tab; icon: React.ReactNode; label: { es: string; en: string } }[] = [
   { id: 'calculator', icon: <Calculator size={16} />, label: { es: 'Calculadora Ganancias', en: 'Income Tax' } },
   { id: 'tokens', icon: <Bot size={16} />, label: { es: 'Tokens GenAI', en: 'GenAI Tokens' } },
-  { id: 'salary', icon: <Briefcase size={16} />, label: { es: 'Simulador Sueldo', en: 'Salary Simulator' } },
   { id: 'dashboard', icon: <BarChart2 size={16} />, label: { es: 'Dashboard Inversiones', en: 'Investment Dashboard' } },
   { id: 'rates', icon: <TrendingUp size={16} />, label: { es: 'Cotizaciones', en: 'Exchange Rates' } },
   { id: 'indicators', icon: <Activity size={16} />, label: { es: 'Indicadores', en: 'Indicators' } },
@@ -26,7 +24,7 @@ const TABS: { id: Tab; icon: React.ReactNode; label: { es: string; en: string } 
   { id: 'faq', icon: <HelpCircle size={16} />, label: { es: 'FAQ', en: 'FAQ' } },
 ];
 
-const WIDE_TABS = new Set<Tab>(['calculator', 'tokens', 'dashboard', 'indicators']);
+const WIDE_TABS = new Set<Tab>(['calculator', 'tokens', 'dashboard', 'indicators', 'rates']);
 
 export default function RecursosClient() {
   const { lang } = useLanguage();
@@ -88,7 +86,6 @@ export default function RecursosClient() {
         >
           {activeTab === 'calculator' && <TaxCalculator />}
           {activeTab === 'tokens' && <TokenCalculator />}
-          {activeTab === 'salary' && <SalarySimulator />}
           {activeTab === 'dashboard' && <InvestmentDashboard />}
           {activeTab === 'rates' && <ExchangeRates />}
           {activeTab === 'indicators' && <EconomicIndicators />}

@@ -281,6 +281,79 @@ html.light-mode .pointer-events-none.absolute {
 }
 
 /* ================================================================
+   NAV ON DARK BG — portfolio hero (video) in light mode
+   The navbar floats over the dark video before scrolling.
+   These rules beat the light-mode !important overrides by using
+   higher specificity (3 classes vs 2 classes).
+   ================================================================ */
+
+html.light-mode nav.nav-on-dark-bg .text-gray-300 { color: #d1d5db !important; }
+html.light-mode nav.nav-on-dark-bg .text-gray-400 { color: #9ca3af !important; }
+html.light-mode nav.nav-on-dark-bg .text-gray-600 { color: #6b7280 !important; }
+html.light-mode nav.nav-on-dark-bg .text-white    { color: #ffffff !important; }
+
+/* glass pill (language toggle) stays dark-tinted */
+html.light-mode nav.nav-on-dark-bg .glass {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: none !important;
+}
+
+/* hover keeps sky accent */
+html.light-mode nav.nav-on-dark-bg .hover\:text-gray-200:hover { color: #e5e7eb !important; }
+
+/* ================================================================
+   HERO VIDEO SECTION — always dark (video + black/65 overlay)
+   Override ALL light-mode rules so text stays readable on the
+   dark video background regardless of the current theme.
+   ================================================================ */
+
+.hero-video-bg,
+html.light-mode .hero-video-bg {
+  /* Force the overlay to stay dark enough */
+}
+
+/* Text always white/light inside hero-video-bg */
+html.light-mode .hero-video-bg h1,
+html.light-mode .hero-video-bg h2,
+html.light-mode .hero-video-bg p,
+html.light-mode .hero-video-bg span,
+html.light-mode .hero-video-bg li {
+  color: inherit;
+}
+
+html.light-mode .hero-video-bg .text-white,
+html.light-mode .hero-video-bg .text-gray-100 { color: #ffffff !important; }
+html.light-mode .hero-video-bg .text-gray-200 { color: #f3f4f6 !important; }
+html.light-mode .hero-video-bg .text-gray-300 { color: #d1d5db !important; }
+html.light-mode .hero-video-bg .text-gray-400 { color: #9ca3af !important; }
+html.light-mode .hero-video-bg .text-sky-400   { color: #38bdf8 !important; }
+html.light-mode .hero-video-bg .text-sky-300   { color: #7dd3fc !important; }
+html.light-mode .hero-video-bg .text-green-400 { color: #4ade80 !important; }
+
+/* Glass inside hero: semi-transparent dark, not white */
+html.light-mode .hero-video-bg .glass {
+  background: rgba(0, 0, 0, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: none !important;
+}
+
+/* gradient-text stays the original sky→indigo gradient */
+html.light-mode .hero-video-bg .gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Borders */
+html.light-mode .hero-video-bg .border-white\/10 { border-color: rgba(255,255,255,0.12) !important; }
+
+/* Decorative blobs: keep visible on hero */
+html.light-mode .hero-video-bg .pointer-events-none.absolute {
+  opacity: 1;
+}
+
+/* ================================================================
    TERMINAL MODE OVERRIDES
    ================================================================ */
 

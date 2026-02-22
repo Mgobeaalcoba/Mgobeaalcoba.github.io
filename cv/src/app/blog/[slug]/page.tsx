@@ -114,12 +114,16 @@ export default async function BlogPostPage({ params }: PageProps) {
             prose-headings:text-gray-100 prose-headings:font-bold
             prose-p:text-gray-300 prose-p:leading-relaxed
             prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline
-            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10
+            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
             prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400
             prose-strong:text-gray-100
             prose-li:text-gray-300
-            prose-hr:border-white/10"
+            prose-hr:border-white/10
+            prose-table:border-collapse
+            prose-thead:bg-gray-800/60
+            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2
+            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 
