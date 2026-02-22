@@ -700,36 +700,36 @@ export default function TaxCalculator() {
 
               {/* Result cards */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-red-300 mb-1">
                     {lang === 'es' ? 'Retención Mensual Estimada' : 'Estimated Monthly Withholding'}
                   </p>
-                  <p className="text-2xl font-bold text-red-200">{fmt(result.monthlyTax)}</p>
+                  <p className="text-lg sm:text-2xl font-bold text-red-200 truncate">{fmt(result.monthlyTax)}</p>
                   <p className="text-xs text-gray-500">{result.effectiveRate.toFixed(1)}% {lang === 'es' ? 'efectivo' : 'effective'}</p>
                 </div>
-                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-green-300 mb-1">
                     {lang === 'es' ? 'Sueldo Neto de Bolsillo' : 'Net Take-Home Salary'}
                   </p>
-                  <p className="text-2xl font-bold text-green-200">{fmt(result.netMonthly)}</p>
+                  <p className="text-lg sm:text-2xl font-bold text-green-200 truncate">{fmt(result.netMonthly)}</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4">
+                <div className="bg-white/5 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-gray-400 mb-1">
                     {lang === 'es' ? 'Impuesto Anual Proyectado' : 'Projected Annual Tax'}
                   </p>
-                  <p className="text-xl font-semibold text-gray-200">{fmt(result.annualTax)}</p>
+                  <p className="text-base sm:text-xl font-semibold text-gray-200 truncate">{fmt(result.annualTax)}</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4">
+                <div className="bg-white/5 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-gray-400 mb-1">
                     {lang === 'es' ? 'Ganancia Neta sujeta a Impuesto' : 'Taxable Net Income'}
                   </p>
-                  <p className="text-xl font-semibold text-gray-200">{fmt(result.taxableIncome)}</p>
+                  <p className="text-base sm:text-xl font-semibold text-gray-200 truncate">{fmt(result.taxableIncome)}</p>
                 </div>
-                <div className="col-span-2 bg-yellow-500/10 rounded-xl p-4">
+                <div className="col-span-2 bg-yellow-500/10 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-yellow-300 mb-1">
                     {lang === 'es' ? 'Aportes Previsionales Mensuales (17%)' : 'Monthly Social Security Contributions (17%)'}
                   </p>
-                  <p className="text-xl font-semibold text-yellow-200">{fmt(result.aportesMensuales)}</p>
+                  <p className="text-base sm:text-xl font-semibold text-yellow-200 truncate">{fmt(result.aportesMensuales)}</p>
                   <p className="text-xs text-gray-500 mt-1">
                     {lang === 'es' ? 'Base imponible con topes AFIP aplicados' : 'Taxable base with AFIP caps applied'}
                   </p>

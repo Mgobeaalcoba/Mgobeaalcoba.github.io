@@ -68,7 +68,7 @@ export default function NewsletterBanner() {
           {submitted ? (
             <p className="text-sky-400 font-medium">¡Gracias! Te enviaremos el próximo número 🎉</p>
           ) : (
-            <form onSubmit={handleSubmit} className="flex gap-2 flex-1 max-w-md">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 flex-1 max-w-md w-full">
               <input
                 type="email"
                 value={email}
@@ -81,7 +81,7 @@ export default function NewsletterBanner() {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-4 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap disabled:opacity-70 flex items-center gap-2"
+                className="w-full sm:w-auto px-4 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap disabled:opacity-70 flex items-center justify-center gap-2"
               >
                 {loading && <Loader2 size={14} className="animate-spin" />}
                 {t('newsletter_btn')}
