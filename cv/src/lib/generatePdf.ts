@@ -191,7 +191,8 @@ export async function generateCVPdf(lang: Lang = 'es'): Promise<void> {
   // --- Certifications ---
   if (certs.length > 0) {
     builder.addSectionTitle(lang === 'es' ? 'Certificaciones' : 'Certifications');
-    builder.addText(certs.join('  •  '), { fontSize: FONT_SIZES.small, color: COLORS.muted });
+    const certNames = certs.map((c: { name: string }) => c.name).join('  •  ');
+    builder.addText(certNames, { fontSize: FONT_SIZES.small, color: COLORS.muted });
     builder.yPos += 5;
   }
 
