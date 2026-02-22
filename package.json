@@ -22,6 +22,7 @@
     "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
   },
   "devDependencies": {
+    "png-to-ico": "^3.0.1",
     "prettier": "^3.0.0",
     "sharp": "^0.34.5"
   },
