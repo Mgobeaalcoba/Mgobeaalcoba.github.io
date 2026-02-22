@@ -3,12 +3,28 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, Calendar, Github, Linkedin, Twitter, Mail, ExternalLink } from 'lucide-react';
+import { Download, Calendar, Github, Linkedin, Twitter, Mail, ExternalLink, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
+import { useState } from 'react';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadCV = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    events.downloadCV();
+    try {
+      const { generateCVPdf } = await import('@/lib/generatePdf');
+      await generateCVPdf(lang as 'es' | 'en');
+    } catch (err) {
+      console.error('PDF generation failed:', err);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const stats = [
     { value: '6+', label: { es: 'Años MercadoLibre', en: 'Years MercadoLibre' } },
@@ -73,11 +89,14 @@ export default function Hero() {
                 {t('hero_cta_consulting')}
               </Link>
               <button
-                onClick={() => { events.downloadCV(); window.print(); }}
-                className="flex items-center gap-2 px-6 py-3 glass border border-sky-500/30 text-sky-400 rounded-xl font-semibold hover:bg-sky-500/10 transition-all duration-200 hover:scale-105"
+                onClick={handleDownloadCV}
+                disabled={downloading}
+                className="flex items-center gap-2 px-6 py-3 glass border border-sky-500/30 text-sky-400 rounded-xl font-semibold hover:bg-sky-500/10 transition-all duration-200 hover:scale-105 disabled:opacity-60 disabled:cursor-wait"
               >
-                <Download size={16} />
-                {t('hero_cta_download')}
+                {downloading ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
+                {downloading
+                  ? (lang === 'es' ? 'Generando...' : 'Generating...')
+                  : t('hero_cta_download')}
               </button>
             </div>
 

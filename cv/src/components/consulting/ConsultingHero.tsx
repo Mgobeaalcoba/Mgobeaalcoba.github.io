@@ -6,6 +6,7 @@ import { Calendar, ArrowRight, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ContentRepository } from '@/services/contentService';
 import { events } from '@/lib/gtag';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 
 export default function ConsultingHero() {
   const { lang, t } = useLanguage();
@@ -51,16 +52,10 @@ export default function ConsultingHero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href={consulting.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => events.calendlyClick()}
-              className="flex items-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105"
-            >
+            <CalendlyButton className="flex items-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105">
               <Calendar size={18} />
               {t('consulting_cta')}
-            </a>
+            </CalendlyButton>
             <Link
               href="#servicios"
               className="flex items-center gap-2 px-8 py-4 glass border border-sky-500/30 text-sky-400 rounded-xl font-semibold hover:bg-sky-500/10 transition-all"

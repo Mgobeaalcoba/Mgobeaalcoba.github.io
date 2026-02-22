@@ -6,6 +6,7 @@ import { Calendar, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ContentRepository } from '@/services/contentService';
 import { events } from '@/lib/gtag';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 
 export default function ConsultingContact() {
   const { lang, t } = useLanguage();
@@ -31,16 +32,10 @@ export default function ConsultingContact() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={consulting.calendlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => events.calendlyClick()}
-            className="flex items-center justify-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105 text-lg"
-          >
+          <CalendlyButton className="flex items-center justify-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105 text-lg">
             <Calendar size={20} />
             Agendar reunión gratuita
-          </a>
+          </CalendlyButton>
           <a
             href="https://wa.me/5491127475569?text=Hola%20Mariano%2C%20me%20interesa%20la%20consultor%C3%ADa"
             target="_blank"

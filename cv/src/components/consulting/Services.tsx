@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ContentRepository } from '@/services/contentService';
 import { events } from '@/lib/gtag';
 import type { ConsultingPack } from '@/types/content';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 
 function PackModal({ pack, onClose }: { pack: ConsultingPack; onClose: () => void }) {
   const { lang } = useLanguage();
@@ -70,14 +71,9 @@ function PackModal({ pack, onClose }: { pack: ConsultingPack; onClose: () => voi
             </ul>
           </div>
 
-          <a
-            href="https://calendly.com/gobeamariano/mga-consulting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm"
-          >
+          <CalendlyButton className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm">
             Agenda tu diagnóstico gratuito →
-          </a>
+          </CalendlyButton>
         </motion.div>
       </motion.div>
     </AnimatePresence>

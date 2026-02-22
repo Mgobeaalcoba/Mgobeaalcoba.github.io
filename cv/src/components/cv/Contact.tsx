@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, Calendar, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -62,19 +63,16 @@ export default function Contact() {
               </motion.div>
             ))}
 
-            <motion.a
-              href="https://calendly.com/gobeamariano/mga-consulting"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => events.calendlyClick()}
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4 }}
-              className="flex items-center gap-3 px-6 py-4 bg-sky-500/10 border border-sky-500/30 rounded-xl text-sky-400 hover:bg-sky-500/20 transition-all font-medium"
             >
-              <Calendar size={18} />
-              Agenda una reunión conmigo →
-            </motion.a>
+              <CalendlyButton className="flex items-center gap-3 px-6 py-4 bg-sky-500/10 border border-sky-500/30 rounded-xl text-sky-400 hover:bg-sky-500/20 transition-all font-medium w-full">
+                <Calendar size={18} />
+                Agenda una reunión conmigo →
+              </CalendlyButton>
+            </motion.div>
           </div>
 
           {/* Contact form */}
