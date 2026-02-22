@@ -101,15 +101,13 @@ export default function Hero() {
                   {icon}
                 </a>
               ))}
-              <a
-                href="https://mgobeaalcoba.github.io/consulting.html"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/cv-site/consulting/"
                 className="glass p-2.5 rounded-lg text-gray-400 hover:text-sky-400 border border-transparent transition-all"
                 title="Consulting"
               >
                 <ExternalLink size={18} />
-              </a>
+              </Link>
             </div>
           </motion.div>
 

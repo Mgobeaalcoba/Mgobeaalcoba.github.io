@@ -50,7 +50,7 @@ export default function Navbar() {
           <Link href="/cv-site/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-full overflow-hidden border border-sky-500/30">
               <Image
-                src="/cv-site/favicon.png"
+                src="/cv-site/logo.png"
                 alt="MGA Logo"
                 width={32}
                 height={32}
