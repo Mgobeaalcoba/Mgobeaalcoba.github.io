@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import AppShell from '@/components/shared/AppShell';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
@@ -91,7 +92,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <ThemeProvider>
           <LanguageProvider>
-            {children}
+            <AppShell>
+              {children}
+            </AppShell>
           </LanguageProvider>
         </ThemeProvider>
       </body>

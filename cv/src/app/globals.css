@@ -184,20 +184,100 @@ body {
    LIGHT MODE OVERRIDES
    ================================================================ */
 
+html.light-mode body {
+  background: #f3f4f6;
+  color: #111827;
+}
+
 html.light-mode .glass {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
   border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 html.light-mode .glow-border {
-  box-shadow: 0 0 15px rgba(14, 165, 233, 0.1);
-  border-color: rgba(14, 165, 233, 0.2);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.3);
 }
 
 html.light-mode .gradient-text {
-  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+/* -- Text color overrides for light mode -- */
+html.light-mode h1,
+html.light-mode h2,
+html.light-mode h3,
+html.light-mode h4,
+html.light-mode h5 {
+  color: #111827;
+}
+
+html.light-mode p,
+html.light-mode span,
+html.light-mode li,
+html.light-mode label {
+  color: #374151;
+}
+
+/* Tailwind gray overrides */
+html.light-mode .text-gray-100 { color: #111827 !important; }
+html.light-mode .text-gray-200 { color: #1f2937 !important; }
+html.light-mode .text-gray-300 { color: #374151 !important; }
+html.light-mode .text-gray-400 { color: #4b5563 !important; }
+html.light-mode .text-gray-500 { color: #6b7280 !important; }
+html.light-mode .text-gray-600 { color: #374151 !important; }
+
+/* Sky/blue colors stay the same but can be slightly darker */
+html.light-mode .text-sky-400 { color: #0284c7 !important; }
+html.light-mode .text-sky-500 { color: #0369a1 !important; }
+
+/* White text becomes dark */
+html.light-mode .text-white { color: #111827 !important; }
+
+/* Backgrounds */
+html.light-mode .bg-gray-800\/30 { background: rgba(243, 244, 246, 0.8) !important; }
+html.light-mode .bg-gray-800\/50 { background: rgba(229, 231, 235, 0.8) !important; }
+html.light-mode .bg-gray-800\/60 { background: rgba(229, 231, 235, 0.9) !important; }
+html.light-mode .bg-gray-900 { background: #f3f4f6 !important; }
+html.light-mode .bg-black\/40 { background: rgba(0, 0, 0, 0.25) !important; }
+html.light-mode .bg-amber-900\/30 { background: rgba(254, 243, 199, 0.8) !important; }
+html.light-mode .border-white\/10 { border-color: rgba(0, 0, 0, 0.08) !important; }
+html.light-mode .border-white\/5 { border-color: rgba(0, 0, 0, 0.05) !important; }
+
+/* Inputs */
+html.light-mode input,
+html.light-mode textarea {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html.light-mode input::placeholder,
+html.light-mode textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Grid background subtle in light mode */
+html.light-mode .grid-bg::before {
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+}
+
+/* Badge/tag backgrounds */
+html.light-mode .bg-sky-500\/10 { background: rgba(14, 165, 233, 0.1) !important; }
+html.light-mode .bg-sky-500\/20 { background: rgba(14, 165, 233, 0.15) !important; }
+html.light-mode .bg-yellow-900\/20 { background: rgba(254, 243, 199, 0.7) !important; }
+html.light-mode .bg-indigo-900\/20 { background: rgba(238, 242, 255, 0.8) !important; }
+html.light-mode .bg-purple-900\/20 { background: rgba(245, 243, 255, 0.8) !important; }
+html.light-mode .bg-amber-900\/50 { background: rgba(254, 251, 235, 0.9) !important; }
+
+/* Decorative absolute blobs - hide in light mode */
+html.light-mode .pointer-events-none.absolute {
+  opacity: 0.15;
 }
 
 /* ================================================================

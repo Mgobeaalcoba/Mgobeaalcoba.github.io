@@ -19,7 +19,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 const THEMES: Theme[] = ['dark', 'light', 'terminal'];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('terminal');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(saved);
       applyTheme(saved);
     } else {
-      applyTheme('dark');
+      applyTheme('terminal');
     }
     setMounted(true);
   }, []);
@@ -59,7 +59,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   if (!mounted) {
     return (
-      <div className="bg-gray-900 min-h-screen">
+      <div className="bg-black min-h-screen">
         {children}
       </div>
     );

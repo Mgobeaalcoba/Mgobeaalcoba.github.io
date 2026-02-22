@@ -33,7 +33,7 @@ export default function Terminal() {
   const [cmdIndex, setCmdIndex] = useState(-1);
   const [matrixActive, setMatrixActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const matrixIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -43,7 +43,9 @@ export default function Terminal() {
   const meta = ContentRepository.getMeta();
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   const stopMatrix = useCallback(() => {
@@ -267,7 +269,10 @@ export default function Terminal() {
           </div>
 
           {/* Terminal body */}
-          <div className="p-4 h-80 overflow-y-auto custom-scrollbar terminal-font text-xs text-green-400 space-y-1">
+          <div
+            ref={bodyRef}
+            className="p-4 h-80 overflow-y-auto custom-scrollbar terminal-font text-xs text-green-400 space-y-1"
+          >
             {history.map((entry, i) => (
               <pre
                 key={i}
@@ -278,7 +283,6 @@ export default function Terminal() {
                 {entry.text}
               </pre>
             ))}
-            <div ref={bottomRef} />
           </div>
 
           {/* Input */}
