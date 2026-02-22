@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, BarChart2, TrendingUp, Wrench, Bot, Activity, Calendar, HelpCircle } from 'lucide-react';
+import { Calculator, BarChart2, TrendingUp, Wrench, Bot, Activity, Calendar, HelpCircle, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TaxCalculator from '@/components/recursos/TaxCalculator';
 import TokenCalculator from '@/components/recursos/TokenCalculator';
@@ -57,7 +57,27 @@ export default function RecursosClient() {
 
       {/* Quick nav */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
-        <div className="flex gap-2 flex-wrap">
+        {/* Mobile: styled select dropdown */}
+        <div className="relative sm:hidden">
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-sky-400 pointer-events-none">
+            {TABS.find(t => t.id === activeTab)?.icon}
+          </div>
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value as Tab)}
+            className="w-full appearance-none glass border border-sky-500/40 rounded-xl pl-9 pr-10 py-3 text-sm font-medium text-gray-200 bg-transparent focus:outline-none focus:border-sky-500 cursor-pointer"
+          >
+            {TABS.map(({ id, label }) => (
+              <option key={id} value={id} className="bg-gray-900 text-gray-200">
+                {label[lang]}
+              </option>
+            ))}
+          </select>
+          <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        </div>
+
+        {/* Desktop: button row */}
+        <div className="hidden sm:flex gap-2 flex-wrap">
           {TABS.map(({ id, icon, label }) => (
             <button
               key={id}
