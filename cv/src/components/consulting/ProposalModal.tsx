@@ -6,7 +6,7 @@ import { X, Send, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 
-const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/recibir-email';
+const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/solicitud-automatizacion';
 
 interface ProposalModalProps {
   isOpen: boolean;
