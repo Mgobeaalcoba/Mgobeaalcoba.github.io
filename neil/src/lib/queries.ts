@@ -68,6 +68,26 @@ export async function fetchNeilProducts(): Promise<NeilProductCategory[]> {
   }));
 }
 
+/**
+ * Converts flat dot-notation keys to a nested object.
+ * e.g. { 'nav.products': 'Productos' } → { nav: { products: 'Productos' } }
+ */
+function unflatten(flatMap: Record<string, string>): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(flatMap)) {
+    const parts = key.split('.');
+    let current = result;
+    for (let i = 0; i < parts.length - 1; i++) {
+      if (typeof current[parts[i]] !== 'object' || current[parts[i]] === null) {
+        current[parts[i]] = {};
+      }
+      current = current[parts[i]] as Record<string, unknown>;
+    }
+    current[parts[parts.length - 1]] = value;
+  }
+  return result;
+}
+
 export async function fetchNeilTranslations(): Promise<NeilTranslations> {
   const { data, error } = await supabase
     .from('neil_translations')
@@ -75,10 +95,16 @@ export async function fetchNeilTranslations(): Promise<NeilTranslations> {
     .order('id');
   if (error) throw error;
 
-  const result: NeilTranslations = {};
+  // Build flat maps per language first, then unflatten to nested objects
+  const flat: Record<string, Record<string, string>> = {};
   for (const row of data ?? []) {
-    if (!result[row.lang]) result[row.lang] = {};
-    result[row.lang][row.key] = row.value;
+    if (!flat[row.lang]) flat[row.lang] = {};
+    flat[row.lang][row.key] = row.value;
+  }
+
+  const result: NeilTranslations = {};
+  for (const [lang, flatMap] of Object.entries(flat)) {
+    result[lang] = unflatten(flatMap) as Record<string, string>;
   }
   return result;
 }
