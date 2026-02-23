@@ -1,17 +1,256 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","python-automatizar-impuestos-argentina","d"]
-0:["WV8QzWvWbEdkAk8fZYuE_",[[["",{"children":["blog",{"children":[["slug","python-automatizar-impuestos-argentina","d"],{"children":["__PAGE__?{\"slug\":\"python-automatizar-impuestos-argentina\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","python-automatizar-impuestos-argentina","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-10:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"python"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Python para automatizar tu Declaración de Ganancias"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Guía práctica para automatizar cálculos fiscales con Python. Incluye código reutilizable y ejemplos del mundo real."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"8 de febrero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","python",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"python"]}],["$","span","automation",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"automation"]}],["$","span","tax",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"tax"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"<p>Content coming soon...</p>"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L10",null,{}]]}]
+0:["noqrZL1O-zwDb7x7gQiSx",[[["",{"children":["blog",{"children":[["slug","python-automatizar-impuestos-argentina","d"],{"children":["__PAGE__?{\"slug\":\"python-automatizar-impuestos-argentina\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","python-automatizar-impuestos-argentina","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T287c,<p>Cada año, miles de trabajadores independientes y en relación de dependencia en Argentina pasan horas calculando su declaración de Ganancias manualmente. Escalas de la AFIP, deducciones, mínimo no imponible, retenciones... el proceso es tedioso y propenso a errores.</p>
+<p>En este artículo te muestro cómo automaticé ese proceso con Python. El código que te voy a dar calcula exactamente lo mismo que la calculadora de AFIP, pero en segundos y con la posibilidad de hacer proyecciones y análisis.</p>
+<h2>Lo que necesitás saber antes</h2>
+<p>El Impuesto a las Ganancias en Argentina para empleados en relación de dependencia (4ta categoría) se calcula así:</p>
+<ol>
+<li><strong>Ingreso bruto anual</strong> = sueldo bruto × 12 (simplificado)</li>
+<li><strong>Deducciones</strong>: aportes jubilatorios, obra social, sindicato, etc.</li>
+<li><strong>Ganancia neta</strong> = bruto − deducciones</li>
+<li><strong>MNI</strong> (Mínimo No Imponible) + Deducción especial</li>
+<li><strong>Base imponible</strong> = ganancia neta − MNI − deducción especial</li>
+<li><strong>Impuesto</strong> según escalas progresivas de AFIP</li>
+</ol>
+<h2>Las escalas de AFIP 2026</h2>
+<pre><code class="language-python"># Escalas actualizadas para el ejercicio fiscal 2026
+ESCALAS_AFIP = [
+    {"desde": 0,          "hasta": 419_281,    "fijo": 0,          "alicuota": 0.05},
+    {"desde": 419_281,    "hasta": 838_561,    "fijo": 20_964,     "alicuota": 0.09},
+    {"desde": 838_561,    "hasta": 1_257_842,  "fijo": 58_624,     "alicuota": 0.12},
+    {"desde": 1_257_842,  "hasta": 1_677_122,  "fijo": 108_952,    "alicuota": 0.15},
+    {"desde": 1_677_122,  "hasta": 2_515_683,  "fijo": 171_840,    "alicuota": 0.19},
+    {"desde": 2_515_683,  "hasta": 3_354_244,  "fijo": 331_252,    "alicuota": 0.23},
+    {"desde": 3_354_244,  "hasta": 5_031_366,  "fijo": 523_895,    "alicuota": 0.27},
+    {"desde": 5_031_366,  "hasta": 6_708_488,  "fijo": 976_822,    "alicuota": 0.31},
+    {"desde": 6_708_488,  "hasta": float('inf'),"fijo": 1_496_921,  "alicuota": 0.35},
+]
+</code></pre>
+<h2>El motor de cálculo</h2>
+<pre><code class="language-python">from dataclasses import dataclass
+from typing import Optional
+import json
+
+@dataclass
+class ParametrosGanancias:
+    sueldo_bruto_mensual: float
+    cargas_familia: int = 0        # hijos a cargo
+    conyuge: bool = False
+    otros_ingresos_anuales: float = 0.0
+    deducciones_extra: float = 0.0
+
+# Valores 2026 (se actualizan por RG AFIP)
+MNI_ANUAL = 3_091_035
+DEDUCCION_ESPECIAL = 14_835_768  # empleado en relación de dependencia
+DEDUCCION_CONYUGE = 2_862_748
+DEDUCCION_HIJO = 1_443_246
+APORTE_JUBILATORIO = 0.11  # 11%
+APORTE_OBRA_SOCIAL = 0.03  # 3%
+APORTE_INSSJP = 0.03       # PAMI
+
+def calcular_ganancias(params: ParametrosGanancias) -> dict:
+    """
+    Calcula el impuesto a las Ganancias 4ta categoría.
+    Retorna un dict con el desglose completo.
+    """
+    # Ingreso bruto anual
+    ingreso_bruto_anual = params.sueldo_bruto_mensual * 13  # incluye SAC
+    ingreso_bruto_anual += params.otros_ingresos_anuales
+    
+    # Deducciones de ley
+    aporte_jubilatorio = ingreso_bruto_anual * APORTE_JUBILATORIO
+    aporte_obra_social = ingreso_bruto_anual * APORTE_OBRA_SOCIAL
+    aporte_inssjp = ingreso_bruto_anual * APORTE_INSSJP
+    
+    total_deducciones_ley = (
+        aporte_jubilatorio + 
+        aporte_obra_social + 
+        aporte_inssjp +
+        params.deducciones_extra
+    )
+    
+    # Ganancia neta
+    ganancia_neta = ingreso_bruto_anual - total_deducciones_ley
+    
+    # Deducciones personales
+    deduccion_personal = MNI_ANUAL + DEDUCCION_ESPECIAL
+    if params.conyuge:
+        deduccion_personal += DEDUCCION_CONYUGE
+    deduccion_personal += params.cargas_familia * DEDUCCION_HIJO
+    
+    # Base imponible
+    base_imponible = max(0, ganancia_neta - deduccion_personal)
+    
+    # Impuesto según escalas
+    impuesto_anual = _aplicar_escala(base_imponible)
+    
+    # Resultados
+    impuesto_mensual = impuesto_anual / 12
+    sueldo_neto = params.sueldo_bruto_mensual - (impuesto_mensual + 
+                  params.sueldo_bruto_mensual * (APORTE_JUBILATORIO + 
+                  APORTE_OBRA_SOCIAL + APORTE_INSSJP))
+    
+    tasa_efectiva = (impuesto_anual / ingreso_bruto_anual * 100) if ingreso_bruto_anual > 0 else 0
+    
+    return {
+        "ingreso_bruto_anual": ingreso_bruto_anual,
+        "total_deducciones_ley": total_deducciones_ley,
+        "ganancia_neta": ganancia_neta,
+        "deduccion_personal": deduccion_personal,
+        "base_imponible": base_imponible,
+        "impuesto_anual": impuesto_anual,
+        "impuesto_mensual": impuesto_mensual,
+        "sueldo_neto_mensual": sueldo_neto,
+        "tasa_efectiva_pct": round(tasa_efectiva, 2),
+        "paga_ganancias": base_imponible > 0,
+    }
+
+
+def _aplicar_escala(base_imponible: float) -> float:
+    """Aplica las escalas progresivas de AFIP."""
+    if base_imponible &#x3C;= 0:
+        return 0.0
+    
+    for escala in ESCALAS_AFIP:
+        if base_imponible &#x3C;= escala["hasta"]:
+            excedente = base_imponible - escala["desde"]
+            return escala["fijo"] + excedente * escala["alicuota"]
+    
+    # No debería llegar acá si las escalas están bien definidas
+    ultima = ESCALAS_AFIP[-1]
+    excedente = base_imponible - ultima["desde"]
+    return ultima["fijo"] + excedente * ultima["alicuota"]
+</code></pre>
+<h2>Ejemplo de uso</h2>
+<pre><code class="language-python"># Caso 1: Empleado sin cargas de familia
+resultado = calcular_ganancias(ParametrosGanancias(
+    sueldo_bruto_mensual=2_000_000
+))
+
+print(f"Sueldo bruto: ${resultado['ingreso_bruto_anual']:,.0f} anual")
+print(f"Base imponible: ${resultado['base_imponible']:,.0f}")
+print(f"Impuesto anual: ${resultado['impuesto_anual']:,.0f}")
+print(f"Impuesto mensual: ${resultado['impuesto_mensual']:,.0f}")
+print(f"Sueldo neto: ${resultado['sueldo_neto_mensual']:,.0f}")
+print(f"Tasa efectiva: {resultado['tasa_efectiva_pct']}%")
+
+# Caso 2: Con cónyuge y 2 hijos
+resultado_familia = calcular_ganancias(ParametrosGanancias(
+    sueldo_bruto_mensual=2_000_000,
+    cargas_familia=2,
+    conyuge=True
+))
+print(f"\nCon familia - Impuesto mensual: ${resultado_familia['impuesto_mensual']:,.0f}")
+</code></pre>
+<h2>Análisis de escenarios múltiples</h2>
+<p>Lo más útil es poder comparar qué pasa con distintos sueldos:</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+
+sueldos = range(500_000, 5_000_001, 100_000)
+
+resultados = []
+for sueldo in sueldos:
+    r = calcular_ganancias(ParametrosGanancias(sueldo_bruto_mensual=sueldo))
+    resultados.append({
+        "sueldo_bruto": sueldo,
+        "impuesto_mensual": r["impuesto_mensual"],
+        "sueldo_neto": r["sueldo_neto_mensual"],
+        "tasa_efectiva": r["tasa_efectiva_pct"],
+        "paga_ganancias": r["paga_ganancias"],
+    })
+
+df = pd.DataFrame(resultados)
+
+# ¿A partir de qué sueldo empezás a pagar?
+primer_pago = df[df["paga_ganancias"]].iloc[0]
+print(f"Empezás a pagar Ganancias con sueldo bruto: ${primer_pago['sueldo_bruto']:,.0f}")
+
+# Visualización
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+axes[0].plot(df["sueldo_bruto"] / 1_000_000, df["tasa_efectiva"])
+axes[0].set_xlabel("Sueldo bruto (millones de ARS)")
+axes[0].set_ylabel("Tasa efectiva (%)")
+axes[0].set_title("Tasa efectiva por sueldo")
+axes[0].grid(True, alpha=0.3)
+
+axes[1].plot(df["sueldo_bruto"] / 1_000_000, df["sueldo_neto"] / 1_000_000)
+axes[1].set_xlabel("Sueldo bruto (millones de ARS)")
+axes[1].set_ylabel("Sueldo neto (millones de ARS)")
+axes[1].set_title("Sueldo neto por sueldo bruto")
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig("ganancias_analisis.png", dpi=150)
+</code></pre>
+<h2>Proyección anual con actualizaciones de sueldo</h2>
+<p>En Argentina, los sueldos se actualizan por paritarias durante el año. Podés proyectar cuánto vas a pagar en cada período:</p>
+<pre><code class="language-python">def proyectar_anual(sueldo_base: float, actualizaciones: list[dict]) -> pd.DataFrame:
+    """
+    actualizaciones = [
+        {"mes": 3, "pct_aumento": 15},  # Marzo: +15%
+        {"mes": 6, "pct_aumento": 20},  # Junio: +20%
+        {"mes": 9, "pct_aumento": 18},  # Septiembre: +18%
+    ]
+    """
+    sueldo_actual = sueldo_base
+    meses = []
+    sueldo_dict = {1: sueldo_base}
+    
+    for actualizacion in sorted(actualizaciones, key=lambda x: x["mes"]):
+        sueldo_actual *= (1 + actualizacion["pct_aumento"] / 100)
+        sueldo_dict[actualizacion["mes"]] = sueldo_actual
+    
+    # Llenar todos los meses
+    ultimo_sueldo = sueldo_base
+    for mes in range(1, 13):
+        if mes in sueldo_dict:
+            ultimo_sueldo = sueldo_dict[mes]
+        r = calcular_ganancias(ParametrosGanancias(sueldo_bruto_mensual=ultimo_sueldo))
+        meses.append({
+            "mes": mes,
+            "sueldo_bruto": ultimo_sueldo,
+            "impuesto_mensual": r["impuesto_mensual"],
+            "sueldo_neto": r["sueldo_neto_mensual"],
+        })
+    
+    return pd.DataFrame(meses)
+
+# Ejemplo
+df_proyeccion = proyectar_anual(
+    sueldo_base=1_500_000,
+    actualizaciones=[
+        {"mes": 3, "pct_aumento": 15},
+        {"mes": 6, "pct_aumento": 18},
+        {"mes": 9, "pct_aumento": 12},
+    ]
+)
+
+print(df_proyeccion.to_string(index=False))
+print(f"\nTotal impuesto anual: ${df_proyeccion['impuesto_mensual'].sum():,.0f}")
+</code></pre>
+<h2>Consideraciones importantes</h2>
+<ul>
+<li><strong>Actualización de valores</strong>: Los montos del MNI, deducciones especiales y escalas se actualizan periódicamente por resoluciones de AFIP. Siempre verificá los valores vigentes en <a href="https://www.afip.gob.ar">afip.gob.ar</a>.</li>
+<li><strong>SAC</strong>: El cálculo del SAC (aguinaldo) tiene su propia mecánica — este código hace una aproximación con <code>× 13</code>.</li>
+<li><strong>Monotributistas</strong>: Este cálculo aplica a empleados en relación de dependencia (4ta categoría). Los monotributistas tienen un sistema diferente.</li>
+<li><strong>Asesor impositivo</strong>: Para decisiones fiscales importantes, siempre consultá con un contador.</li>
+</ul>
+<hr>
+<p>El código completo está en mi GitHub. Con estos fundamentos podés construir simuladores más complejos, integrarlos a herramientas internas, o simplemente entender mejor tu recibo de sueldo.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"python"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Python para automatizar tu Declaración de Ganancias"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Guía práctica para automatizar cálculos fiscales con Python. Incluye código reutilizable y ejemplos del mundo real."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de febrero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","python",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"python"]}],["$","span","automation",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"automation"]}],["$","span","tax",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"tax"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Python para automatizar tu Declaración de Ganancias | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Guía práctica para automatizar cálculos fiscales con Python. Incluye código reutilizable y ejemplos del mundo real."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Python para automatizar tu Declaración de Ganancias"}],["$","meta","11",{"property":"og:description","content":"Guía práctica para automatizar cálculos fiscales con Python. Incluye código reutilizable y ejemplos del mundo real."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-02-08"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Python para automatizar tu Declaración de Ganancias"}],["$","meta","19",{"name":"twitter:description","content":"Guía práctica para automatizar cálculos fiscales con Python. Incluye código reutilizable y ejemplos del mundo real."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

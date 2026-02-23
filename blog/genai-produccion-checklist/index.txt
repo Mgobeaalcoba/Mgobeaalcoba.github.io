@@ -1,17 +1,235 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","genai-produccion-checklist","d"]
-0:["WV8QzWvWbEdkAk8fZYuE_",[[["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__?{\"slug\":\"genai-produccion-checklist\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-10:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"8 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}],["$","span","llm",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"llm"]}],["$","span","production",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"production"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"<p>Content coming soon...</p>"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L10",null,{}]]}]
+0:["noqrZL1O-zwDb7x7gQiSx",[[["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__?{\"slug\":\"genai-produccion-checklist\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","genai-produccion-checklist","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T2b8c,<p>Llevar un modelo de IA a producción no es lo mismo que hacer una demo. He visto proyectos con meses de desarrollo fallar en el día 1 de launch porque se saltaron pasos que parecían menores. Este checklist está basado en mis experiencias reales y en las lecciones más dolorosas.</p>
+<h2>¿Por qué los sistemas GenAI fallan en producción?</h2>
+<p>Los sistemas tradicionales fallan de formas predecibles: el servidor se cae, la base de datos está llena, hay un bug en el código. Los sistemas GenAI fallan de formas sutiles: generan respuestas plausibles pero incorrectas, son inconsistentes entre ejecuciones, responden de forma diferente en producción que en staging.</p>
+<p>Además, las expectativas del usuario final suelen ser desproporcionadas. Si el sistema dice algo incorrecto una vez, pierde credibilidad para siempre.</p>
+<hr>
+<h2>El Checklist de 15 Puntos</h2>
+<h3>GRUPO 1: Calidad de Outputs</h3>
+<p><strong>1. ¿Definiste métricas de calidad y tenés baseline?</strong></p>
+<p>Antes de ir a producción, medí la calidad de los outputs sobre un set de test representativo. Sin baseline, no podés detectar degradación.</p>
+<pre><code class="language-python"># Ejemplo simplificado de evaluación automatizada
+def evaluar_batch(prompts: list[str], expected: list[str]) -> dict:
+    resultados = []
+    for prompt, esperado in zip(prompts, expected):
+        respuesta = llm.generate(prompt)
+        score = calcular_similitud(respuesta, esperado)  # BLEU, cosine similarity, etc.
+        resultados.append({"prompt": prompt, "score": score})
+    
+    return {
+        "score_promedio": sum(r["score"] for r in resultados) / len(resultados),
+        "score_minimo": min(r["score"] for r in resultados),
+        "porcentaje_sobre_umbral": sum(1 for r in resultados if r["score"] > 0.7) / len(resultados),
+    }
+</code></pre>
+<p><strong>2. ¿Evaluaste casos extremos y adversariales?</strong></p>
+<p>Los usuarios van a intentar cosas que no esperás. Probá:</p>
+<ul>
+<li>Inputs vacíos o muy cortos</li>
+<li>Inputs extremadamente largos (test el límite de tokens)</li>
+<li>Preguntas fuera del scope del sistema</li>
+<li>Prompt injection intentos</li>
+<li>Idiomas o formatos no esperados</li>
+</ul>
+<p><strong>3. ¿Los outputs son deterministas o manejás la variabilidad?</strong></p>
+<p>Con <code>temperature > 0</code>, el mismo input puede dar outputs diferentes. Si tu sistema necesita consistencia, considerá <code>temperature = 0</code> o usá caching de respuestas.</p>
+<pre><code class="language-python"># Cache de respuestas para queries frecuentes
+from functools import lru_cache
+import hashlib
+
+def cache_key(prompt: str, model: str, temperature: float) -> str:
+    return hashlib.md5(f"{prompt}|{model}|{temperature}".encode()).hexdigest()
+
+response_cache = {}
+
+def generate_with_cache(prompt: str, **kwargs):
+    key = cache_key(prompt, kwargs.get('model', 'default'), kwargs.get('temperature', 0))
+    
+    if key in response_cache:
+        return response_cache[key]
+    
+    response = llm.generate(prompt, **kwargs)
+    response_cache[key] = response
+    return response
+</code></pre>
+<hr>
+<h3>GRUPO 2: Confiabilidad y Manejo de Errores</h3>
+<p><strong>4. ¿Tenés fallback cuando el LLM falla o timeout?</strong></p>
+<p>Las APIs de LLM tienen latencia variable y fallan. ¿Qué muestra el usuario mientras esperás? ¿Qué pasa si hay un error 429 (rate limit)?</p>
+<pre><code class="language-python">import asyncio
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=10)
+)
+async def generar_con_retry(prompt: str, timeout: float = 30.0) -> str:
+    try:
+        async with asyncio.timeout(timeout):
+            return await llm.agenerate(prompt)
+    except asyncio.TimeoutError:
+        raise TimeoutError(f"LLM no respondió en {timeout}s")
+</code></pre>
+<p><strong>5. ¿Tenés manejo de context length exceeded?</strong></p>
+<p>Los modelos tienen límites de tokens. Si el input + output supera el límite, el request falla.</p>
+<pre><code class="language-python">import tiktoken
+
+def truncar_si_necesario(texto: str, max_tokens: int = 3000, model: str = "gpt-4") -> str:
+    encoder = tiktoken.encoding_for_model(model)
+    tokens = encoder.encode(texto)
+    
+    if len(tokens) &#x3C;= max_tokens:
+        return texto
+    
+    # Truncar preservando el principio y el final (lo más relevante)
+    mitad = max_tokens // 2
+    tokens_truncados = tokens[:mitad] + tokens[-mitad:]
+    return encoder.decode(tokens_truncados)
+</code></pre>
+<p><strong>6. ¿Tenés circuit breaker para el proveedor de LLM?</strong></p>
+<p>Si el proveedor está caído, no querés que cada request espere el timeout completo antes de fallar.</p>
+<pre><code class="language-python"># Usando la librería 'circuitbreaker'
+from circuitbreaker import circuit
+
+@circuit(failure_threshold=5, recovery_timeout=60)
+def llamar_openai(prompt: str) -> str:
+    return openai_client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}]
+    ).choices[0].message.content
+</code></pre>
+<hr>
+<h3>GRUPO 3: Seguridad y Privacidad</h3>
+<p><strong>7. ¿Protegiste contra prompt injection?</strong></p>
+<p>Los usuarios pueden intentar "hackear" el sistema con prompts que override las instrucciones del sistema.</p>
+<pre><code class="language-python">def sanitizar_input(user_input: str) -> str:
+    # Detectar patrones comunes de prompt injection
+    patrones_sospechosos = [
+        "ignore previous instructions",
+        "forget everything above",
+        "you are now",
+        "pretend you are",
+        "system:",
+        "SYSTEM:",
+    ]
+    
+    input_lower = user_input.lower()
+    for patron in patrones_sospechosos:
+        if patron.lower() in input_lower:
+            raise ValueError("Input potencialmente malicioso detectado")
+    
+    return user_input.strip()
+</code></pre>
+<p><strong>8. ¿Los datos de usuarios no van al modelo sin sanitización?</strong></p>
+<p>Datos personales (nombres, emails, DNI, números de tarjeta) no deben enviarse al LLM. Si el usuario comparte PII en su prompt, debés filtrarla antes de enviarla.</p>
+<p><strong>9. ¿Tenés logging de inputs/outputs con consideraciones de privacidad?</strong></p>
+<p>Necesitás logs para debugging, pero esos logs no deben incluir datos sensibles de usuarios.</p>
+<hr>
+<h3>GRUPO 4: Performance y Costos</h3>
+<p><strong>10. ¿Mediste la latencia end-to-end en producción?</strong></p>
+<p>La latencia del LLM en staging puede ser muy diferente a producción (carga del proveedor, red, etc.). Medí P50, P90, P99.</p>
+<pre><code class="language-python">import time
+from prometheus_client import Histogram
+
+llm_latency = Histogram(
+    'llm_request_duration_seconds',
+    'LLM request duration',
+    buckets=[0.5, 1.0, 2.0, 5.0, 10.0, 30.0]
+)
+
+def generate_con_metricas(prompt: str) -> str:
+    inicio = time.time()
+    try:
+        resultado = llm.generate(prompt)
+        return resultado
+    finally:
+        llm_latency.observe(time.time() - inicio)
+</code></pre>
+<p><strong>11. ¿Estimaste los costos a escala real?</strong></p>
+<p>Calculá: tokens promedio por request × requests por día × precio por token.</p>
+<pre><code class="language-python">def estimar_costo_mensual(
+    requests_por_dia: int,
+    tokens_input_promedio: int,
+    tokens_output_promedio: int,
+    precio_input_por_millon: float = 2.50,   # GPT-4o precio input
+    precio_output_por_millon: float = 10.00,  # GPT-4o precio output
+) -> dict:
+    requests_mes = requests_por_dia * 30
+    
+    costo_input = (requests_mes * tokens_input_promedio / 1_000_000) * precio_input_por_millon
+    costo_output = (requests_mes * tokens_output_promedio / 1_000_000) * precio_output_por_millon
+    
+    return {
+        "costo_input_usd": round(costo_input, 2),
+        "costo_output_usd": round(costo_output, 2),
+        "costo_total_usd": round(costo_input + costo_output, 2),
+    }
+</code></pre>
+<hr>
+<h3>GRUPO 5: Operaciones y Monitoreo</h3>
+<p><strong>12. ¿Tenés health checks específicos para el LLM?</strong></p>
+<p>El health check general de tu API no detecta si el LLM está respondiendo mal.</p>
+<pre><code class="language-python">@app.get("/health/llm")
+async def llm_health():
+    try:
+        respuesta = await llm.agenerate("Responde solo: OK")
+        if "ok" not in respuesta.lower():
+            return {"status": "degraded", "detail": "LLM respondió de forma inesperada"}
+        return {"status": "healthy"}
+    except Exception as e:
+        return {"status": "unhealthy", "detail": str(e)}
+</code></pre>
+<p><strong>13. ¿Tenés alertas para degradación de calidad?</strong></p>
+<p>Configurá alertas cuando:</p>
+<ul>
+<li>La latencia P99 supera umbral</li>
+<li>La tasa de errores aumenta</li>
+<li>El costo diario supera presupuesto</li>
+</ul>
+<p><strong>14. ¿Tenés un proceso de evaluación continua (CI para calidad)?</strong></p>
+<p>Cada vez que cambies el prompt o el modelo, corrés el suite de evaluación automáticamente. Si la calidad baja más del X%, la deploy se bloquea.</p>
+<p><strong>15. ¿Tenés un runbook para incidentes?</strong></p>
+<p>Documentá:</p>
+<ul>
+<li>¿Cómo se ve una falla del proveedor vs falla propia?</li>
+<li>¿Cómo habilitar el modo degradado (sin LLM)?</li>
+<li>¿Quién tiene las keys de API y cómo rotar si se comprometen?</li>
+<li>¿Cómo estimar el impacto de un incidente?</li>
+</ul>
+<hr>
+<h2>Antes del Launch: la lista rápida</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Métricas de calidad definidas y medidas en test set</li>
+<li class="task-list-item"><input type="checkbox" disabled> Casos adversariales probados</li>
+<li class="task-list-item"><input type="checkbox" disabled> Retry con backoff exponencial</li>
+<li class="task-list-item"><input type="checkbox" disabled> Manejo de context length</li>
+<li class="task-list-item"><input type="checkbox" disabled> Circuit breaker</li>
+<li class="task-list-item"><input type="checkbox" disabled> Prompt injection mitigado</li>
+<li class="task-list-item"><input type="checkbox" disabled> PII no enviado al modelo</li>
+<li class="task-list-item"><input type="checkbox" disabled> Logging con privacidad</li>
+<li class="task-list-item"><input type="checkbox" disabled> Latencia medida (P50/P90/P99)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Costo estimado para volumen real</li>
+<li class="task-list-item"><input type="checkbox" disabled> Health check específico para LLM</li>
+<li class="task-list-item"><input type="checkbox" disabled> Alertas configuradas</li>
+<li class="task-list-item"><input type="checkbox" disabled> CI de evaluación de calidad</li>
+<li class="task-list-item"><input type="checkbox" disabled> Runbook de incidentes</li>
+<li class="task-list-item"><input type="checkbox" disabled> Modo degradado sin LLM</li>
+</ul>
+<hr>
+<p>Un sistema GenAI que falla en producción no solo genera costo — genera desconfianza que es muy difícil de recuperar. Vale la pena invertir 2-3 días extra en este checklist antes del launch.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}],["$","span","llm",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"llm"]}],["$","span","production",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"production"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"GenAI en Producción: Checklist de 15 puntos antes de deploy | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","meta","11",{"property":"og:description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-03-08"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"GenAI en Producción: Checklist de 15 puntos antes de deploy"}],["$","meta","19",{"name":"twitter:description","content":"No lleves tu modelo de IA a producción sin revisar esto. Lecciones de proyectos reales."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

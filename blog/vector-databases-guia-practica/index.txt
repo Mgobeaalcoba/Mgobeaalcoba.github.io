@@ -1,17 +1,295 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","vector-databases-guia-practica","d"]
-0:["WV8QzWvWbEdkAk8fZYuE_",[[["",{"children":["blog",{"children":[["slug","vector-databases-guia-practica","d"],{"children":["__PAGE__?{\"slug\":\"vector-databases-guia-practica\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","vector-databases-guia-practica","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-10:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Vector Databases: Guía práctica para RAG en producción"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Todo sobre vector databases para implementar RAG. Pinecone vs Weaviate vs Milvus."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"29 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"13 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","vector-db",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"vector-db"]}],["$","span","rag",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"rag"]}],["$","span","embeddings",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"embeddings"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"<p>Content coming soon...</p>"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L10",null,{}]]}]
+0:["noqrZL1O-zwDb7x7gQiSx",[[["",{"children":["blog",{"children":[["slug","vector-databases-guia-practica","d"],{"children":["__PAGE__?{\"slug\":\"vector-databases-guia-practica\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","vector-databases-guia-practica","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T278b,<p>Si estás implementando RAG (Retrieval Augmented Generation), tarde o temprano tenés que elegir una base de datos vectorial. Pinecone, Weaviate, Milvus, Qdrant, Chroma, pgvector... la cantidad de opciones es abrumadora.</p>
+<p>Esta guía te da el conocimiento mínimo para entender qué son, cómo funcionan, y cuándo usar cada opción.</p>
+<h2>¿Qué es una base de datos vectorial?</h2>
+<p>Una base de datos vectorial almacena <strong>embeddings</strong> — representaciones numéricas de texto, imágenes, o cualquier dato — como vectores de alta dimensión (típicamente 768, 1536, o 3072 dimensiones).</p>
+<p>La operación fundamental es la <strong>búsqueda de similitud</strong>: dado un vector de consulta, encontrá los N vectores más similares en la base de datos.</p>
+<pre><code class="language-python"># Concepto simplificado
+query = "¿Cuál es la política de devoluciones?"
+query_embedding = embed(query)  # [0.23, -0.45, 0.12, ...]  ← 1536 números
+
+# La base vectorial encuentra los documentos más "parecidos" semánticamente
+documentos_relevantes = vector_db.search(
+    query_vector=query_embedding,
+    top_k=5
+)
+</code></pre>
+<p>La magia es que "similitud" es <strong>semántica</strong>, no textual. "Cómo hago una devolución" y "quiero retornar un producto" encontrarán los mismos documentos aunque no compartan palabras.</p>
+<h2>Cómo funciona el índice vectorial</h2>
+<p>Las bases vectoriales usan algoritmos de Approximate Nearest Neighbor (ANN) para hacer búsquedas eficientes en millones de vectores:</p>
+<ul>
+<li><strong>HNSW</strong> (Hierarchical Navigable Small World): El más común, excelente balance velocidad/precisión</li>
+<li><strong>IVF</strong> (Inverted File): Agrupa vectores en clusters, más eficiente para datasets gigantes</li>
+<li><strong>LSH</strong> (Locality Sensitive Hashing): Más rápido pero menos preciso</li>
+</ul>
+<p>La diferencia clave con una búsqueda exacta: ANN sacrifica algo de precisión (puede no encontrar el MEJOR resultado, pero sí uno muy bueno) a cambio de velocidad.</p>
+<h2>El pipeline RAG completo</h2>
+<pre><code class="language-python">from openai import OpenAI
+import pinecone
+from typing import list
+
+client = OpenAI()
+
+def crear_embedding(texto: str) -> list[float]:
+    """Convierte texto en vector usando OpenAI."""
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=texto
+    )
+    return response.data[0].embedding
+
+def indexar_documentos(documentos: list[str], index):
+    """Indexa documentos en Pinecone."""
+    for i, doc in enumerate(documentos):
+        embedding = crear_embedding(doc)
+        index.upsert(vectors=[{
+            "id": f"doc-{i}",
+            "values": embedding,
+            "metadata": {"texto": doc}
+        }])
+
+def buscar_contexto(query: str, index, top_k: int = 5) -> list[str]:
+    """Busca documentos relevantes para la query."""
+    query_embedding = crear_embedding(query)
+    resultados = index.query(
+        vector=query_embedding,
+        top_k=top_k,
+        include_metadata=True
+    )
+    return [r.metadata["texto"] for r in resultados.matches]
+
+def responder_con_rag(query: str, index) -> str:
+    """RAG completo: recuperar contexto + generar respuesta."""
+    contextos = buscar_contexto(query, index)
+    contexto_unido = "\n\n".join(contextos)
+    
+    respuesta = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {
+                "role": "system",
+                "content": f"""Respondé la pregunta basándote SOLO en el siguiente contexto.
+Si la información no está en el contexto, decilo claramente.
+
+CONTEXTO:
+{contexto_unido}"""
+            },
+            {"role": "user", "content": query}
+        ]
+    )
+    
+    return respuesta.choices[0].message.content
+</code></pre>
+<h2>Comparativa: Pinecone vs Weaviate vs Qdrant vs pgvector</h2>
+<h3>Pinecone</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Setup en 5 minutos, sin infraestructura que manejar</li>
+<li>Performance excelente para millones de vectores</li>
+<li>SDK limpio y bien documentado</li>
+<li>Filtrado por metadata out-of-the-box</li>
+</ul>
+<p><strong>Contras:</strong></p>
+<ul>
+<li>Vendor lock-in total (SaaS only)</li>
+<li>Costo alto a escala (puede superar $1000/mes fácilmente)</li>
+<li>Sin control sobre la infraestructura</li>
+</ul>
+<pre><code class="language-python">from pinecone import Pinecone
+
+pc = Pinecone(api_key="tu-api-key")
+index = pc.Index("mi-indice")
+
+# Insertar
+index.upsert(vectors=[{
+    "id": "vec1",
+    "values": [0.1, 0.2, 0.3, ...],  # 1536 dimensiones
+    "metadata": {"fuente": "doc1", "seccion": "intro"}
+}])
+
+# Buscar con filtro
+resultados = index.query(
+    vector=[0.1, 0.2, ...],
+    top_k=10,
+    filter={"fuente": {"$eq": "doc1"}},  # Solo documentos de "doc1"
+    include_metadata=True
+)
+</code></pre>
+<p><strong>Cuándo usar Pinecone</strong>: Prototipado rápido, startup sin equipo de infraestructura, cuando el costo no es un bloqueante.</p>
+<h3>Weaviate</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Open source + managed cloud</li>
+<li>Módulos built-in para vectorización (conecta directo con OpenAI, Cohere, etc.)</li>
+<li>GraphQL API poderosa</li>
+<li>Búsqueda híbrida (vectorial + keyword) out-of-the-box</li>
+</ul>
+<p><strong>Contras:</strong></p>
+<ul>
+<li>Curva de aprendizaje más alta</li>
+<li>El schema es más complejo de definir</li>
+</ul>
+<pre><code class="language-python">import weaviate
+from weaviate.classes.init import Auth
+
+client = weaviate.connect_to_weaviate_cloud(
+    cluster_url="tu-cluster.weaviate.network",
+    auth_credentials=Auth.api_key("tu-api-key"),
+    headers={"X-OpenAI-Api-Key": "tu-openai-key"},
+)
+
+# Weaviate puede vectorizar automáticamente
+collection = client.collections.get("Documento")
+collection.data.insert({
+    "titulo": "Política de devoluciones",
+    "contenido": "Los productos pueden devolverse en 30 días...",
+})
+
+# Búsqueda semántica
+resultados = collection.query.near_text(
+    query="cómo hago una devolución",
+    limit=5
+)
+</code></pre>
+<p><strong>Cuándo usar Weaviate</strong>: Cuando necesitás búsqueda híbrida, cuando querés vectorización automática integrada.</p>
+<h3>Qdrant</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Open source, escrito en Rust (muy rápido)</li>
+<li>Excelente para on-premise / self-hosted</li>
+<li>Filtrado avanzado con payload</li>
+<li>Docker compose en 2 minutos</li>
+</ul>
+<p><strong>Contras:</strong></p>
+<ul>
+<li>Menor ecosistema que Pinecone/Weaviate</li>
+</ul>
+<pre><code class="language-bash"># Levantar Qdrant localmente
+docker run -p 6333:6333 qdrant/qdrant
+</code></pre>
+<pre><code class="language-python">from qdrant_client import QdrantClient
+from qdrant_client.models import Distance, VectorParams, PointStruct
+
+client = QdrantClient(host="localhost", port=6333)
+
+# Crear colección
+client.create_collection(
+    collection_name="documentos",
+    vectors_config=VectorParams(size=1536, distance=Distance.COSINE),
+)
+
+# Insertar
+client.upsert(
+    collection_name="documentos",
+    points=[
+        PointStruct(
+            id=1,
+            vector=[0.1, 0.2, ...],
+            payload={"texto": "...", "fuente": "manual"}
+        )
+    ]
+)
+
+# Buscar
+resultados = client.search(
+    collection_name="documentos",
+    query_vector=[0.1, 0.2, ...],
+    limit=5
+)
+</code></pre>
+<p><strong>Cuándo usar Qdrant</strong>: Self-hosted, performance crítica, cuando querés control total.</p>
+<h3>pgvector (extensión de PostgreSQL)</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Ya tenés Postgres → zero infraestructura adicional</li>
+<li>SQL que ya conocés</li>
+<li>Transacciones ACID</li>
+<li>Gratis si ya pagás por Postgres</li>
+</ul>
+<p><strong>Contras:</strong></p>
+<ul>
+<li>Performance menor que soluciones dedicadas a millones de vectores</li>
+<li>Índices HNSW requieren ajuste fino</li>
+</ul>
+<pre><code class="language-sql">-- Habilitar extensión
+CREATE EXTENSION IF NOT EXISTS vector;
+
+-- Tabla con columna vectorial
+CREATE TABLE documentos (
+    id SERIAL PRIMARY KEY,
+    texto TEXT,
+    fuente VARCHAR(100),
+    embedding vector(1536)
+);
+
+-- Índice HNSW para búsqueda eficiente
+CREATE INDEX ON documentos USING hnsw (embedding vector_cosine_ops);
+
+-- Insertar (desde Python)
+-- INSERT INTO documentos (texto, fuente, embedding)
+-- VALUES ('Política de devoluciones...', 'manual', '[0.1, 0.2, ...]')
+
+-- Búsqueda de similitud coseno
+SELECT texto, fuente, 1 - (embedding &#x3C;=> '[0.1, 0.2, ...]') as similitud
+FROM documentos
+ORDER BY embedding &#x3C;=> '[0.1, 0.2, ...]'
+LIMIT 5;
+</code></pre>
+<p><strong>Cuándo usar pgvector</strong>: Dataset pequeño (&#x3C;1M vectores), ya usás PostgreSQL, simplicidad operacional es prioridad.</p>
+<h2>Cómo elegir</h2>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Recomendación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prototipo rápido</td>
+<td>Pinecone o Chroma (local)</td>
+</tr>
+<tr>
+<td>Producción, equipo chico, sin infra</td>
+<td>Pinecone o Weaviate Cloud</td>
+</tr>
+<tr>
+<td>Self-hosted, performance</td>
+<td>Qdrant o Weaviate</td>
+</tr>
+<tr>
+<td>Ya tenés Postgres, &#x3C;1M vectores</td>
+<td>pgvector</td>
+</tr>
+<tr>
+<td>Búsqueda híbrida (vectorial + keyword)</td>
+<td>Weaviate</td>
+</tr>
+</tbody>
+</table>
+<h2>Métricas de similitud: qué elegir</h2>
+<p>Las bases vectoriales ofrecen distintas métricas de distancia:</p>
+<ul>
+<li><strong>Cosine similarity</strong>: Para texto y embeddings de lenguaje. Mide el ángulo entre vectores, no su magnitud. <strong>La más común para RAG.</strong></li>
+<li><strong>Dot product</strong>: Similar a coseno pero magnitud importa. Bueno para embeddings normalizados.</li>
+<li><strong>Euclidean (L2)</strong>: Para cuando la distancia absoluta importa (imágenes, coordenadas geográficas).</li>
+</ul>
+<p>Para RAG con OpenAI embeddings, siempre usá <strong>cosine similarity</strong>.</p>
+<hr>
+<p>Una base vectorial no es magia — es la capa que hace posible que un LLM "recuerde" miles de documentos sin tenerlos en el context window. Una vez que entendés el concepto, la diferencia entre Pinecone y Qdrant es más de operaciones que de fundamentos.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Vector Databases: Guía práctica para RAG en producción"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Todo sobre vector databases para implementar RAG. Pinecone vs Weaviate vs Milvus."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"28 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"13 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","vector-db",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"vector-db"]}],["$","span","rag",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"rag"]}],["$","span","embeddings",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"embeddings"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Vector Databases: Guía práctica para RAG en producción | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Todo sobre vector databases para implementar RAG. Pinecone vs Weaviate vs Milvus."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Vector Databases: Guía práctica para RAG en producción"}],["$","meta","11",{"property":"og:description","content":"Todo sobre vector databases para implementar RAG. Pinecone vs Weaviate vs Milvus."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-03-29"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Vector Databases: Guía práctica para RAG en producción"}],["$","meta","19",{"name":"twitter:description","content":"Todo sobre vector databases para implementar RAG. Pinecone vs Weaviate vs Milvus."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

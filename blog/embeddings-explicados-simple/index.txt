@@ -1,17 +1,221 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","embeddings-explicados-simple","d"]
-0:["WV8QzWvWbEdkAk8fZYuE_",[[["",{"children":["blog",{"children":[["slug","embeddings-explicados-simple","d"],{"children":["__PAGE__?{\"slug\":\"embeddings-explicados-simple\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","embeddings-explicados-simple","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-10:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Embeddings explicados simple: La magia detrás de GenAI"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Qué son embeddings, cómo funcionan y por qué son la tecnología clave detrás de GenAI."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"21 de junio de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","embeddings",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"embeddings"]}],["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}],["$","span","ml",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"ml"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"<p>Content coming soon...</p>"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L10",null,{}]]}]
+0:["noqrZL1O-zwDb7x7gQiSx",[[["",{"children":["blog",{"children":[["slug","embeddings-explicados-simple","d"],{"children":["__PAGE__?{\"slug\":\"embeddings-explicados-simple\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","embeddings-explicados-simple","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T2899,<p>"Embeddings" es una de esas palabras que aparece en toda discusión de IA pero que pocos explican bien. Se la menciona cuando se habla de RAG, de búsqueda semántica, de LLMs, de recomendaciones. ¿Qué son exactamente? ¿Por qué son tan importantes? ¿Cómo funcionan?</p>
+<p>Esta es la explicación que me hubiera gustado tener cuando empecé a trabajar con ellos.</p>
+<h2>La intuición: representar el significado como números</h2>
+<p>Los computadores no entienden palabras — entienden números. Para que una computadora trabaje con texto, necesitamos convertir ese texto en números de una forma que capture el <strong>significado</strong>.</p>
+<p>La representación más básica sería un diccionario: asignar a cada palabra un número único. "perro" = 1, "gato" = 2, "pelota" = 3. Pero esto no captura ningún significado — "perro" y "gato" son conceptos relacionados (ambos son mascotas), pero en esta representación son 1 y 2, tan diferentes como 1 y 1,000,000.</p>
+<p>Los embeddings resuelven esto: en vez de un solo número, representan cada palabra (o texto) como un <strong>vector de cientos o miles de números</strong> de forma que textos con significados similares tienen vectores similares.</p>
+<pre><code>"perro"  → [0.23, -0.45, 0.12, 0.67, ...]  (1536 números)
+"gato"   → [0.21, -0.43, 0.15, 0.64, ...]  (1536 números)  ← similar a perro
+"auto"   → [-0.89, 0.34, -0.67, 0.12, ...]  (1536 números)  ← muy diferente
+</code></pre>
+<p>La "distancia" entre los vectores de "perro" y "gato" es pequeña. La distancia entre "perro" y "auto" es grande. Y esta distancia <strong>captura similitud semántica</strong>, no textual.</p>
+<h2>La metáfora del espacio de significados</h2>
+<p>Imaginá un espacio en 3D (aunque en realidad son 1536 dimensiones — difícil de visualizar, pero el concepto aplica):</p>
+<pre><code>                    "gato" ●
+                   "perro" ●
+                  "mascota" ●
+    
+    
+            "auto" ●    "bicicleta" ●
+            "moto" ●    "transporte" ●
+    
+    
+    "Python" ●   "JavaScript" ●
+    "código" ●   "programación" ●
+</code></pre>
+<p>Los conceptos relacionados están cerca en este espacio. Los conceptos distintos están lejos. Eso es lo que hace un embedding — pone cada texto en su lugar correcto en este espacio de significados.</p>
+<h2>La propiedad más asombrosa: aritmética de significados</h2>
+<p>Una de las primeras demostraciones de embeddings (Word2Vec, 2013) mostró algo fascinante:</p>
+<pre><code class="language-python">embedding("rey") - embedding("hombre") + embedding("mujer") ≈ embedding("reina")
+embedding("París") - embedding("Francia") + embedding("Italia") ≈ embedding("Roma")
+embedding("BigQuery") - embedding("Google") + embedding("Amazon") ≈ embedding("Redshift")
+</code></pre>
+<p>El vector de "rey" menos "hombre" captura el concepto de "realeza sin género". Agregar "mujer" lo lleva al lugar de "reina". Esto es <strong>álgebra de conceptos</strong>, no de palabras.</p>
+<h2>Cómo se crean: aprendizaje no supervisado</h2>
+<p>Los embeddings modernos se crean entrenando redes neuronales gigantes sobre enormes cantidades de texto. La red aprende a predecir qué palabras tienden a aparecer juntas, en qué contextos.</p>
+<p>Simplificado: si "perro" y "gato" aparecen frecuentemente junto a "mascota", "veterinario", "comida de mascotas", la red aprende que son conceptos similares y les asigna vectores cercanos.</p>
+<p>Los modelos como <code>text-embedding-3-large</code> de OpenAI o <code>embed-v3</code> de Cohere hacen esto a escala, con billones de textos. El resultado son vectores que capturan una comprensión profunda del lenguaje.</p>
+<h2>Cómo usarlos en código</h2>
+<pre><code class="language-python">from openai import OpenAI
+import numpy as np
+
+client = OpenAI()
+
+def get_embedding(text: str) -> list[float]:
+    """Genera embedding para un texto."""
+    response = client.embeddings.create(
+        model="text-embedding-3-small",  # 1536 dimensiones, buen balance precio/calidad
+        input=text,
+    )
+    return response.data[0].embedding
+
+def cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
+    """Calcula similitud coseno entre dos vectores. Rango: [-1, 1]"""
+    v1, v2 = np.array(vec1), np.array(vec2)
+    return float(np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
+
+# Ejemplo: similitud semántica
+textos = [
+    "Cómo optimizar queries en BigQuery",
+    "Técnicas para reducir costos en BigQuery",
+    "Recetas de pasta italiana",
+    "Ravioles con salsa de tomate",
+]
+
+embeddings = [get_embedding(t) for t in textos]
+
+# Similitud entre BigQuery y BigQuery
+sim_bigquery = cosine_similarity(embeddings[0], embeddings[1])
+print(f"BigQuery 1 vs BigQuery 2: {sim_bigquery:.3f}")  # ~0.85
+
+# Similitud entre BigQuery y pasta
+sim_diferente = cosine_similarity(embeddings[0], embeddings[2])
+print(f"BigQuery vs Pasta: {sim_diferente:.3f}")  # ~0.15
+
+# Similitud entre pasta y pasta
+sim_pasta = cosine_similarity(embeddings[2], embeddings[3])
+print(f"Pasta 1 vs Pasta 2: {sim_pasta:.3f}")  # ~0.82
+</code></pre>
+<h2>Las aplicaciones principales</h2>
+<h3>1. Búsqueda semántica (RAG)</h3>
+<p>La aplicación más común hoy. En vez de buscar por keywords exactas, encontrás documentos por significado:</p>
+<pre><code class="language-python">documentos = [
+    "Para cancelar un pedido, entrá a 'Mis compras' y seleccioná 'Cancelar'",
+    "Los envíos llegan en 3-7 días hábiles según tu ubicación",
+    "Podés pagar con tarjeta de crédito, débito o MercadoPago",
+]
+
+doc_embeddings = [get_embedding(doc) for doc in documentos]
+
+def buscar(query: str, top_k: int = 2) -> list[tuple[str, float]]:
+    query_emb = get_embedding(query)
+    scores = [(doc, cosine_similarity(query_emb, emb)) 
+               for doc, emb in zip(documentos, doc_embeddings)]
+    return sorted(scores, key=lambda x: x[1], reverse=True)[:top_k]
+
+resultados = buscar("quiero anular mi compra")
+for doc, score in resultados:
+    print(f"Score: {score:.3f} | {doc[:60]}...")
+# Score: 0.892 | Para cancelar un pedido, entrá a 'Mis compras'...
+</code></pre>
+<p>La búsqueda encontró el documento correcto aunque "anular" y "cancelar" son sinónimos, no la misma palabra.</p>
+<h3>2. Clasificación de texto</h3>
+<pre><code class="language-python"># Categorías con sus embeddings "ancla"
+categorias = {
+    "data-engineering": get_embedding("pipelines de datos, ETL, BigQuery, Spark, Airflow"),
+    "python": get_embedding("programación Python, pandas, scripting, automatización"),
+    "genai": get_embedding("inteligencia artificial generativa, LLMs, embeddings, RAG"),
+}
+
+def clasificar(texto: str) -> str:
+    texto_emb = get_embedding(texto)
+    scores = {cat: cosine_similarity(texto_emb, emb) for cat, emb in categorias.items()}
+    return max(scores, key=scores.get)
+
+# Test
+print(clasificar("Cómo usar asyncio para acelerar pipelines"))  # "python"
+print(clasificar("Optimizar costos en BigQuery con particiones"))  # "data-engineering"
+print(clasificar("Construir un chatbot con LangChain y GPT-4"))  # "genai"
+</code></pre>
+<h3>3. Detección de duplicados</h3>
+<pre><code class="language-python">def son_similares(texto1: str, texto2: str, umbral: float = 0.90) -> bool:
+    emb1 = get_embedding(texto1)
+    emb2 = get_embedding(texto2)
+    return cosine_similarity(emb1, emb2) >= umbral
+
+# Detectar preguntas duplicadas en un foro
+print(son_similares(
+    "¿Cómo instalo Docker en Ubuntu?",
+    "Pasos para instalar Docker en Linux Ubuntu"
+))  # True — son duplicados
+
+print(son_similares(
+    "¿Cómo instalo Docker en Ubuntu?",
+    "¿Cómo desinstalo Docker en Windows?"
+))  # False — son diferentes
+</code></pre>
+<h3>4. Recomendaciones</h3>
+<pre><code class="language-python"># Dado un artículo, encontrar artículos similares
+articulos = {
+    "sql-window-functions": "SQL Window Functions: la guía definitiva",
+    "bigquery-costos": "BigQuery: cómo reduje costos en 70%",
+    "airflow-vs-prefect": "Airflow vs Prefect: cuál elegir",
+    "dbt-intro": "dbt: la herramienta que cambió el analytics engineering",
+    "streamlit-dashboards": "Streamlit: de idea a dashboard en 30 minutos",
+}
+
+articulo_embeddings = {slug: get_embedding(titulo) for slug, titulo in articulos.items()}
+
+def recomendar(slug_actual: str, top_n: int = 3) -> list[str]:
+    emb_actual = articulo_embeddings[slug_actual]
+    scores = [
+        (slug, cosine_similarity(emb_actual, emb))
+        for slug, emb in articulo_embeddings.items()
+        if slug != slug_actual
+    ]
+    return [slug for slug, _ in sorted(scores, key=lambda x: x[1], reverse=True)[:top_n]]
+
+print(recomendar("bigquery-costos"))
+# ['sql-window-functions', 'dbt-intro', 'airflow-vs-prefect']
+# Los artículos de data engineering aparecen juntos
+</code></pre>
+<h2>Los modelos de embedding más usados</h2>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Dimensiones</th>
+<th>Precio (aprox.)</th>
+<th>Cuándo usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI text-embedding-3-small</td>
+<td>1536</td>
+<td>$0.02/1M tokens</td>
+<td>La mayoría de casos</td>
+</tr>
+<tr>
+<td>OpenAI text-embedding-3-large</td>
+<td>3072</td>
+<td>$0.13/1M tokens</td>
+<td>Máxima precisión</td>
+</tr>
+<tr>
+<td>Cohere embed-v3</td>
+<td>1024</td>
+<td>$0.10/1M tokens</td>
+<td>Búsqueda multilingual</td>
+</tr>
+<tr>
+<td>sentence-transformers (local)</td>
+<td>768</td>
+<td>Gratis (self-hosted)</td>
+<td>Sin costo, sin dependencia externa</td>
+</tr>
+</tbody>
+</table>
+<h2>Por qué los embeddings son la tecnología clave de GenAI</h2>
+<p>Sin embeddings, los LLMs solo conocen lo que está en su contexto window (típicamente 8K-128K tokens). Con embeddings y RAG, pueden "recordar" millones de documentos — buscan semánticamente los más relevantes y los incluyen en el contexto.</p>
+<p>Embeddings también son lo que hace posible que ChatGPT y otros modelos entiendan preguntas con sinónimos, paráfrasis, y preguntas formuladas de forma diferente a como está la respuesta en los documentos.</p>
+<p>Son, en muchos sentidos, la infraestructura invisible que hace útil a la IA moderna.</p>
+<hr>
+<p>La próxima vez que veas "embedding" en un artículo o en código, ya sabés exactamente qué significa: una representación numérica de significado que hace posible operar matemáticamente sobre conceptos. Simple en principio, transformador en práctica.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Embeddings explicados simple: La magia detrás de GenAI"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Qué son embeddings, cómo funcionan y por qué son la tecnología clave detrás de GenAI."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"20 de junio de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","embeddings",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"embeddings"]}],["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}],["$","span","ml",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"ml"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Embeddings explicados simple: La magia detrás de GenAI | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Qué son embeddings, cómo funcionan y por qué son la tecnología clave detrás de GenAI."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Embeddings explicados simple: La magia detrás de GenAI"}],["$","meta","11",{"property":"og:description","content":"Qué son embeddings, cómo funcionan y por qué son la tecnología clave detrás de GenAI."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-06-21"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Embeddings explicados simple: La magia detrás de GenAI"}],["$","meta","19",{"name":"twitter:description","content":"Qué son embeddings, cómo funcionan y por qué son la tecnología clave detrás de GenAI."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null
