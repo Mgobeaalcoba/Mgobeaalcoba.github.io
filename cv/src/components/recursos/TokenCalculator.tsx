@@ -3,25 +3,10 @@
 import { useState, useCallback, useRef } from 'react';
 import { Bot, Trophy, AlertTriangle, Upload } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import type { AiModel } from '@/lib/queries';
 
-type ModelPricing = {
-  name: string;
-  provider: string;
-  inputPer1M: number;
-  outputPer1M: number;
-  color: string;
-};
-
-const MODELS: ModelPricing[] = [
-  { name: 'GPT-4o', provider: 'OpenAI', inputPer1M: 5.0, outputPer1M: 15.0, color: 'text-green-400' },
-  { name: 'GPT-4o mini', provider: 'OpenAI', inputPer1M: 0.15, outputPer1M: 0.6, color: 'text-green-300' },
-  { name: 'o1-mini', provider: 'OpenAI', inputPer1M: 3.0, outputPer1M: 12.0, color: 'text-green-500' },
-  { name: 'Claude 3.5 Sonnet', provider: 'Anthropic', inputPer1M: 3.0, outputPer1M: 15.0, color: 'text-orange-400' },
-  { name: 'Claude 3 Haiku', provider: 'Anthropic', inputPer1M: 0.25, outputPer1M: 1.25, color: 'text-orange-300' },
-  { name: 'Gemini 1.5 Pro', provider: 'Google', inputPer1M: 1.25, outputPer1M: 5.0, color: 'text-blue-400' },
-  { name: 'Gemini 1.5 Flash', provider: 'Google', inputPer1M: 0.075, outputPer1M: 0.3, color: 'text-blue-300' },
-  { name: 'Grok-2', provider: 'xAI', inputPer1M: 2.0, outputPer1M: 10.0, color: 'text-purple-400' },
-];
+type ModelPricing = AiModel;
 
 type Result = {
   model: ModelPricing;
@@ -33,22 +18,14 @@ type Result = {
 };
 
 const INFO_TABS = [
-  {
-    id: 'precios',
-    label: { es: 'Precios por Modelo', en: 'Model Pricing' },
-  },
-  {
-    id: 'tokens',
-    label: { es: '¿Qué es un Token?', en: 'What is a Token?' },
-  },
-  {
-    id: 'tips',
-    label: { es: 'Tips de Optimización', en: 'Optimization Tips' },
-  },
+  { id: 'precios', labelEs: 'Precios por Modelo', labelEn: 'Model Pricing' },
+  { id: 'tokens', labelEs: '¿Qué es un Token?', labelEn: 'What is a Token?' },
+  { id: 'tips', labelEs: 'Tips de Optimización', labelEn: 'Optimization Tips' },
 ];
 
 export default function TokenCalculator() {
   const { lang } = useLanguage();
+  const { aiModels, loading } = useSupabaseData();
   const [text, setText] = useState('');
   const [outputRatio, setOutputRatio] = useState(1);
   const [results, setResults] = useState<Result[]>([]);
@@ -84,7 +61,7 @@ export default function TokenCalculator() {
 
     setStats({ chars, words, tokens: inputTokens });
 
-    const computed = MODELS.map((model) => {
+    const computed = aiModels.map((model) => {
       const inputCost = (inputTokens / 1_000_000) * model.inputPer1M;
       const outputCost = (outputTokens / 1_000_000) * model.outputPer1M;
       return {
@@ -286,7 +263,7 @@ export default function TokenCalculator() {
               onClick={() => setActiveInfoTab(tab.id)}
               className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${activeInfoTab === tab.id ? 'bg-purple-500 text-white' : 'glass text-gray-400 hover:text-white'}`}
             >
-              {tab.label[lang]}
+              {lang === 'es' ? tab.labelEs : tab.labelEn}
             </button>
           ))}
         </div>
@@ -302,7 +279,7 @@ export default function TokenCalculator() {
                 </tr>
               </thead>
               <tbody>
-                {MODELS.map((m) => (
+                {aiModels.map((m) => (
                   <tr key={m.name} className="border-b border-white/5 hover:bg-white/5">
                     <td className="py-1.5"><span className={`font-medium ${m.color}`}>{m.name}</span><br /><span className="text-gray-500">{m.provider}</span></td>
                     <td className="text-right py-1.5 text-gray-300">${m.inputPer1M.toFixed(3)}</td>

@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { Thermometer, Volume2, Battery, Droplets, ExternalLink } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import { trackCtaClick } from '@/lib/gtag';
-
-const preCooling = ContentRepository.getPreCooling();
 
 const featureIcons: LucideIcon[] = [Thermometer, Volume2, Battery, Droplets];
 
 export default function PreCoolingFeature() {
   const { t } = useLanguage();
+  const { config } = useNeilData();
+  const preCooling = config?.pre_cooling;
 
   return (
     <section id="pre-enfriado" className="py-20 lg:py-28 bg-navy-950 relative overflow-hidden">
@@ -51,7 +51,7 @@ export default function PreCoolingFeature() {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-accent/20 via-transparent to-blue-royal/20 p-[1px]">
                 <div className="w-full h-full rounded-3xl bg-navy-800 flex items-center justify-center p-8">
                   <img
-                    src={preCooling.image}
+                    src={preCooling?.image ?? ""}
                     alt="Pre-Cooling System"
                     className="w-full h-full object-contain"
                   />
@@ -59,7 +59,7 @@ export default function PreCoolingFeature() {
               </div>
               <div className="absolute inset-[1px] rounded-3xl bg-navy-800 flex items-center justify-center p-8">
                 <img
-                  src={preCooling.image}
+                  src={preCooling?.image ?? ""}
                   alt="Pre-Cooling System"
                   className="w-full h-full object-contain"
                 />
@@ -89,7 +89,7 @@ export default function PreCoolingFeature() {
             <p className="text-slate-400 leading-relaxed mb-10">{t.preCooling.description2}</p>
 
             <div className="space-y-4 mb-8">
-              {t.preCooling.features.map((feature, i) => {
+              {((t as any)?.preCooling?.features ?? []).map((feature: {title: string; desc: string; description?: string; icon: string}, i: number) => {
                 const Icon = featureIcons[i] ?? Thermometer as LucideIcon;
                 return (
                   <motion.div

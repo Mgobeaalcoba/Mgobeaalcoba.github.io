@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { BarChart2, RefreshCw, Share2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 type Period = '3m' | '6m' | '12m';
 
@@ -25,15 +26,6 @@ interface LiveData {
   lastUpdated: string;
 }
 
-const PLAZO_FIJO_MONTHLY_RATES: Record<string, number> = {
-  '2024-01': 9.0, '2024-02': 9.0, '2024-03': 7.2, '2024-04': 5.4,
-  '2024-05': 5.0, '2024-06': 4.5, '2024-07': 4.0, '2024-08': 3.8,
-  '2024-09': 3.5, '2024-10': 3.2, '2024-11': 3.0, '2024-12': 2.9,
-  '2025-01': 2.85, '2025-02': 2.8, '2025-03': 2.75, '2025-04': 2.7,
-  '2025-05': 2.7, '2025-06': 2.65, '2025-07': 2.6, '2025-08': 2.55,
-  '2025-09': 2.5, '2025-10': 2.5, '2025-11': 2.5, '2025-12': 2.5,
-  '2026-01': 2.75, '2026-02': 2.75,
-};
 
 function getMonthLabel(fecha: string): string {
   const [y, m] = fecha.split('-');
@@ -108,6 +100,7 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
 
 export default function InvestmentDashboard() {
   const { lang } = useLanguage();
+  const { plazoFijoRates } = useSupabaseData();
   const [period, setPeriod] = useState<Period>('12m');
   const [chartData, setChartData] = useState<ChartData>({ labels: [], plazoFijo: [], dolarMep: [], inflacion: [] });
   const [liveData, setLiveData] = useState<LiveData>({ mepNow: null, inflacionNow: null, plazoFijoNow: 2.75, lastUpdated: '' });
@@ -139,7 +132,7 @@ export default function InvestmentDashboard() {
       const inflacion = lastInflData.map((d) => d.valor);
       const inflacionNow = inflArray.length > 0 ? inflArray[inflArray.length - 1]?.valor : null;
 
-      const plazoFijo = lastInflData.map((d) => PLAZO_FIJO_MONTHLY_RATES[d.fecha] ?? 2.75);
+      const plazoFijo = lastInflData.map((d) => plazoFijoRates[d.fecha] ?? 2.75);
       const dolarMep = lastInflData.map((_) => null as number | null); // no historical MEP available
 
       setChartData({ labels, plazoFijo, dolarMep, inflacion });

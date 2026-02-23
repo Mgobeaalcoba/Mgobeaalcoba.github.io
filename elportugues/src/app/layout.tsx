@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import ContentRepository from '@/services/contentService';
+import { EpDataProvider } from '@/contexts/EpDataContext';
 
 // GA property compartido con mgobeaalcoba.github.io — mismo panel, tráfico separado por page_location
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-DG0SLT5RY3';
@@ -57,7 +58,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className="bg-black text-white antialiased">{children}</body>
+      <body className="bg-black text-white antialiased">
+        <EpDataProvider>{children}</EpDataProvider>
+      </body>
     </html>
   );
 }

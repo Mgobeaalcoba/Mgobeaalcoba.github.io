@@ -4,18 +4,18 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MessageCircle, Phone, Mail, MapPin, Store, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import AutomationBadge from './AutomationBadge';
 import { sendContactForm, sendQuoteRequest } from '@/services/webhookService';
 import { trackLeadFormSent, trackContactAttempted, trackQuoteRequested, trackWhatsAppClick, trackCtaClick } from '@/lib/gtag';
-
-const contact = ContentRepository.getContact();
-const automations = ContentRepository.getAutomations();
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 export default function Contact() {
   const { lang, t } = useLanguage();
+  const { config } = useNeilData();
+  const contact = config?.contact;
+  const automations = config?.automations;
   const [selectedType, setSelectedType] = useState('consulta');
   const [status, setStatus] = useState<FormStatus>('idle');
   const [form, setForm] = useState({
@@ -49,8 +49,8 @@ export default function Contact() {
   };
 
   const currentAutomation = selectedType === 'cotizacion'
-    ? automations.quoteRequest
-    : automations.contactLead;
+    ? automations?.quoteRequest
+    : automations?.contactLead;
 
   return (
     <section id="contacto" className="py-20 lg:py-28 bg-navy-950">
@@ -88,7 +88,7 @@ export default function Contact() {
 
               {/* Type selector */}
               <div className="grid grid-cols-2 gap-2 mb-6">
-                {t.contact.formTypes.map(ft => (
+                {((t as any)?.contact?.formTypes ?? []).map((ft: {id: string; value: string; label: string; icon?: string}) => (
                   <button
                     key={ft.id}
                     onClick={() => { setSelectedType(ft.id); setStatus('idle'); }}
@@ -209,7 +209,7 @@ export default function Contact() {
           >
             {/* WhatsApp buttons */}
             <a
-              href={contact.whatsapp.sales}
+              href={contact?.whatsapp?.sales}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => { trackWhatsAppClick('sales'); trackCtaClick('whatsapp_sales'); }}
@@ -218,12 +218,12 @@ export default function Contact() {
               <MessageCircle className="text-green-400 flex-shrink-0" size={24} />
               <div>
                 <p className="text-white font-semibold">{t.contact.whatsappSales}</p>
-                <p className="text-slate-400 text-sm">{contact.phones[0]}</p>
+                <p className="text-slate-400 text-sm">{contact?.phones?.[0]}</p>
               </div>
             </a>
 
             <a
-              href={contact.whatsapp.support}
+              href={contact?.whatsapp?.support}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => { trackWhatsAppClick('support'); trackCtaClick('whatsapp_support'); }}
@@ -232,13 +232,13 @@ export default function Contact() {
               <MessageCircle className="text-green-400 flex-shrink-0" size={24} />
               <div>
                 <p className="text-white font-semibold">{t.contact.whatsappSupport}</p>
-                <p className="text-slate-400 text-sm">{contact.phones[1]}</p>
+                <p className="text-slate-400 text-sm">{contact?.phones?.[1]}</p>
               </div>
             </a>
 
             {/* Online store */}
             <a
-              href={contact.store}
+              href={contact?.store ?? ""}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCtaClick('contact_store')}
@@ -257,7 +257,7 @@ export default function Contact() {
                 <MapPin className="text-cyan-accent flex-shrink-0 mt-0.5" size={18} />
                 <div>
                   <p className="text-white text-sm font-semibold">{t.contact.addressTitle}</p>
-                  <p className="text-slate-400 text-sm">{contact.location.fullAddress}</p>
+                  <p className="text-slate-400 text-sm">{contact?.location?.fullAddress}</p>
                   <p className="text-slate-500 text-xs mt-1">{t.contact.schedule}</p>
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <Phone className="text-cyan-accent flex-shrink-0 mt-0.5" size={18} />
                 <div>
-                  {contact.phones.map(p => (
+                  {(contact?.phones ?? [] as string[]).map((p: string) => (
                     <p key={p} className="text-slate-300 text-sm">{p}</p>
                   ))}
                 </div>
@@ -274,7 +274,7 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <Mail className="text-cyan-accent flex-shrink-0 mt-0.5" size={18} />
                 <div>
-                  {contact.emails.map(e => (
+                  {(contact?.emails ?? [] as string[]).map((e: string) => (
                     <a key={e} href={`mailto:${e}`} className="block text-slate-300 text-sm hover:text-cyan-accent transition-colors">{e}</a>
                   ))}
                 </div>

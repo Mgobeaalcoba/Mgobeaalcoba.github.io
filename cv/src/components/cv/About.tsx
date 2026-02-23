@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 export default function About() {
   const { lang, t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const about = ContentRepository.getAbout();
+  const { cvAbout } = useSupabaseData();
 
   return (
     <section id="about" data-section="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +22,9 @@ export default function About() {
       >
         <h2 className="section-title">{t('about_title')}</h2>
         <div className="glass rounded-2xl p-8 glow-border max-w-4xl">
-          <p className="text-gray-300 leading-relaxed text-lg">{about.text[lang]}</p>
+          <p className="text-gray-300 leading-relaxed text-lg">
+            {cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}
+          </p>
 
           {/* Key highlights */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">

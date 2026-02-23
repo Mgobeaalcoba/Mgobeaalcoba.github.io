@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { NeilDataProvider } from '@/contexts/NeilDataContext';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
@@ -56,9 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <NeilDataProvider>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </NeilDataProvider>
       </body>
     </html>
   );

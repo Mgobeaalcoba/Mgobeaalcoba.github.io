@@ -4,23 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import { trackEuropeSectionView, trackCtaClick } from '@/lib/gtag';
-
-const europe = ContentRepository.getEurope();
-const flags = ContentRepository.getFlags();
-
-const europeFlagMap: Record<string, string> = {
-  es: flags.es,
-  en: flags.en,
-  it: flags.it,
-  fr: flags.fr,
-  pt: flags.pt,
-  de: flags.de,
-};
 
 export default function EuropeSection() {
   const { t } = useLanguage();
+  const { config } = useNeilData();
+  const europe = config?.europe;
+  const flags = config?.flags;
+  const europeFlagMap: Record<string, string> = flags
+    ? { es: flags.es, en: flags.en, it: flags.it, fr: flags.fr, pt: flags.pt, de: flags.de }
+    : {};
   const ref = useRef<HTMLDivElement>(null);
   const [activeImg, setActiveImg] = useState(0);
   const tracked = useRef(false);
@@ -41,7 +35,7 @@ export default function EuropeSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveImg(prev => (prev + 1) % europe.galleryImages.length);
+      setActiveImg(prev => (prev + 1) % (europe?.galleryImages?.length ?? 1));
     }, 3500);
     return () => clearInterval(interval);
   }, []);
@@ -82,7 +76,7 @@ export default function EuropeSection() {
                 initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                src={europe.galleryImages[activeImg]}
+                src={(europe?.galleryImages ?? [])[activeImg]}
                 alt="Neil en Europa"
                 className="w-full h-full object-cover"
               />
@@ -95,7 +89,7 @@ export default function EuropeSection() {
 
             {/* Thumbnail strip */}
             <div className="grid grid-cols-5 gap-2">
-              {europe.galleryImages.map((img, i) => (
+              {(europe?.galleryImages ?? [] as string[]).map((img: string, i: number) => (
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
@@ -125,7 +119,7 @@ export default function EuropeSection() {
                 {t.europe.dealersTitle}
               </p>
               <div className="grid grid-cols-2 gap-3">
-                {t.europe.countries.map((country, i) => (
+                {((t as any)?.europe?.countries ?? []).map((country: string, i: number) => (
                   <div
                     key={country}
                     className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10"
@@ -143,7 +137,7 @@ export default function EuropeSection() {
             </div>
 
             <a
-              href={europe.dealerUrl}
+              href={europe?.dealerUrl ?? ""}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCtaClick('europe_dealers')}

@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wind, Snowflake, Flame, Zap, Settings, ExternalLink, ChevronRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import { trackProductView, trackCtaClick } from '@/lib/gtag';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -16,14 +16,20 @@ const iconMap: Record<string, LucideIcon> = {
   Settings: Settings as LucideIcon,
 };
 
-const categories = ContentRepository.getProductCategories();
-
 export default function ProductsShowcase() {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState(categories[0].id);
+  const { products: categories } = useNeilData();
+  const [activeCategory, setActiveCategory] = useState('');
+
+  useEffect(() => {
+    if (categories.length > 0 && !activeCategory) {
+      setActiveCategory(categories[0].id);
+    }
+  }, [categories, activeCategory]);
 
   const activeCat = categories.find(c => c.id === activeCategory) ?? categories[0];
-  const catTranslation = t.products.categories[activeCategory];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const catTranslation = (t.products as any)?.categories?.[activeCategory];
 
   return (
     <section id="productos" className="py-20 lg:py-28 bg-navy-950">
@@ -37,10 +43,10 @@ export default function ProductsShowcase() {
           className="text-center mb-12"
         >
           <span className="text-cyan-accent text-sm font-semibold tracking-widest uppercase mb-3 block">
-            {t.products.sectionLabel}
+            {(t as any)?.products?.sectionLabel}
           </span>
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">{t.products.title}</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">{t.products.subtitle}</p>
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">{(t as any)?.products?.title}</h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">{(t as any)?.products?.subtitle}</p>
         </motion.div>
 
         {/* Category tabs */}
@@ -53,7 +59,7 @@ export default function ProductsShowcase() {
         >
           {categories.map((cat) => {
             const Icon = iconMap[cat.icon] ?? Settings as LucideIcon;
-            const catT = t.products.categories[cat.id];
+            const catT = (t as any)?.products?.categories?.[cat.id];
             return (
               <button
                 key={cat.id}
@@ -89,7 +95,7 @@ export default function ProductsShowcase() {
                 <div className="flex items-center gap-3 mb-4">
                   {catTranslation?.badge && (
                     <span className="px-3 py-1 rounded-full text-xs font-bold bg-orange-neil/15 text-orange-neil border border-orange-neil/30">
-                      {catTranslation.badge}
+                      {catTranslation?.badge}
                     </span>
                   )}
                 </div>
@@ -103,13 +109,13 @@ export default function ProductsShowcase() {
                   {catTranslation?.description}
                 </p>
                 <a
-                  href={activeCat.url}
+                  href={(activeCat as any)?.url ?? ""}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackCtaClick(`view_product_${activeCategory}`)}
                   className="inline-flex items-center gap-2 text-cyan-accent hover:text-cyan-light font-semibold transition-colors group w-fit"
                 >
-                  {t.products.viewMore}
+                  {(t as any)?.products?.viewMore}
                   <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -117,7 +123,7 @@ export default function ProductsShowcase() {
               {/* Category main image */}
               <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 min-h-[300px] lg:min-h-[400px] flex items-center justify-center">
                 <img
-                  src={activeCat.image}
+                  src={(activeCat as any)?.image ?? ""}
                   alt={catTranslation?.title ?? activeCategory}
                   className="w-full h-full object-contain p-8"
                 />
@@ -127,7 +133,7 @@ export default function ProductsShowcase() {
 
             {/* Models grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              {activeCat.models.map((model, i) => (
+              {(activeCat?.models ?? []).map((model, i) => (
                 <motion.div
                   key={model.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -147,11 +153,11 @@ export default function ProductsShowcase() {
                     <p className="text-white text-sm font-semibold leading-tight">{model.name}</p>
                     {model.badge === 'new' && (
                       <span className="flex-shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-orange-neil/20 text-orange-neil border border-orange-neil/30">
-                        {t.products.newBadge}
+                        {(t as any)?.products?.newBadge}
                       </span>
                     )}
                   </div>
-                  {model.specs.voltage && (
+                  {model.specs?.voltage && (
                     <p className="text-slate-500 text-xs mt-1">{model.specs.voltage}</p>
                   )}
                   <ChevronRight size={14} className="text-cyan-accent mt-2 opacity-0 group-hover:opacity-100 transition-opacity" />

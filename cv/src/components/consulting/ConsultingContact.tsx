@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Calendar, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
 import { events } from '@/lib/gtag';
 import CalendlyButton from '@/components/shared/CalendlyButton';
 
@@ -12,7 +11,6 @@ export default function ConsultingContact() {
   const { lang, t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const consulting = ContentRepository.getConsulting();
 
   return (
     <section id="contacto" data-section="consulting-contact" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

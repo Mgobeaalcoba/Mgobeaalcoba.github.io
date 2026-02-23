@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Youtube } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
-
-const brand = ContentRepository.getBrand();
-const contact = ContentRepository.getContact();
+import { useNeilData } from '@/contexts/NeilDataContext';
 
 export default function Footer() {
   const { t } = useLanguage();
+  const { config } = useNeilData();
+  const brand = config?.brand;
+  const contact = config?.contact;
 
   return (
     <footer className="bg-navy-950 border-t border-white/5 pt-12 pb-8">
@@ -18,21 +18,21 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
-              src={brand.logo}
+              src={brand?.logo ?? ""}
               alt="Neil Climatizadores"
               className="h-10 w-auto object-contain mb-4"
             />
             <p className="text-slate-500 text-sm leading-relaxed">{t.footer.tagline}</p>
             <div className="flex items-center gap-3 mt-4">
-              <a href={contact.social.facebook} target="_blank" rel="noopener noreferrer"
+              <a href={contact?.social?.facebook} target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all">
                 <Facebook size={16} />
               </a>
-              <a href={contact.social.instagram} target="_blank" rel="noopener noreferrer"
+              <a href={contact?.social?.instagram} target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all">
                 <Instagram size={16} />
               </a>
-              <a href={contact.social.youtube} target="_blank" rel="noopener noreferrer"
+              <a href={contact?.social?.youtube} target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all">
                 <Youtube size={16} />
               </a>
@@ -71,13 +71,13 @@ export default function Footer() {
           <div>
             <p className="text-white font-semibold text-sm mb-4">{t.footer.contactTitle}</p>
             <div className="space-y-2">
-              {contact.emails.map(email => (
+              {(contact?.emails ?? [] as string[]).map((email: string) => (
                 <a key={email} href={`mailto:${email}`} className="block text-slate-500 hover:text-slate-300 text-sm transition-colors">{email}</a>
               ))}
-              {contact.phones.map(phone => (
+              {(contact?.phones ?? [] as string[]).map((phone: string) => (
                 <p key={phone} className="text-slate-500 text-sm">{phone}</p>
               ))}
-              <p className="text-slate-600 text-xs mt-2">{contact.location.fullAddress}</p>
+              <p className="text-slate-600 text-xs mt-2">{contact?.location?.fullAddress}</p>
             </div>
           </div>
         </div>

@@ -4,13 +4,21 @@ on:
   push:
     branches: [main]
     paths:
-      # Only rebuild when source files change, not when built output is committed
+      # Rebuild on any source file change across all three sites
       - 'cv/src/**'
       - 'cv/public/**'
       - 'cv/package*.json'
       - 'cv/next.config.js'
       - 'cv/tailwind.config.ts'
       - 'cv/tsconfig.json'
+      - 'neil/src/**'
+      - 'neil/public/**'
+      - 'neil/package*.json'
+      - 'neil/next.config.js'
+      - 'elportugues/src/**'
+      - 'elportugues/public/**'
+      - 'elportugues/package*.json'
+      - 'elportugues/next.config.js'
       - '.github/workflows/deploy.yml'
   workflow_dispatch: # allow manual trigger from GitHub UI
 
@@ -34,20 +42,19 @@ jobs:
           cache: 'npm'
           cache-dependency-path: cv/package-lock.json
 
-      - name: Install dependencies
+      # ── CV Site ──────────────────────────────────────────────────────────
+      - name: Install CV dependencies
         working-directory: cv
         run: npm ci
 
-      - name: Build Next.js (static export)
+      - name: Build CV site (static export)
         working-directory: cv
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      - name: Sync build output to repository root
-        # Mirrors what the local rsync command does.
-        # Excludes source/config directories that must not be overwritten.
+      - name: Sync CV build output to repository root
         run: |
           rsync -a --delete cv/out/ . \
             --exclude cv \
@@ -79,11 +86,47 @@ jobs:
             --exclude package-lock.json \
             --exclude scripts
 
+      # ── Neil Site ─────────────────────────────────────────────────────────
+      - name: Install Neil dependencies
+        working-directory: neil
+        run: npm ci
+
+      - name: Build Neil site (static export)
+        working-directory: neil
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_N8N_CONTACT_WEBHOOK: ${{ secrets.NEXT_PUBLIC_N8N_NEIL_CONTACT_WEBHOOK }}
+          NEXT_PUBLIC_N8N_QUOTE_WEBHOOK: ${{ secrets.NEXT_PUBLIC_N8N_NEIL_QUOTE_WEBHOOK }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+        run: npm run build
+
+      - name: Sync Neil build output to neil-site/
+        run: rsync -a --delete neil/out/ neil-site/
+
+      # ── El Portugués Site ─────────────────────────────────────────────────
+      - name: Install El Portugués dependencies
+        working-directory: elportugues
+        run: npm ci
+
+      - name: Build El Portugués site (static export)
+        working-directory: elportugues
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_N8N_CONTACT_WEBHOOK: ${{ secrets.NEXT_PUBLIC_N8N_EP_CONTACT_WEBHOOK }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+        run: npm run build
+
+      - name: Sync El Portugués build output to elportugues-site/
+        run: rsync -a --delete elportugues/out/ elportugues-site/
+
+      # ── Commit & Push ─────────────────────────────────────────────────────
       - name: Commit and push built files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           # Only commit if there are actual changes
-          git diff --cached --quiet || git commit -m "chore: rebuild site [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: rebuild all sites [skip ci]"
           git push

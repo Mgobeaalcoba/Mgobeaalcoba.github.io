@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import type { LangCode, Translation } from '@/types/content';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 
 interface LanguageContextType {
   lang: LangCode;
@@ -14,25 +14,25 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 
 const STORAGE_KEY = 'neil_lang';
 const DEFAULT_LANG: LangCode = 'es';
+const AVAILABLE_LANGS: LangCode[] = ['es', 'en', 'it', 'fr', 'pt', 'de'];
 
 function detectBrowserLang(): LangCode {
   if (typeof navigator === 'undefined') return DEFAULT_LANG;
-  const available: LangCode[] = ['es', 'en', 'it', 'fr', 'pt', 'de'];
   const nav = navigator.language?.toLowerCase() ?? '';
-  for (const lang of available) {
+  for (const lang of AVAILABLE_LANGS) {
     if (nav.startsWith(lang)) return lang;
   }
   return DEFAULT_LANG;
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const { translations } = useNeilData();
   const [lang, setLangState] = useState<LangCode>(DEFAULT_LANG);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as LangCode | null;
-    const available = ContentRepository.getAvailableLangs();
-    if (stored && available.includes(stored)) {
+    if (stored && AVAILABLE_LANGS.includes(stored)) {
       setLangState(stored);
     } else {
       setLangState(detectBrowserLang());
@@ -45,18 +45,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, newLang);
   }, []);
 
-  const translation = ContentRepository.getTranslation(lang);
-
-  if (!mounted) {
-    return (
-      <LanguageContext.Provider value={{ lang: DEFAULT_LANG, setLang, t: ContentRepository.getTranslation(DEFAULT_LANG) }}>
-        {children}
-      </LanguageContext.Provider>
-    );
-  }
+  const currentLang = mounted ? lang : DEFAULT_LANG;
+  const translation = (translations[currentLang] ?? translations[DEFAULT_LANG] ?? {}) as unknown as Translation;
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translation }}>
+    <LanguageContext.Provider value={{ lang: currentLang, setLang, t: translation }}>
       {children}
     </LanguageContext.Provider>
   );

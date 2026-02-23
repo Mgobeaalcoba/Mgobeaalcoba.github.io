@@ -4,7 +4,8 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
-import blogIndex from '@/data/blog-index.json';
+import { fetchBlogPosts, fetchBlogCategories } from '@/lib/queries';
+import type { BlogPostMeta } from '@/lib/queries';
 
 const POSTS_DIR = path.join(process.cwd(), '..', 'blog', 'posts');
 
@@ -26,32 +27,47 @@ export interface PostWithContent extends PostMeta {
   rawContent: string;
 }
 
-export function getAllPostsMeta(): PostMeta[] {
-  return blogIndex.posts as PostMeta[];
+function toPostMeta(p: BlogPostMeta): PostMeta {
+  return {
+    slug: p.slug,
+    file: p.file,
+    title: { es: p.titleEs, en: p.titleEn },
+    excerpt: { es: p.excerptEs, en: p.excerptEn },
+    date: p.date,
+    category: p.category,
+    tags: p.tags,
+    featured: p.featured,
+    readTime: p.readTime,
+    author: p.author,
+  };
 }
 
-export function getFeaturedPosts(): PostMeta[] {
-  return (blogIndex.posts as PostMeta[]).filter((p) => p.featured);
+export async function getAllPostsMeta(): Promise<PostMeta[]> {
+  const posts = await fetchBlogPosts();
+  return posts.map(toPostMeta);
 }
 
-export function getCategories(): string[] {
-  return blogIndex.categories;
+export async function getFeaturedPosts(): Promise<PostMeta[]> {
+  const posts = await fetchBlogPosts();
+  return posts.filter((p) => p.featured).map(toPostMeta);
+}
+
+export async function getCategories(): Promise<string[]> {
+  return fetchBlogCategories();
 }
 
 export async function getPostBySlug(slug: string): Promise<PostWithContent | null> {
-  const postMeta = (blogIndex.posts as PostMeta[]).find((p) => p.slug === slug);
+  const posts = await fetchBlogPosts();
+  const postMeta = posts.find((p) => p.slug === slug);
   if (!postMeta) return null;
 
-  // Normalize file field — some entries include "blog/posts/" prefix
+  const meta = toPostMeta(postMeta);
+
   const fileName = postMeta.file.replace(/^blog\/posts\//, '').replace(/^blog\//, '');
   const filePath = path.join(POSTS_DIR, fileName);
 
   if (!fs.existsSync(filePath)) {
-    return {
-      ...postMeta,
-      contentHtml: '<p>Content coming soon...</p>',
-      rawContent: '',
-    };
+    return { ...meta, contentHtml: '<p>Content coming soon...</p>', rawContent: '' };
   }
 
   const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -63,9 +79,10 @@ export async function getPostBySlug(slug: string): Promise<PostWithContent | nul
     .process(content);
   const contentHtml = processedContent.toString();
 
-  return { ...postMeta, contentHtml, rawContent: content };
+  return { ...meta, contentHtml, rawContent: content };
 }
 
-export function getAllSlugs(): string[] {
-  return (blogIndex.posts as PostMeta[]).map((p) => p.slug);
+export async function getAllSlugs(): Promise<string[]> {
+  const posts = await fetchBlogPosts();
+  return posts.map((p) => p.slug);
 }

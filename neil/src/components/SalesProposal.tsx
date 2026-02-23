@@ -5,10 +5,8 @@ import { motion } from 'framer-motion';
 import { X, Check, Globe, Wrench, ShoppingCart, BarChart2, Users, FileText, ExternalLink } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import { trackProposalView, trackConsultingClick } from '@/lib/gtag';
-
-const proposal = ContentRepository.getSalesProposal();
 
 const deptIconMap: Record<string, LucideIcon> = {
   Globe: Globe as LucideIcon,
@@ -21,6 +19,8 @@ const deptIconMap: Record<string, LucideIcon> = {
 
 export default function SalesProposal() {
   const { t } = useLanguage();
+  const { config } = useNeilData();
+  const proposal = config?.sales_proposal;
   const ref = useRef<HTMLDivElement>(null);
   const tracked = useRef(false);
 
@@ -76,7 +76,7 @@ export default function SalesProposal() {
               ✗ {sp.legacyTitle}
             </h3>
             <ul className="space-y-3">
-              {proposal.comparison.legacy.map((item, i) => (
+              {(proposal?.comparison.legacy ?? [] as string[]).map((item: string, i: number) => (
                 <li key={i} className="flex items-start gap-3 text-slate-400 text-sm">
                   <X size={14} className="text-red-400 flex-shrink-0 mt-0.5" />
                   {item}
@@ -96,7 +96,7 @@ export default function SalesProposal() {
               ✓ {sp.newTitle}
             </h3>
             <ul className="space-y-3">
-              {proposal.comparison.new.map((item, i) => (
+              {(proposal?.comparison.new ?? [] as string[]).map((item: string, i: number) => (
                 <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
                   <Check size={14} className="text-cyan-accent flex-shrink-0 mt-0.5" />
                   {item}
@@ -113,9 +113,9 @@ export default function SalesProposal() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-white font-bold text-2xl text-center mb-8">{proposal.impactTitle}</h3>
+          <h3 className="text-white font-bold text-2xl text-center mb-8">{proposal?.impactTitle}</h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {proposal.impactItems.map((item) => (
+            {(proposal?.impactItems ?? [] as Array<{label: string; value: string}>).map((item: {label: string; value: string}) => (
               <div key={item.label} className="p-6 rounded-2xl bg-orange-neil/10 border border-orange-neil/20 text-center">
                 <p className="text-4xl font-black text-orange-neil mb-2">{item.value}</p>
                 <p className="text-slate-400 text-sm">{item.label}</p>
@@ -133,7 +133,7 @@ export default function SalesProposal() {
         >
           <h3 className="text-white font-bold text-2xl text-center mb-8">{sp.automationsTitle}</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {proposal.departments.map((dept, i) => {
+            {(proposal?.departments ?? [] as Array<{name: string; icon: string; automations: string[]}>).map((dept: {name: string; icon: string; automations: string[]}, i: number) => {
               const Icon = deptIconMap[dept.icon] ?? Globe as LucideIcon;
               return (
                 <motion.div
@@ -151,7 +151,7 @@ export default function SalesProposal() {
                     <h4 className="text-white font-semibold">{dept.name}</h4>
                   </div>
                   <ul className="space-y-1.5">
-                    {dept.automations.map((a, j) => (
+                    {(dept.automations ?? [] as string[]).map((a: string, j: number) => (
                       <li key={j} className="flex items-start gap-2 text-slate-400 text-xs">
                         <div className="w-1 h-1 rounded-full bg-orange-neil flex-shrink-0 mt-1.5" />
                         {a}
@@ -167,7 +167,7 @@ export default function SalesProposal() {
         {/* CTA + Signature */}
         <div className="text-center space-y-6">
           <a
-            href={proposal.consultingUrl}
+            href={proposal?.consultingUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackConsultingClick}
@@ -180,12 +180,12 @@ export default function SalesProposal() {
           <div className="border-t border-white/10 pt-6">
             <p className="text-slate-500 text-sm">{sp.signatureLabel}</p>
             <a
-              href={proposal.signatureUrl}
+              href={proposal?.signatureUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 font-semibold hover:text-cyan-accent transition-colors"
             >
-              {proposal.signature}
+              {proposal?.signature}
             </a>
           </div>
         </div>

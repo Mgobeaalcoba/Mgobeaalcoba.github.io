@@ -1,6 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { ContentRepository } from '@/services/contentService';
-import { fetchExperience, fetchEducation, fetchProjects, fetchCertifications } from '@/lib/queries';
+import { fetchExperience, fetchEducation, fetchProjects, fetchCertifications, fetchCvMeta, fetchCvAbout } from '@/lib/queries';
 
 const MARGIN = 18;
 const PAGE_WIDTH = 210;
@@ -108,9 +107,9 @@ export async function generateCVPdf(lang: Lang = 'es'): Promise<void> {
   const builder = new PdfBuilder(lang);
   const { doc } = builder;
 
-  const meta = ContentRepository.getMeta();
-  const about = ContentRepository.getAbout();
-  const [experience, education, projectsAll, certs] = await Promise.all([
+  const [meta, about, experience, education, projectsAll, certs] = await Promise.all([
+    fetchCvMeta(),
+    fetchCvAbout(),
     fetchExperience(),
     fetchEducation(),
     fetchProjects(),
@@ -137,13 +136,13 @@ export async function generateCVPdf(lang: Lang = 'es'): Promise<void> {
     .setFont('helvetica', 'normal')
     .setFontSize(FONT_SIZES.h2)
     .setTextColor(COLORS.primary);
-  doc.text(meta.title[lang], textX, builder.yPos + imgSize / 2 + 6);
+  doc.text(lang === 'es' ? meta.titleEs : meta.titleEn, textX, builder.yPos + imgSize / 2 + 6);
 
   builder.yPos += imgSize + 10;
 
   // --- About ---
   builder.addSectionTitle(lang === 'es' ? 'Sobre mí' : 'About Me');
-  builder.addText(about.text[lang]);
+  builder.addText(lang === 'es' ? about.textEs : about.textEn);
   builder.yPos += 5;
 
   // --- Contact ---

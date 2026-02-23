@@ -4,21 +4,23 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import { trackCtaClick, trackScrollDepth } from '@/lib/gtag';
-
-const hero = ContentRepository.getHero();
 
 export default function Hero() {
   const { t } = useLanguage();
+  const { config } = useNeilData();
+  const hero = config?.hero;
   const [bgIdx, setBgIdx] = useState(0);
 
   useEffect(() => {
+    const bgImages: string[] = hero?.backgroundImages ?? [];
+    if (!bgImages.length) return;
     const interval = setInterval(() => {
-      setBgIdx(prev => (prev + 1) % hero.backgroundImages.length);
+      setBgIdx(prev => (prev + 1) % bgImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [hero]);
 
   useEffect(() => {
     const handler = () => {
@@ -54,7 +56,7 @@ export default function Hero() {
             className="absolute inset-0 z-10"
           >
             <img
-              src={hero.backgroundImages[bgIdx]}
+              src={(hero?.backgroundImages ?? [])[bgIdx] ?? ''}
               alt=""
               className="w-full h-full object-cover object-center"
               aria-hidden="true"
@@ -149,7 +151,7 @@ export default function Hero() {
             transition={{ delay: 0.9 }}
             className="grid grid-cols-2 sm:grid-cols-4 gap-4"
           >
-            {hero.stats.map((stat) => (
+            {(hero?.stats ?? []).map((stat: { labelKey: string; value: string }) => (
               <div
                 key={stat.labelKey}
                 className="p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-accent/20 transition-colors group"

@@ -3,10 +3,10 @@
 /**
  * SupabaseDataContext
  *
- * Single fetch-on-mount for all Supabase-hosted data.
- * While the fetch is in flight, `loading` is true and arrays are empty —
+ * Single fetch-on-mount for ALL Supabase-hosted data.
+ * While the fetch is in flight, `loading` is true and collections are empty —
  * components should render a skeleton in that state.
- * If Supabase fails, `error` is set and arrays remain empty.
+ * If Supabase fails, `error` is set.
  */
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
@@ -17,6 +17,16 @@ import {
   fetchCertifications,
   fetchConsultingPacks,
   fetchCaseStudies,
+  fetchCvMeta,
+  fetchCvAbout,
+  fetchTechStack,
+  fetchConsultingMeta,
+  fetchBlogPosts,
+  fetchBlogCategories,
+  fetchVideos,
+  fetchTaxData,
+  fetchAiModels,
+  fetchPlazoFijoRates,
 } from '@/lib/queries';
 import type {
   ExperienceItem,
@@ -26,14 +36,42 @@ import type {
   ConsultingPack,
   CaseStudy,
 } from '@/types/content';
+import type {
+  CvMeta,
+  CvAbout,
+  TechStack,
+  ConsultingMeta,
+  BlogPostMeta,
+  VideoItem,
+  TaxParams,
+  TaxScenario,
+  TaxTab,
+  AiModel,
+} from '@/lib/queries';
 
 interface SupabaseData {
+  // Dynamic CV data
   experience: ExperienceItem[];
   projects: ProjectItem[];
   education: EducationItem[];
   certifications: CertificationItem[];
   consultingPacks: ConsultingPack[];
   caseStudies: CaseStudy[];
+  // CV static config
+  cvMeta: CvMeta | null;
+  cvAbout: CvAbout | null;
+  techStack: TechStack;
+  consultingMeta: ConsultingMeta | null;
+  // Blog & Videos
+  blogPosts: BlogPostMeta[];
+  blogCategories: string[];
+  videos: VideoItem[];
+  // Calculators
+  taxParams: TaxParams | null;
+  taxScenarios: TaxScenario[];
+  taxTabs: TaxTab[];
+  aiModels: AiModel[];
+  plazoFijoRates: Record<string, number>;
   /** true while the initial fetch is in progress */
   loading: boolean;
   /** non-null if Supabase fetch failed */
@@ -47,6 +85,18 @@ const EMPTY: SupabaseData = {
   certifications: [],
   consultingPacks: [],
   caseStudies: [],
+  cvMeta: null,
+  cvAbout: null,
+  techStack: {},
+  consultingMeta: null,
+  blogPosts: [],
+  blogCategories: [],
+  videos: [],
+  taxParams: null,
+  taxScenarios: [],
+  taxTabs: [],
+  aiModels: [],
+  plazoFijoRates: {},
   loading: true,
   error: null,
 };
@@ -61,15 +111,41 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
 
     async function load() {
       try {
-        const [experience, projects, education, certifications, consultingPacks, caseStudies] =
-          await Promise.all([
-            fetchExperience(),
-            fetchProjects(),
-            fetchEducation(),
-            fetchCertifications(),
-            fetchConsultingPacks(),
-            fetchCaseStudies(),
-          ]);
+        const [
+          experience,
+          projects,
+          education,
+          certifications,
+          consultingPacks,
+          caseStudies,
+          cvMeta,
+          cvAbout,
+          techStack,
+          consultingMeta,
+          blogPosts,
+          blogCategories,
+          videos,
+          taxData,
+          aiModels,
+          plazoFijoRates,
+        ] = await Promise.all([
+          fetchExperience(),
+          fetchProjects(),
+          fetchEducation(),
+          fetchCertifications(),
+          fetchConsultingPacks(),
+          fetchCaseStudies(),
+          fetchCvMeta(),
+          fetchCvAbout(),
+          fetchTechStack(),
+          fetchConsultingMeta(),
+          fetchBlogPosts(),
+          fetchBlogCategories(),
+          fetchVideos(),
+          fetchTaxData(),
+          fetchAiModels(),
+          fetchPlazoFijoRates(),
+        ]);
 
         if (!cancelled) {
           setData({
@@ -79,6 +155,18 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
             certifications,
             consultingPacks,
             caseStudies,
+            cvMeta,
+            cvAbout,
+            techStack,
+            consultingMeta,
+            blogPosts,
+            blogCategories,
+            videos,
+            taxParams: taxData.params,
+            taxScenarios: taxData.scenarios,
+            taxTabs: taxData.tabs,
+            aiModels,
+            plazoFijoRates,
             loading: false,
             error: null,
           });
@@ -92,14 +180,12 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
     }
 
     load();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  return (
-    <SupabaseDataContext.Provider value={data}>
-      {children}
-    </SupabaseDataContext.Provider>
-  );
+  return <SupabaseDataContext.Provider value={data}>{children}</SupabaseDataContext.Provider>;
 }
 
 export function useSupabaseData(): SupabaseData {

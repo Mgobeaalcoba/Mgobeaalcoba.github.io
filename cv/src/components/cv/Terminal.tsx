@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
-import { ContentRepository } from '@/services/contentService';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 interface HistoryEntry {
@@ -38,8 +37,7 @@ export default function Terminal() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const matrixIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const { experience, projects, education } = useSupabaseData();
-  const meta = ContentRepository.getMeta();
+  const { experience, projects, education, cvMeta, cvAbout } = useSupabaseData();
 
   useEffect(() => {
     if (bodyRef.current) {
@@ -127,7 +125,7 @@ export default function Terminal() {
   gui            - Switch to GUI mode`;
 
       case 'about':
-        return ContentRepository.getAbout().text[lang];
+        return cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : '';
 
       case 'experience':
         return `--- ${lang === 'es' ? 'Experiencia Profesional' : 'Professional Experience'} ---\n` +
@@ -153,7 +151,9 @@ export default function Terminal() {
       }
 
       case 'contact':
-        return `Email: ${meta.email}\nPhone: ${meta.phone}\nLocation: ${meta.location}\nLinkedIn: ${meta.linkedin}\nGitHub: ${meta.github}`;
+        return cvMeta
+          ? `Email: ${cvMeta.email}\nPhone: ${cvMeta.phone}\nLocation: ${cvMeta.location}\nLinkedIn: ${cvMeta.linkedin}\nGitHub: ${cvMeta.github}`
+          : 'Loading contact info...';
 
       case 'neofetch': {
         const info = [

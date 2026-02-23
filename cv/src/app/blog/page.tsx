@@ -18,9 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const posts = getAllPostsMeta();
-  const categories = getCategories();
+export default async function BlogPage() {
+  const [posts, categories] = await Promise.all([getAllPostsMeta(), getCategories()]);
 
   return (
     <main className="min-h-screen">

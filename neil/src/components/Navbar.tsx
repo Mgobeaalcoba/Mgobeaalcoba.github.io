@@ -4,20 +4,22 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ContentRepository from '@/services/contentService';
+import { useNeilData } from '@/contexts/NeilDataContext';
 import type { LangCode } from '@/types/content';
 import { trackLanguageSwitch, trackCtaClick } from '@/lib/gtag';
-
-const brand = ContentRepository.getBrand();
-const flagsData = ContentRepository.getFlags();
-const availableLangs = ContentRepository.getAvailableLangs();
 
 const langLabels: Record<LangCode, string> = {
   es: 'ES', en: 'EN', it: 'IT', fr: 'FR', pt: 'PT', de: 'DE',
 };
 
+const AVAILABLE_LANGS: LangCode[] = ['es', 'en', 'it', 'fr', 'pt', 'de'];
+
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
+  const { config, translations } = useNeilData();
+  const brand = config?.brand;
+  const flagsData = config?.flags;
+  const availableLangs: LangCode[] = (config?.meta?.availableLangs as LangCode[]) ?? AVAILABLE_LANGS;
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -58,7 +60,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 group">
             <img
-              src={brand.logo}
+              src={brand?.logo ?? ""}
               alt="Neil Climatizadores"
               className="h-10 lg:h-12 w-auto object-contain"
             />
@@ -87,7 +89,7 @@ export default function Navbar() {
                 aria-label="Switch language"
               >
                 <img
-                  src={flagsData[lang]}
+                  src={flagsData?.[lang] ?? ""}
                   alt={lang}
                   className="w-5 h-4 object-cover rounded-sm"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -118,14 +120,14 @@ export default function Navbar() {
                         }`}
                       >
                         <img
-                          src={flagsData[l]}
+                          src={flagsData?.[l] ?? ""}
                           alt={l}
                           className="w-5 h-4 object-cover rounded-sm"
                           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                         />
                         <span className="font-medium">{langLabels[l]}</span>
                         <span className="text-slate-500 text-xs ml-auto">
-                          {ContentRepository.getTranslation(l).lang}
+                          {(translations[l] as Record<string, string>)?.['lang'] ?? l.toUpperCase()}
                         </span>
                       </button>
                     ))}
@@ -198,7 +200,7 @@ export default function Navbar() {
                           : 'bg-white/5 text-slate-400 border border-white/10 hover:border-cyan-accent/30'
                       }`}
                     >
-                      <img src={flagsData[l]} alt={l} className="w-4 h-3 object-cover rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                      <img src={flagsData?.[l] ?? ""} alt={l} className="w-4 h-3 object-cover rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                       {langLabels[l]}
                     </button>
                   ))}

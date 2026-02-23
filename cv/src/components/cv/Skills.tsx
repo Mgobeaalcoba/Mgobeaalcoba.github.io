@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { useFilter } from '@/contexts/FilterContext';
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -23,7 +23,7 @@ export default function Skills() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const techStack = ContentRepository.getTechStack();
+  const { techStack } = useSupabaseData();
   const { activeTag, setActiveTag } = useFilter();
 
   return (

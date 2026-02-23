@@ -89,7 +89,7 @@ export default function About() {
 
         {/* Pillars grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {t.about.pillars.map((pillar, i) => {
+          {((t as any)?.about?.pillars ?? []).map((pillar: {title: string; desc: string; description?: string; icon: string}, i: number) => {
             const Icon = pillarIcons[i] ?? Star as LucideIcon;
             return (
               <motion.div

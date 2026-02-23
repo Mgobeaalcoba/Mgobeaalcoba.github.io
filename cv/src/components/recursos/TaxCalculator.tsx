@@ -3,39 +3,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Calculator, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import type { TaxParams } from '@/lib/queries';
 
-// ---- TAX_PARAMS — valores exactos AFIP Art. 30 + Art. 94 LIG, Ene-Jun 2026 ----
-const TAX_PARAMS = {
-  gni: 5151802.50,                  // Ganancia No Imponible Art. 30 inc. a)
-  deduccion_especial: 24728652.02,  // Deducción Especial Art. 30 inc. c) Ap. 2
-  conyuge: 4851964.66,              // Cónyuge Art. 30 inc. b)
-  hijo: 2446863.48,                 // Hijo <18 Art. 30 inc. b)
-  hijo_incapacitado: 4893726.96,    // Hijo incapacitado Art. 30 inc. b)
-  aportes_pct: 0.17,                // Jubilación 11% + PAMI 3% + Obra Social 3%
-  aportes_base_min: 117643.93,      // Tope mínimo base imponible mensual
-  aportes_base_max: 3823372.95,     // Tope máximo base imponible mensual
-  alquiler_pct: 0.40,               // 40% del alquiler pagado es deducible
-  alquiler_tope: 5151802.50,        // Tope deducción alquiler = GNI
-  hipotecario_tope: 20000,          // Tope intereses hipotecario (vivienda única)
-  medicos_pct: 0.40,                // 40% de gastos médicos facturados
-  gn_tope_pct: 0.05,                // Tope médicos/donaciones = 5% ganancia neta
-  educacion_tope: 2060721,          // Tope gastos de educación (40% del GNI)
-  seguro_vida_tope: 655000,         // Tope seguros de vida/retiro 2026
-  sepelio_tope: 1136,               // Tope gastos de sepelio (valor histórico)
-  escala: [                         // Art. 94 LIG — Valores ANUALES Ene-Jun 2026
-    { limite: 0,           fijo: 0,            pct: 0.05 },
-    { limite: 2000030.09,  fijo: 100001.50,    pct: 0.09 },
-    { limite: 4000060.17,  fijo: 280004.21,    pct: 0.12 },
-    { limite: 6000090.26,  fijo: 520007.82,    pct: 0.15 },
-    { limite: 9000135.40,  fijo: 970014.59,    pct: 0.19 },
-    { limite: 18000270.80, fijo: 2680040.32,   pct: 0.23 },
-    { limite: 27000406.20, fijo: 4750071.46,   pct: 0.27 },
-    { limite: 40500609.30, fijo: 8395126.30,   pct: 0.31 },
-    { limite: 60750913.96, fijo: 14672720.74,  pct: 0.35 },
-  ],
-};
-
-const MNI_ANUAL = TAX_PARAMS.gni + TAX_PARAMS.deduccion_especial; // 29,880,454.52
 
 interface TaxInputs {
   grossSalary: number;
@@ -69,12 +39,12 @@ interface TaxResult {
   effectiveRate: number;
 }
 
-function applyScale(taxable: number): number {
+function applyScale(taxable: number, params: TaxParams): number {
   if (taxable <= 0) return 0;
-  for (let i = TAX_PARAMS.escala.length - 1; i >= 0; i--) {
-    if (taxable > TAX_PARAMS.escala[i].limite) {
-      const excedente = taxable - TAX_PARAMS.escala[i].limite;
-      return TAX_PARAMS.escala[i].fijo + excedente * TAX_PARAMS.escala[i].pct;
+  for (let i = params.escala.length - 1; i >= 0; i--) {
+    if (taxable > params.escala[i].limite) {
+      const excedente = taxable - params.escala[i].limite;
+      return params.escala[i].fijo + excedente * params.escala[i].pct;
     }
   }
   return 0;
@@ -84,49 +54,50 @@ function toAnnual(val: number, isAnnual: boolean): number {
   return isAnnual ? val : val * 12;
 }
 
-function calculateTax(inputs: TaxInputs): TaxResult {
+function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
   const { grossSalary, extraIncome, includeSAC } = inputs;
   const meses = includeSAC ? 13 : 12;
+  const MNI_ANUAL = params.gni + params.deduccion_especial;
 
   // 1. Ganancia bruta anual (ANTES de aportes)
   const annualGross = grossSalary * meses + extraIncome;
 
   // 2. Aportes con topes de base imponible mensual
   const baseMensual = Math.min(
-    Math.max(grossSalary, TAX_PARAMS.aportes_base_min),
-    TAX_PARAMS.aportes_base_max
+    Math.max(grossSalary, params.aportes_base_min),
+    params.aportes_base_max
   );
-  const aportesMensuales = baseMensual * TAX_PARAMS.aportes_pct;
+  const aportesMensuales = baseMensual * params.aportes_pct;
   const aportesAnuales = aportesMensuales * meses;
 
   // 3. Deducciones personales
   const dedPersonales =
     MNI_ANUAL +
-    (inputs.conyuge ? TAX_PARAMS.conyuge : 0) +
-    inputs.hijos * TAX_PARAMS.hijo +
-    inputs.hijosIncap * TAX_PARAMS.hijo_incapacitado;
+    (inputs.conyuge ? params.conyuge : 0) +
+    inputs.hijos * params.hijo +
+    inputs.hijosIncap * params.hijo_incapacitado;
 
   // 4. Ganancia neta previa a otras deducciones (para calcular topes de médicos/donaciones)
   const gananciaNetaPrevia = Math.max(0, annualGross - aportesAnuales - dedPersonales);
-  const topeGananciaNeta = gananciaNetaPrevia * TAX_PARAMS.gn_tope_pct;
+  const topeGananciaNeta = gananciaNetaPrevia * params.gn_tope_pct;
 
   // 5. Otras deducciones con topes exactos AFIP
   const alquilerAnual = toAnnual(inputs.alquiler, inputs.alquilerAnual);
-  const dedAlquiler = Math.min(alquilerAnual * TAX_PARAMS.alquiler_pct, TAX_PARAMS.alquiler_tope);
+  const dedAlquiler = Math.min(alquilerAnual * params.alquiler_pct, params.alquiler_tope);
 
   const dedDomestico = toAnnual(inputs.domestico, inputs.domesticoAnual); // sin tope RG 5531/2024
 
   const dedHipotecario = Math.min(
     toAnnual(inputs.hipotecario, inputs.hipotecarioAnual),
-    TAX_PARAMS.hipotecario_tope
+    params.hipotecario_tope
   );
 
   const medicosAnual = toAnnual(inputs.medicos, inputs.medicosAnual);
-  const dedMedicos = Math.min(medicosAnual * TAX_PARAMS.medicos_pct, topeGananciaNeta);
+  const dedMedicos = Math.min(medicosAnual * params.medicos_pct, topeGananciaNeta);
 
   const dedEducacion = Math.min(
     toAnnual(inputs.educacion, inputs.educacionAnual),
-    TAX_PARAMS.educacion_tope
+    params.educacion_tope
   );
 
   const dedDonaciones = Math.min(
@@ -136,12 +107,12 @@ function calculateTax(inputs: TaxInputs): TaxResult {
 
   const dedSeguroVida = Math.min(
     toAnnual(inputs.seguroVida, inputs.seguroVidaAnual),
-    TAX_PARAMS.seguro_vida_tope
+    params.seguro_vida_tope
   );
 
   const dedSepelio = Math.min(
     toAnnual(inputs.sepelio, inputs.sepelioAnual),
-    TAX_PARAMS.sepelio_tope
+    params.sepelio_tope
   );
 
   const dedInsumos = toAnnual(inputs.insumos, inputs.insumosAnual); // sin tope
@@ -155,7 +126,7 @@ function calculateTax(inputs: TaxInputs): TaxResult {
   const taxableIncome = Math.max(0, annualGross - totalDeductions);
 
   // 7. Impuesto anual y retención mensual
-  const annualTax = applyScale(taxableIncome);
+  const annualTax = applyScale(taxableIncome, params);
   const monthlyTax = annualTax / meses;
   const netMonthly = grossSalary - aportesMensuales - monthlyTax;
   const effectiveRate = grossSalary > 0 ? (monthlyTax / grossSalary) * 100 : 0;
@@ -189,78 +160,6 @@ const DEFAULT_INPUTS: TaxInputs = {
   insumos: 0, insumosAnual: true,
 };
 
-const SCENARIOS = [
-  {
-    label: { es: 'Soltero/a, sin hijos', en: 'Single, no children' },
-    salary: { es: 'Salario: $2.500.000', en: 'Salary: $2,500,000' },
-    inputs: { ...DEFAULT_INPUTS, grossSalary: 2500000 },
-    color: 'border-sky-400/40 text-sky-300',
-  },
-  {
-    label: { es: 'Casado/a con 2 hijos', en: 'Married with 2 children' },
-    salary: { es: 'Salario: $4.000.000', en: 'Salary: $4,000,000' },
-    inputs: { ...DEFAULT_INPUTS, grossSalary: 4000000, conyuge: true, hijos: 2 },
-    color: 'border-teal-400/40 text-teal-300',
-  },
-  {
-    label: { es: 'Soltero/a que alquila', en: 'Single, renting' },
-    salary: { es: 'Salario: $3.200.000, alquiler $300k/mes', en: 'Salary: $3,200,000, rent $300k/mo' },
-    inputs: { ...DEFAULT_INPUTS, grossSalary: 3200000, alquiler: 300000, alquilerAnual: false },
-    color: 'border-indigo-400/40 text-indigo-300',
-  },
-  {
-    label: { es: 'Con bono anual', en: 'With annual bonus' },
-    salary: { es: 'Salario: $3.500.000 + bono $7.000.000', en: 'Salary: $3,500,000 + bonus $7,000,000' },
-    inputs: { ...DEFAULT_INPUTS, grossSalary: 3500000, extraIncome: 7000000 },
-    color: 'border-amber-400/40 text-amber-300',
-  },
-];
-
-const TAX_TABS = [
-  {
-    id: 'paso1',
-    label: { es: 'Paso 1: Ganancia Bruta', en: 'Step 1: Gross Income' },
-    title: { es: 'Determinar la Ganancia Bruta Anual', en: 'Determine Annual Gross Income' },
-    content: {
-      es: 'Se proyecta el ingreso anual sumando los 12 salarios mensuales y el SAC (aguinaldo) si corresponde. Se añaden también los ingresos extra anuales como bonos.',
-      en: 'Annual income is projected by adding 12 monthly salaries and the SAC (bonus) if applicable. Annual extra income such as bonuses is also added.',
-    },
-    formula: { es: 'Ganancia Bruta = (Sueldo × 12 ó 13) + Ingresos Extra', en: 'Gross Income = (Salary × 12 or 13) + Extra Income' },
-  },
-  {
-    id: 'paso2',
-    label: { es: 'Paso 2: Deducciones', en: 'Step 2: Deductions' },
-    title: { es: 'Restar las Deducciones Anuales', en: 'Subtract Annual Deductions' },
-    content: {
-      es: 'Se restan: Aportes obligatorios (17% sobre base imponible con topes), GNI ($5.151.802) + Deducción Especial ($24.728.652), deducciones por familiares a cargo, y otras deducciones permitidas (alquiler 40%, médicos 40%, etc.).',
-      en: 'Subtracted: Mandatory contributions (17% on taxable base with caps), MNI ($5,151,802) + Special Deduction ($24,728,652), deductions for dependents, and other allowed deductions (rent 40%, medical 40%, etc.).',
-    },
-    formula: {
-      es: 'Ganancia Neta = Bruta − Aportes − GNI − Ded. Especial − Ded. Personales − Otras Ded.',
-      en: 'Net Income = Gross − Contributions − MNI − Special Ded. − Personal Ded. − Other Ded.',
-    },
-  },
-  {
-    id: 'paso3',
-    label: { es: 'Paso 3: Escala', en: 'Step 3: Scale' },
-    title: { es: 'Aplicar la Escala Progresiva (Art. 94 LIG)', en: 'Apply Progressive Scale (Art. 94 LIG)' },
-    content: {
-      es: 'La Ganancia Neta sujeta a Impuesto se ubica en la escala del Art. 94 LIG: cada tramo tiene un monto fijo más un porcentaje sobre el excedente. Valores anuales Ene-Jun 2026.',
-      en: 'Taxable Net Income is placed in the Art. 94 LIG scale: each bracket has a fixed amount plus a percentage of the excess. Annual values Jan-Jun 2026.',
-    },
-    formula: null,
-  },
-  {
-    id: 'paso4',
-    label: { es: 'Paso 4: Retención', en: 'Step 4: Withholding' },
-    title: { es: 'Determinar la Retención Mensual', en: 'Determine Monthly Withholding' },
-    content: {
-      es: 'El impuesto anual total se divide por 12 (o 13 si se incluyó el SAC). El resultado es la retención mensual que descuenta el empleador.',
-      en: 'Total annual tax is divided by 12 (or 13 if SAC was included). The result is the monthly withholding that the employer deducts.',
-    },
-    formula: { es: 'Retención Mensual = Impuesto Anual ÷ 12', en: 'Monthly Withholding = Annual Tax ÷ 12' },
-  },
-];
 
 function fmt(n: number) {
   return `$${Math.round(n).toLocaleString('es-AR')}`;
@@ -388,6 +287,7 @@ function DoughnutChart({ netMonthly, aportes, tax }: {
 
 export default function TaxCalculator() {
   const { lang } = useLanguage();
+  const { taxParams, taxScenarios, taxTabs, loading } = useSupabaseData();
   const [inputs, setInputs] = useState<TaxInputs>(DEFAULT_INPUTS);
   const [rawInputs, setRawInputs] = useState<Record<string, string>>({
     grossSalary: formatInput(DEFAULT_INPUTS.grossSalary),
@@ -409,25 +309,38 @@ export default function TaxCalculator() {
   }, []);
 
   const handleCalculate = useCallback(() => {
-    setResult(calculateTax(inputs));
-  }, [inputs]);
+    if (!taxParams) return;
+    setResult(calculateTax(inputs, taxParams));
+  }, [inputs, taxParams]);
 
-  const loadScenario = (scenario: typeof SCENARIOS[0]) => {
-    setInputs(scenario.inputs);
+  const loadScenario = (grossSalary: number, conyuge: boolean, hijos: number, hijosIncap: number, alquiler: number, alquilerAnual: boolean, extraIncome: number, includeSAC: boolean) => {
+    const newInputs = { ...DEFAULT_INPUTS, grossSalary, conyuge, hijos, hijosIncap, alquiler, alquilerAnual, extraIncome, includeSAC };
+    setInputs(newInputs);
     setRawInputs({
-      grossSalary: formatInput(scenario.inputs.grossSalary),
-      extraIncome: scenario.inputs.extraIncome > 0 ? formatInput(scenario.inputs.extraIncome) : '',
-      alquiler: scenario.inputs.alquiler > 0 ? formatInput(scenario.inputs.alquiler) : '',
+      grossSalary: formatInput(grossSalary),
+      extraIncome: extraIncome > 0 ? formatInput(extraIncome) : '',
+      alquiler: alquiler > 0 ? formatInput(alquiler) : '',
       domestico: '', hipotecario: '', medicos: '', educacion: '', donaciones: '',
       seguroVida: '', sepelio: '', insumos: '',
     });
-    setResult(calculateTax(scenario.inputs));
+    if (taxParams) setResult(calculateTax(newInputs, taxParams));
   };
 
-  // Recalculate whenever any input changes so result is always in sync.
+  // Recalculate whenever any input changes or params load so result is always in sync.
   useEffect(() => {
-    setResult(calculateTax(inputs));
-  }, [inputs]);
+    if (!taxParams) return;
+    setResult(calculateTax(inputs, taxParams));
+  }, [inputs, taxParams]);
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="glass rounded-2xl p-5 animate-pulse h-32" />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -463,18 +376,27 @@ export default function TaxCalculator() {
         <h4 className="font-semibold text-gray-200 text-sm mb-3">
           1. {lang === 'es' ? 'Explorar Escenarios' : 'Explore Scenarios'}
         </h4>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {SCENARIOS.map((s, i) => (
-            <button
-              key={i}
-              onClick={() => loadScenario(s)}
-              className={`border rounded-xl p-3 text-left hover:bg-white/5 transition-all ${s.color}`}
-            >
-              <p className="font-semibold text-xs leading-tight">{s.label[lang]}</p>
-              <p className="text-xs mt-1 opacity-75">{s.salary[lang]}</p>
-            </button>
-          ))}
-        </div>
+        {loading && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="border border-white/10 rounded-xl p-3 animate-pulse h-16" />
+            ))}
+          </div>
+        )}
+        {!loading && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {taxScenarios.map((s, i) => (
+              <button
+                key={i}
+                onClick={() => loadScenario(s.grossSalary, s.conyuge, s.hijos, s.hijosIncap, s.alquiler, s.alquilerAnual, s.extraIncome, s.includeSac)}
+                className={`border rounded-xl p-3 text-left hover:bg-white/5 transition-all ${s.colorClass}`}
+              >
+                <p className="font-semibold text-xs leading-tight">{lang === 'es' ? s.labelEs : s.labelEn}</p>
+                <p className="text-xs mt-1 opacity-75">{lang === 'es' ? s.salaryLabelEs : s.salaryLabelEn}</p>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Main form + Results */}
@@ -750,23 +672,23 @@ export default function TaxCalculator() {
           4. {lang === 'es' ? '¿Cómo se Calcula el Impuesto?' : 'How Is the Tax Calculated?'}
         </h4>
         <div className="flex flex-wrap gap-2 mb-4 border-b border-white/10 pb-3">
-          {TAX_TABS.map((tab) => (
+          {taxTabs.map((tab) => (
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              key={tab.tabId}
+              onClick={() => setActiveTab(tab.tabId)}
               className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
-                activeTab === tab.id ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'
+                activeTab === tab.tabId ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'
               }`}
             >
-              {tab.label[lang]}
+              {lang === 'es' ? tab.labelEs : tab.labelEn}
             </button>
           ))}
         </div>
-        {TAX_TABS.filter((t) => t.id === activeTab).map((tab) => (
-          <div key={tab.id} className="space-y-3">
-            <h5 className="font-semibold text-gray-200">{tab.title[lang]}</h5>
-            <p className="text-sm text-gray-400">{tab.content[lang]}</p>
-            {tab.id === 'paso3' && (
+        {taxTabs.filter((t) => t.tabId === activeTab).map((tab) => (
+          <div key={tab.tabId} className="space-y-3">
+            <h5 className="font-semibold text-gray-200">{lang === 'es' ? tab.titleEs : tab.titleEn}</h5>
+            <p className="text-sm text-gray-400">{lang === 'es' ? tab.contentEs : tab.contentEn}</p>
+            {tab.tabId === 'paso3' && taxParams && (
               <div className="overflow-x-auto">
                 <table className="w-full text-xs text-gray-300 border-collapse">
                   <thead>
@@ -781,8 +703,8 @@ export default function TaxCalculator() {
                     </tr>
                   </thead>
                   <tbody>
-                    {TAX_PARAMS.escala.map((tramo, i) => {
-                      const next = TAX_PARAMS.escala[i + 1];
+                    {taxParams.escala.map((tramo, i) => {
+                      const next = taxParams.escala[i + 1];
                       const rangeLabel = next
                         ? `${tramo.limite.toLocaleString('es-AR')} – ${next.limite.toLocaleString('es-AR')}`
                         : `> ${tramo.limite.toLocaleString('es-AR')}`;
@@ -798,9 +720,9 @@ export default function TaxCalculator() {
                 </table>
               </div>
             )}
-            {tab.formula && (
+            {tab.formulaEs && (
               <div className="bg-gray-800/50 p-3 rounded-xl">
-                <code className="text-xs text-gray-300">{tab.formula[lang]}</code>
+                <code className="text-xs text-gray-300">{lang === 'es' ? tab.formulaEs : tab.formulaEn}</code>
               </div>
             )}
           </div>
