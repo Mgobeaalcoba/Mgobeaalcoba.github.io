@@ -9,4 +9,6 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
   );
 }
 
+// Note: typed as untyped client; column types are enforced manually in each
+// query function using TableRow<T> from @/types/database.types
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
