@@ -20,7 +20,7 @@ const deptIconMap: Record<string, LucideIcon> = {
 export default function SalesProposal() {
   const { t } = useLanguage();
   const { config } = useNeilData();
-  const proposal = config?.sales_proposal;
+  const proposal = config?.salesProposal;
   const ref = useRef<HTMLDivElement>(null);
   const tracked = useRef(false);
 
