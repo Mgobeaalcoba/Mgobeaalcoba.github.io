@@ -1,252 +1,155 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","data-quality-great-expectations","d"]
-0:["-OV4YSAy9sOylF04mQsuR",[[["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__?{\"slug\":\"data-quality-great-expectations\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-10:T2540,<p>"Los datos están mal" es la frase que más miedo genera en un equipo de analytics. Después de un incidente donde un error en los datos llegó hasta un reporte ejecutivo, implementamos Great Expectations. Acá te cuento cómo y por qué.</p>
-<h2>El problema que Great Expectations resuelve</h2>
-<p>Los pipelines de datos tienen un supuesto implícito peligroso: que los datos de entrada son los que esperamos. La realidad es que los datos cambian:</p>
-<ul>
-<li>Una columna que siempre tenía valores entre 0 y 100 empieza a tener -1</li>
-<li>Un campo de texto que era email empieza a recibir teléfonos</li>
-<li>Una tabla que siempre tenía 50K filas llega con 500 (o con 500K)</li>
-<li>Un join que siempre matcheaba el 99% de registros empieza a perder el 30%</li>
-</ul>
-<p>Sin validación, estos problemas llegan silenciosamente a producción.</p>
-<h2>¿Qué es Great Expectations?</h2>
-<p>Great Expectations (GX) es una librería Python para definir, documentar y validar expectativas sobre tus datos. Las "expectations" son assertions sobre la forma y contenido de los datos:</p>
-<ul>
-<li>"La columna <code>email</code> no puede tener nulos"</li>
-<li>"El <code>precio</code> debe estar entre 0 y 1,000,000"</li>
-<li>"Los valores de <code>estado</code> deben ser uno de: pendiente, procesado, cancelado"</li>
-<li>"La tabla debe tener entre 40,000 y 60,000 filas"</li>
-</ul>
-<p>Si alguna expectativa falla, obtenés un reporte detallado de qué salió mal.</p>
+0:["vKbZp_PdWKGrW7slobzu5",[[["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__?{\"slug\":\"data-quality-great-expectations\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T176b,<p>La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los datos que produce están incorrectos. Great Expectations (GX) es el framework que usamos para automatizar las validaciones.</p>
+<h2>El problema</h2>
+<p>Sin validación de datos:</p>
+<pre><code class="language-python"># Este pipeline "funciona" pero el resultado puede ser incorrecto
+def compute_conversion_rate(df):
+    return df[df['event'] == 'purchase'].count() / df.count()
+
+# ¿Qué pasa si:
+# - Hay filas duplicadas?
+# - El campo 'event' tiene valores nulos?
+# - Los timestamps son del futuro (bug en el source)?
+# - El rate calculado es 150% (matemáticamente imposible)?
+</code></pre>
+<p>Los dashboards muestran números incorrectos. El equipo de negocio toma decisiones basadas en datos rotos. Nadie lo sabe hasta que es demasiado tarde.</p>
+<h2>Great Expectations: conceptos</h2>
+<p><strong>Expectation</strong>: Una aserción sobre los datos. "La columna <code>user_id</code> no debe tener nulos."</p>
+<p><strong>Expectation Suite</strong>: Conjunto de expectations que definen la calidad esperada de un dataset.</p>
+<p><strong>Checkpoint</strong>: Valida un dataset contra un Expectation Suite y genera un reporte.</p>
 <h2>Setup básico</h2>
 <pre><code class="language-bash">pip install great-expectations
-gx init
+gx init  # Crea el directorio gx/ con la configuración
 </code></pre>
-<p>Esto crea el directorio <code>gx/</code> con la configuración del proyecto.</p>
-<h2>Tu primera suite de expectativas</h2>
+<h2>Crear Expectations</h2>
 <pre><code class="language-python">import great_expectations as gx
-import pandas as pd
 
-# Cargar datos
-df = pd.read_parquet("pedidos_hoy.parquet")
-
-# Crear contexto de GX
 context = gx.get_context()
 
-# Crear un "batch" de datos para validar
-data_source = context.sources.add_pandas("pedidos_datasource")
-data_asset = data_source.add_dataframe_asset("pedidos_asset")
-batch_request = data_asset.build_batch_request(dataframe=df)
+# Definir una fuente de datos
+datasource = context.sources.add_pandas("my_datasource")
+data_asset = datasource.add_dataframe_asset("orders")
 
-# Crear suite de expectativas
-suite = context.add_expectation_suite("pedidos_suite")
+batch_request = data_asset.build_batch_request(dataframe=df_orders)
+validator = context.get_validator(batch_request=batch_request)
 
-# Agregar las expectations
-validator = context.get_validator(
-    batch_request=batch_request,
-    expectation_suite_name="pedidos_suite",
-)
+# Expectations sobre columnas críticas
+validator.expect_column_to_exist("order_id")
+validator.expect_column_values_to_not_be_null("order_id")
+validator.expect_column_values_to_be_unique("order_id")
 
-# === Expectations de estructura ===
-validator.expect_table_row_count_to_be_between(min_value=10_000, max_value=500_000)
-validator.expect_table_columns_to_match_ordered_list([
-    "pedido_id", "seller_id", "buyer_id", "monto", "estado", "fecha_creacion"
-])
+validator.expect_column_to_exist("gmv")
+validator.expect_column_values_to_not_be_null("gmv")
+validator.expect_column_values_to_be_between("gmv", min_value=0, max_value=1_000_000)
 
-# === Expectations de columnas ===
-# Columnas que no pueden ser nulas
-for columna in ["pedido_id", "seller_id", "buyer_id", "monto"]:
-    validator.expect_column_values_to_not_be_null(column=columna)
-
-# Tipos de datos
-validator.expect_column_values_to_be_in_type_list("monto", ["float64", "float32", "int64"])
-validator.expect_column_values_to_be_in_type_list("pedido_id", ["int64", "int32"])
-
-# Rangos de valores
-validator.expect_column_values_to_be_between(
-    column="monto",
-    min_value=0,
-    max_value=10_000_000,
-    mostly=0.999  # 99.9% de los valores deben cumplir
-)
-
-validator.expect_column_values_to_be_between(
-    column="seller_id",
-    min_value=1,
-    strict_min=True,
-)
-
-# Valores permitidos
 validator.expect_column_values_to_be_in_set(
-    column="estado",
-    value_set=["pendiente", "procesado", "enviado", "entregado", "cancelado", "devuelto"],
+    "status",
+    ["pending", "completed", "cancelled", "refunded"]
 )
 
-# Unicidad
-validator.expect_column_values_to_be_unique(column="pedido_id")
-
-# Formato de fechas
-validator.expect_column_values_to_match_strftime_format(
-    column="fecha_creacion",
-    strftime_format="%Y-%m-%dT%H:%M:%S",
-    mostly=0.99
+validator.expect_column_values_to_match_regex(
+    "seller_id",
+    regex=r"^\d{6,12}$"  # IDs numéricos de 6-12 dígitos
 )
 
-# Guardar la suite
-validator.save_expectation_suite()
+# Expectations estadísticas
+validator.expect_column_mean_to_be_between("gmv", min_value=50, max_value=5000)
+validator.expect_column_proportion_of_unique_values_to_be_between(
+    "buyer_id", min_value=0.3, max_value=1.0
+)
+
+# Guardar el Expectation Suite
+validator.save_expectation_suite(discard_failed_expectations=False)
 </code></pre>
-<h2>Ejecutar las validaciones</h2>
-<pre><code class="language-python">from great_expectations.checkpoint import SimpleCheckpoint
+<h2>Integrar en el pipeline</h2>
+<pre><code class="language-python">import great_expectations as gx
+from great_expectations.core.batch import RuntimeBatchRequest
 
-# Crear checkpoint
-checkpoint_config = {
-    "name": "pedidos_checkpoint",
-    "config_version": 1,
-    "class_name": "SimpleCheckpoint",
-    "expectation_suite_name": "pedidos_suite",
-}
-
-context.add_checkpoint(**checkpoint_config)
-
-# Ejecutar
-results = context.run_checkpoint(
-    checkpoint_name="pedidos_checkpoint",
-    validations=[{"batch_request": batch_request}],
-)
-
-if results.success:
-    print("✅ Todas las validaciones pasaron!")
-else:
-    print(f"❌ {results['statistics']['unsuccessful_expectations']} expectativas fallaron")
+def validate_and_load(df: pd.DataFrame, suite_name: str) -> bool:
+    """Valida el dataframe antes de cargarlo. Devuelve False si falla la validación."""
     
-    # Ver el detalle
-    for result in results.list_validation_results():
-        for expectation in result.results:
-            if not expectation.success:
-                print(f"  FALLA: {expectation.expectation_config.expectation_type}")
-                print(f"  Columna: {expectation.expectation_config.kwargs.get('column', 'N/A')}")
-                print(f"  Detalle: {expectation.result}")
-</code></pre>
-<h2>Integración con Airflow</h2>
-<pre><code class="language-python">from airflow.decorators import task, dag
-from airflow.utils.dates import days_ago
-import great_expectations as gx
-
-@dag(schedule_interval="@daily", start_date=days_ago(1))
-def pipeline_pedidos():
+    context = gx.get_context()
     
-    @task
-    def extraer_pedidos():
-        import pandas as pd
-        # Tu lógica de extracción
-        return pd.read_sql("SELECT * FROM pedidos WHERE DATE(fecha) = CURRENT_DATE", conn)
+    checkpoint = context.add_or_update_checkpoint(
+        name=f"{suite_name}_checkpoint",
+        validations=[{
+            "batch_request": {
+                "datasource_name": "my_datasource",
+                "data_asset_name": "orders",
+                "runtime_parameters": {"batch_data": df},
+                "batch_identifiers": {"default_identifier_name": "default_identifier"},
+            },
+            "expectation_suite_name": suite_name,
+        }],
+    )
     
-    @task
-    def validar_pedidos(df):
-        context = gx.get_context(context_root_dir="/opt/airflow/gx")
+    result = checkpoint.run()
+    
+    if not result.success:
+        # Loggear qué falló
+        for validation_result in result.run_results.values():
+            for exp_result in validation_result["validation_result"]["results"]:
+                if not exp_result["success"]:
+                    logger.error(f"Data quality failure: {exp_result['expectation_config']}")
         
-        # Configurar el batch con el DataFrame de Airflow
-        data_source = context.sources.add_or_update_pandas("pedidos")
-        data_asset = data_source.add_or_update_dataframe_asset("daily")
-        batch_request = data_asset.build_batch_request(dataframe=df)
-        
-        results = context.run_checkpoint(
-            checkpoint_name="pedidos_checkpoint",
-            validations=[{"batch_request": batch_request}],
-        )
-        
-        if not results.success:
-            raise ValueError(
-                f"Validación de datos fallida: "
-                f"{results['statistics']['unsuccessful_expectations']} expectativas no cumplidas. "
-                "Pipeline detenido para evitar propagación de datos incorrectos."
-            )
-        
-        return df
+        return False
     
-    @task
-    def transformar_y_cargar(df):
-        # Solo llegamos acá si los datos pasaron validación
-        pass
+    return True
+
+def etl_pipeline(date: str):
+    df = extract_orders(date)
     
-    datos_raw = extraer_pedidos()
-    datos_validados = validar_pedidos(datos_raw)
-    transformar_y_cargar(datos_validados)
-
-dag_pedidos = pipeline_pedidos()
+    if not validate_and_load(df, "orders_suite"):
+        raise DataQualityException(f"Data quality check failed for {date}")
+    
+    transformed = transform(df)
+    load(transformed)
 </code></pre>
-<h2>Profiling: dejar que GX aprenda tus datos</h2>
-<p>En vez de definir todas las expectations manualmente, podés dejar que GX las genere automáticamente desde datos históricos:</p>
-<pre><code class="language-python"># Cargar datos históricos "buenos" (último mes)
-df_historico = pd.read_parquet("pedidos_historico.parquet")
+<h2>Expectations personalizadas</h2>
+<pre><code class="language-python">from great_expectations.expectations.expectation import ColumnExpectation
+from great_expectations.execution_engine import PandasExecutionEngine
 
-# GX analiza los datos y propone expectations
-validator = context.get_validator(
-    batch_request=batch_request_historico,
-    expectation_suite_name="pedidos_auto_suite",
-)
-
-# Generar expectations automáticas
-validator.expect_table_row_count_to_be_between(
-    min_value=int(len(df_historico) * 0.8),
-    max_value=int(len(df_historico) * 1.2),
-)
-
-# Usar el profiler para expectativas estadísticas
-from great_expectations.profile.user_configurable_profiler import UserConfigurableProfiler
-
-profiler = UserConfigurableProfiler(profile_dataset=validator)
-suite, validation_result = profiler.build_suite()
-
-# Revisar manualmente las expectations generadas
-for expectation in suite.expectations:
-    print(expectation)
+class ExpectColumnValuesToBeValidArgentinaDate(ColumnExpectation):
+    """Verifica que las fechas sean válidas para el contexto argentino."""
+    
+    metric_dependencies = ("column.values.to_be_valid_ar_date",)
+    success_keys = ("min_date", "max_date")
+    
+    @classmethod
+    def _validate(cls, configuration, metrics, *args, **kwargs):
+        column_value_counts = metrics.get("column.value_counts.without_modifying_index")
+        min_date = configuration.kwargs.get("min_date", "2020-01-01")
+        max_date = configuration.kwargs.get("max_date")
+        
+        # Tu lógica de validación acá
+        ...
 </code></pre>
-<h2>Documentación automática: Data Docs</h2>
-<p>GX genera documentación HTML desde las expectativas y los resultados de validación:</p>
-<pre><code class="language-python"># Generar documentación
-context.build_data_docs()
-
-# Abrir en el browser (solo en desarrollo)
-context.open_data_docs()
+<h2>Reporting automático</h2>
+<p>Great Expectations genera reportes HTML automáticamente:</p>
+<pre><code class="language-python">context.build_data_docs()
+context.open_data_docs()  # Abre en el navegador
 </code></pre>
-<p>Los Data Docs muestran:</p>
+<p>Los reportes muestran qué expectativas pasaron, cuáles fallaron, ejemplos de valores que no cumplen, y estadísticas del dataset.</p>
+<h2>El impacto real</h2>
+<p>Después de implementar GX en nuestros pipelines principales:</p>
 <ul>
-<li>Qué expectativas están definidas para cada dataset</li>
-<li>Los resultados de las últimas validaciones (qué pasó, qué falló)</li>
-<li>Estadísticas de los datos validados</li>
+<li><strong>0 incidentes de datos incorrectos</strong> en producción en 8 meses</li>
+<li><strong>Detección temprana</strong>: los problemas se detectan en el pipeline, no cuando el equipo de negocio reporta números raros</li>
+<li><strong>Documentación viva</strong>: las expectations documentan qué propiedades se garantizan del dataset</li>
 </ul>
-<p>Esto actúa como <strong>contrato de datos</strong> — cualquier stakeholder puede ver qué garantías tienen los datos.</p>
-<h2>Estrategia para implementarlo en un equipo</h2>
-<ol>
-<li>
-<p><strong>Empezar con las tablas más críticas</strong>: No arrancar con las 200 tablas. Las 5 que alimentan los dashboards más importantes.</p>
-</li>
-<li>
-<p><strong>Definir expectations conservadoras primero</strong>: Mejor pocas expectations que siempre pasan que muchas que se violan constantemente y nadie las atiende.</p>
-</li>
-<li>
-<p><strong>Modo "warning" antes de "error"</strong>: Al principio, configurá las validaciones para que solo logueen warnings sin detener el pipeline. Cuando tenés confianza en las expectations, las convertís en errores que detienen el pipeline.</p>
-</li>
-<li>
-<p><strong>Data Docs como comunicación</strong>: Compartí el link de Data Docs con el equipo de negocio. "Estos son los checks que hacemos sobre los datos que usás" es una conversación valiosa.</p>
-</li>
-</ol>
-<hr>
-<p>Great Expectations no previene todos los problemas de data quality, pero sí los detecta antes de que lleguen a producción. Después de implementarlo, pasamos de "¿cuándo se rompió esto?" a "el pipeline de ayer detectó 5,000 registros con <code>estado</code> inválido antes de cargarlos al warehouse". Esa diferencia vale todo el tiempo de setup.</p>
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Data Quality con Great Expectations: No más data corrupta"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Cómo implementar data quality checks que atrapan problemas antes de producción."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de junio de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"11 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","data-quality",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"data-quality"]}],["$","span","testing",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"testing"]}],["$","span","validation",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"validation"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Data Quality con Great Expectations: No más data corrupta"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Cómo implementar data quality checks que atrapan problemas antes de producción."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"6 de junio de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"11 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","data-quality",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"data-quality"]}],["$","span","testing",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"testing"]}],["$","span","validation",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"validation"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Data Quality con Great Expectations: No más data corrupta | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Cómo implementar data quality checks que atrapan problemas antes de producción."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Data Quality con Great Expectations: No más data corrupta"}],["$","meta","11",{"property":"og:description","content":"Cómo implementar data quality checks que atrapan problemas antes de producción."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-06-07"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Data Quality con Great Expectations: No más data corrupta"}],["$","meta","19",{"name":"twitter:description","content":"Cómo implementar data quality checks que atrapan problemas antes de producción."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

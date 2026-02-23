@@ -1,285 +1,126 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","python-async-data-pipelines","d"]
-0:["-OV4YSAy9sOylF04mQsuR",[[["",{"children":["blog",{"children":[["slug","python-async-data-pipelines","d"],{"children":["__PAGE__?{\"slug\":\"python-async-data-pipelines\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","python-async-data-pipelines","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-10:T2862,<p>Tenía un pipeline que tardaba 2 horas en correr. Consumía datos de 50 APIs diferentes, una a la vez. Después de refactorizarlo con <code>asyncio</code>, tardó <strong>15 minutos</strong>. El cambio fue mayormente en cómo hacía los requests HTTP.</p>
-<p>Este artículo es la guía práctica que me hubiera gustado tener cuando empecé con Python async.</p>
-<h2>Por qué async acelera pipelines de datos</h2>
-<p>La mayoría del tiempo que un pipeline de datos espera es <strong>I/O</strong>: esperando respuestas de APIs, queries a bases de datos, lectura de archivos. Durante ese tiempo, el CPU está idle.</p>
-<p><strong>Sincrónico (una cosa a la vez):</strong></p>
-<pre><code>API 1: [====espera====][procesa]
-API 2:                 [====espera====][procesa]
-API 3:                               [====espera====][procesa]
-Tiempo total: 3 × (espera + proceso)
+0:["vKbZp_PdWKGrW7slobzu5",[[["",{"children":["blog",{"children":[["slug","python-async-data-pipelines","d"],{"children":["__PAGE__?{\"slug\":\"python-async-data-pipelines\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","python-async-data-pipelines","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T119c,<p>Los pipelines de datos tradicionales son síncronos y secuenciales: extraen, transforman, cargan, y esperan en cada paso. Cuando procesás miles de fuentes de datos en paralelo, esto se convierte en un cuello de botella. Python async (asyncio) puede transformar un pipeline de 2 horas en uno de 15 minutos.</p>
+<h2>El problema con los pipelines síncronos</h2>
+<p>Un pipeline típico de ETL que consulta 50 APIs externas:</p>
+<pre><code class="language-python"># Síncrono: 50 APIs * 2 segundos promedio = 100 segundos
+def extract_all_sources(sources: list[str]) -> list[dict]:
+    results = []
+    for source in sources:
+        result = requests.get(source, timeout=10)
+        results.append(result.json())
+    return results
 </code></pre>
-<p><strong>Asincrónico (muchas cosas en paralelo):</strong></p>
-<pre><code>API 1: [====espera====][procesa]
-API 2: [====espera====][procesa]
-API 3: [====espera====][procesa]
-Tiempo total: 1 × (espera + proceso)
-</code></pre>
-<p>La diferencia es dramática cuando hacés muchas llamadas I/O-bound.</p>
-<h2>Conceptos básicos que necesitás entender</h2>
-<h3><code>async def</code> y <code>await</code></h3>
-<pre><code class="language-python">import asyncio
-
-# Función síncrona normal
-def fetch_sync(url: str) -> str:
-    import requests
-    return requests.get(url).text
-
-# Su versión asíncrona
-async def fetch_async(url: str) -> str:
-    import aiohttp
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            return await response.text()
-
-# Para correr una función async
-asyncio.run(fetch_async("https://api.ejemplo.com/datos"))
-</code></pre>
-<h3><code>asyncio.gather()</code> — el corazón del speedup</h3>
-<pre><code class="language-python">async def main():
-    # Estas dos llamadas corren EN PARALELO
-    resultado1, resultado2 = await asyncio.gather(
-        fetch_async("https://api.ejemplo.com/vendedores"),
-        fetch_async("https://api.ejemplo.com/productos"),
-    )
-    print(resultado1, resultado2)
-
-asyncio.run(main())
-</code></pre>
-<h2>El caso real: pipeline con 50 APIs</h2>
-<p><strong>Versión sincrónica (2 horas):</strong></p>
-<pre><code class="language-python">import requests
-import time
-
-ENDPOINTS = [f"https://api.mercado.com/seller/{i}/metrics" for i in range(1, 51)]
-
-def fetch_seller_metrics_sync(endpoint: str) -> dict:
-    response = requests.get(endpoint, timeout=30)
-    response.raise_for_status()
-    return response.json()
-
-def pipeline_sync():
-    inicio = time.time()
-    resultados = []
-    
-    for endpoint in ENDPOINTS:
-        data = fetch_seller_metrics_sync(endpoint)
-        resultados.append(data)
-    
-    print(f"Tiempo: {time.time() - inicio:.1f}s")
-    return resultados
-</code></pre>
-<p>Si cada API tarda 2 minutos, 50 APIs = 100 minutos. Así de simple.</p>
-<p><strong>Versión asíncrona (15 minutos):</strong></p>
-<pre><code class="language-python">import aiohttp
-import asyncio
-import time
-
-ENDPOINTS = [f"https://api.mercado.com/seller/{i}/metrics" for i in range(1, 51)]
-
-async def fetch_seller_metrics(session: aiohttp.ClientSession, endpoint: str) -> dict:
-    async with session.get(endpoint, timeout=aiohttp.ClientTimeout(total=30)) as response:
-        response.raise_for_status()
-        return await response.json()
-
-async def pipeline_async():
-    inicio = time.time()
-    
-    async with aiohttp.ClientSession() as session:
-        tareas = [
-            fetch_seller_metrics(session, endpoint)
-            for endpoint in ENDPOINTS
-        ]
-        resultados = await asyncio.gather(*tareas, return_exceptions=True)
-    
-    # Separar éxitos de errores
-    exitosos = [r for r in resultados if not isinstance(r, Exception)]
-    errores = [r for r in resultados if isinstance(r, Exception)]
-    
-    print(f"Tiempo: {time.time() - inicio:.1f}s")
-    print(f"Exitosos: {len(exitosos)}, Errores: {len(errores)}")
-    return exitosos
-
-asyncio.run(pipeline_async())
-</code></pre>
-<p>Las 50 requests ahora corren (casi) en paralelo. El tiempo total es el de la request más lenta, no la suma de todas.</p>
-<h2>Rate limiting: no bombardees las APIs</h2>
-<p>El problema de hacer todo en paralelo es que podés exceder los rate limits de la API y recibir 429 Too Many Requests.</p>
-<p><strong>Control de concurrencia con Semaphore:</strong></p>
-<pre><code class="language-python">async def fetch_con_rate_limit(
-    session: aiohttp.ClientSession,
-    endpoint: str,
-    semaphore: asyncio.Semaphore,
-) -> dict:
-    async with semaphore:  # Solo X requests concurrentes a la vez
-        async with session.get(endpoint) as response:
-            response.raise_for_status()
-            return await response.json()
-
-async def pipeline_con_rate_limit():
-    MAX_CONCURRENT = 10  # No más de 10 requests simultáneas
-    semaphore = asyncio.Semaphore(MAX_CONCURRENT)
-    
-    async with aiohttp.ClientSession() as session:
-        tareas = [
-            fetch_con_rate_limit(session, endpoint, semaphore)
-            for endpoint in ENDPOINTS
-        ]
-        return await asyncio.gather(*tareas, return_exceptions=True)
-</code></pre>
-<h2>Retry asíncrono con backoff exponencial</h2>
+<p>Con asyncio:</p>
 <pre><code class="language-python">import asyncio
 import aiohttp
-from tenacity import retry, stop_after_attempt, wait_exponential, RetryError
+
+# Async: todas las APIs en paralelo = ~2 segundos
+async def extract_all_sources(sources: list[str]) -> list[dict]:
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_source(session, url) for url in sources]
+        return await asyncio.gather(*tasks)
+
+async def fetch_source(session: aiohttp.ClientSession, url: str) -> dict:
+    async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as response:
+        return await response.json()
+
+results = asyncio.run(extract_all_sources(sources))
+</code></pre>
+<h2>Limitaciones y rate limits</h2>
+<p>El problema con <code>gather</code> sin control: si tenés 500 fuentes, lanzás 500 requests simultáneos, lo cual puede:</p>
+<ol>
+<li>Saturar la red o la API destino</li>
+<li>Violar rate limits y recibir 429s</li>
+<li>Consumir toda la memoria</li>
+</ol>
+<pre><code class="language-python">import asyncio
+from asyncio import Semaphore
+
+async def extract_with_rate_limit(
+    sources: list[str], 
+    max_concurrent: int = 20
+) -> list[dict]:
+    semaphore = Semaphore(max_concurrent)
+    
+    async def fetch_with_limit(url: str) -> dict:
+        async with semaphore:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as response:
+                    return await response.json()
+    
+    tasks = [fetch_with_limit(url) for url in sources]
+    return await asyncio.gather(*tasks, return_exceptions=True)
+</code></pre>
+<h2>Async + retry logic</h2>
+<pre><code class="language-python">from tenacity import retry, stop_after_attempt, wait_exponential
 
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=2, max=30)
 )
-async def fetch_con_retry(session: aiohttp.ClientSession, endpoint: str) -> dict:
-    async with session.get(endpoint, timeout=aiohttp.ClientTimeout(total=15)) as response:
-        if response.status == 429:
-            # Rate limit: esperar el Retry-After header si está disponible
-            retry_after = int(response.headers.get('Retry-After', 5))
-            await asyncio.sleep(retry_after)
-            raise aiohttp.ClientResponseError(
-                response.request_info, response.history, status=429
-            )
-        response.raise_for_status()
-        return await response.json()
+async def fetch_with_retry(session: aiohttp.ClientSession, url: str) -> dict:
+    async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as resp:
+        resp.raise_for_status()
+        return await resp.json()
 </code></pre>
-<h2>Procesamiento por batches</h2>
-<p>Si tenés 10,000 endpoints, no querés lanzar 10,000 coroutines simultáneas. Procesá en batches:</p>
-<pre><code class="language-python">async def procesar_en_batches(endpoints: list[str], batch_size: int = 100) -> list[dict]:
-    todos_resultados = []
+<h2>Pipeline async completo</h2>
+<pre><code class="language-python">import asyncio
+import aiohttp
+from asyncio import Semaphore
+import logging
+
+logger = logging.getLogger(__name__)
+
+class AsyncDataPipeline:
+    def __init__(self, max_concurrent: int = 20):
+        self.semaphore = Semaphore(max_concurrent)
     
-    for i in range(0, len(endpoints), batch_size):
-        batch = endpoints[i:i + batch_size]
-        print(f"Procesando batch {i//batch_size + 1}/{len(endpoints)//batch_size + 1}")
-        
+    async def extract(self, sources: list[str]) -> list[dict]:
         async with aiohttp.ClientSession() as session:
-            tareas = [fetch_con_retry(session, url) for url in batch]
-            resultados_batch = await asyncio.gather(*tareas, return_exceptions=True)
+            tasks = [self._fetch(session, url) for url in sources]
+            results = await asyncio.gather(*tasks, return_exceptions=True)
         
-        exitosos = [r for r in resultados_batch if not isinstance(r, Exception)]
-        todos_resultados.extend(exitosos)
+        successful = [r for r in results if not isinstance(r, Exception)]
+        failed = [r for r in results if isinstance(r, Exception)]
         
-        # Pequeña pausa entre batches para ser amables con la API
-        await asyncio.sleep(1)
+        if failed:
+            logger.warning(f"{len(failed)} sources failed")
+        
+        return successful
     
-    return todos_resultados
+    async def _fetch(self, session: aiohttp.ClientSession, url: str) -> dict:
+        async with self.semaphore:
+            try:
+                async with session.get(url, timeout=aiohttp.ClientTimeout(total=15)) as resp:
+                    resp.raise_for_status()
+                    data = await resp.json()
+                    return {url: url, data: data, status: ok}
+            except Exception as e:
+                logger.error(f"Failed to fetch {url}: {e}")
+                raise
+    
+    async def run(self, sources: list[str]) -> dict:
+        raw_data = await self.extract(sources)
+        transformed = [self.transform(item) for item in raw_data]
+        return {records: len(transformed), data: transformed}
+
+pipeline = AsyncDataPipeline(max_concurrent=15)
+result = asyncio.run(pipeline.run(sources))
 </code></pre>
-<h2>Async con bases de datos: asyncpg y aiomysql</h2>
-<p>El async no es solo para HTTP. Las bases de datos también se benefician:</p>
-<pre><code class="language-python">import asyncpg
-import asyncio
-
-async def fetch_desde_postgres():
-    # asyncpg es mucho más rápido que psycopg2 para queries concurrentes
-    conn = await asyncpg.connect(
-        host='localhost',
-        database='mydb',
-        user='user',
-        password='pass'
-    )
-    
-    try:
-        # Queries en paralelo
-        vendedores, productos = await asyncio.gather(
-            conn.fetch("SELECT * FROM sellers WHERE active = true"),
-            conn.fetch("SELECT * FROM products WHERE stock > 0"),
-        )
-        return vendedores, productos
-    finally:
-        await conn.close()
-
-# Connection pool para múltiples queries simultáneas
-async def fetch_con_pool():
-    pool = await asyncpg.create_pool(
-        host='localhost', database='mydb', user='user', password='pass',
-        min_size=5, max_size=20
-    )
-    
-    async with pool.acquire() as conn:
-        result = await conn.fetch("SELECT * FROM sellers")
-    
-    await pool.close()
-    return result
-</code></pre>
-<h2>Integración con Airflow y Prefect</h2>
-<p>Si usás un orquestador, podés usar async dentro de tus tasks:</p>
-<p><strong>Con Airflow:</strong></p>
-<pre><code class="language-python">from airflow.decorators import task
-import asyncio
-
-@task
-def fetch_all_apis():
-    # Los tasks de Airflow son síncronos, pero podés correr async adentro
-    async def _async_main():
-        return await pipeline_async()
-    
-    return asyncio.run(_async_main())
-</code></pre>
-<p><strong>Con Prefect:</strong></p>
-<pre><code class="language-python">from prefect import task, flow
-
-@task
-async def fetch_api(endpoint: str) -> dict:
-    # Prefect soporta async tasks nativamente
-    async with aiohttp.ClientSession() as session:
-        async with session.get(endpoint) as r:
-            return await r.json()
-
-@flow
-async def pipeline():
-    endpoints = ["https://api.ejemplo.com/a", "https://api.ejemplo.com/b"]
-    # Prefect maneja la concurrencia automáticamente con async tasks
-    resultados = await asyncio.gather(*[fetch_api(e) for e in endpoints])
-    return resultados
-</code></pre>
-<h2>Cuándo NO usar async</h2>
-<p>Async no ayuda cuando el bottleneck es <strong>CPU</strong>, no I/O. Si estás haciendo transformaciones pesadas de datos en Python puro, async no va a ayudar — para eso usás multiprocessing o Spark.</p>
-<table>
-<thead>
-<tr>
-<th>Caso</th>
-<th>Solución</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Muchas calls a APIs</td>
-<td>✅ async + aiohttp</td>
-</tr>
-<tr>
-<td>Queries a BD en paralelo</td>
-<td>✅ async + asyncpg</td>
-</tr>
-<tr>
-<td>Procesamiento CPU-intensivo</td>
-<td>❌ async no ayuda → multiprocessing</td>
-</tr>
-<tr>
-<td>Grandes volúmenes de datos</td>
-<td>❌ async no ayuda → Spark/Dask</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>El cambio de 2 horas a 15 minutos en mi pipeline no requirió hardware más grande, no requirió una arquitectura diferente. Solo requirió entender que el tiempo de espera I/O puede ser paralelo. Una vez que internalizás ese concepto, el código asíncrono empieza a ser natural.</p>
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"python"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Python Async para Data Pipelines: De 2 horas a 15 minutos"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Cómo usar asyncio y aiohttp para paralelizar fetches de APIs y acelerar pipelines dramáticamente."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"22 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"9 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","python",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"python"]}],["$","span","async",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"async"]}],["$","span","performance",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"performance"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
+<p>Resultado: pipelines que antes tardaban horas ahora corren en minutos.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"python"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Python Async para Data Pipelines: De 2 horas a 15 minutos"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Cómo usar asyncio y aiohttp para paralelizar fetches de APIs y acelerar pipelines dramáticamente."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"21 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"9 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","python",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"python"]}],["$","span","async",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"async"]}],["$","span","performance",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"performance"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Python Async para Data Pipelines: De 2 horas a 15 minutos | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Cómo usar asyncio y aiohttp para paralelizar fetches de APIs y acelerar pipelines dramáticamente."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Python Async para Data Pipelines: De 2 horas a 15 minutos"}],["$","meta","11",{"property":"og:description","content":"Cómo usar asyncio y aiohttp para paralelizar fetches de APIs y acelerar pipelines dramáticamente."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-03-22"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Python Async para Data Pipelines: De 2 horas a 15 minutos"}],["$","meta","19",{"name":"twitter:description","content":"Cómo usar asyncio y aiohttp para paralelizar fetches de APIs y acelerar pipelines dramáticamente."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

@@ -1,136 +1,103 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","docker-data-engineers","d"]
-0:["-OV4YSAy9sOylF04mQsuR",[[["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__?{\"slug\":\"docker-data-engineers\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-10:T1fcb,<p>"En mi máquina funciona" es el meme que Docker vino a matar. Para data engineers, Docker resuelve un problema real: entornos reproducibles para pipelines, notebooks y servicios de datos.</p>
-<p>Esta guía es lo que necesitás saber para usar Docker efectivamente en tu trabajo diario — sin profundizar en conceptos de infraestructura que no vas a usar.</p>
-<h2>Por qué Docker importa para Data Engineers</h2>
-<p><strong>Escenarios donde Docker hace la diferencia:</strong></p>
-<ul>
-<li>Tu pipeline de Airflow corre localmente pero falla en el server de producción porque las versiones de Python o las dependencias son diferentes</li>
-<li>Querés probar Kafka, PostgreSQL, o Elasticsearch sin instalarlos en tu máquina</li>
-<li>Necesitás que un nuevo miembro del equipo tenga el entorno correcto en minutos, no días</li>
-<li>Querés correr una query en BigQuery desde un script Python con dependencias específicas</li>
-</ul>
-<h2>Los comandos que usás el 90% del tiempo</h2>
-<pre><code class="language-bash"># Correr un contenedor
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=secret postgres:16
+0:["vKbZp_PdWKGrW7slobzu5",[[["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__?{\"slug\":\"docker-data-engineers\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T15a9,<p>Docker resolvió el problema clásico de los data engineers: "funciona en mi máquina". Si tu pipeline corre en local pero falla en producción por diferencias de entorno, Docker es la solución. Guía práctica enfocada en casos de uso de datos.</p>
+<h2>El problema concreto</h2>
+<pre><code class="language-bash"># En tu MacBook con Python 3.11
+pip install pandas==2.1.0 scikit-learn==1.4.0
+python train_model.py  # ✅ funciona
 
-# Correr en background (detached)
-docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=secret postgres:16
-
-# Ver contenedores corriendo
-docker ps
-
-# Ver logs
-docker logs &#x3C;container_id>
-
-# Entrar al contenedor
-docker exec -it &#x3C;container_id> bash
-
-# Parar y eliminar contenedores
-docker stop &#x3C;container_id>
-docker rm &#x3C;container_id>
-
-# Descargar una imagen
-docker pull python:3.11-slim
-
-# Limpiar todo lo que no se usa
-docker system prune -f
+# En el servidor de producción con Python 3.9
+# scikit-learn 1.4.0 requiere Python 3.10+
+# 💥 ImportError: cannot import name 'PolynomialCountSketch'
 </code></pre>
-<h2>Tu primer Dockerfile para un pipeline</h2>
-<pre><code class="language-dockerfile"># Dockerfile
+<p>Docker encapsula todo: Python version, dependencias, variables de entorno, y el código.</p>
+<h2>Dockerfile para un pipeline de datos</h2>
+<pre><code class="language-dockerfile"># Usar imagen oficial de Python slim (más liviana)
 FROM python:3.11-slim
 
+# Metadatos
+LABEL maintainer="data-team@company.com"
+LABEL version="1.0"
+
 # Variables de entorno
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
 
 # Directorio de trabajo
 WORKDIR /app
 
-# Instalar dependencias del sistema (si las necesitás)
+# Instalar dependencias del sistema (si son necesarias)
 RUN apt-get update &#x26;&#x26; apt-get install -y \
+    libpq-dev \
     gcc \
     &#x26;&#x26; rm -rf /var/lib/apt/lists/*
 
-# Copiar requirements primero (aprovecha el cache de Docker)
+# Copiar requirements PRIMERO (para aprovechar cache de Docker)
 COPY requirements.txt .
+
+# Instalar dependencias Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el código
-COPY . .
+# Copiar el código del pipeline
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Usuario no-root por seguridad
+RUN adduser --disabled-password --gecos "" appuser
+USER appuser
 
 # Comando por defecto
-CMD ["python", "pipeline.py"]
+CMD ["python", "src/main.py"]
 </code></pre>
-<pre><code class="language-text"># requirements.txt
-pandas==2.2.0
-sqlalchemy==2.0.25
-psycopg2-binary==2.9.9
-requests==2.31.0
-</code></pre>
-<pre><code class="language-bash"># Construir la imagen
-docker build -t mi-pipeline:v1 .
-
-# Correr el pipeline
-docker run --env-file .env mi-pipeline:v1
-
-# Con volumen para persistir outputs
-docker run \
-  --env-file .env \
-  -v $(pwd)/output:/app/output \
-  mi-pipeline:v1
-</code></pre>
-<h2>Docker Compose: el stack completo en un archivo</h2>
-<p>Para desarrollo local, Docker Compose levanta múltiples servicios juntos:</p>
+<h2>docker-compose para desarrollo local</h2>
 <pre><code class="language-yaml"># docker-compose.yml
-version: '3.8'
+version: "3.8"
 
 services:
-  postgres:
-    image: postgres:16
+  pipeline:
+    build: .
     environment:
-      POSTGRES_USER: dw_user
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: warehouse
+      - GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp-sa.json
+      - POSTGRES_URL=postgresql://user:pass@postgres:5432/analytics
+      - ENV=development
+    volumes:
+      - ./src:/app/src          # Hot reload del código
+      - ~/.config/gcloud:/secrets  # Credenciales GCP
+      - ./data:/app/data        # Datos locales
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: python src/main.py --date 2026-01-15
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: analytics
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-scripts:/docker-entrypoint-initdb.d  # scripts de inicialización
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dw_user -d warehouse"]
+      test: ["CMD-SHELL", "pg_isready -U user -d analytics"]
       interval: 5s
       timeout: 5s
       retries: 5
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-
-  pipeline:
-    build: .
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      DATABASE_URL: postgresql://dw_user:secret@postgres:5432/warehouse
-      REDIS_URL: redis://redis:6379
-    volumes:
-      - ./src:/app/src  # montar código para desarrollo
-    command: python -m uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
 
   jupyter:
     image: jupyter/scipy-notebook:latest
@@ -139,165 +106,97 @@ services:
     volumes:
       - ./notebooks:/home/jovyan/work
     environment:
-      JUPYTER_ENABLE_LAB: "yes"
+      - JUPYTER_TOKEN=secret
 
 volumes:
   postgres_data:
 </code></pre>
-<pre><code class="language-bash"># Levantar todo
-docker compose up -d
-
-# Ver logs de todos los servicios
-docker compose logs -f
-
-# Parar todo (sin borrar datos)
-docker compose stop
-
-# Parar y eliminar contenedores + redes
-docker compose down
-
-# Parar y eliminar TODO incluyendo volúmenes
-docker compose down -v
+<pre><code class="language-bash"># Comandos útiles
+docker-compose up pipeline    # Correr el pipeline
+docker-compose up -d postgres # Postgres en background
+docker-compose logs -f        # Ver logs en tiempo real
+docker-compose exec pipeline bash  # Shell dentro del container
 </code></pre>
-<h2>Stack de Data Engineering local completo</h2>
-<pre><code class="language-yaml"># docker-compose.data-stack.yml
-version: '3.8'
+<h2>Multi-stage build para imágenes más pequeñas</h2>
+<pre><code class="language-dockerfile"># Stage 1: Build (con herramientas de compilación)
+FROM python:3.11-slim as builder
 
-services:
-  # Base de datos OLTP
-  postgres:
-    image: postgres:16
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: ecommerce
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+WORKDIR /app
+RUN pip install poetry
 
-  # Kafka + Zookeeper
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.5.0
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+COPY pyproject.toml poetry.lock .
+RUN poetry export -f requirements.txt --output requirements.txt
 
-  kafka:
-    image: confluentinc/cp-kafka:7.5.0
-    depends_on:
-      - zookeeper
-    ports:
-      - "9092:9092"
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+# Stage 2: Runtime (imagen final liviana)
+FROM python:3.11-slim as runtime
 
-  # Airflow (modo simplificado para desarrollo)
-  airflow:
-    image: apache/airflow:2.8.0
-    environment:
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgres/airflow
-      AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./dags:/opt/airflow/dags
-    command: airflow standalone
-    depends_on:
-      - postgres
+WORKDIR /app
 
-  # MinIO (S3 compatible, para desarrollo local)
-  minio:
-    image: minio/minio
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    command: server /data --console-address ":9001"
-    volumes:
-      - minio_data:/data
+COPY --from=builder /app/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-volumes:
-  postgres_data:
-  minio_data:
+COPY src/ ./src/
+
+USER nobody
+CMD ["python", "src/main.py"]
 </code></pre>
-<pre><code class="language-bash"># Levantar solo lo que necesitás
-docker compose -f docker-compose.data-stack.yml up postgres kafka -d
+<p>Resultado: imagen de ~200 MB vs ~800 MB sin multi-stage.</p>
+<h2>Patterns para pipelines de datos</h2>
+<h3>Variables de entorno y secrets</h3>
+<pre><code class="language-python">import os
+from functools import lru_cache
+from pydantic_settings import BaseSettings
 
-# Airflow disponible en http://localhost:8080 (admin/admin por defecto)
-# MinIO UI en http://localhost:9001
+class Settings(BaseSettings):
+    # Obligatorias — fallan si no están
+    postgres_url: str
+    gcs_bucket: str
+    
+    # Opcionales con defaults
+    batch_size: int = 10000
+    max_retries: int = 3
+    env: str = "production"
+    
+    class Config:
+        env_file = ".env"        # Para desarrollo local
+        env_file_encoding = "utf-8"
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+settings = get_settings()
 </code></pre>
-<h2>Buenas prácticas para el Dockerfile</h2>
-<pre><code class="language-dockerfile"># ✅ Usar versiones específicas, no :latest
-FROM python:3.11.7-slim
+<h3>Logging que funciona con Docker</h3>
+<pre><code class="language-python">import logging
+import sys
 
-# ✅ Crear usuario no-root para seguridad
-RUN groupadd -r pipeline &#x26;&#x26; useradd -r -g pipeline pipeline
-
-# ✅ Multi-stage build para reducir tamaño de imagen final
-FROM python:3.11.7-slim as builder
-COPY requirements.txt .
-RUN pip install --no-cache-dir --user -r requirements.txt
-
-FROM python:3.11.7-slim
-COPY --from=builder /root/.local /root/.local
-COPY . .
-USER pipeline
-CMD ["python", "pipeline.py"]
-
-# ✅ .dockerignore para no copiar lo que no necesitás
+# Docker captura stdout/stderr automáticamente
+logging.basicConfig(
+    stream=sys.stdout,          # stdout, no archivo
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s %(message)s",
+)
 </code></pre>
-<pre><code class="language-text"># .dockerignore
-__pycache__/
-*.pyc
-.env
-.env.*
-*.log
-.git
-.venv
-venv/
-node_modules/
-*.parquet
-*.csv
-data/
-output/
+<h2>Deploy en Cloud Run</h2>
+<pre><code class="language-bash"># Build y push a Google Container Registry
+docker build -t gcr.io/my-project/data-pipeline:v1.0 .
+docker push gcr.io/my-project/data-pipeline:v1.0
+
+# Deploy en Cloud Run (serverless)
+gcloud run jobs create data-pipeline \
+  --image gcr.io/my-project/data-pipeline:v1.0 \
+  --region us-central1 \
+  --memory 4Gi \
+  --cpu 2 \
+  --max-retries 3 \
+  --set-secrets POSTGRES_URL=postgres-url:latest \
+  --set-env-vars GCS_BUCKET=my-bucket
+
+# Ejecutar manualmente
+gcloud run jobs execute data-pipeline
 </code></pre>
-<h2>Variables de entorno: nunca en la imagen</h2>
-<pre><code class="language-bash"># ❌ Nunca
-ENV API_KEY=mi-api-key-secreta  # Queda grabada en la imagen
-
-# ✅ En runtime
-docker run -e API_KEY=$API_KEY mi-pipeline
-
-# ✅ Con archivo .env
-docker run --env-file .env mi-pipeline
-
-# ✅ Con Docker Compose
-# En docker-compose.yml: env_file: .env
-</code></pre>
-<h2>Debugging de contenedores</h2>
-<pre><code class="language-bash"># Entrar a un contenedor que está fallando en el arranque
-docker run -it --entrypoint bash mi-pipeline
-
-# Ver qué hay en la imagen
-docker run --rm mi-pipeline ls -la /app
-
-# Inspeccionar configuración
-docker inspect &#x3C;container_id>
-
-# Ver uso de recursos
-docker stats
-
-# Copiar archivos desde/hacia el contenedor
-docker cp &#x3C;container_id>:/app/output.csv ./output.csv
-</code></pre>
-<hr>
-<p>Docker para un data engineer es principalmente: reproducibilidad de entornos y poder levantar servicios localmente en minutos. Con <code>docker run</code> y <code>docker compose</code>, cubrís el 90% de los casos de uso. El resto (Kubernetes, Docker Swarm) es infraestructura que generalmente maneja otro equipo.</p>
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Docker para Data Engineers: Lo que realmente necesitás saber"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Docker sin el fluff. Comandos esenciales, best practices y cómo dockerizar tus pipelines."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"17 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"9 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","docker",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"docker"]}],["$","span","containers",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"containers"]}],["$","span","devops",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"devops"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
+<p>Docker + Cloud Run es la combinación que uso para pipelines batch. Sin gestionar servidores, con reproducibilidad garantizada.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Docker para Data Engineers: Lo que realmente necesitás saber"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Docker sin el fluff. Comandos esenciales, best practices y cómo dockerizar tus pipelines."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"16 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"9 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","docker",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"docker"]}],["$","span","containers",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"containers"]}],["$","span","devops",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"devops"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Docker para Data Engineers: Lo que realmente necesitás saber | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Docker sin el fluff. Comandos esenciales, best practices y cómo dockerizar tus pipelines."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"Docker para Data Engineers: Lo que realmente necesitás saber"}],["$","meta","11",{"property":"og:description","content":"Docker sin el fluff. Comandos esenciales, best practices y cómo dockerizar tus pipelines."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-05-17"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"Docker para Data Engineers: Lo que realmente necesitás saber"}],["$","meta","19",{"name":"twitter:description","content":"Docker sin el fluff. Comandos esenciales, best practices y cómo dockerizar tus pipelines."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null

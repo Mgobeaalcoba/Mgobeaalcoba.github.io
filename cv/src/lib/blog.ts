@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { fetchBlogPosts, fetchBlogCategories } from '@/lib/queries';
 import type { BlogPostMeta } from '@/lib/queries';
 
-const POSTS_DIR = path.join(process.cwd(), '..', 'blog', 'posts');
+const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
 
 export interface PostMeta {
   slug: string;

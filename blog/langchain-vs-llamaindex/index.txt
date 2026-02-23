@@ -1,241 +1,153 @@
 3:I[39275,[],""]
 5:I[61343,[],""]
-6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],""]
-7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"ThemeProvider"]
-8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"LanguageProvider"]
-9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"SupabaseDataProvider"]
-a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-7c8b0d4575c5442a.js"],"default"]
-b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-ca8d2eebce2847c1.js"],"default"]
+6:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],""]
+7:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"ThemeProvider"]
+8:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"LanguageProvider"]
+9:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"SupabaseDataProvider"]
+a:I[74541,["327","static/chunks/327-408e60b2ee21959b.js","223","static/chunks/223-008f062a7fd997e4.js","50","static/chunks/50-d76f33308e7293a2.js","185","static/chunks/app/layout-14329fee28003131.js"],"default"]
+b:I[78458,["411","static/chunks/411-7b19b802863797ae.js","878","static/chunks/878-93066fd7eeefef51.js","160","static/chunks/app/not-found-04896e333316542e.js"],"default"]
 4:["slug","langchain-vs-llamaindex","d"]
-0:["-OV4YSAy9sOylF04mQsuR",[[["",{"children":["blog",{"children":[["slug","langchain-vs-llamaindex","d"],{"children":["__PAGE__?{\"slug\":\"langchain-vs-llamaindex\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","langchain-vs-llamaindex","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
-d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],""]
-11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-5403ca5122b44cc2.js"],"default"]
-10:T221e,<p>Si estás construyendo una aplicación de IA con LLMs, en algún momento llegás a la pregunta: ¿LangChain o LlamaIndex? Los dos frameworks son populares, bien documentados, y resuelven problemas similares. Pero tienen filosofías diferentes.</p>
-<p>En este artículo te cuento cuándo usar cada uno, basado en proyectos reales.</p>
-<h2>El punto de partida: ¿para qué sirve cada uno?</h2>
-<p><strong>LangChain</strong> nació como un framework para construir <strong>cadenas de razonamiento</strong> (chains) con LLMs. Su fuerza está en orquestar secuencias complejas de pasos: llamar al LLM, parsear el output, decidir qué herramienta usar, llamar otra vez, etc. Es el framework para aplicaciones de <strong>agentes y workflows complejos</strong>.</p>
-<p><strong>LlamaIndex</strong> (antes llamado GPT Index) nació con un foco diferente: hacer fácil <strong>indexar y recuperar</strong> información de documentos para RAG. Si tenés documentos y querés que el LLM los "lea", LlamaIndex es el experto en la parte de retrieval.</p>
-<p>Dicho eso, los dos han convergido bastante. LangChain tiene buenas capacidades de RAG. LlamaIndex tiene agentes. La distinción sigue siendo útil para guiar la elección inicial.</p>
-<h2>LangChain: fortalezas</h2>
-<h3>Chains y Agents</h3>
-<p>LangChain brilla cuando tu aplicación necesita tomar decisiones basadas en outputs de pasos anteriores:</p>
-<pre><code class="language-python">from langchain.chat_models import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema.output_parser import StrOutputParser
-from langchain.schema.runnable import RunnableParallel
+0:["vKbZp_PdWKGrW7slobzu5",[[["",{"children":["blog",{"children":[["slug","langchain-vs-llamaindex","d"],{"children":["__PAGE__?{\"slug\":\"langchain-vs-llamaindex\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","langchain-vs-llamaindex","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L6",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"lazyOnload"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              page_path: window.location.pathname,\n              site_section: 'cv',\n              client_name: 'Mariano Gobea Alcoba',\n            });\n          "}],["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/77da0b3f93c7ccb9.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Lc"]]]]]
+d:I[53655,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+e:I[61592,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+f:I[231,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],""]
+11:I[65190,["411","static/chunks/411-7b19b802863797ae.js","324","static/chunks/324-fde1c8dd37b4fc6f.js","177","static/chunks/177-8f0aca1d17d1dbb8.js","308","static/chunks/app/blog/%5Bslug%5D/page-64e8c7352292aee5.js"],"default"]
+10:T1113,<p>LangChain y LlamaIndex son los dos frameworks más populares para construir aplicaciones con LLMs. Después de usarlos ambos en proyectos reales, acá el análisis honesto.</p>
+<h2>LangChain</h2>
+<p>LangChain es el framework más general: cadenas, agentes, herramientas, memoria, routing. Querés orquestar LLMs con tools externas — LangChain tiene el ecosistema.</p>
+<pre><code class="language-python">from langchain_openai import ChatOpenAI
+from langchain.agents import create_react_agent, AgentExecutor
+from langchain.tools import tool
+from langchain import hub
 
-llm = ChatOpenAI(model="gpt-4o")
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
-# Chain simple
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "Sos un experto en finanzas."),
-    ("human", "{pregunta}")
-])
+@tool
+def search_database(query: str) -> str:
+    """Search the internal database for relevant information."""
+    results = db.execute(query)
+    return str(results[:5])
 
-chain = prompt | llm | StrOutputParser()
-respuesta = chain.invoke({"pregunta": "¿Qué es el ROI?"})
+@tool
+def get_current_price(product_id: str) -> str:
+    """Get the current price for a product."""
+    return str(price_api.get(product_id))
+
+tools = [search_database, get_current_price]
+prompt = hub.pull("hwchase17/react")
+
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
+result = agent_executor.invoke({"input": "What is the current price of product ABC123?"})
 </code></pre>
-<p><strong>Agents con herramientas:</strong></p>
-<pre><code class="language-python">from langchain.agents import create_openai_functions_agent, AgentExecutor
-from langchain.tools import Tool
-import requests
-
-def buscar_cotizacion(simbolo: str) -> str:
-    """Busca la cotización de una acción o divisa."""
-    # Simulado
-    cotizaciones = {"BTC": "$65,000", "ETH": "$3,200", "DOLAR": "$1,200"}
-    return cotizaciones.get(simbolo.upper(), "No encontrado")
-
-def calcular_conversion(expresion: str) -> str:
-    """Calcula una conversión de moneda. Input: 'X USD a ARS'."""
-    # Simulado
-    return "1 USD = 1,250 ARS"
-
-herramientas = [
-    Tool(name="buscar_cotizacion", func=buscar_cotizacion,
-         description="Busca cotizaciones de criptos o divisas. Input: símbolo como BTC, ETH, DOLAR"),
-    Tool(name="calcular_conversion", func=calcular_conversion,
-         description="Convierte montos entre monedas"),
-]
-
-agent = create_openai_functions_agent(llm, herramientas, prompt)
-executor = AgentExecutor(agent=agent, tools=herramientas, verbose=True)
-
-resultado = executor.invoke({
-    "input": "¿Cuánto equivalen 500 dólares en pesos argentinos hoy?"
-})
-</code></pre>
-<p>El agente decide solo cuándo usar qué herramienta y combina los resultados.</p>
-<h3>LCEL (LangChain Expression Language)</h3>
-<p>La API moderna de LangChain usa pipes (<code>|</code>) para componer chains:</p>
-<pre><code class="language-python">from langchain.output_parsers import PydanticOutputParser
-from pydantic import BaseModel
-
-class AnalisisSentimiento(BaseModel):
-    sentimiento: str  # positivo, negativo, neutro
-    confianza: float  # 0-1
-    justificacion: str
-
-parser = PydanticOutputParser(pydantic_object=AnalisisSentimiento)
-
-chain = (
-    ChatPromptTemplate.from_template(
-        "Analizá el sentimiento del siguiente texto:\n{texto}\n\n{format_instructions}"
-    )
-    | llm
-    | parser
-)
-
-resultado = chain.invoke({
-    "texto": "El producto llegó tarde y estaba roto. Pésimo servicio.",
-    "format_instructions": parser.get_format_instructions()
-})
-
-print(resultado.sentimiento)  # "negativo"
-print(resultado.confianza)    # 0.95
-</code></pre>
-<h2>LlamaIndex: fortalezas</h2>
-<h3>Indexación y RAG</h3>
-<p>LlamaIndex simplifica enormemente el proceso de ingestar documentos y hacer retrieval:</p>
-<pre><code class="language-python">from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
-from llama_index.core import Settings
+<p><strong>Fortalezas</strong>:</p>
+<ul>
+<li>Ecosistema masivo de integraciones</li>
+<li>Agentes flexibles con tool use</li>
+<li>Buena documentación</li>
+</ul>
+<p><strong>Debilidades</strong>:</p>
+<ul>
+<li>Abstracción excesiva que dificulta debugging</li>
+<li>Cambios breaking frecuentes entre versiones</li>
+<li>Overhead para casos simples</li>
+</ul>
+<h2>LlamaIndex</h2>
+<p>LlamaIndex está optimizado para RAG y búsqueda sobre documentos propios:</p>
+<pre><code class="language-python">from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.openai import OpenAIEmbedding
 
-# Configurar LLM y embeddings globalmente
 Settings.llm = OpenAI(model="gpt-4o")
 Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 
-# Cargar documentos desde una carpeta
-documentos = SimpleDirectoryReader("./documentos").load_data()
+# Indexar documentos
+documents = SimpleDirectoryReader("./docs").load_data()
+index = VectorStoreIndex.from_documents(documents)
 
-# Indexar (genera embeddings automáticamente)
-index = VectorStoreIndex.from_documents(documentos)
-
-# Crear motor de consulta
-query_engine = index.as_query_engine(similarity_top_k=5)
-
-# Consultar
-respuesta = query_engine.query("¿Cuáles son las condiciones de la garantía?")
-print(respuesta.response)
-print(respuesta.source_nodes)  # ← los fragmentos usados como contexto
-</code></pre>
-<h3>Múltiples estrategias de retrieval</h3>
-<p>LlamaIndex tiene soporte built-in para estrategias avanzadas:</p>
-<pre><code class="language-python">from llama_index.core.retrievers import VectorIndexRetriever
-from llama_index.core.query_engine import RetrieverQueryEngine
-from llama_index.core.postprocessor import SimilarityPostprocessor, KeywordNodePostprocessor
-
-# Retriever con filtros
-retriever = VectorIndexRetriever(
-    index=index,
-    similarity_top_k=10,
+# Query engine con RAG automático
+query_engine = index.as_query_engine(
+    similarity_top_k=5,
+    response_mode="compact"
 )
 
-# Post-procesamiento: filtrar por score mínimo y keywords
-postprocessors = [
-    SimilarityPostprocessor(similarity_cutoff=0.7),
-    KeywordNodePostprocessor(required_keywords=["garantía", "warranty"]),
-]
-
-query_engine = RetrieverQueryEngine(
-    retriever=retriever,
-    node_postprocessors=postprocessors,
+response = query_engine.query(
+    "¿Cuáles son los principales riesgos mencionados en los contratos?"
 )
+print(response)
 </code></pre>
-<h3>Indexación de múltiples fuentes</h3>
-<pre><code class="language-python">from llama_index.core import SQLDatabase, VectorStoreIndex
-from llama_index.readers.web import SimpleWebPageReader
-from llama_index.readers.database import DatabaseReader
-
-# Mezclar web + base de datos + archivos
-web_docs = SimpleWebPageReader(html_to_text=True).load_data([
-    "https://empresa.com/faqs",
-    "https://empresa.com/condiciones",
-])
-
-db_docs = DatabaseReader(engine=mi_engine).load_data(
-    query="SELECT pregunta, respuesta FROM faqs WHERE activo = true"
-)
-
-archivo_docs = SimpleDirectoryReader("./manuales").load_data()
-
-todos = web_docs + db_docs + archivo_docs
-index = VectorStoreIndex.from_documents(todos)
-</code></pre>
-<h2>Comparativa directa</h2>
+<p><strong>Fortalezas</strong>:</p>
+<ul>
+<li>RAG out-of-the-box con muy poco código</li>
+<li>Excelente para documentos estructurados</li>
+<li>Connectors para muchas fuentes (PDFs, Notion, databases)</li>
+<li>Más estable que LangChain</li>
+</ul>
+<p><strong>Debilidades</strong>:</p>
+<ul>
+<li>Menos flexible para workflows complejos de agentes</li>
+<li>Ecosistema más pequeño</li>
+</ul>
+<h2>Cuándo usar cada uno</h2>
 <table>
 <thead>
 <tr>
-<th>Criterio</th>
-<th>LangChain</th>
-<th>LlamaIndex</th>
+<th>Caso de uso</th>
+<th>Recomendación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>RAG básico</td>
-<td>Bueno</td>
-<td>Excelente</td>
+<td>RAG sobre documentos propios</td>
+<td>LlamaIndex</td>
 </tr>
 <tr>
-<td>Agentes con herramientas</td>
-<td>Excelente</td>
-<td>Bueno</td>
+<td>Agentes con múltiples herramientas</td>
+<td>LangChain</td>
 </tr>
 <tr>
-<td>Multi-step reasoning</td>
-<td>Excelente</td>
-<td>Bueno</td>
+<td>Chatbot sobre knowledge base</td>
+<td>LlamaIndex</td>
 </tr>
 <tr>
-<td>Indexación de documentos</td>
-<td>Bueno</td>
-<td>Excelente</td>
+<td>Pipeline complejo de LLMs</td>
+<td>LangChain</td>
 </tr>
 <tr>
-<td>Curva de aprendizaje</td>
-<td>Alta (muchos conceptos)</td>
-<td>Media</td>
+<td>Proyecto nuevo simple</td>
+<td>LlamaIndex</td>
 </tr>
 <tr>
-<td>Ecosistema de integraciones</td>
-<td>Enorme</td>
-<td>Grande</td>
-</tr>
-<tr>
-<td>Observabilidad (LangSmith)</td>
-<td>Excelente</td>
-<td>Bueno</td>
+<td>Integración con APIs externas</td>
+<td>LangChain</td>
 </tr>
 </tbody>
 </table>
-<h2>Mi recomendación</h2>
-<p><strong>Usá LlamaIndex cuando:</strong></p>
+<h2>La alternativa: ninguno de los dos</h2>
+<p>Para muchos casos de uso, las SDKs oficiales de OpenAI/Anthropic son suficientes y más simples:</p>
+<pre><code class="language-python">from openai import OpenAI
+
+client = OpenAI()
+
+def rag_simple(query: str, context: str) -> str:
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": f"Context:\n{context}"},
+            {"role": "user", "content": query}
+        ]
+    )
+    return response.choices[0].message.content
+</code></pre>
+<p>Si tu caso de uso cabe en 20 líneas de código con la SDK directa, no necesitás un framework.</p>
+<h2>Conclusión</h2>
 <ul>
-<li>El core de tu app es RAG sobre documentos</li>
-<li>Necesitás estrategias avanzadas de retrieval (hybrid search, reranking, query routing)</li>
-<li>Querés algo que "funcione" rápido con menos boilerplate</li>
+<li><strong>LlamaIndex</strong> para RAG y búsqueda en documentos</li>
+<li><strong>LangChain</strong> para agentes y pipelines multi-herramienta</li>
+<li><strong>SDK directa</strong> para casos simples</li>
 </ul>
-<p><strong>Usá LangChain cuando:</strong></p>
-<ul>
-<li>Necesitás agentes que usen herramientas dinámicamente</li>
-<li>Tenés workflows multi-step complejos con lógica condicional</li>
-<li>Querés LangSmith para observabilidad y debugging de traces</li>
-<li>El equipo ya lo conoce</li>
-</ul>
-<p><strong>Los dos juntos:</strong> No son excluyentes. Podés usar LlamaIndex para la capa de retrieval y LangChain para la orquestación del agente. De hecho, LangChain tiene integración con LlamaIndex como retriever.</p>
-<h2>El error que veo más seguido</h2>
-<p>Elegir el framework antes de entender el problema. Primero definí:</p>
-<ol>
-<li>¿Necesitás que el sistema tome decisiones autónomas? → Agentes → LangChain</li>
-<li>¿Necesitás que el sistema busque en documentos? → RAG → LlamaIndex</li>
-<li>¿Necesitás las dos cosas? → Probablemente los dos, o LangChain con buenos retrievers</li>
-</ol>
-<hr>
-<p>En 2026, ambos frameworks siguen evolucionando rápido. Revisá la documentación oficial antes de cualquier decisión final — las APIs cambian frecuentemente.</p>
-2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"LangChain vs LlamaIndex: ¿Cuál usar para tu app de GenAI?"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Comparativa práctica de los dos frameworks más populares para aplicaciones GenAI."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"12 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"11 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","langchain",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"langchain"]}],["$","span","llamaindex",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"llamaindex"]}],["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
+<p>Evitá el hype de adoptar frameworks por defecto. Empieza simple, agregá abstracción cuando la necesites.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","$Ld",null,{}],["$","$Le",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"automation"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"LangChain vs LlamaIndex: ¿Cuál usar para tu app de GenAI?"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Comparativa práctica de los dos frameworks más populares para aplicaciones GenAI."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"11 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"11 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","langchain",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"langchain"]}],["$","span","llamaindex",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"llamaindex"]}],["$","span","genai",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"genai"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$Lf",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$Lf",null,{"href":"/consulting/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L11",null,{}]]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"LangChain vs LlamaIndex: ¿Cuál usar para tu app de GenAI? | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Comparativa práctica de los dos frameworks más populares para aplicaciones GenAI."}],["$","link","4",{"rel":"author","href":"https://mgobeaalcoba.github.io"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","meta","10",{"property":"og:title","content":"LangChain vs LlamaIndex: ¿Cuál usar para tu app de GenAI?"}],["$","meta","11",{"property":"og:description","content":"Comparativa práctica de los dos frameworks más populares para aplicaciones GenAI."}],["$","meta","12",{"property":"og:type","content":"article"}],["$","meta","13",{"property":"article:published_time","content":"2026-04-12"}],["$","meta","14",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","17",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","18",{"name":"twitter:title","content":"LangChain vs LlamaIndex: ¿Cuál usar para tu app de GenAI?"}],["$","meta","19",{"name":"twitter:description","content":"Comparativa práctica de los dos frameworks más populares para aplicaciones GenAI."}],["$","link","20",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
 1:null
