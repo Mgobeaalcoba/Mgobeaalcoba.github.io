@@ -8,7 +8,7 @@
  */
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { fetchNeilConfig, fetchNeilProducts, fetchNeilTranslations } from '@/lib/queries';
+import { fetchNeilConfig, fetchNeilProducts } from '@/lib/queries';
 import type { NeilConfig, NeilProductCategory, NeilTranslations } from '@/lib/queries';
 import esTranslations from '@/data/translations/es.json';
 import enTranslations from '@/data/translations/en.json';
@@ -55,13 +55,20 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
     async function load() {
       try {
-        const [config, products, translations] = await Promise.all([
+        // Translations are always sourced from local JSON files.
+        // The flat key-value Supabase store cannot reconstruct array fields.
+        const [config, products] = await Promise.all([
           fetchNeilConfig(),
           fetchNeilProducts(),
-          fetchNeilTranslations(),
         ]);
         if (!cancelled) {
-          setData({ config, products, translations, loading: false, error: null });
+          setData((prev) => ({
+            ...prev,
+            config,
+            products,
+            loading: false,
+            error: null,
+          }));
         }
       } catch (err) {
         if (!cancelled) {
