@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { SupabaseDataProvider } from '@/contexts/SupabaseDataContext';
 import AppShell from '@/components/shared/AppShell';
 import './globals.css';
 
@@ -91,9 +92,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <ThemeProvider>
           <LanguageProvider>
-            <AppShell>
-              {children}
-            </AppShell>
+            <SupabaseDataProvider>
+              <AppShell>
+                {children}
+              </AppShell>
+            </SupabaseDataProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

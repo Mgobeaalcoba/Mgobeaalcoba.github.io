@@ -4,14 +4,13 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 export default function Education() {
   const { lang, t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const education = ContentRepository.getEducation();
-  const certifications = ContentRepository.getCertifications();
+  const { education, certifications } = useSupabaseData();
 
   return (
     <section id="education" data-section="education" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
 import { useFilter } from '@/contexts/FilterContext';
 
@@ -17,7 +17,7 @@ export default function Projects() {
   const [activeTag, setActiveTag] = useState<string>('all');
   const [showAll, setShowAll] = useState(false);
 
-  const allProjects = ContentRepository.getProjects();
+  const { projects: allProjects } = useSupabaseData();
   const { activeTag: globalTag } = useFilter();
 
   // Collect unique tags

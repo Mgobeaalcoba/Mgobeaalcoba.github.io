@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
 import type { ExperienceItem } from '@/types/content';
 
@@ -75,7 +75,7 @@ export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [selectedJob, setSelectedJob] = useState<ExperienceItem | null>(null);
-  const experience = ContentRepository.getExperience();
+  const { experience } = useSupabaseData();
 
   const openModal = (job: ExperienceItem) => {
     setSelectedJob(job);
