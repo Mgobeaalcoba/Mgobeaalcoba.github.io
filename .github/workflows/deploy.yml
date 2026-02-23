@@ -24,17 +24,16 @@ on:
   workflow_dispatch: # allow manual trigger from GitHub UI
 
 permissions:
-  contents: write # needed to push built files back to main
+  contents: write # needed to push to gh-pages branch
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  # ── Build jobs run in parallel ─────────────────────────────────────────────
 
+  build-cv:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # full history so rsync --delete works correctly
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,7 +42,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: cv/package-lock.json
 
-      # ── CV Site ──────────────────────────────────────────────────────────
       - name: Install CV dependencies
         working-directory: cv
         run: npm ci
@@ -55,39 +53,26 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      - name: Sync CV build output to repository root
-        run: |
-          rsync -a --delete cv/out/ . \
-            --exclude cv \
-            --exclude neil \
-            --exclude elportugues-site \
-            --exclude neil-site \
-            --exclude elportugues \
-            --exclude assets \
-            --exclude tasks \
-            --exclude .git \
-            --exclude .github \
-            --exclude .gitignore \
-            --exclude .nojekyll \
-            --exclude .prettierignore \
-            --exclude .prettierrc \
-            --exclude LICENSE \
-            --exclude README.md \
-            --exclude robots.txt \
-            --exclude sitemap.xml \
-            --exclude humans.txt \
-            --exclude favicon.ico \
-            --exclude blog.html \
-            --exclude consulting.html \
-            --exclude recursos.html \
-            --exclude elportugues.html \
-            --exclude neil.html \
-            --exclude ing_req_game.html \
-            --exclude package.json \
-            --exclude package-lock.json \
-            --exclude scripts
+      - name: Upload CV build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-out
+          path: cv/out/
+          retention-days: 1
 
-      # ── Neil Site ─────────────────────────────────────────────────────────
+  build-neil:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: neil/package-lock.json
+
       - name: Install Neil dependencies
         working-directory: neil
         run: npm ci
@@ -102,10 +87,26 @@ jobs:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
         run: npm run build
 
-      - name: Sync Neil build output to neil-site/
-        run: rsync -a --delete neil/out/ neil-site/
+      - name: Upload Neil build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: neil-out
+          path: neil/out/
+          retention-days: 1
 
-      # ── El Portugués Site ─────────────────────────────────────────────────
+  build-elportugues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: elportugues/package-lock.json
+
       - name: Install El Portugués dependencies
         working-directory: elportugues
         run: npm ci
@@ -119,15 +120,76 @@ jobs:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
         run: npm run build
 
-      - name: Sync El Portugués build output to elportugues-site/
-        run: rsync -a --delete elportugues/out/ elportugues-site/
+      - name: Upload El Portugués build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elportugues-out
+          path: elportugues/out/
+          retention-days: 1
 
-      # ── Commit & Push ─────────────────────────────────────────────────────
-      - name: Commit and push built files
+  # ── Deploy: waits for all 3 builds, merges outputs, pushes to gh-pages ─────
+
+  deploy:
+    needs: [build-cv, build-neil, build-elportugues]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main (for static root files)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download CV build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cv-out
+          path: /tmp/deploy/cv-out/
+
+      - name: Download Neil build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: neil-out
+          path: /tmp/deploy/neil-out/
+
+      - name: Download El Portugués build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: elportugues-out
+          path: /tmp/deploy/elportugues-out/
+
+      - name: Assemble final deploy directory
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          # Only commit if there are actual changes
-          git diff --cached --quiet || git commit -m "chore: rebuild all sites [skip ci]"
-          git push
+          DEPLOY=/tmp/deploy/site
+
+          # 1. Start with CV output as the root (blog/, _next/, index.html, etc.)
+          rsync -a /tmp/deploy/cv-out/ $DEPLOY/
+
+          # 2. Add neil-site/ subdirectory
+          mkdir -p $DEPLOY/neil-site
+          rsync -a /tmp/deploy/neil-out/ $DEPLOY/neil-site/
+
+          # 3. Add elportugues-site/ subdirectory
+          mkdir -p $DEPLOY/elportugues-site
+          rsync -a /tmp/deploy/elportugues-out/ $DEPLOY/elportugues-site/
+
+          # 4. Copy static root files from main (not generated by Next.js)
+          cp -n $GITHUB_WORKSPACE/.nojekyll $DEPLOY/.nojekyll 2>/dev/null || touch $DEPLOY/.nojekyll
+          for f in robots.txt sitemap.xml humans.txt favicon.ico blog.html consulting.html \
+                    recursos.html elportugues.html neil.html ing_req_game.html; do
+            [ -f "$GITHUB_WORKSPACE/$f" ] && cp "$GITHUB_WORKSPACE/$f" "$DEPLOY/$f" || true
+          done
+
+          # 5. Copy static assets folder
+          [ -d "$GITHUB_WORKSPACE/assets" ] && rsync -a $GITHUB_WORKSPACE/assets/ $DEPLOY/assets/ || true
+
+          echo "Deploy directory contents:"
+          ls -la $DEPLOY/
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/deploy/site
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: 'chore: deploy all sites [skip ci]'

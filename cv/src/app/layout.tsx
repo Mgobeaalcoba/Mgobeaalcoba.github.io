@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { SupabaseDataProvider } from '@/contexts/SupabaseDataContext';
 import AppShell from '@/components/shared/AppShell';
+import { DataErrorBoundary } from '@/components/shared/DataErrorBoundary';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
@@ -90,15 +91,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        <ThemeProvider>
-          <LanguageProvider>
-            <SupabaseDataProvider>
-              <AppShell>
-                {children}
-              </AppShell>
-            </SupabaseDataProvider>
-          </LanguageProvider>
-        </ThemeProvider>
+        <DataErrorBoundary>
+          <ThemeProvider>
+            <LanguageProvider>
+              <SupabaseDataProvider>
+                <AppShell>
+                  {children}
+                </AppShell>
+              </SupabaseDataProvider>
+            </LanguageProvider>
+          </ThemeProvider>
+        </DataErrorBoundary>
       </body>
     </html>
   );

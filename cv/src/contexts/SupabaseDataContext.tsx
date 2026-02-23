@@ -24,9 +24,6 @@ import {
   fetchBlogPosts,
   fetchBlogCategories,
   fetchVideos,
-  fetchTaxData,
-  fetchAiModels,
-  fetchPlazoFijoRates,
 } from '@/lib/queries';
 import type {
   ExperienceItem,
@@ -43,10 +40,6 @@ import type {
   ConsultingMeta,
   BlogPostMeta,
   VideoItem,
-  TaxParams,
-  TaxScenario,
-  TaxTab,
-  AiModel,
 } from '@/lib/queries';
 
 interface SupabaseData {
@@ -66,12 +59,6 @@ interface SupabaseData {
   blogPosts: BlogPostMeta[];
   blogCategories: string[];
   videos: VideoItem[];
-  // Calculators
-  taxParams: TaxParams | null;
-  taxScenarios: TaxScenario[];
-  taxTabs: TaxTab[];
-  aiModels: AiModel[];
-  plazoFijoRates: Record<string, number>;
   /** true while the initial fetch is in progress */
   loading: boolean;
   /** non-null if Supabase fetch failed */
@@ -92,11 +79,6 @@ const EMPTY: SupabaseData = {
   blogPosts: [],
   blogCategories: [],
   videos: [],
-  taxParams: null,
-  taxScenarios: [],
-  taxTabs: [],
-  aiModels: [],
-  plazoFijoRates: {},
   loading: true,
   error: null,
 };
@@ -125,9 +107,6 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
           blogPosts,
           blogCategories,
           videos,
-          taxData,
-          aiModels,
-          plazoFijoRates,
         ] = await Promise.all([
           fetchExperience(),
           fetchProjects(),
@@ -142,9 +121,6 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
           fetchBlogPosts(),
           fetchBlogCategories(),
           fetchVideos(),
-          fetchTaxData(),
-          fetchAiModels(),
-          fetchPlazoFijoRates(),
         ]);
 
         if (!cancelled) {
@@ -162,11 +138,6 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
             blogPosts,
             blogCategories,
             videos,
-            taxParams: taxData.params,
-            taxScenarios: taxData.scenarios,
-            taxTabs: taxData.tabs,
-            aiModels,
-            plazoFijoRates,
             loading: false,
             error: null,
           });

@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { BarChart2, RefreshCw, Share2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { useRecursosData } from '@/contexts/RecursosDataContext';
 
 type Period = '3m' | '6m' | '12m';
 
@@ -100,7 +100,7 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
 
 export default function InvestmentDashboard() {
   const { lang } = useLanguage();
-  const { plazoFijoRates } = useSupabaseData();
+  const { plazoFijoRates } = useRecursosData();
   const [period, setPeriod] = useState<Period>('12m');
   const [chartData, setChartData] = useState<ChartData>({ labels: [], plazoFijo: [], dolarMep: [], inflacion: [] });
   const [liveData, setLiveData] = useState<LiveData>({ mepNow: null, inflacionNow: null, plazoFijoNow: 2.75, lastUpdated: '' });
