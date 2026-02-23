@@ -7,6 +7,61 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.0] - 2026-02-23 — Supabase Integration & Security Hardening
+
+### Added
+- **Supabase PostgreSQL as primary data source** for all dynamic content
+  - 13 tables created: `experience`, `experience_tags`, `projects`, `project_tags`, `education`, `education_tags`, `certifications`, `certification_tags`, `consulting_packs`, `consulting_pack_features`, `consulting_pack_automations`, `consulting_case_studies`, `consulting_case_study_tags`
+  - Row Level Security (RLS) enabled on all tables — anon role has `SELECT` only
+  - Full data seeded via `tasks/supabase-migration/seed.sql` (625 lines of INSERT statements)
+- **`cv/src/lib/supabase.ts`** — Supabase browser client (reads from env vars)
+- **`cv/src/lib/queries.ts`** — 6 typed async query functions (`fetchExperience`, `fetchProjects`, `fetchEducation`, `fetchCertifications`, `fetchConsultingPacks`, `fetchCaseStudies`)
+- **`cv/src/contexts/SupabaseDataContext.tsx`** — React context that fetches all data on mount and exposes it via `useSupabaseData()` hook
+- **GitHub Actions deploy workflow** (`.github/workflows/deploy.yml`) — automatically builds and deploys on every push to `main` that touches `cv/src/**`, using repository secrets for Supabase credentials
+- **Loading skeletons** in `Experience`, `Projects`, and `Education` components while Supabase fetch is in flight
+- **`tasks/supabase-migration/seed.sql`** — SQL seed script generated from all 13 CSVs, ready to paste in Supabase SQL Editor
+- **`tasks/generate_csvs.py`** — Python script that generates 13 normalized CSVs from `content.json` for Supabase import
+
+### Changed
+- **`cv/src/data/content.json`** — removed `experience` (14 items), `projects` (21 items), `education` (7 items), `certifications` (109 items), `consulting.packs` (3 items), `consulting.caseStudies` (4 items). Only `meta`, `about`, `techStack`, and `consulting` static fields remain (~90% size reduction)
+- **`cv/src/types/content.ts`** — `ContentData` and `ConsultingSection` interfaces updated to reflect slimmed content.json; removed fields now served from Supabase
+- **`cv/src/services/contentService.ts`** — removed `getExperience`, `getProjects`, `getEducation`, `getCertifications` methods; kept `getMeta`, `getAbout`, `getTechStack`, `getConsulting` for static fields only
+- **`cv/src/components/cv/Experience.tsx`** — migrated from `ContentRepository.getExperience()` to `useSupabaseData().experience`
+- **`cv/src/components/cv/Projects.tsx`** — migrated from `ContentRepository.getProjects()` to `useSupabaseData().projects`
+- **`cv/src/components/cv/Education.tsx`** — migrated from `ContentRepository.getEducation()` + `getCertifications()` to `useSupabaseData().education` + `.certifications`
+- **`cv/src/app/layout.tsx`** — wrapped with `SupabaseDataProvider`
+- **`cv/src/lib/supabase.ts`** — changed from hardcoded strings to `process.env.NEXT_PUBLIC_SUPABASE_URL` and `process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- **`README.md`** — added "Arquitectura técnica" section explaining Supabase integration, table structure, data flow, and how to add/edit content without touching code
+- **`tasks/supabase-migration/README.md`** — added "Current State", "Security Model", "How to Add New Records" sections with SQL examples for every entity type
+
+### Security
+- Supabase credentials removed from source code; managed via `.env.local` (local) and GitHub repository secrets (production)
+- All 13 Supabase tables protected with RLS — only `SELECT` allowed for the `anon` role
+- `service_role` key never used or exposed anywhere in the codebase
+
+---
+
+## [4.0.0] - 2026-02-22 — Next.js Migration & Full Feature Parity
+
+### Added
+- Floating CTA component (`FloatingCTA.tsx`) with Calendly integration, page-specific translations, animations (idle bounce, hover wobble, sparkle, shimmer), and GA4 tracking
+- ReqQuest 3D game restored from legacy branch as fullscreen modal (`ReqQuestModal.tsx`) via iframe + postMessage communication
+- URL hash-based deep linking for Recursos tabs (e.g., `/recursos/#tokens`)
+- Legacy URL hash redirect mapping in `recursos.html` (e.g., `#token-calculator` → `/recursos/#tokens`)
+- Mobile dropdown for Recursos tab navigation
+- GA4 new events: `contact_form_start`, `newsletter_form_focus`, `proposal_modal_open`, `floating_cta_click`
+- GA4 event enrichment: `site_section` and `form_type` params on `leadFormSent`, `calendlyClick`, `scrollDepth`, `sectionView`
+- n8n webhook integration in portfolio Contact form (`recibir-email`)
+- Supabase migration planning: schema SQL, CSV generation script, 13-table design with RLS
+
+### Fixed
+- Tax Calculator donut chart grey area bug when salary exceeds AFIP contribution ceiling — chart now always sums to 100% by deriving gross from net+aportes+tax
+- ProposalModal webhook updated from `recibir-email` to `solicitud-automatizacion`
+- Newsletter Banner mobile layout: stacked vertically on mobile (`flex-col sm:flex-row`)
+- Tax Calculator result cards mobile overflow: responsive font sizing (`text-lg sm:text-2xl`)
+- Consulting page client-side exception caused by stale `_next` chunks after incomplete rsync
+- 6 missing experience entries and 2 missing education entries restored from backup branch
+
 ## [3.0.0] - 2026-02-03 🚀 **TRAFFIC GROWTH FEATURES**
 
 ### 🎯 **STRATEGIC FEATURES FOR TRAFFIC & ENGAGEMENT**

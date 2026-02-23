@@ -17,7 +17,7 @@ export default function Projects() {
   const [activeTag, setActiveTag] = useState<string>('all');
   const [showAll, setShowAll] = useState(false);
 
-  const { projects: allProjects } = useSupabaseData();
+  const { projects: allProjects, loading } = useSupabaseData();
   const { activeTag: globalTag } = useFilter();
 
   // Collect unique tags
@@ -43,6 +43,18 @@ export default function Projects() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">{t('projects_title')}</h2>
+
+        {loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="glass rounded-xl p-5 animate-pulse h-40">
+                <div className="h-3 bg-white/10 rounded w-20 mb-3" />
+                <div className="h-4 bg-white/10 rounded w-36 mb-2" />
+                <div className="h-3 bg-white/10 rounded w-full" />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Global filter indicator */}
         {globalTag !== 'all' && (

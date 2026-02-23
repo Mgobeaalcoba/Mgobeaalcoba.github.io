@@ -83,6 +83,69 @@ Sitio institucional para empresa distribuidora de alimentos y bebidas. Muestra e
 
 ---
 
+---
+
+## Arquitectura técnica
+
+El sitio está construido en **Next.js 14+ (App Router, static export)** con **TypeScript** y **Tailwind CSS**, deployado en **GitHub Pages** mediante un workflow de **GitHub Actions** que buildea y publica automáticamente con cada push.
+
+### Fuente de datos: Supabase PostgreSQL
+
+El contenido dinámico del sitio (experiencia, proyectos, educación, certificaciones y packs de consultoría) se sirve desde una base de datos relacional en **Supabase** (PostgreSQL), no desde archivos JSON. Esto permite:
+
+- **Actualizar contenido sin tocar código** — basta con hacer un `INSERT` o `UPDATE` en el SQL Editor de Supabase.
+- **Escalabilidad** — la estructura relacional soporta filtros, ordenamiento y consultas complejas.
+- **Seguridad** — Row Level Security (RLS) garantiza acceso de solo lectura al rol anónimo; la clave de API es segura para uso en el browser.
+
+#### Tablas en Supabase
+
+| Tabla | Descripción |
+|---|---|
+| `experience` + `experience_tags` | 14 posiciones profesionales con tags |
+| `projects` + `project_tags` | 21 proyectos de GitHub con filtrado por tecnología |
+| `education` + `education_tags` | 7 títulos y formaciones |
+| `certifications` + `certification_tags` | 109 certificaciones |
+| `consulting_packs` + `consulting_pack_features` + `consulting_pack_automations` | Packs de consultoría con features y automatizaciones |
+| `consulting_case_studies` + `consulting_case_study_tags` | Casos de éxito |
+
+#### Lo que queda en archivos locales
+
+| Archivo | Qué contiene |
+|---|---|
+| `cv/src/data/content.json` | meta (nombre, email, redes), about, techStack, consulting.processSteps |
+| `cv/src/data/blog-index.json` | Índice de posts del blog (generado automáticamente) |
+| `cv/src/data/videos.json` | Lista de videos de YouTube |
+| `content/blog/posts/*.md` | Contenido de los posts en Markdown |
+
+#### Flujo de datos en el browser
+
+```
+GitHub Pages sirve HTML estático
+   └── SupabaseDataProvider (monta una sola vez)
+         ├── Promise.all: fetchExperience, fetchProjects, fetchEducation,
+         │                fetchCertifications, fetchConsultingPacks, fetchCaseStudies
+         └── useSupabaseData() hook disponible en todos los componentes
+```
+
+Mientras Supabase responde (~100-300ms), los componentes muestran un skeleton de carga. No hay fallback a JSON; Supabase es la única fuente de verdad para el contenido dinámico.
+
+#### Para agregar o editar contenido
+
+Ver `tasks/supabase-migration/README.md` — contiene ejemplos SQL para insertar nuevas experiencias, proyectos, certificaciones, packs de consultoría y más, sin necesidad de tocar código.
+
+#### Variables de entorno
+
+```bash
+# cv/.env.local (desarrollo local, nunca va a git)
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+
+# Producción: GitHub repo → Settings → Secrets and variables → Actions
+# NEXT_PUBLIC_SUPABASE_URL  /  NEXT_PUBLIC_SUPABASE_ANON_KEY
+```
+
+---
+
 ## Autor
 
 **Mariano Gobea Alcoba**  

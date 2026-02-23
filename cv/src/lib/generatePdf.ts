@@ -1,5 +1,6 @@
 import { jsPDF } from 'jspdf';
 import { ContentRepository } from '@/services/contentService';
+import { fetchExperience, fetchEducation, fetchProjects, fetchCertifications } from '@/lib/queries';
 
 const MARGIN = 18;
 const PAGE_WIDTH = 210;
@@ -109,10 +110,13 @@ export async function generateCVPdf(lang: Lang = 'es'): Promise<void> {
 
   const meta = ContentRepository.getMeta();
   const about = ContentRepository.getAbout();
-  const experience = ContentRepository.getExperience();
-  const education = ContentRepository.getEducation();
-  const projects = ContentRepository.getProjects().slice(0, 6);
-  const certs = ContentRepository.getCertifications();
+  const [experience, education, projectsAll, certs] = await Promise.all([
+    fetchExperience(),
+    fetchEducation(),
+    fetchProjects(),
+    fetchCertifications(),
+  ]);
+  const projects = projectsAll.slice(0, 6);
 
   // --- Header ---
   const profileImg = await loadImageBase64('/images/profile.png');

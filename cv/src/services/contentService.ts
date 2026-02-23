@@ -1,5 +1,12 @@
+/**
+ * ContentRepository — local static data only.
+ *
+ * Dynamic content (experience, projects, education, certifications,
+ * consulting packs and case studies) is served from Supabase via
+ * src/lib/queries.ts and provided through SupabaseDataContext.
+ */
 import contentData from '@/data/content.json';
-import type { ContentData, ExperienceItem, ProjectItem } from '@/types/content';
+import type { ContentData } from '@/types/content';
 
 const data = contentData as ContentData;
 
@@ -12,26 +19,6 @@ export class ContentRepository {
     return data.about;
   }
 
-  static getExperience(): ExperienceItem[] {
-    return data.experience;
-  }
-
-  static getProjects(): ProjectItem[] {
-    return data.projects;
-  }
-
-  static getProjectsByTag(tag: string): ProjectItem[] {
-    return data.projects.filter((p) => p.tags.includes(tag));
-  }
-
-  static getEducation() {
-    return data.education;
-  }
-
-  static getCertifications() {
-    return data.certifications;
-  }
-
   static getTechStack() {
     return data.techStack;
   }
@@ -41,8 +28,6 @@ export class ContentRepository {
   }
 
   static getAllTags(): string[] {
-    const tags = new Set<string>();
-    data.projects.forEach((p) => p.tags.forEach((t) => tags.add(t)));
-    return Array.from(tags).sort();
+    return [];
   }
 }

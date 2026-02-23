@@ -75,7 +75,7 @@ export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [selectedJob, setSelectedJob] = useState<ExperienceItem | null>(null);
-  const { experience } = useSupabaseData();
+  const { experience, loading } = useSupabaseData();
 
   const openModal = (job: ExperienceItem) => {
     setSelectedJob(job);
@@ -91,6 +91,17 @@ export default function Experience() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">{t('experience_title')}</h2>
+
+        {loading && (
+          <div className="space-y-4 ml-12">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="glass rounded-xl p-5 animate-pulse">
+                <div className="h-3 bg-white/10 rounded w-32 mb-3" />
+                <div className="h-4 bg-white/10 rounded w-48" />
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="relative">
           {/* Timeline line */}

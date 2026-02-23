@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { ContentRepository } from '@/services/contentService';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 interface HistoryEntry {
   type: 'input' | 'output';
@@ -37,9 +38,7 @@ export default function Terminal() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const matrixIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const experience = ContentRepository.getExperience();
-  const projects = ContentRepository.getProjects();
-  const education = ContentRepository.getEducation();
+  const { experience, projects, education } = useSupabaseData();
   const meta = ContentRepository.getMeta();
 
   useEffect(() => {

@@ -82,12 +82,14 @@ export interface ProcessStep {
   description: Bilingual;
 }
 
+/**
+ * Slim version of ConsultingSection stored in content.json.
+ * packs and caseStudies are now served from Supabase (see queries.ts).
+ */
 export interface ConsultingSection {
   headline: Bilingual;
   subheadline: Bilingual;
   stats: { value: string; label: Bilingual }[];
-  packs: ConsultingPack[];
-  caseStudies: CaseStudy[];
   processSteps: ProcessStep[];
   calendlyUrl: string;
 }
@@ -118,13 +120,14 @@ export interface Video {
   tags: string[];
 }
 
+/**
+ * Shape of content.json — only holds static/config data.
+ * Dynamic content (experience, projects, education, certifications,
+ * consulting packs and case studies) is served from Supabase.
+ */
 export interface ContentData {
   meta: CVMeta;
   about: AboutSection;
-  experience: ExperienceItem[];
-  projects: ProjectItem[];
-  education: EducationItem[];
-  certifications: CertificationItem[];
   techStack: TechStack;
   consulting: ConsultingSection;
 }

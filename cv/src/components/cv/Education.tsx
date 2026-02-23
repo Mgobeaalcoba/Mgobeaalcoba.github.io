@@ -10,7 +10,7 @@ export default function Education() {
   const { lang, t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { education, certifications } = useSupabaseData();
+  const { education, certifications, loading } = useSupabaseData();
 
   return (
     <section id="education" data-section="education" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,6 +21,20 @@ export default function Education() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">{t('education_title')}</h2>
+
+        {loading && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="glass rounded-xl p-5 animate-pulse h-24">
+                  <div className="h-3 bg-white/10 rounded w-40 mb-2" />
+                  <div className="h-3 bg-white/10 rounded w-24" />
+                </div>
+              ))}
+            </div>
+            <div className="glass rounded-xl p-4 animate-pulse h-48" />
+          </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Education */}

@@ -3,13 +3,13 @@
 /**
  * SupabaseDataContext
  *
- * Fetches all Supabase-hosted data once on mount and exposes it to every
- * child component. While the fetch is in flight, the JSON fallback from
- * content.json is served so there is zero layout shift.
+ * Single fetch-on-mount for all Supabase-hosted data.
+ * While the fetch is in flight, `loading` is true and arrays are empty —
+ * components should render a skeleton in that state.
+ * If Supabase fails, `error` is set and arrays remain empty.
  */
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { ContentRepository } from '@/services/contentService';
 import {
   fetchExperience,
   fetchProjects,
@@ -34,27 +34,27 @@ interface SupabaseData {
   certifications: CertificationItem[];
   consultingPacks: ConsultingPack[];
   caseStudies: CaseStudy[];
-  /** true while the first fetch is in progress; after that always false */
+  /** true while the initial fetch is in progress */
   loading: boolean;
-  /** non-null if Supabase fetch failed; fallback data is still served */
+  /** non-null if Supabase fetch failed */
   error: Error | null;
 }
 
-const fallback: SupabaseData = {
-  experience: ContentRepository.getExperience(),
-  projects: ContentRepository.getProjects(),
-  education: ContentRepository.getEducation(),
-  certifications: ContentRepository.getCertifications(),
-  consultingPacks: ContentRepository.getConsulting().packs,
-  caseStudies: ContentRepository.getConsulting().caseStudies,
+const EMPTY: SupabaseData = {
+  experience: [],
+  projects: [],
+  education: [],
+  certifications: [],
+  consultingPacks: [],
+  caseStudies: [],
   loading: true,
   error: null,
 };
 
-const SupabaseDataContext = createContext<SupabaseData>(fallback);
+const SupabaseDataContext = createContext<SupabaseData>(EMPTY);
 
 export function SupabaseDataProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<SupabaseData>(fallback);
+  const [data, setData] = useState<SupabaseData>(EMPTY);
 
   useEffect(() => {
     let cancelled = false;
@@ -85,8 +85,7 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
         }
       } catch (err) {
         if (!cancelled) {
-          // Keep fallback data, mark error so devs can inspect
-          console.warn('[SupabaseData] fetch failed, using local fallback:', err);
+          console.error('[SupabaseData] fetch failed:', err);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

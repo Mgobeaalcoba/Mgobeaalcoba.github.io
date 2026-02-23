@@ -290,21 +290,197 @@ Recommended order (lowest risk first):
 
 ---
 
-## Execution Steps
+## Execution Steps (completed ✅)
 
 ```bash
 # 1. Generate CSVs
 cd tasks && python3 generate_csvs.py
 
 # 2. Run schema.sql in Supabase SQL Editor
-#    (copy contents of tasks/supabase-migration/schema.sql)
 
-# 3. Import CSVs in the order listed above via Supabase Dashboard
+# 3. Run seed.sql in Supabase SQL Editor (or import CSVs via dashboard)
 
 # 4. Install SDK
 cd cv && npm install @supabase/supabase-js
 
-# 5. Add SUPABASE_URL and SUPABASE_ANON_KEY to cv/src/lib/supabase.ts
+# 5. Configure env vars in cv/.env.local (see Security section below)
 
-# 6. Migrate components one at a time, verify, then remove JSON fallback
+# 6. Components migrated: Experience, Projects, Education, Certifications,
+#    ConsultingPacks, CaseStudies — all via SupabaseDataContext
+```
+
+---
+
+## Current State (as of 2026-02-23)
+
+| Layer | Status |
+|---|---|
+| Supabase tables | ✅ Created (13 tables) |
+| Seed data | ✅ Loaded via `seed.sql` |
+| SDK installed | ✅ `@supabase/supabase-js` |
+| Client | ✅ `cv/src/lib/supabase.ts` |
+| Query functions | ✅ `cv/src/lib/queries.ts` |
+| Data context | ✅ `cv/src/contexts/SupabaseDataContext.tsx` |
+| Components migrated | ✅ Experience, Projects, Education, Certifications |
+| content.json cleaned | ✅ Removed migrated arrays; only meta/about/techStack/consulting static fields remain |
+| Secrets managed | ✅ Via `.env.local` locally + GitHub Actions secrets in production |
+
+---
+
+## Security Model
+
+Credentials are **never hardcoded in source**:
+
+- **Local dev**: `cv/.env.local` (gitignored)
+  ```
+  NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+  ```
+- **Production (GitHub Actions)**: Repository secrets `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+  - Set at: GitHub repo → Settings → Secrets and variables → Actions
+
+The anon key is inherently public (designed for browser use), protected by RLS policies that only allow `SELECT` for the `anon` role. **Never use the `service_role` key on the frontend.**
+
+---
+
+## How to Add New Records
+
+### Adding a new experience entry
+
+**1. In Supabase SQL Editor:**
+```sql
+-- Insert the experience row
+INSERT INTO experience (id, date_es, date_en, title_es, title_en, company, description_es, description_en, sort_order)
+VALUES (
+  15,                          -- next available id
+  'Mar 2026 - actualidad',
+  'Mar 2026 - Present',
+  'Tu Nuevo Rol',
+  'Your New Role',
+  'Company Name',
+  '<li>Descripción en español...</li>',
+  '<li>English description...</li>',
+  0                            -- 0 = first; increment existing sort_orders if needed
+);
+
+-- Insert tags for that experience
+INSERT INTO experience_tags (experience_id, tag) VALUES
+  (15, 'Python'),
+  (15, 'SQL');
+```
+
+**2. No code changes needed.** The `SupabaseDataContext` fetches on every page load.
+
+---
+
+### Adding a new project
+
+```sql
+INSERT INTO projects (id, title_es, title_en, description_es, description_en, link, sort_order)
+VALUES (
+  23,
+  'Nombre del Proyecto',
+  'Project Name',
+  'Descripción en español.',
+  'English description.',
+  'https://github.com/Mgobeaalcoba/repo',
+  0
+);
+
+INSERT INTO project_tags (project_id, tag) VALUES
+  (23, 'Python'),
+  (23, 'FastAPI');
+```
+
+---
+
+### Adding a new education entry
+
+```sql
+INSERT INTO education (title_es, title_en, school, date, subtitle_es, subtitle_en, sort_order)
+VALUES (
+  'Nombre del Título',
+  'Degree Name',
+  'Universidad X',
+  '2026',
+  NULL, NULL,   -- optional subtitle
+  8             -- after existing entries
+);
+```
+
+---
+
+### Adding a new certification
+
+```sql
+-- Get the next id
+SELECT MAX(id) + 1 FROM certifications;
+
+INSERT INTO certifications (id, name, sort_order) VALUES (111, 'Nombre del Certificado', 110);
+INSERT INTO certification_tags (certification_id, tag) VALUES (111, 'Python');
+```
+
+---
+
+### Adding a consulting pack
+
+```sql
+INSERT INTO consulting_packs (id, name_es, name_en, subtitle_es, subtitle_en, description_es, description_en, price_es, price_en, highlighted, sort_order)
+VALUES (
+  'nuevo-pack',
+  'Nombre del Pack',
+  'Pack Name',
+  'Subtítulo',
+  'Subtitle',
+  'Descripción',
+  'Description',
+  'Desde $XXX/mes',
+  'From $XXX/month',
+  false,
+  3
+);
+
+-- Add features
+INSERT INTO consulting_pack_features (pack_id, text_es, text_en, sort_order) VALUES
+  ('nuevo-pack', '✅ Feature en español', '✅ Feature in English', 0);
+
+-- Add automations
+INSERT INTO consulting_pack_automations (pack_id, text_es, text_en, sort_order) VALUES
+  ('nuevo-pack', '🤖 Automatización X', '🤖 Automation X', 0);
+```
+
+---
+
+### Updating existing records
+
+Use standard SQL `UPDATE`:
+
+```sql
+-- Example: update a job description
+UPDATE experience
+SET description_es = '<li>Nueva descripción actualizada</li>',
+    description_en = '<li>Updated English description</li>'
+WHERE id = 1;
+
+-- Example: add a new tag to a project
+INSERT INTO project_tags (project_id, tag) VALUES (5, 'Docker');
+
+-- Example: change sort order (move experience to top)
+UPDATE experience SET sort_order = 0 WHERE id = 15;
+UPDATE experience SET sort_order = sort_order + 1 WHERE id != 15;
+```
+
+---
+
+### Bulk updates from content.json
+
+If you update `content.json` (for non-Supabase data like techStack, meta), regenerate the CSVs and re-seed only the affected tables:
+
+```bash
+cd tasks && python3 generate_csvs.py
+
+# Then in Supabase SQL Editor:
+# TRUNCATE experience CASCADE;
+# TRUNCATE projects CASCADE;
+# -- (paste relevant INSERT block from seed.sql)
 ```
