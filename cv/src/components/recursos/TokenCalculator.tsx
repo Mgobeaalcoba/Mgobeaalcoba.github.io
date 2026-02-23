@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef } from 'react';
 import { Bot, Trophy, AlertTriangle, Upload } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { useRecursosData } from '@/contexts/RecursosDataContext';
 import type { AiModel } from '@/lib/queries';
 
 type ModelPricing = AiModel;
@@ -25,7 +25,7 @@ const INFO_TABS = [
 
 export default function TokenCalculator() {
   const { lang } = useLanguage();
-  const { aiModels, loading } = useSupabaseData();
+  const { aiModels, loading } = useRecursosData();
   const [text, setText] = useState('');
   const [outputRatio, setOutputRatio] = useState(1);
   const [results, setResults] = useState<Result[]>([]);

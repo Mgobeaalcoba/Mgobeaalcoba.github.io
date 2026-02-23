@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Calculator, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { useRecursosData } from '@/contexts/RecursosDataContext';
 import type { TaxParams } from '@/lib/queries';
 
 
@@ -287,7 +287,7 @@ function DoughnutChart({ netMonthly, aportes, tax }: {
 
 export default function TaxCalculator() {
   const { lang } = useLanguage();
-  const { taxParams, taxScenarios, taxTabs, loading } = useSupabaseData();
+  const { taxParams, taxScenarios, taxTabs, loading } = useRecursosData();
   const [inputs, setInputs] = useState<TaxInputs>(DEFAULT_INPUTS);
   const [rawInputs, setRawInputs] = useState<Record<string, string>>({
     grossSalary: formatInput(DEFAULT_INPUTS.grossSalary),
