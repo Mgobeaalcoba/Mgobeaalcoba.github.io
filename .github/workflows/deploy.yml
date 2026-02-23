@@ -41,7 +41,10 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: cv/package-lock.json
+          cache-dependency-path: |
+            cv/package-lock.json
+            neil/package-lock.json
+            elportugues/package-lock.json
 
       # ── CV Site ──────────────────────────────────────────────────────────
       - name: Install CV dependencies
