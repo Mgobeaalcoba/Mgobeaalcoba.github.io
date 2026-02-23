@@ -80,10 +80,8 @@ export default function TokenCalculator() {
 
   const fmt = (n: number): string => {
     if (n === 0) return 'USD $0.00';
-    // Determine decimal places to show at least 3 significant digits
-    const mag = Math.floor(Math.log10(n));
-    const decimals = Math.min(Math.max(2 - mag, 2), 8);
-    return `USD $${n.toFixed(decimals)}`;
+    if (n < 0.005) return '< USD $0.01';
+    return `USD $${n.toFixed(2)}`;
   };
 
   const minCost = results.length > 0 ? results[0].totalCost : 0;
@@ -284,8 +282,8 @@ export default function TokenCalculator() {
                 {aiModels.map((m) => (
                   <tr key={m.name} className="border-b border-white/5 hover:bg-white/5">
                     <td className="py-1.5"><span className={`font-medium ${m.color}`}>{m.name}</span><br /><span className="text-gray-500">{m.provider}</span></td>
-                    <td className="text-right py-1.5 text-gray-300">USD ${m.inputPer1M.toFixed(m.inputPer1M < 1 ? 3 : 2)}</td>
-                    <td className="text-right py-1.5 text-gray-300">USD ${m.outputPer1M.toFixed(m.outputPer1M < 1 ? 3 : 2)}</td>
+                    <td className="text-right py-1.5 text-gray-300">USD ${m.inputPer1M.toFixed(2)}</td>
+                    <td className="text-right py-1.5 text-gray-300">USD ${m.outputPer1M.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
