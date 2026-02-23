@@ -123,7 +123,7 @@ export default function ProductsShowcase() {
               {/* Category main image */}
               <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 min-h-[300px] lg:min-h-[400px] flex items-center justify-center">
                 <img
-                  src={(activeCat as any)?.image ?? ""}
+                  src={activeCat?.image ?? ""}
                   alt={catTranslation?.title ?? activeCategory}
                   className="w-full h-full object-contain p-8"
                 />

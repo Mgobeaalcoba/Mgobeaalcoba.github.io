@@ -5,6 +5,7 @@
  * neil_translations stores all i18n key-value pairs.
  */
 import { supabase } from '@/lib/supabase';
+import contentData from '@/data/content.json';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type NeilConfig = Record<string, any>;
@@ -25,9 +26,17 @@ export interface NeilProductModel {
 export interface NeilProductCategory {
   id: string;
   icon: string;
+  image: string;
   sortOrder: number;
   models: NeilProductModel[];
 }
+
+// Category images from local content.json (neil_product_categories table lacks image column)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CATEGORY_IMAGES: Map<string, string> = new Map(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ((contentData as any).products?.categories ?? []).map((c: any) => [c.id, c.image ?? ''])
+);
 
 export async function fetchNeilConfig(): Promise<NeilConfig> {
   const { data, error } = await supabase.from('neil_config').select('*').single();
@@ -63,6 +72,7 @@ export async function fetchNeilProducts(): Promise<NeilProductCategory[]> {
   return (cats ?? []).map((c) => ({
     id: c.id,
     icon: c.icon ?? '',
+    image: c.image ?? CATEGORY_IMAGES.get(c.id) ?? '',
     sortOrder: c.sort_order,
     models: modelsByCategory.get(c.id) ?? [],
   }));
