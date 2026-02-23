@@ -12,7 +12,7 @@ const featureIcons: LucideIcon[] = [Thermometer, Volume2, Battery, Droplets];
 export default function PreCoolingFeature() {
   const { t } = useLanguage();
   const { config } = useNeilData();
-  const preCooling = config?.pre_cooling;
+  const preCooling = config?.preCooling;
 
   return (
     <section id="pre-enfriado" className="py-20 lg:py-28 bg-navy-950 relative overflow-hidden">
