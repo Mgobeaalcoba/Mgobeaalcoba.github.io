@@ -1,0 +1,195 @@
+id,certification_id,tag
+1,1,Python
+2,1,Ciberseguridad
+3,2,Hacking ético
+4,2,Pentesting
+5,3,Seguridad
+6,3,SSDLC
+7,4,LLM
+8,4,AI
+9,5,n8n
+10,6,Jira
+11,6,Agile
+12,7,Python
+13,8,Machine Learning
+14,9,Google Cloud
+15,9,Looker
+16,10,Python
+17,10,Pandas
+18,11,Python
+19,11,Scikit-learn
+20,12,Python
+21,13,Java
+22,13,Kotlin
+23,14,Go
+24,15,Jira
+25,15,Product Management
+26,16,R
+27,16,Shiny
+28,17,Python
+29,17,Pandas
+30,17,SQL
+31,17,Power BI
+32,17,Tableau
+33,18,Kotlin
+34,19,SQL
+35,19,PostgreSQL
+36,20,Power BI
+37,21,Git
+38,22,MicroStrategy
+39,23,Looker
+40,24,SQL
+41,25,Soft Skills
+42,26,Python
+43,27,Python
+44,27,Pandas
+45,28,Soft Skills
+46,29,Python
+47,29,Soft Skills
+48,30,Python
+49,30,Django
+50,31,Python
+51,31,Django
+52,31,Flask
+53,31,FastAPI
+54,32,Python
+55,32,Django
+56,33,Python
+57,33,FastAPI
+58,34,Python
+59,34,Flask
+60,35,Python
+61,35,SQL
+62,36,Python
+63,37,Python
+64,38,Python
+65,38,FastAPI
+66,39,Python
+67,40,Python
+68,41,Python
+69,42,Python
+70,43,Python
+71,44,Kotlin
+72,45,Python
+73,45,Java
+74,45,Kotlin
+75,46,JavaScript
+76,47,Figma
+77,48,JavaScript
+78,49,JavaScript
+79,49,HTML
+80,49,CSS
+81,49,Git
+82,50,JavaScript
+83,51,JavaScript
+84,52,JavaScript
+85,52,HTML
+86,52,CSS
+87,52,Git
+88,53,JavaScript
+89,54,Kotlin
+90,55,Python
+91,56,Python
+92,57,Python
+93,58,Jira
+94,58,Notion
+95,58,Monday
+96,58,Product Management
+97,58,Agile
+98,59,Python
+99,59,Pandas
+100,59,NumPy
+101,60,Python
+102,60,Matplotlib
+103,60,Seaborn
+104,61,Python
+105,61,Pandas
+106,61,NumPy
+107,61,Matplotlib
+108,61,Seaborn
+109,62,SQL
+110,63,Python
+111,63,Pandas
+112,63,NumPy
+113,63,Matplotlib
+114,63,Seaborn
+115,64,Python
+116,64,Pandas
+117,64,NumPy
+118,64,Matplotlib
+119,64,Seaborn
+120,65,Python
+121,65,Jupyter
+122,66,Soft Skills
+123,66,Communication
+124,66,Leadership
+125,67,Python
+126,67,NumPy
+127,68,SQL
+128,68,PostgreSQL
+129,69,Soft Skills
+130,69,Leadership
+131,70,Python
+132,70,Java
+133,70,Kotlin
+134,71,Jira
+135,71,Notion
+136,71,Product Management
+137,72,Soft Skills
+138,72,Leadership
+139,73,Soft Skills
+140,74,Blockchain
+141,75,Soft Skills
+142,75,Leadership
+143,76,Soft Skills
+144,77,Jira
+145,77,Notion
+146,77,Product Management
+147,77,Agile
+148,78,Python
+149,79,Looker Studio
+150,80,Python
+151,81,Power BI
+152,81,Tableau
+153,82,Excel
+154,83,SQL
+155,84,Power BI
+156,85,Python
+157,85,NumPy
+158,86,Power BI
+159,86,Tableau
+160,87,Tableau
+161,88,Python
+162,88,Scikit-learn
+163,89,Python
+164,89,Jupyter
+165,90,Python
+166,90,NumPy
+167,91,Google Suite
+168,92,Soft Skills
+169,93,Python
+170,93,NumPy
+171,94,Python
+172,94,Pandas
+173,94,NumPy
+174,95,Python
+175,95,NumPy
+176,96,Python
+177,97,Soft Skills
+178,98,Soft Skills
+179,98,Communication
+180,99,Python
+181,100,Soft Skills
+182,101,Soft Skills
+183,101,Leadership
+184,102,Terminal
+185,103,Python
+186,104,Python
+187,104,Pandas
+188,105,Soft Skills
+189,106,Python
+190,106,Pandas
+191,107,SQL
+192,108,Tableau
+193,109,Python
+194,109,Scikit-learn

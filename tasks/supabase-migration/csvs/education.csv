@@ -1,0 +1,8 @@
+id,title_es,title_en,school,date,subtitle_es,subtitle_en,sort_order
+1,"Postgraduate Degree, Ingeniería de Software","Postgraduate Degree, Software Engineering",UAI - Universidad Abierta Interamericana,Abr 2025 - Jul 2026,,,0
+2,"Licenciatura, Gestión de TI","Bachelor's Degree, IT Management",UADE,2020 - 2021,,,1
+3,"Licenciatura, Sociología","Bachelor's Degree, Sociology",Universidad de Buenos Aires,2007 - 2014,,,2
+4,"Profesorado, Sociología","Teaching Degree, Sociology",Universidad de Buenos Aires,2014 - 2015,,,3
+5,Python Backend Engineer,Python Backend Engineer,Platzi,2022 - 2023,Ciencias de la computación,Computer Science,4
+6,Data Analyst,Data Analyst,Platzi,2021 - 2022,Ciencias de la computación,Computer Science,5
+7,Bachiller en Administración y Gestión de las Organizaciones,High School Diploma in Business Administration and Management,Instituto Parroquial Fundador Don Francisco de Merlo,2003 - 2006,"Administración y gestión de empresas, general","Business Administration and Management, General",6

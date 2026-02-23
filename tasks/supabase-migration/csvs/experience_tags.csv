@@ -1,0 +1,64 @@
+id,experience_id,tag
+1,1,Python
+2,1,Flask
+3,1,LLM
+4,1,RAG
+5,1,TensorFlow
+6,1,Google Cloud
+7,1,Apache Airflow
+8,1,dbt
+9,1,n8n
+10,1,Zapier
+11,1,Looker
+12,1,Power BI
+13,1,Git
+14,1,Leadership
+15,2,Python
+16,2,SQL
+17,2,Google Cloud
+18,2,AWS
+19,2,Power BI
+20,2,Looker
+21,2,Jira
+22,2,Git
+23,3,Jira
+24,3,Notion
+25,3,Power BI
+26,3,SQL
+27,3,Agile
+28,3,Product Management
+29,4,Power BI
+30,4,SQL
+31,4,Excel
+32,5,Excel
+33,5,Power BI
+34,6,Excel
+35,6,Leadership
+36,13,Python
+37,13,Pandas
+38,13,NumPy
+39,13,Scikit-learn
+40,13,PyTorch
+41,13,Machine Learning
+42,14,n8n
+43,14,AI
+44,14,LLM
+45,14,Python
+46,7,Power BI
+47,7,Excel
+48,7,Looker Studio
+49,8,Python
+50,8,Pandas
+51,8,NumPy
+52,8,Matplotlib
+53,8,Seaborn
+54,8,Scikit-learn
+55,8,Git
+56,8,Jupyter
+57,9,Python
+58,9,Java
+59,9,Git
+60,10,Excel
+61,11,Excel
+62,12,Communication
+63,12,Soft Skills

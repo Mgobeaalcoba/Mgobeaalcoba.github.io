@@ -1,0 +1,110 @@
+id,name,sort_order
+1,Buenas prácticas de desarrollo seguro para Back-end - Python,0
+2,Onboarding - Security Guardians - Guardian,1
+3,Seguridad en el Ciclo de Desarrollo - SSDLC,2
+4,GenAl for Champions,3
+5,Curso de N8N,4
+6,Introducción a Jira para gestión de proyectos con Kanban,5
+7,Hacking con Python,6
+8,Dataiku Core Designer,7
+9,Data Champions | BigQuery and LookML,8
+10,Curso de Análisis Exploratorio de Datos,9
+11,Curso de Estadistica Inferencial para Data Science,10
+12,Python TOTAL - Programador Avanzado,11
+13,Principios SOLID y Clean Code,12
+14,GOLANG: Curso profesional de Go,13
+15,Curso Práctico de Product Owner,14
+16,Curso de Fundamentos de R,15
+17,Data Analyst,16
+18,Android Completo con Kotlin,17
+19,Curso de PostgreSQL Aplicado a Ciencia de Datos,18
+20,Curso de Análisis de Datos con Power BI,19
+21,Curso Profesional de Git y GitHub,20
+22,MicroStrategy,21
+23,Looker,22
+24,SQL Fundamentals,23
+25,Enseñanza de inglés como lengua extranjera (TEFL),24
+26,Curso de Unit Testing en Python,25
+27,Curso de Manejo de Datos Faltantes,26
+28,5 minutos al dia para mejorar tu Ingles,27
+29,Curso de Ética y Manejo de Datos para Data Science,28
+30,Curso Básico de Django,29
+31,Curso de Desarrollo Backend,30
+32,Curso de Django Intermedio,31
+33,"Curso de FastAPI: Modularización, Datos y Errores",32
+34,Curso de Flask,33
+35,Curso Práctico de Python: Creación de un CRUD,34
+36,Curso de Complejidad Algoritmica con Python,35
+37,Curso de Estructuras de Datos Lineales con Python,36
+38,Curso de FastAPI: Fundamentos,37
+39,Curso de Pensamiento Computacional con Python,38
+40,Curso de Python: PIP y Entornos Virtuales,39
+41,Curso de Selenium con Python,40
+42,Curso de Fundamentos de Python,41
+43,"Curso de Python: Comprehensions, Funciones y Manejo de Errores",42
+44,Curso de Kotlin desde Cero,43
+45,Problem Solving,44
+46,Curso de Webpack,45
+47,Diseño de interfaz (UI) con Figma,46
+48,Curso Básico de JavaScript,47
+49,Curso Práctico de Frontend Developer,48
+50,Curso de Asincronismo con JavaScript,49
+51,Curso de ECMAScript,50
+52,Curso de Frontend Developer,51
+53,Curso de NPM: Gestión de Paquetes,52
+54,Introducción a la Programación con Kotlin,53
+55,Nuevo Curso Gratis de Programación Básica,54
+56,Curso de Prework: Configuración de Entorno,55
+57,Nuevo Curso de Pensamiento Lógico,56
+58,Curso de Digital Project Management,57
+59,Curso de Manipulación y Transformación de Datos con Pandas y NumPy,58
+60,Curso de Visualización de Datos con Matplotlib y Seaborn,59
+61,Proyecto del #PlatziChallenge Datacademy 2022,60
+62,Curso Práctico de SQL,61
+63,Cómo y Por Qué Aprender Data Science,62
+64,Datacademy,63
+65,Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos,64
+66,Curso de Cómo Dar y Recibir Feedback,65
+67,Curso de Funciones Matemáticas para Data Science,66
+68,Curso de PostgreSQL,67
+69,Curso sobre la Neurociencia del Feedback,68
+70,Curso de Programación Orientada a Objetos: POO,69
+71,Curso Fundamentos de Product Management,70
+72,Curso de Filosofía para Managers,71
+73,Curso de Herramientas para el Crecimiento Personal,72
+74,Curso de Historia de Bitcoin y Criptomonedas,73
+75,Curso de Motivación para Equipos de Trabajo,74
+76,Curso para Desbloquear tu Creatividad,75
+77,Learning Path Shipping,76
+78,Curso Profesional de Python,77
+79,Curso de Google Data Studio,78
+80,Python Challenge,79
+81,Curso de Business Intelligence: Utilidad y Áreas de Oportunidad,80
+82,Curso de Excel Básico,81
+83,Curso de Fundamentos de Bases de Datos,82
+84,Curso de Introducción a Business Intelligence con Power BI,83
+85,Curso de Introduccion al Algebra Lineal: Vectores,84
+86,Curso de Principios de Visualización de Datos para Business Intelligence,85
+87,Curso de Tableau: Visualización de Datos y Storytelling,86
+88,Curso Práctico de Regresión Lineal con Python,87
+89,Curso de Entorno de Trabajo para Ciencia de Datos,88
+90,Curso de Fundamentos de Álgebra Lineal con Python,89
+91,Curso de Google Suite,90
+92,Curso de Inglés para Principiantes,91
+93,Curso de Matemáticas para Data Science: Cálculo Básico,92
+94,Curso de Matemáticas para Data Science: Estadística Descriptiva,93
+95,Curso de Matemáticas para Data Science: Probabilidad,94
+96,Curso de Python Intermedio,95
+97,Taller de Inglés para Principiantes,96
+98,Curso de Comunicación Efectiva,97
+99,Curso de Fundamentos de Matemáticas,98
+100,Curso de Gestión Efectiva del Tiempo,99
+101,Curso de Inteligencia Emocional,100
+102,Curso de Introducción a la Terminal y Línea de Comandos,101
+103,Curso Básico de Python,102
+104,Curso de Análisis de Negocios para Ciencia de Datos,103
+105,Curso de Estrategias para Aprender Inglés Online,104
+106,Data Explorer,105
+107,SQL,106
+108,Tableau,107
+109,Modelos logísticos para e-commerce,108

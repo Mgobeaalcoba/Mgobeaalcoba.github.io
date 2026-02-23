@@ -1,0 +1,12 @@
+id,pack_id,text_es,text_en,sort_order
+1,starter,Automatización de emails y notificaciones,Email and notification automation,0
+2,starter,Integración CRM básica,Basic CRM integration,1
+3,starter,Reportes automáticos semanales,Automated weekly reports,2
+4,growth,Chatbot IA para atención al cliente,AI chatbot for customer service,0
+5,growth,Pipeline de ventas automatizado,Automated sales pipeline,1
+6,growth,Alertas inteligentes de KPIs,Smart KPI alerts,2
+7,growth,Integración multi-sistema,Multi-system integration,3
+8,enterprise,Ecosistema completo n8n + IA,Complete n8n + AI ecosystem,0
+9,enterprise,DataLake y pipelines ETL,DataLake and ETL pipelines,1
+10,enterprise,Modelos predictivos custom,Custom predictive models,2
+11,enterprise,RAG corporativo (ChatGPT privado),Corporate RAG (Private ChatGPT),3

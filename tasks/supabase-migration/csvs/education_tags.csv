@@ -1,0 +1,27 @@
+id,education_id,tag
+1,1,Java
+2,1,Python
+3,1,SQL
+4,1,Git
+5,2,SQL
+6,2,Excel
+7,5,Python
+8,5,Django
+9,5,Flask
+10,5,FastAPI
+11,5,SQL
+12,5,MySQL
+13,5,PostgreSQL
+14,5,Git
+15,5,HTML
+16,5,CSS
+17,6,Python
+18,6,Pandas
+19,6,NumPy
+20,6,Matplotlib
+21,6,Seaborn
+22,6,SQL
+23,6,Power BI
+24,6,Tableau
+25,6,Jupyter
+26,7,Excel

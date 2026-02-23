@@ -1,0 +1,13 @@
+id,case_study_id,tag
+1,chatbot,IA
+2,chatbot,WhatsApp
+3,chatbot,n8n
+4,ventas,Power BI
+5,ventas,SQL
+6,ventas,Looker Studio
+7,inventario,Python
+8,inventario,n8n
+9,inventario,Automation
+10,feedback,AI
+11,feedback,Python
+12,feedback,NLP
