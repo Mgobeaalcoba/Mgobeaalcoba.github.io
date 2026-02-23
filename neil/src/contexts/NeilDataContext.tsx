@@ -8,7 +8,7 @@
  */
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { fetchNeilConfig, fetchNeilProducts } from '@/lib/queries';
+import { fetchNeilProducts } from '@/lib/queries';
 import type { NeilConfig, NeilProductCategory, NeilTranslations } from '@/lib/queries';
 import esTranslations from '@/data/translations/es.json';
 import enTranslations from '@/data/translations/en.json';
@@ -55,16 +55,15 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
     async function load() {
       try {
-        // Translations are always sourced from local JSON files.
-        // The flat key-value Supabase store cannot reconstruct array fields.
-        const [config, products] = await Promise.all([
-          fetchNeilConfig(),
-          fetchNeilProducts(),
-        ]);
+        // Only fetch products from Supabase. Config and translations come from
+        // local JSON files which have the correct camelCase structure with proper
+        // arrays. The Supabase neil_config uses snake_case column names
+        // (pre_cooling, sales_proposal) which would conflict with component
+        // expectations built on the camelCase content.json format.
+        const products = await fetchNeilProducts();
         if (!cancelled) {
           setData((prev) => ({
             ...prev,
-            config,
             products,
             loading: false,
             error: null,
