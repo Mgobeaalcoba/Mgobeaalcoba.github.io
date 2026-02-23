@@ -78,10 +78,12 @@ export default function TokenCalculator() {
     setCalculated(true);
   }, [text, outputRatio]);
 
-  const fmt = (n: number) => {
-    if (n < 0.0001) return `$${(n * 1000000).toFixed(4)}µ`;
-    if (n < 0.01) return `$${(n * 1000).toFixed(4)}m`;
-    return `$${n.toFixed(6)}`;
+  const fmt = (n: number): string => {
+    if (n === 0) return 'USD $0.00';
+    // Determine decimal places to show at least 3 significant digits
+    const mag = Math.floor(Math.log10(n));
+    const decimals = Math.min(Math.max(2 - mag, 2), 8);
+    return `USD $${n.toFixed(decimals)}`;
   };
 
   const minCost = results.length > 0 ? results[0].totalCost : 0;
@@ -107,8 +109,8 @@ export default function TokenCalculator() {
           <AlertTriangle size={14} className="text-amber-300 mt-0.5 shrink-0" />
           <p className="text-xs text-amber-300">
             {lang === 'es'
-              ? 'Estimación basada en ~4 caracteres/token. El conteo real varía según modelo. Precios a Ene 2026. No incluye caching ni descuentos por volumen.'
-              : 'Estimate based on ~4 chars/token. Real count varies by model. Prices as of Jan 2026. Does not include caching or volume discounts.'}
+              ? 'Estimación basada en ~4 caracteres/token. Todos los precios en USD. El conteo real varía según modelo. Precios a Feb 2026. No incluye caching ni descuentos por volumen.'
+              : 'Estimate based on ~4 chars/token. All prices in USD. Real count varies by model. Prices as of Feb 2026. Does not include caching or volume discounts.'}
           </p>
         </div>
       </div>
@@ -211,9 +213,9 @@ export default function TokenCalculator() {
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="text-left py-2 text-gray-400">{lang === 'es' ? 'Modelo' : 'Model'}</th>
-                      <th className="text-right py-2 text-gray-400">Input</th>
-                      <th className="text-right py-2 text-gray-400">Output</th>
-                      <th className="text-right py-2 text-gray-400">Total</th>
+                      <th className="text-right py-2 text-gray-400">{lang === 'es' ? 'Input (USD)' : 'Input (USD)'}</th>
+                      <th className="text-right py-2 text-gray-400">{lang === 'es' ? 'Output (USD)' : 'Output (USD)'}</th>
+                      <th className="text-right py-2 text-gray-400">{lang === 'es' ? 'Total (USD)' : 'Total (USD)'}</th>
                       <th className="text-right py-2 text-gray-400">vs Min</th>
                     </tr>
                   </thead>
@@ -274,16 +276,16 @@ export default function TokenCalculator() {
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="text-left py-2 text-gray-400">{lang === 'es' ? 'Modelo' : 'Model'}</th>
-                  <th className="text-right py-2 text-gray-400">Input / 1M</th>
-                  <th className="text-right py-2 text-gray-400">Output / 1M</th>
+                  <th className="text-right py-2 text-gray-400">{lang === 'es' ? 'Input USD / 1M tokens' : 'Input USD / 1M tokens'}</th>
+                  <th className="text-right py-2 text-gray-400">{lang === 'es' ? 'Output USD / 1M tokens' : 'Output USD / 1M tokens'}</th>
                 </tr>
               </thead>
               <tbody>
                 {aiModels.map((m) => (
                   <tr key={m.name} className="border-b border-white/5 hover:bg-white/5">
                     <td className="py-1.5"><span className={`font-medium ${m.color}`}>{m.name}</span><br /><span className="text-gray-500">{m.provider}</span></td>
-                    <td className="text-right py-1.5 text-gray-300">${m.inputPer1M.toFixed(3)}</td>
-                    <td className="text-right py-1.5 text-gray-300">${m.outputPer1M.toFixed(3)}</td>
+                    <td className="text-right py-1.5 text-gray-300">USD ${m.inputPer1M.toFixed(m.inputPer1M < 1 ? 3 : 2)}</td>
+                    <td className="text-right py-1.5 text-gray-300">USD ${m.outputPer1M.toFixed(m.outputPer1M < 1 ? 3 : 2)}</td>
                   </tr>
                 ))}
               </tbody>

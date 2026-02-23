@@ -497,16 +497,16 @@ INSERT INTO plazo_fijo_rates (period, monthly_rate) VALUES
   ('2026-01', 2.75),
   ('2026-02', 2.75);
 
--- ai_models
+-- ai_models — prices in USD per 1M tokens (updated Feb 2026)
 INSERT INTO ai_models (name, provider, input_per_1m, output_per_1m, color_class, sort_order) VALUES
-  ('GPT-4o', 'OpenAI', 5.0, 15.0, 'text-green-400', 0),
-  ('GPT-4o mini', 'OpenAI', 0.15, 0.6, 'text-green-300', 1),
-  ('o1-mini', 'OpenAI', 3.0, 12.0, 'text-green-500', 2),
-  ('Claude 3.5 Sonnet', 'Anthropic', 3.0, 15.0, 'text-orange-400', 3),
-  ('Claude 3 Haiku', 'Anthropic', 0.25, 1.25, 'text-orange-300', 4),
-  ('Gemini 1.5 Pro', 'Google', 1.25, 5.0, 'text-blue-400', 5),
-  ('Gemini 1.5 Flash', 'Google', 0.075, 0.3, 'text-blue-300', 6),
-  ('Grok-2', 'xAI', 2.0, 10.0, 'text-purple-400', 7);
+  ('GPT-4o', 'OpenAI', 2.50, 10.00, 'text-green-400', 0),
+  ('GPT-4o mini', 'OpenAI', 0.15, 0.60, 'text-green-300', 1),
+  ('o3-mini', 'OpenAI', 1.10, 4.40, 'text-green-500', 2),
+  ('Claude 3.5 Sonnet', 'Anthropic', 3.00, 15.00, 'text-orange-400', 3),
+  ('Claude 3.5 Haiku', 'Anthropic', 0.80, 4.00, 'text-orange-300', 4),
+  ('Gemini 2.0 Flash', 'Google', 0.10, 0.40, 'text-blue-400', 5),
+  ('Gemini 2.0 Flash-Lite', 'Google', 0.075, 0.30, 'text-blue-300', 6),
+  ('Grok-2', 'xAI', 2.00, 10.00, 'text-purple-400', 7);
 
 -- neil_config (JSONB blobs)
 INSERT INTO neil_config (id, meta, brand, hero, flags, pre_cooling, europe, contact, footer, automations, sales_proposal) VALUES
