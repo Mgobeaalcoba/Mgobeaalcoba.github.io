@@ -3,10 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex" />
-  <meta http-equiv="refresh" content="0; url=/recursos/" />
   <link rel="canonical" href="https://mgobeaalcoba.github.io/recursos/" />
   <title>Redirigiendo — Recursos Financieros</title>
-  <script>window.location.replace('/recursos/');</script>
+  <script>
+    // Map legacy vanilla-JS hash anchors → new Next.js tab IDs
+    var HASH_MAP = {
+      'token-calculator':  'tokens',
+      'tokens':            'tokens',
+      'tax-calculator':    'calculator',
+      'calculator':        'calculator',
+      'dashboard':         'dashboard',
+      'investment':        'dashboard',
+      'rates':             'rates',
+      'dollar':            'rates',
+      'indicators':        'indicators',
+      'economic':          'indicators',
+      'holidays':          'holidays',
+      'faq':               'faq',
+    };
+
+    var VALID_TABS = ['calculator','tokens','dashboard','rates','indicators','holidays','faq'];
+
+    var raw = window.location.hash.replace('#', '');
+    var mapped = HASH_MAP[raw] || (VALID_TABS.indexOf(raw) !== -1 ? raw : null);
+    var dest = '/recursos/' + (mapped ? '#' + mapped : '');
+    window.location.replace(dest);
+  </script>
 </head>
 <body>
   <p>Redirigiendo a <a href="/recursos/">Recursos</a>…</p>

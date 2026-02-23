@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, BarChart2, TrendingUp, Wrench, Bot, Activity, Calendar, HelpCircle, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -29,6 +29,17 @@ const WIDE_TABS = new Set<Tab>(['calculator', 'tokens', 'dashboard', 'indicators
 export default function RecursosClient() {
   const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<Tab>('calculator');
+
+  // On mount: read hash and pre-select matching tab
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '') as Tab;
+    if (TABS.some(t => t.id === hash)) setActiveTab(hash);
+  }, []);
+
+  // On tab change: update hash without adding a browser history entry
+  useEffect(() => {
+    history.replaceState(null, '', `#${activeTab}`);
+  }, [activeTab]);
 
   const isWide = WIDE_TABS.has(activeTab);
 
