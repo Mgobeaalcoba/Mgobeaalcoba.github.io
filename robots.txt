@@ -1,0 +1,57 @@
+User-agent: *
+Allow: /
+
+# Disallow dev/build artifacts and private files
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /cv/
+Disallow: /neil/
+Disallow: /elportugues/
+Disallow: /private/
+Disallow: /tasks/
+Disallow: /*.txt
+Disallow: /index.txt
+
+# Allow important public files explicitly
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /humans.txt
+
+# Sitemap
+Sitemap: https://mgobeaalcoba.github.io/sitemap.xml
+
+# Preferred domain
+Host: https://mgobeaalcoba.github.io
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: FacebookBot
+Allow: /
+Allow: /images/
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /images/
+
+# AI/LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
