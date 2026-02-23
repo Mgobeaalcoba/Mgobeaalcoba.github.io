@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { NeilDataProvider } from '@/contexts/NeilDataContext';
+import { DataErrorBoundary } from '@/components/DataErrorBoundary';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
@@ -57,11 +58,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        <NeilDataProvider>
-          <LanguageProvider>
-            {children}
-          </LanguageProvider>
-        </NeilDataProvider>
+        <DataErrorBoundary>
+          <NeilDataProvider>
+            <LanguageProvider>
+              {children}
+            </LanguageProvider>
+          </NeilDataProvider>
+        </DataErrorBoundary>
       </body>
     </html>
   );
