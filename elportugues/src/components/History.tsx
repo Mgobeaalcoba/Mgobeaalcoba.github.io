@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import type { History as HistoryData } from '@/types/content';
 import { useEpData } from '@/contexts/EpDataContext';
+import localContent from '@/data/content.json';
 
 interface HistoryProps {
   data: HistoryData;
@@ -14,11 +15,12 @@ export default function History({ data }: HistoryProps) {
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const { timeline } = useEpData();
 
-  // Use Supabase-fetched bilingual entries when available; fall back to local content.json
+  // Priority: Supabase ep_history_timeline (bilingual) → local content.json (es only)
+  // Avoid using data.timeline which may be overridden by ep_config with grouped entries
   const entries =
-    timeline.length > 0
+    timeline.length > 0 && timeline[0].title.es !== ''
       ? timeline.map((t) => ({ year: t.year, title: t.title.es, description: t.description.es }))
-      : data.timeline;
+      : (localContent.history.timeline as { year: string; title: string; description: string }[]);
 
   return (
     <section id="historia" ref={ref} className="py-24 bg-[#0B1120] relative overflow-hidden">
