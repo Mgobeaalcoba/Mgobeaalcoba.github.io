@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 import CalendlyButton from '@/components/shared/CalendlyButton';
 
-const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/recibir-email';
+const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
 
 export default function Contact() {
   const { t } = useLanguage();
