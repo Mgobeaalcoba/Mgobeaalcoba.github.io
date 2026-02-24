@@ -40,6 +40,9 @@ export async function fetchExperience(): Promise<ExperienceItem[]> {
     date: { es: r.date_es, en: r.date_en },
     title: { es: r.title_es, en: r.title_en },
     company: r.company,
+    companyLogo: r.company_logo ?? null,
+    startDate: r.start_date ?? '',
+    endDate: r.end_date ?? null,
     description: { es: r.description_es, en: r.description_en },
     tags: (tagMap.get(r.id) ?? []).map((t) => t.tag),
   }));

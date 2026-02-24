@@ -370,6 +370,10 @@ CREATE TABLE IF NOT EXISTS ep_history_timeline (
   year             TEXT   NOT NULL,
   event_es         TEXT,
   event_en         TEXT,
+  title_es         TEXT,
+  title_en         TEXT,
+  description_es   TEXT,
+  description_en   TEXT,
   sort_order       INT    NOT NULL DEFAULT 0
 );
 ALTER TABLE ep_history_timeline ENABLE ROW LEVEL SECURITY;

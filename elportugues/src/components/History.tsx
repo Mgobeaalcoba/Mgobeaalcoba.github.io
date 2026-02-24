@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import type { History as HistoryData } from '@/types/content';
+import { useEpData } from '@/contexts/EpDataContext';
 
 interface HistoryProps {
   data: HistoryData;
@@ -11,6 +12,13 @@ interface HistoryProps {
 export default function History({ data }: HistoryProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { timeline } = useEpData();
+
+  // Use Supabase-fetched bilingual entries when available; fall back to local content.json
+  const entries =
+    timeline.length > 0
+      ? timeline.map((t) => ({ year: t.year, title: t.title.es, description: t.description.es }))
+      : data.timeline;
 
   return (
     <section id="historia" ref={ref} className="py-24 bg-[#0B1120] relative overflow-hidden">
@@ -53,7 +61,7 @@ export default function History({ data }: HistoryProps) {
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#0CC1C1] via-[#2D4F8F] to-transparent" />
 
           <div className="flex flex-col gap-12">
-            {data.timeline.map((item, i) => (
+            {entries.map((item, i) => (
               <motion.div
                 key={item.year}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}

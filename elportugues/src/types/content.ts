@@ -110,10 +110,23 @@ export interface Founder {
   arrivalCity: string;
 }
 
+export interface Bilingual {
+  es: string;
+  en: string;
+}
+
 export interface TimelineEntry {
   year: string;
   title: string;
   description: string;
+}
+
+export interface EpTimelineEntry {
+  id: number;
+  year: string;
+  title: Bilingual;
+  description: Bilingual;
+  sortOrder: number;
 }
 
 export interface History {

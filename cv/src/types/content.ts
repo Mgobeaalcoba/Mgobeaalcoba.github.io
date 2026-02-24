@@ -26,6 +26,9 @@ export interface ExperienceItem {
   date: Bilingual;
   title: Bilingual;
   company: string;
+  companyLogo: string | null;
+  startDate: string;      // ISO date string: YYYY-MM-DD
+  endDate: string | null; // null = current position
   tags: string[];
   description: Bilingual;
 }

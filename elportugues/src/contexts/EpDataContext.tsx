@@ -8,18 +8,20 @@
  */
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { fetchEpConfig } from '@/lib/queries';
-import type { SiteContent } from '@/types/content';
+import { fetchEpConfig, fetchEpHistoryTimeline } from '@/lib/queries';
+import type { SiteContent, EpTimelineEntry } from '@/types/content';
 import localContent from '@/data/content.json';
 
 interface EpData {
   content: SiteContent;
+  timeline: EpTimelineEntry[];
   loading: boolean;
   error: Error | null;
 }
 
 const INITIAL: EpData = {
   content: localContent as unknown as SiteContent,
+  timeline: [],
   loading: false,
   error: null,
 };
@@ -33,13 +35,22 @@ export function EpDataProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
     async function load() {
       try {
-        const cfg = await fetchEpConfig();
-        if (!cancelled && cfg) {
-          // Merge Supabase config over local content
-          const merged = { ...INITIAL.content, ...cfg } as SiteContent;
-          setData({ content: merged, loading: false, error: null });
-        } else if (!cancelled) {
-          setData((prev) => ({ ...prev, loading: false }));
+        const [cfg, timeline] = await Promise.all([
+          fetchEpConfig(),
+          fetchEpHistoryTimeline(),
+        ]);
+
+        if (!cancelled) {
+          const merged = cfg
+            ? ({ ...INITIAL.content, ...cfg } as SiteContent)
+            : INITIAL.content;
+
+          setData({
+            content: merged,
+            timeline,
+            loading: false,
+            error: null,
+          });
         }
       } catch (err) {
         if (!cancelled) {
