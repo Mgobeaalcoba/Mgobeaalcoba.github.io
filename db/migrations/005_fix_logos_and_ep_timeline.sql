@@ -18,13 +18,23 @@ WHERE company = 'Henry';
 
 -- UADE
 UPDATE experience
-SET company_logo = '/logos/uade.svg'
+SET company_logo = '/logos/uade.png'
 WHERE company = 'UADE';
 
--- El Portugues (uses the logo already served from their site — keep working URL)
+-- El Portugues
 UPDATE experience
 SET company_logo = '/logos/elportugues.png'
 WHERE company = 'El Portugues';
+
+-- SOLDA-LIMP S.R.L.
+UPDATE experience
+SET company_logo = '/logos/soldalimp.svg'
+WHERE company = 'SOLDA-LIMP S.R.L.';
+
+-- UBICAR ARGENTINA
+UPDATE experience
+SET company_logo = '/logos/ubicar.svg'
+WHERE company = 'UBICAR ARGENTINA';
 
 -- ─── 2. Ensure ep_history_timeline columns exist ─────────────
 ALTER TABLE ep_history_timeline
