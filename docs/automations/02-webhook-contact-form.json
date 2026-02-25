@@ -1,0 +1,386 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contacto-webhook",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "a81b3bbc-6793-42d8-8d41-34b884d67e49",
+      "name": "Recibir Datos POST",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        256,
+        400
+      ],
+      "webhookId": "{{ WEBHOOK_ID }}"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "id-1",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "id-2",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "id-3",
+              "name": "message",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            },
+            {
+              "id": "id-4",
+              "name": "source",
+              "value": "={{ $json.body.source }}",
+              "type": "string"
+            },
+            {
+              "id": "id-5",
+              "name": "form_type",
+              "value": "={{ $json.body.form_type }}",
+              "type": "string"
+            },
+            {
+              "id": "id-6",
+              "name": "page",
+              "value": "={{ $json.body.page }}",
+              "type": "string"
+            },
+            {
+              "id": "id-7",
+              "name": "timestamp",
+              "value": "={{ $json.body.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "id-8",
+              "name": "userAgent",
+              "value": "={{ $json.body.userAgent }}",
+              "type": "string"
+            },
+            {
+              "id": "id-9",
+              "name": "language",
+              "value": "={{ $json.body.language }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "70f5c228-4bc5-422e-a4a1-090b7cdf28ca",
+      "name": "Limpiar y Procesar Datos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_DOCUMENT_ID }}",
+          "mode": "list",
+          "cachedResultName": "Suscriptions Web - MGobeaAlcoba.github.io",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_SHEET_ID }}",
+          "mode": "list",
+          "cachedResultName": "contact_me_cv",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit#gid={{ GOOGLE_SHEETS_SHEET_ID }}"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $json.timestamp }}",
+            "Name": "={{ $json.name }}",
+            "Email": "={{ $json.timestamp }}",
+            "Message": "={{ $json.message }}",
+            "Source": "={{ $json.source }}",
+            "Form Type": "={{ $json.form_type }}",
+            "Page": "={{ $json.page }}",
+            "User Agent": "={{ $json.userAgent }}",
+            "Language": "={{ $json.language }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Form Type",
+              "displayName": "Form Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Page",
+              "displayName": "Page",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Agent",
+              "displayName": "User Agent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Language",
+              "displayName": "Language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "4520914a-e96c-4a00-8cdd-d9ac9caf3bef",
+      "name": "Guardar en Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        704,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "Sheets gobeamariano@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "=<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; }\n    .content p { margin: 15px 0; }\n    .highlight { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <!-- Espacio para logo - reemplazar src con URL de tu logo -->\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>¡Gracias por contactarnos!</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Hola {{ $json.Name }},</h2>\n      <p>He recibido tu mensaje correctamente y quiero agradecerte por ponerte en contacto conmigo</p>\n      <div class=\"highlight\">\n        <p><strong>Tu consulta es importante para mí</strong></p>\n        <p>Revisaré tu mensaje y me pondré en contacto contigo a la brevedad.</p>\n      </div>\n      <p>Mientras tanto, si tienes alguna pregunta urgente, no dudes en responder a este correo.</p>\n      <p>Saludos cordiales,<br><strong>Mariano Gobea Alcoba - MGA Tech Consulting</strong></p>\n    </div>\n    <div class=\"footer\">\n      <p>Este es un mensaje automático. Por favor no respondas directamente a este correo.</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
+      },
+      "id": "576524e2-25e8-4bb6-b580-5f82f85fb239",
+      "name": "Construir Email HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        928,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Limpiar y Procesar Datos').item.json.email }}",
+        "subject": "Gracias por tu contacto - Te responderemos pronto",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "af3a34d7-5fb9-4dfe-9acb-e79c2248fc21",
+      "name": "Enviar Email de Agradecimiento",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1152,
+        304
+      ],
+      "webhookId": "{{ WEBHOOK_ID }}",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "gobeamariano@gmail.com Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "=<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; }\n    .content p { margin: 15px 0; }\n    .info-box { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .info-box strong { color: #667eea; }\n    .button { display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }\n    .button:hover { opacity: 0.9; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>Nuevo Contacto Recibido</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Hola Mariano,</h2>\n      <p>Has recibido un nuevo mensaje de contacto a través de tu sitio web.</p>\n      <div class=\"info-box\">\n        <p><strong>Nombre:</strong> {{ $json.Name }}</p>\n        <p><strong>Email:</strong> {{ $json.Email }}</p>\n        <p><strong>Mensaje:</strong></p>\n        <p>{{ $json.Message }}</p>\n        <hr style=\"border: none; border-top: 1px solid #e0e0e0; margin: 15px 0;\">\n        <p><strong>Detalles adicionales:</strong></p>\n        <p><strong>Fuente:</strong> {{ $json.Source }}</p>\n        <p><strong>Tipo de formulario:</strong> {{ $json['Form Type'] }}</p>\n        <p><strong>Página:</strong> {{ $json.Page }}</p>\n        <p><strong>Fecha:</strong> {{ $json.Timestamp }}</p>\n        <p><strong>Idioma:</strong> {{ $json.Language }}</p>\n      </div>\n      <p style=\"text-align: center;\">\n        <a href=\"https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit\" class=\"button\">Ver Base de Datos Completa</a>\n      </p>\n      <p>El contacto ya fue guardado automáticamente en tu Google Sheet.</p>\n    </div>\n    <div class=\"footer\">\n      <p>Notificación automática del sistema de contacto</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
+      },
+      "id": "df5b4594-0ade-4ed3-a612-e0ee775c82ac",
+      "name": "Construir Email Notificación Admin",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        928,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "{{ ADMIN_EMAIL }}",
+        "subject": "Nuevo contacto recibido desde tu sitio web",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "2593c3f0-9313-4424-a1bd-e91f93634909",
+      "name": "Enviar Notificación Admin",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1152,
+        496
+      ],
+      "webhookId": "{{ WEBHOOK_ID }}",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "gobeamariano@gmail.com Gmail"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Recibir Datos POST": {
+      "main": [
+        [
+          {
+            "node": "Limpiar y Procesar Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar y Procesar Datos": {
+      "main": [
+        [
+          {
+            "node": "Guardar en Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar en Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Construir Email HTML",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Construir Email Notificación Admin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Email HTML": {
+      "main": [
+        [
+          {
+            "node": "Enviar Email de Agradecimiento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Email Notificación Admin": {
+      "main": [
+        [
+          {
+            "node": "Enviar Notificación Admin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {},
+  "_documentation": {
+    "name": "Webhook Contact Form Handler",
+    "version": "1.0",
+    "description": "Handles POST submissions from the contact form at mgobeaalcoba.github.io. Saves contacts to Google Sheets and sends two emails: a thank-you to the user and a notification to the admin.",
+    "trigger": "Webhook POST — path: /webhook/contacto-webhook",
+    "known_bugs": [
+      "Email column in Google Sheets is mapped to $json.timestamp instead of $json.email (cosmetic bug, data is still in the sheet row)"
+    ],
+    "placeholders_to_fill": [
+      "{{ GOOGLE_SHEETS_DOCUMENT_ID }} — ID of the Google Sheets spreadsheet",
+      "{{ GOOGLE_SHEETS_SHEET_ID }} — Numeric ID of the specific sheet tab",
+      "{{ ADMIN_EMAIL }} — Email address for admin notifications",
+      "{{ CREDENTIAL_ID }} — Auto-assigned by n8n when credentials are configured",
+      "{{ WEBHOOK_ID }} — Auto-assigned by n8n when webhook is registered"
+    ],
+    "credentials_required": [
+      "Google Sheets OAuth2 (n8n credential name: Sheets gobeamariano@gmail.com)",
+      "Gmail OAuth2 (n8n credential name: gobeamariano@gmail.com Gmail)"
+    ]
+  }
+}

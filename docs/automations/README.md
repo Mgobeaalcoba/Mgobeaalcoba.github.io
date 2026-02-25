@@ -10,9 +10,10 @@ Este directorio documenta los workflows de n8n que corren en producción para el
 
 ## Workflows activos
 
-| Archivo | Nombre | Trigger | RSS Source | Estado |
-|---|---|---|---|---|
-| `01-ai-blog-creator.json` | AI Blog Creator | Lun/Jue 8am + Manual | Hacker News Frontpage | ✅ Activo |
+| Archivo | Nombre | Trigger | Estado |
+|---|---|---|---|
+| `01-ai-blog-creator.json` | AI Blog Creator | Lun/Jue 8am + Manual | ✅ Activo |
+| `02-webhook-contact-form.json` | Webhook Contact Form Handler | Webhook POST (formulario de contacto) | ✅ Activo |
 
 ---
 
@@ -92,6 +93,72 @@ Este directorio documenta los workflows de n8n que corren en producción para el
 |---|---|---|
 | `blog_posts` | `INSERT` | Metadata del artículo (slug, títulos, excerpts, fecha, categoría, read_time, author) |
 | `blog_post_tags` | `INSERT` (batch) | Tags asociados al post (post_id, tag) |
+
+---
+
+---
+
+## 02 — Webhook Contact Form Handler
+
+**Archivo:** `02-webhook-contact-form.json`
+
+### ¿Qué hace?
+
+Recibe los envíos del formulario de contacto del sitio web, los registra en Google Sheets y envía dos emails HTML automáticamente: uno de agradecimiento al usuario y una notificación al administrador.
+
+### Flujo de nodos
+
+```
+📬 Webhook POST (/webhook/contacto-webhook)
+        ↓
+🔧 Limpiar y Procesar Datos  ← extrae name, email, message, source, etc.
+        ↓
+📊 Guardar en Google Sheets  ← CRM: hoja "contact_me_cv"
+        ↓
+    ┌───────────────────────────────────┐
+    ↓                                   ↓
+🖊️ Construir Email HTML            🖊️ Construir Email Notificación Admin
+    ↓                                   ↓
+📧 Enviar Email de Agradecimiento  📧 Enviar Notificación Admin
+   (→ email del usuario)              (→ gobeamariano@gmail.com)
+```
+
+### Payload esperado del formulario
+
+```json
+{
+  "name": "...",
+  "email": "...",
+  "message": "...",
+  "source": "cv-portfolio-contact",
+  "form_type": "contact_portfolio",
+  "page": "/",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "userAgent": "...",
+  "language": "es"
+}
+```
+
+### Credenciales necesarias
+
+| Nombre en n8n | Tipo | Descripción |
+|---|---|---|
+| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 | Acceso a la spreadsheet de contactos |
+| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 | Envío de emails de agradecimiento y notificación |
+
+### Placeholders a completar tras importar
+
+| Placeholder | Descripción | Dónde obtenerlo |
+|---|---|---|
+| `{{ GOOGLE_SHEETS_DOCUMENT_ID }}` | ID de la spreadsheet en Google Sheets | URL de la sheet: `/spreadsheets/d/{ID}/` |
+| `{{ GOOGLE_SHEETS_SHEET_ID }}` | ID numérico de la pestaña/hoja | URL de la sheet: `#gid={ID}` |
+| `{{ ADMIN_EMAIL }}` | Email del administrador para notificaciones | El tuyo personal |
+| `{{ CREDENTIAL_ID }}` | ID auto-asignado por n8n | Se completa al vincular las credenciales |
+| `{{ WEBHOOK_ID }}` | ID auto-asignado por n8n | Se genera al activar el workflow |
+
+### Bugs conocidos
+
+- El campo `Email` de la fila en Google Sheets está mapeado a `$json.timestamp` en lugar de `$json.email`. El email real sí llega en el body — simplemente corregir el mapeo en el nodo **Guardar en Google Sheets**.
 
 ---
 
