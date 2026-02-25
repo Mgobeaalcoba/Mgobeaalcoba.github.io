@@ -11,7 +11,7 @@ on:
       - 'cv/next.config.js'
       - 'cv/tailwind.config.ts'
       - 'cv/tsconfig.json'
-      - 'blog/posts/**'
+      - 'cv/content/posts/**'
       - 'neil/src/**'
       - 'neil/public/**'
       - 'neil/package*.json'
