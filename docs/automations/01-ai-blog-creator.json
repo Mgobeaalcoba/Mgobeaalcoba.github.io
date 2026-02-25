@@ -1,0 +1,512 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1,
+                4
+              ],
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "a2ab0403-cf77-4f0f-a20b-67460c6e795a",
+      "name": "⏰ Schedule (Lun/Jue 8am)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a2",
+              "name": "devto_api_key",
+              "value": "{{ DEVTO_API_KEY }}",
+              "type": "string"
+            },
+            {
+              "id": "a3",
+              "name": "supabase_service_key",
+              "value": "{{ SUPABASE_SERVICE_ROLE_KEY }}",
+              "type": "string"
+            },
+            {
+              "id": "a6",
+              "name": "github_owner",
+              "value": "Mgobeaalcoba",
+              "type": "string"
+            },
+            {
+              "id": "a7",
+              "name": "github_repo",
+              "value": "Mgobeaalcoba.github.io",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2a4f3214-8c2e-4e12-a1f2-1289f1af9d1f",
+      "name": "⚙️ Configuración",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1088,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst xml = $input.item.json.data || $input.item.json;\nconst xmlStr = typeof xml === 'string' ? xml : JSON.stringify(xml);\n\n// Extract <item> blocks\nconst items = [];\nconst itemRegex = /<item[^>]*>([\\s\\S]*?)<\\/item>/gi;\nlet match;\nwhile ((match = itemRegex.exec(xmlStr)) !== null && items.length < 6) {\n  const block = match[1];\n  const get = (tag) => {\n    const m = block.match(new RegExp('<' + tag + '[^>]*><!\\\\[CDATA\\\\[([\\\\s\\\\S]*?)\\\\]\\\\]><\\/' + tag + '>|<' + tag + '[^>]*>([^<]*)<\\/' + tag + '>', 'i'));\n    return m ? (m[1] || m[2] || '').trim() : '';\n  };\n  items.push({\n    title: get('title'),\n    description: get('description'),\n    link: get('link'),\n    pubDate: get('pubDate')\n  });\n}\n\n// Filter relevant to data/AI/engineering\nconst keywords = ['ai', 'machine learning', 'data', 'model', 'llm', 'gemini', 'python', 'cloud', 'automation', 'engineering'];\nconst scored = items.map(item => {\n  const text = (item.title + ' ' + item.description).toLowerCase();\n  const score = keywords.reduce((s, kw) => s + (text.includes(kw) ? 1 : 0), 0);\n  return { ...item, score };\n}).sort((a, b) => b.score - a.score);\n\nconst selected = scored[0];\nif (!selected || !selected.title) throw new Error('No relevant RSS items found');\n\nreturn {\n  topic_title: selected.title,\n  topic_description: selected.description,\n  topic_link: selected.link,\n  topic_date: selected.pubDate,\n  source: 'Hacker News'\n};\n"
+      },
+      "id": "de503336-c295-464a-8479-cacb9b9fe444",
+      "name": "🔧 Parsear RSS",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const config = $('⚙️ Configuración').item.json;\nconst topic = $('🔧 Parsear RSS').item.json;\nconst art = $input.item.json; // ya viene parseado\n\nconst today = new Date().toISOString().split('T')[0];\nconst filename = `${today}-${art.output.slug}.md`;\n\nconst fileContent = `---\\nslug: ${art.slug}\\ndate: ${today}\\n---\\n\\n${art.content_markdown_es}\\n`;\n\nreturn {\n  ...art,\n  filename,\n  date: today,\n  github_file_path: `cv/content/posts/${filename}`,\n  github_file_content_base64: Buffer.from(fileContent, 'utf8').toString('base64'),\n  canonical_url: `https://mgobeaalcoba.github.io/blog/${art.output.slug}/`,\n  github_pat: config.github_pat,\n  devto_api_key: config.devto_api_key,\n  supabase_service_key: config.supabase_service_key\n};"
+      },
+      "id": "b1d8d91f-0dc4-4631-9fbd-dc36d4a0c857",
+      "name": "🔧 Parsear Artículo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2256,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "{{ SUPABASE_URL }}/rest/v1/blog_posts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('🔧 Parsear Artículo').item.json.supabase_service_key }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('🔧 Parsear Artículo').item.json.supabase_service_key }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=representation"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"slug\": \"{{ $('🔧 Parsear Artículo').item.json.output.slug }}\",\n  \"file\": \"{{ $('🔧 Parsear Artículo').item.json.filename }}\",\n  \"title_es\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.title_es) }},\n  \"title_en\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.title_en) }},\n  \"excerpt_es\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.excerpt_es) }},\n  \"excerpt_en\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.excerpt_en) }},\n  \"date\": \"{{ $('🔧 Parsear Artículo').item.json.date }}\",\n  \"category\": \"{{ $('🔧 Parsear Artículo').item.json.output.category }}\",\n  \"featured\": false,\n  \"read_time\": \"{{ $('🔧 Parsear Artículo').item.json.output.read_time }}\",\n  \"author\": \"Mariano Gobea Alcoba\",\n  \"sort_order\": 99\n}",
+        "options": {}
+      },
+      "id": "78caa053-7b8f-4139-86d5-24af872f5a78",
+      "name": "📊 Supabase: Insert Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2480,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst art = $('🔧 Parsear Artículo').item.json.output;\nconst supabaseResult = $input.item.json;\n\n// supabaseResult is the newly created blog_post row\nconst newPost = Array.isArray(supabaseResult) ? supabaseResult[0] : supabaseResult;\nconst postId = newPost?.id;\nif (!postId) throw new Error('Supabase insert did not return an ID. Response: ' + JSON.stringify(supabaseResult));\n\n// Prepare tags for batch insert\nconst tagsPayload = art.tags.map(tag => ({\n  post_id: postId,\n  tag: tag.toLowerCase().replace(/[^a-z0-9]/g, '')\n})).filter(t => t.tag.length > 0);\n\nreturn {\n  post_id: postId,\n  tags_payload: tagsPayload,\n  tags_payload_json: JSON.stringify(tagsPayload),\n  slug: art.slug,\n  title_en: art.title_en,\n  canonical_url: art.canonical_url,\n  content_markdown_en: art.content_markdown_en,\n  tags: art.tags,\n  devto_api_key: art.devto_api_key,\n  supabase_service_key: art.supabase_service_key\n};\n"
+      },
+      "id": "e8a419f2-9939-4da5-82e3-8c99253c6811",
+      "name": "🔧 Preparar Tags",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2704,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "{{ SUPABASE_URL }}/rest/v1/blog_post_tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('⚙️ Configuración').item.json.supabase_service_key }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('⚙️ Configuración').item.json.supabase_service_key }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.tags_payload_json }}",
+        "options": {}
+      },
+      "id": "00c491f6-1ed2-4363-a889-d7f026fd0e64",
+      "name": "📊 Supabase: Insert Tags",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2928,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://dev.to/api/articles",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-key",
+              "value": "={{ $('🔧 Parsear Artículo').item.json.devto_api_key }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"article\": {\n    \"title\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.title_en + \"!\") }},\n    \"body_markdown\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.content_markdown_en + \"\\n\\n---\\n*Originally published in Spanish at [mgobeaalcoba.github.io/blog/\" + $('🔧 Parsear Artículo').item.json.output.slug + \"/](\" + $('🔧 Parsear Artículo').item.json.canonical_url + \")*\") }},\n    \"published\": true,\n    \"canonical_url\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.canonical_url) }},\n    \"tags\": {{ JSON.stringify($('🔧 Parsear Artículo').item.json.output.tags.map(t => t.toLowerCase().replace(/[^a-z0-9]/g, '')).slice(0,4)) }},\n    \"series\": \"Data Engineering in the Trenches\"\n  }\n}",
+        "options": {}
+      },
+      "id": "77367945-3914-4229-969b-594d4ac21285",
+      "name": "🚀 dev.to: Publicar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3376,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://hnrss.org/frontpage",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "id": "4311c735-a69c-4e00-b9cc-d82daa434feb",
+      "name": "Hacker News RSS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1312,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.topic_title }}\n{{ $json.topic_description }}\n{{ $json.topic_link }}\n{{ $json.topic_date }}\n{{ $json.source }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an expert technical writer specializing in Data Engineering, AI, Python, and Big Data. Your audience is software developers and data professionals in Latin America and globally.\n\nYour task is to write a COMPLETE technical blog post based on a trending topic provided by the user (from Google AI Blog RSS feed).\n\nThe article must be original, not a translation or summary of the source — use the topic as INSPIRATION to write something practical and actionable for data engineers and developers.\n\nAlways return your response as a single valid JSON object with this EXACT structure — no markdown wrapper, no explanation, just the raw JSON:\n\n{\n  \"slug\": \"url-friendly-english-slug-max-6-words\",\n  \"title_es\": \"Título atractivo en español (max 70 caracteres)\",\n  \"title_en\": \"Attractive English title (max 70 characters)\",\n  \"excerpt_es\": \"Resumen atractivo en español de 150-180 caracteres que invite a leer el artículo completo\",\n  \"excerpt_en\": \"Attractive English summary of 150-180 characters that invites reading the full article\",\n  \"category\": \"one of exactly: data-engineering, machine-learning, ai-tools, python, bigquery\",\n  \"tags\": [\"tag1\", \"tag2\", \"tag3\", \"tag4\"],\n  \"read_time\": \"X min\",\n  \"content_markdown_es\": \"FULL article in Spanish (1500-2500 words). Start directly with content paragraphs — no frontmatter, no title heading at the top. Use ## for sections, ### for subsections, code blocks with triple backticks and language tag. Include real-world examples. End with a paragraph inviting readers to visit https://mgobeaalcoba.github.io/consulting/ for consulting services.\",\n  \"content_markdown_en\": \"FULL article in English (1500-2500 words). Same structure and depth as the Spanish version but naturally written in English for a global developer audience — not a literal translation.\"\n}\n\nRules:\n- slug: lowercase, hyphens only, no special characters, descriptive of the content\n- tags: lowercase, no spaces, no special characters (e.g. python, bigquery, llm, dataengineering)\n- category: must be exactly one of the five options listed\n- content_markdown fields: must be complete articles with real depth, not summaries or outlines\n- Return ONLY the JSON object — nothing before or after it"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1792,
+        480
+      ],
+      "id": "43965d7e-2db4-47c5-9a3f-ed7171fb4e07",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-4.5-air:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        704
+      ],
+      "id": "aad66f26-4317-401c-8bc8-018e093264ca",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"slug\": {\n      \"type\": \"string\",\n      \"description\": \"URL-friendly English slug, max 6 words, lowercase, hyphens only\"\n    },\n    \"title_es\": {\n      \"type\": \"string\",\n      \"description\": \"Título atractivo en español, máximo 70 caracteres\"\n    },\n    \"title_en\": {\n      \"type\": \"string\",\n      \"description\": \"Attractive English title, maximum 70 characters\"\n    },\n    \"excerpt_es\": {\n      \"type\": \"string\",\n      \"description\": \"Resumen en español de 150-180 caracteres que invite a leer el artículo\"\n    },\n    \"excerpt_en\": {\n      \"type\": \"string\",\n      \"description\": \"English summary of 150-180 characters that invites reading the full article\"\n    },\n    \"category\": {\n      \"type\": \"string\",\n      \"enum\": [\"data-engineering\", \"machine-learning\", \"ai-tools\", \"python\", \"bigquery\"],\n      \"description\": \"Article category, must be exactly one of the enum values\"\n    },\n    \"tags\": {\n      \"type\": \"array\",\n      \"items\": { \"type\": \"string\" },\n      \"minItems\": 2,\n      \"maxItems\": 4,\n      \"description\": \"Lowercase tags, no spaces, no special characters\"\n    },\n    \"read_time\": {\n      \"type\": \"string\",\n      \"description\": \"Estimated read time, e.g. '8 min'\"\n    },\n    \"content_markdown_es\": {\n      \"type\": \"string\",\n      \"description\": \"Full article in Spanish, 1500-2500 words, markdown format, no frontmatter\"\n    },\n    \"content_markdown_en\": {\n      \"type\": \"string\",\n      \"description\": \"Full article in English, 1500-2500 words, markdown format, no frontmatter\"\n    }\n  },\n  \"required\": [\n    \"slug\",\n    \"title_es\",\n    \"title_en\",\n    \"excerpt_es\",\n    \"excerpt_en\",\n    \"category\",\n    \"tags\",\n    \"read_time\",\n    \"content_markdown_es\",\n    \"content_markdown_en\"\n  ]\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1888,
+        704
+      ],
+      "id": "6f67e7c0-0def-49b3-a087-78815bdbc31d",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-4.5-air:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1968,
+        912
+      ],
+      "id": "c530fa46-51eb-44bc-93f3-cba97ebdf483",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "={{ $('⚙️ Configuración').item.json.github_owner }}",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{ $('⚙️ Configuración').item.json.github_repo }}",
+          "mode": "name"
+        },
+        "filePath": "={{ $('🔧 Parsear Artículo').item.json.github_file_path }}",
+        "fileContent": "={{ $('🔧 Parsear Artículo').item.json.output.content_markdown_es }}",
+        "commitMessage": "=Delete {{ $('🔧 Parsear Artículo').item.json.output.slug }} to cv/content/posts"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        3152,
+        480
+      ],
+      "id": "d45dfa7b-4c5b-42ab-ab6c-dfec84cb57c7",
+      "name": "Create a file",
+      "webhookId": "92b06880-d370-4fbf-9c2d-61d4c40c17f6",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "Mgobeaalcoba Github"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "⏰ Schedule (Lun/Jue 8am)": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Configuración",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⚙️ Configuración": {
+      "main": [
+        [
+          {
+            "node": "Hacker News RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔧 Parsear RSS": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔧 Parsear Artículo": {
+      "main": [
+        [
+          {
+            "node": "📊 Supabase: Insert Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Supabase: Insert Post": {
+      "main": [
+        [
+          {
+            "node": "🔧 Preparar Tags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔧 Preparar Tags": {
+      "main": [
+        [
+          {
+            "node": "📊 Supabase: Insert Tags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Supabase: Insert Tags": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 dev.to: Publicar": {
+      "main": [
+        []
+      ]
+    },
+    "Hacker News RSS": {
+      "main": [
+        [
+          {
+            "node": "🔧 Parsear RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "🔧 Parsear Artículo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a file": {
+      "main": [
+        [
+          {
+            "node": "🚀 dev.to: Publicar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "_docs": {
+    "description": "AI Blog Creator — sanitized version for documentation. Replace all {{ PLACEHOLDER }} values before importing.",
+    "version": "1.0",
+    "last_updated": "2026-02-25",
+    "credentials_required": [
+      "OpenRouter account (OpenRouter API)",
+      "Mgobeaalcoba Github (GitHub OAuth2)"
+    ],
+    "placeholders": {
+      "DEVTO_API_KEY": "dev.to API Key",
+      "SUPABASE_SERVICE_ROLE_KEY": "Supabase service_role key (Settings > API > Legacy)",
+      "SUPABASE_URL": "Supabase project URL (Settings > API)",
+      "CREDENTIAL_ID": "Internal n8n credential ID (assigned automatically on import)"
+    }
+  }
+}
