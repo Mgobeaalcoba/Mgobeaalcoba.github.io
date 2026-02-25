@@ -1,6 +1,6 @@
 ---
 slug: kafka-basics-data-engineers
-date: 2026-05-03
+date: 2025-11-23
 ---
 
 Apache Kafka es el backbone de los pipelines de datos en tiempo real. Antes de usarlo, hay conceptos fundamentales que hay que entender bien. Acá la guía práctica para data engineers.

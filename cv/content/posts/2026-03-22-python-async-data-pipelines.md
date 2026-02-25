@@ -1,6 +1,6 @@
 ---
 slug: python-async-data-pipelines
-date: 2026-03-22
+date: 2026-01-04
 ---
 
 Los pipelines de datos tradicionales son síncronos y secuenciales: extraen, transforman, cargan, y esperan en cada paso. Cuando procesás miles de fuentes de datos en paralelo, esto se convierte en un cuello de botella. Python async (asyncio) puede transformar un pipeline de 2 horas en uno de 15 minutos.

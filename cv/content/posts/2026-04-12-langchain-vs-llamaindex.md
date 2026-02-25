@@ -1,6 +1,6 @@
 ---
 slug: langchain-vs-llamaindex
-date: 2026-04-12
+date: 2025-12-14
 ---
 
 LangChain y LlamaIndex son los dos frameworks más populares para construir aplicaciones con LLMs. Después de usarlos ambos en proyectos reales, acá el análisis honesto.

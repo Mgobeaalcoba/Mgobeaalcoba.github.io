@@ -1,6 +1,6 @@
 ---
 slug: prompt-engineering-productividad
-date: 2026-05-31
+date: 2025-10-26
 ---
 
 El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Acá las que más impacto tienen en mi flujo de trabajo.

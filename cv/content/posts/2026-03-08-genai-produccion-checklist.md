@@ -1,6 +1,6 @@
 ---
 slug: genai-produccion-checklist
-date: 2026-03-08
+date: 2026-01-18
 ---
 
 Poner un modelo de IA generativa en producción es fundamentalmente diferente a hacer un demo que funciona. El demo impresiona en una reunión; el sistema de producción tiene que sobrevivir usuarios reales, edge cases, y 3am on-calls. Acá el checklist que uso antes de hacer deploy.

@@ -1,6 +1,6 @@
 ---
 slug: chatgpt-api-trucos-avanzados
-date: 2026-05-10
+date: 2025-11-16
 ---
 
 Más allá del "hola mundo" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el último año.

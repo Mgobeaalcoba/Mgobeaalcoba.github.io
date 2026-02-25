@@ -1,6 +1,6 @@
 ---
 slug: vector-databases-guia-practica
-date: 2026-03-29
+date: 2025-12-28
 ---
 
 Las bases de datos vectoriales son la infraestructura clave para sistemas RAG (Retrieval-Augmented Generation). Evaluamos Pinecone, Weaviate, Qdrant y pgvector en producción. Acá el análisis.

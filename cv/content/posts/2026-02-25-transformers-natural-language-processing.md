@@ -1,3 +1,8 @@
+---
+slug: transformers-natural-language-processing
+date: 2026-02-20
+---
+
 # Transformadores: La Revolución en el Procesamiento del Lenguaje Natural
 
 ## Introducción

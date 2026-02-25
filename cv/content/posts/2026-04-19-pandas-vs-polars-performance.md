@@ -1,6 +1,6 @@
 ---
 slug: pandas-vs-polars-performance
-date: 2026-04-19
+date: 2025-12-07
 ---
 
 Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes.

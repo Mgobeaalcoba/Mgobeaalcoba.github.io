@@ -1,6 +1,6 @@
 ---
 slug: streamlit-dashboards-rapidos
-date: 2026-04-26
+date: 2025-11-30
 ---
 
 Streamlit permite construir dashboards interactivos de datos en horas, no días. Sin JavaScript, sin CSS, solo Python. Acá cómo construir un dashboard de métricas de ventas completo en menos de 100 líneas de código.

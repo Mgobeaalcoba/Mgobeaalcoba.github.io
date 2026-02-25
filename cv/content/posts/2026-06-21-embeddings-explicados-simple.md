@@ -1,6 +1,6 @@
 ---
 slug: embeddings-explicados-simple
-date: 2026-06-21
+date: 2025-10-05
 ---
 
 Los embeddings son la tecnología detrás de la búsqueda semántica, los sistemas RAG, y gran parte de las aplicaciones modernas de IA. La mayoría de las explicaciones son demasiado matemáticas o demasiado superficiales. Acá la versión práctica que necesitás entender para usarlos.

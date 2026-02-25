@@ -1,3 +1,8 @@
+---
+slug: machine-learning-basics-guide
+date: 2026-02-19
+---
+
 # Guía Completa de Machine Learning para Principiantes
 
 El Machine Learning (ML) es una rama de la inteligencia artificial que permite a los sistemas aprender de datos sin ser programados explícitamente. Esta guía está diseñada para principiantes que desean comprender los conceptos fundamentales y aplicaciones prácticas del ML.

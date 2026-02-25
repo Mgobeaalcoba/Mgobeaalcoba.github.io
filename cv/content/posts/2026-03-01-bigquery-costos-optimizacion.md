@@ -1,6 +1,6 @@
 ---
 slug: bigquery-costos-optimizacion
-date: 2026-03-01
+date: 2026-01-25
 ---
 
 BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarrollo. Acá el framework que uso para mantener los costos bajo control en equipos de 20+ analistas.

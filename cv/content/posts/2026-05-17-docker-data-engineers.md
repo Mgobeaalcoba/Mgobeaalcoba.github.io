@@ -1,6 +1,6 @@
 ---
 slug: docker-data-engineers
-date: 2026-05-17
+date: 2025-11-09
 ---
 
 Docker resolvió el problema clásico de los data engineers: "funciona en mi máquina". Si tu pipeline corre en local pero falla en producción por diferencias de entorno, Docker es la solución. Guía práctica enfocada en casos de uso de datos.

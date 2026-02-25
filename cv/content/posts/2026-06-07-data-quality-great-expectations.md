@@ -1,6 +1,6 @@
 ---
 slug: data-quality-great-expectations
-date: 2026-06-07
+date: 2025-10-19
 ---
 
 La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los datos que produce están incorrectos. Great Expectations (GX) es el framework que usamos para automatizar las validaciones.

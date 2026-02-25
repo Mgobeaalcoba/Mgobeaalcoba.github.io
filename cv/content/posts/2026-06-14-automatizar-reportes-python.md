@@ -1,6 +1,6 @@
 ---
 slug: automatizar-reportes-python
-date: 2026-06-14
+date: 2025-10-12
 ---
 
 Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo automaticé con Python y ahora el Excel llega solo, con datos frescos, y yo uso esas 2 horas para algo útil.

@@ -1,6 +1,6 @@
 ---
 slug: airflow-vs-prefect-2026
-date: 2026-03-15
+date: 2026-01-11
 ---
 
 Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar en condiciones reales. Acá el análisis honesto de qué usar y cuándo.

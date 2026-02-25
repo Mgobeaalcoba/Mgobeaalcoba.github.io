@@ -1,6 +1,6 @@
 ---
 slug: dbt-analytics-engineering
-date: 2026-04-05
+date: 2025-12-21
 ---
 
 dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y qué no.

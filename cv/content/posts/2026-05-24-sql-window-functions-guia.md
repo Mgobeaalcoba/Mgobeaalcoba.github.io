@@ -1,6 +1,6 @@
 ---
 slug: sql-window-functions-guia
-date: 2026-05-24
+date: 2025-11-02
 ---
 
 Las window functions son la herramienta más poderosa de SQL que la mayoría de los analistas subutiliza. Permiten cálculos sobre grupos de filas sin colapsar el resultado como GROUP BY. Guía completa con casos de uso reales.
