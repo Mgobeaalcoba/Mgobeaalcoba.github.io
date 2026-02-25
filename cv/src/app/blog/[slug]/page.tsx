@@ -4,7 +4,10 @@ import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import ScrollTracker from '@/components/shared/ScrollTracker';
+import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
+
+const SITE_URL = 'https://mgobeaalcoba.github.io';
 
 interface PageProps {
   params: { slug: string };
@@ -19,15 +22,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(params.slug);
   if (!post) return { title: 'Post not found' };
 
+  const postUrl = `${SITE_URL}/blog/${params.slug}/`;
+
   return {
     title: post.title.es,
     description: post.excerpt.es,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       title: post.title.es,
       description: post.excerpt.es,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
+      url: postUrl,
+      images: [
+        {
+          url: `${SITE_URL}/images/logo.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title.es,
+        },
+      ],
     },
   };
 }
@@ -52,8 +69,53 @@ export default async function BlogPostPage({ params }: PageProps) {
     );
   }
 
+  const postUrl = `${SITE_URL}/blog/${params.slug}/`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title.es,
+    description: post.excerpt.es,
+    url: postUrl,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: 'es',
+    author: {
+      '@type': 'Person',
+      name: 'Mariano Gobea Alcoba',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Mariano Gobea Alcoba',
+      url: SITE_URL,
+      image: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/images/profile.png`,
+      },
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/images/logo.png`,
+      width: 1200,
+      height: 630,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    keywords: post.tags?.join(', ') ?? '',
+    articleSection: post.category,
+    isPartOf: {
+      '@type': 'Blog',
+      name: 'Blog Técnico — Mariano Gobea Alcoba',
+      url: `${SITE_URL}/blog/`,
+    },
+  };
+
   return (
     <main className="min-h-screen">
+      <JsonLd data={articleSchema} />
       <ScrollTracker />
       <Navbar />
 

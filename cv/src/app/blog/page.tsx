@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Blog Técnico | Data Engineering en las Trincheras',
   description:
     'Artículos técnicos sobre Data Engineering, Python, Automatización con IA y Business Intelligence. Experiencias reales desde MercadoLibre.',
+  alternates: {
+    canonical: 'https://mgobeaalcoba.github.io/blog/',
+  },
   openGraph: {
     title: 'Blog Técnico - Mariano Gobea Alcoba',
     description: 'Data Engineering en las Trincheras: artículos técnicos sobre IA, Python y datos.',

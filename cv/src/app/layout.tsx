@@ -5,9 +5,75 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { SupabaseDataProvider } from '@/contexts/SupabaseDataContext';
 import AppShell from '@/components/shared/AppShell';
 import { DataErrorBoundary } from '@/components/shared/DataErrorBoundary';
+import JsonLd from '@/components/shared/JsonLd';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
+const SITE_URL = 'https://mgobeaalcoba.github.io';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mariano Gobea Alcoba',
+  jobTitle: 'Data & Analytics Technical Leader',
+  description:
+    'Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.',
+  url: SITE_URL,
+  image: `${SITE_URL}/images/profile.png`,
+  email: 'mgobeaalcoba@gmail.com',
+  sameAs: [
+    'https://linkedin.com/in/mgobeaalcoba',
+    'https://github.com/Mgobeaalcoba',
+    'https://twitter.com/MGobeaAlcoba',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Mercado Libre',
+    url: 'https://mercadolibre.com',
+  },
+  knowsAbout: [
+    'Data Engineering',
+    'BigQuery',
+    'Python',
+    'Machine Learning',
+    'Business Intelligence',
+    'GenAI',
+    'LLMs',
+    'Apache Airflow',
+    'dbt',
+    'Apache Kafka',
+    'automatización de procesos',
+    'consultoría tecnológica',
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Data & Analytics Technical Leader',
+    occupationLocation: {
+      '@type': 'Country',
+      name: 'Argentina',
+    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Buenos Aires',
+    addressCountry: 'AR',
+  },
+  nationality: 'Argentine',
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Mariano Gobea Alcoba',
+  url: SITE_URL,
+  description:
+    'Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.',
+  author: {
+    '@type': 'Person',
+    name: 'Mariano Gobea Alcoba',
+  },
+  inLanguage: ['es', 'en'],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -21,8 +87,11 @@ export const metadata: Metadata = {
     'consultoría tecnológica', 'automatización', 'business intelligence',
     'python', 'machine learning', 'data engineer', 'buenos aires',
   ],
-  authors: [{ name: 'Mariano Gobea Alcoba', url: 'https://mgobeaalcoba.github.io' }],
+  authors: [{ name: 'Mariano Gobea Alcoba', url: SITE_URL }],
   creator: 'Mariano Gobea Alcoba',
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     type: 'website',
     locale: 'es_AR',
@@ -67,6 +136,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#111827" />
         <meta name="geo.region" content="AR-C" />
         <meta name="geo.placename" content="Buenos Aires" />
+        <JsonLd data={personSchema} />
+        <JsonLd data={websiteSchema} />
       </head>
       <body>
         {/* Calendly widget */}

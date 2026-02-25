@@ -1,0 +1,77 @@
+# Mariano Gobea Alcoba
+
+> Data & Analytics Technical Leader at Mercado Libre | AI & BI Consulting for SMBs | Buenos Aires, Argentina
+
+## About
+
+Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of experience at Mercado Libre, Latin America's leading e-commerce and fintech platform. He specializes in Data Engineering, Business Intelligence, Machine Learning, and applied AI to solve real-world business challenges. He leads high-performance technical teams and consults for small and medium businesses (SMBs/PyMEs) in Argentina, helping them automate processes and leverage data to grow.
+
+## Expertise
+
+- Data Engineering: BigQuery, Apache Airflow, Apache Kafka, dbt, Python (pandas, polars, asyncio)
+- Machine Learning & AI: GenAI, LLMs, LangChain, LlamaIndex, vector databases, embeddings, prompt engineering
+- Business Intelligence: Looker Studio, real-time dashboards, automated reports
+- Process Automation: n8n, RPA, Python scripts, AI chatbots
+- Cloud: Google Cloud Platform (GCP), GitHub Actions CI/CD
+
+## Services (Consulting)
+
+- [Tech Consulting Page](https://mgobeaalcoba.github.io/consulting/): AI automation, BI dashboards, process optimization, tech mentoring for SMBs
+  - Process Automation (n8n, Python, AI) — reduce operational costs up to 80%
+  - Applied AI: chatbots, virtual assistants, custom ML models
+  - Business Intelligence: real-time dashboards and data pipelines
+  - Tech Mentoring: individual sessions for data professionals and tech leads
+  - Intensive Team Courses: hands-on training on Data Engineering and AI
+  - Tech Recruiting: specialized technical talent sourcing
+  - First automation 100% free (diagnostic offer)
+
+## Financial Tools (Argentina)
+
+- [Recursos Financieros](https://mgobeaalcoba.github.io/recursos/): Free financial calculators and tools for Argentina
+  - Income Tax Calculator (Impuesto Ganancias 2026)
+  - Net/Gross Salary Simulator
+  - Real-time USD Exchange Rates (official, blue, MEP, CCL)
+  - Investment Dashboard (fixed term vs USD comparison)
+  - Economic Indicators (CPI, UVA)
+
+## Technical Blog
+
+- [Blog](https://mgobeaalcoba.github.io/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — real-world experiences from Mercado Libre.
+
+### Recent Articles
+
+- How to optimize BigQuery queries at scale (Mercado Libre experience)
+- Automating income tax calculations with Python in Argentina
+- Common errors in data pipelines and how to fix them
+- IT salary negotiation in Argentina 2026
+- BigQuery cost optimization strategies
+- GenAI in production: a practical checklist
+- Airflow vs Prefect 2026: comprehensive comparison
+- Python async for data pipelines
+- Vector databases: a practical guide
+- dbt for analytics engineering
+- LangChain vs LlamaIndex: which to choose
+- Pandas vs Polars performance comparison
+- Streamlit for rapid dashboard development
+- Kafka basics for data engineers
+- Advanced ChatGPT API tips
+- Docker for data engineers
+- SQL window functions complete guide
+- Prompt engineering for productivity
+- Data quality with Great Expectations
+- Automating reports with Python
+- Embeddings explained simply
+
+## Contact & Social
+
+- Website: https://mgobeaalcoba.github.io
+- LinkedIn: https://linkedin.com/in/mgobeaalcoba
+- GitHub: https://github.com/Mgobeaalcoba
+- Twitter/X: https://twitter.com/MGobeaAlcoba
+- Email: mgobeaalcoba@gmail.com
+- Location: Buenos Aires, Argentina
+- Calendly (book a meeting): Available via consulting page
+
+## Technical Sitemap
+
+Full sitemap: https://mgobeaalcoba.github.io/sitemap.xml

@@ -16,9 +16,13 @@ Disallow: /index.txt
 Allow: /robots.txt
 Allow: /sitemap.xml
 Allow: /humans.txt
+Allow: /llms.txt
 
 # Sitemap
 Sitemap: https://mgobeaalcoba.github.io/sitemap.xml
+
+# LLMs / AI agents discovery file
+LLMs-txt: https://mgobeaalcoba.github.io/llms.txt
 
 # Preferred domain
 Host: https://mgobeaalcoba.github.io

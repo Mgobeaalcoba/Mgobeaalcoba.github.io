@@ -13,9 +13,14 @@ export function pageview(url: string) {
   }
 }
 
+function getUserLang(): string {
+  if (typeof window === 'undefined') return 'es';
+  return (localStorage.getItem('language') as string) || document.documentElement.lang || 'es';
+}
+
 export function event(action: string, params: Record<string, unknown> = {}) {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, params);
+    window.gtag('event', action, { user_lang: getUserLang(), ...params });
   }
 }
 
