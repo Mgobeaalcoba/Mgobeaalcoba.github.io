@@ -21,7 +21,7 @@ on:
       - 'elportugues/package*.json'
       - 'elportugues/next.config.js'
       - '.github/workflows/deploy.yml'
-  workflow_dispatch: # allow manual trigger from GitHub UI
+  workflow_dispatch: # allow manual trigger from GitHub UI or n8n automation
 
 permissions:
   contents: write # needed to push to gh-pages branch
