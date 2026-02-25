@@ -10,10 +10,13 @@ Este directorio documenta los workflows de n8n que corren en producción para el
 
 ## Workflows activos
 
-| Archivo | Nombre | Trigger | Estado |
-|---|---|---|---|
-| `01-ai-blog-creator.json` | AI Blog Creator | Lun/Jue 8am + Manual | ✅ Activo |
-| `02-webhook-contact-form.json` | Webhook Contact Form Handler | Webhook POST (formulario de contacto) | ✅ Activo |
+| # | Archivo | Nombre | Trigger | Estado |
+|---|---|---|---|---|
+| 01 | `01-ai-blog-creator.json` | AI Blog Creator | Lun/Jue 8am + Manual | ✅ Activo |
+| 02 | `02-webhook-contact-form.json` | Webhook Contact Form Handler | Webhook POST `/contacto-webhook` | ✅ Activo |
+| 03 | `03-newsletter-subscription.json` | Newsletter Subscription Handler | Webhook POST `/recibir-email` | ✅ Activo |
+| 04 | `04-free-automation-lead.json` | Free Automation Lead Handler | Webhook POST `/solicitud-automatizacion` | ✅ Activo |
+| 05 | `05-daily-content-digest.json` | Daily Content Digest Newsletter | Schedule diario 8am | ✅ Activo |
 
 ---
 
@@ -159,6 +162,170 @@ Recibe los envíos del formulario de contacto del sitio web, los registra en Goo
 ### Bugs conocidos
 
 - El campo `Email` de la fila en Google Sheets está mapeado a `$json.timestamp` en lugar de `$json.email`. El email real sí llega en el body — simplemente corregir el mapeo en el nodo **Guardar en Google Sheets**.
+
+---
+
+---
+
+## 03 — Newsletter Subscription Handler
+
+**Archivo:** `03-newsletter-subscription.json`
+
+### ¿Qué hace?
+
+Recibe las suscripciones al newsletter del sitio web. Registra el email del suscriptor en Google Sheets y dispara dos emails en paralelo: una bienvenida al suscriptor y una notificación al administrador.
+
+### Flujo de nodos
+
+```
+📬 Webhook POST (/webhook/recibir-email)
+        ↓
+⚙️ Workflow Configuration  ← nombre empresa, logo, fromEmail
+        ↓
+🔧 Preparar Datos  ← extrae email, genera timestamp
+        ↓
+📊 Append row in sheet  ← hoja "newsletter" (Email, Fecha, Origen)
+        ↓
+    ┌──────────────────────────────┐
+    ↓                              ↓
+📧 Notificación al Lead       📧 Notificación a Mariano
+   (→ email del suscriptor)      (→ admin)
+```
+
+### Payload esperado
+
+```json
+{ "email": "...", "name": "(opcional)" }
+```
+
+### Credenciales necesarias
+
+| Nombre en n8n | Tipo |
+|---|---|
+| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
+| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+
+### Placeholders a completar
+
+| Placeholder | Descripción |
+|---|---|
+| `{{ GOOGLE_SHEETS_DOCUMENT_ID }}` | ID de la spreadsheet de suscriptores |
+| `{{ GOOGLE_SHEETS_SHEET_ID }}` | ID de la pestaña "newsletter" (gid=0 para la primera) |
+| `{{ ADMIN_EMAIL }}` | Email del administrador |
+| `{{ CREDENTIAL_ID }}` | Auto-asignado por n8n |
+| `{{ WEBHOOK_ID }}` | Auto-asignado por n8n |
+
+---
+
+## 04 — Free Automation Lead Handler
+
+**Archivo:** `04-free-automation-lead.json`
+
+### ¿Qué hace?
+
+Procesa los leads del formulario de "Automatización Gratis" de la página Consulting. Captura nombre, email, empresa, rubro y el proceso a automatizar. Guarda el lead en Google Sheets y envía dos emails: confirmación al usuario y notificación detallada al admin.
+
+### Flujo de nodos
+
+```
+📬 Webhook POST (/webhook/solicitud-automatizacion)
+        ↓
+⚙️ Workflow Configuration  ← nombre empresa, logo
+        ↓
+🔧 Preparar Datos  ← extrae email, nombre, empresa, rubro, proceso, timestamp (AR timezone)
+        ↓
+📊 Append row in sheet  ← hoja "free_automation" (ID ejecución, Email, Nombre, Empresa, Rubro, Proceso, Fecha, Origen)
+        ↓
+    ┌──────────────────────────────┐
+    ↓                              ↓
+📧 Mail al Usuario            📧 Notificación a Mariano
+   (confirmación + recursos)     (tabla completa del lead)
+```
+
+### Payload esperado
+
+```json
+{
+  "name": "...", "email": "...", "company": "...", "industry": "...",
+  "problem": "...", "page": "/consulting.html", "referrer": "...",
+  "language": "es", "formType": "automatizacion-gratis", "source": "consulting-page"
+}
+```
+
+### Credenciales necesarias
+
+| Nombre en n8n | Tipo |
+|---|---|
+| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
+| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+
+### Placeholders a completar
+
+| Placeholder | Descripción |
+|---|---|
+| `{{ GOOGLE_SHEETS_DOCUMENT_ID }}` | ID de la spreadsheet |
+| `{{ GOOGLE_SHEETS_SHEET_ID }}` | ID numérico de la pestaña "free_automation" |
+| `{{ ADMIN_EMAIL }}` | Email del administrador |
+| `{{ CREDENTIAL_ID }}` | Auto-asignado por n8n |
+| `{{ WEBHOOK_ID }}` | Auto-asignado por n8n |
+
+---
+
+## 05 — Daily Content Digest Newsletter
+
+**Archivo:** `05-daily-content-digest.json`
+
+### ¿Qué hace?
+
+Genera y envía diariamente un newsletter HTML con las 3 noticias más disruptivas del día sobre GenAI y Data Engineering. Usa un AI Agent (OpenAI GPT-4.1-mini + SerpAPI para búsqueda en tiempo real), construye un email HTML con diseño mobile-first, y lo envía a todos los suscriptores registrados en Google Sheets.
+
+### Flujo de nodos
+
+```
+⏰ Schedule (diario 8am)
+        ↓
+🤖 Newsletter AI Agent
+   ├── 🧠 OpenAI Chat Model (gpt-4.1-mini)
+   └── 🔍 SerpAPI News Search (búsqueda en tiempo real)
+        ↓
+📊 Get Recipients from Sheet  ← lee hoja "newsletter" (itera por cada suscriptor)
+        ↓
+🔧 Prepare Email Data  ← arma to, subject, html para cada destinatario
+        ↓
+📧 Send Newsletter Email  ← Gmail (un envío por suscriptor)
+```
+
+### Modelo AI y herramientas
+
+| Componente | Detalle |
+|---|---|
+| **Modelo LLM** | `gpt-4.1-mini` (OpenAI) |
+| **Temperatura** | 0.7 |
+| **Search tool** | SerpAPI (noticias del día en tiempo real) |
+| **Output** | HTML completo listo para email (mobile-first, estilo branded) |
+
+### Credenciales necesarias
+
+| Nombre en n8n | Tipo |
+|---|---|
+| `n8n free OpenAI API credits` (o cuenta propia) | OpenAI API |
+| `SerpAPI account` | SerpAPI |
+| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
+| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+
+### Placeholders a completar
+
+| Placeholder | Descripción |
+|---|---|
+| `{{ GOOGLE_SHEETS_DOCUMENT_ID }}` | ID de la spreadsheet de suscriptores |
+| `{{ GOOGLE_SHEETS_SHEET_ID }}` | ID de la pestaña "newsletter" |
+| `{{ CREDENTIAL_ID }}` | Auto-asignado por n8n para cada credencial |
+| `{{ WEBHOOK_ID }}` | Auto-asignado por n8n |
+
+### Nota de costos
+
+- **OpenAI**: gpt-4.1-mini tiene costo por token (muy bajo). Alternativamente se puede reemplazar por un modelo gratuito vía OpenRouter.
+- **SerpAPI**: plan gratuito con 100 búsquedas/mes; plan pago desde USD 50/mes.
 
 ---
 

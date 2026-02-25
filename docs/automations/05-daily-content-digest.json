@@ -1,0 +1,269 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "b19d1a3c-9ad1-429d-9057-b93a09458534",
+      "name": "Daily Newsletter Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Genera el newsletter diario con las noticias más disruptivas de hoy en Generative AI y Data Engineering/Analytics. Devuelve únicamente el código HTML completo listo para enviar por email.",
+        "options": {
+          "systemMessage": "System Prompt: Consultor Senior en Estrategia de Datos y GenAI\n1. Perfil y Objetivo\nEres un Consultor Senior en Estrategia de Datos y GenAI con un tono profesional, analítico y vanguardista. Tu objetivo es generar un newsletter diario de alto impacto para una audiencia apasionada por los datos y el desarrollo de GenAI. Omití hablar de fechas especificas, meses o años salvo que las noticias consideren las fechas en cuestión como relevantes. \n\n\n2. Proceso de Generación\nInvestigación Obligatoria: Utiliza la herramienta de búsqueda para encontrar las 3 noticias más disruptivas del día sobre \"Generative AI\" y \"Data Engineering/Analytics\".\n\nAnálisis Estratégico: Para cada noticia, redacta un análisis de mínimo 10 renglones de extensión. No te limites a lo técnico; enfócate en el impacto de negocio, el mercado y recomendaciones estratégicas.\n\nEstilo Editorial: Usa autoridad y frases como \"Lo que esto significa para el mercado...\" o \"Mi recomendación estratégica es...\".\n\n3. Especificaciones Técnicas del HTML (Mobile First)\nGenera el código HTML completo aplicando una filosofía Mobile First (diseño fluido y adaptable) con la siguiente estructura:\n\nA. Contenedor Principal (Main Wrapper)\nEstructura: Tabla centrada (align=\"center\") con un width: 100% y un max-width: 700px.\n\nEstilo: Fondo blanco (#FFFFFF), bordes redondeados (border-radius: 12px), y un borde sólido fino (1px solid #E0E0E0).\n\nSombra: Incluir box-shadow: 0 4px 10px rgba(0,0,0,0.05);.\n\nB. Header (Hero Section)\nFondo: Gradiente lineal a 135°: linear-gradient(135deg, #2D4FBE 0%, #172A5F 100%).\n\nPadding: 50px arriba/abajo.\n\nLogo: Centrado, max-width: 220px. URL: https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io/blob/main/assets/images/logo_oscuro.png?raw=true\n\nEslogan: Texto en blanco, Sans-Serif, Bold (700), tamaño 24px-28px, centrado.\n\nC. Cuerpo del Mensaje\nPadding: 30px a 40px en laterales y base.\n\nBadge (Pill): Fondo #E8EFFF, texto #2D4FBE (peso 600, 14px), precedido por el emoji 🚀.\n\nJerarquía: h1 para saludo, h2 para las 3 noticias principales.\n\nTexto: Color #4A4A4A, line-height: 1.6, fuente Sans-Serif limpia.\n\nD. Sección de Insights (Terminal Style)\nContenedor: Fondo negro (#0D0D0D), bordes redondeados (8px), padding interno.\n\nTexto: Monospace (Courier New/Consolas), color verde terminal (#00FF41).\n\nDetalle: Simular línea de comandos con el prompt C:\\MGA_Tech>_.\n\nE. Pie de Página y CTA\nBotón CTA: Fondo #2D4FBE, texto blanco dado que sino no se lee correctamente, centrado, esquinas redondeadas.\n\nLink de Destino: https://mgobeaalcoba.github.io/consulting/\n\nLegal: Texto en gris claro (#999999), centrado, fuera del contenedor principal.\n\n4. Restricciones Críticas\nExtensión: Cada una de las 3 notas debe tener al menos 10 renglones de contenido sustancial.\n\nOutput Único: Entrega únicamente el código HTML completo. Está prohibido incluir introducciones, explicaciones o comentarios fuera de las etiquetas HTML."
+        }
+      },
+      "id": "cf09af66-4979-4780-9ef8-687ad2205cb5",
+      "name": "Newsletter AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        480,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "81be3463-5e13-4ffe-8167-92e6e9a59701",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        496,
+        128
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0761c27f-9c5c-4689-b03e-14ed1b0c03c3",
+      "name": "SerpAPI News Search",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        624,
+        128
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "id-1",
+              "name": "to",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "id-2",
+              "name": "subject",
+              "value": "Newsletter Diario - Estrategia en GenAI y Data",
+              "type": "string"
+            },
+            {
+              "id": "id-3",
+              "name": "html",
+              "value": "={{ $('Newsletter AI Agent').item.json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6083d50f-4a80-41ac-a9a1-fd0d16b5f9e1",
+      "name": "Prepare Email Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1056,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "fc3c3b3d-da9f-4f4c-946c-5ae6cd61af31",
+      "name": "Send Newsletter Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1280,
+        -96
+      ],
+      "webhookId": "{{ WEBHOOK_ID }}",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "gobeamariano@gmail.com Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_DOCUMENT_ID }}",
+          "mode": "list",
+          "cachedResultName": "Suscriptions Web",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_SHEET_ID }}",
+          "mode": "list",
+          "cachedResultName": "newsletter",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit#gid={{ GOOGLE_SHEETS_SHEET_ID }}"
+        },
+        "options": {}
+      },
+      "id": "19254748-d8aa-4873-8ab9-7dff804e802d",
+      "name": "Get Recipients from Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        832,
+        -96
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "Sheets gobeamariano@gmail.com"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Daily Newsletter Schedule": {
+      "main": [
+        [
+          {
+            "node": "Newsletter AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Newsletter AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Get Recipients from Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Newsletter AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI News Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Newsletter AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Email Data": {
+      "main": [
+        [
+          {
+            "node": "Send Newsletter Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Recipients from Sheet": {
+      "main": [
+        [
+          {
+            "node": "Prepare Email Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "_documentation": {
+    "name": "Daily Content Digest Newsletter",
+    "version": "1.0",
+    "description": "Generates and sends a daily AI-curated HTML newsletter about Generative AI and Data Engineering trends. Uses OpenAI (gpt-4.1-mini) + SerpAPI to research the 3 most disruptive daily news items, generates a styled HTML email, then fetches the subscriber list from Google Sheets and sends the newsletter via Gmail to each subscriber.",
+    "trigger": "Schedule — daily at 08:00",
+    "ai_model": "gpt-4.1-mini (OpenAI via n8n built-in credits or custom key)",
+    "search_tool": "SerpAPI (real-time news search)",
+    "placeholders_to_fill": [
+      "{{ GOOGLE_SHEETS_DOCUMENT_ID }} — ID of the Google Sheets spreadsheet (subscribers list)",
+      "{{ GOOGLE_SHEETS_SHEET_ID }} — Sheet tab ID for the \"newsletter\" tab",
+      "{{ CREDENTIAL_ID }} — Auto-assigned by n8n for each credential",
+      "{{ WEBHOOK_ID }} — Auto-assigned by n8n"
+    ],
+    "credentials_required": [
+      "OpenAI API (n8n free credits or own key)",
+      "SerpAPI account (for real-time news search)",
+      "Google Sheets OAuth2 (Sheets gobeamariano@gmail.com)",
+      "Gmail OAuth2 (gobeamariano@gmail.com Gmail)"
+    ]
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "solicitud-automatizacion",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "a80b39e5-72ae-45a3-83a1-bbfdff621487",
+      "name": "Webhook Form",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -560,
+        304
+      ],
+      "webhookId": "{{ WEBHOOK_ID }}"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "id-1",
+              "name": "companyName",
+              "value": "MGA Tech Consulting",
+              "type": "string"
+            },
+            {
+              "id": "id-2",
+              "name": "companyLogo",
+              "value": "https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io/blob/main/assets/images/logo_oscuro.png?raw=true",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "124344e0-7371-4073-9ee8-5aec0774f9a1",
+      "name": "Workflow Configuration",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -336,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "id-1",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "id-name",
+              "name": "nombre",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "id-empresa",
+              "name": "empresa",
+              "value": "={{ $json.body.company }}",
+              "type": "string"
+            },
+            {
+              "id": "id-rubro",
+              "name": "rubro",
+              "value": "={{ $json.body.industry }}",
+              "type": "string"
+            },
+            {
+              "id": "id-proceso",
+              "name": "proceso",
+              "value": "={{ $json.body.problem }}",
+              "type": "string"
+            },
+            {
+              "id": "id-4",
+              "name": "fechaRecepcion",
+              "value": "={{ $now.setZone('America/Argentina/Buenos_Aires').format('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "86f10661-8251-4d2a-ad2d-5916d5df82bc",
+      "name": "Preparar Datos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -128,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_DOCUMENT_ID }}",
+          "mode": "list",
+          "cachedResultName": "Suscriptions Web",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "{{ GOOGLE_SHEETS_SHEET_ID }}",
+          "mode": "list",
+          "cachedResultName": "free_automation",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit#gid={{ GOOGLE_SHEETS_SHEET_ID }}"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $execution.id }}",
+            "Email": "={{ $json.email }}",
+            "Nombre": "={{ $json.nombre }}",
+            "Empresa": "={{ $json.empresa }}",
+            "Rubro": "={{ $json.rubro }}",
+            "Proceso": "={{ $json.proceso }}",
+            "Fecha de Registro": "={{ $json.fechaRecepcion }}",
+            "Origen": "={{ $json.body.referrer }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nombre",
+              "displayName": "Nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Empresa",
+              "displayName": "Empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Rubro",
+              "displayName": "Rubro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Proceso",
+              "displayName": "Proceso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha de Registro",
+              "displayName": "Fecha de Registro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Origen",
+              "displayName": "Origen",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        112,
+        304
+      ],
+      "id": "f8ddf50d-887a-4778-89cf-0ba4c1cb6062",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "Sheets gobeamariano@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "¡Confirmado! Estamos revisando tu proceso - MGA Tech",
+        "message": "=<!DOCTYPE html>\n<html>\n<head>\n    <style>\n        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; margin: 0; padding: 0; }\n        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px; }\n        .header { text-align: center; padding: 30px 0; background: linear-gradient(135deg, #0066cc 0%, #003366 100%); border-radius: 8px 8px 0 0; }\n        .logo { max-width: 200px; height: auto; filter: brightness(0) invert(1); }\n        .content { padding: 30px; background-color: #ffffff; }\n        .footer { text-align: center; padding: 20px; color: #888; font-size: 12px; background-color: #f9f9f9; border-radius: 0 0 8px 8px; }\n        .button { display: inline-block; padding: 12px 25px; background: #0066cc; color: #ffffff !important; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"header\">\n            <img src=\"{{ $('Workflow Configuration').first().json.companyLogo }}\" alt=\"MGA Tech Consulting\" class=\"logo\">\n        </div>\n        <div class=\"content\">\n            <h2>¡Hola {{ $json['Nombre'] }}!</h2>\n            <p>Hemos recibido tu solicitud para automatizar el proceso de: <strong>{{ $json['Proceso'] }}</strong>.</p>\n            <p>Nuestro equipo analizará la viabilidad técnica y te contactaremos en menos de 24 horas.</p>\n            <center><a href=\"https://mgobeaalcoba.github.io/recursos.html\" class=\"button\">Ver Recursos Gratuitos</a></center>\n        </div>\n        <div class=\"footer\">\n            <p>&copy; 2026 {{ $('Workflow Configuration').first().json.companyName }}. Todos los derechos reservados.</p>\n        </div>\n    </div>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        320,
+        192
+      ],
+      "id": "530ba6f5-70d5-4958-99a8-4e7a6bdbc798",
+      "name": "Mail al Usuario",
+      "webhookId": "{{ WEBHOOK_ID }}",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "gobeamariano@gmail.com Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "{{ ADMIN_EMAIL }}",
+        "subject": "=🚀 Nueva Solicitud de Automatización: {{ $json['Nombre'] }} ({{ $json.Empresa }})",
+        "message": "=<!DOCTYPE html>\n<html>\n<head>\n    <style>\n        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; margin: 0; padding: 0; }\n        .container { max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }\n        /* Header unificado con el estilo del cliente para resaltar el logo */\n        .header { text-align: center; padding: 30px 0; background: linear-gradient(135deg, #0066cc 0%, #003366 100%); color: white; }\n        .logo { max-width: 180px; height: auto; }\n        .content { padding: 30px; background-color: #ffffff; }\n        .data-table { width: 100%; margin: 20px 0; border-collapse: collapse; }\n        .data-table td { padding: 12px; border-bottom: 1px solid #f0f0f0; }\n        .label { font-weight: bold; color: #0066cc; width: 35%; text-transform: uppercase; font-size: 12px; }\n        .button-sheet { \n            display: inline-block; \n            padding: 14px 30px; \n            background-color: #28a745; \n            color: #ffffff !important; \n            text-decoration: none; \n            border-radius: 6px; \n            font-weight: bold; \n            margin-top: 10px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"header\">\n            <img src=\"{{ $('Workflow Configuration').first().json.companyLogo }}\" alt=\"MGA Tech\" class=\"logo\">\n            <h3 style=\"margin: 10px 0 0 0; opacity: 0.9;\">Nuevo Lead Detectado</h3>\n        </div>\n\n        <div class=\"content\">\n            <table class=\"data-table\">\n                <tr><td class=\"label\">Nombre:</td><td>{{ $json['Nombre'] }}</td></tr>\n                <tr><td class=\"label\">Empresa:</td><td>{{ $json.Empresa }}</td></tr>\n                <tr><td class=\"label\">Rubro:</td><td>{{ $json.Rubro }}</td></tr>\n                <tr><td class=\"label\">Proceso:</td><td>{{ $json['Proceso'] }}</td></tr>\n                <tr><td class=\"label\">Email:</td><td><a href=\"mailto:{{ $json.Email }}\" style=\"color: #0066cc;\">{{ $json.Email }}</a></td></tr>\n            </table>\n            \n            <center>\n                <a href=\"https://docs.google.com/spreadsheets/d/{{ GOOGLE_SHEETS_DOCUMENT_ID }}/edit\" class=\"button-sheet\">\n                    Gestionar en Google Sheets\n                </a>\n            </center>\n        </div>\n    </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        320,
+        400
+      ],
+      "id": "b010324f-452b-443c-acf7-8ce62ce8c092",
+      "name": "Notificación a Mariano",
+      "webhookId": "{{ WEBHOOK_ID }}",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "{{ CREDENTIAL_ID }}",
+          "name": "gobeamariano@gmail.com Gmail"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Form": {
+      "main": [
+        [
+          {
+            "node": "Workflow Configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Configuration": {
+      "main": [
+        [
+          {
+            "node": "Preparar Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Datos": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Mail al Usuario",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notificación a Mariano",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "_documentation": {
+    "name": "Free Automation Lead Handler",
+    "version": "1.0",
+    "description": "Handles leads from the free automation consultation form on the Consulting page. Collects name, email, company, industry and the process to automate. Saves to Google Sheets and sends two emails: a confirmation to the user and a lead notification to the admin.",
+    "trigger": "Webhook POST — path: /webhook/solicitud-automatizacion",
+    "payload_expected": {
+      "name": "...",
+      "email": "...",
+      "company": "...",
+      "industry": "...",
+      "problem": "...",
+      "page": "...",
+      "referrer": "...",
+      "language": "...",
+      "formType": "automatizacion-gratis",
+      "source": "consulting-page"
+    },
+    "placeholders_to_fill": [
+      "{{ GOOGLE_SHEETS_DOCUMENT_ID }} — ID of the Google Sheets spreadsheet",
+      "{{ GOOGLE_SHEETS_SHEET_ID }} — Numeric ID of the \"free_automation\" sheet tab",
+      "{{ ADMIN_EMAIL }} — Admin email for new lead notifications",
+      "{{ CREDENTIAL_ID }} — Auto-assigned by n8n",
+      "{{ WEBHOOK_ID }} — Auto-assigned by n8n"
+    ],
+    "credentials_required": [
+      "Google Sheets OAuth2 (Sheets gobeamariano@gmail.com)",
+      "Gmail OAuth2 (gobeamariano@gmail.com Gmail)"
+    ]
+  }
+}
