@@ -494,19 +494,22 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "_docs": {
-    "description": "AI Blog Creator — sanitized version for documentation. Replace all {{ PLACEHOLDER }} values before importing.",
+  "_documentation": {
+    "name": "AI Blog Creator",
     "version": "1.0",
-    "last_updated": "2026-02-25",
-    "credentials_required": [
-      "OpenRouter account (OpenRouter API)",
-      "Mgobeaalcoba Github (GitHub OAuth2)"
+    "description": "Reads trending topics from Hacker News RSS, generates bilingual technical articles with AI (OpenRouter), publishes to GitHub (triggers site rebuild), inserts metadata in Supabase, and publishes as draft on dev.to.",
+    "trigger": "Schedule: Mon/Thu 8am + Manual",
+    "rss_source": "Hacker News Frontpage (https://hnrss.org/frontpage)",
+    "ai_model": "OpenRouter (z-ai/glm-4.5-air:free or configured model)",
+    "placeholders_to_fill": [
+      "{{ DEVTO_API_KEY }} — dev.to Settings → Extensions → API Keys",
+      "{{ SUPABASE_SERVICE_ROLE_KEY }} — Supabase Dashboard → Settings → API → Legacy → service_role",
+      "{{ SUPABASE_URL }} — Supabase Dashboard → Settings → API → Project URL",
+      "{{ CREDENTIAL_ID }} — Auto-assigned by n8n when credentials are configured"
     ],
-    "placeholders": {
-      "DEVTO_API_KEY": "dev.to API Key",
-      "SUPABASE_SERVICE_ROLE_KEY": "Supabase service_role key (Settings > API > Legacy)",
-      "SUPABASE_URL": "Supabase project URL (Settings > API)",
-      "CREDENTIAL_ID": "Internal n8n credential ID (assigned automatically on import)"
-    }
+    "credentials_required": [
+      "OpenRouter account (n8n credential type: OpenRouter API)",
+      "Mgobeaalcoba Github (n8n credential type: GitHub OAuth2)"
+    ]
   }
 }
