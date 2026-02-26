@@ -151,9 +151,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
 
-        {/* Redirect legacy GitHub Pages URL to canonical domain */}
+        {/* Redirect legacy GitHub Pages URLs to canonical domain with path mapping */}
         <Script id="domain-redirect" strategy="beforeInteractive">
-          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){window.location.replace('https://www.mgatc.com'+window.location.pathname+window.location.search);}`}
+          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){var p=window.location.pathname;var t=p==='/'||p===''||p==='/index.html'?'/portfolio/':p.match(/^\\/consulting(\\/|$|\\?)/)?'/':p;window.location.replace('https://www.mgatc.com'+t+window.location.search);}`}
         </Script>
 
         <DataErrorBoundary>
