@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Building2, GraduationCap, Trophy, Calendar, ArrowRight, Gift, Rocket } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import CalendlyButton from '@/components/shared/CalendlyButton';
 
 const TYPING_WORDS = [
@@ -48,8 +49,44 @@ interface ConsultingHeroProps {
   onOpenProposal?: () => void;
 }
 
+// Per-theme visual config — background matches the page bg of each mode
+const THEME_CONFIG = {
+  dark: {
+    bgGradient:  'linear-gradient(to bottom, #020617, #0f172a, #111827)',
+    topGlow:     'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(56,189,248,0.12) 0%, transparent 60%)',
+    bottomFade:  'linear-gradient(to top, #111827, transparent)',
+    gridColor:   'rgba(56,189,248,0.10)',
+    glowBg:      'radial-gradient(circle, rgba(56,189,248,0.13) 0%, transparent 70%)',
+    rocketClass: 'text-sky-400 drop-shadow-[0_0_28px_rgba(56,189,248,0.65)]',
+    bloomBg:     'radial-gradient(circle, rgba(251,146,60,0.55) 0%, transparent 70%)',
+    particle:    'bg-sky-400',
+  },
+  light: {
+    bgGradient:  'linear-gradient(to bottom, #f8fafc, #f1f5f9, #f3f4f6)',
+    topGlow:     'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(14,165,233,0.10) 0%, transparent 60%)',
+    bottomFade:  'linear-gradient(to top, #f3f4f6, transparent)',
+    gridColor:   'rgba(2,132,199,0.09)',
+    glowBg:      'radial-gradient(circle, rgba(2,132,199,0.09) 0%, transparent 70%)',
+    rocketClass: 'text-sky-600 drop-shadow-[0_0_28px_rgba(2,132,199,0.45)]',
+    bloomBg:     'radial-gradient(circle, rgba(251,146,60,0.40) 0%, transparent 70%)',
+    particle:    'bg-sky-500',
+  },
+  terminal: {
+    bgGradient:  'linear-gradient(to bottom, #000000, #040d04, #0a0a0a)',
+    topGlow:     'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(0,255,0,0.09) 0%, transparent 60%)',
+    bottomFade:  'linear-gradient(to top, #0a0a0a, transparent)',
+    gridColor:   'rgba(0,255,0,0.08)',
+    glowBg:      'radial-gradient(circle, rgba(0,255,0,0.10) 0%, transparent 70%)',
+    rocketClass: 'text-green-400 drop-shadow-[0_0_28px_rgba(0,255,0,0.65)]',
+    bloomBg:     'radial-gradient(circle, rgba(0,200,0,0.40) 0%, transparent 70%)',
+    particle:    'bg-green-400',
+  },
+} as const;
+
 export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) {
   const { lang } = useLanguage();
+  const { theme } = useTheme();
+  const tc = THEME_CONFIG[theme];
   const [typingText, setTypingText] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -112,22 +149,19 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
       ref={sectionRef}
       className="relative min-h-[88vh] flex items-center pt-24 pb-16 overflow-hidden"
     >
-      {/* ── Layer 1: Dark background with parallax ── */}
+      {/* ── Layer 1: Background with parallax — color matches current theme ── */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: bgY }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-gray-900" />
+        <div className="absolute inset-0" style={{ background: tc.bgGradient }} />
         {/* Top glow */}
+        <div className="absolute inset-0" style={{ background: tc.topGlow }} />
+        {/* Bottom fade — blends seamlessly into page bg */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(56,189,248,0.12) 0%, transparent 60%)',
-          }}
+          className="absolute bottom-0 left-0 right-0 h-28"
+          style={{ background: tc.bottomFade }}
         />
-        {/* Bottom fade to blend with rest of page */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent" />
       </motion.div>
 
       {/* ── Layer 2: Perspective grid ── */}
@@ -139,8 +173,8 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(56,189,248,0.10) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(56,189,248,0.10) 1px, transparent 1px)
+              linear-gradient(${tc.gridColor} 1px, transparent 1px),
+              linear-gradient(90deg, ${tc.gridColor} 1px, transparent 1px)
             `,
             backgroundSize: '64px 64px',
             maskImage:
@@ -158,15 +192,14 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
           className="flex flex-col items-center"
           style={{ y: rocketY, opacity: rocketOpa }}
         >
-          {/* Sky glow halo behind rocket */}
+          {/* Glow halo behind rocket — color matches theme accent */}
           <div
             style={{
               position: 'absolute',
               width: 220,
               height: 220,
               borderRadius: '50%',
-              background:
-                'radial-gradient(circle, rgba(56,189,248,0.13) 0%, transparent 70%)',
+              background: tc.glowBg,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
@@ -183,7 +216,7 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
             <Rocket
               size={116}
               strokeWidth={1.1}
-              className="text-sky-400 drop-shadow-[0_0_28px_rgba(56,189,248,0.65)]"
+              className={tc.rocketClass}
             />
           </motion.div>
 
@@ -203,7 +236,7 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
             }}
           />
 
-          {/* Orange bloom at the engine nozzle — flickers during flight */}
+          {/* Engine bloom — flickers during flight, color adapts to theme */}
           <motion.div
             style={{
               position: 'absolute',
@@ -213,8 +246,7 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
               width: 52,
               height: 52,
               borderRadius: '50%',
-              background:
-                'radial-gradient(circle, rgba(251,146,60,0.55) 0%, transparent 70%)',
+              background: tc.bloomBg,
               opacity: trailOpa,
             }}
             animate={{ scale: [1, 1.25, 0.9, 1.15, 1] }}
@@ -228,7 +260,7 @@ export default function ConsultingHero({ onOpenProposal }: ConsultingHeroProps) 
         {PARTICLES.map((p, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-sky-400"
+            className={`absolute rounded-full ${tc.particle}`}
             style={{ width: p.size, height: p.size, left: p.left, top: p.top }}
             animate={{ y: [0, -24, 0], opacity: [0, 0.5, 0] }}
             transition={{
