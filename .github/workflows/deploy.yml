@@ -12,6 +12,7 @@ on:
       - 'cv/tailwind.config.ts'
       - 'cv/tsconfig.json'
       - 'cv/content/posts/**'
+      - 'db/migrations/**'
       - 'neil/src/**'
       - 'neil/public/**'
       - 'neil/package*.json'
