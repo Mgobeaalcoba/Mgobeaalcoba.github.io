@@ -144,6 +144,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
 
+        {/* Redirect legacy GitHub Pages URL to canonical domain */}
+        <Script id="domain-redirect" strategy="beforeInteractive">
+          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){window.location.replace('https://mgatc.com'+window.location.pathname+window.location.search);}`}
+        </Script>
+
         {/* Google Analytics 4 */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
