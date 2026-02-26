@@ -1,9 +1,17 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Home, BookOpen, Briefcase, Calculator, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+// Known URL patterns that moved — auto-redirect instead of showing 404
+const KNOWN_REDIRECTS: Array<{ pattern: RegExp; target: string }> = [
+  { pattern: /\/consulting/i, target: '/' },
+  { pattern: /\/consultoria/i, target: '/' },
+  { pattern: /\/cv\b/i, target: '/portfolio/' },
+];
 
 const PAGES = [
   {
@@ -45,6 +53,14 @@ const ACCENT_CLASSES: Record<string, { border: string; icon: string; hover: stri
 
 export default function NotFound() {
   const { lang } = useLanguage();
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    const match = KNOWN_REDIRECTS.find(({ pattern }) => pattern.test(path));
+    if (match) {
+      window.location.replace(match.target);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
