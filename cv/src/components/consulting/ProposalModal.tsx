@@ -77,10 +77,10 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
         }),
         signal: AbortSignal.timeout(10000),
       });
-      events.leadFormSent('consulting');
     } catch {
       // Graceful handling: proceed to success state even on network error
     } finally {
+      events.leadFormSent('consulting'); // fires always, regardless of fetch outcome
       setLoading(false);
       setSubmitted(true);
     }

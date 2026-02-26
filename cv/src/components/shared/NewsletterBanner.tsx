@@ -20,6 +20,7 @@ export default function NewsletterBanner() {
     e.preventDefault();
     if (!email || loading) return;
     setLoading(true);
+    const page = window.location.pathname;
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -28,17 +29,17 @@ export default function NewsletterBanner() {
           email,
           name: '',
           source: 'cv-site-newsletter',
-          page: window.location.pathname,
+          page,
           timestamp: new Date().toISOString(),
           userAgent: navigator.userAgent,
           language: document.documentElement.lang || 'es',
         }),
         signal: AbortSignal.timeout(10000),
       });
-      events.newsletterSubscribe(window.location.pathname);
     } catch {
       // Show success even on network error — subscriber is in the DB from retry
     } finally {
+      events.newsletterSubscribe(page); // fires always, regardless of fetch outcome
       setLoading(false);
       setSubmitted(true);
     }
