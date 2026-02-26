@@ -24,6 +24,11 @@ export function event(action: string, params: Record<string, unknown> = {}) {
   }
 }
 
+// Key events always include send_to to guarantee attribution to the correct GA4 property
+function keyEvent(action: string, params: Record<string, unknown> = {}) {
+  event(action, { send_to: GA_ID, ...params });
+}
+
 export const events = {
   scrollDepth: (percent: number, site_section = 'cv') =>
     event('scroll_depth', { percent, site_section }),
@@ -37,8 +42,9 @@ export const events = {
   experienceOpen: (company: string, role: string) =>
     event('experience_modal_open', { company, role }),
 
+  // KEY EVENT — GA4 recommended name for file/CV downloads
   downloadCV: () =>
-    event('cv_download', { site_section: 'cv' }),
+    keyEvent('cv_download', { site_section: 'cv' }),
 
   socialClick: (platform: string) =>
     event('social_click', { platform, site_section: 'cv' }),
@@ -61,15 +67,17 @@ export const events = {
   proposalModalOpen: () =>
     event('proposal_modal_open', { site_section: 'consulting' }),
 
-  // Conversion funnel — submit with form_type for segmentation
+  // KEY EVENT — GA4 recommended name: sign_up (replaces newsletter_subscribe)
   newsletterSubscribe: (page: string) =>
-    event('newsletter_subscribe', { page, site_section: page, form_type: 'newsletter' }),
+    keyEvent('sign_up', { page, site_section: page, form_type: 'newsletter', method: 'newsletter_form' }),
 
+  // KEY EVENT — GA4 recommended name: generate_lead (replaces lead_form_sent)
   leadFormSent: (page: string, form_type = 'contact') =>
-    event('lead_form_sent', { page, site_section: page, form_type }),
+    keyEvent('generate_lead', { page, site_section: page, form_type }),
 
+  // KEY EVENT — Calendly intent
   calendlyClick: (site_section = 'consulting') =>
-    event('calendly_click', { site_section }),
+    keyEvent('calendly_click', { site_section }),
 
   serviceView: (packId: string) =>
     event('service_view', { pack_id: packId, site_section: 'consulting' }),
