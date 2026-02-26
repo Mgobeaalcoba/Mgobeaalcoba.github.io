@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ConsultingPageClient from './ConsultingPageClient';
 import JsonLd from '@/components/shared/JsonLd';
 
-const SITE_URL = 'https://mgobeaalcoba.github.io';
+const SITE_URL = 'https://mgatc.com';
 const PAGE_URL = `${SITE_URL}/consulting/`;
 
 export const metadata: Metadata = {

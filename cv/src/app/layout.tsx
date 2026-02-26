@@ -9,7 +9,7 @@ import JsonLd from '@/components/shared/JsonLd';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
-const SITE_URL = 'https://mgobeaalcoba.github.io';
+const SITE_URL = 'https://mgatc.com';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -95,13 +95,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://mgobeaalcoba.github.io',
+    url: 'https://mgatc.com',
     siteName: 'Mariano Gobea Alcoba',
     title: 'Mariano Gobea Alcoba | Data & Analytics Technical Leader',
     description: 'Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.',
     images: [
       {
-        url: 'https://mgobeaalcoba.github.io/images/logo.png',
+        url: 'https://mgatc.com/images/logo.png',
         width: 1200,
         height: 630,
         alt: 'Mariano Gobea Alcoba',

@@ -7,7 +7,7 @@ import RecursosClient from './RecursosClient';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import JsonLd from '@/components/shared/JsonLd';
 
-const PAGE_URL = 'https://mgobeaalcoba.github.io/recursos/';
+const PAGE_URL = 'https://mgatc.com/recursos/';
 
 export const metadata: Metadata = {
   title: 'Recursos Financieros | Calculadoras y Dashboard Argentina',

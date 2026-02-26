@@ -7,7 +7,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
 
-const SITE_URL = 'https://mgobeaalcoba.github.io';
+const SITE_URL = 'https://mgatc.com';
 
 interface PageProps {
   params: { slug: string };

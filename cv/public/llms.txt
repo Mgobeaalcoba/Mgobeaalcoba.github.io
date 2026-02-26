@@ -16,7 +16,7 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of
 
 ## Services (Consulting)
 
-- [Tech Consulting Page](https://mgobeaalcoba.github.io/consulting/): AI automation, BI dashboards, process optimization, tech mentoring for SMBs
+- [Tech Consulting Page](https://mgatc.com/consulting/): AI automation, BI dashboards, process optimization, tech mentoring for SMBs
   - Process Automation (n8n, Python, AI) — reduce operational costs up to 80%
   - Applied AI: chatbots, virtual assistants, custom ML models
   - Business Intelligence: real-time dashboards and data pipelines
@@ -27,7 +27,7 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of
 
 ## Financial Tools (Argentina)
 
-- [Recursos Financieros](https://mgobeaalcoba.github.io/recursos/): Free financial calculators and tools for Argentina
+- [Recursos Financieros](https://mgatc.com/recursos/): Free financial calculators and tools for Argentina
   - Income Tax Calculator (Impuesto Ganancias 2026)
   - Net/Gross Salary Simulator
   - Real-time USD Exchange Rates (official, blue, MEP, CCL)
@@ -36,7 +36,7 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of
 
 ## Technical Blog
 
-- [Blog](https://mgobeaalcoba.github.io/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — real-world experiences from Mercado Libre.
+- [Blog](https://mgatc.com/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — real-world experiences from Mercado Libre.
 
 ### Recent Articles
 
@@ -64,7 +64,7 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of
 
 ## Contact & Social
 
-- Website: https://mgobeaalcoba.github.io
+- Website: https://mgatc.com
 - LinkedIn: https://linkedin.com/in/mgobeaalcoba
 - GitHub: https://github.com/Mgobeaalcoba
 - Twitter/X: https://twitter.com/MGobeaAlcoba
@@ -74,4 +74,4 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of
 
 ## Technical Sitemap
 
-Full sitemap: https://mgobeaalcoba.github.io/sitemap.xml
+Full sitemap: https://mgatc.com/sitemap.xml
