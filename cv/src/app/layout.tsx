@@ -127,6 +127,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        {/* Domain redirect — raw <script> in <head> so it fires before any React code */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();` }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -150,11 +152,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Calendly widget */}
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
-
-        {/* Redirect legacy GitHub Pages URLs to canonical domain with path mapping */}
-        <Script id="domain-redirect" strategy="beforeInteractive">
-          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){var p=window.location.pathname;var t=p==='/'||p===''||p==='/index.html'?'/portfolio/':p.match(/^\\/consulting(\\/|$|\\?)/)?'/':p;window.location.replace('https://www.mgatc.com'+t+window.location.search);}`}
-        </Script>
 
         <DataErrorBoundary>
           <ThemeProvider>
