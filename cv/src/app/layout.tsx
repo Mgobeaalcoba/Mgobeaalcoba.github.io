@@ -138,6 +138,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.placename" content="Buenos Aires" />
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
+        {/* GA4 inline in <head> for tag quality score */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});`,
+          }}
+        />
       </head>
       <body>
         {/* Calendly widget */}
@@ -147,24 +154,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Redirect legacy GitHub Pages URL to canonical domain */}
         <Script id="domain-redirect" strategy="beforeInteractive">
           {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){window.location.replace('https://www.mgatc.com'+window.location.pathname+window.location.search);}`}
-        </Script>
-
-        {/* Google Analytics 4 */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-              site_section: 'cv',
-              client_name: 'Mariano Gobea Alcoba',
-            });
-          `}
         </Script>
 
         <DataErrorBoundary>
