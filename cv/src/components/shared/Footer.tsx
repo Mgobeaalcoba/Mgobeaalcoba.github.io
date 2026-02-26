@@ -12,15 +12,15 @@ export default function Footer() {
   const { theme } = useTheme();
   const pathname = usePathname();
   const isDark = theme === 'dark' || theme === 'terminal';
-  const isConsultingPage = pathname.includes('/consulting') ||
-    pathname.includes('/blog') ||
-    pathname.includes('/recursos');
+  const isPortfolioPage = pathname.startsWith('/portfolio');
+  const isConsultingPage = !isPortfolioPage;
 
   const logoSrc = isConsultingPage
     ? (isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png')
     : (isDark ? '/images/portfolio-logo-dark.png' : '/images/portfolio-logo.png');
 
   const logoAlt = isConsultingPage ? 'MGA Tech Consulting' : 'MGA Portfolio';
+  const logoHref = isPortfolioPage ? '/portfolio/' : '/';
 
   return (
     <footer className="glass border-t border-white/10 mt-20">
@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand with logo */}
           <div className="md:col-span-1">
-            <Link href="/" className="block mb-4">
+            <Link href={logoHref} className="block mb-4">
               <Image
                 src={logoSrc}
                 alt={logoAlt}
@@ -50,12 +50,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-gray-400 hover:text-sky-400 transition-colors">
-                  Portfolio / CV
+                  {t('nav_consulting')}
                 </Link>
               </li>
               <li>
-                <Link href="/consulting/" className="text-gray-400 hover:text-sky-400 transition-colors">
-                  {t('nav_consulting')}
+                <Link href="/portfolio/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                  Portfolio / CV
                 </Link>
               </li>
               <li>
@@ -118,7 +118,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1 text-xs text-gray-500">
               <span>Next.js 14 · TypeScript</span>
               <span>Tailwind CSS · Framer Motion</span>
-              <span>GitHub Pages · GA4</span>
+              <span>Cloudflare Pages · GA4</span>
               <span className="mt-2 text-gray-600">© 2026 Mariano Gobea Alcoba</span>
             </div>
           </div>

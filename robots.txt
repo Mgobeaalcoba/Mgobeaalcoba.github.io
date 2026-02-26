@@ -19,13 +19,13 @@ Allow: /humans.txt
 Allow: /llms.txt
 
 # Sitemap
-Sitemap: https://mgatc.com/sitemap.xml
+Sitemap: https://www.mgatc.com/sitemap.xml
 
 # LLMs / AI agents discovery file
-LLMs-txt: https://mgatc.com/llms.txt
+LLMs-txt: https://www.mgatc.com/llms.txt
 
 # Preferred domain
-Host: https://mgatc.com
+Host: https://www.mgatc.com
 
 # Search engines
 User-agent: Googlebot

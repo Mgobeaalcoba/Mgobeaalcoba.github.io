@@ -8,17 +8,17 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const PAGES = [
   {
     href: '/',
-    icon: Home,
-    label: { es: 'Portfolio', en: 'Portfolio' },
-    desc: { es: 'Experiencia, proyectos y certificaciones', en: 'Experience, projects and certifications' },
-    accent: 'sky',
-  },
-  {
-    href: '/consulting/',
     icon: Briefcase,
     label: { es: 'Consultoría', en: 'Consulting' },
     desc: { es: 'Automatización e IA para tu empresa', en: 'Automation and AI for your business' },
     accent: 'violet',
+  },
+  {
+    href: '/portfolio/',
+    icon: Home,
+    label: { es: 'Portfolio', en: 'Portfolio' },
+    desc: { es: 'Experiencia, proyectos y certificaciones', en: 'Experience, projects and certifications' },
+    accent: 'sky',
   },
   {
     href: '/blog/',

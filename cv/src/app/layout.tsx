@@ -9,7 +9,7 @@ import JsonLd from '@/components/shared/JsonLd';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
-const SITE_URL = 'https://mgatc.com';
+const SITE_URL = 'https://www.mgatc.com';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -95,13 +95,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://mgatc.com',
+    url: 'https://www.mgatc.com',
     siteName: 'Mariano Gobea Alcoba',
     title: 'Mariano Gobea Alcoba | Data & Analytics Technical Leader',
     description: 'Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.',
     images: [
       {
-        url: 'https://mgatc.com/images/logo.png',
+        url: 'https://www.mgatc.com/images/logo.png',
         width: 1200,
         height: 630,
         alt: 'Mariano Gobea Alcoba',
@@ -146,7 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Redirect legacy GitHub Pages URL to canonical domain */}
         <Script id="domain-redirect" strategy="beforeInteractive">
-          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){window.location.replace('https://mgatc.com'+window.location.pathname+window.location.search);}`}
+          {`if(typeof window!=='undefined'&&window.location.hostname==='mgobeaalcoba.github.io'){window.location.replace('https://www.mgatc.com'+window.location.pathname+window.location.search);}`}
         </Script>
 
         {/* Google Analytics 4 */}

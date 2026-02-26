@@ -7,7 +7,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
 
-const SITE_URL = 'https://mgatc.com';
+const SITE_URL = 'https://www.mgatc.com';
 
 interface PageProps {
   params: { slug: string };
@@ -202,7 +202,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               ← Otros artículos
             </Link>
             <Link
-              href="/consulting/"
+              href="/"
               className="text-sm text-sky-400 hover:text-sky-300 transition-colors"
             >
               Consultoría →

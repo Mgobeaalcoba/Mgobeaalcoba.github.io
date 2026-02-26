@@ -10,8 +10,8 @@ import type { Theme } from '@/contexts/ThemeContext';
 import Image from 'next/image';
 
 const NAV_LINKS = [
-  { href: '/', labelKey: 'nav_portfolio' },
-  { href: '/consulting/', labelKey: 'nav_consulting' },
+  { href: '/', labelKey: 'nav_consulting' },
+  { href: '/portfolio/', labelKey: 'nav_portfolio' },
   { href: '/blog/', labelKey: 'nav_blog' },
   { href: '/recursos/', labelKey: 'nav_recursos' },
 ];
@@ -57,15 +57,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isConsultingPage = pathname.includes('/consulting') ||
-    pathname.includes('/blog') ||
-    pathname.includes('/recursos');
+  const isPortfolioPage = pathname.startsWith('/portfolio');
+  const isConsultingPage = !isPortfolioPage;
 
   // On the portfolio page the hero always has a dark video background.
   // When not yet scrolled and in light mode the transparent navbar would have
   // dark text over the dark video → unreadable. CSS class nav-on-dark-bg
   // restores the light-palette with higher specificity than the !important rules.
-  const isPortfolioPage = !isConsultingPage;
   const forceWhiteText = isPortfolioPage && !scrolled && theme === 'light';
 
   useEffect(() => {
@@ -79,6 +77,8 @@ export default function Navbar() {
     return pathname.startsWith(href.replace(/\/$/, ''));
   };
 
+  const logoHref = isPortfolioPage ? '/portfolio/' : '/';
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -88,7 +88,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href={logoHref} className="flex items-center group">
             <NavLogo isConsultingPage={isConsultingPage} forceDarkLogo={forceWhiteText} />
           </Link>
 

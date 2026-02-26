@@ -25,7 +25,7 @@ export default function ConsultingTeaser() {
             : 'I apply my expertise in data and technology to help SMBs optimize operations, reduce costs, and grow. Discover how automation, AI, and Business Intelligence can transform your business.'}
         </p>
         <Link
-          href="/consulting/"
+          href="/"
           className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02]"
         >
           <Briefcase size={18} />

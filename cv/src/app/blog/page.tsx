@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description:
     'Artículos técnicos sobre Data Engineering, Python, Automatización con IA y Business Intelligence. Experiencias reales desde MercadoLibre.',
   alternates: {
-    canonical: 'https://mgatc.com/blog/',
+    canonical: 'https://www.mgatc.com/blog/',
   },
   openGraph: {
     title: 'Blog Técnico - Mariano Gobea Alcoba',
     description: 'Data Engineering en las Trincheras: artículos técnicos sobre IA, Python y datos.',
-    url: 'https://mgatc.com/blog/',
+    url: 'https://www.mgatc.com/blog/',
   },
 };
 
