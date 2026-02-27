@@ -7,9 +7,8 @@ const CALENDLY_URL = 'https://calendly.com/mariano-gobea-mercadolibre/30min';
 
 declare global {
   interface Window {
-    Calendly?: {
-      initPopupWidget: (opts: { url: string }) => void;
-    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Calendly?: any;
   }
 }
 
