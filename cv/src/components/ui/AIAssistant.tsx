@@ -7,7 +7,8 @@ import { useAIAssistant } from '@/hooks/useAIAssistant';
 
 declare global {
     interface Window {
-        Calendly: any;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        Calendly?: any;
     }
 }
 
