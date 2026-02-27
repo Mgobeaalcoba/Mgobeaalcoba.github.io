@@ -84,12 +84,12 @@ export function useAIAssistant() {
                 { role: 'user', content: userMessage.content }
             ];
 
-            // Use an environment variable for the proxy URL. If not available, fallback to direct openrouter call for dev.
-            // NOTE: Direct openrouter call requires NEXT_PUBLIC_OPENROUTER_API_KEY in .env.local for MVP.
-            const apiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY?.replace(/"/g, '');
-            const apiProxyUrl = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL;
-            // Ignore placeholder proxy URL if user copied it literally
-            const isProxyValid = apiProxyUrl && !apiProxyUrl.includes('tu-instancia.com');
+            // In Next.js static exports, NEXT_PUBLIC_ variables are replaced at build time.
+            // Destructuring them directly helps the bundler trace the substitution.
+            const rawApiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || '';
+            const apiKey = rawApiKey.replace(/"/g, '');
+            const apiProxyUrl = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL || '';
+            const isProxyValid = apiProxyUrl.length > 0 && !apiProxyUrl.includes('tu-instancia.com');
 
             let responseContent = '';
 
