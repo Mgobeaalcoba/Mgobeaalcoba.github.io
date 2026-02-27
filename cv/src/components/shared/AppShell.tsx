@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import IntroLoader from './IntroLoader';
+import { AIAssistant } from '@/components/ui/AIAssistant';
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(false);
@@ -23,6 +24,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     <>
       {showIntro && <IntroLoader onComplete={handleIntroComplete} />}
       {children}
+      <AIAssistant />
     </>
   );
 }
