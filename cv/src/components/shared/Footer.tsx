@@ -37,19 +37,9 @@ export default function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            {isPortfolioPage ? (
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Data & Analytics Technical Leader at MercadoLibre.
-                <br />
-                Buenos Aires, Argentina.
-              </p>
-            ) : (
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Consultoría tech especializada en automatización, BI e IA para PyMEs.
-                <br />
-                Transformamos procesos en ventajas competitivas con ROI medible.
-              </p>
-            )}
+            <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">
+              {isPortfolioPage ? t('footer_portfolio_desc') : t('footer_consulting_desc')}
+            </p>
           </div>
 
           {/* Navigation */}

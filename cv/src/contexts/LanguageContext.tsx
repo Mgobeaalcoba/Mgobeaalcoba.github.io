@@ -32,6 +32,8 @@ const translations: Record<string, Record<Language, string>> = {
   load_more: { es: 'Ver más proyectos', en: 'Load more projects' },
   footer_design: { es: 'Diseñado con', en: 'Designed with' },
   footer_location: { es: 'en Buenos Aires', en: 'in Buenos Aires' },
+  footer_portfolio_desc: { es: 'Data & Analytics Technical Leader at MercadoLibre.\nBuenos Aires, Argentina.', en: 'Data & Analytics Technical Leader at MercadoLibre.\nBuenos Aires, Argentina.' },
+  footer_consulting_desc: { es: 'Consultoría tech especializada en automatización, BI e IA para PyMEs.\nTransformamos procesos en ventajas competitivas con ROI medible.', en: 'Tech consulting specialized in automation, BI and AI for SMEs.\nWe turn processes into competitive advantages with measurable ROI.' },
   consulting_hero_title: { es: 'Tecnología que impulsa tu negocio', en: 'Technology that drives your business' },
   consulting_hero_sub: { es: 'Automatización IA y Business Intelligence para PyMEs', en: 'AI Automation and Business Intelligence for SMEs' },
   consulting_cta: { es: 'Diagnóstico Gratuito', en: 'Free Diagnosis' },
