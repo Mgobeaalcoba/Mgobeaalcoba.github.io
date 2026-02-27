@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, User, CalendarDays } from 'lucide-react';
 import { useAIAssistant } from '@/hooks/useAIAssistant';
+import { events } from '@/lib/gtag';
 
 declare global {
     interface Window {
@@ -38,7 +39,9 @@ export function AIAssistant() {
     };
 
     const handleOpenCalendly = () => {
+        events.aiAssistantCalendlyClick();
         if (typeof window !== 'undefined') {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const Calendly = (window as any).Calendly;
             if (Calendly) {
                 Calendly.initPopupWidget({ url: CALENDLY_URL });

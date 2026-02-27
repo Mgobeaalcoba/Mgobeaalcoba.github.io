@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { events } from '@/lib/gtag';
 
 export interface ChatMessage {
     id: string;
@@ -48,10 +49,18 @@ export function useAIAssistant() {
         }
     }, []);
 
+    useEffect(() => {
+        if (isOpen) {
+            events.aiAssistantOpen();
+        }
+    }, [isOpen]);
+
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
 
     const sendMessage = useCallback(async (content: string) => {
         if (!content.trim()) return;
+
+        events.aiAssistantMessageSent(content.length);
 
         const userMessage: ChatMessage = {
             id: Date.now().toString(),

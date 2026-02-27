@@ -84,4 +84,14 @@ export const events = {
 
   floatingCtaClick: (site_section: string) =>
     event('floating_cta_click', { site_section }),
+
+  // AI Assistant Events
+  aiAssistantOpen: () =>
+    event('ai_assistant_open', { site_section: 'cv' }),
+
+  aiAssistantMessageSent: (message_length: number) =>
+    event('ai_assistant_message_sent', { message_length, site_section: 'cv' }),
+
+  aiAssistantCalendlyClick: () =>
+    keyEvent('ai_assistant_calendly_click', { site_section: 'cv' }),
 };
