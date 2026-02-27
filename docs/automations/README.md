@@ -123,7 +123,7 @@ Recibe los envíos del formulario de contacto del sitio web, los registra en Goo
 🖊️ Construir Email HTML            🖊️ Construir Email Notificación Admin
     ↓                                   ↓
 📧 Enviar Email de Agradecimiento  📧 Enviar Notificación Admin
-   (→ email del usuario)              (→ gobeamariano@gmail.com)
+   (→ email del usuario)              (→ mariano@mgatc.com)
 ```
 
 ### Payload esperado del formulario
@@ -146,8 +146,8 @@ Recibe los envíos del formulario de contacto del sitio web, los registra en Goo
 
 | Nombre en n8n | Tipo | Descripción |
 |---|---|---|
-| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 | Acceso a la spreadsheet de contactos |
-| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 | Envío de emails de agradecimiento y notificación |
+| `Sheets mariano@mgatc.com` | Google Sheets OAuth2 | Acceso a la spreadsheet de contactos |
+| `mariano@mgatc.com Gmail` | Gmail OAuth2 | Envío de emails de agradecimiento y notificación |
 
 ### Placeholders a completar tras importar
 
@@ -202,8 +202,8 @@ Recibe las suscripciones al newsletter del sitio web. Registra el email del susc
 
 | Nombre en n8n | Tipo |
 |---|---|
-| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
-| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+| `Sheets mariano@mgatc.com` | Google Sheets OAuth2 |
+| `mariano@mgatc.com Gmail` | Gmail OAuth2 |
 
 ### Placeholders a completar
 
@@ -256,8 +256,8 @@ Procesa los leads del formulario de "Automatización Gratis" de la página Consu
 
 | Nombre en n8n | Tipo |
 |---|---|
-| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
-| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+| `Sheets mariano@mgatc.com` | Google Sheets OAuth2 |
+| `mariano@mgatc.com Gmail` | Gmail OAuth2 |
 
 ### Placeholders a completar
 
@@ -310,8 +310,8 @@ Genera y envía diariamente un newsletter HTML con las 3 noticias más disruptiv
 |---|---|
 | `n8n free OpenAI API credits` (o cuenta propia) | OpenAI API |
 | `SerpAPI account` | SerpAPI |
-| `Sheets gobeamariano@gmail.com` | Google Sheets OAuth2 |
-| `gobeamariano@gmail.com Gmail` | Gmail OAuth2 |
+| `Sheets mariano@mgatc.com` | Google Sheets OAuth2 |
+| `mariano@mgatc.com Gmail` | Gmail OAuth2 |
 
 ### Placeholders a completar
 

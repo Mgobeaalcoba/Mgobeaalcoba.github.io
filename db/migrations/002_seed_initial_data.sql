@@ -7,7 +7,7 @@
 -- cv_meta
 INSERT INTO cv_meta (id, name, title_es, title_en, email, phone, location, linkedin, github, twitter, calendly, ga4_id) VALUES
   (1, 'Mariano Gobea Alcoba', 'Data & Analytics Technical Leader en Mercado Libre', 'Data & Analytics Technical Leader at Mercado Libre',
-   'gobeamariano@gmail.com', '+54 9 11 27475569', 'Buenos Aires, Argentina',
+   'mariano@mgatc.com', '+54 9 11 27475569', 'Buenos Aires, Argentina',
    'https://www.linkedin.com/in/mariano-gobea-alcoba/', 'https://github.com/Mgobeaalcoba', 'https://twitter.com/MGobeaAlcoba',
    'https://calendly.com/gobeamariano/mga-consulting', 'G-DG0SLT5RY3');
 

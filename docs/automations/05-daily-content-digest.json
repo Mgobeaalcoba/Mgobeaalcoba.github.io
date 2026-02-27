@@ -137,7 +137,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "{{ CREDENTIAL_ID }}",
-          "name": "gobeamariano@gmail.com Gmail"
+          "name": "mariano@mgatc.com Gmail"
         }
       }
     },
@@ -170,7 +170,7 @@
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "{{ CREDENTIAL_ID }}",
-          "name": "Sheets gobeamariano@gmail.com"
+          "name": "Sheets mariano@mgatc.com"
         }
       }
     }
@@ -262,8 +262,8 @@
     "credentials_required": [
       "OpenAI API (n8n free credits or own key)",
       "SerpAPI account (for real-time news search)",
-      "Google Sheets OAuth2 (Sheets gobeamariano@gmail.com)",
-      "Gmail OAuth2 (gobeamariano@gmail.com Gmail)"
+      "Google Sheets OAuth2 (Sheets mariano@mgatc.com)",
+      "Gmail OAuth2 (mariano@mgatc.com Gmail)"
     ]
   }
 }

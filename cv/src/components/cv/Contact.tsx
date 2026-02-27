@@ -69,7 +69,7 @@ export default function Contact() {
           {/* Contact info */}
           <div className="space-y-4">
             {[
-              { icon: <Mail size={18} />, label: 'gobeamariano@gmail.com', href: 'mailto:gobeamariano@gmail.com' },
+              { icon: <Mail size={18} />, label: 'mariano@mgatc.com', href: 'mailto:mariano@mgatc.com' },
               { icon: <Phone size={18} />, label: '+54 9 11 27475569', href: 'tel:+5491127475569' },
               { icon: <MapPin size={18} />, label: 'Buenos Aires, Argentina', href: null },
               { icon: <Linkedin size={18} />, label: 'linkedin.com/in/mariano-gobea-alcoba', href: 'https://www.linkedin.com/in/mariano-gobea-alcoba/' },

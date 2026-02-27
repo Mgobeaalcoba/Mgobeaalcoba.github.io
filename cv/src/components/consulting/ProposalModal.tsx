@@ -241,7 +241,7 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                     WhatsApp
                   </a>
                   <a
-                    href="mailto:gobeamariano@gmail.com"
+                    href="mailto:mariano@mgatc.com"
                     className="flex items-center justify-center gap-2 glass border border-white/20 text-gray-300 hover:text-white font-semibold py-3 rounded-xl transition-all text-sm"
                   >
                     <Mail size={16} />

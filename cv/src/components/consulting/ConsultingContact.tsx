@@ -47,7 +47,7 @@ export default function ConsultingContact() {
         </div>
 
         <p className="text-gray-600 text-sm mt-6">
-          gobeamariano@gmail.com · +54 9 11 27475569
+          mariano@mgatc.com · +54 9 11 27475569
         </p>
       </motion.div>
     </section>

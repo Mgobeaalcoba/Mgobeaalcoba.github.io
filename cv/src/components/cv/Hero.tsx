@@ -150,7 +150,7 @@ export default function Hero() {
                 { href: 'https://www.linkedin.com/in/mariano-gobea-alcoba/', icon: <Linkedin size={18} />, label: 'LinkedIn' },
                 { href: 'https://github.com/Mgobeaalcoba', icon: <Github size={18} />, label: 'GitHub' },
                 { href: 'https://twitter.com/MGobeaAlcoba', icon: <Twitter size={18} />, label: 'Twitter' },
-                { href: 'mailto:gobeamariano@gmail.com', icon: <Mail size={18} />, label: 'Email' },
+                { href: 'mailto:mariano@mgatc.com', icon: <Mail size={18} />, label: 'Email' },
               ].map(({ href, icon, label }) => (
                 <a
                   key={label}

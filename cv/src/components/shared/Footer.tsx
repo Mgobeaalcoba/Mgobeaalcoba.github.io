@@ -37,11 +37,19 @@ export default function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Data & Analytics Technical Leader at MercadoLibre.
-              <br />
-              Buenos Aires, Argentina.
-            </p>
+            {isPortfolioPage ? (
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Data & Analytics Technical Leader at MercadoLibre.
+                <br />
+                Buenos Aires, Argentina.
+              </p>
+            ) : (
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Consultoría tech especializada en automatización, BI e IA para PyMEs.
+                <br />
+                Transformamos procesos en ventajas competitivas con ROI medible.
+              </p>
+            )}
           </div>
 
           {/* Navigation */}
@@ -103,11 +111,11 @@ export default function Footer() {
                 Twitter/X
               </a>
               <a
-                href="mailto:gobeamariano@gmail.com"
+                href="mailto:mariano@mgatc.com"
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Mail size={14} />
-                gobeamariano@gmail.com
+                mariano@mgatc.com
               </a>
             </div>
           </div>
@@ -138,7 +146,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <span>·</span>
-            <a href="mailto:gobeamariano@gmail.com" className="hover:text-sky-400 transition-colors">
+            <a href="mailto:mariano@mgatc.com" className="hover:text-sky-400 transition-colors">
               Email
             </a>
           </div>

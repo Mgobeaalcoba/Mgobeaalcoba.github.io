@@ -219,7 +219,7 @@
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "{{ CREDENTIAL_ID }}",
-          "name": "Sheets gobeamariano@gmail.com"
+          "name": "Sheets mariano@mgatc.com"
         }
       }
     },
@@ -257,7 +257,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "{{ CREDENTIAL_ID }}",
-          "name": "gobeamariano@gmail.com Gmail"
+          "name": "mariano@mgatc.com Gmail"
         }
       }
     },
@@ -295,7 +295,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "{{ CREDENTIAL_ID }}",
-          "name": "gobeamariano@gmail.com Gmail"
+          "name": "mariano@mgatc.com Gmail"
         }
       }
     }
@@ -379,8 +379,8 @@
       "{{ WEBHOOK_ID }} — Auto-assigned by n8n when webhook is registered"
     ],
     "credentials_required": [
-      "Google Sheets OAuth2 (n8n credential name: Sheets gobeamariano@gmail.com)",
-      "Gmail OAuth2 (n8n credential name: gobeamariano@gmail.com Gmail)"
+      "Google Sheets OAuth2 (n8n credential name: Sheets mariano@mgatc.com)",
+      "Gmail OAuth2 (n8n credential name: mariano@mgatc.com Gmail)"
     ]
   }
 }
