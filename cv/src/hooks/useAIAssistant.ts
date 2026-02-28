@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { events } from '@/lib/gtag';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export interface ChatMessage {
     id: string;
@@ -7,47 +8,75 @@ export interface ChatMessage {
     content: string;
 }
 
-const SYSTEM_PROMPT = `Eres el Asistente Técnico y Comercial de Mariano Gobea Alcoba, diseñado específicamente para su sitio web MGA Tech Consulting.
-Tu propósito principal es calificar leads, responder consultas profesionales sobre sus servicios, tecnología, portfolio y lograr que el usuario agende una reunión.
+function buildSystemPrompt(lang: 'es' | 'en'): string {
+    const langInstruction = lang === 'en'
+        ? 'IMPORTANT: The site is currently set to English. Your INITIAL welcome message MUST be in English. Then, ALWAYS reply in the SAME LANGUAGE the user writes in. If they write in Spanish, reply in Spanish. If they write in English, reply in English. Never mix languages in a single response.'
+        : 'IMPORTANTE: El sitio está configurado en español. Tu mensaje de bienvenida INICIAL debe ser en español. Luego, responde SIEMPRE en el idioma en el que te escriba el usuario. Si te escribe en inglés, responde en inglés. Si te escribe en español, responde en español. Nunca mezcles idiomas en una misma respuesta.';
 
-REGLAS ESTRICTAS DE RESPUESTA:
-1. SÓLO puedes responder preguntas relacionadas con:
-   - Los servicios de MGA Tech Consulting (Automatización, Inteligencia Artificial, Data & BI, y Mentorías).
-   - El perfil profesional, experiencia y portfolio de Mariano Gobea Alcoba.
-   - El contenido del blog y recursos publicados en su sitio web.
-   - Cómo agendar una reunión o contactar a Mariano.
-2. Si el usuario pregunta cualquier otra cosa (clima, política, historia, programación en general no relacionada con los servicios, chistes, etc.), DEBES NEGARTE CORTÉSMENTE A RESPONDER.
-   - Ejemplo de rechazo: "Lo siento, como asistente de MGA Tech Consulting solo estoy capacitado para responder sobre los servicios de automatización, IA y Data de Mariano, su portfolio o para ayudarte a agendar una reunión. ¿En qué te puedo asesorar sobre estos temas?"
-3. OBJETIVO PRINCIPAL: Siempre que sea natural en la conversación, debes intentar persuadir sutilmente al usuario para que agende una reunión con Mariano para discutir su proyecto o necesidades.
-4. Para ofrecer agendar una reunión DEBES usar EXACTAMENTE esta etiqueta al final de tu mensaje: [ACTION:CALENDLY]
-   - Ejemplo de uso: "Me encantaría que hablemos sobre cómo automatizar tus procesos. Puedes agendar una llamada directa con Mariano aquí: [ACTION:CALENDLY]"
-5. Habla siempre en primera persona del plural (nosotros) cuando hables de la consultora, o en tercera persona si hablas específicamente de la carrera de Mariano.
-6. Tu tono debe ser: Profesional, tecnológico, resolutivo, claro y amable (tipo consultor B2B).
-7. NUNCA inventes información. Si no sabes algo sobre la experiencia de Mariano o los servicios, di claramente que no tienes esa información y sugiere agendar una llamada para consultarlo directamente con él [ACTION:CALENDLY].
+    return `You are the Technical and Commercial Assistant of Mariano Gobea Alcoba, designed specifically for the MGA Tech Consulting website.
+Your main purpose is to qualify leads, answer professional queries about services, technology, portfolio, and get users to schedule a meeting.
 
-CONTEXTO SOBRE MARIANO GOBEA ALCOBA Y MGA TECH CONSULTING:
-- Mariano es Data & Analytics Technical Leader en Mercado Libre, con más de 6 años de experiencia en el área.
-- MGA Tech Consulting es una consultora orientada a PyMEs que quieren automatizar procesos, implementar Business Intelligence (BI) o adoptar IA sin un equipo técnico propio.
-- Servicios ofrecidos: Automatización de Procesos (n8n, Zapier), Business Intelligence & Analytics, Transformación Digital con IA (RAG, agentes, fine-tuning).
-- El sitio web tiene secciones de Portfolio (/portfolio), Blog (/blog), y Recursos Financieros (/recursos).`;
+${langInstruction}
+
+STRICT RESPONSE RULES:
+1. You CAN ONLY answer questions related to:
+   - MGA Tech Consulting services (Automation, Artificial Intelligence, Data & BI, Mentoring).
+   - Mariano Gobea Alcoba's professional profile, experience, and portfolio.
+   - Blog content and resources published on the website.
+   - How to schedule a meeting or contact Mariano.
+2. If the user asks about ANYTHING else (weather, politics, history, general programming unrelated to services, jokes, etc.), you MUST POLITELY REFUSE.
+   - Example refusal (adapt language to match user): "I'm sorry, as the MGA Tech Consulting assistant, I'm only trained to answer questions about Mariano's automation, AI and Data services, his portfolio, or to help you schedule a meeting. How can I assist you on these topics?"
+3. MAIN GOAL: Whenever natural in the conversation, subtly persuade the user to schedule a meeting with Mariano.
+4. To offer scheduling a meeting, use EXACTLY this tag at the end of your message: [ACTION:CALENDLY]
+   - Example: "I'd love to discuss how we can automate your processes. You can schedule a call directly with Mariano here: [ACTION:CALENDLY]"
+5. Always speak in first person plural (we/nosotros) when talking about the consultancy, or third person when referring specifically to Mariano's career.
+6. Your tone: Professional, technical, solutions-focused, clear and friendly (B2B consultant style).
+7. NEVER invent information. If you don't know something about Mariano's experience or services, clearly say you don't have that information and suggest scheduling a call. [ACTION:CALENDLY]
+
+CONTEXT ABOUT MARIANO GOBEA ALCOBA AND MGA TECH CONSULTING:
+- Mariano is a Data & Analytics Technical Leader at Mercado Libre, with over 6 years of experience.
+- MGA Tech Consulting is a consultancy focused on SMEs that want to automate processes, implement Business Intelligence (BI), or adopt AI without their own technical team.
+- Services: Process Automation (n8n, Zapier), Business Intelligence & Analytics, Digital Transformation with AI (RAG, agents, fine-tuning).
+- The website has Portfolio (/portfolio), Blog (/blog), and Financial Resources (/recursos) sections.`;
+}
+
+const WELCOME_MESSAGES: Record<'es' | 'en', string> = {
+    es: '¡Hola! Soy el asistente virtual de MGA Tech Consulting. ¿En qué puedo ayudarte hoy?',
+    en: 'Hi there! I\'m the MGA Tech Consulting virtual assistant. How can I help you today?',
+};
 
 export function useAIAssistant() {
+    const { lang } = useLanguage();
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const hasInitialized = useRef(false);
+    const currentLang = useRef(lang);
 
+    // Initialize messages on first mount
     useEffect(() => {
         if (!hasInitialized.current) {
             setMessages([
-                { id: 'system-1', role: 'system', content: SYSTEM_PROMPT },
-                { id: 'welcome-1', role: 'assistant', content: '¡Hola! Soy el asistente virtual de MGA Tech Consulting. ¿En qué puedo ayudarte hoy?' }
+                { id: 'system-1', role: 'system', content: buildSystemPrompt(lang) },
+                { id: 'welcome-1', role: 'assistant', content: WELCOME_MESSAGES[lang] }
             ]);
             hasInitialized.current = true;
+            currentLang.current = lang;
         }
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // When language changes, reset the chat with updated messages
+    useEffect(() => {
+        if (hasInitialized.current && lang !== currentLang.current) {
+            currentLang.current = lang;
+            setMessages([
+                { id: 'system-1', role: 'system', content: buildSystemPrompt(lang) },
+                { id: 'welcome-1', role: 'assistant', content: WELCOME_MESSAGES[lang] }
+            ]);
+        }
+    }, [lang]);
 
     useEffect(() => {
         if (isOpen) {
@@ -73,10 +102,10 @@ export function useAIAssistant() {
         setError(null);
 
         try {
-            // Create message array for the API, excluding the welcome message if needed, or just keep it all.
-            // Usually we pass system prompt + history
+            // Build message array: system prompt + history (excluding welcome) + new user message
+            const systemPrompt = buildSystemPrompt(currentLang.current);
             const apiMessages = [
-                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'system', content: systemPrompt },
                 ...messages.filter(m => m.role !== 'system' && m.id !== 'welcome-1').map(m => ({
                     role: m.role,
                     content: m.content
@@ -85,7 +114,6 @@ export function useAIAssistant() {
             ];
 
             // In Next.js static exports, NEXT_PUBLIC_ variables are replaced at build time.
-            // Destructuring them directly helps the bundler trace the substitution.
             const rawApiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || '';
             const apiKey = rawApiKey.replace(/"/g, '');
             const apiProxyUrl = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL || '';
@@ -103,10 +131,10 @@ export function useAIAssistant() {
 
                 if (!res.ok) throw new Error('Network error from proxy');
                 const data = await res.json();
-                responseContent = data.content || data.output || data.message || 'Error en la respuesta del webhook.';
+                responseContent = data.content || data.output || data.message || 'Error in webhook response.';
 
             } else if (apiKey) {
-                // Dev mode using direct API
+                // Direct OpenRouter call
                 const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                     method: 'POST',
                     headers: {
@@ -116,7 +144,7 @@ export function useAIAssistant() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        model: 'z-ai/glm-4.5-air:free', // Model requested by user
+                        model: 'z-ai/glm-4.5-air:free',
                         messages: apiMessages,
                     })
                 });
@@ -129,7 +157,7 @@ export function useAIAssistant() {
                 const data = await res.json();
                 responseContent = data.choices[0].message.content;
             } else {
-                throw new Error('No API Key or Webhook URL configured. Please set NEXT_PUBLIC_OPENROUTER_API_KEY or NEXT_PUBLIC_AI_WEBHOOK_URL in your environment.');
+                throw new Error('No API Key or Webhook URL configured.');
             }
 
             const assistantMessage: ChatMessage = {
@@ -142,12 +170,14 @@ export function useAIAssistant() {
 
         } catch (err) {
             console.error('Error sending message:', err);
-            setError('Hubo un error al procesar tu solicitud. Por favor, intenta nuevamente.');
-            // Add error message to chat
+            const errorMsg = currentLang.current === 'en'
+                ? 'There was a connection error. Please make sure the AI credentials are configured and try again.'
+                : 'Hubo un error de conexión al procesar tu solicitud. Asegúrate de que las credenciales de IA estén configuradas.';
+            setError(currentLang.current === 'en' ? 'There was an error. Please try again.' : 'Hubo un error. Por favor, intenta nuevamente.');
             setMessages(prev => [...prev, {
                 id: (Date.now() + 1).toString(),
                 role: 'assistant',
-                content: 'Hubo un error de conexión al procesar tu solicitud. Asegúrate de que las credenciales de IA estén configuradas.'
+                content: errorMsg
             }]);
         } finally {
             setIsLoading(false);
@@ -155,7 +185,7 @@ export function useAIAssistant() {
     }, [messages]);
 
     return {
-        messages: messages.filter(m => m.role !== 'system'), // Hide system messages from UI
+        messages: messages.filter(m => m.role !== 'system'),
         isLoading,
         isOpen,
         error,
