@@ -74,15 +74,15 @@ const translations: Record<string, Record<Language, string>> = {
   contact_name: { es: 'Nombre', en: 'Name' },
   contact_email: { es: 'Email', en: 'Email' },
   contact_message: { es: 'Mensaje', en: 'Message' },
-  floating_cta_cv: { es: 'Agenda un espacio conmigo', en: 'Book a time with me' },
-  floating_cta_consulting: { es: 'Conozcámonos', en: "Let's connect" },
-  floating_cta_blog: { es: 'Quiero saber más', en: 'Want to know more' },
-  floating_cta_recursos: { es: 'Conóceme más', en: 'Learn about me' },
+  floating_cta_cv: { es: 'Agendame', en: 'Schedule me' },
+  floating_cta_consulting: { es: 'Agendame', en: 'Schedule me' },
+  floating_cta_blog: { es: 'Agendame', en: 'Schedule me' },
+  floating_cta_recursos: { es: 'Agendame', en: 'Schedule me' },
 };
 
 const LanguageContext = createContext<LanguageContextValue>({
   lang: 'es',
-  setLang: () => {},
+  setLang: () => { },
   t: (key) => key,
 });
 
