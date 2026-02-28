@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, Sparkles } from 'lucide-react';
 import { events } from '@/lib/gtag';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -60,17 +60,17 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             aria-label={t(labelKey)}
-            className="relative flex items-center gap-2 px-3 py-2 rounded-xl font-medium text-xs text-white
+            className="relative flex items-center gap-2.5 px-4 py-3 rounded-2xl font-semibold text-sm text-white
               bg-gradient-to-br from-sky-500 via-blue-500 to-violet-600
-              shadow-[0_0_16px_rgba(14,165,233,0.4)]
-              hover:shadow-[0_0_24px_rgba(14,165,233,0.6)]
+              shadow-[0_0_24px_rgba(14,165,233,0.55)]
+              hover:shadow-[0_0_40px_rgba(14,165,233,0.75)]
               active:scale-95 transition-all duration-200 border border-white/20"
           >
             {/* Animated icon */}
             <motion.span
               animate={hovered
-                ? { rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }
-                : { y: [0, -2, 0], scale: [1, 1.05, 1] }
+                ? { rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.2, 1.15, 1.1, 1.05, 1] }
+                : { y: [0, -3, 0], scale: [1, 1.05, 1] }
               }
               transition={hovered
                 ? { duration: 0.5, ease: 'easeInOut' }
@@ -78,10 +78,19 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
               }
               className="flex items-center justify-center"
             >
-              <Calendar size={14} className="shrink-0" />
+              <Calendar size={16} className="shrink-0" />
             </motion.span>
 
             <span>{t(labelKey)}</span>
+
+            {/* Sparkle badge */}
+            <motion.span
+              animate={{ rotate: [0, 20, -20, 0], scale: [1, 1.2, 0.9, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-yellow-300"
+            >
+              <Sparkles size={12} />
+            </motion.span>
 
             {/* Inner shimmer sweep */}
             <motion.span
