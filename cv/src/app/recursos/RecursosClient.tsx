@@ -13,6 +13,7 @@ import {
   HelpCircle,
   ChevronDown,
   LayoutGrid,
+  Share2,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
@@ -23,10 +24,12 @@ import EconomicIndicators from "@/components/recursos/EconomicIndicators";
 import HolidaysArgentina from "@/components/recursos/HolidaysArgentina";
 import FAQRecursos from "@/components/recursos/FAQRecursos";
 import ROICalculator from "@/components/showcase/ROICalculator";
+import ArchVisualizer from "@/components/showcase/ArchVisualizer";
 
 type TabId =
   | "calculator"
   | "roi"
+  | "arch"
   | "tokens"
   | "dashboard"
   | "rates"
@@ -34,7 +37,7 @@ type TabId =
   | "holidays"
   | "faq";
 
-type CategoryId = "calculators" | "data" | "info";
+type CategoryId = "finance" | "tech" | "general";
 
 interface TabItem {
   id: TabId;
@@ -51,8 +54,8 @@ interface TabCategory {
 
 const TAB_CATEGORIES: TabCategory[] = [
   {
-    id: "calculators",
-    label: { es: "Calculadoras", en: "Calculators" },
+    id: "finance",
+    label: { es: "Financieros", en: "Finance" },
     tabs: [
       {
         id: "calculator",
@@ -60,24 +63,6 @@ const TAB_CATEGORIES: TabCategory[] = [
         label: { es: "Ganancias", en: "Income Tax" },
         wide: true,
       },
-      {
-        id: "roi",
-        icon: <TrendingUp size={16} />,
-        label: { es: "ROI Automatización", en: "Automation ROI" },
-        wide: true,
-      },
-      {
-        id: "tokens",
-        icon: <Bot size={16} />,
-        label: { es: "Tokens GenAI", en: "GenAI Tokens" },
-        wide: true,
-      },
-    ],
-  },
-  {
-    id: "data",
-    label: { es: "Datos", en: "Data" },
-    tabs: [
       {
         id: "dashboard",
         icon: <BarChart2 size={16} />,
@@ -96,17 +81,41 @@ const TAB_CATEGORIES: TabCategory[] = [
         label: { es: "Indicadores", en: "Economic Indicators" },
         wide: true,
       },
+    ],
+  },
+  {
+    id: "tech",
+    label: { es: "Tech & Automatización", en: "Tech & Automation" },
+    tabs: [
+      {
+        id: "arch",
+        icon: <Share2 size={16} />,
+        label: { es: "Visualizador Ark", en: "Arch Visualizer" },
+        wide: true,
+      },
+      {
+        id: "roi",
+        icon: <TrendingUp size={16} />,
+        label: { es: "ROI Automatización", en: "Automation ROI" },
+        wide: true,
+      },
+      {
+        id: "tokens",
+        icon: <Bot size={16} />,
+        label: { es: "Tokens GenAI", en: "GenAI Tokens" },
+        wide: true,
+      },
+    ],
+  },
+  {
+    id: "general",
+    label: { es: "Generales", en: "General" },
+    tabs: [
       {
         id: "holidays",
         icon: <Calendar size={16} />,
         label: { es: "Feriados", en: "Holidays" },
       },
-    ],
-  },
-  {
-    id: "info",
-    label: { es: "Información", en: "Information" },
-    tabs: [
       {
         id: "faq",
         icon: <HelpCircle size={16} />,
@@ -124,8 +133,7 @@ const ALL_TAB_IDS = TAB_CATEGORIES.flatMap((cat) =>
 export default function RecursosClient() {
   const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<TabId>("calculator");
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryId>("calculators");
+  const [activeCategory, setActiveCategory] = useState<CategoryId>("finance");
   const [isMounted, setIsMounted] = useState(false);
 
   // Sync hash on mount and when tab changes
@@ -299,6 +307,7 @@ export default function RecursosClient() {
         >
           {activeTab === "calculator" && <TaxCalculator />}
           {activeTab === "roi" && <ROICalculator />}
+          {activeTab === "arch" && <ArchVisualizer />}
           {activeTab === "tokens" && <TokenCalculator />}
           {activeTab === "dashboard" && <InvestmentDashboard />}
           {activeTab === "rates" && <ExchangeRates />}

@@ -13,6 +13,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import * as gtag from "@/lib/gtag";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -75,6 +76,18 @@ export default function ROICalculator() {
       threeYearTotalSavings: annualSavings * 3 - inputs.implementationCost,
     };
   }, [inputs]);
+
+  // Track simulation event (debounced)
+  useMemo(() => {
+    const handler = setTimeout(() => {
+      if (results.annualSavings > 0) {
+        gtag.events.roiCalculatorSimulate(
+          Math.round(results.annualSavings / 12)
+        );
+      }
+    }, 2000);
+    return () => clearTimeout(handler);
+  }, [results.annualSavings]);
 
   const chartData = {
     labels:

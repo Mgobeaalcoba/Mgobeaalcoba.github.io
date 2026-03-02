@@ -100,4 +100,18 @@ export const events = {
 
   aiAssistantFormView: () =>
     event('ai_assistant_form_view', { site_section: 'cv' }),
+
+  // Resource Tools Events
+  archVisualizerAddNode: (nodeId: string) =>
+    event('arch_visualizer_add_node', { node_id: nodeId, site_section: 'recursos' }),
+  
+  archVisualizerClear: () =>
+    event('arch_visualizer_clear', { site_section: 'recursos' }),
+
+  roiCalculatorSimulate: (monthlySavings: number) =>
+    keyEvent('roi_simulate', { 
+      monthly_savings: monthlySavings, 
+      site_section: 'recursos',
+      currency: 'USD'
+    }),
 };
