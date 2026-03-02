@@ -5,23 +5,23 @@ on:
     branches: [main]
     paths:
       # Rebuild on any source file change across all three sites
-      - 'cv/src/**'
-      - 'cv/public/**'
-      - 'cv/package*.json'
-      - 'cv/next.config.js'
-      - 'cv/tailwind.config.ts'
-      - 'cv/tsconfig.json'
-      - 'cv/content/posts/**'
-      - 'db/migrations/**'
-      - 'neil/src/**'
-      - 'neil/public/**'
-      - 'neil/package*.json'
-      - 'neil/next.config.js'
-      - 'elportugues/src/**'
-      - 'elportugues/public/**'
-      - 'elportugues/package*.json'
-      - 'elportugues/next.config.js'
-      - '.github/workflows/deploy.yml'
+      - "cv/src/**"
+      - "cv/public/**"
+      - "cv/package*.json"
+      - "cv/next.config.js"
+      - "cv/tailwind.config.ts"
+      - "cv/tsconfig.json"
+      - "cv/content/posts/**"
+      - "db/migrations/**"
+      - "neil/src/**"
+      - "neil/public/**"
+      - "neil/package*.json"
+      - "neil/next.config.js"
+      - "elportugues/src/**"
+      - "elportugues/public/**"
+      - "elportugues/package*.json"
+      - "elportugues/next.config.js"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch: # allow manual trigger from GitHub UI or n8n automation
 
 permissions:
@@ -39,8 +39,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: cv/package-lock.json
 
       - name: Install CV dependencies
@@ -70,8 +70,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: neil/package-lock.json
 
       - name: Install Neil dependencies
@@ -104,8 +104,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: elportugues/package-lock.json
 
       - name: Install El Portugués dependencies
@@ -193,4 +193,4 @@ jobs:
           publish_dir: /tmp/deploy/site
           publish_branch: gh-pages
           force_orphan: true
-          commit_message: 'chore: deploy all sites [skip ci]'
+          commit_message: "chore: deploy all sites ${{ github.sha }}"
