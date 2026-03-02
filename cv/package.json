@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-knowledge": "tsx scripts/sync-knowledge.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",

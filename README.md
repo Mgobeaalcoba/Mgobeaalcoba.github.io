@@ -10,11 +10,11 @@ Monorepo que contiene la presencia digital completa de **Mariano Gobea Alcoba** 
 
 ## Sitios incluidos en el monorepo
 
-| Sitio | Directorio | URL producción | Descripción |
-|---|---|---|---|
-| MGA Tech Consulting + Portfolio | `cv/` | `www.mgatc.com` | Sitio principal — consultoría + CV interactivo |
-| Neil Climatizadores | `neil/` | `www.mgatc.com/neil-site/` | Cliente: climatización vehicular |
-| El Portugués S.A. | `elportugues/` | `www.mgatc.com/elportugues-site/` | Cliente: logística y distribución |
+| Sitio                           | Directorio     | URL producción                    | Descripción                                    |
+| ------------------------------- | -------------- | --------------------------------- | ---------------------------------------------- |
+| MGA Tech Consulting + Portfolio | `cv/`          | `www.mgatc.com`                   | Sitio principal — consultoría + CV interactivo |
+| Neil Climatizadores             | `neil/`        | `www.mgatc.com/neil-site/`        | Cliente: climatización vehicular               |
+| El Portugués S.A.               | `elportugues/` | `www.mgatc.com/elportugues-site/` | Cliente: logística y distribución              |
 
 ---
 
@@ -25,6 +25,7 @@ Monorepo que contiene la presencia digital completa de **Mariano Gobea Alcoba** 
 Página institucional de **MGA Tech Consulting**, la consultora orientada a PyMEs que quieren automatizar procesos, implementar BI o adoptar IA sin un equipo técnico propio.
 
 **Contenido:**
+
 - **Hero con efecto parallax** — cohete animado con trail de fuego scroll-driven, fondo adaptativo a los tres temas (dark/light/terminal), typing animation de servicios
 - **Propuesta de valor** — "El Cambio de Paradigma": desarrollo ágil con ROI medible
 - **Servicios** — Automatización de Procesos (n8n, Zapier, webhooks), Business Intelligence & Analytics, Transformación Digital con IA (RAG, agentes, fine-tuning), Mentorías Tech, Cursos para Equipos, Reclutamiento Tech
@@ -44,6 +45,7 @@ Página institucional de **MGA Tech Consulting**, la consultora orientada a PyME
 Portfolio personal de Mariano con animación de intro y CV completo.
 
 **Contenido:**
+
 - **Hero** — nombre, cargo (Data & Analytics Technical Leader · MercadoLibre), acceso a consultoría y descarga de CV en PDF
 - **Sobre mí** — resumen profesional con +6 años en MercadoLibre liderando equipos de datos e IA
 - **Experiencia profesional** — 14+ posiciones con tags de tecnologías, modales de detalle
@@ -60,6 +62,7 @@ Portfolio personal de Mariano con animación de intro y CV completo.
 Blog técnico sobre ingeniería de datos, Python, IA y automatización.
 
 **Contenido:**
+
 - Posts en Markdown con syntax highlighting, tablas y tipografía optimizada
 - Videos (masterclasses y grabaciones de clases)
 - Filtro visual entre videos y posts escritos
@@ -73,6 +76,7 @@ Blog técnico sobre ingeniería de datos, Python, IA y automatización.
 Herramientas gratuitas para el contexto económico argentino.
 
 **Contenido:**
+
 - **Calculadora de Ganancias** — Art. 94 LIG, escala completa, deducciones del Art. 30, valores AFIP 2026, gráfico de torta, escenarios precargados
 - **Cotizaciones del dólar** — oficial, blue, MEP, CCL, cripto, tarjeta — en tiempo real con histórico interactivo
 - **Indicadores económicos** — inflación, plazo fijo, riesgo país con histórico
@@ -122,26 +126,26 @@ Sitio institucional para empresa de logística y distribución con 80+ años de 
 
 ### Frontend — Stack
 
-| Tecnología | Uso |
-|---|---|
-| **Next.js 14** (App Router, static export) | Framework principal para los 3 sitios |
-| **TypeScript** | Lenguaje en todo el codebase |
-| **Tailwind CSS** + `@tailwindcss/typography` | Estilos |
-| **Framer Motion** | Animaciones (parallax, scroll-driven, intro) |
-| **Lucide React** | Iconografía |
-| **remark** + `remark-html` + `remark-gfm` | Procesado de Markdown para el blog |
-| **@supabase/supabase-js** | Cliente de base de datos |
+| Tecnología                                   | Uso                                          |
+| -------------------------------------------- | -------------------------------------------- |
+| **Next.js 14** (App Router, static export)   | Framework principal para los 3 sitios        |
+| **TypeScript**                               | Lenguaje en todo el codebase                 |
+| **Tailwind CSS** + `@tailwindcss/typography` | Estilos                                      |
+| **Framer Motion**                            | Animaciones (parallax, scroll-driven, intro) |
+| **Lucide React**                             | Iconografía                                  |
+| **remark** + `remark-html` + `remark-gfm`    | Procesado de Markdown para el blog           |
+| **@supabase/supabase-js**                    | Cliente de base de datos                     |
 
 ### Hosting & Deploy
 
-| Capa | Tecnología | URL |
-|---|---|---|
-| **Hosting principal** | Cloudflare Pages | `www.mgatc.com` |
-| **Dominio** | Cloudflare Registrar | `mgatc.com` |
-| **DNS** | Cloudflare DNS | MX, CNAME, TXT, DMARC |
-| **Redirect legacy** | GitHub Pages (gh-pages branch) | `mgobeaalcoba.github.io` |
-| **CI/CD** | GitHub Actions | Push a `main` → rebuild + redeploy |
-| **Email** | Cloudflare Email Routing + Brevo SMTP | `mariano@mgatc.com` |
+| Capa                  | Tecnología                            | URL                                |
+| --------------------- | ------------------------------------- | ---------------------------------- |
+| **Hosting principal** | Cloudflare Pages                      | `www.mgatc.com`                    |
+| **Dominio**           | Cloudflare Registrar                  | `mgatc.com`                        |
+| **DNS**               | Cloudflare DNS                        | MX, CNAME, TXT, DMARC              |
+| **Redirect legacy**   | GitHub Pages (gh-pages branch)        | `mgobeaalcoba.github.io`           |
+| **CI/CD**             | GitHub Actions                        | Push a `main` → rebuild + redeploy |
+| **Email**             | Cloudflare Email Routing + Brevo SMTP | `mariano@mgatc.com`                |
 
 ### Build
 
@@ -154,12 +158,14 @@ build-elportugues ─┘
 ```
 
 **Para Cloudflare Pages** se usa el script `build-cloudflare.sh` en el root:
+
 ```bash
 bash build-cloudflare.sh   # Build command en Cloudflare Pages
 # Output directory: _site
 ```
 
 El script buildea los 3 sitios y ensambla:
+
 ```
 _site/                     ← CV (root)
 _site/neil-site/           ← Neil
@@ -170,23 +176,23 @@ _site/elportugues-site/    ← El Portugués
 
 Todo el contenido dinámico del CV vive en Supabase. Actualizar contenido = un SQL, sin tocar código.
 
-| Tabla | Descripción |
-|---|---|
-| `experience` + `experience_tags` | 14+ posiciones profesionales con tags de tecnologías |
-| `projects` + `project_tags` | Proyectos de GitHub con filtrado |
-| `education` + `education_tags` | Títulos y formaciones |
-| `certifications` + `certification_tags` | 109+ certificaciones |
-| `blog_posts` | Metadata de posts del blog (slug, date, title, canonical_url) |
-| `consulting_packs` + features + automations | Packs de consultoría |
-| `consulting_case_studies` + tags | Casos de éxito |
+| Tabla                                       | Descripción                                                   |
+| ------------------------------------------- | ------------------------------------------------------------- |
+| `experience` + `experience_tags`            | 14+ posiciones profesionales con tags de tecnologías          |
+| `projects` + `project_tags`                 | Proyectos de GitHub con filtrado                              |
+| `education` + `education_tags`              | Títulos y formaciones                                         |
+| `certifications` + `certification_tags`     | 109+ certificaciones                                          |
+| `blog_posts`                                | Metadata de posts del blog (slug, date, title, canonical_url) |
+| `consulting_packs` + features + automations | Packs de consultoría                                          |
+| `consulting_case_studies` + tags            | Casos de éxito                                                |
 
 **Archivos locales** (no en Supabase):
 
-| Archivo | Contenido |
-|---|---|
+| Archivo                    | Contenido                                                   |
+| -------------------------- | ----------------------------------------------------------- |
 | `cv/src/data/content.json` | Meta (nombre, email, redes), about, techStack, processSteps |
-| `cv/src/data/videos.json` | Lista de videos de YouTube |
-| `cv/content/posts/*.md` | Contenido de los posts en Markdown |
+| `cv/src/data/videos.json`  | Lista de videos de YouTube                                  |
+| `cv/content/posts/*.md`    | Contenido de los posts en Markdown                          |
 
 ### Analytics & Tracking
 
@@ -201,15 +207,17 @@ Todo el contenido dinámico del CV vive en Supabase. Actualizar contenido = un S
 
 5 workflows productivos documentados en `docs/automations/`:
 
-| # | Workflow | Trigger | Descripción |
-|---|---|---|---|
-| 01 | AI Blog Creator | Schedule (semanal) | Toma trending topics de Hacker News, genera artículo con OpenRouter (Claude/GPT), publica en dev.to, guarda en GitHub (`cv/content/posts/`) y registra en Supabase |
-| 02 | Webhook Contact Form | Webhook | Recibe formularios de contacto de neil-site y elportugues-site, envía notificación por email |
-| 03 | Newsletter Subscription | Webhook | Captura suscripciones a "The Data Digest", registra en Google Sheets, envía email de bienvenida |
-| 04 | Free Automation Lead | Webhook | Recibe leads del form "Automatización Gratis" de la consultora, notifica y agenda seguimiento |
-| 05 | Daily Content Digest | Schedule (diario) | Genera resumen de noticias tech, lo envía por email |
+| #   | Workflow                      | Trigger            | Descripción                                                                                                                                                        |
+| --- | ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 01  | AI Blog Creator               | Schedule (semanal) | Toma trending topics de Hacker News, genera artículo con OpenRouter (Claude/GPT), publica en dev.to, guarda en GitHub (`cv/content/posts/`) y registra en Supabase |
+| 02  | Webhook Contact Form          | Webhook            | Recibe formularios de contacto de neil-site y elportugues-site, envía notificación por email                                                                       |
+| 03  | Newsletter Subscription       | Webhook            | Captura suscripciones a "The Data Digest", registra en Google Sheets, envía email de bienvenida                                                                    |
+| 04  | Free Automation Lead          | Webhook            | Recibe leads del form "Automatización Gratis" de la consultora, notifica y agenda seguimiento                                                                      |
+| 05  | Daily Content Digest          | Schedule (diario)  | Genera resumen de noticias tech, lo envía por email                                                                                                                |
+| 06  | Unified AI Agent (RAG + Lead) | Webhook            | Agente conversacional inteligente que realiza búsquedas semánticas en el blog (RAG) y captura leads automáticamente en Supabase.                                   |
 
 **Credenciales usadas por n8n:**
+
 - OpenRouter API (modelos LLM)
 - GitHub OAuth2 (commits de posts)
 - Brevo SMTP (emails)
@@ -218,13 +226,13 @@ Todo el contenido dinámico del CV vive en Supabase. Actualizar contenido = un S
 
 ### SEO & Discoverabilidad
 
-| Archivo | URL | Descripción |
-|---|---|---|
-| `cv/src/app/sitemap.ts` | `/sitemap.xml` | Sitemap dinámico (rutas estáticas + posts del blog) |
-| `cv/public/robots.txt` | `/robots.txt` | Directivas para crawlers, `Allow` especial para LLMs |
-| `cv/public/llms.txt` | `/llms.txt` | Descripción del sitio para agentes de IA |
-| JSON-LD en layouts | (embebido) | Schema.org: Person, WebSite, Service |
-| Canonical URLs | (embebido) | Apuntan todas a `https://www.mgatc.com` |
+| Archivo                 | URL            | Descripción                                          |
+| ----------------------- | -------------- | ---------------------------------------------------- |
+| `cv/src/app/sitemap.ts` | `/sitemap.xml` | Sitemap dinámico (rutas estáticas + posts del blog)  |
+| `cv/public/robots.txt`  | `/robots.txt`  | Directivas para crawlers, `Allow` especial para LLMs |
+| `cv/public/llms.txt`    | `/llms.txt`    | Descripción del sitio para agentes de IA             |
+| JSON-LD en layouts      | (embebido)     | Schema.org: Person, WebSite, Service                 |
+| Canonical URLs          | (embebido)     | Apuntan todas a `https://www.mgatc.com`              |
 
 ### Redirect Strategy
 
@@ -239,6 +247,7 @@ www.mgatc.com/consulting/         → www.mgatc.com/   (Cloudflare _redirects, 3
 ```
 
 Mecanismos:
+
 - **JS inline en `<head>`** de cada layout (dispara antes que GA4, preserva path+hash+query)
 - **`cv/public/_redirects`** — Cloudflare Pages CDN-level 301s
 
@@ -304,12 +313,12 @@ Correr directamente en el SQL Editor de Supabase. Un push que incluya cambios en
 
 ## Documentación adicional
 
-| Documento | Ubicación | Contenido |
-|---|---|---|
-| Automations README | `docs/automations/README.md` | Descripción detallada de los 5 workflows de n8n |
-| Automations JSONs | `docs/automations/*.json` | Exports sanitizados de cada workflow (sin API keys) |
-| SEO & Tracking | `tasks/seo-tracking-strategy.md` | Estrategia SEO completa, implementada y pendiente |
-| DB Migrations | `db/migrations/` | Historial de cambios en el schema de Supabase |
+| Documento          | Ubicación                        | Contenido                                           |
+| ------------------ | -------------------------------- | --------------------------------------------------- |
+| Automations README | `docs/automations/README.md`     | Descripción detallada de los 5 workflows de n8n     |
+| Automations JSONs  | `docs/automations/*.json`        | Exports sanitizados de cada workflow (sin API keys) |
+| SEO & Tracking     | `tasks/seo-tracking-strategy.md` | Estrategia SEO completa, implementada y pendiente   |
+| DB Migrations      | `db/migrations/`                 | Historial de cambios en el schema de Supabase       |
 
 ---
 

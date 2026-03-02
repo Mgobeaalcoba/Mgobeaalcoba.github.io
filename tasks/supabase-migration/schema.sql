@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS experience (
   title_es       TEXT NOT NULL,
   title_en       TEXT NOT NULL,
   company        TEXT NOT NULL,
+  company_logo   TEXT,
+  start_date     DATE,
+  end_date       DATE,
   description_es TEXT NOT NULL,
   description_en TEXT NOT NULL,
   sort_order     INT  NOT NULL DEFAULT 0

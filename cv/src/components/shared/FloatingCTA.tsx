@@ -1,17 +1,19 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar } from 'lucide-react';
-import { events } from '@/lib/gtag';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar } from "lucide-react";
+import { events } from "@/lib/gtag";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const CALENDLY_URL = 'https://calendly.com/mariano-gobea-mercadolibre/30min';
+const CALENDLY_URL = "https://calendly.com/mariano-gobea-mercadolibre/30min";
 
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Calendly?: any;
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+      closePopupWidget: () => void;
+    };
   }
 }
 
@@ -20,7 +22,10 @@ interface FloatingCTAProps {
   site_section: string;
 }
 
-export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps) {
+export default function FloatingCTA({
+  labelKey,
+  site_section,
+}: FloatingCTAProps) {
   const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -28,17 +33,17 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
   // Show button after user scrolls 200px
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 200);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleClick = () => {
     events.calendlyClick(site_section);
     events.floatingCtaClick(site_section);
-    if (typeof window !== 'undefined' && window.Calendly) {
+    if (typeof window !== "undefined" && window.Calendly) {
       window.Calendly.initPopupWidget({ url: CALENDLY_URL });
     } else {
-      window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+      window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -49,7 +54,7 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
           initial={{ opacity: 0, x: 60, scale: 0.85 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: 60, scale: 0.85 }}
-          transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+          transition={{ type: "spring", stiffness: 320, damping: 28 }}
           className="fixed bottom-6 right-4 z-40"
         >
           {/* Outer pulsing glow ring */}
@@ -68,13 +73,15 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
           >
             {/* Animated icon */}
             <motion.span
-              animate={hovered
-                ? { rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }
-                : { y: [0, -2, 0], scale: [1, 1.05, 1] }
+              animate={
+                hovered
+                  ? { rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }
+                  : { y: [0, -2, 0], scale: [1, 1.05, 1] }
               }
-              transition={hovered
-                ? { duration: 0.5, ease: 'easeInOut' }
-                : { duration: 2, repeat: Infinity, ease: 'easeInOut' }
+              transition={
+                hovered
+                  ? { duration: 0.5, ease: "easeInOut" }
+                  : { duration: 2, repeat: Infinity, ease: "easeInOut" }
               }
               className="flex items-center justify-center"
             >
@@ -85,10 +92,15 @@ export default function FloatingCTA({ labelKey, site_section }: FloatingCTAProps
 
             {/* Inner shimmer sweep */}
             <motion.span
-              animate={{ x: ['-120%', '220%'] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', repeatDelay: 1.5 }}
+              animate={{ x: ["-120%", "220%"] }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 1.5,
+              }}
               className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none overflow-hidden"
-              style={{ transform: 'skewX(-15deg)' }}
+              style={{ transform: "skewX(-15deg)" }}
             />
           </button>
         </motion.div>

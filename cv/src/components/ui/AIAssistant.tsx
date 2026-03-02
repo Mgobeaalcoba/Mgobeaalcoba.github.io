@@ -9,8 +9,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Calendly?: any;
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+      closePopupWidget: () => void;
+    };
   }
 }
 
@@ -44,10 +46,14 @@ export function AIAssistant() {
   const handleOpenCalendly = () => {
     events.aiAssistantCalendlyClick();
     if (typeof window !== "undefined") {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const Calendly = (window as any).Calendly;
-      if (Calendly) {
-        Calendly.initPopupWidget({ url: CALENDLY_URL });
+      const Calendly = window.Calendly;
+      if (Calendly && typeof Calendly.initPopupWidget === "function") {
+        try {
+          Calendly.initPopupWidget({ url: CALENDLY_URL });
+        } catch (error) {
+          console.error("Error initializing Calendly popup:", error);
+          window.open(CALENDLY_URL, "_blank");
+        }
       } else {
         window.open(CALENDLY_URL, "_blank");
       }

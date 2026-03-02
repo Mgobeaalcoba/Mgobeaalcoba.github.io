@@ -1257,14 +1257,35 @@ INSERT INTO ep_config (id, meta, brand, hero, about, services, quality, values_s
 );
 
 -- ep_history_timeline (7 events)
-INSERT INTO ep_history_timeline (year, event_es, event_en, sort_order) VALUES
-  ('1927', NULL, NULL, 0),
-  ('1937', NULL, NULL, 1),
-  ('1972', NULL, NULL, 2),
-  ('1976', NULL, NULL, 3),
-  ('1993', NULL, NULL, 4),
-  ('2015', NULL, NULL, 5),
-  ('HOY', NULL, NULL, 6);
+INSERT INTO ep_history_timeline (year, event_es, event_en, title_es, title_en, description_es, description_en, sort_order) VALUES
+  ('1927', NULL, NULL, 'Los inicios', 'The Beginnings',
+   'Nuestra historia se inicia con el sueño de Don Tomás Viegas, inmigrante portugués, quien comenzó como chofer en la empresa de su cuñado Manuel Machadinho (M&M).',
+   'Our history begins with the dream of Don Tomás Viegas, a Portuguese immigrant who started as a driver at his brother-in-law Manuel Machadinho''s company (M&M).',
+   0),
+  ('1937', NULL, NULL, 'Primer contrato', 'First Contract',
+   'Don Tomás comenzó a trabajar para la Elaboradora Argentina de Cereales, que luego pasó a manos de The Quaker Oats Company. Con un préstamo de la compañía, compró su primer camión Chevrolet ''46.',
+   'Don Tomás started working for the Argentine Cereal Processor, which later became The Quaker Oats Company. With a company loan, he bought his first Chevrolet ''46 truck.',
+   1),
+  ('1972', NULL, NULL, 'Formalización', 'Formalization',
+   'Se formaliza la empresa como ''El Portugués'', consolidándose con un pequeño depósito y flota propia de camiones Dodge 600 y 800.',
+   'The company was formally established as ''El Portugués'', consolidating with a small warehouse and its own fleet of Dodge 600 and 800 trucks.',
+   2),
+  ('1976', NULL, NULL, 'Expansión con Arcor', 'Expansion with Arcor',
+   'Respaldados por la trayectoria junto a Quaker, comenzamos a trabajar para Arcor, obteniendo la distribución total de sus productos en la región.',
+   'Backed by our track record with Quaker, we began working for Arcor, securing the full distribution of their products in the region.',
+   3),
+  ('1993', NULL, NULL, 'Nueva generación', 'New Generation',
+   'Néstor y Walter Viegas, nietos de Don Tomás, comienzan su camino como choferes de sus propias unidades, incorporando la tercera generación al negocio familiar.',
+   'Néstor and Walter Viegas, grandsons of Don Tomás, began their journey as drivers of their own units, bringing the third generation into the family business.',
+   4),
+  ('2015', NULL, NULL, 'Certificación ISO 9001', 'ISO 9001 Certification',
+   'Obtención de la certificación ISO 9001:2015, consolidando el compromiso con la calidad y la mejora continua en todos los procesos.',
+   'Obtaining the ISO 9001:2015 certification, consolidating the commitment to quality and continuous improvement across all processes.',
+   5),
+  ('HOY', NULL, NULL, 'Líderes en logística', 'Logistics Leaders',
+   'Cuatro generaciones después, El Portugués S.A. opera una flota de más de 70 equipos y 8.200 m² de depósito, sirviendo a los clientes más exigentes del mercado.',
+   'Four generations later, El Portugués S.A. operates a fleet of more than 70 vehicles and 8,200 m² of warehouse space, serving the most demanding clients in the market.',
+   6);
 
 -- ep_history_gallery (6 images)
 INSERT INTO ep_history_gallery (image_url, sort_order) VALUES

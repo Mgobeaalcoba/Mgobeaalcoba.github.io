@@ -126,7 +126,10 @@ export function useAIAssistant() {
                 const res = await fetch(apiProxyUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: apiMessages })
+                    body: JSON.stringify({
+                        messages: apiMessages,
+                        source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown'
+                    })
                 });
 
                 if (!res.ok) throw new Error('Network error from proxy');
