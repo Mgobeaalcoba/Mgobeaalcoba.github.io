@@ -1,0 +1,330 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Intent: Tax Calculation\nconst taxKeywords = ['ganancias', 'sueldo', 'bruto', 'neto', 'impuesto', 'calculadora', 'deducciones', 'pago de'];\nconst isTaxQuery = taxKeywords.some(kw => text.includes(kw));\n\n// Intent: Short/Greeting\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nlet intent = 'general';\n\nif (isTaxQuery) {\n    intent = 'tax';\n    requires_rag = false;\n} else if ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos días', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n    intent = 'greeting';\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag,\n        intent\n    }\n}];"
+      },
+      "id": "1eff4a18-b4d0-4cb2-882a-4b95c4b6bd35",
+      "name": "Analyze Intent",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2272,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "cond1",
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "tax",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "tax"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "cond2",
+                    "leftValue": "={{ $json.requires_rag }}",
+                    "rightValue": "={{ true }}",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rag"
+            }
+          ]
+        },
+        "fallbackOutput": 2
+      },
+      "id": "15d55ac8-06ae-4d22-8d1a-8f0d40e4e43f",
+      "name": "Router by Intent",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -2048,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mga-ai-agent",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.mgatc.com,https://mgatc.pages.dev,http://localhost:3000,http://localhost:3001,https://mgatc.com"
+        }
+      },
+      "id": "ed1c921c-da89-452e-8411-0797d3a29ea6",
+      "name": "Webhook Trigger1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2496,
+        1104
+      ],
+      "webhookId": "mga-ai-agent-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst error = response.error;\nconst assistantMessage = error ? '' : (response.choices?.[0]?.message?.content || '');\n\nconst webhookBody = $('Webhook Trigger1').first().json.body;\nconst allMessages = webhookBody.messages || [];\nconst conversationStr = JSON.stringify(allMessages);\n\nlet email = webhookBody.user_info?.email || null;\nlet name = webhookBody.user_info?.name || null;\n\nif (!email) {\n    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g;\n    const emails = conversationStr.match(emailRegex) || [];\n    email = emails[0] || null;\n}\n\nconst systemMsg = allMessages.find(m => m.role === 'system');\nconst sourceLang = systemMsg?.content?.includes('currently set to English') ? 'en' : 'es';\n\nlet chatHtml = \"\";\ntry {\n    const chatMessages = allMessages.filter(m => m.role !== 'system').slice(-6);\n    if (chatMessages.length > 0) {\n        chatHtml = chatMessages.map(msg => {\n            const isUser = msg.role === 'user';\n            const label = isUser ? 'Usuario' : 'Asistente';\n            const bgColor = isUser ? '#f8fafc' : '#ffffff';\n            const borderColor = isUser ? '#2563eb' : '#10b981';\n            return `<div style=\"margin-bottom: 12px; padding: 12px; border-radius: 8px; background-color: ${bgColor}; border-left: 4px solid ${borderColor}; font-family: sans-serif;\"><strong style=\"display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px;\">${label}</strong><div style=\"font-size: 14px; color: #1e293b; line-height: 1.5;\">${msg.content}</div></div>`;\n        }).join('');\n    } else {\n        chatHtml = \"<p>No hay mensajes recientes.</p>\";\n    }\n} catch (e) { chatHtml = \"<p>Error.</p>\"; }\n\nreturn [{\n    json: {\n        error,\n        assistantMessage,\n        email,\n        name,\n        sourceLang,\n        hasLead: !!(email || name),\n        chatHtml,\n        conversation: allMessages.slice(-6)\n    }\n}];"
+      },
+      "id": "e3476c48-cc05-42ab-bf9e-bef99b7db74c",
+      "name": "Extract Lead Data1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1152,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { content: $json.assistantMessage || ($json.error ? 'Error: ' + $json.error.message : 'No se pudo obtener respuesta de la IA.') } }}",
+        "options": {}
+      },
+      "id": "8930e3b4-b2a2-4bf5-a652-53e8a699fede",
+      "name": "Respond to Frontend2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": "public",
+        "tableId": "tax_calculator_params",
+        "filtersUi": {
+          "conditions": [
+            {
+              "id": "[ID]",
+              "leftValue": "id",
+              "rightValue": 1,
+              "operator": "eq"
+            }
+          ]
+        }
+      },
+      "id": "tax-p-1",
+      "name": "Get Tax Params",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        800
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "AOongOVUgCvGXeBc",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": "public",
+        "tableId": "tax_scale_brackets",
+        "additionalOptions": {
+          "sort": [
+            {
+              "column": "bracket_order",
+              "direction": "asc"
+            }
+          ]
+        }
+      },
+      "id": "tax-b-1",
+      "name": "Get Tax Brackets",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        950
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "AOongOVUgCvGXeBc",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const params = $('Get Tax Params').first().json;\nconst brackets = $('Get Tax Brackets').all().map(i => i.json);\nconst webhookData = $('Webhook Trigger1').first().json;\nconst lastMsg = webhookData.body.messages.filter(m => m.role === 'user').pop().content;\n\n// Extraer monto\nconst amountMatch = lastMsg.match(/(\\d+[\\d\\.,]*)/);\nif (!amountMatch) return { json: { ...webhookData, tax_calc: null, needs_data: true } };\n\nlet brutoMensual = parseFloat(amountMatch[0].replace(/\\./g, '').replace(',', '.'));\nif (brutoMensual < 100) brutoMensual *= 1000000;\nelse if (brutoMensual < 10000) brutoMensual *= 1000;\n\n// Deducciones Familiares (Regex simple)\nlet hijos = 0;\nconst hMatch = lastMsg.match(/(\\d+)\\s*hijo/i);\nif (hMatch) hijos = parseInt(hMatch[1]);\nelse if (lastMsg.includes('un hijo')) hijos = 1;\n\nconst conyuge = lastMsg.toLowerCase().includes('conyuge') || lastMsg.toLowerCase().includes('pareja');\n\n// Cálculo\nconst gni = parseFloat(params.gni);\nconst especial = parseFloat(params.deduccion_especial);\nconst aportesPct = parseFloat(params.aportes_pct);\n\nconst netoAnual = (brutoMensual * 13) * (1 - aportesPct);\nlet deducciones = gni + especial;\ndeducciones += hijos * parseFloat(params.hijo);\nif (conyuge) deducciones += parseFloat(params.conyuge);\n\nconst base = Math.max(0, netoAnual - deducciones);\n\nlet impuestoAnual = 0;\nif (base > 0) {\n    let bracket = brackets[0];\n    for (const b of brackets) {\n        if (base > parseFloat(b.limit_amount)) bracket = b;\n        else break;\n    }\n    const exceso = base - parseFloat(bracket.limit_amount);\n    impuestoAnual = parseFloat(bracket.fixed_amount) + (exceso * parseFloat(bracket.pct));\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        tax_calc: {\n            bruto: brutoMensual,\n            netoMensual: (netoAnual - impuestoAnual) / 13,\n            impuestoMensual: impuestoAnual / 12,\n            base,\n            hijos,\n            conyuge\n        }\n    }\n}];"
+      },
+      "id": "tax-c-1",
+      "name": "Tax Calculator Logic",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const data = $input.first().json; \n      const history = data.body.messages; \n      const calc = data.tax_calc; \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      let taxContext = \"\";\n      if (calc) {\n          taxContext = `\\n\\nCALCULATION RESULT (Usa esto para responder de forma amigable):\\nSueldo Bruto Mensual: $${Math.round(calc.bruto).toLocaleString()}\\nNeto Estimado (con Ganancias y Aportes): $${Math.round(calc.netoMensual).toLocaleString()}\\nRetención mensual Ganancias: $${Math.round(calc.impuestoMensual).toLocaleString()}\\nDeducciones aplicadas: ${calc.hijos} hijos, ${calc.conyuge ? 'Cónyuge' : 'Sin cónyuge'}.\\nExplica que es un cálculo de Ganancias 2026 y ofrece agendar una charla para optimización financiera [ACTION:CALENDLY].`;\n      } else {\n          taxContext = \"\\n\\nINSTRUCCIÓN: El usuario quiere calcular su sueldo pero no proporcionó el monto bruto. Pídele amablemente el sueldo bruto mensual y si tiene hijos o cónyuge para ser exacto.\";\n      }\n      return [ \n        { role: 'system', content: (systemMsg?.content || '') + taxContext }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1376,
+        900
+      ],
+      "id": "tax-h-1",
+      "name": "Call HF Tax Response",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gDfOipUtnNPe4yjB",
+          "name": "Hugging Face API Token"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Analyze Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Intent": {
+      "main": [
+        [
+          {
+            "node": "Router by Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router by Intent": {
+      "main": [
+        [
+          {
+            "node": "Get Tax Params",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hugging Face Embedding Model",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Hugging Face General",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tax Params": {
+      "main": [
+        [
+          {
+            "node": "Get Tax Brackets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tax Brackets": {
+      "main": [
+        [
+          {
+            "node": "Tax Calculator Logic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tax Calculator Logic": {
+      "main": [
+        [
+          {
+            "node": "Call HF Tax Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call HF Tax Response": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

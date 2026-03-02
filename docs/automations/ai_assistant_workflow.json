@@ -1,0 +1,520 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Heurística para decidir si buscar en la base de conocimientos\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nif ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos días', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag\n    }\n}];"
+      },
+      "id": "[NODE_ID_1]",
+      "name": "Analyze Intent",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2272,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "cond1",
+              "leftValue": "={{ $json.requires_rag }}",
+              "rightValue": "={{ true }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "[NODE_ID_2]",
+      "name": "Needs Knowledge Base?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -2048,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mga-ai-agent",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.mgatc.com,https://mgatc.pages.dev,http://localhost:3000,http://localhost:3001,https://mgatc.com"
+        }
+      },
+      "id": "[NODE_ID_3]",
+      "name": "Webhook Trigger1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2496,
+        1104
+      ],
+      "webhookId": "mga-ai-agent-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst error = response.error;\nconst assistantMessage = error ? '' : (response.choices?.[0]?.message?.content || '');\n\nconst webhookBody = $('Webhook Trigger1').first().json.body;\nconst allMessages = webhookBody.messages || []; // Aseguramos que sea un array\nconst conversationStr = JSON.stringify(allMessages);\n\n// PRIORIDAD: Datos directos del nuevo formulario de identidad\nlet email = webhookBody.user_info?.email || null;\nlet name = webhookBody.user_info?.name || null;\n\n// FALLBACK: Regex\nif (!email) {\n    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g;\n    const emails = conversationStr.match(emailRegex) || [];\n    email = emails[0] || null;\n}\n\nif (!name) {\n    const nameRegex = /(?:me llamo|soy|my name is|i am|i\\'m)\\s+([A-Z][a-záéíóúÁÉÍÓÚa-z]+(?:\\s+[A-Z][a-záéíóúÁÉÍÓÚa-z]+)?)/gi;\n    const nameMatch = nameRegex.exec(conversationStr);\n    name = nameMatch ? nameMatch[1] : null;\n}\n\nconst systemMsg = allMessages.find(m => m.role === 'system');\nconst sourceLang = systemMsg?.content?.includes('currently set to English') ? 'en' : 'es';\n\n// --- GENERACIÓN DE HTML SEGURO ---\nlet chatHtml = \"\";\n\ntry {\n    // Tomamos los últimos mensajes y quitamos el de sistema\n    const chatMessages = allMessages.filter(m => m.role !== 'system').slice(-6);\n    \n    if (chatMessages.length > 0) {\n        chatHtml = chatMessages.map(msg => {\n            const isUser = msg.role === 'user';\n            const label = isUser ? 'Usuario' : 'Asistente';\n            const bgColor = isUser ? '#f8fafc' : '#ffffff';\n            const borderColor = isUser ? '#2563eb' : '#10b981';\n            \n            return `\n            <div style=\"margin-bottom: 12px; padding: 12px; border-radius: 8px; background-color: ${bgColor}; border-left: 4px solid ${borderColor}; font-family: sans-serif;\">\n                <strong style=\"display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px;\">${label}</strong>\n                <div style=\"font-size: 14px; color: #1e293b; line-height: 1.5;\">${msg.content}</div>\n            </div>`;\n        }).join('');\n    } else {\n        chatHtml = \"<p>No hay mensajes recientes en la conversación.</p>\";\n    }\n} catch (e) {\n    chatHtml = \"<p>Error al formatear la conversación.</p>\";\n}\n\nreturn [{\n    json: {\n        error,\n        assistantMessage,\n        email,\n        name,\n        sourceLang,\n        hasLead: !!(email || name),\n        chatHtml, // Ahora sí o sí estará presente\n        conversation: allMessages.slice(-6) // Lo mantenemos por si lo necesitas\n    }\n}];"
+      },
+      "id": "[NODE_ID_4]",
+      "name": "Extract Lead Data1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1152,
+        1104
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { content: $json.assistantMessage || ($json.error ? 'Error: ' + $json.error.message : 'No se pudo obtener respuesta de la IA.') } }}",
+        "options": {}
+      },
+      "id": "[NODE_ID_5]",
+      "name": "Respond to Frontend2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e5fda4e4-0e70-4b06-a9d7-5664090c13ea",
+              "leftValue": "={{ $json.hasLead }}",
+              "rightValue": "={{ true }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "[NODE_ID_6]",
+      "name": "Has Lead Info?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -928,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "tableId": "leads",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "name",
+              "fieldValue": "={{ $json.name || null }}"
+            },
+            {
+              "fieldId": "email",
+              "fieldValue": "={{ $json.email || null }}"
+            },
+            {
+              "fieldId": "interest",
+              "fieldValue": "={{ $json.assistantMessage.substring(0, 300) }}"
+            },
+            {
+              "fieldId": "source_lang",
+              "fieldValue": "={{ $json.sourceLang }}"
+            },
+            {
+              "fieldId": "source_page",
+              "fieldValue": "={{ $('Webhook Trigger1').first().json.body.source_page || 'unknown' }}"
+            },
+            {
+              "fieldId": "conversation",
+              "fieldValue": "={{ JSON.stringify($json.conversation) }}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "new"
+            }
+          ]
+        }
+      },
+      "id": "[NODE_ID_7]",
+      "name": "Save Lead to Supabase1",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -704,
+        1104
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "[CREDENTIAL_ID_SUPABASE]",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; font-size: 20px; }\n    .content p { margin: 15px 0; }\n    .highlight { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .chat-box { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 15px; margin-top: 15px; font-size: 14px; color: #555; white-space: pre-line; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>¡Nuevo Lead Detectado!</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Alerta del Agente IA</h2>\n      <p>Se ha detectado un nuevo lead interactuando con el chat del Agente IA. A continuación tienes los detalles:</p>\n      \n      <div class=\"highlight\">\n        <p style=\"margin: 5px 0;\"><strong>Nombre:</strong> {{ $json.name || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Email:</strong> {{ $json.email || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Idioma:</strong> {{ $json.sourceLang === 'en' ? 'Inglés' : 'Español' }}</p>\n      </div>\n\n      <h2 style=\"margin-top: 30px; font-size: 18px;\">Últimos mensajes de la conversación:</h2>\n      <div class=\"chat-box\">\n        {{ $('Extract Lead Data1').item.json.chatHtml }}\n      </div>\n      \n    </div>\n    <div class=\"footer\">\n      <p>Esta es una notificación automática interna del sistema.</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        1104
+      ],
+      "id": "[NODE_ID_8]",
+      "name": "HTML1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -704,
+        1296
+      ],
+      "id": "[NODE_ID_9]",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const webhookData = $('Webhook Trigger1').first().json; \n      const history = (webhookData.body && webhookData.body.messages) ? webhookData.body.messages : []; \n      const knowledgeData = $('Search Knowledge Supabase').first().json; \n      const contextChunks = Array.isArray(knowledgeData) ? knowledgeData.map(r => r.content).join('\\n---\\n') : (knowledgeData.content || ''); \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      return [ \n        { \n          role: 'system', \n          content: (systemMsg?.content || 'You are a helpful assistant.') + '\\n\\nKNOWLEDGE BASE CONTEXT (Usa esto para responder solo si es relevante):\\n' + contextChunks \n        }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1376,
+        1008
+      ],
+      "id": "[NODE_ID_10]",
+      "name": "Call Hugging Face RAG",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "[CREDENTIAL_ID_HF]",
+          "name": "Hugging Face API Token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/ v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=={{ \n  JSON.stringify({ \n    messages: $('Webhook Trigger1').first().json.body.messages, \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1376,
+        1200
+      ],
+      "id": "[NODE_ID_11]",
+      "name": "Call Hugging Face General",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "[CREDENTIAL_ID_HF]",
+          "name": "Hugging Face API Token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/intfloat/multilingual-e5-small/pipeline/feature-extraction",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "inputs",
+              "value": "={{ $json.body.messages[0].content }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1824,
+        1008
+      ],
+      "id": "[NODE_ID_12]",
+      "name": "Hugging Face Embedding Model",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "[CREDENTIAL_ID_HF]",
+          "name": "Hugging Face API Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.NEXT_PUBLIC_SUPABASE_URL }}/rest/v1/rpc/match_knowledge",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query_embedding\": {{ JSON.stringify($json.body) }},\n  \"match_threshold\": 0.5,\n  \"match_count\": 3\n}",
+        "options": {}
+      },
+      "id": "[NODE_ID_13]",
+      "name": "Search Knowledge Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1600,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "mariano@mgatc.com",
+        "toEmail": "gobeamariano@gmail.com",
+        "subject": "Nuevo Lead Detectado",
+        "html": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        1104
+      ],
+      "id": "[NODE_ID_14]",
+      "name": "Send an Email",
+      "webhookId": "61100706-1df7-49c7-a138-54d2e490583d",
+      "credentials": {
+        "smtp": {
+          "id": "[CREDENTIAL_ID_SMTP]",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Analyze Intent": {
+      "main": [
+        [
+          {
+            "node": "Needs Knowledge Base?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Knowledge Base?": {
+      "main": [
+        [
+          {
+            "node": "Hugging Face Embedding Model",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Hugging Face General",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Analyze Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Lead Data1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Frontend2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Lead Info?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Lead Info?1": {
+      "main": [
+        [
+          {
+            "node": "Save Lead to Supabase1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Lead to Supabase1": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Hugging Face RAG": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Hugging Face General": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hugging Face Embedding Model": {
+      "main": [
+        [
+          {
+            "node": "Search Knowledge Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Knowledge Supabase": {
+      "main": [
+        [
+          {
+            "node": "Call Hugging Face RAG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "[INSTANCE_ID]"
+  }
+}
+

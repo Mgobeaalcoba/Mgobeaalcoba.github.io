@@ -207,14 +207,14 @@ Todo el contenido dinámico del CV vive en Supabase. Actualizar contenido = un S
 
 5 workflows productivos documentados en `docs/automations/`:
 
-| #   | Workflow                      | Trigger            | Descripción                                                                                                                                                        |
-| --- | ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 01  | AI Blog Creator               | Schedule (semanal) | Toma trending topics de Hacker News, genera artículo con OpenRouter (Claude/GPT), publica en dev.to, guarda en GitHub (`cv/content/posts/`) y registra en Supabase |
-| 02  | Webhook Contact Form          | Webhook            | Recibe formularios de contacto de neil-site y elportugues-site, envía notificación por email                                                                       |
-| 03  | Newsletter Subscription       | Webhook            | Captura suscripciones a "The Data Digest", registra en Google Sheets, envía email de bienvenida                                                                    |
-| 04  | Free Automation Lead          | Webhook            | Recibe leads del form "Automatización Gratis" de la consultora, notifica y agenda seguimiento                                                                      |
-| 05  | Daily Content Digest          | Schedule (diario)  | Genera resumen de noticias tech, lo envía por email                                                                                                                |
-| 06  | Unified AI Agent (RAG + Lead) | Webhook            | Agente conversacional inteligente que realiza búsquedas semánticas en el blog (RAG) y captura leads automáticamente en Supabase.                                   |
+| #   | Workflow                            | Trigger            | Descripción                                                                                                                                                        |
+| --- | ----------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 01  | AI Blog Creator                     | Schedule (semanal) | Toma trending topics de Hacker News, genera artículo con OpenRouter (Claude/GPT), publica en dev.to, guarda en GitHub (`cv/content/posts/`) y registra en Supabase |
+| 02  | Webhook Contact Form                | Webhook            | Recibe formularios de contacto de neil-site y elportugues-site, envía notificación por email                                                                       |
+| 03  | Newsletter Subscription             | Webhook            | Captura suscripciones a "The Data Digest", registra en Google Sheets, envía email de bienvenida                                                                    |
+| 04  | Free Automation Lead                | Webhook            | Recibe leads del form "Automatización Gratis" de la consultora, notifica y agenda seguimiento                                                                      |
+| 05  | Daily Content Digest                | Schedule (diario)  | Genera resumen de noticias tech, lo envía por email                                                                                                                |
+| 06  | Unified AI Agent (RAG + Lead + Tax) | Webhook            | Agente conversacional inteligente que realiza búsquedas semánticas en el blog (RAG), captura leads en Supabase e incluye calculadora de impuestos 2026.            |
 
 **Credenciales usadas por n8n:**
 

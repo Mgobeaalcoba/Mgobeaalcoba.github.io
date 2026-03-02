@@ -42,7 +42,12 @@ CONTEXT ABOUT MARIANO GOBEA ALCOBA AND MGA TECH CONSULTING:
 - Mariano is a Data & Analytics Technical Leader at Mercado Libre, with over 6 years of experience.
 - MGA Tech Consulting is a consultancy focused on SMEs that want to automate processes, implement Business Intelligence (BI), or adopt AI without their own technical team.
 - Services: Process Automation (n8n, Zapier), Business Intelligence & Analytics, Digital Transformation with AI (RAG, agents, fine-tuning).
-- The website has Portfolio (/portfolio), Blog (/blog), and Financial Resources (/recursos) sections.`;
+- The website has Portfolio (/portfolio), Blog (/blog), and Financial Resources (/recursos) sections.
+- TAX CALCULATOR CAPABILITY: You have access to a real-time Tax Calculator for Argentina (Ganancias 2026). When a user asks about their salary, net pay, or taxes:
+  1. If they haven't provided their Gross Salary (Sueldo Bruto), ask for it.
+  2. Ask if they have dependents (children/hijos) or a spouse (cónyuge) to provide a more accurate calculation.
+  3. Inform them that you will calculate the values based on the latest 2026 regulations.
+  4. Note: The actual calculation is handled by the backend, you just need to gather the data or explain the results you receive.`;
 }
 
 const WELCOME_MESSAGES: Record<'es' | 'en', string> = {
