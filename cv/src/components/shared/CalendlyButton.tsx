@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
-import { events } from '@/lib/gtag';
+import { useCallback } from "react";
+import { events } from "@/lib/gtag";
 
-const CALENDLY_URL = 'https://calendly.com/mariano-gobea-mercadolibre/30min';
+const CALENDLY_URL = "https://calendly.com/mariano-gobea-mercadolibre/30min";
 
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Calendly?: any;
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+      closePopupWidget: () => void;
+    };
   }
 }
 
@@ -18,18 +20,22 @@ interface CalendlyButtonProps {
   onClick?: () => void;
 }
 
-export default function CalendlyButton({ className, children, onClick }: CalendlyButtonProps) {
+export default function CalendlyButton({
+  className,
+  children,
+  onClick,
+}: CalendlyButtonProps) {
   const handleClick = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
       events.calendlyClick();
       onClick?.();
 
-      if (typeof window !== 'undefined' && window.Calendly) {
+      if (typeof window !== "undefined" && window.Calendly) {
         window.Calendly.initPopupWidget({ url: CALENDLY_URL });
       } else {
         // Fallback: open in new tab if widget not loaded
-        window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+        window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
       }
     },
     [onClick]
