@@ -6,6 +6,8 @@ import { X, Send, Bot, User, CalendarDays } from "lucide-react";
 import { useAIAssistant } from "@/hooks/useAIAssistant";
 import { events } from "@/lib/gtag";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 declare global {
   interface Window {
@@ -67,7 +69,11 @@ export function AIAssistant() {
 
     return (
       <div className="flex flex-col space-y-2">
-        <p className="text-sm whitespace-pre-wrap">{cleanContent}</p>
+        <div className="text-sm prose dark:prose-invert prose-p:leading-relaxed prose-pre:bg-gray-800 prose-pre:text-gray-100 max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {cleanContent}
+          </ReactMarkdown>
+        </div>
         {hasCalendly && (
           <button
             onClick={handleOpenCalendly}
