@@ -8,6 +8,11 @@ export interface ChatMessage {
     content: string;
 }
 
+export interface UserIdentity {
+    name: string;
+    email: string;
+}
+
 function buildSystemPrompt(lang: 'es' | 'en'): string {
     const langInstruction = lang === 'en'
         ? 'IMPORTANT: The site is currently set to English. Your INITIAL welcome message MUST be in English. Then, ALWAYS reply in the SAME LANGUAGE the user writes in. If they write in Spanish, reply in Spanish. If they write in English, reply in English. Never mix languages in a single response.'
@@ -51,13 +56,24 @@ export function useAIAssistant() {
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [user, setUser] = useState<UserIdentity | null>(null);
 
     const hasInitialized = useRef(false);
     const currentLang = useRef(lang);
 
-    // Initialize messages on first mount
+    // Initialize messages and user identity on first mount
     useEffect(() => {
         if (!hasInitialized.current) {
+            // Load user from localStorage
+            const savedUser = localStorage.getItem('mga_assistant_user');
+            if (savedUser) {
+                try {
+                    setUser(JSON.parse(savedUser));
+                } catch (e) {
+                    console.error('Error parsing saved user:', e);
+                }
+            }
+
             setMessages([
                 { id: 'system-1', role: 'system', content: buildSystemPrompt(lang) },
                 { id: 'welcome-1', role: 'assistant', content: WELCOME_MESSAGES[lang] }
@@ -85,6 +101,12 @@ export function useAIAssistant() {
     }, [isOpen]);
 
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
+
+    const identifyUser = useCallback((identity: UserIdentity) => {
+        setUser(identity);
+        localStorage.setItem('mga_assistant_user', JSON.stringify(identity));
+        events.aiAssistantUserIdentified(); // Track event if needed
+    }, []);
 
     const sendMessage = useCallback(async (content: string) => {
         if (!content.trim()) return;
@@ -128,7 +150,8 @@ export function useAIAssistant() {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         messages: apiMessages,
-                        source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown'
+                        source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
+                        user_info: user // Send name and email to n8n
                     })
                 });
 
@@ -192,8 +215,10 @@ export function useAIAssistant() {
         isLoading,
         isOpen,
         error,
+        user,
         toggleChat,
         sendMessage,
+        identifyUser,
         setIsOpen
     };
 }

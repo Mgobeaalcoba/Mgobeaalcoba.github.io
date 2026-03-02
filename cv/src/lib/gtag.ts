@@ -94,4 +94,10 @@ export const events = {
 
   aiAssistantCalendlyClick: () =>
     keyEvent('ai_assistant_calendly_click', { site_section: 'cv' }),
+
+  aiAssistantUserIdentified: () =>
+    event('ai_assistant_user_identified', { site_section: 'cv' }),
+
+  aiAssistantFormView: () =>
+    event('ai_assistant_form_view', { site_section: 'cv' }),
 };

@@ -21,10 +21,20 @@ declare global {
 const CALENDLY_URL = "https://calendly.com/mariano-gobea-mercadolibre/30min";
 
 export function AIAssistant() {
-  const { messages, isLoading, isOpen, error, toggleChat, sendMessage } =
-    useAIAssistant();
+  const {
+    messages,
+    isLoading,
+    isOpen,
+    error,
+    user,
+    toggleChat,
+    sendMessage,
+    identifyUser,
+  } = useAIAssistant();
   const { lang } = useLanguage();
   const [inputValue, setInputValue] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formError, setFormError] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -43,6 +53,32 @@ export function AIAssistant() {
       sendMessage(inputValue);
       setInputValue("");
     }
+  };
+
+  const handleIdentify = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError("");
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setFormError(
+        lang === "en"
+          ? "Please fill all fields"
+          : "Por favor, completa todos los campos"
+      );
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFormError(
+        lang === "en"
+          ? "Please enter a valid email"
+          : "Por favor, ingresa un email válido"
+      );
+      return;
+    }
+
+    identifyUser(formData);
   };
 
   const handleOpenCalendly = () => {
@@ -126,98 +162,180 @@ export function AIAssistant() {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950/50">
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950/50 flex flex-col">
+              {!user ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex-1 flex flex-col justify-center py-4"
                 >
-                  <div
-                    className={`flex max-w-[85%] ${
-                      msg.role === "user" ? "flex-row-reverse" : "flex-row"
-                    }`}
-                  >
-                    <div
-                      className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                        msg.role === "user"
-                          ? "ml-2 bg-gray-200 dark:bg-gray-800"
-                          : "mr-2 bg-gradient-to-br from-blue-500 to-indigo-600"
-                      }`}
-                    >
-                      {msg.role === "user" ? (
-                        <User
-                          size={14}
-                          className="text-gray-600 dark:text-gray-300"
-                        />
-                      ) : (
-                        <Bot size={14} className="text-white" />
-                      )}
-                    </div>
-                    <div
-                      className={`p-3 rounded-2xl ${
-                        msg.role === "user"
-                          ? "bg-blue-600 text-white rounded-tr-none"
-                          : "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none"
-                      }`}
-                    >
-                      {msg.role === "user" ? (
-                        <p className="text-sm">{msg.content}</p>
-                      ) : (
-                        renderMessageContent(msg.content)
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                  <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h4 className="text-gray-800 dark:text-gray-100 font-semibold mb-2 text-center">
+                      {lang === "en" ? "Welcome!" : "¡Bienvenido!"}
+                    </h4>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs mb-6 text-center leading-relaxed">
+                      {lang === "en"
+                        ? "Please introduce yourself to start chatting with our assistant."
+                        : "Por favor, identifícate para comenzar a chatear con nuestro asistente."}
+                    </p>
 
-              {isLoading && (
-                <div className="flex justify-start">
-                  <div className="flex flex-row max-w-[85%]">
-                    <div className="shrink-0 w-8 h-8 mr-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                      <Bot size={14} className="text-white" />
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none flex space-x-1 items-center">
-                      <motion.div
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{
-                          duration: 0.6,
-                          repeat: Infinity,
-                          delay: 0,
-                        }}
-                        className="w-2 h-2 bg-gray-400 rounded-full"
-                      />
-                      <motion.div
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{
-                          duration: 0.6,
-                          repeat: Infinity,
-                          delay: 0.2,
-                        }}
-                        className="w-2 h-2 bg-gray-400 rounded-full"
-                      />
-                      <motion.div
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{
-                          duration: 0.6,
-                          repeat: Infinity,
-                          delay: 0.4,
-                        }}
-                        className="w-2 h-2 bg-gray-400 rounded-full"
-                      />
-                    </div>
+                    <form onSubmit={handleIdentify} className="space-y-4">
+                      <div>
+                        <label className="block text-[10px] uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-1 ml-1">
+                          {lang === "en" ? "Full Name" : "Nombre Completo"}
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              name: e.target.value,
+                            }))
+                          }
+                          placeholder={
+                            lang === "en" ? "John Doe" : "Tu nombre..."
+                          }
+                          className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm rounded-xl py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-1 ml-1">
+                          {lang === "en"
+                            ? "Email Address"
+                            : "Correo Electrónico"}
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              email: e.target.value,
+                            }))
+                          }
+                          placeholder="email@example.com"
+                          className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm rounded-xl py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 transition-all"
+                        />
+                      </div>
+
+                      {formError && (
+                        <p className="text-[10px] text-red-500 text-center animate-pulse">
+                          {formError}
+                        </p>
+                      )}
+
+                      <button
+                        type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-2"
+                      >
+                        {lang === "en"
+                          ? "Start Chatting"
+                          : "Comenzar a Chatear"}
+                      </button>
+                    </form>
                   </div>
-                </div>
-              )}
-              {error && (
-                <div className="text-center mt-2">
-                  <p className="text-xs text-red-500">{error}</p>
-                </div>
+                </motion.div>
+              ) : (
+                <>
+                  {messages.map((msg) => (
+                    <div
+                      key={msg.id}
+                      className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`flex max-w-[85%] ${
+                          msg.role === "user" ? "flex-row-reverse" : "flex-row"
+                        }`}
+                      >
+                        <div
+                          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                            msg.role === "user"
+                              ? "ml-2 bg-gray-200 dark:bg-gray-800"
+                              : "mr-2 bg-gradient-to-br from-blue-500 to-indigo-600"
+                          }`}
+                        >
+                          {msg.role === "user" ? (
+                            <User
+                              size={14}
+                              className="text-gray-600 dark:text-gray-300"
+                            />
+                          ) : (
+                            <Bot size={14} className="text-white" />
+                          )}
+                        </div>
+                        <div
+                          className={`p-3 rounded-2xl ${
+                            msg.role === "user"
+                              ? "bg-blue-600 text-white rounded-tr-none"
+                              : "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none"
+                          }`}
+                        >
+                          {msg.role === "user" ? (
+                            <p className="text-sm">{msg.content}</p>
+                          ) : (
+                            renderMessageContent(msg.content)
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="flex flex-row max-w-[85%]">
+                        <div className="shrink-0 w-8 h-8 mr-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                          <Bot size={14} className="text-white" />
+                        </div>
+                        <div className="p-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none flex space-x-1 items-center">
+                          <motion.div
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0,
+                            }}
+                            className="w-2 h-2 bg-gray-400 rounded-full"
+                          />
+                          <motion.div
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0.2,
+                            }}
+                            className="w-2 h-2 bg-gray-400 rounded-full"
+                          />
+                          <motion.div
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{
+                              duration: 0.6,
+                              repeat: Infinity,
+                              delay: 0.4,
+                            }}
+                            className="w-2 h-2 bg-gray-400 rounded-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {error && (
+                    <div className="text-center mt-2">
+                      <p className="text-xs text-red-500">{error}</p>
+                    </div>
+                  )}
+                </>
               )}
               <div ref={messagesEndRef} />
             </div>
 
             {/* Input Area */}
-            <div className="p-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shrink-0">
+            <div
+              className={`p-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shrink-0 transition-opacity duration-300 ${!user ? "opacity-30 pointer-events-none grayscale" : "opacity-100"}`}
+            >
               <form
                 onSubmit={handleSubmit}
                 className="flex items-center space-x-2"
