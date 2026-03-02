@@ -1,3 +1,4 @@
+// Rebuild trigger: removing [skip ci] functionality from workflow
 export const GA_ID = 'G-DG0SLT5RY3';
 
 declare global {
