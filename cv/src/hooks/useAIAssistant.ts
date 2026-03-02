@@ -208,7 +208,7 @@ export function useAIAssistant() {
         } finally {
             setIsLoading(false);
         }
-    }, [messages]);
+    }, [messages, user]);
 
     return {
         messages: messages.filter(m => m.role !== 'system'),
