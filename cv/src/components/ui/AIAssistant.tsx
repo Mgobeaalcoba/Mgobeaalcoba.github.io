@@ -105,7 +105,7 @@ export function AIAssistant() {
 
     return (
       <div className="flex flex-col space-y-2">
-        <div className="text-sm prose dark:prose-invert prose-p:leading-relaxed prose-pre:bg-gray-800 prose-pre:text-gray-100 max-w-none">
+        <div className="text-sm prose dark:prose-invert prose-p:leading-relaxed prose-pre:bg-gray-800/50 prose-pre:text-gray-100 prose-pre:whitespace-pre-wrap break-words max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {cleanContent}
           </ReactMarkdown>
