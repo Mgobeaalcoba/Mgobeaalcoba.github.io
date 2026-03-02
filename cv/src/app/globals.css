@@ -54,10 +54,18 @@ body {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* ================================================================
@@ -108,7 +116,7 @@ body {
    ================================================================ */
 
 .grid-bg::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image:
@@ -137,17 +145,22 @@ body {
    ================================================================ */
 
 .terminal-font {
-  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
 }
 
 .terminal-cursor::after {
-  content: '█';
+  content: "█";
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ================================================================
@@ -192,7 +205,7 @@ html.light-mode body {
 html.light-mode .glass {
   background: rgba(255, 255, 255, 0.92);
   border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 html.light-mode .glow-border {
@@ -223,29 +236,63 @@ html.light-mode label {
 }
 
 /* Tailwind gray overrides */
-html.light-mode .text-gray-100 { color: #111827 !important; }
-html.light-mode .text-gray-200 { color: #1f2937 !important; }
-html.light-mode .text-gray-300 { color: #374151 !important; }
-html.light-mode .text-gray-400 { color: #4b5563 !important; }
-html.light-mode .text-gray-500 { color: #6b7280 !important; }
-html.light-mode .text-gray-600 { color: #374151 !important; }
+html.light-mode .text-gray-100 {
+  color: #111827 !important;
+}
+html.light-mode .text-gray-200 {
+  color: #1f2937 !important;
+}
+html.light-mode .text-gray-300 {
+  color: #374151 !important;
+}
+html.light-mode .text-gray-400 {
+  color: #4b5563 !important;
+}
+html.light-mode .text-gray-500 {
+  color: #6b7280 !important;
+}
+html.light-mode .text-gray-600 {
+  color: #374151 !important;
+}
 
 /* Sky/blue colors stay the same but can be slightly darker */
-html.light-mode .text-sky-400 { color: #0284c7 !important; }
-html.light-mode .text-sky-500 { color: #0369a1 !important; }
+html.light-mode .text-sky-400 {
+  color: #0284c7 !important;
+}
+html.light-mode .text-sky-500 {
+  color: #0369a1 !important;
+}
 
 /* White text becomes dark */
-html.light-mode .text-white { color: #111827 !important; }
+html.light-mode .text-white {
+  color: #111827 !important;
+}
 
 /* Backgrounds */
-html.light-mode .bg-gray-800\/30 { background: rgba(243, 244, 246, 0.8) !important; }
-html.light-mode .bg-gray-800\/50 { background: rgba(229, 231, 235, 0.8) !important; }
-html.light-mode .bg-gray-800\/60 { background: rgba(229, 231, 235, 0.9) !important; }
-html.light-mode .bg-gray-900 { background: #f3f4f6 !important; }
-html.light-mode .bg-black\/40 { background: rgba(0, 0, 0, 0.25) !important; }
-html.light-mode .bg-amber-900\/30 { background: rgba(254, 243, 199, 0.8) !important; }
-html.light-mode .border-white\/10 { border-color: rgba(0, 0, 0, 0.08) !important; }
-html.light-mode .border-white\/5 { border-color: rgba(0, 0, 0, 0.05) !important; }
+html.light-mode .bg-gray-800\/30 {
+  background: rgba(243, 244, 246, 0.8) !important;
+}
+html.light-mode .bg-gray-800\/50 {
+  background: rgba(229, 231, 235, 0.8) !important;
+}
+html.light-mode .bg-gray-800\/60 {
+  background: rgba(229, 231, 235, 0.9) !important;
+}
+html.light-mode .bg-gray-900 {
+  background: #f3f4f6 !important;
+}
+html.light-mode .bg-black\/40 {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+html.light-mode .bg-amber-900\/30 {
+  background: rgba(254, 243, 199, 0.8) !important;
+}
+html.light-mode .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+html.light-mode .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
 
 /* Inputs */
 html.light-mode input,
@@ -268,12 +315,24 @@ html.light-mode .grid-bg::before {
 }
 
 /* Badge/tag backgrounds */
-html.light-mode .bg-sky-500\/10 { background: rgba(14, 165, 233, 0.1) !important; }
-html.light-mode .bg-sky-500\/20 { background: rgba(14, 165, 233, 0.15) !important; }
-html.light-mode .bg-yellow-900\/20 { background: rgba(254, 243, 199, 0.7) !important; }
-html.light-mode .bg-indigo-900\/20 { background: rgba(238, 242, 255, 0.8) !important; }
-html.light-mode .bg-purple-900\/20 { background: rgba(245, 243, 255, 0.8) !important; }
-html.light-mode .bg-amber-900\/50 { background: rgba(254, 251, 235, 0.9) !important; }
+html.light-mode .bg-sky-500\/10 {
+  background: rgba(14, 165, 233, 0.1) !important;
+}
+html.light-mode .bg-sky-500\/20 {
+  background: rgba(14, 165, 233, 0.15) !important;
+}
+html.light-mode .bg-yellow-900\/20 {
+  background: rgba(254, 243, 199, 0.7) !important;
+}
+html.light-mode .bg-indigo-900\/20 {
+  background: rgba(238, 242, 255, 0.8) !important;
+}
+html.light-mode .bg-purple-900\/20 {
+  background: rgba(245, 243, 255, 0.8) !important;
+}
+html.light-mode .bg-amber-900\/50 {
+  background: rgba(254, 251, 235, 0.9) !important;
+}
 
 /* Decorative absolute blobs - hide in light mode */
 html.light-mode .pointer-events-none.absolute {
@@ -287,10 +346,18 @@ html.light-mode .pointer-events-none.absolute {
    higher specificity (3 classes vs 2 classes).
    ================================================================ */
 
-html.light-mode nav.nav-on-dark-bg .text-gray-300 { color: #d1d5db !important; }
-html.light-mode nav.nav-on-dark-bg .text-gray-400 { color: #9ca3af !important; }
-html.light-mode nav.nav-on-dark-bg .text-gray-600 { color: #6b7280 !important; }
-html.light-mode nav.nav-on-dark-bg .text-white    { color: #ffffff !important; }
+html.light-mode nav.nav-on-dark-bg .text-gray-300 {
+  color: #d1d5db !important;
+}
+html.light-mode nav.nav-on-dark-bg .text-gray-400 {
+  color: #9ca3af !important;
+}
+html.light-mode nav.nav-on-dark-bg .text-gray-600 {
+  color: #6b7280 !important;
+}
+html.light-mode nav.nav-on-dark-bg .text-white {
+  color: #ffffff !important;
+}
 
 /* glass pill (language toggle) stays dark-tinted */
 html.light-mode nav.nav-on-dark-bg .glass {
@@ -300,7 +367,9 @@ html.light-mode nav.nav-on-dark-bg .glass {
 }
 
 /* hover keeps sky accent */
-html.light-mode nav.nav-on-dark-bg .hover\:text-gray-200:hover { color: #e5e7eb !important; }
+html.light-mode nav.nav-on-dark-bg .hover\:text-gray-200:hover {
+  color: #e5e7eb !important;
+}
 
 /* ================================================================
    HERO VIDEO SECTION — always dark (video + black/65 overlay)
@@ -323,13 +392,27 @@ html.light-mode .hero-video-bg li {
 }
 
 html.light-mode .hero-video-bg .text-white,
-html.light-mode .hero-video-bg .text-gray-100 { color: #ffffff !important; }
-html.light-mode .hero-video-bg .text-gray-200 { color: #f3f4f6 !important; }
-html.light-mode .hero-video-bg .text-gray-300 { color: #d1d5db !important; }
-html.light-mode .hero-video-bg .text-gray-400 { color: #9ca3af !important; }
-html.light-mode .hero-video-bg .text-sky-400   { color: #38bdf8 !important; }
-html.light-mode .hero-video-bg .text-sky-300   { color: #7dd3fc !important; }
-html.light-mode .hero-video-bg .text-green-400 { color: #4ade80 !important; }
+html.light-mode .hero-video-bg .text-gray-100 {
+  color: #ffffff !important;
+}
+html.light-mode .hero-video-bg .text-gray-200 {
+  color: #f3f4f6 !important;
+}
+html.light-mode .hero-video-bg .text-gray-300 {
+  color: #d1d5db !important;
+}
+html.light-mode .hero-video-bg .text-gray-400 {
+  color: #9ca3af !important;
+}
+html.light-mode .hero-video-bg .text-sky-400 {
+  color: #38bdf8 !important;
+}
+html.light-mode .hero-video-bg .text-sky-300 {
+  color: #7dd3fc !important;
+}
+html.light-mode .hero-video-bg .text-green-400 {
+  color: #4ade80 !important;
+}
 
 /* Glass inside hero: semi-transparent dark, not white */
 html.light-mode .hero-video-bg .glass {
@@ -346,7 +429,9 @@ html.light-mode .hero-video-bg .gradient-text {
 }
 
 /* Borders */
-html.light-mode .hero-video-bg .border-white\/10 { border-color: rgba(255,255,255,0.12) !important; }
+html.light-mode .hero-video-bg .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
 
 /* Decorative blobs: keep visible on hero */
 html.light-mode .hero-video-bg .pointer-events-none.absolute {
@@ -358,7 +443,7 @@ html.light-mode .hero-video-bg .pointer-events-none.absolute {
    ================================================================ */
 
 html.terminal-mode body {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 html.terminal-mode .glass {
@@ -370,4 +455,15 @@ html.terminal-mode .gradient-text {
   background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
   -webkit-background-clip: text;
   background-clip: text;
+}
+/* ================================================================
+   PREMIUM BUTTONS
+   ================================================================ */
+
+.btn-premium-primary {
+  @apply px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 active:scale-[0.98] flex items-center justify-center gap-2;
+}
+
+.btn-premium-secondary {
+  @apply px-8 py-4 glass text-white hover:text-sky-400 rounded-xl font-bold transition-all border border-white/10 hover:border-sky-500/50 active:scale-[0.98] flex items-center justify-center gap-2;
 }

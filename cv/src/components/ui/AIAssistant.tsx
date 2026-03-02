@@ -47,6 +47,17 @@ export function AIAssistant() {
     }
   }, [messages, isOpen]);
 
+  // Global event listener to open assistant from other components
+  useEffect(() => {
+    const handleOpen = () => {
+      if (!isOpen) {
+        toggleChat();
+      }
+    };
+    window.addEventListener("open-ai-assistant", handleOpen);
+    return () => window.removeEventListener("open-ai-assistant", handleOpen);
+  }, [isOpen, toggleChat]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputValue.trim() && !isLoading) {
