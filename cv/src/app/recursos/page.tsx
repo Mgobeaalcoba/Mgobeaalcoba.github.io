@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "arquitectura tech interactiva",
     "calculadora ganancias argentina",
     "dolar blue hoy",
+    "transparency bi",
+    "metricas ia tiempo real",
+    "dashboard automatizacion",
   ],
   alternates: {
     canonical: PAGE_URL,
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Recursos Tech & Financieros - MGA",
     description:
-      "Visualizador Ark, Calculadora ROI y herramientas financieras.",
+      "Visualizador Ark, Calculadora ROI, Transparency BI y herramientas financieras.",
     url: PAGE_URL,
   },
 };
@@ -36,6 +39,14 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es Transparency BI en la integración de IA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es un panel de métricas en tiempo real que permite visualizar el desempeño de asistentes de IA, midiendo intenciones de los usuarios, tiempos de respuesta y tasas de conversión para demostrar el ROI real de la implementación.",
+      },
+    },
     {
       "@type": "Question",
       name: "¿Qué es un visualizador de arquitectura de automatización?",

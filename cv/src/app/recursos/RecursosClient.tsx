@@ -25,13 +25,15 @@ import HolidaysArgentina from "@/components/recursos/HolidaysArgentina";
 import FAQRecursos from "@/components/recursos/FAQRecursos";
 import ROICalculator from "@/components/showcase/ROICalculator";
 import ArchVisualizer from "@/components/showcase/ArchVisualizer";
+import AgentDashboard from "@/components/showcase/AgentDashboard";
 
 type TabId =
   | "calculator"
   | "roi"
   | "arch"
   | "tokens"
-  | "dashboard"
+  | "investments"
+  | "agent-dash"
   | "rates"
   | "indicators"
   | "holidays"
@@ -64,7 +66,7 @@ const TAB_CATEGORIES: TabCategory[] = [
         wide: true,
       },
       {
-        id: "dashboard",
+        id: "investments",
         icon: <BarChart2 size={16} />,
         label: { es: "Inversiones", en: "Investment Dashboard" },
         wide: true,
@@ -97,6 +99,12 @@ const TAB_CATEGORIES: TabCategory[] = [
         id: "roi",
         icon: <TrendingUp size={16} />,
         label: { es: "ROI Automatización", en: "Automation ROI" },
+        wide: true,
+      },
+      {
+        id: "agent-dash",
+        icon: <BarChart2 size={16} />,
+        label: { es: "Transparency BI", en: "Agent Dashboard" },
         wide: true,
       },
       {
@@ -308,8 +316,9 @@ export default function RecursosClient() {
           {activeTab === "calculator" && <TaxCalculator />}
           {activeTab === "roi" && <ROICalculator />}
           {activeTab === "arch" && <ArchVisualizer />}
+          {activeTab === "agent-dash" && <AgentDashboard />}
           {activeTab === "tokens" && <TokenCalculator />}
-          {activeTab === "dashboard" && <InvestmentDashboard />}
+          {activeTab === "investments" && <InvestmentDashboard />}
           {activeTab === "rates" && <ExchangeRates />}
           {activeTab === "indicators" && <EconomicIndicators />}
           {activeTab === "holidays" && <HolidaysArgentina />}

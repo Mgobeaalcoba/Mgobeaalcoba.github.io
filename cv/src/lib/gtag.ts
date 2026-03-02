@@ -114,4 +114,11 @@ export const events = {
       site_section: 'recursos',
       currency: 'USD'
     }),
+  
+  // Agent Dashboard Events
+  agentDashboardFilterUsed: (filter: string) =>
+    event('agent_dashboard_filter_used', { filter, site_section: 'recursos' }),
+  
+  agentDashboardCtaClicked: (cta_type: string) =>
+    keyEvent('agent_dashboard_cta_click', { cta_type, site_section: 'recursos' }),
 };
