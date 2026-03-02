@@ -4,8 +4,11 @@ import path from 'path';
 import matter from 'gray-matter';
 import dotenv from 'dotenv';
 
-// Load env vars from .env.local
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
+// Load env vars from .env.local if it exists
+const envPath = path.resolve(process.cwd(), '.env.local');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;

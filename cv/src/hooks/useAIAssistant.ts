@@ -41,8 +41,8 @@ CONTEXT ABOUT MARIANO GOBEA ALCOBA AND MGA TECH CONSULTING:
 }
 
 const WELCOME_MESSAGES: Record<'es' | 'en', string> = {
-    es: '¡Hola! Soy el asistente virtual de MGA Tech Consulting. ¿En qué puedo ayudarte hoy?',
-    en: 'Hi there! I\'m the MGA Tech Consulting virtual assistant. How can I help you today?',
+    es: '¡Hola! Soy el asistente virtual de MGA Tech Consulting. Puedo ayudarte con:\n\n• Consultas técnicas sobre automatización e IA\n• Información sobre el portfolio y trayectoria de Mariano\n• Búsqueda de soluciones específicas en nuestro Blog técnico\n• Agendar una reunión directamente conmigo\n\n¿En qué puedo ayudarte hoy?',
+    en: 'Hi there! I\'m the MGA Tech Consulting virtual assistant. I can help you with:\n\n• Technical queries about automation and AI\n• Information about Mariano\'s portfolio and experience\n• Searching for specific solutions in our Technical Blog\n• Scheduling a meeting directly with me\n\nHow can I help you today?',
 };
 
 export function useAIAssistant() {
