@@ -5,13 +5,13 @@ import IntroLoader from './IntroLoader';
 import { AIAssistant } from '@/components/ui/AIAssistant';
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     // Show intro once per session (not on every page navigation)
     const seen = sessionStorage.getItem('intro-seen');
-    if (!seen) {
-      setShowIntro(true);
+    if (seen) {
+      setShowIntro(false);
     }
   }, []);
 

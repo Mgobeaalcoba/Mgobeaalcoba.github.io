@@ -126,6 +126,41 @@
 </head>
 <body>
 
+    <!-- Loading Screen - rendered FIRST to cover all content before Tailwind CDN loads -->
+    <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:#0f172a;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;">
+        <div class="text-6xl mb-6 animate-pulse">🏢</div>
+        <h1 class="text-3xl font-black mb-2 tracking-tight">REQ-QUEST: OFFICE</h1>
+        <p class="text-indigo-400 font-mono text-sm">Generando voxels y compilando shaders...</p>
+    </div>
+
+    <!-- Intro Screen - rendered second, shown after loader is hidden -->
+    <div id="intro-screen" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(15,23,42,0.95);z-index:9990;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;padding:2rem;" class="backdrop-blur-sm">
+        <div class="max-w-2xl text-center space-y-6 animate-fade-in-up">
+            <div class="text-6xl mb-4">🕵️‍♂️</div>
+            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-2">
+                MISIÓN: ANALISTA FUNCIONAL
+            </h1>
+            <p class="text-xl text-slate-300 leading-relaxed font-light">
+                Bienvenido a la oficina central. Eres el nuevo <strong class="text-white">Analista Funcional</strong> de la corporación.
+            </p>
+            <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-left space-y-4">
+                <p class="text-slate-400 text-sm">
+                    <span class="text-indigo-400 font-bold">TU OBJETIVO:</span> Recorrer las diferentes áreas de la empresa (Gerencia, Desarrollo, Operaciones y Usuarios) para relevar, especificar y validar los requerimientos del nuevo sistema crítico.
+                </p>
+                <p class="text-slate-400 text-sm">
+                    <span class="text-red-400 font-bold">CUIDADO:</span> Los stakeholders tienen intereses conflictivos, agendas ocultas y conceptos erróneos. Si tomas malas decisiones, perderás <strong class="text-blue-300">Reputación</strong> o quemarás el <strong class="text-green-300">Presupuesto</strong>.
+                </p>
+                <p class="text-slate-400 text-sm">
+                    Evita los <strong class="text-red-500">Bugs Rojos</strong> que deambulan por los pasillos.
+                </p>
+            </div>
+            
+            <button onclick="startGame()" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(79,70,229,0.5)] transition transform hover:scale-105 active:scale-95 text-lg mt-8">
+                COMENZAR LA MISIÓN
+            </button>
+        </div>
+    </div>
+
     <div id="damage-flash" class="damage-overlay"></div>
     <div id="canvas-container"></div>
 
@@ -219,41 +254,6 @@
             Mover: <span class="key-hint">W</span><span class="key-hint">A</span><span class="key-hint">S</span><span class="key-hint">D</span>
             | Rotar Cámara: <span class="key-hint">Q</span><span class="key-hint">E</span>
             | Interactuar: <span class="key-hint">SPACE</span> o <span class="key-hint">E</span>
-        </div>
-    </div>
-
-    <!-- Loading Screen -->
-    <div id="loader" class="absolute top-0 left-0 w-full h-full bg-slate-900 z-[100] flex flex-col justify-center items-center text-white">
-        <div class="text-6xl mb-6 animate-pulse">🏢</div>
-        <h1 class="text-3xl font-black mb-2 tracking-tight">REQ-QUEST: OFFICE</h1>
-        <p class="text-indigo-400 font-mono text-sm">Generando voxels y compilando shaders...</p>
-    </div>
-
-    <!-- Intro Screen -->
-    <div id="intro-screen" class="absolute top-0 left-0 w-full h-full bg-slate-900/95 z-[90] flex flex-col justify-center items-center text-white p-8 backdrop-blur-sm">
-        <div class="max-w-2xl text-center space-y-6 animate-fade-in-up">
-            <div class="text-6xl mb-4">🕵️‍♂️</div>
-            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-2">
-                MISIÓN: ANALISTA FUNCIONAL
-            </h1>
-            <p class="text-xl text-slate-300 leading-relaxed font-light">
-                Bienvenido a la oficina central. Eres el nuevo <strong class="text-white">Analista Funcional</strong> de la corporación.
-            </p>
-            <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-left space-y-4">
-                <p class="text-slate-400 text-sm">
-                    <span class="text-indigo-400 font-bold">TU OBJETIVO:</span> Recorrer las diferentes áreas de la empresa (Gerencia, Desarrollo, Operaciones y Usuarios) para relevar, especificar y validar los requerimientos del nuevo sistema crítico.
-                </p>
-                <p class="text-slate-400 text-sm">
-                    <span class="text-red-400 font-bold">CUIDADO:</span> Los stakeholders tienen intereses conflictivos, agendas ocultas y conceptos erróneos. Si tomas malas decisiones, perderás <strong class="text-blue-300">Reputación</strong> o quemarás el <strong class="text-green-300">Presupuesto</strong>.
-                </p>
-                <p class="text-slate-400 text-sm">
-                    Evita los <strong class="text-red-500">Bugs Rojos</strong> que deambulan por los pasillos.
-                </p>
-            </div>
-            
-            <button onclick="startGame()" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(79,70,229,0.5)] transition transform hover:scale-105 active:scale-95 text-lg mt-8">
-                COMENZAR LA MISIÓN
-            </button>
         </div>
     </div>
 
