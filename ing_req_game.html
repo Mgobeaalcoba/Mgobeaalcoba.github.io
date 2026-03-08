@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ReqQuest 3D: Office Edition | Juego Educativo de Ingeniería de Requerimientos</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ReqQuest 3D: Juego educativo interactivo en 3D para aprender Ingeniería de Requerimientos. Explora una oficina virtual, resuelve desafíos y practica conceptos de manera gamificada. Desarrollado por Mariano Gobea Alcoba, docente en Soy Henry y UADE.">
+    <meta name="keywords" content="juego educativo, ingeniería de requerimientos, gamificación, learning by playing, educación tecnológica, ReqQuest 3D, Soy Henry, UADE, Mariano Gobea Alcoba, aprendizaje interactivo, juego 3D educativo">
+    <meta name="author" content="Mariano Gobea Alcoba">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ReqQuest 3D: Office Edition | Juego Educativo Interactivo">
+    <meta property="og:description" content="Aprende Ingeniería de Requerimientos jugando. Juego 3D interactivo con 13 desafíos, stakeholders y práctica real en oficina virtual.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    <meta property="og:url" content="https://mgobeaalcoba.github.io/ing_req_game.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReqQuest 3D - Mariano Gobea Alcoba">
+    <meta property="og:locale" content="es_AR">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MGobeaAlcoba">
+    <meta name="twitter:creator" content="@MGobeaAlcoba">
+    <meta name="twitter:title" content="ReqQuest 3D: Office Edition | Juego Educativo">
+    <meta name="twitter:description" content="Aprende Ingeniería de Requerimientos jugando. Juego 3D interactivo con 13 desafíos.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/main/assets/images/profile.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mgobeaalcoba.github.io/ing_req_game.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DG0SLT5RY3', {
+        'page_title': 'ReqQuest 3D Game',
+        'page_path': '/ing_req_game.html'
+      });
+      
+      // Event tracking for game interactions
+      function trackGameEvent(action, label) {
+        gtag('event', action, {
+          'event_category': 'Game',
+          'event_label': label
+        });
+      }
+    </script>
+    
+    <!-- Structured Data for Game -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "ReqQuest 3D: Office Edition",
+        "description": "Juego educativo interactivo en 3D para aprender Ingeniería de Requerimientos mediante gamificación y práctica experiencial.",
+        "genre": ["Educational", "Simulation", "Adventure"],
+        "gamePlatform": "Web Browser",
+        "applicationCategory": "Game",
+        "educationalUse": "Práctica de Ingeniería de Requerimientos",
+        "educationalLevel": "Universitario",
+        "author": {
+            "@type": "Person",
+            "name": "Mariano Gobea Alcoba",
+            "jobTitle": "Data & Analytics Technical Leader, Docente",
+            "affiliation": [
+                {
+                    "@type": "Organization",
+                    "name": "Soy Henry"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Universidad Argentina de la Empresa (UADE)"
+                }
+            ]
+        },
+        "learningResourceType": "Interactive Game",
+        "inLanguage": "es-AR",
+        "isAccessibleForFree": true,
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Portfolio",
+                "item": "https://mgobeaalcoba.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "ReqQuest 3D Game",
+                "item": "https://mgobeaalcoba.github.io/ing_req_game.html"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Import Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Game Styles -->
+    <link rel="stylesheet" href="assets/css/game.css">
+</head>
+<body>
+
+    <div id="damage-flash" class="damage-overlay"></div>
+    <div id="canvas-container"></div>
+
+    <!-- Back to Portfolio Button -->
+    <a onClick="window.parent.postMessage('closeGame', '*'); return false;" href="#" class="fixed top-4 left-4 z-[60] bg-slate-900/90 hover:bg-slate-800 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-slate-700 shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2 interactive backdrop-blur-sm hover:scale-105 text-xs sm:text-sm">
+        <span class="text-lg sm:text-xl">←</span>
+        <span class="font-semibold hidden sm:inline">Volver al Portfolio</span>
+        <span class="font-semibold sm:hidden">Portfolio</span>
+    </a>
+
+    <!-- Mobile Touch Controls -->
+    <div class="joystick-container" id="joystick-container">
+        <div class="joystick-base"></div>
+        <div class="joystick-stick" id="joystick-stick"></div>
+    </div>
+
+    <div class="mobile-controls" id="mobile-controls">
+        <div class="mobile-btn" id="btn-rotate-left">↶</div>
+        <div class="mobile-btn" id="btn-rotate-right">↷</div>
+        <div class="mobile-btn interact-btn" id="btn-interact">💬</div>
+    </div>
+
+    <div id="game-ui" class="flex flex-col justify-between p-6">
+        
+        <!-- HUD -->
+        <div class="flex justify-between items-start w-full max-w-6xl mx-auto">
+            <div class="interactive bg-slate-900/90 text-white p-4 rounded-xl border border-slate-700 flex gap-8 shadow-xl">
+                <div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Reputación</div>
+                    <div class="flex items-end gap-1">
+                        <span id="hud-rep" class="text-3xl font-black text-blue-400">100</span><span class="text-sm text-slate-500 mb-1">%</span>
+                    </div>
+                </div>
+                <div class="w-px bg-slate-700"></div>
+                <div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Presupuesto</div>
+                    <div class="flex items-end gap-1">
+                        <span id="hud-budget" class="text-3xl font-black text-green-400">$100</span><span class="text-sm text-slate-500 mb-1">k</span>
+                    </div>
+                </div>
+                <div class="w-px bg-slate-700"></div>
+                <div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Progreso</div>
+                    <div class="text-sm font-bold text-indigo-400 mt-1"><span id="hud-progress">0</span> / 13 NPCs</div>
+                </div>
+            </div>
+            
+            <div class="interactive bg-slate-900/90 text-white px-5 py-3 rounded-lg border border-slate-700 text-sm shadow-lg max-w-xs">
+                <div class="flex items-center gap-2 mb-1 text-indigo-400 font-bold uppercase text-xs tracking-wider">
+                    <span>⚠️ Alerta</span>
+                </div>
+                ¡Cuidado con los Bugs rojos! Te quitan reputación.
+            </div>
+        </div>
+
+        <!-- Interaction Prompt -->
+        <div id="prompt" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-12 interactive pointer-events-none">
+            <div class="bg-black/80 text-white px-6 py-2 rounded-full border border-white/20 shadow-[0_0_15px_rgba(99,102,241,0.5)] animate-bounce font-bold text-sm">
+                Presiona <span class="key-hint bg-indigo-600 border-indigo-400 text-white">E</span> para hablar
+            </div>
+        </div>
+
+        <!-- Dialogue Box -->
+        <div id="dialog-panel" class="hidden interactive mx-auto w-full max-w-3xl dialog-box rounded-xl p-8 mb-8 relative z-50">
+            <div class="absolute -top-6 left-8 bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg border border-indigo-400">
+                Desafío de Ingeniería
+            </div>
+            
+            <div class="flex items-start gap-6 mb-6">
+                <div id="npc-avatar" class="w-16 h-16 rounded-xl bg-slate-700 flex items-center justify-center text-4xl shadow-inner border border-slate-600 shrink-0">👤</div>
+                <div class="w-full">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h2 id="npc-name" class="text-2xl font-black text-white tracking-tight">Nombre NPC</h2>
+                        <span id="npc-role" class="text-xs font-bold text-slate-400 bg-slate-800 px-2 py-1 rounded border border-slate-700">ROL</span>
+                    </div>
+                    <p id="dialog-text" class="text-slate-300 text-lg leading-relaxed font-light">...</p>
+                </div>
+            </div>
+            
+            <div id="options-container" class="space-y-3 pl-22">
+                <!-- Options injected via JS -->
+            </div>
+
+            <button id="btn-close" onclick="closeDialog()" class="hidden w-full mt-6 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition shadow-lg transform active:scale-95">
+                Comprendido, continuar
+            </button>
+        </div>
+
+        <!-- Controls Hint -->
+        <div class="text-slate-500 text-xs text-center font-mono bg-slate-900/50 inline-block mx-auto px-4 py-2 rounded-full backdrop-blur-sm">
+            Mover: <span class="key-hint">W</span><span class="key-hint">A</span><span class="key-hint">S</span><span class="key-hint">D</span>
+            | Rotar Cámara: <span class="key-hint">Q</span><span class="key-hint">E</span>
+            | Interactuar: <span class="key-hint">SPACE</span> o <span class="key-hint">E</span>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="absolute top-0 left-0 w-full h-full bg-slate-900 z-[100] flex flex-col justify-center items-center text-white">
+        <div class="text-6xl mb-6 animate-pulse">🏢</div>
+        <h1 class="text-3xl font-black mb-2 tracking-tight">REQ-QUEST: OFFICE</h1>
+        <p class="text-indigo-400 font-mono text-sm">Generando voxels y compilando shaders...</p>
+    </div>
+
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="absolute top-0 left-0 w-full h-full bg-slate-900/95 z-[90] flex flex-col justify-center items-center text-white p-8 backdrop-blur-sm">
+        <div class="max-w-2xl text-center space-y-6 animate-fade-in-up">
+            <div class="text-6xl mb-4">🕵️‍♂️</div>
+            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-2">
+                MISIÓN: ANALISTA FUNCIONAL
+            </h1>
+            <p class="text-xl text-slate-300 leading-relaxed font-light">
+                Bienvenido a la oficina central. Eres el nuevo <strong class="text-white">Analista Funcional</strong> de la corporación.
+            </p>
+            <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 text-left space-y-4">
+                <p class="text-slate-400 text-sm">
+                    <span class="text-indigo-400 font-bold">TU OBJETIVO:</span> Recorrer las diferentes áreas de la empresa (Gerencia, Desarrollo, Operaciones y Usuarios) para relevar, especificar y validar los requerimientos del nuevo sistema crítico.
+                </p>
+                <p class="text-slate-400 text-sm">
+                    <span class="text-red-400 font-bold">CUIDADO:</span> Los stakeholders tienen intereses conflictivos, agendas ocultas y conceptos erróneos. Si tomas malas decisiones, perderás <strong class="text-blue-300">Reputación</strong> o quemarás el <strong class="text-green-300">Presupuesto</strong>.
+                </p>
+                <p class="text-slate-400 text-sm">
+                    Evita los <strong class="text-red-500">Bugs Rojos</strong> que deambulan por los pasillos.
+                </p>
+            </div>
+            
+            <button onclick="startGame()" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(79,70,229,0.5)] transition transform hover:scale-105 active:scale-95 text-lg mt-8">
+                COMENZAR LA MISIÓN
+            </button>
+        </div>
+    </div>
+
+    <!-- Boss Unlock Screen -->
+    <div id="boss-screen" class="hidden absolute top-0 left-0 w-full h-full bg-slate-900/95 z-[95] flex flex-col justify-center items-center text-white p-8 backdrop-blur-md">
+        <div class="max-w-3xl text-center space-y-8 animate-fade-in-up">
+            <div class="text-8xl mb-6 animate-pulse">⚡</div>
+            
+            <h1 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 mb-4 drop-shadow-2xl">
+                ¡JEFE FINAL DESBLOQUEADO!
+            </h1>
+            
+            <p class="text-xl text-slate-200 font-light max-w-2xl mx-auto">
+                Has completado <strong class="text-green-400">12 de 13 desafíos</strong>. El <strong class="text-red-400">Profesor</strong> ha aparecido en el centro de la oficina.
+            </p>
+
+            <div class="bg-red-900/30 p-6 rounded-xl border border-red-500/30 text-red-200 text-lg mt-8">
+                <div class="text-3xl mb-3">🎯</div>
+                <p class="font-semibold">Enfréntate al examen final del Profesor</p>
+                <p class="text-sm text-slate-300 mt-2">Este es el desafío definitivo de Ingeniería de Requerimientos</p>
+            </div>
+
+            <button onclick="closeBossScreen()" class="px-10 py-5 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-bold rounded-full shadow-[0_0_30px_rgba(239,68,68,0.6)] transition transform hover:scale-105 active:scale-95 text-xl mt-10">
+                ¡ACEPTAR EL DESAFÍO!
+            </button>
+        </div>
+    </div>
+
+    <!-- Win Screen -->
+    <div id="win-screen" class="hidden absolute top-0 left-0 w-full h-full bg-slate-900/95 z-[100] flex flex-col justify-center items-center text-white p-8 backdrop-blur-md">
+        <div class="max-w-3xl text-center space-y-8 animate-fade-in-up">
+            <div class="text-8xl mb-6 animate-bounce">🎓</div>
+            
+            <h1 class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-4 drop-shadow-2xl">
+                ¡CURSO COMPLETADO!
+            </h1>
+            
+            <p class="text-2xl text-slate-200 font-light max-w-2xl mx-auto">
+                Has demostrado un dominio excepcional en <strong class="text-indigo-400">Ingeniería de Requerimientos</strong>.
+            </p>
+
+            <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto mt-8">
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                    <div class="text-slate-400 text-sm uppercase font-bold tracking-widest mb-2">Reputación Final</div>
+                    <div id="final-rep" class="text-5xl font-black text-blue-400">100%</div>
+                </div>
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                    <div class="text-slate-400 text-sm uppercase font-bold tracking-widest mb-2">Presupuesto Final</div>
+                    <div id="final-budget" class="text-5xl font-black text-green-400">$100k</div>
+                </div>
+            </div>
+
+            <div class="bg-indigo-900/30 p-6 rounded-xl border border-indigo-500/30 text-indigo-200 text-lg italic mt-8">
+                "El software es comunicación. Has logrado alinear las expectativas de todos los stakeholders."
+            </div>
+
+            <button onclick="location.reload()" class="px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-full shadow-[0_0_30px_rgba(99,102,241,0.6)] transition transform hover:scale-105 active:scale-95 text-xl mt-10">
+                JUGAR DE NUEVO
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Logic -->
+    <script src="assets/js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],""]
+8:I[9886,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],"DataErrorBoundary"]
+9:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],"ThemeProvider"]
+a:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],"LanguageProvider"]
+b:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],"SupabaseDataProvider"]
+c:I[84211,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-dfb0021999a4a1ee.js"],"default"]
+d:I[78458,["169","static/chunks/169-12377d3a1c23941f.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-ed9778c4c021a3a9.js"],"default"]
+4:["slug","bigquery-costos-optimizacion","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["8ipvKeNhj5RksSzgL_ugO",[[["",{"children":["blog",{"children":[["slug","bigquery-costos-optimizacion","d"],{"children":["__PAGE__?{\"slug\":\"bigquery-costos-optimizacion\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","bigquery-costos-optimizacion","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DG0SLT5RY3',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});"}}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L7",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"afterInteractive"}],["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Ld",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/b8ac75400070a4bc.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Le"]]]]]
+10:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-c32b53e91b529e74.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-c32b53e91b529e74.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-c32b53e91b529e74.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+14:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-c32b53e91b529e74.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+f:T418,{"@context":"https://schema.org","@type":"Article","headline":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas","description":"Estrategias probadas en MercadoLibre para reducir costos masivos en BigQuery. Desde particionamiento hasta clustering.","url":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/","datePublished":"2026-01-25","dateModified":"2026-01-25","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"},"keywords":"bigquery, gcp, costs","articleSection":"data-engineering","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}13:T1844,<p>BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarrollo. Acá el framework que uso para mantener los costos bajo control en equipos de 20+ analistas.</p>
+<h2>Entender el modelo de costos de BigQuery</h2>
+<p>BigQuery tiene dos modelos de pricing:</p>
+<ol>
+<li><strong>On-demand</strong>: $5-6.25 USD por TB escaneado (según región)</li>
+<li><strong>Reservas de slots</strong>: Precio fijo por capacidad de compute</li>
+</ol>
+<p>Para la mayoría de los equipos medianos, on-demand es lo que usan. El problema: 1 TB escaneado = $6.25. Una tabla de 5 TB consultada 100 veces por día = $3,125/día sin optimización.</p>
+<h2>Las 5 palancas de reducción de costos</h2>
+<h3>1. Particionamiento efectivo</h3>
+<pre><code class="language-sql">-- Tabla sin particionar: escanea TODO
+SELECT * FROM events WHERE DATE(created_at) = '2026-01-15';
+
+-- Tabla particionada por created_at:
+-- Escanea solo la partición del 2026-01-15
+CREATE TABLE events_partitioned
+PARTITION BY DATE(created_at)
+AS SELECT * FROM events;
+
+-- Ahora esta query escanea 1/365 de los datos (o menos)
+SELECT * FROM events_partitioned WHERE DATE(created_at) = '2026-01-15';
+</code></pre>
+<p><strong>Reducción típica</strong>: 80-95% en tablas con muchos períodos históricos.</p>
+<h3>2. Clustering para filtros frecuentes</h3>
+<p>El clustering ordena físicamente los datos dentro de cada partición:</p>
+<pre><code class="language-sql">CREATE TABLE events_optimized
+PARTITION BY DATE(created_at)
+CLUSTER BY country_id, seller_id, event_type
+AS SELECT * FROM events;
+
+-- Esta query ahora escanea una fracción mínima de la partición
+SELECT seller_id, COUNT(*) as events
+FROM events_optimized
+WHERE DATE(created_at) = '2026-01-15'
+  AND country_id = 'ARG'
+  AND event_type = 'purchase'
+GROUP BY seller_id;
+</code></pre>
+<p><strong>Cuándo usar</strong>: Cuando las queries frecuentes filtran por las mismas 2-4 columnas.</p>
+<h3>3. Tablas materializadas para queries repetitivas</h3>
+<pre><code class="language-sql">CREATE MATERIALIZED VIEW seller_daily_summary AS
+SELECT
+  DATE(created_at) as metric_date,
+  country_id,
+  seller_id,
+  COUNT(*) as total_events,
+  COUNTIF(event_type = 'purchase') as purchases,
+  SUM(gmv) as total_gmv
+FROM events_partitioned
+WHERE created_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 90 DAY)
+GROUP BY 1, 2, 3;
+</code></pre>
+<p>BigQuery actualiza las materialized views automáticamente cuando los datos fuente cambian (con algunas limitaciones). Para reportes que se consultan cientos de veces por día, esto puede ahorrar 99% del costo.</p>
+<h3>4. Proyección selectiva</h3>
+<pre><code class="language-sql">-- Mal: escanea todas las columnas de una tabla de 40 columnas
+SELECT * FROM orders WHERE seller_id = 12345;
+
+-- Bien: solo escanea las columnas necesarias
+SELECT order_id, status, gmv, created_at
+FROM orders
+WHERE seller_id = 12345;
+</code></pre>
+<p><strong>Impacto</strong>: En BigQuery columnar storage, <code>SELECT *</code> escanea 40 columnas. <code>SELECT 4 columns</code> escanea solo esas 4. Si las otras 36 columnas son pesadas (strings largos, arrays), el ahorro puede ser del 70%+.</p>
+<h3>5. Usar BI Engine para dashboards</h3>
+<p>Para dashboards que los analistas consultan constantemente, BigQuery BI Engine crea un cache in-memory:</p>
+<pre><code>BigQuery BI Engine:
+- Precio: ~$37/GB de capacity reservada por mes
+- Velocidad: queries en milisegundos en lugar de segundos
+- Costo por query: $0 (no escanea bytes)
+</code></pre>
+<p>Para un dashboard consultado 10,000 veces por día sobre una tabla de 100 GB, BI Engine puede ser 10-50x más barato que on-demand.</p>
+<h2>Governance de costos en equipos</h2>
+<p>El problema real no es una sola query costosa — es 20 analistas corriendo queries sin awareness del costo.</p>
+<h3>Configurar alertas de costos</h3>
+<pre><code class="language-python"># Script para detectar queries costosas via BigQuery Jobs API
+from google.cloud import bigquery
+from datetime import datetime, timedelta
+
+def get_expensive_queries(project_id: str, threshold_gb: float = 100) -> list:
+    client = bigquery.Client(project=project_id)
+    
+    yesterday = (datetime.utcnow() - timedelta(days=1)).strftime('%Y-%m-%d')
+    
+    query = f"""
+    SELECT
+      job_id,
+      user_email,
+      ROUND(total_bytes_processed / POW(1024, 3), 2) as gb_processed,
+      ROUND(total_bytes_processed / POW(1024, 4) * 6.25, 2) as cost_usd,
+      query
+    FROM `region-us`.INFORMATION_SCHEMA.JOBS
+    WHERE creation_time >= '{yesterday}'
+      AND total_bytes_processed > {threshold_gb * 1024**3}
+    ORDER BY total_bytes_processed DESC
+    LIMIT 20
+    """
+    
+    results = client.query(query).result()
+    return [dict(row) for row in results]
+</code></pre>
+<h3>Custom quotas por usuario</h3>
+<pre><code class="language-sql">-- En BigQuery, configurar custom quotas vía API
+-- Limitar a 1 TB por día por usuario:
+gcloud alpha bigquery quotas update \
+  --project=my-project \
+  --metric=bigquery.googleapis.com/quota/query/usage \
+  --user=analyst@company.com \
+  --limit=1000000000000  # 1 TB en bytes
+</code></pre>
+<h3>Dashboard de costos en tiempo real</h3>
+<pre><code class="language-sql">-- Vista en BigQuery para monitorear costos del día
+CREATE OR REPLACE VIEW cost_monitoring AS
+SELECT
+  DATE(creation_time) as query_date,
+  user_email,
+  COUNT(*) as query_count,
+  SUM(total_bytes_processed) / POW(1024, 4) as total_tb,
+  ROUND(SUM(total_bytes_processed) / POW(1024, 4) * 6.25, 2) as estimated_cost_usd
+FROM `region-us`.INFORMATION_SCHEMA.JOBS
+WHERE creation_time >= DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
+  AND job_type = 'QUERY'
+  AND state = 'DONE'
+GROUP BY 1, 2
+ORDER BY estimated_cost_usd DESC;
+</code></pre>
+<h2>Resultado real</h2>
+<p>Implementando estas 5 palancas en nuestro equipo:</p>
+<ul>
+<li><strong>Costo mensual antes</strong>: ~$45,000 USD</li>
+<li><strong>Costo mensual después</strong>: ~$8,200 USD</li>
+<li><strong>Ahorro</strong>: $36,800 USD/mes (82% de reducción)</li>
+</ul>
+<p>El cambio más impactante fue el particionamiento + clustering de las 3 tablas más consultadas. Ese solo ajuste redujo el costo en 60%.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","$L10",null,{"site_section":"blog"}],["$","$L11",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L12",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"data-engineering"}],["$","span",null,{"className":"text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full","children":"⭐ Featured"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Estrategias probadas en MercadoLibre para reducir costos masivos en BigQuery. Desde particionamiento hasta clustering."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"25 de enero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","bigquery",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"bigquery"]}],["$","span","gcp",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"gcp"]}],["$","span","costs",{"className":"flex items-center gap-1 text-xs text-gray-400","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":10,"height":10,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"costs"]}]]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$13"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L12",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L12",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L14",null,{}]]}]
+e:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Estrategias probadas en MercadoLibre para reducir costos masivos en BigQuery. Desde particionamiento hasta clustering."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"}],["$","meta","11",{"property":"og:title","content":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas"}],["$","meta","12",{"property":"og:description","content":"Estrategias probadas en MercadoLibre para reducir costos masivos en BigQuery. Desde particionamiento hasta clustering."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-01-25"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas"}],["$","meta","25",{"name":"twitter:description","content":"Estrategias probadas en MercadoLibre para reducir costos masivos en BigQuery. Desde particionamiento hasta clustering."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"BigQuery: Cómo reduje costos en 70% con estas 7 técnicas"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null
