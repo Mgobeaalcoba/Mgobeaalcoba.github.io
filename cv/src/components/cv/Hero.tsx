@@ -78,6 +78,7 @@ export default function Hero() {
           const next = !muted;
           setMuted(next);
           if (videoRef.current) videoRef.current.muted = next;
+          events.soundToggle(next ? 'mute' : 'unmute');
         }}
         className="absolute top-20 right-4 z-20 glass p-2.5 rounded-full text-white/70 hover:text-white transition-colors"
         title={muted ? (lang === 'es' ? 'Activar sonido' : 'Unmute') : (lang === 'es' ? 'Silenciar' : 'Mute')}

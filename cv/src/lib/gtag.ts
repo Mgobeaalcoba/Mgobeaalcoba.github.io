@@ -80,11 +80,44 @@ export const events = {
   calendlyClick: (site_section = 'consulting') =>
     keyEvent('calendly_click', { site_section }),
 
+  // KEY EVENT — WhatsApp contact intent
+  whatsappClick: (site_section = 'consulting') =>
+    keyEvent('whatsapp_click', { site_section }),
+
   serviceView: (packId: string) =>
     event('service_view', { pack_id: packId, site_section: 'consulting' }),
 
   floatingCtaClick: (site_section: string) =>
     event('floating_cta_click', { site_section }),
+
+  // Navigation Events
+  navClick: (href: string, label: string, site_section = 'cv') =>
+    event('nav_click', { link_url: href, link_text: label, site_section }),
+
+  languageSwitch: (from_language: string, to_language: string) =>
+    event('language_switch', { from_language, to_language, site_section: 'cv' }),
+
+  // Sound toggle on hero video
+  soundToggle: (action: 'mute' | 'unmute') =>
+    event('video_sound_toggle', { action, site_section: 'cv' }),
+
+  // Blog Events
+  blogCategoryFilter: (category: string) =>
+    event('blog_category_filter', { category, site_section: 'blog' }),
+
+  blogPostCardClick: (slug: string, title: string, category: string) =>
+    event('blog_post_card_click', { slug, post_title: title, category, site_section: 'blog' }),
+
+  blogPostRead: (slug: string, title: string) =>
+    event('blog_post_read', { slug, post_title: title, site_section: 'blog' }),
+
+  // KEY EVENT — YouTube video click from blog section
+  youtubeVideoClick: (video_title: string, video_id: string) =>
+    keyEvent('video_click', { video_title, video_id, site_section: 'blog' }),
+
+  // Outbound link tracking (social/external links in footer)
+  outboundClick: (url: string, label: string, site_section = 'cv') =>
+    event('outbound_click', { link_url: url, link_text: label, site_section }),
 
   // AI Assistant Events
   aiAssistantOpen: () =>

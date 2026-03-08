@@ -5,6 +5,7 @@ import { Clock, Calendar, Tag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { PostMeta } from '@/lib/blog';
+import { events } from '@/lib/gtag';
 
 const CATEGORY_COLORS: Record<string, string> = {
   'data-engineering': 'bg-blue-500/20 text-blue-300 border-blue-500/30',
@@ -27,7 +28,11 @@ export default function PostCard({ post, index }: PostCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
     >
-      <Link href={`/blog/${post.slug}/`} className="block group">
+      <Link
+        href={`/blog/${post.slug}/`}
+        onClick={() => events.blogPostCardClick(post.slug, post.title[lang], post.category)}
+        className="block group"
+      >
         <article className="glass rounded-2xl p-6 glow-border hover:scale-[1.01] transition-all duration-200 h-full flex flex-col gap-4">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <span
