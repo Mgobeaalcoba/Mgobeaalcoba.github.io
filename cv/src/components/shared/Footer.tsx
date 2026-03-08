@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
+import { events } from '@/lib/gtag';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -77,6 +78,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/mariano-gobea-alcoba/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => events.outboundClick('https://www.linkedin.com/in/mariano-gobea-alcoba/', 'LinkedIn')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Linkedin size={14} />
@@ -86,6 +88,7 @@ export default function Footer() {
                 href="https://github.com/Mgobeaalcoba"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => events.outboundClick('https://github.com/Mgobeaalcoba', 'GitHub')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Github size={14} />
@@ -95,6 +98,7 @@ export default function Footer() {
                 href="https://twitter.com/MGobeaAlcoba"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => events.outboundClick('https://twitter.com/MGobeaAlcoba', 'Twitter')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Twitter size={14} />
@@ -102,6 +106,7 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:mariano@mgatc.com"
+                onClick={() => events.outboundClick('mailto:mariano@mgatc.com', 'Email')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Mail size={14} />
@@ -128,15 +133,31 @@ export default function Footer() {
             {t('footer_design')} <Heart size={14} className="text-red-400" /> {t('footer_location')} · 2026
           </p>
           <div className="flex items-center gap-3 text-xs text-gray-600">
-            <a href="https://github.com/Mgobeaalcoba" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">
+            <a
+              href="https://github.com/Mgobeaalcoba"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => events.outboundClick('https://github.com/Mgobeaalcoba', 'GitHub')}
+              className="hover:text-sky-400 transition-colors"
+            >
               GitHub
             </a>
             <span>·</span>
-            <a href="https://www.linkedin.com/in/mariano-gobea-alcoba/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">
+            <a
+              href="https://www.linkedin.com/in/mariano-gobea-alcoba/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => events.outboundClick('https://www.linkedin.com/in/mariano-gobea-alcoba/', 'LinkedIn')}
+              className="hover:text-sky-400 transition-colors"
+            >
               LinkedIn
             </a>
             <span>·</span>
-            <a href="mailto:mariano@mgatc.com" className="hover:text-sky-400 transition-colors">
+            <a
+              href="mailto:mariano@mgatc.com"
+              onClick={() => events.outboundClick('mailto:mariano@mgatc.com', 'Email')}
+              className="hover:text-sky-400 transition-colors"
+            >
               Email
             </a>
           </div>

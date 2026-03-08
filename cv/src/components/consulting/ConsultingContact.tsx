@@ -38,7 +38,7 @@ export default function ConsultingContact() {
             href="https://wa.me/5491127475569?text=Hola%20Mariano%2C%20me%20interesa%20la%20consultor%C3%ADa"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => events.leadFormSent('consulting')}
+            onClick={() => events.whatsappClick('consulting')}
             className="flex items-center justify-center gap-2 px-8 py-4 glass border border-green-500/30 text-green-400 rounded-xl font-semibold hover:bg-green-500/10 transition-all text-lg"
           >
             <MessageSquare size={20} />

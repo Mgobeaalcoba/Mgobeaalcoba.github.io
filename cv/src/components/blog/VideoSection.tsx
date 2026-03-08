@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { Play, Clock, Youtube } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { events } from '@/lib/gtag';
 
 export default function VideoSection() {
   const { lang, t } = useLanguage();
@@ -50,6 +51,7 @@ export default function VideoSection() {
                 href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => events.youtubeVideoClick(lang === 'es' ? video.titleEs : video.titleEn, video.youtubeId)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1 }}

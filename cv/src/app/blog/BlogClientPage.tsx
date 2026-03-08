@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PostCard from '@/components/blog/PostCard';
 import VideoSection from '@/components/blog/VideoSection';
 import type { PostMeta } from '@/lib/blog';
+import { events } from '@/lib/gtag';
 
 const CATEGORY_LABELS: Record<string, { es: string; en: string }> = {
   'data-engineering': { es: 'Data Engineering', en: 'Data Engineering' },
@@ -72,7 +73,7 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
         <div className="flex items-center gap-3 flex-wrap">
           <Filter size={14} className="text-gray-400" />
           <button
-            onClick={() => setActiveCategory('all')}
+            onClick={() => { setActiveCategory('all'); events.blogCategoryFilter('all'); }}
             className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
               activeCategory === 'all'
                 ? 'bg-sky-500 text-white border-sky-500'
@@ -86,7 +87,7 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
             return (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => { setActiveCategory(cat); events.blogCategoryFilter(cat); }}
                 className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
                   activeCategory === cat
                     ? 'bg-sky-500 text-white border-sky-500'

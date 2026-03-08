@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <main className="min-h-screen">
       <JsonLd data={articleSchema} />
-      <ScrollTracker />
+      <ScrollTracker site_section="blog" />
       <Navbar />
 
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">

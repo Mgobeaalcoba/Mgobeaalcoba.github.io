@@ -8,6 +8,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { Theme } from '@/contexts/ThemeContext';
 import Image from 'next/image';
+import { events } from '@/lib/gtag';
 
 const NAV_LINKS = [
   { href: '/', labelKey: 'nav_consulting' },
@@ -98,6 +99,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => events.navClick(link.href, t(link.labelKey))}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
                   isActive(link.href) ? 'text-sky-400' : 'text-gray-300'
                 }`}
@@ -113,7 +115,7 @@ export default function Navbar() {
             <div className="hidden sm:flex items-center gap-1 glass rounded-lg px-2 py-1">
               <Globe size={12} className="text-gray-400" />
               <button
-                onClick={() => setLang('es')}
+                onClick={() => { events.languageSwitch(lang, 'es'); setLang('es'); }}
                 className={`text-xs px-1.5 py-0.5 rounded transition-colors ${
                   lang === 'es' ? 'text-sky-400 font-bold' : 'text-gray-400 hover:text-gray-200'
                 }`}
@@ -122,7 +124,7 @@ export default function Navbar() {
               </button>
               <span className="text-gray-600">|</span>
               <button
-                onClick={() => setLang('en')}
+                onClick={() => { events.languageSwitch(lang, 'en'); setLang('en'); }}
                 className={`text-xs px-1.5 py-0.5 rounded transition-colors ${
                   lang === 'en' ? 'text-sky-400 font-bold' : 'text-gray-400 hover:text-gray-200'
                 }`}
@@ -157,7 +159,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => { events.navClick(link.href, t(link.labelKey)); setMenuOpen(false); }}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive(link.href)
                     ? 'text-sky-400 bg-sky-500/10'
@@ -170,14 +172,14 @@ export default function Navbar() {
             <div className="flex items-center gap-2 pt-2 border-t border-white/10">
               <Globe size={14} className="text-gray-400" />
               <button
-                onClick={() => setLang('es')}
+                onClick={() => { events.languageSwitch(lang, 'es'); setLang('es'); }}
                 className={`text-sm px-2 py-1 rounded ${lang === 'es' ? 'text-sky-400 font-bold' : 'text-gray-400'}`}
               >
                 Español
               </button>
               <span className="text-gray-600">/</span>
               <button
-                onClick={() => setLang('en')}
+                onClick={() => { events.languageSwitch(lang, 'en'); setLang('en'); }}
                 className={`text-sm px-2 py-1 rounded ${lang === 'en' ? 'text-sky-400 font-bold' : 'text-gray-400'}`}
               >
                 English

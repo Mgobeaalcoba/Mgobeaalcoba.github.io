@@ -52,12 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               page_path: window.location.pathname,
-              custom_map: {
-                dimension1: 'site_section',
-                dimension2: 'client_name'
-              }
+              site_section: 'elportugues',
+              client_name: 'El Portugues SA'
             });
-            gtag('set', { 'site_section': 'elportugues', 'client_name': 'El Portugues SA' });
           `}
         </Script>
       </head>
