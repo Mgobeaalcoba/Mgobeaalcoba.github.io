@@ -4,7 +4,7 @@
 
 // --- STARTUP FUNCTIONS ---
 function startGame() {
-    document.getElementById('intro-screen').classList.add('hidden');
+    document.getElementById('intro-screen').style.display = 'none';
     // Audio context could start here if added later
     
     // 🎯 ANALYTICS: Track game start
