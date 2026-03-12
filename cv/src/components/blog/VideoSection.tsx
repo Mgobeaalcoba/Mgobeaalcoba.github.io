@@ -1,22 +1,28 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Play, Clock, Youtube } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
-import { events } from '@/lib/gtag';
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Play, Clock, Youtube } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useSupabaseData } from "@/contexts/SupabaseDataContext";
+import { events } from "@/lib/gtag";
 
 export default function VideoSection() {
   const { lang, t } = useLanguage();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { videos, loading } = useSupabaseData();
 
-  const featuredVideos = videos.filter((v) => v.featured);
+  const featuredVideos = videos
+    .filter((v) => v.featured)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
-    <section id="videos" data-section="videos" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="videos"
+      data-section="videos"
+      className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}
@@ -25,13 +31,16 @@ export default function VideoSection() {
       >
         <div className="flex items-center gap-3 mb-8">
           <Youtube size={24} className="text-red-400" />
-          <h2 className="section-title mb-0">{t('blog_videos_title')}</h2>
+          <h2 className="section-title mb-0">{t("blog_videos_title")}</h2>
         </div>
 
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className="glass rounded-2xl overflow-hidden animate-pulse">
+              <div
+                key={i}
+                className="glass rounded-2xl overflow-hidden animate-pulse"
+              >
                 <div className="aspect-video bg-white/5" />
                 <div className="p-4 space-y-2">
                   <div className="h-3 bg-white/10 rounded w-24" />
@@ -51,7 +60,12 @@ export default function VideoSection() {
                 href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => events.youtubeVideoClick(lang === 'es' ? video.titleEs : video.titleEn, video.youtubeId)}
+                onClick={() =>
+                  events.youtubeVideoClick(
+                    lang === "es" ? video.titleEs : video.titleEn,
+                    video.youtubeId
+                  )
+                }
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1 }}
@@ -60,10 +74,11 @@ export default function VideoSection() {
                 <div className="relative aspect-video bg-gray-800 overflow-hidden">
                   <img
                     src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
-                    alt={lang === 'es' ? video.titleEs : video.titleEn}
+                    alt={lang === "es" ? video.titleEs : video.titleEn}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+                      (e.target as HTMLImageElement).src =
+                        `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
                     }}
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -79,20 +94,25 @@ export default function VideoSection() {
 
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs text-red-400 font-medium">{video.channel}</span>
+                    <span className="text-xs text-red-400 font-medium">
+                      {video.channel}
+                    </span>
                     <span className="text-gray-600 text-xs">•</span>
                     <span className="text-xs text-gray-500">
-                      {new Date(video.date).toLocaleDateString(lang === 'es' ? 'es-AR' : 'en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                      })}
+                      {new Date(video.date).toLocaleDateString(
+                        lang === "es" ? "es-AR" : "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                        }
+                      )}
                     </span>
                   </div>
                   <h3 className="font-semibold text-gray-100 text-sm leading-snug group-hover:text-sky-400 transition-colors mb-2">
-                    {lang === 'es' ? video.titleEs : video.titleEn}
+                    {lang === "es" ? video.titleEs : video.titleEn}
                   </h3>
                   <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
-                    {lang === 'es' ? video.descriptionEs : video.descriptionEn}
+                    {lang === "es" ? video.descriptionEs : video.descriptionEn}
                   </p>
                 </div>
               </motion.a>
