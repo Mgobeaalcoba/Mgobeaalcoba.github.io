@@ -1,0 +1,234 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],""]
+8:I[9886,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"DataErrorBoundary"]
+9:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"ThemeProvider"]
+a:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"LanguageProvider"]
+b:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"SupabaseDataProvider"]
+c:I[84211,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"default"]
+d:I[78458,["169","static/chunks/169-12377d3a1c23941f.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-ed9778c4c021a3a9.js"],"default"]
+4:["slug","automatizar-reportes-python","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Xd1SvFEn_5h7DIedoQsdT",[[["",{"children":["blog",{"children":[["slug","automatizar-reportes-python","d"],{"children":["__PAGE__?{\"slug\":\"automatizar-reportes-python\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","automatizar-reportes-python","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DG0SLT5RY3',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});"}}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L7",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"afterInteractive"}],["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Ld",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c6970fa1dce47e87.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Le"]]]]]
+10:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+14:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+f:T411,{"@context":"https://schema.org","@type":"Article","headline":"El sistema de reportes automatizado","description":"Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo auto...","url":"https://www.mgatc.com/blog/automatizar-reportes-python/","datePublished":"2025-10-12","dateModified":"2025-10-12","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/automatizar-reportes-python/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}13:T20e1,<p>Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo automaticé con Python y ahora el Excel llega solo, con datos frescos, y yo uso esas 2 horas para algo útil.</p>
+<h2>El sistema de reportes automatizado</h2>
+<p>El pipeline tiene tres partes:</p>
+<ol>
+<li><strong>Extracción</strong>: datos desde BigQuery</li>
+<li><strong>Formateo</strong>: Excel con gráficos y colores</li>
+<li><strong>Distribución</strong>: email automático con el reporte adjunto</li>
+</ol>
+<h2>Paso 1: Extraer datos de BigQuery</h2>
+<pre><code class="language-python">from google.cloud import bigquery
+import pandas as pd
+from datetime import datetime, timedelta
+
+def get_weekly_metrics() -> dict[str, pd.DataFrame]:
+    client = bigquery.Client()
+    
+    last_monday = datetime.now() - timedelta(days=datetime.now().weekday() + 7)
+    last_sunday = last_monday + timedelta(days=6)
+    
+    start_date = last_monday.strftime('%Y-%m-%d')
+    end_date = last_sunday.strftime('%Y-%m-%d')
+    
+    queries = {
+        'sales_by_country': f"""
+            SELECT
+              country,
+              SUM(gmv) as total_gmv,
+              COUNT(*) as total_orders,
+              COUNT(DISTINCT seller_id) as active_sellers,
+              ROUND(SUM(gmv) / COUNT(*), 2) as avg_ticket
+            FROM `analytics.orders`
+            WHERE DATE(created_at) BETWEEN '{start_date}' AND '{end_date}'
+            GROUP BY country
+            ORDER BY total_gmv DESC
+        """,
+        'daily_trend': f"""
+            SELECT
+              DATE(created_at) as date,
+              SUM(gmv) as gmv,
+              COUNT(*) as orders
+            FROM `analytics.orders`
+            WHERE DATE(created_at) BETWEEN '{start_date}' AND '{end_date}'
+            GROUP BY 1
+            ORDER BY 1
+        """,
+        'top_sellers': f"""
+            SELECT
+              seller_id,
+              seller_name,
+              SUM(gmv) as gmv,
+              COUNT(*) as orders,
+              RANK() OVER (ORDER BY SUM(gmv) DESC) as rank
+            FROM `analytics.orders` o
+            JOIN `analytics.sellers` s USING (seller_id)
+            WHERE DATE(created_at) BETWEEN '{start_date}' AND '{end_date}'
+            GROUP BY seller_id, seller_name
+            QUALIFY rank &#x3C;= 20
+        """,
+    }
+    
+    return {
+        name: client.query(query).to_dataframe()
+        for name, query in queries.items()
+    }
+</code></pre>
+<h2>Paso 2: Generar el Excel con formato profesional</h2>
+<pre><code class="language-python">import openpyxl
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils.dataframe import dataframe_to_rows
+from openpyxl.chart import BarChart, LineChart, Reference
+
+def create_weekly_report(data: dict[str, pd.DataFrame], output_path: str):
+    wb = openpyxl.Workbook()
+    
+    # Estilos reutilizables
+    header_font = Font(bold=True, color="FFFFFF", size=11)
+    header_fill = PatternFill(start_color="1F4E79", end_color="1F4E79", fill_type="solid")
+    alt_fill = PatternFill(start_color="D6E4F0", end_color="D6E4F0", fill_type="solid")
+    
+    def style_header_row(ws, row: int, num_cols: int):
+        for col in range(1, num_cols + 1):
+            cell = ws.cell(row=row, column=col)
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.alignment = Alignment(horizontal="center", vertical="center")
+    
+    def add_dataframe_to_sheet(ws, df: pd.DataFrame, start_row: int = 1):
+        for r_idx, row in enumerate(dataframe_to_rows(df, index=False, header=True)):
+            for c_idx, value in enumerate(row, 1):
+                cell = ws.cell(row=start_row + r_idx - 1, column=c_idx, value=value)
+                if r_idx == 1:
+                    cell.font = header_font
+                    cell.fill = header_fill
+                elif r_idx % 2 == 0:
+                    cell.fill = alt_fill
+        
+        # Auto-ajustar columnas
+        for col in ws.columns:
+            max_len = max(len(str(cell.value or "")) for cell in col)
+            ws.column_dimensions[col[0].column_letter].width = min(max_len + 4, 40)
+    
+    # Sheet 1: Ventas por País
+    ws_countries = wb.active
+    ws_countries.title = "Por País"
+    add_dataframe_to_sheet(ws_countries, data['sales_by_country'])
+    
+    # Agregar gráfico de barras
+    chart = BarChart()
+    chart.title = "GMV por País"
+    chart.y_axis.title = "GMV ($)"
+    n_rows = len(data['sales_by_country']) + 1
+    data_ref = Reference(ws_countries, min_col=2, min_row=1, max_row=n_rows)
+    cats = Reference(ws_countries, min_col=1, min_row=2, max_row=n_rows)
+    chart.add_data(data_ref, titles_from_data=True)
+    chart.set_categories(cats)
+    ws_countries.add_chart(chart, "G2")
+    
+    # Sheet 2: Tendencia Diaria
+    ws_trend = wb.create_sheet("Tendencia Semanal")
+    add_dataframe_to_sheet(ws_trend, data['daily_trend'])
+    
+    # Gráfico de línea para tendencia
+    line_chart = LineChart()
+    line_chart.title = "Evolución Diaria"
+    n_rows_trend = len(data['daily_trend']) + 1
+    data_ref_trend = Reference(ws_trend, min_col=2, min_row=1, max_row=n_rows_trend)
+    line_chart.add_data(data_ref_trend, titles_from_data=True)
+    ws_trend.add_chart(line_chart, "E2")
+    
+    # Sheet 3: Top Sellers
+    ws_sellers = wb.create_sheet("Top Sellers")
+    add_dataframe_to_sheet(ws_sellers, data['top_sellers'])
+    
+    wb.save(output_path)
+    print(f"Reporte guardado en {output_path}")
+</code></pre>
+<h2>Paso 3: Enviar por email automáticamente</h2>
+<pre><code class="language-python">import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+import os
+
+def send_report_email(
+    report_path: str,
+    recipients: list[str],
+    week_dates: tuple[str, str]
+):
+    msg = MIMEMultipart()
+    msg["From"] = os.getenv("EMAIL_FROM")
+    msg["To"] = ", ".join(recipients)
+    msg["Subject"] = f"📊 Reporte Semanal de Ventas — {week_dates[0]} al {week_dates[1]}"
+    
+    body = f"""
+    Hola equipo,
+
+    Adjunto el reporte de métricas de ventas correspondiente a la semana del {week_dates[0]} al {week_dates[1]}.
+
+    El reporte incluye:
+    - Ventas por país (GMV, órdenes, ticket promedio)
+    - Tendencia diaria de la semana
+    - Top 20 sellers del período
+
+    Saludos,
+    Data Team (automated)
+    """
+    msg.attach(MIMEText(body, "plain"))
+    
+    # Adjuntar el Excel
+    with open(report_path, "rb") as f:
+        attachment = MIMEBase("application", "octet-stream")
+        attachment.set_payload(f.read())
+    encoders.encode_base64(attachment)
+    attachment.add_header(
+        "Content-Disposition",
+        f"attachment; filename={os.path.basename(report_path)}"
+    )
+    msg.attach(attachment)
+    
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(os.getenv("EMAIL_FROM"), os.getenv("EMAIL_PASSWORD"))
+        server.sendmail(os.getenv("EMAIL_FROM"), recipients, msg.as_string())
+    
+    print(f"Email enviado a {len(recipients)} destinatarios")
+
+## El script principal
+def main():
+    data = get_weekly_metrics()
+    
+    report_path = f"/tmp/reporte_semanal_{datetime.now().strftime('%Y%m%d')}.xlsx"
+    create_weekly_report(data, report_path)
+    
+    last_monday = datetime.now() - timedelta(days=datetime.now().weekday() + 7)
+    last_sunday = last_monday + timedelta(days=6)
+    
+    send_report_email(
+        report_path=report_path,
+        recipients=["equipo@company.com", "director@company.com"],
+        week_dates=(last_monday.strftime('%d/%m'), last_sunday.strftime('%d/%m/%Y'))
+    )
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+<h2>Automatizar con cron</h2>
+<pre><code class="language-bash"># Correr todos los lunes a las 8am (hora Argentina)
+0 8 * * 1 cd /home/user/weekly-report &#x26;&#x26; python main.py >> /var/log/weekly-report.log 2>&#x26;1
+
+# O en Cloud Scheduler (GCP) para serverless
+gcloud scheduler jobs create http weekly-report \
+  --schedule="0 11 * * 1" \
+  --uri="https://us-central1-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/project/jobs/weekly-report:run" \
+  --time-zone="America/Argentina/Buenos_Aires"
+</code></pre>
+<p>El resultado: 2 horas semanales liberadas, reporte más consistente, y el equipo lo recibe antes de que lleguen a la oficina.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","$L10",null,{"site_section":"blog"}],["$","$L11",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L12",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El sistema de reportes automatizado"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo auto..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"12 de octubre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"4 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$13"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L12",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L12",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L14",null,{}]]}]
+e:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"El sistema de reportes automatizado | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo auto..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/automatizar-reportes-python/"}],["$","meta","11",{"property":"og:title","content":"El sistema de reportes automatizado"}],["$","meta","12",{"property":"og:description","content":"Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo auto..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/automatizar-reportes-python/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"El sistema de reportes automatizado"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2025-10-12"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"El sistema de reportes automatizado"}],["$","meta","25",{"name":"twitter:description","content":"Cada lunes a las 9am, el equipo recibía el mismo Excel de métricas de la semana. Yo lo preparaba manualmente los viernes: 2 horas de trabajo repetitivo. Lo auto..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"El sistema de reportes automatizado"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

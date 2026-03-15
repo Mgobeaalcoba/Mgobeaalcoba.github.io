@@ -1,0 +1,156 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],""]
+8:I[9886,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"DataErrorBoundary"]
+9:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"ThemeProvider"]
+a:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"LanguageProvider"]
+b:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"SupabaseDataProvider"]
+c:I[84211,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"default"]
+d:I[78458,["169","static/chunks/169-12377d3a1c23941f.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-ed9778c4c021a3a9.js"],"default"]
+4:["slug","data-quality-great-expectations","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Xd1SvFEn_5h7DIedoQsdT",[[["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__?{\"slug\":\"data-quality-great-expectations\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","data-quality-great-expectations","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DG0SLT5RY3',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});"}}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L7",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"afterInteractive"}],["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Ld",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c6970fa1dce47e87.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Le"]]]]]
+f:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+10:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+13:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:T176b,<p>La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los datos que produce están incorrectos. Great Expectations (GX) es el framework que usamos para automatizar las validaciones.</p>
+<h2>El problema</h2>
+<p>Sin validación de datos:</p>
+<pre><code class="language-python"># Este pipeline "funciona" pero el resultado puede ser incorrecto
+def compute_conversion_rate(df):
+    return df[df['event'] == 'purchase'].count() / df.count()
+
+# ¿Qué pasa si:
+# - Hay filas duplicadas?
+# - El campo 'event' tiene valores nulos?
+# - Los timestamps son del futuro (bug en el source)?
+# - El rate calculado es 150% (matemáticamente imposible)?
+</code></pre>
+<p>Los dashboards muestran números incorrectos. El equipo de negocio toma decisiones basadas en datos rotos. Nadie lo sabe hasta que es demasiado tarde.</p>
+<h2>Great Expectations: conceptos</h2>
+<p><strong>Expectation</strong>: Una aserción sobre los datos. "La columna <code>user_id</code> no debe tener nulos."</p>
+<p><strong>Expectation Suite</strong>: Conjunto de expectations que definen la calidad esperada de un dataset.</p>
+<p><strong>Checkpoint</strong>: Valida un dataset contra un Expectation Suite y genera un reporte.</p>
+<h2>Setup básico</h2>
+<pre><code class="language-bash">pip install great-expectations
+gx init  # Crea el directorio gx/ con la configuración
+</code></pre>
+<h2>Crear Expectations</h2>
+<pre><code class="language-python">import great_expectations as gx
+
+context = gx.get_context()
+
+# Definir una fuente de datos
+datasource = context.sources.add_pandas("my_datasource")
+data_asset = datasource.add_dataframe_asset("orders")
+
+batch_request = data_asset.build_batch_request(dataframe=df_orders)
+validator = context.get_validator(batch_request=batch_request)
+
+# Expectations sobre columnas críticas
+validator.expect_column_to_exist("order_id")
+validator.expect_column_values_to_not_be_null("order_id")
+validator.expect_column_values_to_be_unique("order_id")
+
+validator.expect_column_to_exist("gmv")
+validator.expect_column_values_to_not_be_null("gmv")
+validator.expect_column_values_to_be_between("gmv", min_value=0, max_value=1_000_000)
+
+validator.expect_column_values_to_be_in_set(
+    "status",
+    ["pending", "completed", "cancelled", "refunded"]
+)
+
+validator.expect_column_values_to_match_regex(
+    "seller_id",
+    regex=r"^\d{6,12}$"  # IDs numéricos de 6-12 dígitos
+)
+
+# Expectations estadísticas
+validator.expect_column_mean_to_be_between("gmv", min_value=50, max_value=5000)
+validator.expect_column_proportion_of_unique_values_to_be_between(
+    "buyer_id", min_value=0.3, max_value=1.0
+)
+
+# Guardar el Expectation Suite
+validator.save_expectation_suite(discard_failed_expectations=False)
+</code></pre>
+<h2>Integrar en el pipeline</h2>
+<pre><code class="language-python">import great_expectations as gx
+from great_expectations.core.batch import RuntimeBatchRequest
+
+def validate_and_load(df: pd.DataFrame, suite_name: str) -> bool:
+    """Valida el dataframe antes de cargarlo. Devuelve False si falla la validación."""
+    
+    context = gx.get_context()
+    
+    checkpoint = context.add_or_update_checkpoint(
+        name=f"{suite_name}_checkpoint",
+        validations=[{
+            "batch_request": {
+                "datasource_name": "my_datasource",
+                "data_asset_name": "orders",
+                "runtime_parameters": {"batch_data": df},
+                "batch_identifiers": {"default_identifier_name": "default_identifier"},
+            },
+            "expectation_suite_name": suite_name,
+        }],
+    )
+    
+    result = checkpoint.run()
+    
+    if not result.success:
+        # Loggear qué falló
+        for validation_result in result.run_results.values():
+            for exp_result in validation_result["validation_result"]["results"]:
+                if not exp_result["success"]:
+                    logger.error(f"Data quality failure: {exp_result['expectation_config']}")
+        
+        return False
+    
+    return True
+
+def etl_pipeline(date: str):
+    df = extract_orders(date)
+    
+    if not validate_and_load(df, "orders_suite"):
+        raise DataQualityException(f"Data quality check failed for {date}")
+    
+    transformed = transform(df)
+    load(transformed)
+</code></pre>
+<h2>Expectations personalizadas</h2>
+<pre><code class="language-python">from great_expectations.expectations.expectation import ColumnExpectation
+from great_expectations.execution_engine import PandasExecutionEngine
+
+class ExpectColumnValuesToBeValidArgentinaDate(ColumnExpectation):
+    """Verifica que las fechas sean válidas para el contexto argentino."""
+    
+    metric_dependencies = ("column.values.to_be_valid_ar_date",)
+    success_keys = ("min_date", "max_date")
+    
+    @classmethod
+    def _validate(cls, configuration, metrics, *args, **kwargs):
+        column_value_counts = metrics.get("column.value_counts.without_modifying_index")
+        min_date = configuration.kwargs.get("min_date", "2020-01-01")
+        max_date = configuration.kwargs.get("max_date")
+        
+        # Tu lógica de validación acá
+        ...
+</code></pre>
+<h2>Reporting automático</h2>
+<p>Great Expectations genera reportes HTML automáticamente:</p>
+<pre><code class="language-python">context.build_data_docs()
+context.open_data_docs()  # Abre en el navegador
+</code></pre>
+<p>Los reportes muestran qué expectativas pasaron, cuáles fallaron, ejemplos de valores que no cumplen, y estadísticas del dataset.</p>
+<h2>El impacto real</h2>
+<p>Después de implementar GX en nuestros pipelines principales:</p>
+<ul>
+<li><strong>0 incidentes de datos incorrectos</strong> en producción en 8 meses</li>
+<li><strong>Detección temprana</strong>: los problemas se detectan en el pipeline, no cuando el equipo de negocio reporta números raros</li>
+<li><strong>Documentación viva</strong>: las expectations documentan qué propiedades se garantizan del dataset</li>
+</ul>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"El problema\",\"description\":\"La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los da...\",\"url\":\"https://www.mgatc.com/blog/data-quality-great-expectations/\",\"datePublished\":\"2025-10-19\",\"dateModified\":\"2025-10-19\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/logo.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/data-quality-great-expectations/\"},\"keywords\":\"\",\"articleSection\":\"General\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$Lf",null,{"site_section":"blog"}],["$","$L10",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L11",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El problema"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los da..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"19 de octubre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"3 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$12"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L11",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L11",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L13",null,{}]]}]
+e:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"El problema | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los da..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/data-quality-great-expectations/"}],["$","meta","11",{"property":"og:title","content":"El problema"}],["$","meta","12",{"property":"og:description","content":"La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los da..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/data-quality-great-expectations/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"El problema"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2025-10-19"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"El problema"}],["$","meta","25",{"name":"twitter:description","content":"La calidad de datos es el problema silencioso que destruye la confianza en los sistemas de analytics. Un pipeline puede correr perfectamente mientras que los da..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"El problema"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

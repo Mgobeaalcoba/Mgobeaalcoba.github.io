@@ -1,0 +1,203 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],""]
+8:I[9886,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"DataErrorBoundary"]
+9:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"ThemeProvider"]
+a:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"LanguageProvider"]
+b:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"SupabaseDataProvider"]
+c:I[84211,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"default"]
+d:I[78458,["169","static/chunks/169-12377d3a1c23941f.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-ed9778c4c021a3a9.js"],"default"]
+4:["slug","docker-data-engineers","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Xd1SvFEn_5h7DIedoQsdT",[[["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__?{\"slug\":\"docker-data-engineers\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","docker-data-engineers","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DG0SLT5RY3',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});"}}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L7",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"afterInteractive"}],["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Ld",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c6970fa1dce47e87.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Le"]]]]]
+f:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+10:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+13:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:T15a9,<p>Docker resolvió el problema clásico de los data engineers: "funciona en mi máquina". Si tu pipeline corre en local pero falla en producción por diferencias de entorno, Docker es la solución. Guía práctica enfocada en casos de uso de datos.</p>
+<h2>El problema concreto</h2>
+<pre><code class="language-bash"># En tu MacBook con Python 3.11
+pip install pandas==2.1.0 scikit-learn==1.4.0
+python train_model.py  # ✅ funciona
+
+# En el servidor de producción con Python 3.9
+# scikit-learn 1.4.0 requiere Python 3.10+
+# 💥 ImportError: cannot import name 'PolynomialCountSketch'
+</code></pre>
+<p>Docker encapsula todo: Python version, dependencias, variables de entorno, y el código.</p>
+<h2>Dockerfile para un pipeline de datos</h2>
+<pre><code class="language-dockerfile"># Usar imagen oficial de Python slim (más liviana)
+FROM python:3.11-slim
+
+# Metadatos
+LABEL maintainer="data-team@company.com"
+LABEL version="1.0"
+
+# Variables de entorno
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Instalar dependencias del sistema (si son necesarias)
+RUN apt-get update &#x26;&#x26; apt-get install -y \
+    libpq-dev \
+    gcc \
+    &#x26;&#x26; rm -rf /var/lib/apt/lists/*
+
+# Copiar requirements PRIMERO (para aprovechar cache de Docker)
+COPY requirements.txt .
+
+# Instalar dependencias Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el código del pipeline
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Usuario no-root por seguridad
+RUN adduser --disabled-password --gecos "" appuser
+USER appuser
+
+# Comando por defecto
+CMD ["python", "src/main.py"]
+</code></pre>
+<h2>docker-compose para desarrollo local</h2>
+<pre><code class="language-yaml"># docker-compose.yml
+version: "3.8"
+
+services:
+  pipeline:
+    build: .
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp-sa.json
+      - POSTGRES_URL=postgresql://user:pass@postgres:5432/analytics
+      - ENV=development
+    volumes:
+      - ./src:/app/src          # Hot reload del código
+      - ~/.config/gcloud:/secrets  # Credenciales GCP
+      - ./data:/app/data        # Datos locales
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: python src/main.py --date 2026-01-15
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: analytics
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d analytics"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=secret
+
+volumes:
+  postgres_data:
+</code></pre>
+<pre><code class="language-bash"># Comandos útiles
+docker-compose up pipeline    # Correr el pipeline
+docker-compose up -d postgres # Postgres en background
+docker-compose logs -f        # Ver logs en tiempo real
+docker-compose exec pipeline bash  # Shell dentro del container
+</code></pre>
+<h2>Multi-stage build para imágenes más pequeñas</h2>
+<pre><code class="language-dockerfile"># Stage 1: Build (con herramientas de compilación)
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+RUN pip install poetry
+
+COPY pyproject.toml poetry.lock .
+RUN poetry export -f requirements.txt --output requirements.txt
+
+# Stage 2: Runtime (imagen final liviana)
+FROM python:3.11-slim as runtime
+
+WORKDIR /app
+
+COPY --from=builder /app/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ ./src/
+
+USER nobody
+CMD ["python", "src/main.py"]
+</code></pre>
+<p>Resultado: imagen de ~200 MB vs ~800 MB sin multi-stage.</p>
+<h2>Patterns para pipelines de datos</h2>
+<h3>Variables de entorno y secrets</h3>
+<pre><code class="language-python">import os
+from functools import lru_cache
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    # Obligatorias — fallan si no están
+    postgres_url: str
+    gcs_bucket: str
+    
+    # Opcionales con defaults
+    batch_size: int = 10000
+    max_retries: int = 3
+    env: str = "production"
+    
+    class Config:
+        env_file = ".env"        # Para desarrollo local
+        env_file_encoding = "utf-8"
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+settings = get_settings()
+</code></pre>
+<h3>Logging que funciona con Docker</h3>
+<pre><code class="language-python">import logging
+import sys
+
+# Docker captura stdout/stderr automáticamente
+logging.basicConfig(
+    stream=sys.stdout,          # stdout, no archivo
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s %(message)s",
+)
+</code></pre>
+<h2>Deploy en Cloud Run</h2>
+<pre><code class="language-bash"># Build y push a Google Container Registry
+docker build -t gcr.io/my-project/data-pipeline:v1.0 .
+docker push gcr.io/my-project/data-pipeline:v1.0
+
+# Deploy en Cloud Run (serverless)
+gcloud run jobs create data-pipeline \
+  --image gcr.io/my-project/data-pipeline:v1.0 \
+  --region us-central1 \
+  --memory 4Gi \
+  --cpu 2 \
+  --max-retries 3 \
+  --set-secrets POSTGRES_URL=postgres-url:latest \
+  --set-env-vars GCS_BUCKET=my-bucket
+
+# Ejecutar manualmente
+gcloud run jobs execute data-pipeline
+</code></pre>
+<p>Docker + Cloud Run es la combinación que uso para pipelines batch. Sin gestionar servidores, con reproducibilidad garantizada.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"El problema concreto\",\"description\":\"Docker resolvió el problema clásico de los data engineers: \\\"funciona en mi máquina\\\". Si tu pipeline corre en local pero falla en producción por diferencias de e...\",\"url\":\"https://www.mgatc.com/blog/docker-data-engineers/\",\"datePublished\":\"2025-11-09\",\"dateModified\":\"2025-11-09\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/logo.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/docker-data-engineers/\"},\"keywords\":\"\",\"articleSection\":\"General\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$Lf",null,{"site_section":"blog"}],["$","$L10",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L11",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El problema concreto"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Docker resolvió el problema clásico de los data engineers: \"funciona en mi máquina\". Si tu pipeline corre en local pero falla en producción por diferencias de e..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"9 de noviembre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"4 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$12"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L11",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L11",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L13",null,{}]]}]
+e:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"El problema concreto | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Docker resolvió el problema clásico de los data engineers: \"funciona en mi máquina\". Si tu pipeline corre en local pero falla en producción por diferencias de e..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/docker-data-engineers/"}],["$","meta","11",{"property":"og:title","content":"El problema concreto"}],["$","meta","12",{"property":"og:description","content":"Docker resolvió el problema clásico de los data engineers: \"funciona en mi máquina\". Si tu pipeline corre en local pero falla en producción por diferencias de e..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/docker-data-engineers/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"El problema concreto"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2025-11-09"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"El problema concreto"}],["$","meta","25",{"name":"twitter:description","content":"Docker resolvió el problema clásico de los data engineers: \"funciona en mi máquina\". Si tu pipeline corre en local pero falla en producción por diferencias de e..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"El problema concreto"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

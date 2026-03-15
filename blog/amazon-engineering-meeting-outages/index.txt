@@ -1,0 +1,141 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[84080,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],""]
+8:I[9886,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"DataErrorBoundary"]
+9:I[45064,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"ThemeProvider"]
+a:I[78155,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"LanguageProvider"]
+b:I[61050,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"SupabaseDataProvider"]
+c:I[84211,["327","static/chunks/327-408e60b2ee21959b.js","169","static/chunks/169-12377d3a1c23941f.js","813","static/chunks/813-4eb09341c6689e79.js","50","static/chunks/50-8b75cd4927adc908.js","185","static/chunks/app/layout-5ee8f60cc6c105ba.js"],"default"]
+d:I[78458,["169","static/chunks/169-12377d3a1c23941f.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-ed9778c4c021a3a9.js"],"default"]
+4:["slug","amazon-engineering-meeting-outages","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Xd1SvFEn_5h7DIedoQsdT",[[["",{"children":["blog",{"children":[["slug","amazon-engineering-meeting-outages","d"],{"children":["__PAGE__?{\"slug\":\"amazon-engineering-meeting-outages\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","amazon-engineering-meeting-outages","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DG0SLT5RY3',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});"}}]]}],["$","body",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://assets.calendly.com/assets/external/widget.css"}],["$","$L7",null,{"src":"https://assets.calendly.com/assets/external/widget.js","strategy":"afterInteractive"}],["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Ld",null,{}],"notFoundStyles":[],"styles":null}]}]}]}]}]}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c6970fa1dce47e87.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$Le"]]]]]
+10:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+14:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-fc28f2e5d0c93c2c.js","177","static/chunks/177-0f29cd34725c0b97.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+f:T444,{"@context":"https://schema.org","@type":"Article","headline":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA","description":"Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han...","url":"https://www.mgatc.com/blog/amazon-engineering-meeting-outages/","datePublished":"2026-03-10","dateModified":"2026-03-10","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/amazon-engineering-meeting-outages/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}13:T1f5a,<h2>Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA</h2>
+<h3>Contexto del Evento</h3>
+<p>Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han tenido un impacto significativo en varios servicios de la empresa, incluyendo Amazon Web Services (AWS), Alexa, y otros productos y servicios que dependen de la IA. En respuesta a estos incidentes, Amazon convocó una reunión de emergencia de su equipo de ingenieros para abordar las causas subyacentes y desarrollar estrategias para prevenir futuras interrupciones.</p>
+<h3>Análisis de las Interrupciones</h3>
+<h4>Causas Comunes de Interrupciones en Sistemas de IA</h4>
+<p>Las interrupciones en sistemas de IA pueden tener diversas causas, desde problemas de hardware hasta fallos en el software y errores de configuración. Algunas de las causas más comunes incluyen:</p>
+<ol>
+<li>
+<p><strong>Sobrecarga del Sistema</strong>: Los sistemas de IA pueden experimentar sobrecargas cuando se les pide procesar cantidades masivas de datos en tiempo real. Esto puede llevar a tiempos de respuesta lentos o, en casos extremos, a fallas totales del sistema.</p>
+</li>
+<li>
+<p><strong>Errores de Configuración</strong>: La configuración incorrecta de modelos de IA, servidores, o infraestructura de red puede resultar en comportamientos inesperados y fallos.</p>
+</li>
+<li>
+<p><strong>Problemas de Datos</strong>: La calidad y la cantidad de datos utilizados para entrenar y operar modelos de IA son cruciales. Datos incompletos, incorrectos, o mal etiquetados pueden llevar a resultados erróneos y, por ende, a interrupciones.</p>
+</li>
+<li>
+<p><strong>Fallas de Hardware</strong>: Problemas con el hardware, como fallos en servidores, redes, o dispositivos de almacenamiento, pueden interrumpir el funcionamiento de sistemas de IA.</p>
+</li>
+<li>
+<p><strong>Ataques Cibernéticos</strong>: Los sistemas de IA son vulnerables a ataques cibernéticos, que pueden manipular datos, interrumpir servicios, o incluso dañar la infraestructura subyacente.</p>
+</li>
+</ol>
+<h4>Caso Específico de Amazon</h4>
+<p>En el caso de Amazon, las interrupciones parecen haber sido causadas por una combinación de sobrecarga del sistema y errores de configuración. Según fuentes internas, la sobrecarga se produjo durante un período de alta demanda, lo que llevó a tiempos de respuesta lentos y, eventualmente, a fallas totales en algunos servicios. Además, se descubrieron varias configuraciones incorrectas en los modelos de IA y la infraestructura de red que contribuyeron a la propagación de los problemas.</p>
+<h3>Reunión de Ingeniería</h3>
+<h4>Objetivos de la Reunión</h4>
+<p>La reunión de ingeniería convocada por Amazon tenía varios objetivos principales:</p>
+<ol>
+<li>
+<p><strong>Identificar las Causas Raíz</strong>: Determinar las causas fundamentales de las interrupciones y comprender cómo estas causas pudieron ser evitadas.</p>
+</li>
+<li>
+<p><strong>Desarrollar Soluciones Inmediatas</strong>: Crear planes de acción para abordar las causas raíz y restaurar la funcionalidad de los sistemas afectados.</p>
+</li>
+<li>
+<p><strong>Mejorar la Resiliencia del Sistema</strong>: Diseñar estrategias para mejorar la resiliencia y la robustez de los sistemas de IA, reduciendo la probabilidad de futuras interrupciones.</p>
+</li>
+<li>
+<p><strong>Comunicación Transparente</strong>: Mantener a los clientes y stakeholders informados sobre el estado de los sistemas y las medidas tomadas para resolver los problemas.</p>
+</li>
+</ol>
+<h4>Discusiones y Decisiones</h4>
+<p>Durante la reunión, el equipo de ingenieros de Amazon analizó en profundidad los registros de sistemas, trazas de error, y métricas de rendimiento para identificar las causas raíz de las interrupciones. Algunas de las discusiones y decisiones clave incluyeron:</p>
+<ol>
+<li>
+<p><strong>Optimización de la Carga del Sistema</strong>:</p>
+<ul>
+<li>Implementar mecanismos de balanceo de carga más eficientes para distribuir la carga de trabajo de manera uniforme.</li>
+<li>Aumentar la capacidad de procesamiento y almacenamiento para manejar picos de demanda sin sobrecargar el sistema.</li>
+</ul>
+</li>
+<li>
+<p><strong>Revisión y Corrección de Configuraciones</strong>:</p>
+<ul>
+<li>Realizar una revisión exhaustiva de todas las configuraciones de modelos de IA y la infraestructura de red.</li>
+<li>Implementar controles de calidad y validación automatizados para detectar y corregir configuraciones incorrectas antes de que afecten el sistema.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mejora de la Calidad de Datos</strong>:</p>
+<ul>
+<li>Desarrollar procesos más rigurosos para la limpieza y validación de datos utilizados en modelos de IA.</li>
+<li>Implementar monitoreo continuo de la calidad de los datos para detectar y corregir problemas de manera proactiva.</li>
+</ul>
+</li>
+<li>
+<p><strong>Refuerzo de la Seguridad</strong>:</p>
+<ul>
+<li>Mejorar las medidas de seguridad para proteger los sistemas de IA contra ataques cibernéticos.</li>
+<li>Implementar firewalls y sistemas de detección de intrusiones más avanzados.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comunicación y Transparencia</strong>:</p>
+<ul>
+<li>Establecer canales de comunicación claros y consistentes para mantener a los clientes y stakeholders informados sobre el estado de los sistemas.</li>
+<li>Publicar informes detallados sobre las interrupciones y las medidas tomadas para resolverlas.</li>
+</ul>
+</li>
+</ol>
+<h3>Implementación de Soluciones</h3>
+<p>Tras la reunión, Amazon comenzó a implementar las soluciones acordadas de manera inmediata. Algunas de las acciones específicas incluyeron:</p>
+<ol>
+<li>
+<p><strong>Balanceo de Carga</strong>:</p>
+<ul>
+<li>Se implementaron algoritmos de balanceo de carga más avanzados, que distribuyen la carga de trabajo de manera dinámica según la demanda actual.</li>
+<li>Se aumentó la capacidad de procesamiento y almacenamiento, incluyendo la adición de nuevos nodos y la optimización de los existentes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Corrección de Configuraciones</strong>:</p>
+<ul>
+<li>Se realizaron auditorías exhaustivas de las configuraciones de modelos de IA y la infraestructura de red.</li>
+<li>Se implementaron scripts automatizados para validar y corregir configuraciones incorrectas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mejora de la Calidad de Datos</strong>:</p>
+<ul>
+<li>Se desarrollaron pipelines de datos más robustos, que incluyen etapas de limpieza y validación.</li>
+<li>Se implementó un sistema de monitoreo continuo de la calidad de los datos, que genera alertas en tiempo real para problemas detectados.</li>
+</ul>
+</li>
+<li>
+<p><strong>Refuerzo de la Seguridad</strong>:</p>
+<ul>
+<li>Se mejoraron las políticas de seguridad y se implementaron nuevas herramientas de protección.</li>
+<li>Se realizó una capacitación adicional para el personal de seguridad sobre las últimas amenazas y técnicas de defensa.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comunicación y Transparencia</strong>:</p>
+<ul>
+<li>Se establecieron canales de comunicación claramente definidos, incluyendo boletines de estado y foros de discusión.</li>
+<li>Se publicaron informes detallados sobre las interrupciones y las medidas tomadas para prevenirlas.</li>
+</ul>
+</li>
+</ol>
+<h3>Conclusiones</h3>
+<p>Las interrupciones relacionadas con la IA en Amazon han destacado la importancia de una gestión rigurosa y proactiva de los sistemas de inteligencia artificial. A través de la identificación de causas raíz, la implementación de soluciones efectivas, y la mejora continua de la resiliencia y la seguridad, Amazon está tomando pasos significativos para prevenir futuras interrupciones y garantizar la confiabilidad de sus servicios.</p>
+<p>Si necesitas asesoramiento experto en la gestión y optimización de sistemas de IA, te invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> para servicios de consultoría.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","$L10",null,{"site_section":"blog"}],["$","$L11",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L12",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"10 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"6 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$13"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L12",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L12",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L14",null,{}]]}]
+e:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/amazon-engineering-meeting-outages/"}],["$","meta","11",{"property":"og:title","content":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA"}],["$","meta","12",{"property":"og:description","content":"Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/amazon-engineering-meeting-outages/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-03-10"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA"}],["$","meta","25",{"name":"twitter:description","content":"Recientemente, Amazon ha enfrentado una serie de interrupciones técnicas relacionadas con sus sistemas de Inteligencia Artificial (IA). Estas interrupciones han..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Reunión de Ingeniería de Amazon tras Interrupciones Relacionadas con IA"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

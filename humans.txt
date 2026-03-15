@@ -1,0 +1,123 @@
+/* TEAM */
+Developer & Designer: Mariano Gobea Alcoba
+Role: Founder, MGA Tech Consulting / Data & Analytics Technical Leader, MercadoLibre
+Contact: mariano [at] mgatc.com
+Personal email: gobeamariano [at] gmail.com
+LinkedIn: https://www.linkedin.com/in/mariano-gobea-alcoba/
+GitHub: https://github.com/Mgobeaalcoba
+Location: Buenos Aires, Argentina
+
+/* SITE */
+Primary site: https://www.mgatc.com
+Legacy redirect: https://mgobeaalcoba.github.io → www.mgatc.com
+Repository: https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io
+Professional email: mariano@mgatc.com
+
+/* WHAT IS THIS */
+Monorepo containing the full digital presence of MGA Tech Consulting:
+- MGA Tech Consulting (consulting services + portfolio CV)
+- Neil Climatizadores client site
+- El Portugués S.A. client site
+
+/* TECHNOLOGIES — FRONTEND */
+Framework: Next.js 14 (App Router, Static Export)
+Language: TypeScript
+Styles: Tailwind CSS + @tailwindcss/typography
+Animations: Framer Motion (parallax, scroll-driven, intro sequences)
+Icons: Lucide React
+Markdown: remark + remark-html + remark-gfm
+Analytics: Google Analytics 4 (G-DG0SLT5RY3)
+IDE: Cursor / Visual Studio Code
+Version Control: Git / GitHub
+
+/* TECHNOLOGIES — INFRASTRUCTURE */
+Primary Hosting: Cloudflare Pages
+Domain & DNS: Cloudflare Registrar
+Legacy Hosting: GitHub Pages (redirect only)
+CI/CD: GitHub Actions (parallel builds → assemble → deploy)
+Email: Cloudflare Email Routing + Brevo SMTP
+Web Analytics: Cloudflare Web Analytics (cookieless)
+Search Console: Google Search Console (verified via DNS TXT)
+
+/* TECHNOLOGIES — BACKEND & DATA */
+Database: Supabase (PostgreSQL)
+Content: Markdown files (blog posts) + Supabase (dynamic content)
+ORM/Client: @supabase/supabase-js
+Row Level Security: Supabase RLS (read-only anon access)
+
+/* TECHNOLOGIES — AUTOMATION */
+Automation Engine: n8n (self-hosted)
+LLM Provider: OpenRouter (Claude, GPT models)
+Email Delivery: Brevo (formerly Sendinblue)
+Scheduling: Calendly (meeting booking)
+Data Storage: Google Sheets (leads/subscriptions backup)
+Webhook Integration: n8n webhooks for all contact forms
+
+/* AUTOMATIONS */
+01 - AI Blog Creator: Hacker News trends → OpenRouter → dev.to + GitHub + Supabase
+02 - Webhook Contact Form: neil-site & elportugues-site lead capture
+03 - Newsletter Subscription: "The Data Digest" weekly signup + Google Sheets
+04 - Free Automation Lead: consulting form → CRM pipeline
+05 - Daily Content Digest: tech news summary via email
+
+/* CLIENT SITES */
+Neil Climatizadores: https://www.mgatc.com/neil-site/
+  Legacy: https://mgobeaalcoba.github.io/neil-site/ (redirects to mgatc.com)
+El Portugués S.A.: https://www.mgatc.com/elportugues-site/
+  Legacy: https://mgobeaalcoba.github.io/elportugues-site/ (redirects to mgatc.com)
+
+/* SITE STRUCTURE */
+/                   → MGA Tech Consulting (home)
+/portfolio/         → Interactive CV & Portfolio
+/blog/              → "Data Engineering en las Trincheras" technical blog
+/recursos/          → Argentine financial tools (Ganancias, Dólar, Indicadores)
+/neil-site/         → Neil Climatizadores (client)
+/elportugues-site/  → El Portugués S.A. (client)
+
+/* THANKS */
+Fonts: Inter by Rasmus Andersson (https://rsms.me/inter/)
+Icons: Lucide (https://lucide.dev/)
+Hosting: Cloudflare Pages (free tier)
+CDN: Google Fonts
+Scheduling: Calendly
+Database: Supabase (free tier)
+Automation: n8n
+
+/* STATS */
+Initial Release: 2024
+Migration to Next.js: 2026-01
+Migration to Cloudflare Pages: 2026-02
+Custom Domain: mgatc.com (acquired 2026-02)
+Sites in monorepo: 3
+Pages (main site): 4 (Consulting, Portfolio, Blog, Recursos)
+Blog posts: 23+
+Supported languages (main site): Spanish, English
+Supported languages (neil-site): Spanish, English, Italian, French, Portuguese, German
+N8n automations: 5
+Mobile Responsive: Yes
+Performance Score: 95+ (Lighthouse)
+SEO: Google Search Console verified, sitemap submitted
+
+/* LAST UPDATE */
+Last update: 2026/02/27
+Language: Spanish / English
+Doctype: HTML5
+
+/* CONTACT FOR BUSINESS */
+Services: Process Automation, Business Intelligence, AI Implementation,
+          Tech Mentoring, Team Courses, Tech Recruiting, Digital Transformation
+Consulting: https://www.mgatc.com
+Email: mariano@mgatc.com
+Calendly: https://calendly.com/gobeamariano
+PayPal: https://paypal.me/marianogobea
+Response Time: Within 24 hours
+
+
+                              .-.
+                             (o o)
+                      +---oOO-(_)-OOo---+
+                      |                 |
+                      |  Thanks for     |
+                      |  visiting!      |
+                      |   🚀            |
+                      +---oOO-------OOo-+
