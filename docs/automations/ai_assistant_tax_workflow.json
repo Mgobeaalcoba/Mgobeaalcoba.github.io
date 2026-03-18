@@ -264,14 +264,14 @@
         ],
         [
           {
-            "node": "Hugging Face Embedding Model",
+            "node": "Gemini Embedding Model",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Call Hugging Face General",
+            "node": "Call Gemini General",
             "type": "main",
             "index": 0
           }

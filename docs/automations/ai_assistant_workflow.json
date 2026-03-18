@@ -280,7 +280,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ \"model\": \"gemini-embedding-001\", \"input\": $json.body.messages[0].content }) }}",
+        "jsonBody": "={{ JSON.stringify({ \"model\": \"text-embedding-004\", \"dimensions\": 384, \"input\": $json.body.messages[0].content }) }}",
         "headerParameters": {
           "parameters": [
             {
