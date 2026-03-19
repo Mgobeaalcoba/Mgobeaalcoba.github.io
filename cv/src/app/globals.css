@@ -85,6 +85,27 @@ body {
   border-radius: 4px;
 }
 
+.blog-scroll-container {
+  scrollbar-gutter: stable both-edges;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.7) transparent;
+}
+
+.blog-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blog-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.85), rgba(100, 116, 139, 0.75));
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
 /* ================================================================
    GLASS MORPHISM UTILITIES
    ================================================================ */

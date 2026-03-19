@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Filter } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -21,13 +21,74 @@ interface BlogClientPageProps {
   categories: string[];
 }
 
+const MAX_VISIBLE_NOTES = 12;
+const VISIBLE_NOTE_ROWS = 4;
+
 export default function BlogClientPage({ posts, categories }: BlogClientPageProps) {
   const { lang, t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const postsGridRef = useRef<HTMLDivElement>(null);
+  const [postsMaxHeight, setPostsMaxHeight] = useState<number | null>(null);
+  const [visibleNotesCount, setVisibleNotesCount] = useState<number>(MAX_VISIBLE_NOTES);
 
   const filtered = activeCategory === 'all'
     ? posts
     : posts.filter((p) => p.category === activeCategory);
+  const hasNotesOverflow = filtered.length > visibleNotesCount;
+
+  useEffect(() => {
+    const grid = postsGridRef.current;
+    if (!grid) return;
+
+    if (!filtered.length) {
+      setPostsMaxHeight(null);
+      setVisibleNotesCount(MAX_VISIBLE_NOTES);
+      return;
+    }
+
+    let rafId: number | null = null;
+    const updateLayoutMetrics = () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const gridStyles = getComputedStyle(grid);
+        const cards = Array.from(grid.children) as HTMLElement[];
+        if (!cards.length) {
+          setPostsMaxHeight(null);
+          return;
+        }
+        const firstTop = cards[0].offsetTop;
+        const columns = cards.reduce((count, card) => {
+          if (Math.abs(card.offsetTop - firstTop) <= 1) return count + 1;
+          return count;
+        }, 0) || 1;
+        const nextVisibleCount = Math.min(
+          MAX_VISIBLE_NOTES,
+          columns * VISIBLE_NOTE_ROWS
+        );
+        setVisibleNotesCount(nextVisibleCount);
+
+        const rowGap = parseFloat(gridStyles.rowGap || '0') || 0;
+        const totalRows = Math.ceil(cards.length / columns);
+        const visibleRows = Math.min(VISIBLE_NOTE_ROWS, totalRows);
+        const cardHeight = cards[0].offsetHeight;
+        const totalRowsHeight = cardHeight * visibleRows;
+        const totalGapHeight = rowGap * Math.max(visibleRows - 1, 0);
+        setPostsMaxHeight(totalRowsHeight + totalGapHeight);
+      });
+    };
+
+    updateLayoutMetrics();
+
+    const resizeObserver = new ResizeObserver(updateLayoutMetrics);
+    resizeObserver.observe(grid);
+    window.addEventListener('resize', updateLayoutMetrics);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateLayoutMetrics);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [filtered.length, lang]);
 
   return (
     <>
@@ -108,10 +169,19 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
 
       {/* Posts grid */}
       <section id="posts" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-20">
-        <div id="latest" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filtered.map((post, i) => (
-            <PostCard key={post.slug} post={post} index={i} />
-          ))}
+        <div
+          className={hasNotesOverflow ? 'rounded-2xl border-2 border-sky-400/35 bg-sky-950/15 shadow-[0_0_0_1px_rgba(56,189,248,0.2),0_20px_45px_rgba(2,6,23,0.45)] p-2' : ''}
+        >
+          <div
+            className={hasNotesOverflow ? 'overflow-y-auto blog-scroll-container pr-1' : ''}
+            style={hasNotesOverflow && postsMaxHeight ? { maxHeight: `${postsMaxHeight}px` } : undefined}
+          >
+            <div id="latest" ref={postsGridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filtered.map((post, i) => (
+                <PostCard key={post.slug} post={post} index={i} />
+              ))}
+            </div>
+          </div>
         </div>
 
         {filtered.length === 0 && (
