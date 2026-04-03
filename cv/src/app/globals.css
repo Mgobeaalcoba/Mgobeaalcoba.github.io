@@ -481,6 +481,88 @@ html.terminal-mode .gradient-text {
    PREMIUM BUTTONS
    ================================================================ */
 
+/* ================================================================
+   SPECIAL REPORT BANNER
+   ================================================================ */
+
+.special-report-bg {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(30, 27, 40, 0.8) 50%, rgba(31, 41, 55, 0.8) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.special-report-title {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 40%, #ef4444 70%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light-mode .special-report-bg {
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(255, 243, 224, 0.95) 50%, rgba(250, 245, 255, 0.95) 100%);
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  box-shadow: 0 4px 24px rgba(245, 158, 11, 0.08);
+}
+
+html.light-mode .special-report-title {
+  background: linear-gradient(135deg, #b45309 0%, #dc2626 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+html.terminal-mode .special-report-bg {
+  background: rgba(0, 255, 0, 0.03);
+  border-color: rgba(0, 255, 0, 0.25) !important;
+}
+
+html.terminal-mode .special-report-title {
+  background: linear-gradient(135deg, #00ff00 0%, #ffff00 50%, #ff4444 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Report page elements */
+.report-heading {
+  color: var(--text);
+}
+
+.report-hero {
+  background: var(--bg);
+}
+
+.report-conclusion-card {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56,189,248,0.03) 100%);
+}
+
+.report-analysis strong {
+  color: var(--text);
+}
+
+html.light-mode .report-analysis {
+  background: rgba(14,165,233,0.06);
+  color: #374151;
+}
+
+html.light-mode .report-analysis strong {
+  color: #111827;
+}
+
+html.light-mode .report-hl-body {
+  color: #4b5563 !important;
+}
+
+html.light-mode .report-hl-body strong {
+  color: #111827 !important;
+}
+
+html.terminal-mode .report-heading {
+  color: #00ff00;
+}
+
+html.terminal-mode .report-analysis {
+  border-color: #00ff00;
+  background: rgba(0,255,0,0.03);
+}
+
 .btn-premium-primary {
   @apply px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 active:scale-[0.98] flex items-center justify-center gap-2;
 }

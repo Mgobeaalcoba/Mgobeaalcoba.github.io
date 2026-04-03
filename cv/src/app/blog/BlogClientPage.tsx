@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, Filter } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PostCard from '@/components/blog/PostCard';
+import SpecialReportBanner from '@/components/blog/SpecialReportBanner';
 import VideoSection from '@/components/blog/VideoSection';
 import type { PostMeta } from '@/lib/blog';
 import { events } from '@/lib/gtag';
@@ -108,6 +109,12 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
           {/* Quick Navigation */}
           <div className="flex flex-wrap gap-3">
             <a
+              href="#special-report"
+              className="flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-full text-sm font-medium hover:bg-amber-500/30 transition-all animate-pulse"
+            >
+              📊 {lang === 'es' ? 'Special Report: IA & Empleo' : 'Special Report: AI & Jobs'}
+            </a>
+            <a
               href="#videos"
               className="flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/30 text-red-400 rounded-full text-sm font-medium hover:bg-red-500/30 transition-all"
             >
@@ -161,6 +168,9 @@ export default function BlogClientPage({ posts, categories }: BlogClientPageProp
           })}
         </div>
       </section>
+
+      {/* Special Report */}
+      <SpecialReportBanner />
 
       {/* Videos section */}
       <div id="videos">
