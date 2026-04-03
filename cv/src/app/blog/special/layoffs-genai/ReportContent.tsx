@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -213,6 +213,18 @@ export default function ReportContent() {
   const { lang } = useLanguage();
   const t = (es: string, en: string) => lang === 'es' ? es : en;
   const charts = buildChartData(lang);
+
+  useEffect(() => {
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === 'function') {
+      w.gtag('event', 'page_view', {
+        page_title: 'Special Report: Layoffs, Hiring & GenAI',
+        page_location: window.location.href,
+        content_group: 'Special Report',
+        content_type: 'data-analysis',
+      });
+    }
+  }, []);
 
   return (
     <div className="pt-28 pb-12">
