@@ -3,6 +3,7 @@ import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 import ReportContent from './ReportContent';
 
 const REPORT_URL = 'https://www.mgatc.com/blog/special/layoffs-genai/';
@@ -100,6 +101,7 @@ export default function LayoffsGenAIReportPage() {
       <Navbar />
       <ReportContent />
       <Footer />
+      <FloatingCTA labelKey="floating_cta_blog" site_section="special_report" />
     </main>
   );
 }
