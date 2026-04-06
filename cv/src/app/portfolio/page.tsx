@@ -6,11 +6,8 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import Hero from '@/components/cv/Hero';
 import About from '@/components/cv/About';
-import ConsultingTeaser from '@/components/cv/ConsultingTeaser';
-import RecursosTeaser from '@/components/cv/RecursosTeaser';
-import Gamification from '@/components/cv/Gamification';
-import DashboardWidgetMini from '@/components/cv/DashboardWidgetMini';
 import FilteredPortfolioSections from '@/components/cv/FilteredPortfolioSections';
+import PortfolioConsultingCTA from '@/components/cv/PortfolioConsultingCTA';
 import Contact from '@/components/cv/Contact';
 import Terminal from '@/components/cv/Terminal';
 
@@ -40,11 +37,8 @@ export default function PortfolioPage() {
       <Hero />
       <Terminal />
       <About />
-      <ConsultingTeaser />
-      <RecursosTeaser />
-      <Gamification />
-      <DashboardWidgetMini />
       <FilteredPortfolioSections />
+      <PortfolioConsultingCTA />
       <Contact />
       <NewsletterBanner />
       <Footer />

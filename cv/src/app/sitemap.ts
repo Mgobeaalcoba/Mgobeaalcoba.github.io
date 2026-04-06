@@ -54,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/blog/special/reqquest-3d/`,
+      lastModified: new Date('2026-04-03'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
