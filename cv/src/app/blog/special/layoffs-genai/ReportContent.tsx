@@ -436,8 +436,29 @@ export default function ReportContent() {
           </div>
         </Card>
 
+        {/* Methodology CTA */}
+        <Link href="/blog/special/layoffs-genai/methodology" className="block glass rounded-2xl p-6 mt-10 border border-sky-500/20 hover:border-sky-500/40 transition-colors group">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/25 shrink-0 group-hover:bg-sky-500/20 transition-colors">
+              <span className="text-xl">📋</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-base font-bold report-heading mb-1">
+                {t('Documento de Metodología y Fuentes', 'Methodology & Sources Document')}
+              </h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                {t(
+                  'Trazabilidad completa: afirmación → dataset → fuente original. Incluye dato crudo, procesamiento, limitaciones y enlace verificable para cada claim del informe.',
+                  'Full traceability: claim → dataset → primary source. Includes raw data, processing, limitations and verifiable link for every report claim.'
+                )}
+              </p>
+            </div>
+            <span className="text-sky-400 group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </Link>
+
         {/* Sources */}
-        <div className="glass rounded-2xl p-6 mt-10">
+        <div className="glass rounded-2xl p-6 mt-6">
           <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">{t('Fuentes verificables citadas', 'Verifiable cited sources')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5">
             {SOURCES.map((s, i) => (

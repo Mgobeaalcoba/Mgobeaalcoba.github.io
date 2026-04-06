@@ -48,6 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/blog/special/layoffs-genai/methodology/`,
+      lastModified: new Date('2026-04-03'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
