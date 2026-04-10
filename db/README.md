@@ -9,6 +9,7 @@ Scripts SQL para el schema y datos de Supabase. Todos los archivos aquí están 
 | `001_initial_schema.sql` | Schema completo: todas las tablas para cv, neil y elportugues |
 | `002_seed_initial_data.sql` | Datos iniciales para todas las tablas |
 | `003_migrate_ai_models_feb2026.sql` | Actualización de precios de modelos de IA a Feb 2026 |
+| `004_migrate_ai_models_apr2026.sql` | Actualización de modelos de IA a Abr 2026 (GPT-4.1, Claude Sonnet 4.6, Gemini 2.5, Grok 3) |
 
 ## Cómo ejecutar
 

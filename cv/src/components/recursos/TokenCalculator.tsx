@@ -107,8 +107,8 @@ export default function TokenCalculator() {
           <AlertTriangle size={14} className="text-amber-300 mt-0.5 shrink-0" />
           <p className="text-xs text-amber-300">
             {lang === 'es'
-              ? 'Estimación basada en ~4 caracteres/token. Todos los precios en USD. El conteo real varía según modelo. Precios a Feb 2026. No incluye caching ni descuentos por volumen.'
-              : 'Estimate based on ~4 chars/token. All prices in USD. Real count varies by model. Prices as of Feb 2026. Does not include caching or volume discounts.'}
+              ? 'Estimación basada en ~4 caracteres/token. Todos los precios en USD. El conteo real varía según modelo. Precios a Abr 2026. Solo modelos lanzados 2025-2026. No incluye caching ni descuentos por volumen.'
+              : 'Estimate based on ~4 chars/token. All prices in USD. Real count varies by model. Prices as of Apr 2026. Only models released 2025-2026. Does not include caching or volume discounts.'}
           </p>
         </div>
       </div>
@@ -311,7 +311,7 @@ export default function TokenCalculator() {
             {[
               { es: '🎯 Sé específico en tus prompts', en: '🎯 Be specific in your prompts', desc: { es: 'Prompts cortos y precisos ahorran tokens de input significativamente.', en: 'Short, precise prompts save significant input tokens.' } },
               { es: '🔄 Reutiliza contexto con caching', en: '🔄 Reuse context with caching', desc: { es: 'GPT y Claude ofrecen prompt caching para contextos repetidos, reduciendo costos hasta 90%.', en: 'GPT and Claude offer prompt caching for repeated contexts, reducing costs by up to 90%.' } },
-              { es: '📦 Elige el modelo correcto', en: '📦 Choose the right model', desc: { es: 'Para tareas simples, usa modelos Flash/Mini. GPT-4o para razonamiento complejo.', en: 'For simple tasks, use Flash/Mini models. GPT-4o for complex reasoning.' } },
+              { es: '📦 Elige el modelo correcto', en: '📦 Choose the right model', desc: { es: 'Para tareas simples, usa Flash/Mini/Fast. GPT-5.4, Claude Sonnet 4.6 o Gemini 2.5 Pro para razonamiento complejo.', en: 'For simple tasks, use Flash/Mini/Fast. GPT-5.4, Claude Sonnet 4.6 or Gemini 2.5 Pro for complex reasoning.' } },
               { es: '📋 Limita el output con instrucciones', en: '📋 Limit output with instructions', desc: { es: 'Especifica un límite de palabras o formato conciso en tu prompt.', en: 'Specify a word limit or concise format in your prompt.' } },
             ].map((tip) => (
               <div key={tip.es} className="flex items-start gap-3 p-3 bg-white/5 rounded-xl">
