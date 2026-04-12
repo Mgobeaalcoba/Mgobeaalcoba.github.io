@@ -2,7 +2,7 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Heurística para decidir si buscar en la base de conocimientos\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nif ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos días', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag\n    }\n}];"
+        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Heur\u00edstica para decidir si buscar en la base de conocimientos\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nif ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos d\u00edas', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag\n    }\n}];"
       },
       "id": "[NODE_ID_1]",
       "name": "Analyze Intent",
@@ -68,7 +68,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const response = $input.first().json;\nconst error = response.error;\nconst assistantMessage = error ? '' : (response.choices?.[0]?.message?.content || '');\n\nconst webhookBody = $('Webhook Trigger1').first().json.body;\nconst allMessages = webhookBody.messages || []; // Aseguramos que sea un array\nconst conversationStr = JSON.stringify(allMessages);\n\n// PRIORIDAD: Datos directos del nuevo formulario de identidad\nlet email = webhookBody.user_info?.email || null;\nlet name = webhookBody.user_info?.name || null;\n\n// FALLBACK: Regex\nif (!email) {\n    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g;\n    const emails = conversationStr.match(emailRegex) || [];\n    email = emails[0] || null;\n}\n\nif (!name) {\n    const nameRegex = /(?:me llamo|soy|my name is|i am|i\\'m)\\s+([A-Z][a-záéíóúÁÉÍÓÚa-z]+(?:\\s+[A-Z][a-záéíóúÁÉÍÓÚa-z]+)?)/gi;\n    const nameMatch = nameRegex.exec(conversationStr);\n    name = nameMatch ? nameMatch[1] : null;\n}\n\nconst systemMsg = allMessages.find(m => m.role === 'system');\nconst sourceLang = systemMsg?.content?.includes('currently set to English') ? 'en' : 'es';\n\n// --- GENERACIÓN DE HTML SEGURO ---\nlet chatHtml = \"\";\n\ntry {\n    // Tomamos los últimos mensajes y quitamos el de sistema\n    const chatMessages = allMessages.filter(m => m.role !== 'system').slice(-6);\n    \n    if (chatMessages.length > 0) {\n        chatHtml = chatMessages.map(msg => {\n            const isUser = msg.role === 'user';\n            const label = isUser ? 'Usuario' : 'Asistente';\n            const bgColor = isUser ? '#f8fafc' : '#ffffff';\n            const borderColor = isUser ? '#2563eb' : '#10b981';\n            \n            return `\n            <div style=\"margin-bottom: 12px; padding: 12px; border-radius: 8px; background-color: ${bgColor}; border-left: 4px solid ${borderColor}; font-family: sans-serif;\">\n                <strong style=\"display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px;\">${label}</strong>\n                <div style=\"font-size: 14px; color: #1e293b; line-height: 1.5;\">${msg.content}</div>\n            </div>`;\n        }).join('');\n    } else {\n        chatHtml = \"<p>No hay mensajes recientes en la conversación.</p>\";\n    }\n} catch (e) {\n    chatHtml = \"<p>Error al formatear la conversación.</p>\";\n}\n\nreturn [{\n    json: {\n        error,\n        assistantMessage,\n        email,\n        name,\n        sourceLang,\n        hasLead: !!(email || name),\n        chatHtml, // Ahora sí o sí estará presente\n        conversation: allMessages.slice(-6) // Lo mantenemos por si lo necesitas\n    }\n}];"
+        "jsCode": "const response = $input.first().json;\nconst error = response.error;\nconst assistantMessage = error ? '' : (response.choices?.[0]?.message?.content || '');\n\nconst webhookBody = $('Webhook Trigger1').first().json.body;\nconst allMessages = webhookBody.messages || []; // Aseguramos que sea un array\nconst conversationStr = JSON.stringify(allMessages);\n\n// PRIORIDAD: Datos directos del nuevo formulario de identidad\nlet email = webhookBody.user_info?.email || null;\nlet name = webhookBody.user_info?.name || null;\n\n// FALLBACK: Regex\nif (!email) {\n    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g;\n    const emails = conversationStr.match(emailRegex) || [];\n    email = emails[0] || null;\n}\n\nif (!name) {\n    const nameRegex = /(?:me llamo|soy|my name is|i am|i\\'m)\\s+([A-Z][a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00daa-z]+(?:\\s+[A-Z][a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00daa-z]+)?)/gi;\n    const nameMatch = nameRegex.exec(conversationStr);\n    name = nameMatch ? nameMatch[1] : null;\n}\n\nconst systemMsg = allMessages.find(m => m.role === 'system');\nconst sourceLang = systemMsg?.content?.includes('currently set to English') ? 'en' : 'es';\n\n// --- GENERACI\u00d3N DE HTML SEGURO ---\nlet chatHtml = \"\";\n\ntry {\n    // Tomamos los \u00faltimos mensajes y quitamos el de sistema\n    const chatMessages = allMessages.filter(m => m.role !== 'system').slice(-6);\n    \n    if (chatMessages.length > 0) {\n        chatHtml = chatMessages.map(msg => {\n            const isUser = msg.role === 'user';\n            const label = isUser ? 'Usuario' : 'Asistente';\n            const bgColor = isUser ? '#f8fafc' : '#ffffff';\n            const borderColor = isUser ? '#2563eb' : '#10b981';\n            \n            return `\n            <div style=\"margin-bottom: 12px; padding: 12px; border-radius: 8px; background-color: ${bgColor}; border-left: 4px solid ${borderColor}; font-family: sans-serif;\">\n                <strong style=\"display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px;\">${label}</strong>\n                <div style=\"font-size: 14px; color: #1e293b; line-height: 1.5;\">${msg.content}</div>\n            </div>`;\n        }).join('');\n    } else {\n        chatHtml = \"<p>No hay mensajes recientes en la conversaci\u00f3n.</p>\";\n    }\n} catch (e) {\n    chatHtml = \"<p>Error al formatear la conversaci\u00f3n.</p>\";\n}\n\nreturn [{\n    json: {\n        error,\n        assistantMessage,\n        email,\n        name,\n        sourceLang,\n        hasLead: !!(email || name),\n        chatHtml, // Ahora s\u00ed o s\u00ed estar\u00e1 presente\n        conversation: allMessages.slice(-6) // Lo mantenemos por si lo necesitas\n    }\n}];"
       },
       "id": "[NODE_ID_4]",
       "name": "Extract Lead Data1",
@@ -181,7 +181,7 @@
     },
     {
       "parameters": {
-        "html": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; font-size: 20px; }\n    .content p { margin: 15px 0; }\n    .highlight { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .chat-box { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 15px; margin-top: 15px; font-size: 14px; color: #555; white-space: pre-line; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>¡Nuevo Lead Detectado!</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Alerta del Agente IA</h2>\n      <p>Se ha detectado un nuevo lead interactuando con el chat del Agente IA. A continuación tienes los detalles:</p>\n      \n      <div class=\"highlight\">\n        <p style=\"margin: 5px 0;\"><strong>Nombre:</strong> {{ $json.name || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Email:</strong> {{ $json.email || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Idioma:</strong> {{ $json.sourceLang === 'en' ? 'Inglés' : 'Español' }}</p>\n      </div>\n\n      <h2 style=\"margin-top: 30px; font-size: 18px;\">Últimos mensajes de la conversación:</h2>\n      <div class=\"chat-box\">\n        {{ $('Extract Lead Data1').item.json.chatHtml }}\n      </div>\n      \n    </div>\n    <div class=\"footer\">\n      <p>Esta es una notificación automática interna del sistema.</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
+        "html": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; font-size: 20px; }\n    .content p { margin: 15px 0; }\n    .highlight { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .chat-box { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 15px; margin-top: 15px; font-size: 14px; color: #555; white-space: pre-line; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>\u00a1Nuevo Lead Detectado!</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Alerta del Agente IA</h2>\n      <p>Se ha detectado un nuevo lead interactuando con el chat del Agente IA. A continuaci\u00f3n tienes los detalles:</p>\n      \n      <div class=\"highlight\">\n        <p style=\"margin: 5px 0;\"><strong>Nombre:</strong> {{ $json.name || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Email:</strong> {{ $json.email || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Idioma:</strong> {{ $json.sourceLang === 'en' ? 'Ingl\u00e9s' : 'Espa\u00f1ol' }}</p>\n      </div>\n\n      <h2 style=\"margin-top: 30px; font-size: 18px;\">\u00daltimos mensajes de la conversaci\u00f3n:</h2>\n      <div class=\"chat-box\">\n        {{ $('Extract Lead Data1').item.json.chatHtml }}\n      </div>\n      \n    </div>\n    <div class=\"footer\">\n      <p>Esta es una notificaci\u00f3n autom\u00e1tica interna del sistema.</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
@@ -206,21 +206,23 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://router.huggingface.co/v1/chat/completions",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Content-Type",
               "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GEMINI_API_KEY }}"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const webhookData = $('Webhook Trigger1').first().json; \n      const history = (webhookData.body && webhookData.body.messages) ? webhookData.body.messages : []; \n      const knowledgeData = $('Search Knowledge Supabase').first().json; \n      const contextChunks = Array.isArray(knowledgeData) ? knowledgeData.map(r => r.content).join('\\n---\\n') : (knowledgeData.content || ''); \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      return [ \n        { \n          role: 'system', \n          content: (systemMsg?.content || 'You are a helpful assistant.') + '\\n\\nKNOWLEDGE BASE CONTEXT (Usa esto para responder solo si es relevante):\\n' + contextChunks \n        }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const webhookData = $('Webhook Trigger1').first().json; \n      const history = (webhookData.body && webhookData.body.messages) ? webhookData.body.messages : []; \n      const knowledgeData = $('Search Knowledge Supabase').first().json; \n      const contextChunks = Array.isArray(knowledgeData) ? knowledgeData.map(r => r.content).join('\\n---\\n') : (knowledgeData.content || ''); \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      return [ \n        { \n          role: 'system', \n          content: (systemMsg?.content || 'You are a helpful assistant.') + '\\n\\nKNOWLEDGE BASE CONTEXT (Usa esto para responder solo si es relevante):\\n' + contextChunks \n        }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'gemini-2.5-flash', \n    stream: false \n  }) \n}}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -230,33 +232,29 @@
         1008
       ],
       "id": "[NODE_ID_10]",
-      "name": "Call Hugging Face RAG",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "[CREDENTIAL_ID_HF]",
-          "name": "Hugging Face API Token"
-        }
-      },
+      "name": "Call Gemini RAG",
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://router.huggingface.co/ v1/chat/completions",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Content-Type",
               "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GEMINI_API_KEY }}"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=={{ \n  JSON.stringify({ \n    messages: $('Webhook Trigger1').first().json.body.messages, \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "jsonBody": "=={{ \n  JSON.stringify({ \n    messages: $('Webhook Trigger1').first().json.body.messages, \n    model: 'gemini-2.5-flash', \n    stream: false \n  }) \n}}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -266,37 +264,36 @@
         1200
       ],
       "id": "[NODE_ID_11]",
-      "name": "Call Hugging Face General",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "[CREDENTIAL_ID_HF]",
-          "name": "Hugging Face API Token"
-        }
-      },
+      "name": "Call Gemini General",
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://router.huggingface.co/hf-inference/models/intfloat/multilingual-e5-small/pipeline/feature-extraction",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "inputs",
-              "value": "={{ $json.body.messages[0].content }}"
-            }
-          ]
-        },
+        "url": "https://generativelanguage.googleapis.com/v1beta/openai/embeddings",
         "options": {
           "response": {
             "response": {
               "fullResponse": true
             }
           }
-        }
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ \"model\": \"text-embedding-004\", \"dimensions\": 384, \"input\": $json.body.messages[0].content }) }}",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GEMINI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendHeaders": true
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
@@ -305,13 +302,7 @@
         1008
       ],
       "id": "[NODE_ID_12]",
-      "name": "Hugging Face Embedding Model",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "[CREDENTIAL_ID_HF]",
-          "name": "Hugging Face API Token"
-        }
-      }
+      "name": "Gemini Embedding Model"
     },
     {
       "parameters": {
@@ -332,7 +323,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"query_embedding\": {{ JSON.stringify($json.body) }},\n  \"match_threshold\": 0.5,\n  \"match_count\": 3\n}",
+        "jsonBody": "={\n  \"query_embedding\": {{ JSON.stringify($json.body.data[0].embedding) }},\n  \"match_threshold\": 0.5,\n  \"match_count\": 3\n}",
         "options": {}
       },
       "id": "[NODE_ID_13]",
@@ -385,14 +376,14 @@
       "main": [
         [
           {
-            "node": "Hugging Face Embedding Model",
+            "node": "Gemini Embedding Model",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Call Hugging Face General",
+            "node": "Call Gemini General",
             "type": "main",
             "index": 0
           }
@@ -466,7 +457,7 @@
         ]
       ]
     },
-    "Call Hugging Face RAG": {
+    "Call Gemini RAG": {
       "main": [
         [
           {
@@ -477,7 +468,7 @@
         ]
       ]
     },
-    "Call Hugging Face General": {
+    "Call Gemini General": {
       "main": [
         [
           {
@@ -488,7 +479,7 @@
         ]
       ]
     },
-    "Hugging Face Embedding Model": {
+    "Gemini Embedding Model": {
       "main": [
         [
           {
@@ -503,7 +494,7 @@
       "main": [
         [
           {
-            "node": "Call Hugging Face RAG",
+            "node": "Call Gemini RAG",
             "type": "main",
             "index": 0
           }
@@ -517,4 +508,3 @@
     "instanceId": "[INSTANCE_ID]"
   }
 }
-

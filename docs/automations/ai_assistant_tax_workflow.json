@@ -2,7 +2,7 @@
   "nodes": [
     {
       "parameters": {
-        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Intent: Tax Calculation\nconst taxKeywords = ['ganancias', 'sueldo', 'bruto', 'neto', 'impuesto', 'calculadora', 'deducciones', 'pago de'];\nconst isTaxQuery = taxKeywords.some(kw => text.includes(kw));\n\n// Intent: Short/Greeting\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nlet intent = 'general';\n\nif (isTaxQuery) {\n    intent = 'tax';\n    requires_rag = false;\n} else if ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos días', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n    intent = 'greeting';\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag,\n        intent\n    }\n}];"
+        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Intent: Tax Calculation\nconst taxKeywords = ['ganancias', 'sueldo', 'bruto', 'neto', 'impuesto', 'calculadora', 'deducciones', 'pago de'];\nconst isTaxQuery = taxKeywords.some(kw => text.includes(kw));\n\n// Intent: Short/Greeting\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nlet intent = 'general';\n\nif (isTaxQuery) {\n    intent = 'tax';\n    requires_rag = false;\n} else if ((isShort && !hasQuestion && isJustEmail) || ['hola', 'hi', 'hello', 'buenos d\u00edas', 'gracias', 'thanks'].includes(text.trim())) {\n    requires_rag = false;\n    intent = 'greeting';\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag,\n        intent\n    }\n}];"
       },
       "id": "1eff4a18-b4d0-4cb2-882a-4b95c4b6bd35",
       "name": "Analyze Intent",
@@ -187,7 +187,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const params = $('Get Tax Params').first().json;\nconst brackets = $('Get Tax Brackets').all().map(i => i.json);\nconst webhookData = $('Webhook Trigger1').first().json;\nconst lastMsg = webhookData.body.messages.filter(m => m.role === 'user').pop().content;\n\n// Extraer monto\nconst amountMatch = lastMsg.match(/(\\d+[\\d\\.,]*)/);\nif (!amountMatch) return { json: { ...webhookData, tax_calc: null, needs_data: true } };\n\nlet brutoMensual = parseFloat(amountMatch[0].replace(/\\./g, '').replace(',', '.'));\nif (brutoMensual < 100) brutoMensual *= 1000000;\nelse if (brutoMensual < 10000) brutoMensual *= 1000;\n\n// Deducciones Familiares (Regex simple)\nlet hijos = 0;\nconst hMatch = lastMsg.match(/(\\d+)\\s*hijo/i);\nif (hMatch) hijos = parseInt(hMatch[1]);\nelse if (lastMsg.includes('un hijo')) hijos = 1;\n\nconst conyuge = lastMsg.toLowerCase().includes('conyuge') || lastMsg.toLowerCase().includes('pareja');\n\n// Cálculo\nconst gni = parseFloat(params.gni);\nconst especial = parseFloat(params.deduccion_especial);\nconst aportesPct = parseFloat(params.aportes_pct);\n\nconst netoAnual = (brutoMensual * 13) * (1 - aportesPct);\nlet deducciones = gni + especial;\ndeducciones += hijos * parseFloat(params.hijo);\nif (conyuge) deducciones += parseFloat(params.conyuge);\n\nconst base = Math.max(0, netoAnual - deducciones);\n\nlet impuestoAnual = 0;\nif (base > 0) {\n    let bracket = brackets[0];\n    for (const b of brackets) {\n        if (base > parseFloat(b.limit_amount)) bracket = b;\n        else break;\n    }\n    const exceso = base - parseFloat(bracket.limit_amount);\n    impuestoAnual = parseFloat(bracket.fixed_amount) + (exceso * parseFloat(bracket.pct));\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        tax_calc: {\n            bruto: brutoMensual,\n            netoMensual: (netoAnual - impuestoAnual) / 13,\n            impuestoMensual: impuestoAnual / 12,\n            base,\n            hijos,\n            conyuge\n        }\n    }\n}];"
+        "jsCode": "const params = $('Get Tax Params').first().json;\nconst brackets = $('Get Tax Brackets').all().map(i => i.json);\nconst webhookData = $('Webhook Trigger1').first().json;\nconst lastMsg = webhookData.body.messages.filter(m => m.role === 'user').pop().content;\n\n// Extraer monto\nconst amountMatch = lastMsg.match(/(\\d+[\\d\\.,]*)/);\nif (!amountMatch) return { json: { ...webhookData, tax_calc: null, needs_data: true } };\n\nlet brutoMensual = parseFloat(amountMatch[0].replace(/\\./g, '').replace(',', '.'));\nif (brutoMensual < 100) brutoMensual *= 1000000;\nelse if (brutoMensual < 10000) brutoMensual *= 1000;\n\n// Deducciones Familiares (Regex simple)\nlet hijos = 0;\nconst hMatch = lastMsg.match(/(\\d+)\\s*hijo/i);\nif (hMatch) hijos = parseInt(hMatch[1]);\nelse if (lastMsg.includes('un hijo')) hijos = 1;\n\nconst conyuge = lastMsg.toLowerCase().includes('conyuge') || lastMsg.toLowerCase().includes('pareja');\n\n// C\u00e1lculo\nconst gni = parseFloat(params.gni);\nconst especial = parseFloat(params.deduccion_especial);\nconst aportesPct = parseFloat(params.aportes_pct);\n\nconst netoAnual = (brutoMensual * 13) * (1 - aportesPct);\nlet deducciones = gni + especial;\ndeducciones += hijos * parseFloat(params.hijo);\nif (conyuge) deducciones += parseFloat(params.conyuge);\n\nconst base = Math.max(0, netoAnual - deducciones);\n\nlet impuestoAnual = 0;\nif (base > 0) {\n    let bracket = brackets[0];\n    for (const b of brackets) {\n        if (base > parseFloat(b.limit_amount)) bracket = b;\n        else break;\n    }\n    const exceso = base - parseFloat(bracket.limit_amount);\n    impuestoAnual = parseFloat(bracket.fixed_amount) + (exceso * parseFloat(bracket.pct));\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        tax_calc: {\n            bruto: brutoMensual,\n            netoMensual: (netoAnual - impuestoAnual) / 13,\n            impuestoMensual: impuestoAnual / 12,\n            base,\n            hijos,\n            conyuge\n        }\n    }\n}];"
       },
       "id": "tax-c-1",
       "name": "Tax Calculator Logic",
@@ -201,21 +201,23 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://router.huggingface.co/v1/chat/completions",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Content-Type",
               "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GEMINI_API_KEY }}"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const data = $input.first().json; \n      const history = data.body.messages; \n      const calc = data.tax_calc; \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      let taxContext = \"\";\n      if (calc) {\n          taxContext = `\\n\\nCALCULATION RESULT (Usa esto para responder de forma amigable):\\nSueldo Bruto Mensual: $${Math.round(calc.bruto).toLocaleString()}\\nNeto Estimado (con Ganancias y Aportes): $${Math.round(calc.netoMensual).toLocaleString()}\\nRetención mensual Ganancias: $${Math.round(calc.impuestoMensual).toLocaleString()}\\nDeducciones aplicadas: ${calc.hijos} hijos, ${calc.conyuge ? 'Cónyuge' : 'Sin cónyuge'}.\\nExplica que es un cálculo de Ganancias 2026 y ofrece agendar una charla para optimización financiera [ACTION:CALENDLY].`;\n      } else {\n          taxContext = \"\\n\\nINSTRUCCIÓN: El usuario quiere calcular su sueldo pero no proporcionó el monto bruto. Pídele amablemente el sueldo bruto mensual y si tiene hijos o cónyuge para ser exacto.\";\n      }\n      return [ \n        { role: 'system', content: (systemMsg?.content || '') + taxContext }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const data = $input.first().json; \n      const history = data.body.messages; \n      const calc = data.tax_calc; \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      let taxContext = \"\";\n      if (calc) {\n          taxContext = `\\n\\nCALCULATION RESULT (Usa esto para responder de forma amigable):\\nSueldo Bruto Mensual: $${Math.round(calc.bruto).toLocaleString()}\\nNeto Estimado (con Ganancias y Aportes): $${Math.round(calc.netoMensual).toLocaleString()}\\nRetenci\u00f3n mensual Ganancias: $${Math.round(calc.impuestoMensual).toLocaleString()}\\nDeducciones aplicadas: ${calc.hijos} hijos, ${calc.conyuge ? 'C\u00f3nyuge' : 'Sin c\u00f3nyuge'}.\\nExplica que es un c\u00e1lculo de Ganancias 2026 y ofrece agendar una charla para optimizaci\u00f3n financiera [ACTION:CALENDLY].`;\n      } else {\n          taxContext = \"\\n\\nINSTRUCCI\u00d3N: El usuario quiere calcular su sueldo pero no proporcion\u00f3 el monto bruto. P\u00eddele amablemente el sueldo bruto mensual y si tiene hijos o c\u00f3nyuge para ser exacto.\";\n      }\n      return [ \n        { role: 'system', content: (systemMsg?.content || '') + taxContext }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'gemini-2.5-flash', \n    stream: false \n  }) \n}}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -225,13 +227,7 @@
         900
       ],
       "id": "tax-h-1",
-      "name": "Call HF Tax Response",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "gDfOipUtnNPe4yjB",
-          "name": "Hugging Face API Token"
-        }
-      }
+      "name": "Call Gemini Tax Response"
     }
   ],
   "connections": {
@@ -268,14 +264,14 @@
         ],
         [
           {
-            "node": "Hugging Face Embedding Model",
+            "node": "Gemini Embedding Model",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Call Hugging Face General",
+            "node": "Call Gemini General",
             "type": "main",
             "index": 0
           }
@@ -308,14 +304,14 @@
       "main": [
         [
           {
-            "node": "Call HF Tax Response",
+            "node": "Call Gemini Tax Response",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Call HF Tax Response": {
+    "Call Gemini Tax Response": {
       "main": [
         [
           {
