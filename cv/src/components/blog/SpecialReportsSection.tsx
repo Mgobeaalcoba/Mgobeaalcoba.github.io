@@ -14,10 +14,14 @@ import {
   GraduationCap,
   Brain,
   Zap,
+  Home,
+  Landmark,
+  Users,
+  BarChart3,
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const VISIBLE_ROWS = 2;
+const VISIBLE_ROWS = 1;
 
 interface ReportCard {
   href: string;
@@ -68,6 +72,34 @@ const REPORTS: ReportCard[] = [
     sources: {
       es: 'Fuentes: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
       en: 'Sources: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
+    },
+  },
+  {
+    href: '/blog/special/funnel-hipotecario-bna',
+    badge: 'Special Report',
+    badgeColor: 'bg-sky-500/15 border-sky-500/30 text-sky-400',
+    dateLine: { es: 'Abril 2026 · Data-Driven', en: 'April 2026 · Data-Driven' },
+    title: {
+      es: 'Funnel Hipotecario BNA: Del Sueño a la Escritura',
+      en: 'BNA Mortgage Funnel: From Dream to Deed',
+    },
+    description: {
+      es: 'Análisis del funnel de acceso al crédito hipotecario del Banco Nación Argentina. De 3.2M de familias con necesidad habitacional a ~33.700 créditos otorgados: dónde se caen y por qué.',
+      en: 'Analysis of Banco Nación Argentina\'s mortgage access funnel. From 3.2M families with housing needs to ~33,700 loans granted: where they drop off and why.',
+    },
+    cta: { es: 'Ver informe completo', en: 'View full report' },
+    accentColor: 'text-sky-400 group-hover:text-sky-300',
+    borderColor: 'border-sky-500/30',
+    bgClass: 'special-report-bg',
+    kpis: [
+      { value: '3.2M', labelEs: 'Déficit habitacional', labelEn: 'Housing deficit', color: 'text-indigo-400', bgColor: 'bg-indigo-500/10 border-indigo-500/20', icon: Home },
+      { value: '192K', labelEs: 'Solicitudes BNA', labelEn: 'BNA applications', color: 'text-sky-400', bgColor: 'bg-sky-500/10 border-sky-500/20', icon: Landmark },
+      { value: '~17%', labelEs: 'Tasa de conversión', labelEn: 'Conversion rate', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: BarChart3 },
+      { value: '76%', labelEs: 'Market share BNA', labelEn: 'BNA market share', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: Users },
+    ],
+    sources: {
+      es: 'Fuentes: BCRA · BNA · INDEC · Col. Escribanos · Infobae · Ámbito · Cronista',
+      en: 'Sources: BCRA · BNA · INDEC · Notary Assoc. · Infobae · Ámbito · Cronista',
     },
   },
   {

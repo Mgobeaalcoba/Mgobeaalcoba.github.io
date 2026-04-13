@@ -55,6 +55,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${SITE_URL}/blog/special/funnel-hipotecario-bna/`,
+      lastModified: new Date('2026-04-13'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/blog/special/funnel-hipotecario-bna/methodology/`,
+      lastModified: new Date('2026-04-13'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/blog/special/reqquest-3d/`,
       lastModified: new Date('2026-04-03'),
       changeFrequency: 'monthly',
