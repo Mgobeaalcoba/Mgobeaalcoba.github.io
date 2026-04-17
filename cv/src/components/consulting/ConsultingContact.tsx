@@ -2,10 +2,10 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Calendar, MessageSquare } from 'lucide-react';
+import { Send, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
-import CalendlyButton from '@/components/shared/CalendlyButton';
+import ContactButton from '@/components/shared/ContactButton';
 
 export default function ConsultingContact() {
   const { lang, t } = useLanguage();
@@ -25,15 +25,18 @@ export default function ConsultingContact() {
 
         <p className="text-gray-400 max-w-xl mx-auto mb-10">
           {lang === 'es'
-            ? 'Primera reunión 100% gratuita. Te cuento cómo podemos transformar tu negocio en 30 minutos.'
-            : 'First meeting 100% free. I\'ll explain how we can transform your business in 30 minutes.'}
+            ? 'Contame qué necesitás y te respondo en menos de 24hs. Primera charla 100% gratuita.'
+            : 'Tell me what you need and I\'ll get back to you within 24h. First chat 100% free.'}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CalendlyButton className="flex items-center justify-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105 text-lg">
-            <Calendar size={20} />
-            Agendar reunión gratuita
-          </CalendlyButton>
+          <ContactButton
+            source="consulting"
+            className="flex items-center justify-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all hover:scale-105 text-lg"
+          >
+            <Send size={20} />
+            {lang === 'es' ? 'Enviame un mensaje' : 'Send me a message'}
+          </ContactButton>
           <a
             href="https://wa.me/5491127475569?text=Hola%20Mariano%2C%20me%20interesa%20la%20consultor%C3%ADa"
             target="_blank"
@@ -42,7 +45,7 @@ export default function ConsultingContact() {
             className="flex items-center justify-center gap-2 px-8 py-4 glass border border-green-500/30 text-green-400 rounded-xl font-semibold hover:bg-green-500/10 transition-all text-lg"
           >
             <MessageSquare size={20} />
-            WhatsApp directo
+            {lang === 'es' ? 'WhatsApp directo' : 'Direct WhatsApp'}
           </a>
         </div>
 

@@ -76,11 +76,19 @@ export const events = {
   leadFormSent: (page: string, form_type = 'contact') =>
     keyEvent('generate_lead', { page, site_section: page, form_type }),
 
-  // KEY EVENT — Calendly intent
-  calendlyClick: (site_section = 'consulting') =>
-    keyEvent('calendly_click', { site_section }),
+  // KEY EVENT — Contact intent (opens contact modal)
+  contactClick: (site_section = 'cv') =>
+    keyEvent('contact_click', { site_section }),
 
-  // KEY EVENT — WhatsApp contact intent
+  // Modal opened (not always preceded by contactClick if triggered programmatically)
+  contactModalOpen: (site_section = 'cv') =>
+    event('contact_modal_open', { site_section }),
+
+  // User picked a channel inside the contact modal
+  contactChannelSelect: (channel: 'whatsapp' | 'email', site_section = 'cv') =>
+    keyEvent('contact_channel_select', { channel, site_section }),
+
+  // KEY EVENT — direct WhatsApp contact (outside modal, e.g. ConsultingContact quick link)
   whatsappClick: (site_section = 'consulting') =>
     keyEvent('whatsapp_click', { site_section }),
 
@@ -126,8 +134,8 @@ export const events = {
   aiAssistantMessageSent: (message_length: number) =>
     event('ai_assistant_message_sent', { message_length, site_section: 'cv' }),
 
-  aiAssistantCalendlyClick: () =>
-    keyEvent('ai_assistant_calendly_click', { site_section: 'cv' }),
+  aiAssistantContactClick: () =>
+    keyEvent('ai_assistant_contact_click', { site_section: 'cv' }),
 
   aiAssistantUserIdentified: () =>
     event('ai_assistant_user_identified', { site_section: 'cv' }),

@@ -2,20 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar } from "lucide-react";
+import { Send } from "lucide-react";
 import { events } from "@/lib/gtag";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const CALENDLY_URL = "https://calendly.com/mariano-gobea-mercadolibre/30min";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-      closePopupWidget: () => void;
-    };
-  }
-}
+import { openContactModal } from "./ContactModal";
 
 interface FloatingCTAProps {
   labelKey: string;
@@ -30,7 +20,6 @@ export default function FloatingCTA({
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  // Show button after user scrolls 200px
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 200);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -38,13 +27,9 @@ export default function FloatingCTA({
   }, []);
 
   const handleClick = () => {
-    events.calendlyClick(site_section);
+    events.contactClick(site_section);
     events.floatingCtaClick(site_section);
-    if (typeof window !== "undefined" && window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
-    }
+    openContactModal(site_section);
   };
 
   return (
@@ -57,7 +42,6 @@ export default function FloatingCTA({
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
           className="fixed bottom-6 right-4 z-40"
         >
-          {/* Outer pulsing glow ring */}
           <span className="absolute inset-0 rounded-2xl bg-sky-400/30 blur-md animate-pulse pointer-events-none" />
 
           <button
@@ -71,7 +55,6 @@ export default function FloatingCTA({
               hover:shadow-[0_0_24px_rgba(14,165,233,0.6)]
               active:scale-95 transition-all duration-200 border border-white/20"
           >
-            {/* Animated icon */}
             <motion.span
               animate={
                 hovered
@@ -85,12 +68,11 @@ export default function FloatingCTA({
               }
               className="flex items-center justify-center"
             >
-              <Calendar size={14} className="shrink-0" />
+              <Send size={14} className="shrink-0" />
             </motion.span>
 
             <span>{t(labelKey)}</span>
 
-            {/* Inner shimmer sweep */}
             <motion.span
               animate={{ x: ["-120%", "220%"] }}
               transition={{

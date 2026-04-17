@@ -2,10 +2,9 @@
 
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Calendar, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, MessageSquare, Send, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
-import CalendlyButton from '@/components/shared/CalendlyButton';
 
 const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
 
@@ -103,10 +102,16 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4 }}
             >
-              <CalendlyButton className="flex items-center gap-3 px-6 py-4 bg-sky-500/10 border border-sky-500/30 rounded-xl text-sky-400 hover:bg-sky-500/20 transition-all font-medium w-full">
-                <Calendar size={18} />
-                Agenda una reunión conmigo →
-              </CalendlyButton>
+              <a
+                href="https://wa.me/5491127475569?text=Hola%20Mariano%2C%20te%20escribo%20desde%20mgatc.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => events.whatsappClick('cv')}
+                className="flex items-center gap-3 px-6 py-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 hover:bg-green-500/20 transition-all font-medium w-full"
+              >
+                <MessageSquare size={18} />
+                WhatsApp directo →
+              </a>
             </motion.div>
           </div>
 

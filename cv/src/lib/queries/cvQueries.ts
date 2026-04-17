@@ -12,7 +12,6 @@ export interface CvMeta {
   linkedin: string;
   github: string;
   twitter: string;
-  calendly: string;
   ga4Id: string;
 }
 
@@ -115,7 +114,6 @@ export async function fetchCvMeta(): Promise<CvMeta> {
     linkedin: data.linkedin,
     github: data.github,
     twitter: data.twitter,
-    calendly: data.calendly,
     ga4Id: data.ga4_id,
   };
 }

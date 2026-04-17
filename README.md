@@ -34,7 +34,7 @@ Página institucional de **MGA Tech Consulting**, la consultora orientada a PyME
 - **Casos de éxito** — resultados concretos de proyectos
 - **Formulario "Automatización Gratis"** — webhook a n8n, respuesta en < 24 hs
 - **Testimonios** — opiniones de clientes
-- **Calendly** — agendar reunión directamente desde la página
+- **Formulario de contacto** — mensaje directo por WhatsApp o email
 
 > ⚠️ `/consulting/` y `/consulting.html` redirigen a `/` (el home es la consultora desde Feb 2026)
 
@@ -89,7 +89,7 @@ Herramientas gratuitas para el contexto económico argentino.
 - **Modo terminal** — comandos: `about`, `experience`, `education`, `projects`, `neofetch`, `matrix`, `help`, etc.
 - **Bilingüe** — todo el contenido en ES / EN, switcheable desde el navbar
 - **SEO** — sitemap dinámico (`/sitemap.xml`), robots.txt, llms.txt, JSON-LD Schema.org
-- **Analytics** — GA4 con key events (`cv_download`, `sign_up`, `generate_lead`, `calendly_click`), cross-domain tracking
+- **Analytics** — GA4 con key events (`cv_download`, `sign_up`, `generate_lead`, `contact_click`, `contact_channel_select`, `whatsapp_click`), cross-domain tracking
 
 ---
 
@@ -200,7 +200,7 @@ Todo el contenido dinámico del CV vive en Supabase. Actualizar contenido = un S
 - **Cross-domain tracking** — `mgatc.com`, `mgobeaalcoba.github.io`, `mgatc.pages.dev`
 - **Google Search Console** — `www.mgatc.com` verificado por DNS TXT
 - **Cloudflare Web Analytics** — segunda fuente sin cookies, inmune a ad-blockers
-- **Key events configurados** — `cv_download`, `sign_up`, `generate_lead`, `calendly_click`
+- **Key events configurados** — `cv_download`, `sign_up`, `generate_lead`, `contact_click`, `contact_channel_select`, `whatsapp_click`
 - **GA4 inline en `<head>`** — carga sincrónica para mejor tag quality score
 
 ### Automatizaciones — n8n

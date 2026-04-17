@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, Gift, Bot, Brain, Handshake, Settings, BarChart2, GraduationCap, Users, UserCheck, Calendar } from 'lucide-react';
+import { Check, X, Gift, Bot, Brain, Handshake, Settings, BarChart2, GraduationCap, Users, UserCheck, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
-import CalendlyButton from '@/components/shared/CalendlyButton';
+import ContactButton from '@/components/shared/ContactButton';
 
 // ============ SERVICE CARDS (6 types) ============
 type Service = {
@@ -234,10 +234,18 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
             </div>
           </div>
 
-          <CalendlyButton className="mt-5 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all text-sm">
-            <Calendar size={16} />
+          <ContactButton
+            source={`consulting_service_${service.id}`}
+            prefillMessage={
+              lang === 'es'
+                ? `Hola Mariano, me interesa el servicio: ${service.title.es}.`
+                : `Hi Mariano, I'm interested in the service: ${service.title.en}.`
+            }
+            className="mt-5 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all text-sm"
+          >
+            <Send size={16} />
             {service.cta[lang]}
-          </CalendlyButton>
+          </ContactButton>
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -299,9 +307,17 @@ function PackModal({ pack, onClose }: { pack: Pack; onClose: () => void }) {
               </ul>
             </div>
           )}
-          <CalendlyButton className="mt-2 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm">
-            {lang === 'es' ? 'Agenda tu diagnóstico gratuito →' : 'Schedule your free diagnosis →'}
-          </CalendlyButton>
+          <ContactButton
+            source={`consulting_pack_${pack.id}`}
+            prefillMessage={
+              lang === 'es'
+                ? `Hola Mariano, me interesa el pack "${pack.name.es}" y quiero un diagnóstico.`
+                : `Hi Mariano, I'm interested in the "${pack.name.en}" pack and would like a diagnosis.`
+            }
+            className="mt-2 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm"
+          >
+            {lang === 'es' ? 'Solicitá tu diagnóstico gratuito →' : 'Request your free diagnosis →'}
+          </ContactButton>
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -425,9 +441,17 @@ export default function Services() {
               ? 'Cada empresa es única. Los precios son orientativos y se ajustan según la complejidad del proyecto. Puede optar por pagos mensuales o proyectos únicos.'
               : "Every business is unique. Prices are indicative and adjust based on project complexity. You can choose monthly payments or one-time projects."}
           </p>
-          <CalendlyButton className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-2 rounded-full text-sm transition-all">
+          <ContactButton
+            source="consulting_custom_quote"
+            prefillMessage={
+              lang === 'es'
+                ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
+                : 'Hi Mariano, I would like a custom quote for my project.'
+            }
+            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-2 rounded-full text-sm transition-all"
+          >
             {lang === 'es' ? '📊 Solicitar Cotización Personalizada' : '📊 Request Custom Quote'}
-          </CalendlyButton>
+          </ContactButton>
         </div>
       </motion.div>
 

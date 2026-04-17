@@ -2,23 +2,13 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, User, CalendarDays } from "lucide-react";
+import { X, Send, Bot, User, MessageSquareText } from "lucide-react";
 import { useAIAssistant } from "@/hooks/useAIAssistant";
 import { events } from "@/lib/gtag";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { openContactModal } from "@/components/shared/ContactModal";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-      closePopupWidget: () => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/mariano-gobea-mercadolibre/30min";
 
 export function AIAssistant() {
   const {
@@ -92,27 +82,16 @@ export function AIAssistant() {
     identifyUser(formData);
   };
 
-  const handleOpenCalendly = () => {
-    events.aiAssistantCalendlyClick();
-    if (typeof window !== "undefined") {
-      const Calendly = window.Calendly;
-      if (Calendly && typeof Calendly.initPopupWidget === "function") {
-        try {
-          Calendly.initPopupWidget({ url: CALENDLY_URL });
-        } catch (error) {
-          console.error("Error initializing Calendly popup:", error);
-          window.open(CALENDLY_URL, "_blank");
-        }
-      } else {
-        window.open(CALENDLY_URL, "_blank");
-      }
-    }
+  const handleOpenContact = () => {
+    events.aiAssistantContactClick();
+    openContactModal("ai_assistant");
   };
 
   const renderMessageContent = (content: string) => {
-    const calendlyTag = "[ACTION:CALENDLY]";
-    const hasCalendly = content.includes(calendlyTag);
-    const cleanContent = content.replace(calendlyTag, "").trim();
+    // Accept both legacy CALENDLY tag and new CONTACT tag for backward compatibility
+    const contactTagRegex = /\[ACTION:(CONTACT|CALENDLY)\]/g;
+    const hasContact = contactTagRegex.test(content);
+    const cleanContent = content.replace(contactTagRegex, "").trim();
 
     return (
       <div className="flex flex-col space-y-2">
@@ -121,14 +100,14 @@ export function AIAssistant() {
             {cleanContent}
           </ReactMarkdown>
         </div>
-        {hasCalendly && (
+        {hasContact && (
           <button
-            onClick={handleOpenCalendly}
+            onClick={handleOpenContact}
             className="mt-2 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all"
           >
-            <CalendarDays size={16} />
+            <MessageSquareText size={16} />
             <span>
-              {lang === "en" ? "Schedule a Meeting" : "Agendar Reunión"}
+              {lang === "en" ? "Contact Mariano" : "Contactar a Mariano"}
             </span>
           </button>
         )}

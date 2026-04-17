@@ -49,7 +49,7 @@ Row Level Security: Supabase RLS (read-only anon access)
 Automation Engine: n8n (self-hosted)
 LLM Provider: OpenRouter (Claude, GPT models)
 Email Delivery: Brevo (formerly Sendinblue)
-Scheduling: Calendly (meeting booking)
+Direct Contact: WhatsApp (wa.me) + email (mailto) via in-page contact form
 Data Storage: Google Sheets (leads/subscriptions backup)
 Webhook Integration: n8n webhooks for all contact forms
 
@@ -79,7 +79,6 @@ Fonts: Inter by Rasmus Andersson (https://rsms.me/inter/)
 Icons: Lucide (https://lucide.dev/)
 Hosting: Cloudflare Pages (free tier)
 CDN: Google Fonts
-Scheduling: Calendly
 Database: Supabase (free tier)
 Automation: n8n
 
@@ -108,7 +107,7 @@ Services: Process Automation, Business Intelligence, AI Implementation,
           Tech Mentoring, Team Courses, Tech Recruiting, Digital Transformation
 Consulting: https://www.mgatc.com
 Email: mariano@mgatc.com
-Calendly: https://calendly.com/gobeamariano
+WhatsApp: https://wa.me/5491127475569
 PayPal: https://paypal.me/marianogobea
 Response Time: Within 24 hours
 

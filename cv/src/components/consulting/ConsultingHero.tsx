@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
-import CalendlyButton from "@/components/shared/CalendlyButton";
 
 const TYPING_WORDS = [
   "Automatización de Procesos",

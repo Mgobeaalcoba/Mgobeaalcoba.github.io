@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Building2, GraduationCap, UserCheck } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import CalendlyButton from '@/components/shared/CalendlyButton';
+import ContactButton from '@/components/shared/ContactButton';
 
 type PriceRow = { label: { es: string; en: string }; price: string };
 type PricingColumn = {
@@ -108,9 +108,17 @@ export default function PricingOverview() {
               ? 'Todos los precios en USD. Adaptables según la complejidad de su proyecto.'
               : 'All prices in USD. Adaptable to the complexity of your project.'}
           </p>
-          <CalendlyButton className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-3 rounded-xl transition-all">
+          <ContactButton
+            source="consulting_pricing"
+            prefillMessage={
+              lang === 'es'
+                ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
+                : 'Hi Mariano, I would like a custom quote for my project.'
+            }
+            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-3 rounded-xl transition-all"
+          >
             {lang === 'es' ? '📊 Solicitar Cotización Personalizada' : '📊 Request Custom Quote'}
-          </CalendlyButton>
+          </ContactButton>
         </div>
       </motion.div>
     </section>

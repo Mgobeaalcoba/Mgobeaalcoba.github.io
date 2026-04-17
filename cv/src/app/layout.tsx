@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { SupabaseDataProvider } from "@/contexts/SupabaseDataContext";
 import AppShell from "@/components/shared/AppShell";
 import { DataErrorBoundary } from "@/components/shared/DataErrorBoundary";
 import JsonLd from "@/components/shared/JsonLd";
+import ContactModal from "@/components/shared/ContactModal";
 import "./globals.css";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -173,21 +173,12 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* Calendly widget */}
-        <link
-          rel="stylesheet"
-          href="https://assets.calendly.com/assets/external/widget.css"
-        />
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
-
         <DataErrorBoundary>
           <ThemeProvider>
             <LanguageProvider>
               <SupabaseDataProvider>
                 <AppShell>{children}</AppShell>
+                <ContactModal />
               </SupabaseDataProvider>
             </LanguageProvider>
           </ThemeProvider>

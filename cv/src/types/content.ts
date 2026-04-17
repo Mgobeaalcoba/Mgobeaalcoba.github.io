@@ -12,7 +12,6 @@ export interface CVMeta {
   linkedin: string;
   github: string;
   twitter: string;
-  calendly: string;
   ga4Id: string;
 }
 
@@ -90,7 +89,6 @@ export interface ConsultingSection {
   subheadline: Bilingual;
   stats: { value: string; label: Bilingual }[];
   processSteps: ProcessStep[];
-  calendlyUrl: string;
 }
 
 export interface BlogPost {

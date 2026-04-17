@@ -26,7 +26,6 @@ export interface Database {
           linkedin: string | null;
           github: string | null;
           twitter: string | null;
-          calendly: string | null;
           ga4_id: string | null;
         };
       };
@@ -61,7 +60,6 @@ export interface Database {
           headline_en: string;
           subheadline_es: string;
           subheadline_en: string;
-          calendly_url: string;
         };
       };
       cv_consulting_stats: {

@@ -7,7 +7,6 @@ export interface ConsultingMeta {
   headlineEn: string;
   subheadlineEs: string;
   subheadlineEn: string;
-  calendlyUrl: string;
   stats: { value: string; labelEs: string; labelEn: string }[];
   processSteps: {
     number: string;
@@ -80,7 +79,6 @@ export async function fetchConsultingMeta(): Promise<ConsultingMeta> {
     headlineEn: meta.headline_en,
     subheadlineEs: meta.subheadline_es,
     subheadlineEn: meta.subheadline_en,
-    calendlyUrl: meta.calendly_url,
     stats: (stats ?? []).map((s) => ({ value: s.value, labelEs: s.label_es, labelEn: s.label_en })),
     processSteps: (steps ?? []).map((s) => ({
       number: s.number,
