@@ -14,6 +14,7 @@ import {
   ChevronDown,
   LayoutGrid,
   Share2,
+  CornerDownRight,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
@@ -265,42 +266,59 @@ export default function RecursosClient() {
           />
         </div>
 
-        {/* Desktop: category buttons */}
-        <div className="hidden sm:flex gap-2 flex-wrap mb-4">
-          {TAB_CATEGORIES.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => handleCategoryChange(id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                activeCategory === id
-                  ? "bg-sky-500 text-white"
-                  : "glass text-gray-400 hover:text-sky-400 border border-white/10"
-              }`}
-            >
-              <LayoutGrid size={16} />
-              {label[lang]}
-            </button>
-          ))}
-        </div>
+        {/* Desktop: unified 2-level navigation panel */}
+        <div className="hidden sm:block glass rounded-2xl border border-white/10 p-4">
+          {/* Level 1: Category */}
+          <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
+            <span className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold pt-3 shrink-0 w-24">
+              {lang === "es" ? "Categoría" : "Category"}
+            </span>
+            <div className="flex gap-2 flex-wrap flex-1">
+              {TAB_CATEGORIES.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => handleCategoryChange(id)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                    activeCategory === id
+                      ? "bg-sky-500 text-white shadow-md shadow-sky-500/25"
+                      : "text-gray-400 hover:text-sky-400 border border-white/10 hover:border-sky-500/30"
+                  }`}
+                >
+                  <LayoutGrid size={16} />
+                  {label[lang]}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        {/* Desktop: tab buttons for active category */}
-        <div className="hidden sm:flex gap-2 flex-wrap">
-          {TAB_CATEGORIES.find((cat) => cat.id === activeCategory)?.tabs.map(
-            ({ id, icon, label }) => (
-              <button
-                key={id}
-                onClick={() => handleTabChange(id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                  activeTab === id
-                    ? "bg-sky-500 text-white"
-                    : "glass text-gray-400 hover:text-sky-400 border border-white/10"
-                }`}
-              >
-                {icon}
-                {label[lang]}
-              </button>
-            )
-          )}
+          {/* Divider between levels */}
+          <div className="border-t border-white/10 -mx-4 my-4" />
+
+          {/* Level 2: Sub-tabs within active category */}
+          <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
+            <span className="text-[10px] text-sky-400/80 uppercase tracking-[0.15em] font-semibold pt-2 shrink-0 w-24 flex items-center gap-1">
+              <CornerDownRight size={12} className="text-sky-400" />
+              {lang === "es" ? "Herramienta" : "Tool"}
+            </span>
+            <div className="flex gap-2 flex-wrap flex-1">
+              {TAB_CATEGORIES.find((cat) => cat.id === activeCategory)?.tabs.map(
+                ({ id, icon, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => handleTabChange(id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      activeTab === id
+                        ? "bg-sky-400/15 text-sky-300 border border-sky-400/40"
+                        : "text-gray-400 hover:text-sky-300 border border-transparent hover:bg-white/[0.04]"
+                    }`}
+                  >
+                    {icon}
+                    {label[lang]}
+                  </button>
+                )
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
