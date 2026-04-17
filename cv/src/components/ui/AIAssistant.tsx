@@ -88,8 +88,7 @@ export function AIAssistant() {
   };
 
   const renderMessageContent = (content: string) => {
-    // Accept both legacy CALENDLY tag and new CONTACT tag for backward compatibility
-    const contactTagRegex = /\[ACTION:(CONTACT|CALENDLY)\]/g;
+    const contactTagRegex = /\[ACTION:CONTACT\]/g;
     const hasContact = contactTagRegex.test(content);
     const cleanContent = content.replace(contactTagRegex, "").trim();
 

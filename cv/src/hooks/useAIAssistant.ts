@@ -207,7 +207,7 @@ export function useAIAssistant() {
                     // Simple logic to tag intent/sentiment for the demo
                     intent: content.toLowerCase().includes('consult') || responseContent.toLowerCase().includes('reunion') ? 'consultancy' : 'general',
                     sentiment: 'neutral',
-                    conversion: /\[ACTION:(CONTACT|CALENDLY)\]/.test(responseContent),
+                    conversion: /\[ACTION:CONTACT\]/.test(responseContent),
                     response_time: responseTime
                 }).then(({ error }) => {
                     if (error) console.error('Error logging to Supabase:', error);
