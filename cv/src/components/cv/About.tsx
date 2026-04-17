@@ -21,24 +21,28 @@ export default function About() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">{t('about_title')}</h2>
-        <div className="glass rounded-2xl p-8 glow-border max-w-4xl">
-          <p className="text-gray-300 leading-relaxed text-lg">
-            {cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}
-          </p>
+        <div className="glass rounded-2xl p-8 glow-border">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <p className="text-gray-300 leading-relaxed text-lg">
+                {cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}
+              </p>
+            </div>
 
-          {/* Key highlights */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-            {[
-              { icon: '🎯', label: { es: 'Liderazgo', en: 'Leadership' } },
-              { icon: '🤖', label: { es: 'IA & ML', en: 'AI & ML' } },
-              { icon: '📊', label: { es: 'Data Eng.', en: 'Data Eng.' } },
-              { icon: '🚀', label: { es: 'Automatización', en: 'Automation' } },
-            ].map((item) => (
-              <div key={item.label.es} className="glass rounded-xl p-3 text-center">
-                <div className="text-2xl mb-1">{item.icon}</div>
-                <div className="text-xs text-gray-400 font-medium">{item.label[lang]}</div>
-              </div>
-            ))}
+            {/* Key highlights */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: '🎯', label: { es: 'Liderazgo', en: 'Leadership' } },
+                { icon: '🤖', label: { es: 'IA & ML', en: 'AI & ML' } },
+                { icon: '📊', label: { es: 'Data Eng.', en: 'Data Eng.' } },
+                { icon: '🚀', label: { es: 'Automatización', en: 'Automation' } },
+              ].map((item) => (
+                <div key={item.label.es} className="glass rounded-xl p-4 text-center">
+                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <div className="text-xs text-gray-400 font-medium">{item.label[lang]}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>

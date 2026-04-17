@@ -20,83 +20,95 @@ export default function Education() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('education_title')}</h2>
-
         {loading && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="glass rounded-xl p-5 animate-pulse h-24">
-                  <div className="h-3 bg-white/10 rounded w-40 mb-2" />
-                  <div className="h-3 bg-white/10 rounded w-24" />
-                </div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div>
+              <div className="h-8 w-40 bg-white/10 rounded mb-8 animate-pulse" />
+              <div className="space-y-4">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="glass rounded-xl p-5 animate-pulse h-24">
+                    <div className="h-3 bg-white/10 rounded w-40 mb-2" />
+                    <div className="h-3 bg-white/10 rounded w-24" />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="glass rounded-xl p-4 animate-pulse h-48" />
+            <div>
+              <div className="h-8 w-52 bg-white/10 rounded mb-8 animate-pulse" />
+              <div className="glass rounded-xl p-4 animate-pulse h-96" />
+            </div>
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Education */}
-          <div className="space-y-4">
-            {education.map((edu, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: i * 0.08 }}
-                className="glass rounded-xl p-5 glow-border"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <GraduationCap size={16} className="text-sky-400" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-100 text-sm leading-snug">
-                      {edu.title[lang]}
-                    </h3>
-                    <p className="text-sky-400 text-sm mt-0.5">{edu.school}</p>
-                    {edu.subtitle && (
-                      <p className="text-gray-500 text-xs mt-0.5">{edu.subtitle[lang]}</p>
-                    )}
-                    <p className="text-gray-500 text-xs mt-1">{edu.date}</p>
-                    {edu.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {edu.tags.slice(0, 4).map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs px-1.5 py-0.5 bg-white/5 text-gray-400 rounded"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+        {!loading && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Education */}
+            <div>
+              <h3 className="section-title">{t('education_title')}</h3>
+              <div className="space-y-4">
+                {education.map((edu, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: i * 0.08 }}
+                    className="glass rounded-xl p-5 glow-border"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <GraduationCap size={16} className="text-sky-400" />
                       </div>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-100 text-sm leading-snug">
+                          {edu.title[lang]}
+                        </h3>
+                        <p className="text-sky-400 text-sm mt-0.5">{edu.school}</p>
+                        {edu.subtitle && (
+                          <p className="text-gray-500 text-xs mt-0.5">{edu.subtitle[lang]}</p>
+                        )}
+                        <p className="text-gray-500 text-xs mt-1">{edu.date}</p>
+                        {edu.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mt-2">
+                            {edu.tags.slice(0, 4).map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-xs px-1.5 py-0.5 bg-white/5 text-gray-400 rounded"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-          {/* Certifications */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-200 mb-4">{t('certifications_title')}</h3>
-            <div className="glass rounded-xl p-4 max-h-96 overflow-y-auto custom-scrollbar space-y-2">
-              {certifications.map((cert, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.015 }}
-                  className="flex items-start gap-2 py-1.5 border-b border-white/5 last:border-0"
-                >
-                  <span className="text-sky-500 text-xs mt-0.5 shrink-0">▸</span>
-                  <span className="text-gray-300 text-xs leading-snug">{cert.name}</span>
-                </motion.div>
-              ))}
+            {/* Certifications — on lg+, absolute-fills its grid cell so it
+                adopts the Education column height (and scrolls internally) */}
+            <div className="lg:relative">
+              <div className="flex flex-col lg:absolute lg:inset-0">
+                <h3 className="section-title">{t('certifications_title')}</h3>
+                <div className="glass rounded-xl p-4 max-h-96 lg:max-h-none flex-1 min-h-0 overflow-y-auto custom-scrollbar space-y-2">
+                  {certifications.map((cert, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: i * 0.015 }}
+                      className="flex items-start gap-2 py-1.5 border-b border-white/5 last:border-0"
+                    >
+                      <span className="text-sky-500 text-xs mt-0.5 shrink-0">▸</span>
+                      <span className="text-gray-300 text-xs leading-snug">{cert.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </motion.div>
     </section>
   );
