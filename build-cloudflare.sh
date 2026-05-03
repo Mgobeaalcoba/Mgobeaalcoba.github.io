@@ -41,5 +41,8 @@ cp -r neil/out/. _site/neil-site/
 mkdir -p _site/elportugues-site
 cp -r elportugues/out/. _site/elportugues-site/
 
+# Copy security headers
+cp _headers _site/
+
 echo "✓ Build complete. Directory structure:"
 ls -la _site/
