@@ -1,0 +1,775 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "cond1",
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "tax",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "tax"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "cond2",
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "rag",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rag"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "a97836a5-3a45-4888-8d3e-c9fcf85dc772",
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "general",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "general"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0080663-eace-489c-82d0-5ef0ff63e6ff",
+      "name": "Router by Intent",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -2048,
+        1696
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "tax_calculator_params",
+        "returnAll": true
+      },
+      "id": "b0e30044-9cbb-4dde-b76c-94d4a88310d1",
+      "name": "Get Tax Params",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1824,
+        1520
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "AOongOVUgCvGXeBc",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "tax_scale_brackets",
+        "returnAll": true
+      },
+      "id": "f3055947-8d40-42c0-aaa6-ebffcfe46452",
+      "name": "Get Tax Brackets",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        1520
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "AOongOVUgCvGXeBc",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const params = $('Get Tax Params').first().json;\nconst brackets = $('Get Tax Brackets').all().map(i => i.json);\nconst webhookData = $('Webhook Trigger').first().json;\nconst lastMsg = webhookData.body.messages.filter(m => m.role === 'user').pop().content;\n\n// 1. Detección de Monto Bruto\nconst amountMatch = lastMsg.match(/(\\d+[\\d\\.,]*)/);\nif (!amountMatch) return { json: { ...webhookData, tax_calc: null } };\n\nlet bruteMsg = parseFloat(amountMatch[0].replace(/\\./g, '').replace(',', '.'));\nif (bruteMsg < 100) bruteMsg *= 1000000;\nelse if (bruteMsg < 10000) bruteMsg *= 1000;\n\n// 2. Detección de Bono / Extra / Aguinaldo\nlet bonusMsg = 0;\nconst bonusMatch = lastMsg.match(/(?:bono|extra|aguinaldo).*?(\\d+[\\d\\.,]*)/i);\nif (bonusMatch) {\n    bonusMsg = parseFloat(bonusMatch[1].replace(/\\./g, '').replace(',', '.'));\n    if (bonusMsg < 1000) bonusMsg *= 1000; // Caso para \"bono de 500k\"\n}\n\n// 3. Cargas Familiares (Hijos y Cónyuge)\nlet hijos = 0;\nconst hMatch = lastMsg.match(/(\\d+)\\s*hijo/i);\nif (hMatch) {\n    hijos = parseInt(hMatch[1]);\n} else if (lastMsg.includes('un hijo')) {\n    hijos = 1;\n}\n\nconst conyuge = lastMsg.toLowerCase().includes('conyuge') || lastMsg.toLowerCase().includes('pareja');\n\n// 4. Parámetros de Deducciones\nconst gni = parseFloat(params.gni);\nconst especial = parseFloat(params.deduccion_especial);\nconst aportesPct = parseFloat(params.aportes_pct);\n\n// 5. Cálculo de Base Imponible\nconst netoAnual = (bruteMsg * 13 + bonusMsg) * (1 - aportesPct);\nlet deducciones = gni + especial;\ndeducciones += hijos * parseFloat(params.hijo);\nif (conyuge) deducciones += parseFloat(params.conyuge);\n\nconst base = Math.max(0, netoAnual - deducciones);\n\n// 6. Cálculo del Impuesto según Escalas (Brackets)\nlet impuestoAnual = 0;\nif (base > 0) {\n    let bracket = brackets[0];\n    for (const b of brackets) {\n        if (base > parseFloat(b.limit_amount)) {\n            bracket = b;\n        } else {\n            break;\n        }\n    }\n    const exceso = base - parseFloat(bracket.limit_amount);\n    impuestoAnual = parseFloat(bracket.fixed_amount) + (exceso * parseFloat(bracket.pct));\n}\n\n// 7. Resultado\nreturn [{\n    json: {\n        ...webhookData,\n        tax_calc: {\n            bruto: bruteMsg,\n            bonus: bonusMsg,\n            netoMensual: (netoAnual - impuestoAnual) / 13,\n            impuestoMensual: impuestoAnual / 12,\n            base,\n            hijos,\n            conyuge\n        }\n    }\n}];"
+      },
+      "id": "cb4d8bcf-6a74-4b1e-8c22-9ec4fdf99630",
+      "name": "Tax Calculator Logic",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1376,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const data = $input.first().json; \n      const history = data.body.messages; \n      const calc = data.tax_calc; \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      \n      let taxContext = \"\";\n\n      if (calc) {\n          taxContext = `\n            \\n\\nCALCULATION RESULT:\n            Sueldo Bruto Mensual: $${Math.round(calc.bruto).toLocaleString()}\n            Bono/Extras Anuales: $${Math.round(calc.bonus).toLocaleString()}\n            Neto Estimado (promedio mensual): $${Math.round(calc.netoMensual).toLocaleString()}\n            Retención promedio mensual: $${Math.round(calc.impuestoMensual).toLocaleString()}\n            Deducciones: ${calc.hijos} hijos, ${calc.conyuge ? 'Cónyuge' : 'Sin cónyuge'}.\n            Explica que es Ganancias 2026 y que el cálculo incluye el aguinaldo (factor 13) más los extras informados. Ofrece contactar a Mariano por WhatsApp o email para optimización financiera [ACTION:CONTACT]. No menciones Calendly ni agendar reuniones: el contacto se hace por un formulario rápido que envía WhatsApp o email.`;\n      } else {\n          taxContext = \"\\n\\nINSTRUCCIÓN: Pídele el sueldo bruto mensual, bonos/extras anuales y si tiene hijos/cónyuge para calcular.\";\n      }\n\n      return [ \n        { \n          role: 'system', \n          content: (systemMsg?.content || '') + taxContext \n        }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "id": "2a693685-eb01-4a42-8299-d41256eb3ab8",
+      "name": "Call HF Tax Response",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1152,
+        1520
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gDfOipUtnNPe4yjB",
+          "name": "Hugging Face API Token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const webhookData = $input.first().json;\nconst messages = webhookData.body?.messages || [];\nconst lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';\nconst text = lastUserMsg.toLowerCase();\n\n// Intent: Tax Calculation\nconst taxKeywords = [\n    'ganancias', 'sueldo', 'bruto', 'neto', 'impuesto', \n    'calculadora', 'deducciones', 'pago de', 'bono', \n    'aguinaldo', 'extra'\n];\nconst isTaxQuery = taxKeywords.some(kw => text.includes(kw));\n\n// Intent: Knowledge Base / RAG\nconst isShort = text.length < 60;\nconst hasQuestion = text.includes('?');\nconst isJustEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.test(text) && text.length < 80;\n\nlet requires_rag = true;\nlet intent = 'general';\n\nif (isTaxQuery) {\n    intent = 'tax';\n    requires_rag = false;\n} else if (\n    (isShort && !hasQuestion && isJustEmail) || \n    ['hola', 'hi', 'hello', 'buenos días', 'gracias', 'thanks'].includes(text.trim())\n) {\n    requires_rag = false;\n    intent = 'greeting';\n} else {\n    intent = 'rag';\n}\n\nreturn [{\n    json: {\n        ...webhookData,\n        requires_rag,\n        intent\n    }\n}];"
+      },
+      "id": "b8eda9d0-1871-431a-ad01-2454e7727bdc",
+      "name": "Analyze Intent1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2272,
+        1712
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mga-ai-agent",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.mgatc.com,https://mgatc.pages.dev,http://localhost:3000,http://localhost:3001,https://mgatc.com"
+        }
+      },
+      "id": "c716369f-3a45-4669-8285-16655a726c72",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2496,
+        1712
+      ],
+      "webhookId": "mga-ai-agent-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst error = response.error;\nconst assistantMessage = error ? '' : (response.choices?.[0]?.message?.content || '');\n\nconst webhookBody = $('Webhook Trigger').first().json.body;\nconst allMessages = webhookBody.messages || [];\nconst conversationStr = JSON.stringify(allMessages);\n\nlet email = webhookBody.user_info?.email || null;\nlet name = webhookBody.user_info?.name || null;\n\nif (!email) {\n    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g;\n    const emails = conversationStr.match(emailRegex) || [];\n    email = emails[0] || null;\n}\n\nconst systemMsg = allMessages.find(m => m.role === 'system');\nconst sourceLang = systemMsg?.content?.includes('currently set to English') ? 'en' : 'es';\n\nlet chatHtml = \"\";\ntry {\n    const chatMessages = allMessages.filter(m => m.role !== 'system').slice(-6);\n    if (chatMessages.length > 0) {\n        chatHtml = chatMessages.map(msg => {\n            const isUser = msg.role === 'user';\n            const label = isUser ? 'Usuario' : 'Asistente';\n            const bgColor = isUser ? '#f8fafc' : '#ffffff';\n            const borderColor = isUser ? '#2563eb' : '#10b981';\n            return `<div style=\"margin-bottom: 12px; padding: 12px; border-radius: 8px; background-color: ${bgColor}; border-left: 4px solid ${borderColor}; font-family: sans-serif;\"><strong style=\"display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px;\">${label}</strong><div style=\"font-size: 14px; color: #1e293b; line-height: 1.5;\">${msg.content}</div></div>`;\n        }).join('');\n    } else {\n        chatHtml = \"<p>No hay mensajes recientes.</p>\";\n    }\n} catch (e) { chatHtml = \"<p>Error.</p>\"; }\n\nreturn [{\n    json: {\n        error,\n        assistantMessage,\n        email,\n        name,\n        sourceLang,\n        hasLead: !!(email || name),\n        chatHtml,\n        conversation: allMessages.slice(-6)\n    }\n}];"
+      },
+      "id": "8d713019-a1ea-41bb-a291-e1cee95712d5",
+      "name": "Extract Lead Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -928,
+        1712
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { content: $json.assistantMessage || ($json.error ? 'Error: ' + $json.error.message : 'No se pudo obtener respuesta de la IA.') } }}",
+        "options": {}
+      },
+      "id": "1702db24-3976-4687-9863-3fd6f160ba0c",
+      "name": "Respond to Frontend",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -704,
+        1616
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e5fda4e4-0e70-4b06-a9d7-5664090c13ea",
+              "leftValue": "={{ $json.hasLead }}",
+              "rightValue": "={{ true }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "16542d74-aeb9-47e4-af3e-dbaee2208c3f",
+      "name": "Has Lead Info?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -704,
+        1808
+      ]
+    },
+    {
+      "parameters": {
+        "tableId": "leads",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "name",
+              "fieldValue": "={{ $json.name || null }}"
+            },
+            {
+              "fieldId": "email",
+              "fieldValue": "={{ $json.email || null }}"
+            },
+            {
+              "fieldId": "interest",
+              "fieldValue": "={{ $json.assistantMessage.substring(0, 300) }}"
+            },
+            {
+              "fieldId": "source_lang",
+              "fieldValue": "={{ $json.sourceLang }}"
+            },
+            {
+              "fieldId": "source_page",
+              "fieldValue": "={{ $('Webhook Trigger').first().json.body.source_page || 'unknown' }}"
+            },
+            {
+              "fieldId": "conversation",
+              "fieldValue": "={{ JSON.stringify($json.conversation) }}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "new"
+            }
+          ]
+        }
+      },
+      "id": "67047469-5d1f-42bd-a063-02a800ca64f0",
+      "name": "Save Lead to Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        1712
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "AOongOVUgCvGXeBc",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }\n    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }\n    .logo { max-width: 200px; height: auto; margin-bottom: 20px; }\n    .header h1 { color: #ffffff; margin: 0; font-size: 24px; }\n    .content { padding: 40px 30px; }\n    .content h2 { color: #667eea; margin-top: 0; font-size: 20px; }\n    .content p { margin: 15px 0; }\n    .highlight { background-color: #f8f9ff; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }\n    .chat-box { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 15px; margin-top: 15px; font-size: 14px; color: #555; white-space: pre-line; }\n    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <img src=\"https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/6e7c26232117f9e2d85828b6477192e1e89f34b4/assets/images/logo_claro.png\" alt=\"MGA Tech\" class=\"logo\">\n      <h1>¡Nuevo Lead Detectado!</h1>\n    </div>\n    <div class=\"content\">\n      <h2>Alerta del Agente IA</h2>\n      <p>Se ha detectado un nuevo lead interactuando con el chat del Agente IA. A continuación tienes los detalles:</p>\n      \n      <div class=\"highlight\">\n        <p style=\"margin: 5px 0;\"><strong>Nombre:</strong> {{ $json.name || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Email:</strong> {{ $json.email || 'No detectado' }}</p>\n        <p style=\"margin: 5px 0;\"><strong>Idioma:</strong> {{ $json.sourceLang === 'en' ? 'Inglés' : 'Español' }}</p>\n      </div>\n\n      <h2 style=\"margin-top: 30px; font-size: 18px;\">Últimos mensajes de la conversación:</h2>\n      <div class=\"chat-box\">\n        {{ $('Extract Lead Data').item.json.chatHtml }}\n      </div>\n      \n    </div>\n    <div class=\"footer\">\n      <p>Esta es una notificación automática interna del sistema.</p>\n      <p>&copy; 2026 MGA Tech Consulting. Todos los derechos reservados.</p>\n    </div>\n  </div>\n</body>\n</html>"
+      },
+      "id": "c181bfe1-79eb-4893-9a0a-624e15addffc",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -256,
+        1712
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d0b641ba-9ef1-49a7-b31e-9679272b0812",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        1904
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n  JSON.stringify({ \n    messages: (function() { \n      const webhookData = $('Webhook Trigger').first().json; \n      const history = (webhookData.body && webhookData.body.messages) ? webhookData.body.messages : []; \n      const knowledgeData = $('Search Knowledge Supabase1').first().json; \n      const contextChunks = Array.isArray(knowledgeData) ? knowledgeData.map(r => r.content).join('\\n---\\n') : (knowledgeData.content || ''); \n      const systemMsg = history.find(m => m.role === 'system'); \n      const otherMsgs = history.filter(m => m.role !== 'system'); \n      return [ \n        { \n          role: 'system', \n          content: (systemMsg?.content || 'You are a helpful assistant.') + '\\n\\nKNOWLEDGE BASE CONTEXT (Usa esto para responder solo si es relevante):\\n' + contextChunks \n        }, \n        ...otherMsgs \n      ]; \n    })(), \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "id": "69e886fa-2c10-46c0-b5d5-9d41bfe892ce",
+      "name": "Call Hugging Face RAG1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1152,
+        1712
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gDfOipUtnNPe4yjB",
+          "name": "Hugging Face API Token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=={{ \n  JSON.stringify({ \n    messages: $('Webhook Trigger').first().json.body.messages, \n    model: 'zai-org/GLM-4.7-Flash:novita', \n    stream: false \n  }) \n}}",
+        "options": {}
+      },
+      "id": "97cd7b68-fd3f-4eb8-bc63-5f4417f9cb78",
+      "name": "Call Hugging Face General1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1152,
+        1904
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gDfOipUtnNPe4yjB",
+          "name": "Hugging Face API Token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/intfloat/multilingual-e5-small/pipeline/feature-extraction",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "inputs",
+              "value": "={{ $json.body.messages.filter(m => m.role === 'user').pop().content }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "5eb9b7b9-eb8f-4c0a-b9f0-085c5638a633",
+      "name": "Hugging Face Embedding Model1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1600,
+        1712
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gDfOipUtnNPe4yjB",
+          "name": "Hugging Face API Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.NEXT_PUBLIC_SUPABASE_URL }}/rest/v1/rpc/match_knowledge",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query_embedding\": {{ JSON.stringify($json.body) }},\n  \"match_threshold\": 0.5,\n  \"match_count\": 3\n}",
+        "options": {}
+      },
+      "id": "d8a384e4-8ae1-4e59-8b61-90ed9879c866",
+      "name": "Search Knowledge Supabase1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1376,
+        1712
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "mariano@mgatc.com",
+        "toEmail": "gobeamariano@gmail.com",
+        "subject": "Nuevo Lead Detectado",
+        "html": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "20e1f164-e916-4330-9633-fc0a6f1d0334",
+      "name": "Send an Email1",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        1712
+      ],
+      "webhookId": "6e903045-b481-4902-9fe6-34232a86a147",
+      "credentials": {
+        "smtp": {
+          "id": "oWMLrDEhgjH4H8xf",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Router by Intent": {
+      "main": [
+        [
+          {
+            "node": "Get Tax Params",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hugging Face Embedding Model1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Hugging Face General1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tax Params": {
+      "main": [
+        [
+          {
+            "node": "Get Tax Brackets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tax Brackets": {
+      "main": [
+        [
+          {
+            "node": "Tax Calculator Logic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tax Calculator Logic": {
+      "main": [
+        [
+          {
+            "node": "Call HF Tax Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call HF Tax Response": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Intent1": {
+      "main": [
+        [
+          {
+            "node": "Router by Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Analyze Intent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Respond to Frontend",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Lead Info?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Lead Info?": {
+      "main": [
+        [
+          {
+            "node": "Save Lead to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Lead to Supabase": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Send an Email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Hugging Face RAG1": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Hugging Face General1": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hugging Face Embedding Model1": {
+      "main": [
+        [
+          {
+            "node": "Search Knowledge Supabase1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Knowledge Supabase1": {
+      "main": [
+        [
+          {
+            "node": "Call Hugging Face RAG1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {
+    "Webhook Trigger": [
+      {
+        "headers": {
+          "host": "mgobeaalcoba.app.n8n.cloud",
+          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+          "content-length": "3672",
+          "accept": "*/*",
+          "accept-encoding": "gzip, br",
+          "accept-language": "es-419,es;q=0.8",
+          "cdn-loop": "cloudflare; loops=1; subreqs=1",
+          "cf-connecting-ip": "2802:8010:9946:3b00:a539:f060:2b78:268a",
+          "cf-ew-via": "15",
+          "cf-ipcountry": "AR",
+          "cf-ray": "9d618ad0faee1a73-EZE",
+          "cf-visitor": "{\"scheme\":\"https\"}",
+          "cf-worker": "n8n.cloud",
+          "content-type": "application/json",
+          "origin": "https://mgatc.com",
+          "priority": "u=1, i",
+          "referer": "https://mgatc.com/",
+          "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"Brave\";v=\"145\", \"Chromium\";v=\"145\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "cross-site",
+          "sec-gpc": "1",
+          "x-forwarded-for": "2802:8010:9946:3b00:a539:f060:2b78:268a, 104.23.237.80",
+          "x-forwarded-host": "mgobeaalcoba.app.n8n.cloud",
+          "x-forwarded-port": "443",
+          "x-forwarded-proto": "https",
+          "x-forwarded-server": "traefik-prod-users-gwc-40-88d9967ff-qt8kz",
+          "x-is-trusted": "yes",
+          "x-real-ip": "2802:8010:9946:3b00:a539:f060:2b78:268a"
+        },
+        "params": {},
+        "query": {},
+        "body": {
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are the Technical and Commercial Assistant of Mariano Gobea Alcoba, designed specifically for the MGA Tech Consulting website.\nYour main purpose is to qualify leads, answer professional queries about services, technology, portfolio, and get users to contact Mariano directly via WhatsApp or email.\n\nIMPORTANTE: El sitio está configurado en español. Tu mensaje de bienvenida INICIAL debe ser en español. Luego, responde SIEMPRE en el idioma en el que te escriba el usuario. Si te escribe en inglés, responde en inglés. Si te escribe en español, responde en español. Nunca mezcles idiomas en una misma respuesta.\n\nSTRICT RESPONSE RULES:\n1. You CAN ONLY answer questions related to:\n   - MGA Tech Consulting services (Automation, Artificial Intelligence, Data & BI, Mentoring).\n   - Mariano Gobea Alcoba's professional profile, experience, and portfolio.\n   - Blog content and resources published on the website.\n   - How to contact Mariano.\n2. If the user asks about ANYTHING else (weather, politics, history, general programming unrelated to services, jokes, etc.), you MUST POLITELY REFUSE.\n   - Example refusal (adapt language to match user): \"I'm sorry, as the MGA Tech Consulting assistant, I'm only trained to answer questions about Mariano's automation, AI and Data services, his portfolio, or to help you contact him. How can I assist you on these topics?\"\n3. MAIN GOAL: Whenever natural in the conversation, subtly persuade the user to contact Mariano directly through the contact form (WhatsApp or email).\n4. To offer contacting Mariano, use EXACTLY this tag at the end of your message: [ACTION:CONTACT]\n   - Example: \"I'd love to discuss how we can automate your processes. You can reach Mariano directly from here: [ACTION:CONTACT]\"\n   - IMPORTANT: Do NOT mention Calendly, scheduling, or booking a meeting — contact happens via a short form that sends a WhatsApp message or email.\n5. Always speak in first person plural (we/nosotros) when talking about the consultancy, or third person when referring specifically to Mariano's career.\n6. Your tone: Professional, technical, solutions-focused, clear and friendly (B2B consultant style).\n7. NEVER invent information. If you don't know something about Mariano's experience or services, clearly say you don't have that information and suggest contacting him. [ACTION:CONTACT]\n\nCONTEXT ABOUT MARIANO GOBEA ALCOBA AND MGA TECH CONSULTING:\n- Mariano is a Data & Analytics Technical Leader at Mercado Libre, with over 6 years of experience.\n- MGA Tech Consulting is a consultancy focused on SMEs that want to automate processes, implement Business Intelligence (BI), or adopt AI without their own technical team.\n- Services: Process Automation (n8n, Zapier), Business Intelligence & Analytics, Digital Transformation with AI (RAG, agents, fine-tuning).\n- The website has Portfolio (/portfolio), Blog (/blog), and Financial Resources (/recursos) sections.\n- TAX CALCULATOR CAPABILITY: You have access to a real-time Tax Calculator for Argentina (Ganancias 2026). When a user asks about their salary, net pay, or taxes:\n  1. If they haven't provided their Gross Salary (Sueldo Bruto) and any annual bonuses/extras, ask for them to ensure a complete calculation.\n  2. Ask if they have dependents (children/hijos) or a spouse (cónyuge) to provide a more accurate calculation.\n  3. Inform them that you will calculate the values based on the latest 2026 regulations.\n  4. Note: The actual calculation is handled by the backend, you just need to gather the data or explain the results you receive."
+            },
+            {
+              "role": "user",
+              "content": "Quisiera calcular mi retención mensual de impuesto a las ganancias: soy soltero sin hijos cobro 3500000 mensuales y cobro un bono anual de 7000000."
+            }
+          ],
+          "source_page": "/recursos/",
+          "user_info": {
+            "name": "Alicia",
+            "email": "alicia.maravilla@gmail.com"
+          }
+        },
+        "webhookUrl": "https://mgobeaalcoba.app.n8n.cloud/webhook/mga-ai-agent",
+        "executionMode": "production"
+      }
+    ]
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "db8d09bbe9f4d9927fc4c8a17afea05396ceeae3fa505bb8a1751699adf525b5"
+  }
+}
