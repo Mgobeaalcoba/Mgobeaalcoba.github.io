@@ -6,6 +6,7 @@ import AppShell from "@/components/shared/AppShell";
 import { DataErrorBoundary } from "@/components/shared/DataErrorBoundary";
 import JsonLd from "@/components/shared/JsonLd";
 import ContactModal from "@/components/shared/ContactModal";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -161,16 +162,6 @@ export default function RootLayout({
         <meta name="geo.placename" content="Buenos Aires" />
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
-        {/* GA4 inline in <head> for tag quality score */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{page_path:window.location.pathname,site_section:'cv',client_name:'Mariano Gobea Alcoba'});`,
-          }}
-        />
       </head>
       <body>
         <DataErrorBoundary>
@@ -183,6 +174,7 @@ export default function RootLayout({
             </LanguageProvider>
           </ThemeProvider>
         </DataErrorBoundary>
+        <GoogleAnalytics gaId={GA_ID} />
       </body>
     </html>
   );
