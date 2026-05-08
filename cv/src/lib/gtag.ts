@@ -4,7 +4,6 @@ export const GA_ID = 'G-DG0SLT5RY3';
 declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;
-    dataLayer: unknown[];
   }
 }
 
