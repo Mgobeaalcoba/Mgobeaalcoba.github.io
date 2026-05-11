@@ -6,7 +6,7 @@ import AppShell from "@/components/shared/AppShell";
 import { DataErrorBoundary } from "@/components/shared/DataErrorBoundary";
 import JsonLd from "@/components/shared/JsonLd";
 import ContactModal from "@/components/shared/ContactModal";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import "./globals.css";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -174,7 +174,22 @@ export default function RootLayout({
             </LanguageProvider>
           </ThemeProvider>
         </DataErrorBoundary>
-        <GoogleAnalytics gaId={GA_ID} />
+        {/* GA4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              send_page_view: false,
+              site_section: 'cv',
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
