@@ -6,6 +6,7 @@ import AppShell from "@/components/shared/AppShell";
 import { DataErrorBoundary } from "@/components/shared/DataErrorBoundary";
 import JsonLd from "@/components/shared/JsonLd";
 import ContactModal from "@/components/shared/ContactModal";
+import CommandPalette from "@/components/shared/CommandPalette";
 import Script from "next/script";
 import "./globals.css";
 
@@ -168,8 +169,10 @@ export default function RootLayout({
           <ThemeProvider>
             <LanguageProvider>
               <SupabaseDataProvider>
+                <div className="scroll-progress" />
                 <AppShell>{children}</AppShell>
                 <ContactModal />
+                <CommandPalette />
               </SupabaseDataProvider>
             </LanguageProvider>
           </ThemeProvider>

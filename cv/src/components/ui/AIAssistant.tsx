@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, User, MessageSquareText } from "lucide-react";
+import { X, Send, Bot, User, MessageSquareText, Mic, MicOff } from "lucide-react";
 import { useAIAssistant } from "@/hooks/useAIAssistant";
 import { events } from "@/lib/gtag";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -26,6 +26,56 @@ export function AIAssistant() {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [formError, setFormError] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const [isListening, setIsListening] = useState(false);
+  const [hasSpeechSupport, setHasSpeechSupport] = useState(false);
+  const recognitionRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const SpeechRecognition =
+        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        setHasSpeechSupport(true);
+        const rec = new SpeechRecognition();
+        rec.continuous = false;
+        rec.interimResults = false;
+        rec.lang = lang === "en" ? "en-US" : "es-ES";
+
+        rec.onstart = () => {
+          setIsListening(true);
+        };
+        rec.onend = () => {
+          setIsListening(false);
+        };
+        rec.onerror = (e: any) => {
+          console.error("Speech recognition error", e);
+          setIsListening(false);
+        };
+        rec.onresult = (event: any) => {
+          const text = event.results[0][0].transcript;
+          if (text) {
+            setInputValue((prev) => (prev ? prev + " " + text : text));
+          }
+        };
+
+        recognitionRef.current = rec;
+      }
+    }
+  }, [lang]);
+
+  const toggleListening = () => {
+    if (!recognitionRef.current) return;
+    if (isListening) {
+      recognitionRef.current.stop();
+    } else {
+      try {
+        recognitionRef.current.start();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -329,18 +379,45 @@ export function AIAssistant() {
                 onSubmit={handleSubmit}
                 className="flex items-center space-x-2"
               >
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder={
-                    lang === "en"
-                      ? "Message MGA Assistant..."
-                      : "Mensaje a MGA Assistant..."
-                  }
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm rounded-full py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                  disabled={isLoading}
-                />
+                {isListening ? (
+                  <div className="flex-1 bg-sky-50 dark:bg-sky-950/20 border border-sky-200 dark:border-sky-800/50 text-sm rounded-full py-2.5 px-4 flex items-center justify-between">
+                    <span className="text-sky-500 dark:text-sky-400 animate-pulse font-medium text-xs">
+                      {lang === "en" ? "Listening..." : "Escuchando..."}
+                    </span>
+                    <div className="voice-wave shrink-0">
+                      <div className="voice-bar" />
+                      <div className="voice-bar" />
+                      <div className="voice-bar" />
+                    </div>
+                  </div>
+                ) : (
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder={
+                      lang === "en"
+                        ? "Message MGA Assistant..."
+                        : "Mensaje a MGA Assistant..."
+                    }
+                    className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm rounded-full py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                    disabled={isLoading}
+                  />
+                )}
+                {hasSpeechSupport && (
+                  <button
+                    type="button"
+                    onClick={toggleListening}
+                    className={`p-2.5 rounded-full transition-all flex flex-col justify-center items-center ${
+                      isListening
+                        ? "bg-red-500 hover:bg-red-600 text-white animate-pulse"
+                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
+                    }`}
+                    title={lang === "en" ? "Voice Input" : "Entrada de voz"}
+                  >
+                    {isListening ? <MicOff size={16} /> : <Mic size={16} />}
+                  </button>
+                )}
                 <button
                   type="submit"
                   disabled={!inputValue.trim() || isLoading}
