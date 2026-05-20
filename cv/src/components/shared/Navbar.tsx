@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Link from './TransitionLink';
 import { usePathname } from 'next/navigation';
 import { Monitor, Sun, Moon, Globe, Menu, X, Terminal } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -132,6 +132,16 @@ export default function Navbar() {
                 EN
               </button>
             </div>
+
+            {/* Command Palette shortcut badge */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
+              className="hidden lg:flex items-center gap-1.5 glass px-2.5 py-1 rounded-lg text-xs text-gray-400 hover:text-sky-400 transition-colors border border-white/5"
+              title="Abrir buscador (⌘K)"
+            >
+              <span>Buscar</span>
+              <kbd className="bg-white/10 px-1 rounded text-[9px] font-mono font-bold">⌘K</kbd>
+            </button>
 
             {/* Theme toggle */}
             <button

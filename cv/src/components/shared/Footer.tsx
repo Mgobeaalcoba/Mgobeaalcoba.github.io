@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from './TransitionLink';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';

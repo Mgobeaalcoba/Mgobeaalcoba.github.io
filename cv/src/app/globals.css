@@ -570,3 +570,154 @@ html.terminal-mode .report-analysis {
 .btn-premium-secondary {
   @apply px-8 py-4 glass text-white hover:text-sky-400 rounded-xl font-bold transition-all border border-white/10 hover:border-sky-500/50 active:scale-[0.98] flex items-center justify-center gap-2;
 }
+
+/* ================================================================
+   MODERN UX & UI REVOLUTION RULES
+   ================================================================ */
+
+/* 1. View Transitions Custom Styles */
+@keyframes fade-out-anim {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.98); }
+}
+@keyframes fade-in-anim {
+  from { opacity: 0; transform: scale(1.02) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+::view-transition-old(root) {
+  animation: 180ms cubic-bezier(0.4, 0, 1, 1) both fade-out-anim;
+}
+::view-transition-new(root) {
+  animation: 240ms cubic-bezier(0, 0, 0.2, 1) both fade-in-anim;
+}
+
+/* 2. Scroll Progress Bar (Scroll-Driven Animations API) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  z-index: 9999;
+  transform-origin: 0 50%;
+  animation: scroll-progress-animation linear;
+  animation-timeline: scroll(root);
+  pointer-events: none;
+}
+
+html.light-mode .scroll-progress {
+  background: linear-gradient(90deg, #0ea5e9, #4f46e5);
+}
+
+html.terminal-mode .scroll-progress {
+  background: #00ff00;
+  height: 2px;
+}
+
+@keyframes scroll-progress-animation {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* 3. Waveform Voice Indicator */
+.voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+.voice-bar {
+  width: 2px;
+  height: 100%;
+  background-color: #38bdf8;
+  border-radius: 9999px;
+  animation: voice-pulse 0.8s ease-in-out infinite alternate;
+}
+html.terminal-mode .voice-bar {
+  background-color: #00ff00;
+}
+html.light-mode .voice-bar {
+  background-color: #0ea5e9;
+}
+.voice-bar:nth-child(2) { animation-delay: 0.15s; }
+.voice-bar:nth-child(3) { animation-delay: 0.3s; }
+.voice-bar:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes voice-pulse {
+  0% { height: 25%; }
+  100% { height: 100%; }
+}
+
+/* 4. Native Anchor Positioning & CSS Fallbacks */
+.skills-tooltip {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(15, 23, 42, 0.95);
+  color: #f1f5f9;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transform: translate(-50%, 4px);
+}
+
+html.light-mode .skills-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+html.terminal-mode .skills-tooltip {
+  background: #0a0a0a;
+  color: #00ff00;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+/* Hover triggers visibility for both native and fallback modes */
+.has-tooltip:hover .skills-tooltip,
+.has-tooltip:focus-within .skills-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Fallback styling (default) */
+.has-tooltip {
+  position: relative;
+}
+.skills-tooltip {
+  bottom: 125%;
+  left: 50%;
+  transform: translate(-50%, -4px);
+}
+.has-tooltip:hover .skills-tooltip {
+  transform: translate(-50%, 0);
+}
+
+/* Native Anchor Positioning overrides if supported */
+@supports (position-anchor: --anchor-temp) {
+  .has-tooltip {
+    position: static;
+  }
+  .skills-tooltip {
+    position-anchor: var(--my-anchor);
+    top: anchor(bottom);
+    left: anchor(center);
+    bottom: auto;
+    transform: translate(-50%, 4px);
+  }
+  .has-tooltip:hover .skills-tooltip {
+    transform: translate(-50%, 8px);
+  }
+}
+
+

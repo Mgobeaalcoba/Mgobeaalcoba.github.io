@@ -20,7 +20,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 export default function Skills() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { techStack } = useSupabaseData();
@@ -52,19 +52,28 @@ export default function Skills() {
               <div className="flex flex-wrap gap-1.5">
                 {(skills as string[]).map((skill) => {
                   const isActive = activeTag === skill;
+                  const anchorName = `--anchor-${skill.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}`;
                   return (
-                    <button
+                    <div
                       key={skill}
-                      onClick={() => setActiveTag(isActive ? 'all' : skill)}
-                      title={isActive ? 'Quitar filtro' : `Filtrar por ${skill}`}
-                      className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
-                        isActive
-                          ? 'bg-sky-500 text-white border-sky-500 shadow-lg shadow-sky-500/20'
-                          : 'bg-sky-500/10 text-sky-300 border-sky-500/20 hover:bg-sky-500/25 cursor-pointer'
-                      }`}
+                      className="has-tooltip inline-block"
+                      style={{ ['--my-anchor' as any]: anchorName }}
                     >
-                      {skill}
-                    </button>
+                      <button
+                        onClick={() => setActiveTag(isActive ? 'all' : skill)}
+                        style={{ anchorName: anchorName } as React.CSSProperties}
+                        className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
+                          isActive
+                            ? 'bg-sky-500 text-white border-sky-500 shadow-lg shadow-sky-500/20'
+                            : 'bg-sky-500/10 text-sky-300 border-sky-500/20 hover:bg-sky-500/25 cursor-pointer'
+                        }`}
+                      >
+                        {skill}
+                      </button>
+                      <div className="skills-tooltip">
+                        {lang === 'es' ? `Filtrar por ${skill}` : `Filter by ${skill}`}
+                      </div>
+                    </div>
                   );
                 })}
               </div>
