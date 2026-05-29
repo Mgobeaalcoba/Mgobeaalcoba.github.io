@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
   Building2,
   GraduationCap,
@@ -15,6 +15,9 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import ParticleBackground from "@/components/shared/ParticleBackground";
+import AnimatedCounter from "@/components/shared/AnimatedCounter";
+import SplitText from "@/components/shared/SplitText";
 
 const TYPING_WORDS = [
   "Automatización de Procesos",
@@ -111,6 +114,8 @@ export default function ConsultingHero({
 
   // Scroll parallax
   const sectionRef = useRef<HTMLElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: "-50px" });
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -211,7 +216,15 @@ export default function ConsultingHero({
         />
       </motion.div>
 
-      {/* ── Layer 2: Perspective grid ── */}
+      {/* ── Layer 2.5: Interactive Particle Background ── */}
+      <ParticleBackground
+        color="56,189,248"
+        particleCount={60}
+        connectionDistance={100}
+        speed={0.2}
+      />
+
+      {/* ── Layer 3: Perspective grid ── */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: gridY }}
@@ -355,14 +368,24 @@ export default function ConsultingHero({
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div ref={statsRef} className="flex flex-wrap justify-center gap-4 mb-8">
             {STATS.map((stat) => (
               <div
                 key={stat.value}
                 className="glass rounded-xl px-6 py-4 text-center glow-border"
               >
                 <div className="text-2xl font-black gradient-text">
-                  {stat.value}
+                  {statsInView && stat.value.includes('%') && (
+                    <AnimatedCounter from={0} to={80} suffix="%" duration={1.5} delay={0} />
+                  )}
+                  {statsInView && stat.value === '×3' && (
+                    <><AnimatedCounter from={0} to={3} duration={1.5} delay={0.2} prefix="×" /></>
+                  )}
+                  {statsInView && stat.value === '$0' && stat.value}
+                  {statsInView && stat.value === '6+' && (
+                    <><AnimatedCounter from={0} to={6} duration={1.5} delay={0.4} suffix="+" /></>
+                  )}
+                  {!statsInView && stat.value}
                 </div>
                 <div className="text-xs text-gray-300 mt-1">
                   {stat.label[lang]}

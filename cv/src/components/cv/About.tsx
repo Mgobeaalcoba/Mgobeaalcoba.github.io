@@ -1,26 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import SplitText from '@/components/shared/SplitText';
 
 export default function About() {
   const { lang, t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { cvAbout } = useSupabaseData();
 
   return (
     <section id="about" data-section="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
-        ref={ref}
         initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('about_title')}</h2>
+        <SplitText
+          text={t('about_title')}
+          className="section-title"
+          as="h2"
+          stagger={0.04}
+        />
         <div className="glass rounded-2xl p-8 glow-border">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-2">

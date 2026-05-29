@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Check, X, Gift, Bot, Brain, Handshake, Settings, BarChart2, GraduationCap, Users, UserCheck, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 import ContactButton from '@/components/shared/ContactButton';
+import MagneticCard from '@/components/shared/MagneticCard';
+import SplitText from '@/components/shared/SplitText';
+import RippleEffect from '@/components/shared/RippleEffect';
 
 // ============ SERVICE CARDS (6 types) ============
 type Service = {
@@ -329,6 +332,10 @@ export default function Services() {
   const { lang, t } = useLanguage();
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedPack, setSelectedPack] = useState<Pack | null>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const titleInView = useInView(titleRef, { once: true, margin: "-100px" });
+  const packsTitleRef = useRef<HTMLDivElement>(null);
+  const packsTitleInView = useInView(packsTitleRef, { once: true, margin: "-100px" });
 
   return (
     <section id="servicios" data-section="services" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -339,10 +346,13 @@ export default function Services() {
         transition={{ duration: 0.6 }}
       >
         {/* ---- 6 Service Cards ---- */}
-        <div className="text-center mb-10">
-          <h2 className="section-title">
-            {lang === 'es' ? 'Todos Nuestros Servicios' : 'All Our Services'}
-          </h2>
+        <div ref={titleRef} className="text-center mb-10">
+          <SplitText
+            text={lang === 'es' ? 'Todos Nuestros Servicios' : 'All Our Services'}
+            className="section-title justify-center"
+            as="h2"
+            stagger={0.04}
+          />
           <p className="text-gray-400">
             {lang === 'es'
               ? 'Soluciones integrales para empresas y profesionales. Haga clic en cada servicio para ver detalles.'
@@ -352,19 +362,16 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {SERVICES.map((svc, i) => (
-            <motion.div
+            <MagneticCard
               key={svc.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              intensity={6}
               onClick={() => { setSelectedService(svc); events.serviceView(svc.id); }}
-              className="glass rounded-2xl p-7 cursor-pointer hover:scale-[1.02] transition-all duration-200 glow-border"
+              className="glass rounded-2xl p-7 cursor-pointer glow-border"
             >
               <div className={`w-12 h-12 rounded-xl ${svc.bgColor} flex items-center justify-center mb-4`}>
                 <svc.icon size={24} className={svc.color} />
               </div>
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <div className="flex items-center gap-2 mb-2 flex-wrap" style={{ transform: 'translateZ(20px)' }}>
                 <h3 className="text-lg font-bold text-gray-100">{svc.title[lang]}</h3>
                 {svc.mvpBadge && (
                   <span className="text-xs bg-yellow-500/20 text-yellow-400 font-bold px-2 py-0.5 rounded-full">
@@ -372,19 +379,23 @@ export default function Services() {
                   </span>
                 )}
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">{svc.desc[lang]}</p>
-              <span className={`text-xs font-medium ${svc.color}`}>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4" style={{ transform: 'translateZ(10px)' }}>{svc.desc[lang]}</p>
+              <span className={`text-xs font-medium ${svc.color}`} style={{ transform: 'translateZ(15px)' }}>
                 {lang === 'es' ? 'Haz clic para conocer más →' : 'Click to learn more →'}
               </span>
-            </motion.div>
+            </MagneticCard>
           ))}
         </div>
 
         {/* ---- 3 Packs ---- */}
-        <div className="text-center mb-10">
-          <h2 className="section-title">
-            {lang === 'es' ? '¿Le Gustó su Automatización Gratis?' : 'Did You Like Your Free Automation?'}
-          </h2>
+        <div ref={packsTitleRef} className="text-center mb-10">
+          <SplitText
+            text={lang === 'es' ? '¿Le Gustó su Automatización Gratis?' : 'Did You Like Your Free Automation?'}
+            className="section-title justify-center"
+            as="h2"
+            stagger={0.04}
+            delay={0.1}
+          />
           <p className="text-gray-400">
             {lang === 'es'
               ? 'Si quedó conforme, podemos escalar con soluciones más avanzadas. Precios flexibles según sus necesidades.'
@@ -394,14 +405,11 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PACKS.map((pack, i) => (
-            <motion.div
+            <MagneticCard
               key={pack.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}
+              intensity={5}
               onClick={() => { setSelectedPack(pack); events.serviceView(pack.id); }}
-              className={`glass rounded-2xl p-6 flex flex-col cursor-pointer transition-all duration-200 hover:scale-[1.02] relative overflow-hidden ${
+              className={`glass rounded-2xl p-6 flex flex-col cursor-pointer relative overflow-hidden ${
                 pack.highlighted ? 'border-2 border-green-400/50' : 'border border-white/10'
               }`}
             >
@@ -410,9 +418,9 @@ export default function Services() {
                   {pack.badge[lang]}
                 </div>
               )}
-              <div className="text-center mb-4 mt-2">{pack.icon}<h3 className="text-xl font-bold mt-2">{pack.name[lang]}</h3></div>
-              <p className="text-gray-400 text-sm text-center flex-grow mb-4">{pack.description[lang]}</p>
-              <div className={`${ACCENT_BG[pack.accentColor]} rounded-lg p-4 mb-4`}>
+              <div className="text-center mb-4 mt-2" style={{ transform: 'translateZ(20px)' }}>{pack.icon}<h3 className="text-xl font-bold mt-2">{pack.name[lang]}</h3></div>
+              <p className="text-gray-400 text-sm text-center flex-grow mb-4" style={{ transform: 'translateZ(10px)' }}>{pack.description[lang]}</p>
+              <div className={`${ACCENT_BG[pack.accentColor]} rounded-lg p-4 mb-4`} style={{ transform: 'translateZ(15px)' }}>
                 <h5 className={`font-semibold ${ACCENT_COLORS[pack.accentColor]} mb-2 text-sm`}>{lang === 'es' ? 'Incluye:' : 'Includes:'}</h5>
                 <ul className="text-xs text-gray-400 space-y-1">
                   {pack.idealFor[lang].map((item, j) => (
@@ -428,7 +436,7 @@ export default function Services() {
                 <p className={`text-xs ${ACCENT_COLORS[pack.accentColor]} mb-3`}>{pack.priceNote[lang]}</p>
                 <div className="text-xs text-sky-400 font-medium">{lang === 'es' ? 'Haz clic para conocer más →' : 'Click to learn more →'}</div>
               </div>
-            </motion.div>
+            </MagneticCard>
           ))}
         </div>
 
@@ -441,17 +449,19 @@ export default function Services() {
               ? 'Cada empresa es única. Los precios son orientativos y se ajustan según la complejidad del proyecto. Puede optar por pagos mensuales o proyectos únicos.'
               : "Every business is unique. Prices are indicative and adjust based on project complexity. You can choose monthly payments or one-time projects."}
           </p>
-          <ContactButton
-            source="consulting_custom_quote"
-            prefillMessage={
-              lang === 'es'
-                ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
-                : 'Hi Mariano, I would like a custom quote for my project.'
-            }
-            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-2 rounded-full text-sm transition-all"
-          >
-            {lang === 'es' ? '📊 Solicitar Cotización Personalizada' : '📊 Request Custom Quote'}
-          </ContactButton>
+          <RippleEffect>
+            <ContactButton
+              source="consulting_custom_quote"
+              prefillMessage={
+                lang === 'es'
+                  ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
+                  : 'Hi Mariano, I would like a custom quote for my project.'
+              }
+              className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-2 rounded-full text-sm transition-all"
+            >
+              {lang === 'es' ? '📊 Solicitar Cotización Personalizada' : '📊 Request Custom Quote'}
+            </ContactButton>
+          </RippleEffect>
         </div>
       </motion.div>
 

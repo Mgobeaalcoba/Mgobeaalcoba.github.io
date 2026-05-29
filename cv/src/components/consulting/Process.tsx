@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import SplitText from '@/components/shared/SplitText';
 
 export default function Process() {
   const { lang, t } = useLanguage();
@@ -19,7 +20,12 @@ export default function Process() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('consulting_process_title')}</h2>
+        <SplitText
+          text={t('consulting_process_title')}
+          className="section-title"
+          as="h2"
+          stagger={0.04}
+        />
 
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -1,19 +1,18 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
 import { useFilter } from '@/contexts/FilterContext';
+import SplitText from '@/components/shared/SplitText';
 
 const INITIAL_SHOW = 6;
 
 export default function Projects() {
   const { lang, t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeTag, setActiveTag] = useState<string>('all');
   const [showAll, setShowAll] = useState(false);
 
@@ -37,12 +36,17 @@ export default function Projects() {
   return (
     <section id="projects" data-section="projects" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
-        ref={ref}
         initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('projects_title')}</h2>
+        <SplitText
+          text={t('projects_title')}
+          className="section-title"
+          as="h2"
+          stagger={0.04}
+        />
 
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -95,7 +99,8 @@ export default function Projects() {
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="glass rounded-xl p-5 flex flex-col gap-3 glow-border hover:scale-[1.01] transition-transform group"
             >

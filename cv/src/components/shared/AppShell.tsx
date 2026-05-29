@@ -1,14 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import IntroLoader from './IntroLoader';
 import { AIAssistant } from '@/components/ui/AIAssistant';
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Show intro once per session (not on every page navigation)
     const seen = sessionStorage.getItem('intro-seen');
     if (seen) {
       setShowIntro(false);
@@ -23,7 +25,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {showIntro && <IntroLoader onComplete={handleIntroComplete} />}
-      {children}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={pathname}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
       <AIAssistant />
     </>
   );

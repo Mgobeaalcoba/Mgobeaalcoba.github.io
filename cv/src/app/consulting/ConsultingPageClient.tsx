@@ -21,6 +21,7 @@ import Process from '@/components/consulting/Process';
 import ConsultingContact from '@/components/consulting/ConsultingContact';
 import ProposalModal from '@/components/consulting/ProposalModal';
 import FloatingCTA from '@/components/shared/FloatingCTA';
+import CursorGlow from '@/components/shared/CursorGlow';
 
 export default function ConsultingPageClient() {
   const [proposalOpen, setProposalOpen] = useState(false);
@@ -32,6 +33,7 @@ export default function ConsultingPageClient() {
 
   return (
     <main className="min-h-screen relative">
+      <CursorGlow />
       <ScrollTracker site_section="consulting" />
       <Navbar />
       <ConsultingHero onOpenProposal={openProposal} />

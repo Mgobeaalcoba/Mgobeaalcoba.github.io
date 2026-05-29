@@ -22,13 +22,29 @@ const MGA_LOGO = [
 const MATRIX_CHARS =
   'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
+const BOOT_LINES = [
+  '[  OK  ] kernel: Linux version 6.8.0-arch-gaming (linux@archlinux)',
+  '[  OK  ] kernel: CPU: Apple M3 Pro @ 3.2GHz',
+  '[  OK  ] kernel: Memory: 36GB LPDDR5',
+  '[  OK  ] kernel: Loading MGA Personality Module...',
+  '[  OK  ] systemd: Started Network Stack (IPv6 + IPv4)',
+  '[  OK  ] systemd: Mounting /career (6+ years @ MercadoLibre)',
+  '[  OK  ] systemd: Mounting /skills (Python, SQL, Cloud, GenAI)',
+  '[  OK  ] mga-init: Starting Data Engineering Daemon...',
+  '[  OK  ] mga-init: Loading ML/AI Accelerators...',
+  '[  OK  ] mga-init: Calibrating Tech Leadership Interface...',
+  '[  OK  ] mga-shell: Ready.',
+  '',
+  'Welcome to MGA Portfolio System',
+  'Type "help" for available commands.',
+];
+
 export default function Terminal() {
   const { lang, t } = useLanguage();
   const { theme } = useTheme();
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<HistoryEntry[]>([
-    { type: 'output', text: t('terminal_welcome') },
-  ]);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [booting, setBooting] = useState(true);
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
   const [cmdIndex, setCmdIndex] = useState(-1);
   const [matrixActive, setMatrixActive] = useState(false);
@@ -38,6 +54,25 @@ export default function Terminal() {
   const matrixIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const { experience, projects, education, cvMeta, cvAbout } = useSupabaseData();
+
+  // Boot sequence
+  useEffect(() => {
+    if (!booting) return;
+    let idx = 0;
+    const bootHistory: HistoryEntry[] = [];
+    const interval = setInterval(() => {
+      if (idx < BOOT_LINES.length) {
+        bootHistory.push({ type: 'output', text: BOOT_LINES[idx] });
+        setHistory([...bootHistory]);
+        idx++;
+      } else {
+        clearInterval(interval);
+        setBooting(false);
+        inputRef.current?.focus();
+      }
+    }, 60);
+    return () => clearInterval(interval);
+  }, [booting]);
 
   useEffect(() => {
     if (bodyRef.current) {
@@ -296,8 +331,12 @@ export default function Terminal() {
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
-              className="flex-1 bg-transparent text-green-400 text-xs terminal-font focus:outline-none caret-green-400"
+              disabled={booting}
+              className="flex-1 bg-transparent text-green-400 text-xs terminal-font focus:outline-none caret-green-400 disabled:opacity-40"
             />
+            {booting && (
+              <span className="text-[10px] text-green-600 animate-pulse mr-1">BOOTING...</span>
+            )}
           </form>
         </div>
       </section>

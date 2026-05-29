@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight, Building2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
+import SplitText from '@/components/shared/SplitText';
 import type { ExperienceItem } from '@/types/content';
 
 // ─── Duration helpers ────────────────────────────────────────
@@ -181,12 +182,10 @@ function CompanyLogo({
 function EmployerGroupCard({
   group,
   groupIndex,
-  isInView,
   onOpenModal,
 }: {
   group: EmployerGroup;
   groupIndex: number;
-  isInView: boolean;
   onOpenModal: (job: ExperienceItem) => void;
 }) {
   const { lang } = useLanguage();
@@ -195,7 +194,8 @@ function EmployerGroupCard({
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
       className="glass rounded-2xl overflow-hidden"
     >
@@ -223,7 +223,8 @@ function EmployerGroupCard({
             <motion.button
               key={job.id}
               initial={{ opacity: 0, x: -10 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: groupIndex * 0.1 + roleIndex * 0.05 + 0.1 }}
               onClick={() => onOpenModal(job)}
               className="w-full text-left px-6 py-4 hover:bg-white/[0.04] transition-colors group flex items-start justify-between gap-4"
@@ -269,8 +270,6 @@ function EmployerGroupCard({
 
 export default function Experience() {
   const { lang, t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [selectedJob, setSelectedJob] = useState<ExperienceItem | null>(null);
   const { experience, loading } = useSupabaseData();
 
@@ -284,12 +283,17 @@ export default function Experience() {
   return (
     <section id="experience" data-section="experience" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
-        ref={ref}
         initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('experience_title')}</h2>
+        <SplitText
+          text={t('experience_title')}
+          className="section-title"
+          as="h2"
+          stagger={0.04}
+        />
 
         {loading && (
           <div className="space-y-4">
@@ -318,7 +322,6 @@ export default function Experience() {
                 key={group.company}
                 group={group}
                 groupIndex={i}
-                isInView={isInView}
                 onOpenModal={openModal}
               />
             ))}
