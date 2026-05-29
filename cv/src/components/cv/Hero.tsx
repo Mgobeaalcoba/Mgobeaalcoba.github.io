@@ -1,12 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Download, Calendar, Github, Linkedin, Twitter, Mail, ExternalLink, Loader2, Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 import { useState, useRef, useEffect } from 'react';
+import AnimatedCounter from '@/components/shared/AnimatedCounter';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
@@ -53,11 +54,14 @@ export default function Hero() {
   }, []);
 
   const stats = [
-    { value: '6+', label: { es: 'Años MercadoLibre', en: 'Years MercadoLibre' } },
-    { value: '30+', label: { es: 'Proyectos GitHub', en: 'GitHub Projects' } },
-    { value: '400+', label: { es: 'Cursos & Certs', en: 'Courses & Certs' } },
-    { value: '+500K', label: { es: 'USD Impacto Anual', en: 'USD Annual Impact' } },
+    { value: '6', suffix: '+', label: { es: 'Años MercadoLibre', en: 'Years MercadoLibre' } },
+    { value: '30', suffix: '+', label: { es: 'Proyectos GitHub', en: 'GitHub Projects' } },
+    { value: '400', suffix: '+', label: { es: 'Cursos & Certs', en: 'Courses & Certs' } },
+    { value: '500', prefix: '+', suffix: 'K', label: { es: 'USD Impacto Anual', en: 'USD Annual Impact' } },
   ];
+
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: '-50px' });
 
   return (
     <section className="hero-video-bg relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
@@ -213,10 +217,22 @@ export default function Hero() {
             </div>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-3 w-full max-w-xs">
+            <div ref={statsRef} className="grid grid-cols-2 gap-3 w-full max-w-xs">
               {stats.map((stat) => (
                 <div key={stat.value} className="glass rounded-xl p-4 text-center glow-border">
-                  <div className="text-2xl font-black gradient-text">{stat.value}</div>
+                  <div className="text-2xl font-black gradient-text">
+                    {stat.prefix || ''}
+                    {statsInView ? (
+                      <AnimatedCounter
+                        from={0}
+                        to={parseInt(stat.value)}
+                        duration={1.8}
+                        delay={0.1}
+                        decimals={0}
+                      />
+                    ) : '0'}
+                    {stat.suffix || ''}
+                  </div>
                   <div className="text-xs text-gray-300 mt-1">{stat.label[lang]}</div>
                 </div>
               ))}

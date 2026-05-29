@@ -720,4 +720,61 @@ html.terminal-mode .skills-tooltip {
   }
 }
 
+/* ================================================================
+   5. SMOOTH SCROLL BEHAVIOR
+   ================================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================================================
+   6. PARTICLE CANVAS — ensure it doesn't block interactions
+   ================================================================ */
+
+.particle-canvas {
+  pointer-events: none !important;
+}
+
+/* ================================================================
+   7. MAGNETIC CARD SHINE
+   ================================================================ */
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.card-shine:hover::before {
+  left: 150%;
+}
+
+/* ================================================================
+   8. BOOT GLITCH
+   ================================================================ */
+
+@keyframes boot-glitch {
+  0%, 90%, 100% { opacity: 1; }
+  92% { opacity: 0.7; }
+  94% { opacity: 1; }
+  96% { opacity: 0.3; }
+  98% { opacity: 1; }
+}
+
+.boot-glitch {
+  animation: boot-glitch 0.3s ease-in-out;
+}
+
 

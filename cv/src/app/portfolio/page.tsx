@@ -4,6 +4,7 @@ import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import FloatingCTA from '@/components/shared/FloatingCTA';
+import CursorGlow from '@/components/shared/CursorGlow';
 import Hero from '@/components/cv/Hero';
 import About from '@/components/cv/About';
 import FilteredPortfolioSections from '@/components/cv/FilteredPortfolioSections';
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen relative">
+      <CursorGlow />
       <ScrollTracker />
       <Navbar />
       <Hero />

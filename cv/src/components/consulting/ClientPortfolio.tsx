@@ -99,8 +99,11 @@ export default function ClientPortfolio() {
                   alt={site.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = site.logo;
-                    (e.currentTarget as HTMLImageElement).className = 'w-full h-full object-contain p-12 opacity-60';
+                    const img = e.currentTarget as HTMLImageElement;
+                    if (img.dataset.err) return;
+                    img.dataset.err = '1';
+                    img.src = site.logo;
+                    img.className = 'w-full h-full object-contain p-12 opacity-60';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
