@@ -26,12 +26,12 @@ export default function ContactModal() {
   const { lang } = useLanguage();
   const [open, setOpen] = useState(false);
   const [source, setSource] = useState<string>("cv");
-  const [form, setForm] = useState({ name: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState<Channel | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
   const reset = useCallback(() => {
-    setForm({ name: "", message: "" });
+    setForm({ name: "", email: "", message: "" });
     setSubmitted(false);
     setSending(null);
   }, []);
@@ -74,6 +74,7 @@ export default function ContactModal() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
+          email: form.email,
           message: form.message,
           channel,
           source,
@@ -126,6 +127,7 @@ export default function ContactModal() {
     );
     const bodyLines = [
       form.name.trim() ? `${lang === "es" ? "Nombre" : "Name"}: ${form.name.trim()}` : null,
+      form.email.trim() ? `Email: ${form.email.trim()}` : null,
       "",
       form.message.trim(),
     ].filter(Boolean);
@@ -215,6 +217,25 @@ export default function ContactModal() {
                         setForm({ ...form, name: e.target.value })
                       }
                       placeholder={t("Ej: Juan Pérez", "e.g. John Doe")}
+                      disabled={!!sending}
+                      className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs text-gray-400 mb-1.5">
+                      {t("Tu email", "Your email")}{" "}
+                      <span className="text-gray-600">
+                        ({t("para responder", "to reply")})
+                      </span>
+                    </label>
+                    <input
+                      type="email"
+                      value={form.email}
+                      onChange={(e) =>
+                        setForm({ ...form, email: e.target.value })
+                      }
+                      placeholder={t("Ej: juan@ejemplo.com", "e.g. john@example.com")}
                       disabled={!!sending}
                       className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
                     />
