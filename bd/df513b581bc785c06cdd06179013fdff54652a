@@ -1,0 +1,23 @@
+cv/src/components/shared/ContactModal.tsx
+  s_28acf598eed90f::t_284712c0e58d1c 227-243
+  s_28acf598eed90f::t_c1f2c0727a1876 77
+  s_28acf598eed90f::t_653261bb29591a 29
+  s_28acf598eed90f::t_007df67df9686d 130
+  s_28acf598eed90f::t_f6728ed4fd7a89 34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "bddf513b581bc785c06cdd06179013fdff54652a",
+  "prompts": {},
+  "sessions": {
+    "s_28acf598eed90f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_18c0aca0affeKKJTRjh2KvNsOD",
+        "model": "big-pickle"
+      },
+      "human_author": "Mariano Gobea Alcoba <mariano.gobea@mercadolibre.com>"
+    }
+  }
+}
