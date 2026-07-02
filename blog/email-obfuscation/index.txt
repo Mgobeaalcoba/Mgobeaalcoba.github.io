@@ -1,0 +1,313 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","email-obfuscation","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Q8ljDarbCASVlRpMcn0zK",[[["",{"children":["blog",{"children":[["slug","email-obfuscation","d"],{"children":["__PAGE__?{\"slug\":\"email-obfuscation\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","email-obfuscation","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d10f13d17fca998b.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+11:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+15:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:T5391,<p>La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usuarios. La omnipresencia de <em>bots</em> de <em>scraping</em> ha impulsado la necesidad de técnicas de ofuscación, con el objetivo de dificultar la recolección automática de direcciones para fines de <em>spam</em>, <em>phishing</em> y otros ataques cibernéticos. A medida que avanzamos hacia 2026, el panorama de amenazas ha evolucionado significativamente, superando las capacidades de las técnicas de ofuscación tradicionales. La integración de inteligencia artificial (IA), particularmente modelos de lenguaje grandes (LLMs) y <em>frameworks</em> de automatización de navegadores <em>headless</em> con capacidades de <em>machine vision</em> y procesamiento de lenguaje natural (NLP), ha redefinido lo que significa "funcionar" en el ámbito de la ofuscación de correo electrónico.</p>
+<h3>Evolución de las Amenazas para 2026</h3>
+<p>La eficacia de las técnicas de ofuscación se mide por su resistencia a los métodos de extracción automatizada. Históricamente, estos métodos han progresado en varias etapas:</p>
+<ol>
+<li><strong>Scrapers Basados en Expresiones Regulares (RegEx):</strong> La primera generación de <em>scrapers</em> operaba directamente sobre el código fuente HTML, buscando patrones de correo electrónico (<code>[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</code>). Estos son trivialmente eludidos por cualquier técnica de ofuscación que altere la cadena literal del correo electrónico.</li>
+<li><strong>Scrapers Basados en DOM (Document Object Model):</strong> Con la evolución de JavaScript y las bibliotecas de manipulación del DOM, los <em>scrapers</em> más sofisticados comenzaron a utilizar <em>parsers</em> HTML para construir el DOM y luego buscar elementos específicos o aplicar RegEx sobre el contenido textual renderizado, no solo el código fuente.</li>
+<li><strong>Navegadores Headless (Puppeteer, Playwright, Selenium):</strong> La tercera generación, predominante actualmente y en constante mejora, utiliza navegadores web completos (aunque sin interfaz gráfica) para cargar páginas, ejecutar JavaScript, renderizar CSS y simular interacciones de usuario. Estos <em>scrapers</em> ven la página "como un humano", lo que permite que el JavaScript de ofuscación se ejecute, pero también permite la extracción del texto final renderizado. Su capacidad para ejecutar código JavaScript complejo los hace inmunes a la mayoría de las técnicas de ofuscación basadas puramente en HTML o JS simple.</li>
+<li><strong>Extractores Basados en IA y LLMs:</strong> Esta es la amenaza emergente y dominante para 2026. Los LLMs, combinados con técnicas de <em>computer vision</em> para interpretar el diseño y el contexto visual de una página, son capaces de:
+<ul>
+<li><strong>Comprender el Contexto Semántico:</strong> Identificar patrones de correo electrónico incluso cuando están fragmentados o descritos en lenguaje natural (ej. "mi dirección es <code>ejemplo</code> arroba <code>dominio</code> punto <code>com</code>").</li>
+<li><strong>Ejecutar e Interpretar JavaScript:</strong> Aunque los LLMs no "ejecutan" JavaScript como un navegador, pueden analizar el código JS, predecir su salida y, en algunos casos, generar código propio para desofuscar. Los <em>frameworks</em> de automatización impulsados por IA pueden invocar directamente funciones JS y extraer el resultado.</li>
+<li><strong>Reconocimiento Óptico de Caracteres (OCR):</strong> Para imágenes de texto, los algoritmos de OCR, ahora a menudo mejorados con IA, son extremadamente precisos y rápidos, lo que anula la eficacia de las direcciones de correo electrónico presentadas como imágenes.</li>
+<li><strong>Detección de Interacción Humana:</strong> A través del análisis del comportamiento del ratón, clics, tiempos de respuesta, etc., los <em>bots</em> avanzados pueden simular mejor la interacción humana, haciendo que las técnicas que dependen de un "clic humano" sean menos efectivas si no están respaldadas por una verificación robusta.</li>
+</ul>
+</li>
+</ol>
+<h3>Técnicas de Ofuscación Tradicionales y su Eficacia en 2026</h3>
+<p>Examinemos algunas técnicas comunes y su relevancia futura:</p>
+<h4>1. Enlaces <code>mailto:</code> Directos</h4>
+<pre><code class="language-html">&#x3C;a href="mailto:ejemplo@dominio.com">ejemplo@dominio.com&#x3C;/a>
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Nula. Cualquier <em>scraper</em>, desde RegEx hasta LLMs, puede extraer esta dirección directamente del atributo <code>href</code> o del texto del enlace. Constituye un riesgo inaceptable.</p>
+<h4>2. Reemplazos de Texto o Caracteres</h4>
+<pre><code class="language-html">&#x3C;p>Mi correo es ejemplo [AT] dominio [DOT] com&#x3C;/p>
+&#x3C;p>Contacte a ejemplo(a)dominio.com&#x3C;/p>
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Nula. Los LLMs son extremadamente competentes en la resolución de ambigüedades lingüísticas y la normalización de estas representaciones a un formato estándar de correo electrónico. Incluso un <em>scraper</em> basado en RegEx con algunas reglas de reemplazo simples podría desofuscar esto.</p>
+<h4>3. Entidades HTML</h4>
+<pre><code class="language-html">&#x3C;a href="mailto:&#x26;#x65;&#x26;#x78;&#x26;#x61;&#x26;#x6d;&#x26;#x70;&#x26;#x6c;&#x26;#x65;&#x26;#x40;&#x26;#x64;&#x26;#x6f;&#x26;#x6d;&#x26;#x61;&#x26;#x69;&#x26;#x6e;&#x26;#x2e;&#x26;#x63;&#x26;#x6f;&#x26;#x6d;">&#x26;#x65;&#x26;#x78;&#x26;#x61;&#x26;#x6d;&#x26;#x70;&#x26;#x6c;&#x26;#x65;&#x26;#x40;&#x26;#x64;&#x26;#x6f;&#x26;#x6d;&#x26;#x61;&#x26;#x69;&#x26;#x6e;&#x26;#x2e;&#x26;#x63;&#x26;#x6f;&#x26;#x6d;&#x3C;/a>
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Nula. Los navegadores web decodifican automáticamente estas entidades, y los <em>parsers</em> HTML, los navegadores <em>headless</em> y los LLMs tienen funciones nativas para resolverlas a su forma legible.</p>
+<h4>4. Manipulación CSS (<code>direction: rtl</code>)</h4>
+<pre><code class="language-html">&#x3C;span style="unicode-bidi: bidi-override; direction: rtl;">moc.niamod@elpmaxe&#x3C;/span>
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Baja. Si bien esta técnica invierte la cadena en el código fuente, los navegadores <em>headless</em> renderizarán el texto correctamente. Un LLM con capacidades de <em>computer vision</em> o un análisis del DOM post-renderizado detectaría y revertiría la inversión con facilidad. La fricción para el usuario es mínima, pero la seguridad también lo es.</p>
+<h4>5. JavaScript Básico de Ensamblaje</h4>
+<pre><code class="language-html">&#x3C;script>
+    document.write('&#x3C;a href="mailto:' + 'ejemplo' + '@' + 'dominio' + '.' + 'com">' + 'ejemplo' + '@' + 'dominio' + '.' + 'com' + '&#x3C;/a>');
+&#x3C;/script>
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Muy baja. Esta técnica detiene los <em>scrapers</em> basados únicamente en RegEx del código fuente. Sin embargo, los navegadores <em>headless</em> ejecutan JavaScript y el DOM resultante contendrá el correo electrónico sin ofuscar. Un LLM que analice el DOM o la salida JavaScript también lo extraerá. El simple concatenado de cadenas es fácilmente predecible.</p>
+<h4>6. Imágenes de Correo Electrónico</h4>
+<pre><code class="language-html">&#x3C;img src="/img/email.png" alt="Mi correo electrónico">
+</code></pre>
+<p><strong>Eficacia en 2026:</strong> Muy baja. Aunque esto previene la extracción directa de texto, los algoritmos de OCR (Reconocimiento Óptico de Caracteres) han alcanzado una precisión del 99% o más, especialmente en texto claro. La integración de OCR con <em>bots</em> de <em>scraping</em> es una práctica estándar, y los LLMs pueden invocar motores OCR para procesar imágenes incrustadas. Además, la accesibilidad y la experiencia de usuario (copiar/pegar) se ven gravemente comprometidas.</p>
+<h3>Estrategias de Ofuscación Avanzadas para 2026</h3>
+<p>Para que una técnica de ofuscación de correo electrónico sea mínimamente efectiva en 2026, debe considerar la inteligencia de los <em>bots</em> modernos, incluyendo su capacidad de ejecución de JavaScript, simulación de interacción humana e inferencia contextual basada en IA. Ninguna técnica es infalible, por lo que un enfoque de defensa en profundidad es esencial.</p>
+<h4>1. Ensamblaje Dinámico Client-Side con Interacción o Cálculo Complejo</h4>
+<p>La simple concatenación de cadenas en JavaScript ya no es suficiente. Se requiere una lógica más compleja que los LLMs o <em>scrapers</em> deban "descifrar" o ejecutar.</p>
+<p><strong>Implementación Detallada:</strong></p>
+<p>Esta técnica busca fragmentar el correo electrónico y requerir una interacción del usuario o un cálculo no trivial para su ensamblaje. Incluye codificación (Base64), fragmentación aleatoria y un evento de usuario.</p>
+<pre><code class="language-html">&#x3C;div id="email-container" class="email-obfuscated" data-ep1="ZXhhbXBsZQ==" data-ep2="ZG9tYWlu" data-ep3="Y29t">
+    &#x3C;span class="email-placeholder">Cargando correo electrónico...&#x3C;/span>
+    &#x3C;button id="reveal-email-btn" aria-label="Mostrar mi dirección de correo electrónico">Mostrar Correo Electrónico&#x3C;/button>
+&#x3C;/div>
+
+&#x3C;script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emailContainer = document.getElementById('email-container');
+    const revealButton = document.getElementById('reveal-email-btn');
+
+    // Función para simular un cálculo "complejo" o retraso para disuadir la ejecución directa
+    function simulateComplexCalculation(parts) {
+        // En un escenario real, esto podría ser un WebAssembly module,
+        // una serie de transformaciones criptográficas ligeras, o
+        // una recuperación asíncrona de claves de desofuscación.
+        return new Promise(resolve => {
+            setTimeout(() => { // Introduce un retraso intencional
+                const decodedParts = parts.map(p => atob(p));
+                resolve(decodedParts.join('@').replace('@', '@' + decodedParts[1]).replace('.' + decodedParts[2], '')); // Reensamblaje complejo
+            }, 100); // Pequeño retraso para dificultar el scripting automático
+        });
+    }
+
+    revealButton.addEventListener('click', async function() {
+        if (!emailContainer.dataset.revealed) {
+            revealButton.disabled = true;
+            emailContainer.querySelector('.email-placeholder').textContent = 'Descifrando...';
+
+            const part1 = emailContainer.dataset.ep1; // 'ZXhhbXBsZQ=='
+            const part2 = emailContainer.dataset.ep2; // 'ZG9tYWlu'
+            const part3 = emailContainer.dataset.ep3; // 'Y29t'
+            const part4 = 'dummy_part'; // Una parte extra para confundir, que se descarta
+
+            const obfuscatedArray = [part1, part2, part3]; // Excluye part4 intencionalmente
+
+            try {
+                const fullEmailRaw = await simulateComplexCalculation(obfuscatedArray);
+                // Ejemplo de reensamblaje más complejo para ilustrar:
+                // email = part1 + '@' + part2 + '.' + part3
+                const finalEmail = fullEmailRaw.replace(/@domain/, '@' + atob(part2) + '.' + atob(part3)); // Reensamblaje basado en partes
+
+                const emailLink = document.createElement('a');
+                emailLink.href = `mailto:${finalEmail}`;
+                emailLink.textContent = finalEmail;
+                emailLink.classList.add('email-revealed');
+
+                emailContainer.innerHTML = ''; // Eliminar contenido original
+                emailContainer.appendChild(emailLink);
+                emailContainer.dataset.revealed = 'true';
+            } catch (error) {
+                console.error("Error al descifrar el correo:", error);
+                emailContainer.querySelector('.email-placeholder').textContent = 'Error al cargar.';
+                revealButton.disabled = false;
+            }
+        }
+    });
+
+    // Pequeño truco para dificultar la extracción inicial:
+    // El texto real "ejemplo@dominio.com" no existe en el DOM hasta la interacción.
+    // Además, el reensamblaje podría ser aún más dinámico o depender de datos externos.
+});
+&#x3C;/script>
+&#x3C;style>
+/* CSS para ocultar el email hasta que se cargue, si el JS falla */
+.email-obfuscated .email-placeholder {
+    font-family: monospace;
+    letter-spacing: 2px;
+    color: #ccc;
+    user-select: none;
+}
+.email-obfuscated button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.email-obfuscated button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+&#x3C;/style>
+</code></pre>
+<p><strong>Análisis de Seguridad (2026):</strong></p>
+<ul>
+<li><strong>Ventajas:</strong> Dificulta los <em>scrapers</em> estáticos y RegEx. Requiere ejecución de JavaScript y simulación de interacción de usuario (clic).</li>
+<li><strong>Desafíos:</strong> Los navegadores <em>headless</em> pueden simular el clic y ejecutar <code>simulateComplexCalculation</code> o analizar el script para inferir las partes. Los LLMs pueden analizar el código JavaScript, entender la lógica de <code>atob</code> y ensamblar el correo. El mayor desafío es si la lógica de <code>simulateComplexCalculation</code> es verdaderamente incomprensible o costosa computacionalmente para un <em>bot</em> sin que afecte la UX. La adición de un retardo (<code>setTimeout</code>) y la aleatorización del orden de las partes (<code>obfuscatedArray</code>) son medidas paliativas, no soluciones definitivas.</li>
+</ul>
+<h4>2. Revelación de Correo Electrónico mediante API con Verificación Server-Side (Método Recomendado)</h4>
+<p>Esta es, con diferencia, la técnica más robusta y escalable para 2026. La dirección de correo electrónico nunca está presente en el código fuente HTML o JavaScript del cliente. Se recupera de un servidor <em>backend</em> solo después de que se ha pasado una serie de verificaciones de "humanidad".</p>
+<p><strong>Implementación Detallada:</strong></p>
+<p><strong>a) Cliente (HTML y JavaScript):</strong></p>
+<pre><code class="language-html">&#x3C;div id="contact-info">
+    &#x3C;p>Para contactarnos, por favor, verifique que no es un bot:&#x3C;/p>
+    &#x3C;button id="get-email-btn">Verificar y Mostrar Correo Electrónico&#x3C;/button>
+    &#x3C;div id="email-display" style="margin-top: 10px;">&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY">&#x3C;/script>
+&#x3C;script>
+document.addEventListener('DOMContentLoaded', function() {
+    const getEmailBtn = document.getElementById('get-email-btn');
+    const emailDisplayDiv = document.getElementById('email-display');
+    const recaptchaSiteKey = 'YOUR_RECAPTCHA_SITE_KEY'; // Sustituye con tu clave de sitio reCAPTCHA v3
+
+    getEmailBtn.addEventListener('click', async () => {
+        getEmailBtn.disabled = true;
+        emailDisplayDiv.innerHTML = '&#x3C;p>Realizando verificación de seguridad...&#x3C;/p>';
+
+        try {
+            // 1. Obtener token de reCAPTCHA v3
+            grecaptcha.ready(async function() {
+                const recaptchaToken = await grecaptcha.execute(recaptchaSiteKey, { action: 'get_email' });
+
+                // 2. Enviar token al servidor para validación y obtener el correo
+                const response = await fetch('/api/get-contact-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        captchaToken: recaptchaToken,
+                        // Añadir más datos de telemetría del cliente para detección de bots,
+                        // como user-agent, dimensiones de la ventana, etc.
+                        clientData: {
+                            userAgent: navigator.userAgent,
+                            screenWidth: window.screen.width,
+                            screenHeight: window.screen.height,
+                            // ... otras métricas para un análisis más profundo
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`Error en el servidor: ${errorData.error || response.statusText}`);
+                }
+
+                const data = await response.json();
+                if (data.email) {
+                    const emailLink = document.createElement('a');
+                    emailLink.href = `mailto:${data.email}`;
+                    emailLink.textContent = data.email;
+                    emailDisplayDiv.innerHTML = '&#x3C;p>Su correo es:&#x3C;/p>';
+                    emailDisplayDiv.appendChild(emailLink);
+                } else {
+                    emailDisplayDiv.innerHTML = '&#x3C;p>No se pudo obtener el correo electrónico. Inténtelo de nuevo o contacte por otro medio.&#x3C;/p>';
+                }
+            });
+
+        } catch (error) {
+            console.error('Error al obtener el correo:', error);
+            emailDisplayDiv.innerHTML = `&#x3C;p>Error al procesar su solicitud: ${error.message}.&#x3C;/p>`;
+            getEmailBtn.disabled = false;
+        }
+    });
+});
+&#x3C;/script>
+</code></pre>
+<p><strong>Nota sobre reCAPTCHA:</strong> Sustituye <code>YOUR_RECAPTCHA_SITE_KEY</code> por tu clave pública de reCAPTCHA v3. Este servicio ayuda a distinguir humanos de <em>bots</em> basándose en el comportamiento del usuario sin interacción directa.</p>
+<p><strong>b) Servidor (Python/Flask como ejemplo):</strong></p>
+<pre><code class="language-python">from flask import Flask, jsonify, request
+import requests
+import os
+import time
+
+app = Flask(__name__)
+
+# Configuración de reCAPTCHA (idealmente de variables de entorno)
+RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY', 'YOUR_RECAPTCHA_SECRET_KEY')
+RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+
+# Almacena el correo electrónico en una variable de entorno o base de datos segura
+ACTUAL_EMAIL = os.environ.get('CONTACT_EMAIL', 'contacto@mgatc.com')
+
+# Mecanismo de limitación de tasa simple (para producción usar algo como Flask-Limiter)
+request_counts = {}
+RATE_LIMIT_SECONDS = 60 # 1 solicitud por IP por minuto
+MAX_REQUESTS_PER_PERIOD = 1
+
+def is_rate_limited(ip_address):
+    current_time = time.time()
+    if ip_address not in request_counts:
+        request_counts[ip_address] = {'count': 1, 'timestamp': current_time}
+        return False
+    
+    if current_time - request_counts[ip_address]['timestamp'] &#x3C; RATE_LIMIT_SECONDS:
+        request_counts[ip_address]['count'] += 1
+        if request_counts[ip_address]['count'] > MAX_REQUESTS_PER_PERIOD:
+            return True
+    else:
+        request_counts[ip_address] = {'count': 1, 'timestamp': current_time}
+    return False
+
+@app.route('/api/get-contact-email', methods=['POST'])
+def get_contact_email():
+    client_ip = request.remote_addr
+
+    if is_rate_limited(client_ip):
+        return jsonify({'error': 'Demasiadas solicitudes. Inténtelo de nuevo más tarde.'}), 429
+
+    data = request.get_json()
+    if not data or 'captchaToken' not in data:
+        return jsonify({'error': 'Solicitud inválida: falta token CAPTCHA.'}), 400
+
+    captcha_token = data['captchaToken']
+    client_data = data.get('clientData', {})
+
+    # 1. Verificar token reCAPTCHA en el servidor
+    recaptcha_response = requests.post(RECAPTCHA_VERIFY_URL, data={
+        'secret': RECAPTCHA_SECRET_KEY,
+        'response': captcha_token,
+        'remoteip': client_ip
+    })
+    recaptcha_result = recaptcha_response.json()
+
+    if not recaptcha_result.get('success'):
+        # Logear la razón del fallo para análisis
+        app.logger.warning(f"Fallo CAPTCHA para IP: {client_ip}, errores: {recaptcha_result.get('error-codes')}")
+        return jsonify({'error': 'Verificación de seguridad fallida. Por favor, intente de nuevo.'}), 403
+
+    # Opcional: Analizar la puntuación de reCAPTCHA v3
+    score = recaptcha_result.get('score', 0.0)
+    if score &#x3C; 0.5: # Umbral, ajustar según la tolerancia al riesgo
+        app.logger.warning(f"Puntuación CAPTCHA baja ({score}) para IP: {client_ip}")
+        return jsonify({'error': 'Verificación de seguridad insuficiente. Por favor, intente de nuevo.'}), 403
+
+    # 2. Heurísticas adicionales (p.ej., detección de User-Agent sospechoso)
+    # Considerar una lista negra de User-Agents o un análisis de patrones.
+    user_agent = request.headers.get('User-Agent', '').lower()
+    suspicious_ua_patterns = ['bot', 'spider', 'crawler', 'headless']
+    if any(pattern in user_agent for pattern in suspicious_ua_patterns):
+        # Para evitar bloquear bots legítimos, esto podría ser una señal, no un bloqueo directo
+        # Podría reducir la puntuación interna de confianza.
+        app.logger.info(f"User-Agent sospechoso detectado: {user_agent} para IP: {client_ip}")
+        # return jsonify({'error': 'Acceso denegado (posible bot)'}), 403 # Descomentar para bloqueo estricto
+
+    # 3. Análisis de la telemetría del cliente (clientData)
+    # Comparar
+</code></pre>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Evolución de las Amenazas para 2026\",\"description\":\"La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usu...\",\"url\":\"https://www.mgatc.com/blog/email-obfuscation/\",\"datePublished\":\"2026-04-02\",\"dateModified\":\"2026-04-02\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/logo.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/email-obfuscation/\"},\"keywords\":\"\",\"articleSection\":\"General\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$L11",null,{"site_section":"blog"}],["$","$L12",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L13",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Evolución de las Amenazas para 2026"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usu..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"2 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$14"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L13",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L13",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L15",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Evolución de las Amenazas para 2026 | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usu..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/email-obfuscation/"}],["$","meta","11",{"property":"og:title","content":"Evolución de las Amenazas para 2026"}],["$","meta","12",{"property":"og:description","content":"La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usu..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/email-obfuscation/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Evolución de las Amenazas para 2026"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-04-02"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Evolución de las Amenazas para 2026"}],["$","meta","25",{"name":"twitter:description","content":"La exposición de direcciones de correo electrónico en entornos web públicos ha sido, durante décadas, un punto crítico para la seguridad y privacidad de los usu..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Evolución de las Amenazas para 2026"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

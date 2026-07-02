@@ -1,0 +1,236 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","unsloth-nvidia-llm-training","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Q8ljDarbCASVlRpMcn0zK",[[["",{"children":["blog",{"children":[["slug","unsloth-nvidia-llm-training","d"],{"children":["__PAGE__?{\"slug\":\"unsloth-nvidia-llm-training\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","unsloth-nvidia-llm-training","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d10f13d17fca998b.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T44e,{"@context":"https://schema.org","@type":"Article","headline":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA","description":"La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más efici...","url":"https://www.mgatc.com/blog/unsloth-nvidia-llm-training/","datePublished":"2026-05-07","dateModified":"2026-05-07","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/unsloth-nvidia-llm-training/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T448d,<h1>Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA</h1>
+<p>La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más eficientes. El proceso de entrenamiento de LLMs es computacionalmente intensivo, requiriendo vastos recursos de hardware y tiempos prolongados. Abordar estos desafíos es crucial para acelerar la investigación, el desarrollo y la adopción de LLMs en aplicaciones prácticas. Este artículo técnico explora cómo la colaboración entre Unsloth y NVIDIA aborda estas limitaciones, proporcionando mejoras significativas en la velocidad y eficiencia del entrenamiento de LLMs.</p>
+<h2>El Desafío del Entrenamiento de LLMs</h2>
+<p>El entrenamiento de un LLM desde cero es un proceso prohibitivamente costoso para la mayoría de las organizaciones. Sin embargo, el fine-tuning de modelos pre-entrenados para tareas específicas también presenta sus propios retos:</p>
+<ul>
+<li><strong>Consumo de Memoria:</strong> Los LLMs son conocidos por su gran número de parámetros, lo que se traduce en un consumo masivo de memoria VRAM en las GPUs. Esto limita el tamaño del modelo que puede ser entrenado o fine-tuned en un hardware dado y, a menudo, requiere el uso de múltiples GPUs, incrementando la complejidad y el coste.</li>
+<li><strong>Tiempo de Entrenamiento:</strong> Incluso para el fine-tuning, el número de iteraciones necesarias para alcanzar un rendimiento óptimo puede ser muy alto, llevando días o semanas, lo que retrasa los ciclos de experimentación y desarrollo.</li>
+<li><strong>Coste Computacional:</strong> El alto consumo de recursos se traduce directamente en altos costes operativos, tanto en hardware como en energía.</li>
+</ul>
+<h2>Unsloth: Una Biblioteca para el Entrenamiento Eficiente</h2>
+<p>Unsloth se presenta como una biblioteca diseñada para acelerar el entrenamiento de LLMs, centrándose en optimizar el uso de la memoria y el tiempo de cálculo. Su enfoque principal reside en la implementación de técnicas de cuantización y optimización de bajo nivel que permiten entrenar modelos más grandes o entrenar más rápido con el mismo hardware.</p>
+<h3>Técnicas Clave de Unsloth</h3>
+<ol>
+<li>
+<p><strong>Cuantización:</strong> Unsloth implementa técnicas de cuantización avanzadas, como la cuantización de 4 bits, para reducir drásticamente el tamaño de los pesos del modelo. Esto no solo disminuye el requisito de memoria VRAM, sino que también puede acelerar las operaciones de cálculo al trabajar con tipos de datos de menor precisión.</p>
+<ul>
+<li><strong>Cuantización QLoRA:</strong> Unsloth se basa y mejora las técnicas de Quantized Low-Rank Adaptation (QLoRA). QLoRA combina la cuantización (generalmente a 4 bits) con el fine-tuning de adaptadores de bajo rango. La idea es mantener la mayor parte del modelo pre-entrenado en una representación cuantizada (ahorrando memoria) y entrenar solo un pequeño número de parámetros adicionales (los adaptadores de bajo rango) que son suficientes para adaptar el modelo a la tarea específica.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimización del Kernel:</strong> Unsloth se beneficia de kernels CUDA optimizados para operaciones específicas de entrenamiento de LLMs. Estos kernels están diseñados para aprovechar al máximo la arquitectura de las GPUs NVIDIA, minimizando la latencia y maximizando el throughput.</p>
+</li>
+<li>
+<p><strong>Integración con Transformers y PEFT:</strong> Unsloth se integra sin problemas con bibliotecas populares como <code>transformers</code> de Hugging Face y <code>PEFT</code> (Parameter-Efficient Fine-Tuning). Esto permite a los desarrolladores aprovechar las optimizaciones de Unsloth con flujos de trabajo y modelos existentes.</p>
+</li>
+</ol>
+<h3>Ventajas de Usar Unsloth</h3>
+<ul>
+<li><strong>Reducción de Memoria:</strong> Permite entrenar modelos más grandes o usar lotes (batch sizes) mayores en hardware con menos VRAM.</li>
+<li><strong>Aceleración del Entrenamiento:</strong> Reduce significativamente el tiempo necesario para completar el fine-tuning.</li>
+<li><strong>Eficiencia de Costes:</strong> Al reducir el tiempo y los recursos necesarios, Unsloth disminuye los costes asociados al entrenamiento de LLMs.</li>
+<li><strong>Facilidad de Uso:</strong> Su integración con bibliotecas estándar simplifica su adopción.</li>
+</ul>
+<h2>Colaboración con NVIDIA</h2>
+<p>La potencia de Unsloth se ve amplificada por la sinergia con el hardware y el software de NVIDIA. NVIDIA, como líder en el desarrollo de hardware para inteligencia artificial (GPUs como la serie H100, A100, L40S, etc.) y software (CUDA Toolkit, cuDNN, TensorRT), proporciona la plataforma subyacente sobre la cual se ejecutan estas optimizaciones.</p>
+<h3>Beneficios de la Optimización en Hardware NVIDIA</h3>
+<ol>
+<li>
+<p><strong>Arquitectura Tensor Cores:</strong> Las GPUs NVIDIA cuentan con Tensor Cores, unidades de cómputo especializadas que aceleran las operaciones de multiplicación de matrices, fundamentales para el entrenamiento de redes neuronales. Unsloth y sus optimizaciones están diseñadas para aprovechar al máximo estas unidades, especialmente cuando se trabaja con tipos de datos de baja precisión (como los utilizados en la cuantización de 4 bits).</p>
+</li>
+<li>
+<p><strong>Software y Librerías Optimizadas:</strong> La plataforma CUDA de NVIDIA, junto con librerías como cuDNN (para redes neuronales profundas) y NCCL (para comunicación multi-GPU), son la base sobre la que Unsloth construye sus optimizaciones. Estas librerías están continuamente actualizadas para soportar las arquitecturas de hardware más recientes y ofrecer el máximo rendimiento.</p>
+</li>
+<li>
+<p><strong>Escalabilidad:</strong> Las soluciones de NVIDIA, desde GPUs individuales hasta sistemas multi-GPU y clústeres, permiten escalar el entrenamiento de LLMs. Unsloth, al ser eficiente en el uso de recursos, se beneficia enormemente de esta escalabilidad, permitiendo entrenar modelos aún más grandes y complejos en configuraciones multi-GPU.</p>
+</li>
+</ol>
+<h3>Integración Específica</h3>
+<p>La colaboración implica la optimización de los kernels de Unsloth para arquitecturas específicas de GPUs NVIDIA. Esto puede incluir:</p>
+<ul>
+<li><strong>Kernel Fusion:</strong> Combinar múltiples operaciones de bajo nivel en un solo kernel CUDA para reducir la sobrecarga de llamadas a kernel y mejorar la localidad de los datos.</li>
+<li><strong>Aprovechamiento de la Jerarquía de Memoria:</strong> Optimizar el acceso a las diferentes capas de memoria de la GPU (registros, caché L1/L2, VRAM) para minimizar las latencias.</li>
+<li><strong>Programación Paralela:</strong> Desarrollar estrategias de paralelismo de datos y de modelo que se alineen eficientemente con la arquitectura de streaming multiprocessors (SMs) de las GPUs NVIDIA.</li>
+</ul>
+<h2>Demostración Práctica: Entrenamiento con Unsloth y NVIDIA</h2>
+<p>Para ilustrar las mejoras, consideremos un escenario de fine-tuning típico. Supongamos que queremos fine-tune un modelo como Llama-2-7B para una tarea de clasificación de texto.</p>
+<p><strong>Hardware de Referencia:</strong> Una GPU NVIDIA A100 con 80GB de VRAM.</p>
+<p><strong>Escenario 1: Entrenamiento con PyTorch estándar (FP16/BF16)</strong></p>
+<p>Utilizando la librería <code>transformers</code> de Hugging Face con entrenamiento estándar (sin optimizaciones de memoria específicas):</p>
+<ul>
+<li><strong>Batch Size:</strong> Limitado por la memoria. Podríamos usar un batch size de 8-16 dependiendo de la longitud de la secuencia.</li>
+<li><strong>Tiempo de Entrenamiento:</strong> Dado un conjunto de datos y un número de épocas, el tiempo total podría ser de varias horas.</li>
+<li><strong>Requisito de Memoria:</strong> El modelo base y los gradientes consumirían una parte significativa de los 80GB de VRAM.</li>
+</ul>
+<p><strong>Escenario 2: Entrenamiento con Unsloth (QLoRA 4-bit) en la misma GPU A100</strong></p>
+<p>Configurando Unsloth para fine-tune el mismo modelo Llama-2-7B:</p>
+<ul>
+<li><strong>Batch Size:</strong> Gracias a la cuantización de 4 bits y las optimizaciones de Unsloth, podríamos aumentar el batch size a 32 o incluso 64, mejorando la eficiencia del entrenamiento.</li>
+<li><strong>Tiempo de Entrenamiento:</strong> Se observa una aceleración significativa. Unsloth reporta mejoras de hasta 2 veces en la velocidad de entrenamiento comparado con soluciones similares sin sus optimizaciones específicas para hardware NVIDIA. Esto podría reducir el tiempo total de entrenamiento a la mitad o menos.</li>
+<li><strong>Requisito de Memoria:</strong> El consumo de VRAM se reduce drásticamente. Un modelo de 7B parámetros en 4 bits, junto con los adaptadores de LoRA y los gradientes, puede caber cómodamente en GPUs con menos VRAM (por ejemplo, 24GB o 48GB), liberando recursos o permitiendo el uso de GPUs más económicas.</li>
+</ul>
+<p><strong>Ejemplo de Código (Conceptual):</strong></p>
+<pre><code class="language-python"># pip install unsloth transformers accelerate bitsandbytes peft
+
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
+from unsloth import FastLanguageModel
+from peft import LoraConfig
+
+# 1. Configuración del modelo base
+model_id = "meta-llama/Llama-2-7b-hf"
+
+# 2. Cargar modelo con Unsloth y QLoRA 4-bit
+#    use_gradient_checkpointing=True es una técnica adicional para ahorrar memoria
+#    loss_scale=0.0 es para evitar posibles problemas con la escala de la pérdida en 4-bit
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_id,
+    load_in_4bit=True, # Cargar en 4 bits
+    bnb_4bit_compute_dtype=torch.bfloat16, # Tipo de dato para cómputo
+    bnb_4bit_quant_type="nf4",           # Tipo de cuantización (normal float 4)
+    bnb_4bit_use_double_quant=False,     # Deshabilitar doble cuantización para mayor velocidad
+    # Para optimización de memoria adicional, se puede usar gradient checkpointing:
+    # use_gradient_checkpointing=True,
+)
+
+# 3. Configurar LoRA
+#    r: rank de las matrices de LoRA. Un valor menor usa menos memoria.
+#    lora_alpha: factor de escalado.
+#    target_modules: módulos a los que aplicar LoRA. Comúnmente son las capas de atención.
+lora_config = LoraConfig(
+    r=16,
+    lora_alpha=32,
+    lora_dropout=0.05,
+    bias="none",
+    task_type="CAUSAL_LM",
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+)
+
+# 4. Aplicar LoRA al modelo base
+model = FastLanguageModel.get_peft_model(
+    model,
+    lora_config,
+    is_trainable=True,
+)
+
+# 5. Preparar el DataLoader (ejemplo conceptual)
+#    En un escenario real, se usaría un Dataset de Hugging Face y un DataLoader.
+#    Se configuran el batch size y otros parámetros de entrenamiento.
+class DummyDataset(torch.utils.data.Dataset):
+    def __init__(self, num_samples=100, seq_len=512):
+        self.num_samples = num_samples
+        self.seq_len = seq_len
+        self.input_ids = torch.randint(0, tokenizer.vocab_size, (num_samples, seq_len))
+        self.attention_mask = torch.ones_like(self.input_ids)
+        self.labels = self.input_ids # Para fine-tuning causal, las labels son los inputs shifted
+
+    def __len__(self):
+        return self.num_samples
+
+    def __getitem__(self, idx):
+        return {
+            "input_ids": self.input_ids[idx],
+            "attention_mask": self.attention_mask[idx],
+            "labels": self.labels[idx],
+        }
+
+train_dataset = DummyDataset()
+# En un caso real, se usaría:
+# from datasets import load_dataset
+# dataset = load_dataset("your_dataset_name", split="train")
+# def formatting_prompts_func(example):
+#     # Formatear los prompts según sea necesario para la tarea
+#     output = f"### Human: {example['instruction']}\n### Assistant: {example['output']}"
+#     return output
+# dataset = dataset.map(lambda x: tokenizer(formatting_prompts_func(x), truncation=True, max_length=512, padding="max_length"))
+
+# Configuración del DataLoader
+batch_size = 32 # Posible gracias a Unsloth y 4-bit
+gradient_accumulation_steps = 1 # Ajustar según el batch size deseado efectivo
+data_loader = torch.utils.data.DataLoader(
+    train_dataset,
+    batch_size=batch_size,
+    shuffle=True,
+    collate_fn=lambda batch: {key: torch.stack([d[key] for d in batch]) for key in batch[0]}
+)
+
+# 6. Definir los argumentos de entrenamiento
+#    Se utilizan los TrainingArguments de Hugging Face, pero se puede personalizar.
+#    max_steps o num_train_epochs para controlar la duración.
+#    learning_rate, optimizador, etc.
+#    fp16=True o bf16=True para usar precisión mixta en el entrenamiento de los adaptadores.
+training_args = TrainingArguments(
+    output_dir="./results",
+    per_device_train_batch_size=batch_size, # El batch size efectivo se ajusta con gradient_accumulation_steps
+    gradient_accumulation_steps=gradient_accumulation_steps,
+    optim="adamw_torch", # Optimizador
+    # logging_steps=10,
+    num_train_epochs=1, # Por ejemplo, 1 época
+    max_steps=100, # O un número fijo de pasos
+    learning_rate=2e-4,
+    fp16=True, # Usar FP16 para entrenar los adaptadores LoRA (el modelo base permanece cuantizado)
+    # bf16=True, # Usar BF16 si está disponible y es preferido
+    # Gradient checkpointing puede ser activado aquí si se desea
+    # gradient_checkpointing=True,
+)
+
+# 7. Inicializar el Trainer de Hugging Face
+from transformers import Trainer
+trainer = Trainer(
+    model=model,
+    tokenizer=tokenizer,
+    args=training_args,
+    train_dataset=train_dataset,
+    # data_collator=None # O usar un DataCollator si es necesario
+)
+
+# 8. Iniciar el entrenamiento
+#    Unsloth se encarga de optimizar el bucle de entrenamiento.
+print("Iniciando entrenamiento...")
+trainer.train()
+print("Entrenamiento completado.")
+
+# 9. Guardar el modelo fine-tuned
+#    Se guardan solo los pesos de los adaptadores LoRA.
+trainer.model.save_pretrained("unsloth_llama2_7b_fine_tuned")
+tokenizer.save_pretrained("unsloth_llama2_7b_fine_tuned")
+
+# Para inferencia con el modelo fine-tuned (debes volver a cargar el modelo base y aplicar los adaptadores)
+# from peft import PeftModel
+# base_model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16, device_map="auto")
+# tokenizer = AutoTokenizer.from_pretrained(model_id)
+# model = PeftModel.from_pretrained(base_model, "unsloth_llama2_7b_fine_tuned")
+# model = model.merge_and_unload() # Opcional: fusionar adaptadores al modelo base
+</code></pre>
+<p>Este ejemplo ilustra la simplicidad de integrar Unsloth. Las principales modificaciones son en la carga del modelo y la configuración de <code>FastLanguageModel.from_pretrained</code> y <code>FastLanguageModel.get_peft_model</code>, que se encargan de las optimizaciones de bajo nivel. El resto del flujo de entrenamiento puede permanecer similar al que se usaría con <code>transformers</code> y <code>PEFT</code> estándar.</p>
+<h2>Consideraciones Adicionales y Futuro</h2>
+<ul>
+<li><strong>Compatibilidad de Modelos:</strong> Unsloth soporta una amplia gama de modelos populares de Hugging Face, incluyendo Llama, Mistral, Gemma, etc. La lista de modelos compatibles se expande continuamente.</li>
+<li><strong>Fine-tuning Completo vs. PEFT:</strong> Si bien Unsloth brilla con PEFT (QLoRA), también puede ofrecer algunas optimizaciones para enfoques de fine-tuning más completo en escenarios específicos, aunque el principal beneficio reside en la reducción de memoria de PEFT.</li>
+<li><strong>Hardware Específico:</strong> El rendimiento puede variar ligeramente entre diferentes arquitecturas de GPUs NVIDIA. Las optimizaciones de Unsloth buscan ser genéricas pero efectivas para las generaciones más recientes de hardware.</li>
+<li><strong>Desafíos de Cuantización:</strong> Si bien la cuantización de 4 bits es muy eficiente, puede haber una ligera degradación en la precisión del modelo en comparación con FP16/BF16. Las técnicas como QLoRA minimizan este impacto, pero es algo a tener en cuenta y evaluar en la tarea específica.</li>
+<li><strong>Actualizaciones y Desarrollo Continuo:</strong> Tanto Unsloth como NVIDIA están en constante desarrollo. Las futuras versiones de Unsloth prometen optimizaciones aún mayores y soporte para más modelos y técnicas de entrenamiento. NVIDIA continúa lanzando GPUs más potentes y actualizando su stack de software para IA.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>La combinación de Unsloth y el hardware/software de NVIDIA representa un avance significativo en la eficiencia del entrenamiento de LLMs. Al aprovechar técnicas avanzadas de cuantización y optimizaciones de bajo nivel en la robusta infraestructura de NVIDIA, los desarrolladores pueden lograr ciclos de entrenamiento y fine-tuning drásticamente más rápidos y económicos. Esto acelera la iteración, reduce las barreras de entrada y abre nuevas posibilidades para la investigación y la aplicación de modelos de lenguaje grandes en una escala sin precedentes. La facilidad de integración con herramientas existentes como <code>transformers</code> y <code>PEFT</code> hace que estas optimizaciones sean accesibles para una amplia comunidad de investigadores y desarrolladores.</p>
+<p>Para obtener soluciones de consultoría y optimización avanzadas en Data Engineering y AI, incluyendo el despliegue y entrenamiento de LLMs, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más efici..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"11 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más efici..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/unsloth-nvidia-llm-training/"}],["$","meta","11",{"property":"og:title","content":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA"}],["$","meta","12",{"property":"og:description","content":"La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más efici..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/unsloth-nvidia-llm-training/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-05-07"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA"}],["$","meta","25",{"name":"twitter:description","content":"La democratización del acceso a modelos de lenguaje grandes (LLMs) ha impulsado una demanda sin precedentes de técnicas de entrenamiento y fine-tuning más efici..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Optimización del Entrenamiento de Modelos de Lenguaje Grandes (LLMs) mediante Unsloth y NVIDIA"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

@@ -1,0 +1,353 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","ruflo-multi-agent-ai-orchestration-claude","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Q8ljDarbCASVlRpMcn0zK",[[["",{"children":["blog",{"children":[["slug","ruflo-multi-agent-ai-orchestration-claude","d"],{"children":["__PAGE__?{\"slug\":\"ruflo-multi-agent-ai-orchestration-claude\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","ruflo-multi-agent-ai-orchestration-claude","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d10f13d17fca998b.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T443,{"@context":"https://schema.org","@type":"Article","headline":"Ruflo: Orquestación de IA Multiagente para Claude Code","description":"Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (...","url":"https://www.mgatc.com/blog/ruflo-multi-agent-ai-orchestration-claude/","datePublished":"2026-05-04","dateModified":"2026-05-04","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/ruflo-multi-agent-ai-orchestration-claude/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T511a,<h1>Ruflo: Orquestación de IA Multiagente para Claude Code</h1>
+<p>Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (IA) especializados, con un enfoque particular en la generación y depuración de código utilizando modelos como Claude. Ruflo se basa en el concepto de descomponer tareas complejas en subtareas que pueden ser asignadas y ejecutadas por agentes con roles definidos. Esta metodología permite abordar problemas que exceden las capacidades de un único modelo o agente, facilitando la colaboración y la iteración en flujos de trabajo de desarrollo de software asistido por IA.</p>
+<h2>Arquitectura de Ruflo</h2>
+<p>La arquitectura de Ruflo se caracteriza por su modularidad y su enfoque en la comunicación efectiva entre agentes. Se pueden identificar los siguientes componentes clave:</p>
+<h3>1. El Orquestador (Orchestrator)</h3>
+<p>El Orquestador es el núcleo del sistema. Su función principal es recibir la tarea inicial del usuario, descomponerla en sub-tareas y asignar cada sub-tarea a un agente apropiado. Además, el Orquestador gestiona el flujo de ejecución, monitoriza el progreso de los agentes, recopila los resultados y facilita la comunicación entre ellos. Su diseño permite la flexibilidad para adaptar la lógica de descomposición y asignación a diferentes tipos de problemas.</p>
+<h3>2. Agentes Especializados (Specialized Agents)</h3>
+<p>Cada agente en Ruflo está diseñado para cumplir una función específica. Esta especialización permite optimizar el uso de modelos de lenguaje de gran tamaño (LLMs) al asignar tareas a agentes que han sido configurados o ajustados para sobresalir en esas áreas particulares. Ejemplos de agentes incluyen:</p>
+<ul>
+<li><strong>Agente de Planificación (Planning Agent):</strong> Responsable de refinar la tarea inicial y generar un plan de ejecución detallado, dividiéndola en pasos lógicos.</li>
+<li><strong>Agente de Codificación (Coding Agent):</strong> Especializado en la generación de código, la escritura de funciones, clases o scripts completos basándose en especificaciones.</li>
+<li><strong>Agente de Revisión de Código (Code Review Agent):</strong> Encargado de analizar el código generado, identificar errores, ineficiencias o violaciones de buenas prácticas.</li>
+<li><strong>Agente de Depuración (Debugging Agent):</strong> Enfocado en diagnosticar y corregir errores específicos en el código, a menudo utilizando mensajes de error y contextos de ejecución.</li>
+<li><strong>Agente de Documentación (Documentation Agent):</strong> Responsable de generar documentación técnica para el código, incluyendo comentarios, docstrings y READMEs.</li>
+<li><strong>Agente de Pruebas (Testing Agent):</strong> Diseñado para crear y ejecutar pruebas unitarias, de integración o de extremo a extremo para verificar la funcionalidad del código.</li>
+</ul>
+<h3>3. El Modelo de Lenguaje Subyacente (Underlying Language Model)</h3>
+<p>Ruflo abstrae la interacción con los modelos de IA. Aunque se menciona Claude, la arquitectura es lo suficientemente flexible para integrar otros LLMs (como GPT-4, Llama, etc.). El Orquestador y los agentes interactúan con el LLM a través de una interfaz definida, permitiendo la delegación de tareas de generación de texto, razonamiento y comprensión del lenguaje.</p>
+<h3>4. El Sistema de Comunicación (Communication System)</h3>
+<p>La comunicación entre agentes es crítica. Ruflo puede implementar diversos mecanismos, como:</p>
+<ul>
+<li><strong>Mensajería Asíncrona:</strong> Permite a los agentes intercambiar información sin bloqueo.</li>
+<li><strong>Memoria Compartida o Contexto:</strong> Los agentes pueden acceder a información previamente generada o resultados de otros agentes.</li>
+<li><strong>Tokens de Control:</strong> Mecanismos para señalar la finalización de una tarea, la solicitud de información o la indicación de un error.</li>
+</ul>
+<h2>Flujo de Trabajo de Ejemplo con Ruflo</h2>
+<p>Consideremos un escenario típico donde un usuario solicita la generación de una función Python que calcule el factorial de un número entero, junto con pruebas unitarias.</p>
+<ol>
+<li>
+<p><strong>Entrada del Usuario:</strong>
+El usuario proporciona una instrucción al Orquestador: "Genera una función en Python llamada <code>calcular_factorial</code> que reciba un entero no negativo y devuelva su factorial. Incluye pruebas unitarias para esta función."</p>
+</li>
+<li>
+<p><strong>Planificación Inicial:</strong>
+El Orquestador, o un Agente de Planificación dedicado, descompone la tarea en subtareas:</p>
+<ul>
+<li>Definir la firma de la función <code>calcular_factorial</code>.</li>
+<li>Implementar la lógica recursiva o iterativa para el cálculo del factorial.</li>
+<li>Manejar casos base (0! = 1).</li>
+<li>Manejar entradas inválidas (números negativos).</li>
+<li>Generar un conjunto de pruebas unitarias utilizando <code>unittest</code> o <code>pytest</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Asignación de Tareas:</strong></p>
+<ul>
+<li>Una sub-tarea de "Implementación de la función" se asigna a un Agente de Codificación.</li>
+<li>Otra sub-tarea de "Generación de pruebas unitarias" se asigna a un Agente de Pruebas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejecución por Agentes:</strong></p>
+<ul>
+<li>
+<p><strong>Agente de Codificación:</strong> Recibe la especificación y genera el siguiente código Python:</p>
+<pre><code class="language-python">def calcular_factorial(n):
+    """
+    Calcula el factorial de un entero no negativo.
+
+    Args:
+        n (int): El número entero no negativo.
+
+    Returns:
+        int: El factorial de n.
+
+    Raises:
+        ValueError: Si n es un número negativo.
+    """
+    if not isinstance(n, int):
+        raise TypeError("La entrada debe ser un entero.")
+    if n &#x3C; 0:
+        raise ValueError("El número no puede ser negativo.")
+    if n == 0:
+        return 1
+    else:
+        resultado = 1
+        for i in range(1, n + 1):
+            resultado *= i
+        return resultado
+</code></pre>
+</li>
+<li>
+<p><strong>Agente de Pruebas:</strong> Recibe la especificación y el código de la función (una vez esté disponible) y genera pruebas unitarias:</p>
+<pre><code class="language-python">import unittest
+# Asumiendo que la función calcular_factorial está disponible en el mismo scope o importada.
+
+class TestFactorial(unittest.TestCase):
+    def test_factorial_de_cero(self):
+        self.assertEqual(calcular_factorial(0), 1)
+
+    def test_factorial_de_uno(self):
+        self.assertEqual(calcular_factorial(1), 1)
+
+    def test_factorial_de_cinco(self):
+        self.assertEqual(calcular_factorial(5), 120)
+
+    def test_factorial_de_numero_grande(self):
+        # Un valor razonable para evitar overflows innecesarios en pruebas rápidas
+        self.assertEqual(calcular_factorial(10), 3628800)
+
+    def test_factorial_entrada_negativa(self):
+        with self.assertRaises(ValueError):
+            calcular_factorial(-5)
+
+    def test_factorial_entrada_no_entero(self):
+        with self.assertRaises(TypeError):
+            calcular_factorial(5.5)
+        with self.assertRaises(TypeError):
+            calcular_factorial("hola")
+
+# Para ejecutar las pruebas:
+# if __name__ == '__main__':
+#     unittest.main()
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Integración y Revisión:</strong>
+El Orquestador recibe el código de la función y las pruebas. Podría asignar el código a un Agente de Revisión de Código para una validación adicional, o directamente al Agente de Pruebas para su ejecución.</p>
+</li>
+<li>
+<p><strong>Ejecución de Pruebas y Depuración (si es necesario):</strong>
+Si las pruebas fallan, el Orquestador podría crear un ciclo de retroalimentación, enviando el código, las pruebas fallidas y los mensajes de error a un Agente de Depuración, quien intentará corregir el código. Este ciclo se repite hasta que las pruebas pasen o se agoten los intentos.</p>
+</li>
+<li>
+<p><strong>Salida Final:</strong>
+El Orquestador combina el código de la función validado y las pruebas unitarias para presentárselas al usuario.</p>
+</li>
+</ol>
+<h2>Implementación Técnica y Consideraciones</h2>
+<p>La implementación práctica de Ruflo implica varias decisiones técnicas importantes.</p>
+<h3>1. Orquestación y Flujo de Control</h3>
+<p>La lógica de orquestación puede ser implementada utilizando un enfoque basado en estados o utilizando frameworks de orquestación de flujos de trabajo.</p>
+<h4>Ejemplo Conceptual de un Orquestador Simple (Python)</h4>
+<pre><code class="language-python">import uuid
+from typing import Dict, List, Any
+
+class Agent:
+    def __init__(self, name: str, capabilities: List[str]):
+        self.id = uuid.uuid4()
+        self.name = name
+        self.capabilities = capabilities
+
+    def execute(self, task: Dict[str, Any]) -> Dict[str, Any]:
+        # Simula la ejecución de una tarea por el agente
+        print(f"Agente '{self.name}' ejecutando tarea: {task.get('description')}")
+        # Lógica específica del agente iría aquí
+        if "generar_codigo" in self.capabilities and task.get("type") == "code_generation":
+            return {"status": "success", "result": "print('Hola desde código generado')"}
+        elif "generar_pruebas" in self.capabilities and task.get("type") == "test_generation":
+            return {"status": "success", "result": "assert True # Prueba simulada"}
+        else:
+            return {"status": "failure", "error": "Capability not supported"}
+
+class Orchestrator:
+    def __init__(self, agents: List[Agent]):
+        self.agents: Dict[str, Agent] = {agent.name: agent for agent in agents}
+        self.task_queue: List[Dict[str, Any]] = []
+        self.completed_tasks: Dict[str, Dict[str, Any]] = {}
+
+    def add_task(self, task: Dict[str, Any]):
+        task["task_id"] = str(uuid.uuid4())
+        self.task_queue.append(task)
+        print(f"Tarea añadida: {task.get('description')}")
+
+    def find_agent(self, required_capabilities: List[str]) -> Agent | None:
+        for agent in self.agents.values():
+            if all(cap in agent.capabilities for cap in required_capabilities):
+                return agent
+        return None
+
+    def run_task(self, task: Dict[str, Any]):
+        task_id = task["task_id"]
+        required_caps = task.get("required_capabilities", [])
+        agent = self.find_agent(required_caps)
+
+        if not agent:
+            print(f"Error: No se encontró agente para la tarea {task_id} con capacidades {required_caps}")
+            self.completed_tasks[task_id] = {"status": "failure", "error": "No agent found"}
+            return
+
+        try:
+            result = agent.execute(task)
+            result["agent_id"] = agent.id
+            result["agent_name"] = agent.name
+            self.completed_tasks[task_id] = result
+            print(f"Tarea {task_id} completada por {agent.name} con estado: {result.get('status')}")
+
+            # Lógica de orquestación posterior:
+            if result.get("status") == "success":
+                # Si la tarea fue generación de código, planificar la generación de pruebas
+                if task.get("type") == "code_generation":
+                    test_task = {
+                        "task_id": str(uuid.uuid4()),
+                        "description": "Generar pruebas para el código generado.",
+                        "type": "test_generation",
+                        "required_capabilities": ["generar_pruebas"],
+                        "context": {"generated_code": result.get("result")}
+                    }
+                    self.add_task(test_task)
+
+        except Exception as e:
+            print(f"Error ejecutando tarea {task_id} con agente {agent.name}: {e}")
+            self.completed_tasks[task_id] = {"status": "failure", "error": str(e)}
+
+    def run(self):
+        print("Iniciando orquestador...")
+        while self.task_queue:
+            current_task = self.task_queue.pop(0) # Procesamiento FIFO simple
+            self.run_task(current_task)
+        print("Orquestador finalizado.")
+
+# --- Ejemplo de uso ---
+if __name__ == "__main__":
+    code_generator = Agent(name="CodeBot", capabilities=["generar_codigo", "razonamiento"])
+    test_generator = Agent(name="TestBot", capabilities=["generar_pruebas", "razonamiento"])
+
+    orchestrator = Orchestrator(agents=[code_generator, test_generator])
+
+    initial_task = {
+        "description": "Crear una función para calcular el factorial.",
+        "type": "code_generation",
+        "required_capabilities": ["generar_codigo"],
+        "details": {"language": "python", "name": "calcular_factorial", "description": "Calcula el factorial de un entero no negativo."}
+    }
+    orchestrator.add_task(initial_task)
+
+    orchestrator.run()
+
+    print("\n--- Resultados de Tareas ---")
+    for task_id, result in orchestrator.completed_tasks.items():
+        print(f"Task ID: {task_id}")
+        print(f"  Status: {result.get('status')}")
+        if result.get('status') == 'success':
+            print(f"  Result: {result.get('result')}")
+        else:
+            print(f"  Error: {result.get('error')}")
+</code></pre>
+<p>Este ejemplo simplifica la gestión de estado y la comunicación. En un sistema real, la cola de tareas podría ser manejada por un sistema de mensajería (como Kafka o RabbitMQ), y el estado de las tareas podría persistirse en una base de datos.</p>
+<h3>2. Interacción con Modelos de Lenguaje (LLMs)</h3>
+<p>La abstracción de la interacción con LLMs es crucial. Esto implica encapsular las llamadas a APIs de modelos como Claude en una capa de servicio.</p>
+<h4>Ejemplo de Servicio de Agente Genérico para LLM</h4>
+<pre><code class="language-python">import anthropic # Asumiendo que usas la librería oficial de Anthropic
+import os
+
+class LLMAgentService:
+    def __init__(self, api_key: str = None, model_name: str = "claude-3-opus-20240229"):
+        self.client = anthropic.Anthropic(api_key=api_key or os.environ.get("ANTHROPIC_API_KEY"))
+        self.model_name = model_name
+
+    def query(self, prompt: str, system_message: str = "") -> str:
+        """
+        Realiza una consulta al modelo de lenguaje.
+        """
+        try:
+            message = self.client.messages.create(
+                model=self.model_name,
+                max_tokens=4096, # Ajustar según necesidad
+                system=system_message,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ]
+            )
+            # Extraer el contenido textual del mensaje de respuesta
+            return "".join(block.text for block in message.content if block.type == 'text')
+        except Exception as e:
+            print(f"Error al consultar LLM: {e}")
+            return f"LLM_ERROR: {e}"
+
+# Ejemplo de cómo un agente de codificación podría usar este servicio
+class CodingAgent(Agent):
+    def __init__(self, llm_service: LLMAgentService):
+        super().__init__(name="CodingAgent", capabilities=["generar_codigo"])
+        self.llm_service = llm_service
+
+    def execute(self, task: Dict[str, Any]) -> Dict[str, Any]:
+        task_id = task.get("task_id")
+        description = task.get("description")
+        details = task.get("details", {})
+        language = details.get("language", "python")
+        function_name = details.get("name", "mi_funcion")
+        function_description = details.get("description", "una función.")
+
+        prompt = f"""
+        Genera el código para una función en {language} llamada '{function_name}'.
+        Descripción de la función: {function_description}
+        Basándote en la tarea: {description}
+        Proporciona solo el código de la función, sin explicaciones adicionales.
+        """
+
+        system_message = f"Eres un experto en desarrollo de software especializado en {language}."
+
+        generated_code = self.llm_service.query(prompt, system_message=system_message)
+
+        if generated_code.startswith("LLM_ERROR:"):
+            return {"status": "failure", "error": generated_code}
+        else:
+            # Podría haber una etapa de parsing/validación del código aquí
+            return {"status": "success", "result": generated_code}
+
+# El Orquestador se adaptaría para instanciar y pasar estos servicios.
+</code></pre>
+<h3>3. Gestión de Contexto y Memoria</h3>
+<p>La capacidad de los agentes para compartir información y recordar interacciones pasadas es fundamental. Esto se puede lograr mediante:</p>
+<ul>
+<li><strong>Paso explícito de argumentos:</strong> El Orquestador pasa los resultados de una tarea como entrada a la siguiente.</li>
+<li><strong>Memoria de largo plazo:</strong> Utilizar bases de datos vectoriales para almacenar y recuperar información relevante de interacciones previas.</li>
+<li><strong>Memoria de corto plazo:</strong> Almacenar el historial de la conversación actual o el estado del flujo de trabajo.</li>
+</ul>
+<h3>4. Manejo de Errores y Reintentos</h3>
+<p>Los sistemas de IA son inherentemente propensos a errores. Ruflo debe implementar estrategias robustas para:</p>
+<ul>
+<li><strong>Detección de errores:</strong> Identificar cuando un agente no produce un resultado válido.</li>
+<li><strong>Reintentos:</strong> Volver a intentar una tarea fallida, quizás con un prompt o un agente diferente.</li>
+<li><strong>Escalada de errores:</strong> Notificar al usuario o a un agente supervisor si una tarea falla repetidamente.</li>
+<li><strong>Tolerancia a fallos:</strong> Diseñar el sistema de modo que el fallo de un agente no detenga toda la operación.</li>
+</ul>
+<h3>5. Refinamiento de Prompts y System Messages</h3>
+<p>La calidad de la salida de un LLM depende en gran medida de la calidad del prompt y del <code>system message</code>. Ruflo puede incluir agentes especializados en la optimización de estos, aprendiendo de los resultados de tareas anteriores para refinar las instrucciones dadas a otros agentes.</p>
+<h3>6. Evaluación y Benchmarking</h3>
+<p>Para asegurar la efectividad de Ruflo y de los agentes individuales, es esencial establecer métricas de evaluación y ejecutar benchmarks regulares. Esto puede incluir la precisión en la generación de código, la corrección de errores, la calidad de la documentación, etc.</p>
+<h2>Desafíos y Futuras Direcciones</h2>
+<ul>
+<li><strong>Complejidad de la Orquestación:</strong> A medida que el número de agentes y la complejidad de las tareas aumentan, la lógica de orquestación puede volverse muy intrincada. El uso de herramientas de orquestación de flujos de trabajo dedicadas (como Apache Airflow, Prefect, o servicios cloud como AWS Step Functions) podría ser beneficioso.</li>
+<li><strong>Control de Costos:</strong> Las llamadas a APIs de LLMs pueden ser costosas. La optimización en la asignación de tareas y el uso de modelos más pequeños y económicos para subtareas sencillas es un área de investigación activa.</li>
+<li><strong>Seguridad:</strong> Al generar y ejecutar código, se plantean riesgos de seguridad significativos. La sandbox de ejecución de código y la validación rigurosa son indispensables.</li>
+<li><strong>Interpretabilidad:</strong> Entender por qué un sistema multiagente tomó una decisión particular puede ser difícil. Desarrollar herramientas para visualizar el flujo de trabajo y el razonamiento de los agentes es importante.</li>
+<li><strong>Aprendizaje Continuo:</strong> Permitir que los agentes mejoren su rendimiento con el tiempo, basándose en el feedback y los resultados de tareas anteriores.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Ruflo representa un avance significativo en la forma en que podemos estructurar y ejecutar flujos de trabajo complejos de IA, particularmente en el dominio de la ingeniería de software. Al adoptar un enfoque multiagente y centrarse en la orquestación, permite desglosar problemas ambiciosos en componentes manejables, asignados a agentes especializados. Esta modularidad no solo mejora la eficiencia y la efectividad, sino que también abre la puerta a soluciones de IA más robustas y adaptables. La implementación de este tipo de arquitecturas requiere una cuidadosa consideración de la gestión de estado, la comunicación entre componentes, la interacción con LLMs y estrategias sólidas de manejo de errores. El potencial de Ruflo y frameworks similares para transformar el desarrollo de software y otras áreas es considerable.</p>
+<p>Para servicios de consultoría especializada en la implementación de arquitecturas de IA multiagente, orquestación de flujos de trabajo complejos y optimización de LLMs, visite <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Ruflo: Orquestación de IA Multiagente para Claude Code"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"4 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Ruflo: Orquestación de IA Multiagente para Claude Code | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/ruflo-multi-agent-ai-orchestration-claude/"}],["$","meta","11",{"property":"og:title","content":"Ruflo: Orquestación de IA Multiagente para Claude Code"}],["$","meta","12",{"property":"og:description","content":"Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/ruflo-multi-agent-ai-orchestration-claude/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Ruflo: Orquestación de IA Multiagente para Claude Code"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-05-04"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Ruflo: Orquestación de IA Multiagente para Claude Code"}],["$","meta","25",{"name":"twitter:description","content":"Este documento explora la arquitectura y la implementación práctica de Ruflo, un framework diseñado para la orquestación de agentes de Inteligencia Artificial (..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Ruflo: Orquestación de IA Multiagente para Claude Code"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

@@ -1,0 +1,205 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","travel-hacking-toolkit-points-search-trip-planning-with-ai","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["Q8ljDarbCASVlRpMcn0zK",[[["",{"children":["blog",{"children":[["slug","travel-hacking-toolkit-points-search-trip-planning-with-ai","d"],{"children":["__PAGE__?{\"slug\":\"travel-hacking-toolkit-points-search-trip-planning-with-ai\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","travel-hacking-toolkit-points-search-trip-planning-with-ai","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d10f13d17fca998b.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T468,{"@context":"https://schema.org","@type":"Article","headline":"Arquitectura del Toolkit: Habilidades y Servidores MCP","description":"La optimización del valor en el ámbito de los viajes, conocida comúnmente como \"travel hacking\", representa un desafío complejo y multifacético. La decisión fun...","url":"https://www.mgatc.com/blog/travel-hacking-toolkit-points-search-trip-planning-with-ai/","datePublished":"2026-04-04","dateModified":"2026-04-04","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/travel-hacking-toolkit-points-search-trip-planning-with-ai/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T5803,<p>La optimización del valor en el ámbito de los viajes, conocida comúnmente como "travel hacking", representa un desafío complejo y multifacético. La decisión fundamental entre la redención de puntos o el pago en efectivo para una reserva aérea o hotelera no es trivial; requiere la agregación y el análisis de una diversidad de factores que varían dinámicamente. Estos factores incluyen la disponibilidad de premios en múltiples programas de fidelidad, los precios en efectivo de diversas aerolíneas y plataformas de alojamiento, los saldos de puntos actuales del usuario, las tasas de transferencia entre socios de programas y una evaluación matemática comparativa que sintetice toda esta información. La ejecución manual de este proceso implica la gestión simultánea de una docena o más de pestañas del navegador, consultando portales de aerolíneas, agregadores de vuelos, sitios de cadenas hoteleras, plataformas de saldos de puntos y recursos de valoración de divisas de fidelidad. Este método es intrínsecamente ineficiente, propenso a errores y consume una cantidad significativa de tiempo, lo que limita la capacidad de los usuarios para identificar y capitalizar las oportunidades óptimas en tiempo real.</p>
+<p>En este contexto, la aplicación de capacidades de inteligencia artificial, específicamente modelos de lenguaje grandes (LLMs) como Claude Code y OpenCode, emerge como una solución paradigmática. El "Travel Hacking Toolkit" aborda esta problemática mediante la instrumentalización de LLMs con un conjunto de herramientas y conocimientos externos, transformando una tarea manual y tediosa en un proceso automatizado y optimizado. Este enfoque no solo acelera la toma de decisiones, sino que también enriquece la calidad de las mismas al integrar una base de datos más amplia y consistente de información relevante.</p>
+<h2>Arquitectura del Toolkit: Habilidades y Servidores MCP</h2>
+<p>La operatividad del Travel Hacking Toolkit se fundamenta en una arquitectura modular que habilita a los LLMs para interactuar con sistemas externos y acceder a información en tiempo real. Esta arquitectura se compone de dos elementos principales: las "habilidades" (skills) y los "servidores MCP" (Micro-service Control Plane).</p>
+<h3>Habilidades (Skills)</h3>
+<p>Las habilidades son descripciones estructuradas de interfaces de programación de aplicaciones (APIs) externas o funcionalidades internas, presentadas en formato Markdown. Su propósito es dotar a los LLMs de la capacidad de comprender cómo interactuar con una herramienta específica, qué parámetros requiere y qué tipo de salida puede esperar. Cada archivo Markdown de habilidad incluye la documentación de la API, ejemplos de uso y, en algunos casos, ejemplos de comandos <code>curl</code> que demuestran la invocación del servicio.</p>
+<p><strong>Ejemplo de Estructura de Habilidad (simplificado para <code>seats.aero</code>):</strong></p>
+<pre><code class="language-markdown"># Skill: award_flight_search
+
+## Descripción
+Esta habilidad permite buscar vuelos de premio (award flights) a través de múltiples programas de millas utilizando la API de Seats.aero.
+
+## Endpoints
+
+### `GET /api/v1/search/award_flights`
+
+Busca disponibilidad de vuelos de premio.
+
+**Parámetros:**
+
+*   `origin` (string, requerido): Código IATA del aeropuerto de origen (e.g., "JFK").
+*   `destination` (string, requerido): Código IATA del aeropuerto de destino (e.g., "LAX").
+*   `departure_date` (string, requerido): Fecha de salida en formato YYYY-MM-DD.
+*   `return_date` (string, opcional): Fecha de regreso en formato YYYY-MM-DD para búsquedas de ida y vuelta.
+*   `cabin` (string, opcional): Clase de cabina (e.g., "economy", "business", "first").
+*   `programs` (array of strings, opcional): Lista de programas de fidelidad a consultar (e.g., ["united", "delta"]). Si no se especifica, se buscan todos los programas soportados.
+*   `max_price_points` (integer, opcional): Precio máximo en puntos.
+
+**Ejemplo de Uso (cURL):**
+
+```bash
+curl -X GET "http://localhost:8000/api/v1/search/award_flights?origin=SFO&#x26;destination=EWR&#x26;departure_date=2024-12-25&#x26;cabin=business&#x26;programs=united,aircanada" \
+     -H "Content-Type: application/json"
+</code></pre>
+<p><strong>Salida Esperada:</strong></p>
+<p>Un objeto JSON que contiene una lista de vuelos disponibles, incluyendo programa de millas, aerolínea, número de vuelo, fechas, hora, clase de cabina, costo en puntos, impuestos y un enlace para reservar.</p>
+<pre><code>
+Los LLMs, al ser entrenados para la "tool-use", interpretan estas descripciones Markdown para determinar cuándo y cómo invocar una herramienta externa. Este paradigma desacopla la lógica de acceso a datos y funcionalidad de la capacidad de razonamiento del LLM, permitiendo una arquitectura flexible y extensible.
+
+### Servidores MCP (Micro-service Control Plane)
+
+Los servidores MCP son microservicios que implementan la lógica real detrás de cada habilidad. Actúan como puentes entre el LLM y las APIs de terceros, gestionando la comunicación, la autenticación (cuando es necesaria), el manejo de errores, el parseo de respuestas y la normalización de datos. El diseño de estos servidores enfatiza la simplicidad y la capacidad de ejecución local. De hecho, cinco de los seis servidores MCP incluidos en el toolkit no requieren claves de API para su funcionamiento básico, lo que simplifica enormemente el despliegue y minimiza las barreras de entrada para los usuarios.
+
+Un servidor MCP típico podría ser una aplicación web ligera (por ejemplo, con Flask o FastAPI en Python) que expone uno o más endpoints RESTful. Cada endpoint corresponde a una operación descrita en una habilidad Markdown y se encarga de:
+
+1.  Recibir los parámetros de la solicitud del LLM.
+2.  Construir la solicitud adecuada para la API externa (e.g., `Seats.aero`, `Google Flights`).
+3.  Manejar la autenticación (si aplica).
+4.  Ejecutar la solicitud HTTP.
+5.  Procesar la respuesta de la API externa.
+6.  Formatear la respuesta de manera que sea comprensible y útil para el LLM, a menudo resumiendo o estructurando datos complejos.
+
+**Ejemplo Conceptual de un Endpoint MCP (Python con FastAPI):**
+
+```python
+from fastapi import FastAPI, HTTPException, Query
+import requests
+import os
+
+app = FastAPI()
+
+# En un entorno real, las URLs y claves de API estarían en variables de entorno o un gestor de secretos
+SEATS_AERO_API_URL = os.getenv("SEATS_AERO_API_URL", "https://api.seats.aero")
+SEATS_AERO_API_KEY = os.getenv("SEATS_AERO_API_KEY") # Para APIs que requieren autenticación
+
+@app.get("/api/v1/search/award_flights")
+async def search_award_flights(
+    origin: str = Query(..., description="Código IATA del aeropuerto de origen"),
+    destination: str = Query(..., description="Código IATA del aeropuerto de destino"),
+    departure_date: str = Query(..., description="Fecha de salida (YYYY-MM-DD)"),
+    return_date: str = Query(None, description="Fecha de regreso (YYYY-MM-DD)"),
+    cabin: str = Query(None, description="Clase de cabina (economy, business, first)"),
+    programs: str = Query(None, description="Programas de fidelidad separados por coma")
+):
+    """
+    Busca vuelos de premio utilizando la API de Seats.aero.
+    """
+    headers = {}
+    if SEATS_AERO_API_KEY:
+        headers["x-api-key"] = SEATS_AERO_API_KEY # Asumiendo un header para la clave API
+
+    params = {
+        "origin": origin,
+        "destination": destination,
+        "date": departure_date, # Seats.aero puede tener un parámetro diferente
+        "cabin": cabin,
+        "programs": programs.split(',') if programs else None
+    }
+    # Limpiar parámetros nulos para la API externa
+    params = {k: v for k, v in params.items() if v is not None}
+
+    try:
+        response = requests.get(f"{SEATS_AERO_API_URL}/award_search", headers=headers, params=params)
+        response.raise_for_status() # Lanza una excepción para códigos de estado de error HTTP
+        data = response.json()
+
+        # Procesar y normalizar la respuesta para el LLM
+        # Esto es crucial para que el LLM reciba información estructurada y relevante
+        processed_results = []
+        for flight in data.get('flights', []):
+            processed_results.append({
+                "program": flight.get('program'),
+                "airline": flight.get('airline'),
+                "flight_number": flight.get('flightNumber'),
+                "departure_time": flight.get('departureTime'),
+                "arrival_time": flight.get('arrivalTime'),
+                "points_cost": flight.get('points'),
+                "taxes_fees": flight.get('taxes'),
+                "booking_link": flight.get('bookingLink')
+            })
+        
+        return {"status": "success", "results": processed_results}
+    except requests.exceptions.RequestException as e:
+        raise HTTPException(status_code=500, detail=f"Error al consultar Seats.aero: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error interno del servidor MCP: {e}")
+
+# Para ejecutar: uvicorn main:app --reload
+</code></pre>
+<p>Esta separación de preocupaciones entre la descripción de la herramienta (skill) y su implementación (MCP server) permite una gran flexibilidad. Los LLMs pueden ser actualizados o reemplazados sin afectar la lógica de negocio, y las herramientas pueden evolucionar independientemente de los LLMs.</p>
+<h2>Funcionalidades Clave y Fuentes de Datos</h2>
+<p>El toolkit integra un amplio espectro de funcionalidades, cada una respaldada por fuentes de datos específicas y diseñada para abordar un componente crítico del "travel hacking".</p>
+<h3>Búsqueda de Vuelos de Premio</h3>
+<p>Se utiliza <code>Seats.aero</code>, una plataforma especializada que consolida la disponibilidad de vuelos de premio de más de 25 programas de millas diferentes. La complejidad aquí radica en la variabilidad de la disponibilidad de premios, que puede cambiar en cuestión de minutos. El servidor MCP para esta funcionalidad debe gestionar consultas frecuentes y presentar los resultados de manera concisa para el LLM.</p>
+<h3>Comparación de Precios en Efectivo</h3>
+<p>Para los precios en efectivo, el toolkit consulta a <code>Google Flights</code>, <code>Skiplagged</code>, <code>Kiwi.com</code> y <code>Duffel</code>. La integración con múltiples agregadores es esencial para obtener una visión completa del mercado, ya que cada plataforma puede tener acuerdos exclusivos o algoritmos de búsqueda que revelen tarifas no disponibles en otras. Los desafíos incluyen la gestión de las políticas de uso de API de cada proveedor, la extracción de datos de interfaces web (cuando no hay API directa) y la normalización de las estructuras de precios heterogéneas.</p>
+<h3>Recuperación de Saldos de Fidelidad</h3>
+<p><code>AwardWallet</code> se integra para obtener los saldos actuales de los programas de fidelidad del usuario. Esta es una pieza de información crítica para el LLM, ya que el conocimiento del inventario de puntos del usuario es fundamental para evaluar la viabilidad de una redención. La seguridad y la privacidad de las credenciales del usuario son consideraciones primordiales en este componente, lo que requiere un manejo cuidadoso de las APIs y, idealmente, el uso de tokens de acceso seguros.</p>
+<h3>Búsqueda de Hoteles</h3>
+<p>La búsqueda de alojamiento se realiza a través de <code>Trivago</code>, <code>LiteAPI</code>, <code>Airbnb</code> y <code>Booking.com</code>. Al igual que con los vuelos, la consulta de múltiples fuentes proporciona una cobertura más amplia y la posibilidad de encontrar mejores ofertas. La diversidad de modelos de precios (por noche, por estancia, con o sin desayuno, etc.) y los tipos de propiedades (hoteles, apartamentos, B&#x26;B) presentan desafíos significativos en la normalización de los resultados.</p>
+<h3>Rutas de Ferry</h3>
+<p>Una característica distintiva es la capacidad de buscar rutas de ferry en 33 países. Esta funcionalidad, aunque de nicho, demuestra la extensibilidad del toolkit para integrar modos de transporte menos convencionales que pueden ser cruciales para ciertas itinerarios. La fuente de datos para esto sería típicamente una API de horarios de transporte o una base de datos geoespacial.</p>
+<h3>Joyas Ocultas Cerca del Destino</h3>
+<p>Para enriquecer la experiencia de viaje, <code>Atlas Obscura</code> se utiliza para identificar puntos de interés únicos y poco conocidos cerca del destino. Esto agrega una capa de "inspiración" al proceso de planificación, donde el LLM puede sugerir actividades basadas en la ubicación geográfica y las preferencias implícitas del usuario. Requiere un procesamiento de lenguaje natural y, posiblemente, algoritmos de clustering espacial para identificar lugares relevantes.</p>
+<h2>Datos de Referencia y Base de Conocimiento</h2>
+<p>Más allá de las funcionalidades de búsqueda en tiempo real, el toolkit incorpora una robusta base de datos de referencia que proporciona el contexto necesario para una toma de decisiones inteligente por parte del LLM. Estos datos son estáticos o semi-estáticos y son cruciales para el razonamiento complejo.</p>
+<h3>Tasas de Transferencia de Socios</h3>
+<p>Las tasas de transferencia para programas como <code>Chase Ultimate Rewards (UR)</code>, <code>Amex Membership Rewards (MR)</code>, <code>Bilt Rewards</code>, <code>Capital One</code> y <code>Citi ThankYou Points (TY)</code> son fundamentales. Estas tasas determinan cuántos puntos de un programa base se convierten en puntos de un programa de fidelidad de aerolíneas o hoteles. La base de datos incluye la lista de socios de transferencia y las proporciones exactas.</p>
+<p><strong>Ejemplo de estructura de datos para tasas de transferencia:</strong></p>
+<pre><code class="language-json">{
+  "chase_ur": [
+    {"partner": "united", "ratio": "1:1", "min_transfer": 1000},
+    {"partner": "hyatt", "ratio": "1:1", "min_transfer": 1000},
+    {"partner": "southwest", "ratio": "1:1", "min_transfer": 1000}
+  ],
+  "amex_mr": [
+    {"partner": "delta", "ratio": "1:1", "min_transfer": 1000},
+    {"partner": "ana", "ratio": "1:1", "min_transfer": 1000},
+    {"partner": "marriott", "ratio": "1:1.2", "min_transfer": 1000}
+  ]
+}
+</code></pre>
+<h3>Valoraciones de Puntos</h3>
+<p>Las valoraciones de puntos, provenientes de fuentes reputadas como <code>The Points Guy (TPG)</code>, <code>Upgraded Points</code>, <code>One Mile at a Time (OMAAT)</code> y <code>View From The Wing</code>, son esenciales para comparar el valor intrínseco de una redención en puntos frente al costo en efectivo. Es importante reconocer que estas valoraciones son subjetivas y pueden variar, por lo que el toolkit utiliza múltiples fuentes para proporcionar un rango o un promedio ponderado, permitiendo al LLM ofrecer una evaluación más matizada.</p>
+<h3>Datos Auxiliares</h3>
+<p>La base de conocimiento también incluye:</p>
+<ul>
+<li><strong>Membresía de alianzas:</strong> Qué aerolíneas pertenecen a Star Alliance, SkyTeam u Oneworld, lo cual es vital para la flexibilidad en la reserva de vuelos de premio.</li>
+<li><strong>Redenciones "sweet spot":</strong> Identificación de rutas o socios donde el valor de los puntos es excepcionalmente alto.</li>
+<li><strong>Ventanas de reserva:</strong> Períodos óptimos para reservar vuelos de premio (e.g., 330 días antes para ciertas aerolíneas, o muy cerca de la salida para "last-minute deals").</li>
+<li><strong>Búsquedas de marcas de cadenas hoteleras:</strong> Para mapear propiedades específicas a sus programas de fidelidad.</li>
+</ul>
+<p>Estos datos de referencia, aunque no son dinámicos en tiempo real, son fundamentales para el razonamiento estratégico del LLM, permitiéndole no solo buscar datos, sino también interpretarlos en el contexto de las mejores prácticas de "travel hacking".</p>
+<h2>Implementación y Extensibilidad</h2>
+<p>El enfoque del toolkit para la implementación y el despliegue es notablemente pragmático. Un script <code>setup.sh</code> facilita la configuración inicial y la puesta en marcha de los servidores MCP locales, permitiendo a los usuarios empezar a utilizar las capacidades de búsqueda y planificación rápidamente. Esta facilidad de uso es un diferenciador clave, especialmente considerando la complejidad subyacente de las integraciones.</p>
+<p>La integración con los LLMs (Claude Code y OpenCode) se realiza mediante un pequeño script de configuración que asegura que los LLMs estén al tanto de las habilidades disponibles. El patrón de "tool-use" de los LLMs les permite, dada una consulta de usuario, decidir cuál habilidad es más apropiada para responder, construir los parámetros necesarios y realizar la llamada al servidor MCP correspondiente. El resultado de la llamada es luego procesado por el LLM para generar una respuesta coherente y útil para el usuario.</p>
+<p>La naturaleza modular de las "habilidades" y "servidores MCP" promueve la extensibilidad. La invitación a "PRs welcome" en el repositorio de GitHub no es solo una cortesía, sino una declaración de diseño. Cualquier desarrollador puede contribuir añadiendo nuevas habilidades (nuevos archivos Markdown) y sus respectivos servidores MCP para integrar más fuentes de datos o funcionalidades. Esto permite que el toolkit evolucione y se adapte a un panorama de "travel hacking" en constante cambio, donde nuevas aerolíneas, programas de fidelidad o agregadores surgen regularmente.</p>
+<h2>Desafíos y Consideraciones Avanzadas desde una Perspectiva de Staff Engineer</h2>
+<p>Desde una perspectiva de ingeniería de datos y IA, la construcción de un sistema como el Travel Hacking Toolkit presenta varios desafíos y oportunidades para optimización y escalabilidad.</p>
+<h3>Frescura y Volatilidad de los Datos</h3>
+<p>Los precios de vuelos y hoteles, y especialmente la disponibilidad de premios, son extremadamente volátiles. Los datos pueden cambiar en minutos. Esto requiere estrategias de caching inteligentes (e.g., caching a corto plazo con invalidación agresiva), la implementación de mecanismos de sondeo o webhook para actualizaciones en tiempo real (si las APIs lo soportan) y la comunicación clara al usuario sobre la posible caducidad de la información.</p>
+<h3>Resiliencia de la API y Límites de Tasa</h3>
+<p>La integración con múltiples APIs de terceros inherentemente introduce puntos de falla. Los servidores MCP deben ser robustos para manejar errores de red, respuestas HTTP inesperadas y, críticamente, los límites de tasa impuestos por los proveedores de API. Esto implica la implementación de reintentos con backoff exponencial, gestión de colas de solicitudes y, posiblemente, el uso de proxies o rotación de IP si se manejan volúmenes muy altos.</p>
+<h3>Escalabilidad</h3>
+<p>Aunque el toolkit está diseñado para uso local, una hipotética versión SaaS enfrentaría desafíos de escalabilidad significativos. Los servidores MCP, al realizar llamadas a APIs externas, se convertirían en cuellos de botella. Esto requeriría arquitecturas serverless o microservicios desplegados en contenedores (e.g., Kubernetes), con autoescalado basado en la carga y gestión distribuida de límites de tasa para las APIs externas. La base de datos de referencia también necesitaría escalarse para manejar un mayor número de consultas.</p>
+<h3>Fiabilidad del LLM</h3>
+<p>A pesar de los avances, los LLMs pueden "alucinar" o interpretar erróneamente las instrucciones, lo que podría llevar a llamadas incorrectas a las herramientas o a la generación de respuestas inexactas. La ingeniería de prompts, la definición clara de las habilidades y la validación de las respuestas de las herramientas por parte del LLM son cruciales para mitigar estos riesgos. Podría ser necesario implementar un "guardian" o una capa de validación humana en lazo para operaciones críticas.</p>
+<h3>Seguridad y Privacidad</h3>
+<p>El manejo de credenciales de programas de fidelidad a través de AwardWallet es sensible. Para una versión de producción, esto requeriría una infraestructura de gestión de secretos robusta, encriptación en tránsito y en reposo, y adhesión a los principios de menor privilegio y privacidad por diseño. El hecho de que la mayoría de los servidores MCP no requieran claves API es una ventaja significativa para la adopción y la seguridad inicial.</p>
+<h3>Optimización de Costos</h3>
+<p>Las llamadas a APIs externas, especialmente a gran escala, pueden incurrir en costos significativos. La optimización del número de llamadas (e.g., consolidando solicitudes, caching efectivo) y la priorización de búsquedas basadas en la probabilidad de éxito o el valor para el usuario son consideraciones importantes para la sostenibilidad.</p>
+<h2>Conclusión</h2>
+<p>El "Travel Hacking Toolkit" es un ejemplo elocuente de cómo la ingeniería de datos y la inteligencia artificial pueden desmantelar la complejidad inherente a procesos manuales multifactoriales. Al orquestar LLMs con un conjunto bien definido de habilidades y servidores MCP, este sistema transforma la tediosa tarea de la planificación de viajes basada en puntos y efectivo en una experiencia eficiente e informada. La arquitectura modular y la extensibilidad del toolkit lo posicionan como una plataforma adaptable a la evolución constante del paisaje del "travel hacking".</p>
+<p>Este proyecto subraya la capacidad de los LLMs para trascender las meras capacidades generativas y convertirse en agentes inteligentes, capaces de interactuar con el mundo real a través de herramientas. La combinación de la capacidad de razonamiento de la IA con una base de conocimientos rica y acceso en tiempo real a datos diversos, como precios, disponibilidad y valoraciones, representa un avance significativo hacia la automatización inteligente de decisiones complejas. Para profesionales y entusiastas del "travel hacking", esta herramienta ofrece una ventaja competitiva al simplificar un dominio que históricamente ha exigido una dedicación considerable y experiencia especializada.</p>
+<p>Para explorar cómo estas metodologías de ingeniería de datos y soluciones de IA pueden aplicarse a sus desafíos específicos, o para profundizar en la implementación y optimización de sistemas inteligentes, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> y conocer nuestros servicios de consultoría especializada.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Arquitectura del Toolkit: Habilidades y Servidores MCP"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La optimización del valor en el ámbito de los viajes, conocida comúnmente como \"travel hacking\", representa un desafío complejo y multifacético. La decisión fun..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"4 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"15 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Arquitectura del Toolkit: Habilidades y Servidores MCP | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La optimización del valor en el ámbito de los viajes, conocida comúnmente como \"travel hacking\", representa un desafío complejo y multifacético. La decisión fun..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/travel-hacking-toolkit-points-search-trip-planning-with-ai/"}],["$","meta","11",{"property":"og:title","content":"Arquitectura del Toolkit: Habilidades y Servidores MCP"}],["$","meta","12",{"property":"og:description","content":"La optimización del valor en el ámbito de los viajes, conocida comúnmente como \"travel hacking\", representa un desafío complejo y multifacético. La decisión fun..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/travel-hacking-toolkit-points-search-trip-planning-with-ai/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Arquitectura del Toolkit: Habilidades y Servidores MCP"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-04-04"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Arquitectura del Toolkit: Habilidades y Servidores MCP"}],["$","meta","25",{"name":"twitter:description","content":"La optimización del valor en el ámbito de los viajes, conocida comúnmente como \"travel hacking\", representa un desafío complejo y multifacético. La decisión fun..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Arquitectura del Toolkit: Habilidades y Servidores MCP"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null
