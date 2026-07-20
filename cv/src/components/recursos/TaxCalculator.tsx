@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Calculator, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRecursosData } from '@/contexts/RecursosDataContext';
@@ -37,6 +37,37 @@ interface TaxResult {
   monthlyTax: number;
   netMonthly: number;
   effectiveRate: number;
+}
+
+const SECOND_SEMESTER_UPDATE_PCT = 0.1685;
+const SECOND_SEMESTER_UPDATE_FACTOR = 1 + SECOND_SEMESTER_UPDATE_PCT;
+
+/**
+ * Estimated Jul-Dec 2026 parameters.
+ *
+ * ARCA has not published the final tables yet, so only the monetary values
+ * updated semi-annually under articles 30 and 94 are adjusted here. Social
+ * security caps and deductions with their own update mechanisms remain as
+ * provided by the source parameter set.
+ */
+function buildEstimatedSecondSemesterParams(params: TaxParams): TaxParams {
+  return {
+    ...params,
+    period: 'Jul-Dic 2026 (estimado)',
+    gni: params.gni * SECOND_SEMESTER_UPDATE_FACTOR,
+    deduccion_especial: params.deduccion_especial * SECOND_SEMESTER_UPDATE_FACTOR,
+    conyuge: params.conyuge * SECOND_SEMESTER_UPDATE_FACTOR,
+    hijo: params.hijo * SECOND_SEMESTER_UPDATE_FACTOR,
+    hijo_incapacitado: params.hijo_incapacitado * SECOND_SEMESTER_UPDATE_FACTOR,
+    // Both caps are expressed as a proportion of the annual GNI.
+    alquiler_tope: params.alquiler_tope * SECOND_SEMESTER_UPDATE_FACTOR,
+    educacion_tope: params.educacion_tope * SECOND_SEMESTER_UPDATE_FACTOR,
+    escala: params.escala.map((tramo) => ({
+      ...tramo,
+      limite: tramo.limite * SECOND_SEMESTER_UPDATE_FACTOR,
+      fijo: tramo.fijo * SECOND_SEMESTER_UPDATE_FACTOR,
+    })),
+  };
 }
 
 function applyScale(taxable: number, params: TaxParams): number {
@@ -288,6 +319,10 @@ function DoughnutChart({ netMonthly, aportes, tax }: {
 export default function TaxCalculator() {
   const { lang } = useLanguage();
   const { taxParams, taxScenarios, taxTabs, loading } = useRecursosData();
+  const estimatedTaxParams = useMemo(
+    () => taxParams ? buildEstimatedSecondSemesterParams(taxParams) : null,
+    [taxParams]
+  );
   const [inputs, setInputs] = useState<TaxInputs>(DEFAULT_INPUTS);
   const [rawInputs, setRawInputs] = useState<Record<string, string>>({
     grossSalary: formatInput(DEFAULT_INPUTS.grossSalary),
@@ -296,6 +331,7 @@ export default function TaxCalculator() {
     educacion: '', donaciones: '', seguroVida: '', sepelio: '', insumos: '',
   });
   const [result, setResult] = useState<TaxResult | null>(null);
+  const [previousResult, setPreviousResult] = useState<TaxResult | null>(null);
   const [activeTab, setActiveTab] = useState('paso1');
   const [showDeductions, setShowDeductions] = useState(false);
 
@@ -309,9 +345,10 @@ export default function TaxCalculator() {
   }, []);
 
   const handleCalculate = useCallback(() => {
-    if (!taxParams) return;
-    setResult(calculateTax(inputs, taxParams));
-  }, [inputs, taxParams]);
+    if (!taxParams || !estimatedTaxParams) return;
+    setResult(calculateTax(inputs, estimatedTaxParams));
+    setPreviousResult(calculateTax(inputs, taxParams));
+  }, [inputs, taxParams, estimatedTaxParams]);
 
   const loadScenario = (grossSalary: number, conyuge: boolean, hijos: number, hijosIncap: number, alquiler: number, alquilerAnual: boolean, extraIncome: number, includeSAC: boolean) => {
     const newInputs = { ...DEFAULT_INPUTS, grossSalary, conyuge, hijos, hijosIncap, alquiler, alquilerAnual, extraIncome, includeSAC };
@@ -323,14 +360,25 @@ export default function TaxCalculator() {
       domestico: '', hipotecario: '', medicos: '', educacion: '', donaciones: '',
       seguroVida: '', sepelio: '', insumos: '',
     });
-    if (taxParams) setResult(calculateTax(newInputs, taxParams));
+    if (taxParams && estimatedTaxParams) {
+      setResult(calculateTax(newInputs, estimatedTaxParams));
+      setPreviousResult(calculateTax(newInputs, taxParams));
+    }
   };
 
   // Recalculate whenever any input changes or params load so result is always in sync.
   useEffect(() => {
-    if (!taxParams) return;
-    setResult(calculateTax(inputs, taxParams));
-  }, [inputs, taxParams]);
+    if (!taxParams || !estimatedTaxParams) return;
+    setResult(calculateTax(inputs, estimatedTaxParams));
+    setPreviousResult(calculateTax(inputs, taxParams));
+  }, [inputs, taxParams, estimatedTaxParams]);
+
+  const monthlyPocketImpact = result && previousResult
+    ? previousResult.monthlyTax - result.monthlyTax
+    : 0;
+  const rescuedWithholdingPct = previousResult && previousResult.monthlyTax > 0
+    ? Math.min(100, Math.max(0, (monthlyPocketImpact / previousResult.monthlyTax) * 100))
+    : 0;
 
   if (loading) {
     return (
@@ -356,17 +404,25 @@ export default function TaxCalculator() {
             </h3>
             <p className="text-xs text-gray-400">
               {lang === 'es'
-                ? 'Período Enero-Junio 2026 · Art. 94 LIG · Res. Gral. 4.003 AFIP'
-                : 'Period January-June 2026 · Art. 94 LIG · AFIP Res. Gen. 4.003'}
+                ? 'Comparación Enero-Junio vs. Julio-Diciembre 2026 · Art. 94 LIG'
+                : 'January-June vs. July-December 2026 comparison · LIG Art. 94'}
             </p>
           </div>
+        </div>
+        <div className="flex flex-wrap gap-2 mb-3">
+          <span className="text-xs px-2.5 py-1 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/20">
+            {lang === 'es' ? 'Actualización estimada: +16,85%' : 'Estimated update: +16.85%'}
+          </span>
+          <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-gray-400 border border-white/10">
+            {lang === 'es' ? 'Pendiente de publicación por ARCA' : 'Pending ARCA publication'}
+          </span>
         </div>
         <div className="flex items-start gap-2 p-3 bg-amber-500/10 rounded-xl border border-amber-500/20">
           <Info size={14} className="text-amber-400 mt-0.5 shrink-0" />
           <p className="text-xs text-gray-300">
             {lang === 'es'
-              ? 'Simulación con proyección de ingresos constantes. No constituye asesoramiento fiscal.'
-              : 'Simulation with projected constant income. Does not constitute tax advice.'}
+              ? 'Simulación con proyección de ingresos constantes. Mantiene el cálculo de retención mensual promedio estimada. Los valores del segundo semestre surgen de aplicar el índice conocido del 16,85% y pueden variar por redondeos oficiales.'
+              : 'Simulation with projected constant income. It keeps the estimated average monthly withholding calculation. Second-semester values apply the known 16.85% index and may vary due to official rounding.'}
           </p>
         </div>
       </div>
@@ -606,6 +662,48 @@ export default function TaxCalculator() {
 
           {result ? (
             <>
+              {/* Before/after comparison */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 min-w-0">
+                  <p className="text-xs text-red-300 mb-1">
+                    {lang === 'es' ? 'Retención Mensual Promedio Estimada' : 'Estimated Average Monthly Withholding'}
+                  </p>
+                  <p className="text-lg sm:text-2xl font-bold text-red-200 truncate">{fmt(result.monthlyTax)}</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {lang === 'es' ? 'Con actualización estimada' : 'With estimated update'}
+                  </p>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 min-w-0">
+                  <p className="text-xs text-gray-400 mb-1">
+                    {lang === 'es' ? 'Antes de la Actualización' : 'Before the Update'}
+                  </p>
+                  <p className="text-lg sm:text-2xl font-bold text-gray-200 truncate">
+                    {fmt(previousResult?.monthlyTax ?? 0)}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {lang === 'es' ? 'Parámetros enero-junio' : 'January-June parameters'}
+                  </p>
+                </div>
+                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 min-w-0">
+                  <p className="text-xs text-green-300 mb-1">
+                    {lang === 'es' ? 'Impacto Mensual en Bolsillo' : 'Monthly Take-Home Impact'}
+                  </p>
+                  <p className="text-lg sm:text-2xl font-bold text-green-200 truncate">
+                    +{fmt(Math.max(0, monthlyPocketImpact))}
+                  </p>
+                  <p className="text-sm font-semibold text-green-300 mt-1">
+                    {rescuedWithholdingPct.toLocaleString(lang === 'es' ? 'es-AR' : 'en-US', {
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1,
+                    })}%
+                    {' '}
+                    <span className="text-xs font-normal text-gray-400">
+                      {lang === 'es' ? 'de la retención anterior recuperada' : 'of previous withholding recovered'}
+                    </span>
+                  </p>
+                </div>
+              </div>
+
               {/* SVG Doughnut Chart */}
               <div className="flex justify-center mb-5">
                 <div className="text-center">
@@ -622,18 +720,12 @@ export default function TaxCalculator() {
 
               {/* Result cards */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 min-w-0">
-                  <p className="text-xs text-red-300 mb-1">
-                    {lang === 'es' ? 'Retención Mensual Estimada' : 'Estimated Monthly Withholding'}
-                  </p>
-                  <p className="text-lg sm:text-2xl font-bold text-red-200 truncate">{fmt(result.monthlyTax)}</p>
-                  <p className="text-xs text-gray-500">{result.effectiveRate.toFixed(1)}% {lang === 'es' ? 'efectivo' : 'effective'}</p>
-                </div>
                 <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-green-300 mb-1">
                     {lang === 'es' ? 'Sueldo Neto de Bolsillo' : 'Net Take-Home Salary'}
                   </p>
                   <p className="text-lg sm:text-2xl font-bold text-green-200 truncate">{fmt(result.netMonthly)}</p>
+                  <p className="text-xs text-gray-500">{result.effectiveRate.toFixed(1)}% {lang === 'es' ? 'tasa efectiva de Ganancias' : 'effective income tax rate'}</p>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-gray-400 mb-1">
@@ -647,7 +739,7 @@ export default function TaxCalculator() {
                   </p>
                   <p className="text-base sm:text-xl font-semibold text-gray-200 truncate">{fmt(result.taxableIncome)}</p>
                 </div>
-                <div className="col-span-2 bg-yellow-500/10 rounded-xl p-4 min-w-0">
+                <div className="bg-yellow-500/10 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-yellow-300 mb-1">
                     {lang === 'es' ? 'Aportes Previsionales Mensuales (17%)' : 'Monthly Social Security Contributions (17%)'}
                   </p>
@@ -690,14 +782,25 @@ export default function TaxCalculator() {
             <p className="text-sm text-gray-400">{lang === 'es' ? tab.contentEs : tab.contentEn}</p>
             {tab.tabId === 'paso3' && taxParams && (
               <div className="overflow-x-auto">
+                <div className="mb-3 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs text-gray-300">
+                  {lang === 'es'
+                    ? 'La columna estimada aplica +16,85% a los límites y montos fijos de la escala vigente. Las alícuotas no cambian.'
+                    : 'The estimated column applies +16.85% to the current bracket limits and fixed amounts. Tax rates remain unchanged.'}
+                </div>
                 <table className="w-full text-xs text-gray-300 border-collapse">
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="text-left py-2 pr-4 text-gray-400">
-                        {lang === 'es' ? 'Ganancia Neta Imponible Anual' : 'Annual Taxable Net Income'}
+                        {lang === 'es' ? 'Escala Ene-Jun 2026' : 'Jan-Jun 2026 Bracket'}
+                      </th>
+                      <th className="text-left py-2 pr-4 text-sky-300">
+                        {lang === 'es' ? 'Escala Jul-Dic Estimada' : 'Estimated Jul-Dec Bracket'}
                       </th>
                       <th className="text-right py-2 pr-4 text-gray-400">
-                        {lang === 'es' ? 'Monto Fijo (ARS)' : 'Fixed Amount (ARS)'}
+                        {lang === 'es' ? 'Fijo Anterior' : 'Previous Fixed'}
+                      </th>
+                      <th className="text-right py-2 pr-4 text-sky-300">
+                        {lang === 'es' ? 'Fijo Estimado' : 'Estimated Fixed'}
                       </th>
                       <th className="text-right py-2 text-gray-400">%</th>
                     </tr>
@@ -705,13 +808,22 @@ export default function TaxCalculator() {
                   <tbody>
                     {taxParams.escala.map((tramo, i) => {
                       const next = taxParams.escala[i + 1];
+                      const estimatedTramo = estimatedTaxParams?.escala[i];
+                      const estimatedNext = estimatedTaxParams?.escala[i + 1];
                       const rangeLabel = next
                         ? `${tramo.limite.toLocaleString('es-AR')} – ${next.limite.toLocaleString('es-AR')}`
                         : `> ${tramo.limite.toLocaleString('es-AR')}`;
+                      const estimatedRangeLabel = estimatedTramo && estimatedNext
+                        ? `${estimatedTramo.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })} – ${estimatedNext.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })}`
+                        : `> ${(estimatedTramo?.limite ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}`;
                       return (
                         <tr key={i} className="border-b border-white/5 hover:bg-white/5">
                           <td className="py-1.5 pr-4">{rangeLabel}</td>
+                          <td className="py-1.5 pr-4 text-sky-200">{estimatedRangeLabel}</td>
                           <td className="py-1.5 pr-4 text-right">{tramo.fijo.toLocaleString('es-AR')}</td>
+                          <td className="py-1.5 pr-4 text-right text-sky-200">
+                            {(estimatedTramo?.fijo ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}
+                          </td>
                           <td className="py-1.5 text-right text-sky-400">{(tramo.pct * 100).toFixed(0)}%</td>
                         </tr>
                       );
