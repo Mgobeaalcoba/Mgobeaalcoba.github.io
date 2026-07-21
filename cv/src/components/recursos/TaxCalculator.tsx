@@ -137,6 +137,54 @@ function buildOfficialSecondSemesterParams(params: TaxParams): TaxParams {
   return buildOfficialParams(params, OFFICIAL_JUL_DEC_2026, 'Retenciones Jul-Dic 2026 (oficial)');
 }
 
+const SCALE_MONTHS = [
+  { value: '1', es: 'Enero', en: 'January' },
+  { value: '2', es: 'Febrero', en: 'February' },
+  { value: '3', es: 'Marzo', en: 'March' },
+  { value: '4', es: 'Abril', en: 'April' },
+  { value: '5', es: 'Mayo', en: 'May' },
+  { value: '6', es: 'Junio', en: 'June' },
+  { value: '7', es: 'Julio', en: 'July' },
+  { value: '8', es: 'Agosto', en: 'August' },
+  { value: '9', es: 'Septiembre', en: 'September' },
+  { value: '10', es: 'Octubre', en: 'October' },
+  { value: '11', es: 'Noviembre', en: 'November' },
+  { value: '12', es: 'Diciembre', en: 'December' },
+] as const;
+
+function roundCurrency(value: number): number {
+  return Math.round((value + Number.EPSILON) * 100) / 100;
+}
+
+/**
+ * Builds the official cumulative Art. 94 scale for a selected payroll month.
+ * January-June accrue the original 2026 values. From July onward, the first
+ * semester remains fixed and each month adds 1/12 of the updated annual scale.
+ */
+function buildOfficialMonthlyScale(params: TaxParams, month: number): TaxParams['escala'] {
+  // Use the published cumulative December table verbatim. Rebuilding it from
+  // annual inputs can move a handful of values by one cent due to rounding.
+  if (month === 12) {
+    return OFFICIAL_JUL_DEC_2026.escala.map((tramo) => ({ ...tramo }));
+  }
+
+  const previousWeight = Math.min(month, 6) / 12;
+  const updatedWeight = Math.max(month - 6, 0) / 12;
+
+  return params.escala.map((tramo, index) => {
+    const updatedTramo = OFFICIAL_ANNUAL_2026.escala[index];
+    return {
+      limite: roundCurrency(
+        tramo.limite * previousWeight + updatedTramo.limite * updatedWeight
+      ),
+      fijo: roundCurrency(
+        tramo.fijo * previousWeight + updatedTramo.fijo * updatedWeight
+      ),
+      pct: tramo.pct,
+    };
+  });
+}
+
 function applyScale(taxable: number, params: TaxParams): number {
   if (taxable <= 0) return 0;
   for (let i = params.escala.length - 1; i >= 0; i--) {
@@ -280,6 +328,52 @@ const DEFAULT_INPUTS: TaxInputs = {
 function fmt(n: number) {
   return `$${Math.round(n).toLocaleString('es-AR')}`;
 }
+
+function fmtExact(n: number) {
+  return `$${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+const EDUCATIONAL_TABS_2026: Record<string, {
+  titleEs: string;
+  titleEn: string;
+  contentEs: string;
+  contentEn: string;
+  formulaEs: string;
+  formulaEn: string;
+}> = {
+  paso1: {
+    titleEs: 'Proyectar los Ingresos y el SAC',
+    titleEn: 'Project Income and SAC',
+    contentEs: 'Se proyectan los 12 sueldos del año y los ingresos extra. Si se incluye el SAC, se suma el aguinaldo anual y su efecto se incorpora mediante una doceava parte en cada uno de los 12 meses, junto con las deducciones correspondientes.',
+    contentEn: 'The projection includes 12 monthly salaries and any extra income. When SAC is included, the annual bonus is added and its effect is incorporated as one twelfth in each of the 12 months, together with the applicable deductions.',
+    formulaEs: 'Ganancia Bruta Proyectada = (Sueldo × 12) + SAC + Ingresos Extra',
+    formulaEn: 'Projected Gross Income = (Salary × 12) + SAC + Extra Income',
+  },
+  paso2: {
+    titleEs: 'Restar Aportes y Deducciones',
+    titleEn: 'Subtract Contributions and Deductions',
+    contentEs: `Para estimar las retenciones de julio-diciembre se restan los aportes obligatorios con los topes de julio 2026, las deducciones generales y las personales acumuladas: GNI ${fmtExact(OFFICIAL_JUL_DEC_2026.gni)} y Deducción Especial ${fmtExact(OFFICIAL_JUL_DEC_2026.deduccion_especial)}, más cargas de familia. Con SAC se agrega la doceava parte de las deducciones personales. La liquidación anual/final usa GNI ${fmtExact(OFFICIAL_ANNUAL_2026.gni)} y Deducción Especial ${fmtExact(OFFICIAL_ANNUAL_2026.deduccion_especial)}.`,
+    contentEn: `For July-December withholding, the calculation subtracts mandatory contributions using the July 2026 caps, general deductions and cumulative personal deductions: GNI ARS ${OFFICIAL_JUL_DEC_2026.gni.toLocaleString('en-US')} and Special Deduction ARS ${OFFICIAL_JUL_DEC_2026.deduccion_especial.toLocaleString('en-US')}, plus family allowances. When SAC is included, an additional twelfth of personal deductions is applied. The annual/final calculation uses GNI ARS ${OFFICIAL_ANNUAL_2026.gni.toLocaleString('en-US')} and Special Deduction ARS ${OFFICIAL_ANNUAL_2026.deduccion_especial.toLocaleString('en-US')}.`,
+    formulaEs: 'Ganancia Sujeta = Bruta − Aportes − Deducciones Art. 30 − Doceava SAC − Otras Deducciones',
+    formulaEn: 'Taxable Income = Gross − Contributions − Art. 30 Deductions − SAC Twelfth − Other Deductions',
+  },
+  paso3: {
+    titleEs: 'Aplicar la Escala Progresiva (Art. 94 LIG)',
+    titleEn: 'Apply the Progressive Brackets (LIG Art. 94)',
+    contentEs: 'La ganancia neta sujeta a impuesto se ubica en la escala correspondiente. La vista final compara los tramos anteriores con los acumulados oficiales a diciembre; también podés seleccionar cada mes para consultar su escala acumulada oficial. Cada tramo paga un importe fijo más una alícuota sobre el excedente de su límite inferior.',
+    contentEn: 'Taxable net income is placed in the applicable bracket. The final view compares the previous brackets with the official December cumulative amounts; you can also select any month to see its official cumulative scale. Each bracket pays a fixed amount plus a rate on the excess over its lower limit.',
+    formulaEs: 'Impuesto Acumulado = Fijo del Tramo + (Ganancia Sujeta − Límite Inferior) × Alícuota',
+    formulaEn: 'Cumulative Tax = Bracket Fixed Amount + (Taxable Income − Lower Limit) × Rate',
+  },
+  paso4: {
+    titleEs: 'Estimar la Retención Mensual y el Ajuste Anual',
+    titleEn: 'Estimate Monthly Withholding and Annual Adjustment',
+    contentEs: 'El impuesto obtenido con la tabla julio-diciembre representa la retención total proyectada. Se divide siempre por 12 para mostrar un promedio mensual con el SAC prorrateado. En el recibo real, el empleador calcula de forma acumulativa y descuenta las retenciones previas. La liquidación anual/final vuelve a calcular el impuesto con su tabla oficial y puede generar un reintegro o una retención adicional.',
+    contentEn: 'The tax calculated with the July-December table represents projected total withholding. It is always divided by 12 to show a monthly average with prorated SAC. On an actual payslip, the employer calculates cumulatively and subtracts prior withholding. The annual/final calculation uses its official table and may produce a refund or additional withholding.',
+    formulaEs: 'Retención Mensual Promedio = Impuesto Acumulado Proyectado ÷ 12',
+    formulaEn: 'Average Monthly Withholding = Projected Cumulative Tax ÷ 12',
+  },
+};
 
 function NumberInput({ label, value, onChange, placeholder, hint }: {
   label: string; value: string; onChange: (v: string) => void; placeholder?: string; hint?: string;
@@ -427,7 +521,19 @@ export default function TaxCalculator() {
   const [previousResult, setPreviousResult] = useState<TaxResult | null>(null);
   const [annualFinalResult, setAnnualFinalResult] = useState<TaxResult | null>(null);
   const [activeTab, setActiveTab] = useState('paso1');
+  const [scaleView, setScaleView] = useState('final');
   const [showDeductions, setShowDeductions] = useState(false);
+
+  const selectedScaleMonth = scaleView === 'final' ? null : Number(scaleView);
+  const selectedScaleMonthLabel = selectedScaleMonth
+    ? SCALE_MONTHS.find((month) => month.value === scaleView)
+    : null;
+  const monthlyOfficialScale = useMemo(
+    () => taxParams && selectedScaleMonth
+      ? buildOfficialMonthlyScale(taxParams, selectedScaleMonth)
+      : null,
+    [taxParams, selectedScaleMonth]
+  );
 
   const set = useCallback((field: keyof TaxInputs, value: TaxInputs[keyof TaxInputs]) => {
     setInputs((prev) => ({ ...prev, [field]: value }));
@@ -931,18 +1037,59 @@ export default function TaxCalculator() {
             </button>
           ))}
         </div>
-        {taxTabs.filter((t) => t.tabId === activeTab).map((tab) => (
+        {taxTabs.filter((t) => t.tabId === activeTab).map((tab) => {
+          const currentCopy = EDUCATIONAL_TABS_2026[tab.tabId];
+          const title = lang === 'es'
+            ? (currentCopy?.titleEs ?? tab.titleEs)
+            : (currentCopy?.titleEn ?? tab.titleEn);
+          const content = lang === 'es'
+            ? (currentCopy?.contentEs ?? tab.contentEs)
+            : (currentCopy?.contentEn ?? tab.contentEn);
+          const formula = lang === 'es'
+            ? (currentCopy?.formulaEs ?? tab.formulaEs)
+            : (currentCopy?.formulaEn ?? tab.formulaEn);
+
+          return (
           <div key={tab.tabId} className="space-y-3">
-            <h5 className="font-semibold text-gray-200">{lang === 'es' ? tab.titleEs : tab.titleEn}</h5>
-            <p className="text-sm text-gray-400">{lang === 'es' ? tab.contentEs : tab.contentEn}</p>
+            <h5 className="font-semibold text-gray-200">{title}</h5>
+            <p className="text-sm text-gray-400">{content}</p>
             {tab.tabId === 'paso3' && taxParams && (
               <div className="overflow-x-auto">
-                <div className="mb-3 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs text-gray-300">
-                  {lang === 'es'
-                    ? 'La columna actualizada usa la escala acumulada oficial aplicable a las retenciones de julio-diciembre 2026. La liquidación anual/final se informa por separado.'
-                    : 'The updated column uses the official cumulative brackets for July-December 2026 withholding. The annual/final liquidation is shown separately.'}
+                <div className="mb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <label htmlFor="tax-scale-view" className="text-xs font-medium text-gray-300">
+                    {lang === 'es' ? 'Período de la escala' : 'Scale period'}
+                  </label>
+                  <select
+                    id="tax-scale-view"
+                    value={scaleView}
+                    onChange={(event) => setScaleView(event.target.value)}
+                    className="glass rounded-lg border border-white/10 px-3 py-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
+                  >
+                    <option value="final" className="bg-gray-900">
+                      {lang === 'es' ? 'Final · Comparativa a diciembre' : 'Final · December comparison'}
+                    </option>
+                    {SCALE_MONTHS.map((month) => (
+                      <option key={month.value} value={month.value} className="bg-gray-900">
+                        {lang === 'es' ? month.es : month.en}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-                <table className="w-full text-xs text-gray-300 border-collapse">
+                <div className="mb-3 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs text-gray-300">
+                  {scaleView === 'final'
+                    ? (lang === 'es'
+                      ? 'Vista predeterminada: compara la escala anterior completa con la escala acumulada oficial a diciembre 2026. La liquidación anual/final se informa por separado.'
+                      : 'Default view: compares the complete previous scale with the official cumulative December 2026 scale. The annual/final calculation is shown separately.')
+                    : (lang === 'es'
+                      ? selectedScaleMonth && selectedScaleMonth <= 6
+                        ? `Escala oficial acumulada a ${selectedScaleMonthLabel?.es} 2026: ${selectedScaleMonth}/12 de los valores vigentes durante el primer semestre.`
+                        : `Escala oficial acumulada a ${selectedScaleMonthLabel?.es} 2026: conserva 6/12 de los valores del primer semestre y suma ${(selectedScaleMonth ?? 6) - 6}/12 de los valores actualizados.`
+                      : selectedScaleMonth && selectedScaleMonth <= 6
+                        ? `Official cumulative scale through ${selectedScaleMonthLabel?.en} 2026: ${selectedScaleMonth}/12 of the first-semester values.`
+                        : `Official cumulative scale through ${selectedScaleMonthLabel?.en} 2026: keeps 6/12 of the first-semester values and adds ${(selectedScaleMonth ?? 6) - 6}/12 of the updated values.`)}
+                </div>
+                {scaleView === 'final' ? (
+                  <table className="w-full text-xs text-gray-300 border-collapse">
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="text-left py-2 pr-4 text-gray-400">
@@ -984,16 +1131,57 @@ export default function TaxCalculator() {
                       );
                     })}
                   </tbody>
-                </table>
+                  </table>
+                ) : (
+                  <table className="w-full text-xs text-gray-300 border-collapse">
+                    <thead>
+                      <tr className="border-b border-white/10">
+                        <th className="text-left py-2 pr-4 text-sky-300">
+                          {lang === 'es' ? 'Ganancia neta imponible acumulada' : 'Cumulative taxable net income'}
+                        </th>
+                        <th className="text-right py-2 pr-4 text-sky-300">
+                          {lang === 'es' ? 'Importe fijo' : 'Fixed amount'}
+                        </th>
+                        <th className="text-right py-2 pr-4 text-sky-300">%</th>
+                        <th className="text-right py-2 text-gray-400">
+                          {lang === 'es' ? 'Sobre excedente de' : 'On excess over'}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(monthlyOfficialScale ?? []).map((tramo, index) => {
+                        const next = monthlyOfficialScale?.[index + 1];
+                        const rangeLabel = next
+                          ? `${tramo.limite.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} – ${next.limite.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+                          : `> ${tramo.limite.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                        return (
+                          <tr key={index} className="border-b border-white/5 hover:bg-white/5">
+                            <td className="py-1.5 pr-4 text-sky-200">{rangeLabel}</td>
+                            <td className="py-1.5 pr-4 text-right">
+                              {tramo.fijo.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                            </td>
+                            <td className="py-1.5 pr-4 text-right text-sky-400">
+                              {(tramo.pct * 100).toFixed(0)}%
+                            </td>
+                            <td className="py-1.5 text-right text-gray-400">
+                              {tramo.limite.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                )}
               </div>
             )}
-            {tab.formulaEs && (
+            {formula && (
               <div className="bg-gray-800/50 p-3 rounded-xl">
-                <code className="text-xs text-gray-300">{lang === 'es' ? tab.formulaEs : tab.formulaEn}</code>
+                <code className="text-xs text-gray-300">{formula}</code>
               </div>
             )}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
