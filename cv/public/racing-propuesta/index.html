@@ -8,6 +8,16 @@
 <title>Data, Analytics & GenAI para clubes de fútbol — MGA Tech Consulting</title>
 <meta name="description" content="Cómo aplicamos ingeniería de datos, computer vision y GenAI a los tres pilares comerciales de un club de fútbol: sponsors, retail y hospitality. Caso aplicado inspirado en Racing Club.">
 <meta name="robots" content="noindex">
+<!-- GA4 (same property as mgatc.com — this page is a standalone static file outside
+     the Next.js app, so it needs its own gtag bootstrap; layout.tsx's config doesn't
+     reach it) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DG0SLT5RY3', { site_section: 'racing-propuesta' });
+</script>
 <style>
 :root{
   --bg:#111827; --bg2:#0b1220; --card:#1f2937; --card2:#182234;
@@ -353,7 +363,7 @@ footer b{color:var(--celeste)}
 <div id="progress"></div>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero" data-section="hero">
   <div class="hero-bg"></div>
   <img class="hero-escudo" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg" alt="" onerror="this.style.display='none'">
   <div class="container">
@@ -371,7 +381,7 @@ footer b{color:var(--celeste)}
 </header>
 
 <!-- PROBLEMAS -->
-<section id="problemas">
+<section id="problemas" data-section="problemas">
   <div class="container">
     <div class="only-soft"><div class="sec-tag reveal">Diagnóstico típico del sector</div></div>
     <div class="only-full"><div class="sec-tag reveal">Lo que escuché en la reunión</div></div>
@@ -453,7 +463,7 @@ footer b{color:var(--celeste)}
 </div>
 
 <!-- SOLUCIÓN 1 -->
-<section id="sol1" class="sol alt">
+<section id="sol1" class="sol alt" data-section="sol1_fundacion_datos">
   <div class="container">
     <div class="sol-head reveal">
       <div class="sol-badge">🏗</div>
@@ -527,7 +537,7 @@ footer b{color:var(--celeste)}
 </section>
 
 <!-- SOLUCIÓN 2 -->
-<section id="sol2" class="sol">
+<section id="sol2" class="sol" data-section="sol2_sponsorship_roi">
   <div class="container">
     <div class="sol-head reveal">
       <div class="sol-badge">📡</div>
@@ -673,7 +683,7 @@ footer b{color:var(--celeste)}
 </div>
 
 <!-- SOLUCIÓN 3 -->
-<section id="sol3" class="sol alt">
+<section id="sol3" class="sol alt" data-section="sol3_academia_conectada">
   <div class="container">
     <div class="sol-head reveal">
       <div class="sol-badge">🛍</div>
@@ -748,7 +758,7 @@ footer b{color:var(--celeste)}
 </section>
 
 <!-- ROADMAP -->
-<section id="roadmap" class="sol">
+<section id="roadmap" class="sol" data-section="roadmap_90dias">
   <div class="container">
     <div class="sec-tag reveal">Plan de ejecución</div>
     <h2 class="sec-title reveal">Roadmap 90 días</h2>
@@ -794,7 +804,7 @@ footer b{color:var(--celeste)}
 
 <!-- MODELO (SOFT) -->
 <div class="only-soft">
-<section id="modelo" class="sol alt">
+<section id="modelo" class="sol alt" data-section="modelo_trabajo">
   <div class="container">
     <div class="sec-tag reveal">Cómo trabajamos</div>
     <h2 class="sec-title reveal">Modelo de colaboración flexible</h2>
@@ -825,7 +835,7 @@ footer b{color:var(--celeste)}
 
 <!-- INVERSIÓN (FULL) -->
 <div class="only-full">
-<section id="inversion" class="sol alt">
+<section id="inversion" class="sol alt" data-section="inversion_pricing">
   <div class="container">
     <div class="sec-tag reveal">Precios transparentes</div>
     <h2 class="sec-title reveal">Inversión por módulo</h2>
@@ -888,7 +898,7 @@ footer b{color:var(--celeste)}
 </div>
 
 <!-- CTA -->
-<section id="contacto" class="cta-sec">
+<section id="contacto" class="cta-sec" data-section="contacto">
   <div class="cta-bg"></div>
   <div class="container cta-box">
     <img class="cta-escudo reveal" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg" alt="Racing Club" onerror="this.style.display='none'">
@@ -923,19 +933,28 @@ footer b{color:var(--celeste)}
 </footer>
 
 <script>
+// ---- GA4 helper (site has its own bootstrap in <head>, see gtag() below) ----
+function gaEvent(name, params){
+  try{ if(typeof gtag === 'function') gtag('event', name, params||{}); }catch(e){}
+}
+
 // ---- GATE ----
 const TARGET_HASH = '477ad43bb10db22bc26b49abe1bfb7295ceb701d8f47f388eb3b3ca6bbad1270';
 async function sha256(msg){
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
   return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
 }
-function setTier(tier){
+function setTier(tier, source){
+  const prevTier = document.body.classList.contains('tier-full') ? 'full' : 'soft';
   document.body.classList.toggle('tier-full', tier==='full');
   try{ localStorage.setItem('mga_racing_view', tier); }catch(e){}
   const lt = document.getElementById('lockToggle');
   const ltTxt = document.getElementById('lockToggleTxt');
   if(tier==='full'){ lt.style.display='flex'; ltTxt.textContent='Vista p\u00fablica'; }
   else { lt.style.display='flex'; ltTxt.textContent='Acceso privado'; }
+  if(prevTier !== tier){
+    gaEvent('tier_change', { tier: tier, source: source||'init', site_section: 'racing-propuesta' });
+  }
 }
 function hideGate(){ document.getElementById('gate').classList.add('hidden'); }
 function showGate(){ document.getElementById('gate').classList.remove('hidden'); document.getElementById('gateInput').value=''; document.getElementById('gateInput').focus(); }
@@ -944,27 +963,86 @@ document.getElementById('gateSubmit').addEventListener('click', async ()=>{
   const val = document.getElementById('gateInput').value.trim();
   const hash = await sha256(val);
   if(hash === TARGET_HASH){
-    setTier('full'); hideGate();
+    gaEvent('gate_passkey_correct', { site_section: 'racing-propuesta' });
+    setTier('full', 'gate_submit'); hideGate();
   } else {
+    gaEvent('gate_passkey_incorrect', { site_section: 'racing-propuesta' });
     const box = document.getElementById('gateBox');
     document.getElementById('gateErr').textContent = 'C\u00f3digo incorrecto.';
     box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
   }
 });
 document.getElementById('gateInput').addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('gateSubmit').click(); });
-document.getElementById('gateSkip').addEventListener('click', ()=>{ setTier('soft'); hideGate(); });
+document.getElementById('gateSkip').addEventListener('click', ()=>{
+  gaEvent('gate_skip', { site_section: 'racing-propuesta' });
+  setTier('soft', 'gate_skip'); hideGate();
+});
 document.getElementById('lockToggle').addEventListener('click', ()=>{
-  if(document.body.classList.contains('tier-full')){ setTier('soft'); }
-  else { showGate(); }
+  if(document.body.classList.contains('tier-full')){ setTier('soft', 'lock_toggle'); }
+  else { gaEvent('lock_toggle_reopen_gate', { site_section: 'racing-propuesta' }); showGate(); }
 });
 
 (function init(){
   let stored = null;
   try{ stored = localStorage.getItem('mga_racing_view'); }catch(e){}
-  if(stored === 'full'){ setTier('full'); hideGate(); }
-  else if(stored === 'soft'){ setTier('soft'); hideGate(); }
-  else { setTier('soft'); /* gate stays visible by default */ }
+  if(stored === 'full'){ setTier('full', 'stored'); hideGate(); }
+  else if(stored === 'soft'){ setTier('soft', 'stored'); hideGate(); }
+  else { setTier('soft', 'init'); /* gate stays visible by default */ }
 })();
+
+// ---- GA4: scroll depth + section view (mirrors ScrollTracker.tsx) ----
+(function(){
+  const SITE_SECTION = 'racing-propuesta';
+  const reportedDepths = new Set();
+  const THRESHOLDS = [25,50,75,90,100];
+  function onScrollDepth(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if(docHeight <= 0) return;
+    const percent = Math.round((scrollTop/docHeight)*100);
+    THRESHOLDS.forEach(threshold=>{
+      if(percent >= threshold && !reportedDepths.has(threshold)){
+        reportedDepths.add(threshold);
+        gaEvent('scroll_depth', { percent_scrolled: threshold, site_section: SITE_SECTION });
+      }
+    });
+  }
+  window.addEventListener('scroll', onScrollDepth, {passive:true});
+
+  const sectionEls = document.querySelectorAll('[data-section]');
+  if(sectionEls.length){
+    const sectionObs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const name = entry.target.getAttribute('data-section') || '';
+          gaEvent('section_view', { section_name: name, site_section: SITE_SECTION });
+          sectionObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.3});
+    sectionEls.forEach(s=>sectionObs.observe(s));
+  }
+})();
+
+// ---- GA4: outbound / contact click tracking ----
+document.addEventListener('click', (e)=>{
+  const redirectBtn = e.target.closest('.mga-redirect a.btn');
+  if(redirectBtn){ gaEvent('outbound_click', {link_type:'mga_redirect_banner', link_url:redirectBtn.href, site_section:'racing-propuesta'}); return; }
+  const headerLogo = e.target.closest('a.logo');
+  if(headerLogo){ gaEvent('outbound_click', {link_type:'header_logo', link_url:headerLogo.href, site_section:'racing-propuesta'}); return; }
+  const footerLogo = e.target.closest('a.foot-logos');
+  if(footerLogo){ gaEvent('outbound_click', {link_type:'footer_logo', link_url:footerLogo.href, site_section:'racing-propuesta'}); return; }
+  const footerCta = e.target.closest('footer a.btn-ghost');
+  if(footerCta){ gaEvent('outbound_click', {link_type:'footer_cta_button', link_url:footerCta.href, site_section:'racing-propuesta'}); return; }
+  const whatsapp = e.target.closest('a[href^="https://wa.me"]');
+  if(whatsapp){ gaEvent('contact_click', {link_type:'whatsapp', site_section:'racing-propuesta'}); return; }
+  const mailCta = e.target.closest('a[href^="mailto:"]');
+  if(mailCta){
+    const tier = document.body.classList.contains('tier-full') ? 'full' : 'soft';
+    gaEvent('contact_click', {link_type:'mailto', tier: tier, site_section:'racing-propuesta'});
+    return;
+  }
+});
 
 // scroll progress + scrollspy
 const prog = document.getElementById('progress');
