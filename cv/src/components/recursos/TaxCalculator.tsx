@@ -14,7 +14,7 @@ interface TaxInputs {
   conyuge: boolean;
   hijos: number;
   hijosIncap: number;
-  alquiler: number; alquilerAnual: boolean;
+  alquiler: number; alquilerAnual: boolean; alquilerAdicional10: boolean;
   domestico: number; domesticoAnual: boolean;
   hipotecario: number; hipotecarioAnual: boolean;
   medicos: number; medicosAnual: boolean;
@@ -39,35 +39,102 @@ interface TaxResult {
   effectiveRate: number;
 }
 
-const SECOND_SEMESTER_UPDATE_PCT = 0.1685;
-const SECOND_SEMESTER_UPDATE_FACTOR = 1 + SECOND_SEMESTER_UPDATE_PCT;
+const OFFICIAL_ANNUAL_2026 = {
+  gni: 6019671.36,
+  deduccion_especial: 28894422.56,
+  conyuge: 5669323.06,
+  hijo: 2859060.31,
+  hijo_incapacitado: 5718120.60,
+  escala: [
+    { limite: 0, fijo: 0, pct: 0.05 },
+    { limite: 2336953.69, fijo: 116847.68, pct: 0.09 },
+    { limite: 4673907.36, fijo: 327173.52, pct: 0.12 },
+    { limite: 7010861.05, fijo: 607607.96, pct: 0.15 },
+    { limite: 10516291.59, fijo: 1133422.54, pct: 0.19 },
+    { limite: 21032583.18, fijo: 3131517.94, pct: 0.23 },
+    { limite: 31548874.77, fijo: 5550265.01, pct: 0.27 },
+    { limite: 47323312.16, fijo: 9809363.10, pct: 0.31 },
+    { limite: 70984968.25, fijo: 17144476.49, pct: 0.35 },
+  ],
+} as const;
 
-/**
- * Estimated Jul-Dec 2026 parameters.
- *
- * ARCA has not published the final tables yet, so only the monetary values
- * updated semi-annually under articles 30 and 94 are adjusted here. Social
- * security caps and deductions with their own update mechanisms remain as
- * provided by the source parameter set.
- */
-function buildEstimatedSecondSemesterParams(params: TaxParams): TaxParams {
+const OFFICIAL_JUL_DEC_2026 = {
+  gni: 5585736.93,
+  deduccion_especial: 26811537.29,
+  conyuge: 5260643.86,
+  hijo: 2652961.90,
+  hijo_incapacitado: 5305923.78,
+  escala: [
+    { limite: 0, fijo: 0, pct: 0.05 },
+    { limite: 2168491.89, fijo: 108424.59, pct: 0.09 },
+    { limite: 4336983.77, fijo: 303588.86, pct: 0.12 },
+    { limite: 6505475.65, fijo: 563807.89, pct: 0.15 },
+    { limite: 9758213.49, fijo: 1051718.57, pct: 0.19 },
+    { limite: 19516426.99, fijo: 2905779.13, pct: 0.23 },
+    { limite: 29274640.48, fijo: 5150168.23, pct: 0.27 },
+    { limite: 43911960.73, fijo: 9102244.70, pct: 0.31 },
+    { limite: 65867941.10, fijo: 15908598.62, pct: 0.35 },
+  ],
+} as const;
+
+const OFFICIAL_CONTRIBUTION_BASES_JULY_2026 = {
+  min: 138757.90,
+  max: 4509567.41,
+} as const;
+
+const OFFICIAL_GENERAL_DEDUCTION_CAPS_2026 = {
+  seguroVida: 753472.14,
+  hipotecario: 20000,
+  sepelio: 996.23,
+} as const;
+
+type OfficialArticle30And94Params = typeof OFFICIAL_ANNUAL_2026 | typeof OFFICIAL_JUL_DEC_2026;
+
+function applyCurrentGeneralParameters(params: TaxParams): TaxParams {
   return {
     ...params,
-    period: 'Jul-Dic 2026 (estimado)',
-    gni: params.gni * SECOND_SEMESTER_UPDATE_FACTOR,
-    deduccion_especial: params.deduccion_especial * SECOND_SEMESTER_UPDATE_FACTOR,
-    conyuge: params.conyuge * SECOND_SEMESTER_UPDATE_FACTOR,
-    hijo: params.hijo * SECOND_SEMESTER_UPDATE_FACTOR,
-    hijo_incapacitado: params.hijo_incapacitado * SECOND_SEMESTER_UPDATE_FACTOR,
-    // Both caps are expressed as a proportion of the annual GNI.
-    alquiler_tope: params.alquiler_tope * SECOND_SEMESTER_UPDATE_FACTOR,
-    educacion_tope: params.educacion_tope * SECOND_SEMESTER_UPDATE_FACTOR,
-    escala: params.escala.map((tramo) => ({
-      ...tramo,
-      limite: tramo.limite * SECOND_SEMESTER_UPDATE_FACTOR,
-      fijo: tramo.fijo * SECOND_SEMESTER_UPDATE_FACTOR,
-    })),
+    aportes_base_min: OFFICIAL_CONTRIBUTION_BASES_JULY_2026.min,
+    aportes_base_max: OFFICIAL_CONTRIBUTION_BASES_JULY_2026.max,
+    alquiler_tope: params.gni,
+    educacion_tope: params.gni * 0.40,
+    seguro_vida_tope: OFFICIAL_GENERAL_DEDUCTION_CAPS_2026.seguroVida,
+    hipotecario_tope: OFFICIAL_GENERAL_DEDUCTION_CAPS_2026.hipotecario,
+    sepelio_tope: OFFICIAL_GENERAL_DEDUCTION_CAPS_2026.sepelio,
   };
+}
+
+function buildOfficialParams(
+  params: TaxParams,
+  official: OfficialArticle30And94Params,
+  period: string
+): TaxParams {
+  return {
+    ...applyCurrentGeneralParameters(params),
+    period,
+    gni: official.gni,
+    deduccion_especial: official.deduccion_especial,
+    conyuge: official.conyuge,
+    hijo: official.hijo,
+    hijo_incapacitado: official.hijo_incapacitado,
+    alquiler_tope: official.gni,
+    educacion_tope: official.gni * 0.40,
+    escala: official.escala.map((tramo) => ({ ...tramo })),
+  };
+}
+
+/**
+ * Official parameters for the 2026 annual/final liquidation published by ARCA.
+ *
+ * The calculator intentionally keeps an annualized average-monthly estimate.
+ * The separate Jul-Dec payroll tables are cumulative by month and require the
+ * employee's year-to-date remuneration, deductions and prior withholdings.
+ */
+function buildOfficialAnnualParams(params: TaxParams): TaxParams {
+  return buildOfficialParams(params, OFFICIAL_ANNUAL_2026, 'Liquidación anual 2026 (oficial)');
+}
+
+function buildOfficialSecondSemesterParams(params: TaxParams): TaxParams {
+  return buildOfficialParams(params, OFFICIAL_JUL_DEC_2026, 'Retenciones Jul-Dic 2026 (oficial)');
 }
 
 function applyScale(taxable: number, params: TaxParams): number {
@@ -87,11 +154,11 @@ function toAnnual(val: number, isAnnual: boolean): number {
 
 function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
   const { grossSalary, extraIncome, includeSAC } = inputs;
-  const meses = includeSAC ? 13 : 12;
+  const salaryPayments = includeSAC ? 13 : 12;
   const MNI_ANUAL = params.gni + params.deduccion_especial;
 
   // 1. Ganancia bruta anual (ANTES de aportes)
-  const annualGross = grossSalary * meses + extraIncome;
+  const annualGross = grossSalary * salaryPayments + extraIncome;
 
   // 2. Aportes con topes de base imponible mensual
   const baseMensual = Math.min(
@@ -99,41 +166,38 @@ function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
     params.aportes_base_max
   );
   const aportesMensuales = baseMensual * params.aportes_pct;
-  const aportesAnuales = aportesMensuales * meses;
+  const aportesAnuales = aportesMensuales * salaryPayments;
 
   // 3. Deducciones personales
-  const dedPersonales =
+  const dedPersonalesBase =
     MNI_ANUAL +
     (inputs.conyuge ? params.conyuge : 0) +
     inputs.hijos * params.hijo +
     inputs.hijosIncap * params.hijo_incapacitado;
+  // ARCA allows an additional twelfth of the applicable personal deductions
+  // when the annual projection includes the complementary annual salary (SAC).
+  const deduccionAdicionalSAC = includeSAC ? dedPersonalesBase / 12 : 0;
+  const dedPersonales = dedPersonalesBase + deduccionAdicionalSAC;
 
-  // 4. Ganancia neta previa a otras deducciones (para calcular topes de médicos/donaciones)
-  const gananciaNetaPrevia = Math.max(0, annualGross - aportesAnuales - dedPersonales);
-  const topeGananciaNeta = gananciaNetaPrevia * params.gn_tope_pct;
-
-  // 5. Otras deducciones con topes exactos AFIP
+  // 4. Otras deducciones con topes oficiales
   const alquilerAnual = toAnnual(inputs.alquiler, inputs.alquilerAnual);
-  const dedAlquiler = Math.min(alquilerAnual * params.alquiler_pct, params.alquiler_tope);
+  const dedAlquiler40 = Math.min(alquilerAnual * params.alquiler_pct, params.alquiler_tope);
+  const dedAlquiler10 = inputs.alquilerAdicional10 ? alquilerAnual * 0.10 : 0;
+  const dedAlquiler = dedAlquiler40 + dedAlquiler10;
 
-  const dedDomestico = toAnnual(inputs.domestico, inputs.domesticoAnual); // sin tope RG 5531/2024
+  const dedDomestico = Math.min(
+    toAnnual(inputs.domestico, inputs.domesticoAnual),
+    params.gni
+  );
 
   const dedHipotecario = Math.min(
     toAnnual(inputs.hipotecario, inputs.hipotecarioAnual),
     params.hipotecario_tope
   );
 
-  const medicosAnual = toAnnual(inputs.medicos, inputs.medicosAnual);
-  const dedMedicos = Math.min(medicosAnual * params.medicos_pct, topeGananciaNeta);
-
   const dedEducacion = Math.min(
     toAnnual(inputs.educacion, inputs.educacionAnual),
     params.educacion_tope
-  );
-
-  const dedDonaciones = Math.min(
-    toAnnual(inputs.donaciones, inputs.donacionesAnual),
-    topeGananciaNeta
   );
 
   const dedSeguroVida = Math.min(
@@ -146,7 +210,26 @@ function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
     params.sepelio_tope
   );
 
-  const dedInsumos = toAnnual(inputs.insumos, inputs.insumosAnual); // sin tope
+  const dedInsumos = toAnnual(inputs.insumos, inputs.insumosAnual);
+
+  // Los topes del 5% se calculan antes de deducir médicos, donaciones y
+  // deducciones personales del artículo 30, pero después de las demás
+  // deducciones generales computables.
+  const deduccionesGeneralesPrevias =
+    dedAlquiler + dedDomestico + dedHipotecario + dedEducacion +
+    dedSeguroVida + dedSepelio + dedInsumos;
+  const gananciaNetaParaTopes = Math.max(
+    0,
+    annualGross - aportesAnuales - deduccionesGeneralesPrevias
+  );
+  const topeGananciaNeta = gananciaNetaParaTopes * params.gn_tope_pct;
+
+  const medicosAnual = toAnnual(inputs.medicos, inputs.medicosAnual);
+  const dedMedicos = Math.min(medicosAnual * params.medicos_pct, topeGananciaNeta);
+  const dedDonaciones = Math.min(
+    toAnnual(inputs.donaciones, inputs.donacionesAnual),
+    topeGananciaNeta
+  );
 
   const dedOtras =
     dedAlquiler + dedDomestico + dedHipotecario + dedMedicos +
@@ -156,9 +239,11 @@ function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
   const totalDeductions = aportesAnuales + dedPersonales + dedOtras;
   const taxableIncome = Math.max(0, annualGross - totalDeductions);
 
-  // 7. Impuesto anual y retención mensual
+  // 7. Impuesto acumulado y promedio mensual. El SAC se incorpora a la
+  // proyección anual, pero su efecto se distribuye entre los 12 meses, como
+  // establece la metodología de doceavas partes de la RG 4003.
   const annualTax = applyScale(taxableIncome, params);
-  const monthlyTax = annualTax / meses;
+  const monthlyTax = annualTax / 12;
   const netMonthly = grossSalary - aportesMensuales - monthlyTax;
   const effectiveRate = grossSalary > 0 ? (monthlyTax / grossSalary) * 100 : 0;
 
@@ -180,7 +265,7 @@ function calculateTax(inputs: TaxInputs, params: TaxParams): TaxResult {
 const DEFAULT_INPUTS: TaxInputs = {
   grossSalary: 2500000, extraIncome: 0, includeSAC: true,
   conyuge: false, hijos: 0, hijosIncap: 0,
-  alquiler: 0, alquilerAnual: true,
+  alquiler: 0, alquilerAnual: true, alquilerAdicional10: false,
   domestico: 0, domesticoAnual: true,
   hipotecario: 0, hipotecarioAnual: true,
   medicos: 0, medicosAnual: true,
@@ -215,12 +300,12 @@ function NumberInput({ label, value, onChange, placeholder, hint }: {
   );
 }
 
-function DeductionRow({ label, value, onChange, isAnnual, onToggleAnnual, annualLabel = 'Anual' }: {
+function DeductionRow({ label, value, onChange, isAnnual, onToggleAnnual, annualLabel = 'Anual', bare = false }: {
   label: string; value: string; onChange: (v: string) => void;
-  isAnnual: boolean; onToggleAnnual: () => void; annualLabel?: string;
+  isAnnual: boolean; onToggleAnnual: () => void; annualLabel?: string; bare?: boolean;
 }) {
   return (
-    <div className="bg-white/5 rounded-xl p-3">
+    <div className={bare ? '' : 'bg-white/5 rounded-xl p-3'}>
       <div className="flex items-center justify-between mb-1.5">
         <label className="text-xs text-gray-400 leading-tight">{label}</label>
         <label className="flex items-center gap-1 cursor-pointer ml-2 shrink-0">
@@ -319,8 +404,16 @@ function DoughnutChart({ netMonthly, aportes, tax }: {
 export default function TaxCalculator() {
   const { lang } = useLanguage();
   const { taxParams, taxScenarios, taxTabs, loading } = useRecursosData();
-  const estimatedTaxParams = useMemo(
-    () => taxParams ? buildEstimatedSecondSemesterParams(taxParams) : null,
+  const previousTaxParams = useMemo(
+    () => taxParams ? applyCurrentGeneralParameters(taxParams) : null,
+    [taxParams]
+  );
+  const secondSemesterTaxParams = useMemo(
+    () => taxParams ? buildOfficialSecondSemesterParams(taxParams) : null,
+    [taxParams]
+  );
+  const officialAnnualTaxParams = useMemo(
+    () => taxParams ? buildOfficialAnnualParams(taxParams) : null,
     [taxParams]
   );
   const [inputs, setInputs] = useState<TaxInputs>(DEFAULT_INPUTS);
@@ -332,6 +425,7 @@ export default function TaxCalculator() {
   });
   const [result, setResult] = useState<TaxResult | null>(null);
   const [previousResult, setPreviousResult] = useState<TaxResult | null>(null);
+  const [annualFinalResult, setAnnualFinalResult] = useState<TaxResult | null>(null);
   const [activeTab, setActiveTab] = useState('paso1');
   const [showDeductions, setShowDeductions] = useState(false);
 
@@ -345,10 +439,11 @@ export default function TaxCalculator() {
   }, []);
 
   const handleCalculate = useCallback(() => {
-    if (!taxParams || !estimatedTaxParams) return;
-    setResult(calculateTax(inputs, estimatedTaxParams));
-    setPreviousResult(calculateTax(inputs, taxParams));
-  }, [inputs, taxParams, estimatedTaxParams]);
+    if (!previousTaxParams || !secondSemesterTaxParams || !officialAnnualTaxParams) return;
+    setResult(calculateTax(inputs, secondSemesterTaxParams));
+    setPreviousResult(calculateTax(inputs, previousTaxParams));
+    setAnnualFinalResult(calculateTax(inputs, officialAnnualTaxParams));
+  }, [inputs, previousTaxParams, secondSemesterTaxParams, officialAnnualTaxParams]);
 
   const loadScenario = (grossSalary: number, conyuge: boolean, hijos: number, hijosIncap: number, alquiler: number, alquilerAnual: boolean, extraIncome: number, includeSAC: boolean) => {
     const newInputs = { ...DEFAULT_INPUTS, grossSalary, conyuge, hijos, hijosIncap, alquiler, alquilerAnual, extraIncome, includeSAC };
@@ -360,24 +455,29 @@ export default function TaxCalculator() {
       domestico: '', hipotecario: '', medicos: '', educacion: '', donaciones: '',
       seguroVida: '', sepelio: '', insumos: '',
     });
-    if (taxParams && estimatedTaxParams) {
-      setResult(calculateTax(newInputs, estimatedTaxParams));
-      setPreviousResult(calculateTax(newInputs, taxParams));
+    if (previousTaxParams && secondSemesterTaxParams && officialAnnualTaxParams) {
+      setResult(calculateTax(newInputs, secondSemesterTaxParams));
+      setPreviousResult(calculateTax(newInputs, previousTaxParams));
+      setAnnualFinalResult(calculateTax(newInputs, officialAnnualTaxParams));
     }
   };
 
   // Recalculate whenever any input changes or params load so result is always in sync.
   useEffect(() => {
-    if (!taxParams || !estimatedTaxParams) return;
-    setResult(calculateTax(inputs, estimatedTaxParams));
-    setPreviousResult(calculateTax(inputs, taxParams));
-  }, [inputs, taxParams, estimatedTaxParams]);
+    if (!previousTaxParams || !secondSemesterTaxParams || !officialAnnualTaxParams) return;
+    setResult(calculateTax(inputs, secondSemesterTaxParams));
+    setPreviousResult(calculateTax(inputs, previousTaxParams));
+    setAnnualFinalResult(calculateTax(inputs, officialAnnualTaxParams));
+  }, [inputs, previousTaxParams, secondSemesterTaxParams, officialAnnualTaxParams]);
 
   const monthlyPocketImpact = result && previousResult
     ? previousResult.monthlyTax - result.monthlyTax
     : 0;
   const rescuedWithholdingPct = previousResult && previousResult.monthlyTax > 0
     ? Math.min(100, Math.max(0, (monthlyPocketImpact / previousResult.monthlyTax) * 100))
+    : 0;
+  const estimatedAnnualSettlement = result && annualFinalResult
+    ? result.annualTax - annualFinalResult.annualTax
     : 0;
 
   if (loading) {
@@ -404,25 +504,25 @@ export default function TaxCalculator() {
             </h3>
             <p className="text-xs text-gray-400">
               {lang === 'es'
-                ? 'Comparación Enero-Junio vs. Julio-Diciembre 2026 · Art. 94 LIG'
-                : 'January-June vs. July-December 2026 comparison · LIG Art. 94'}
+                ? 'Retención mensual promedio con SAC prorrateado · Arts. 30 y 94 LIG'
+                : 'Average monthly withholding with prorated SAC · LIG Arts. 30 and 94'}
             </p>
           </div>
         </div>
         <div className="flex flex-wrap gap-2 mb-3">
           <span className="text-xs px-2.5 py-1 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/20">
-            {lang === 'es' ? 'Actualización estimada: +16,85%' : 'Estimated update: +16.85%'}
+            {lang === 'es' ? 'Tabla oficial Jul-Dic 2026' : 'Official Jul-Dec 2026 table'}
           </span>
           <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-gray-400 border border-white/10">
-            {lang === 'es' ? 'Pendiente de publicación por ARCA' : 'Pending ARCA publication'}
+            {lang === 'es' ? 'Actualización efectiva: +16,8459%' : 'Effective update: +16.8459%'}
           </span>
         </div>
         <div className="flex items-start gap-2 p-3 bg-amber-500/10 rounded-xl border border-amber-500/20">
           <Info size={14} className="text-amber-400 mt-0.5 shrink-0" />
           <p className="text-xs text-gray-300">
             {lang === 'es'
-              ? 'Simulación con proyección de ingresos constantes. Mantiene el cálculo de retención mensual promedio estimada. Los valores del segundo semestre surgen de aplicar el índice conocido del 16,85% y pueden variar por redondeos oficiales.'
-              : 'Simulation with projected constant income. It keeps the estimated average monthly withholding calculation. Second-semester values apply the known 16.85% index and may vary due to official rounding.'}
+              ? 'Estimación sobre 12 meses con ingresos constantes. El SAC se incorpora como 1/12 cada mes, junto con sus aportes y la deducción personal adicional. Usa los parámetros acumulados oficiales de julio-diciembre; el recibo real puede variar por remuneraciones y retenciones previas.'
+              : 'Twelve-month estimate with constant income. SAC is incorporated as 1/12 each month, together with its contributions and additional personal deduction. It uses the official cumulative July-December parameters; actual payroll may vary based on prior income and withholding.'}
           </p>
         </div>
       </div>
@@ -511,7 +611,11 @@ export default function TaxCalculator() {
             />
             <div>
               <span className="text-sm text-gray-300">{lang === 'es' ? 'Incluir SAC/Aguinaldo' : 'Include SAC/Bonus'}</span>
-              <p className="text-xs text-gray-500">{lang === 'es' ? 'Considera la doceava parte del SAC.' : 'Considers one twelfth of the SAC.'}</p>
+              <p className="text-xs text-gray-500">
+                {lang === 'es'
+                  ? 'Prorratea 1/12 del sueldo y sus deducciones en cada uno de los 12 meses.'
+                  : 'Prorates 1/12 of salary and its deductions across each of the 12 months.'}
+              </p>
             </div>
           </label>
 
@@ -568,16 +672,32 @@ export default function TaxCalculator() {
             </button>
             {showDeductions && (
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="bg-white/5 rounded-xl p-3">
+                  <DeductionRow
+                    label={lang === 'es' ? 'Alquiler (40% ded., tope GNI)' : 'Rent (40% ded., MNI cap)'}
+                    value={rawInputs.alquiler}
+                    onChange={(v) => setRaw('alquiler', v, 'alquiler')}
+                    isAnnual={inputs.alquilerAnual}
+                    onToggleAnnual={() => set('alquilerAnual', !inputs.alquilerAnual)}
+                    annualLabel={lang === 'es' ? 'Anual' : 'Annual'}
+                    bare
+                  />
+                  <label className="flex items-start gap-2 mt-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={inputs.alquilerAdicional10}
+                      onChange={(e) => set('alquilerAdicional10', e.target.checked)}
+                      className="mt-0.5 accent-sky-500"
+                    />
+                    <span className="text-[11px] leading-tight text-gray-500">
+                      {lang === 'es'
+                        ? 'Sumar 10% adicional (contrato registrado y factura)'
+                        : 'Add extra 10% (registered contract and invoice)'}
+                    </span>
+                  </label>
+                </div>
                 <DeductionRow
-                  label={lang === 'es' ? 'Alquiler (40% ded., tope GNI)' : 'Rent (40% ded., MNI cap)'}
-                  value={rawInputs.alquiler}
-                  onChange={(v) => setRaw('alquiler', v, 'alquiler')}
-                  isAnnual={inputs.alquilerAnual}
-                  onToggleAnnual={() => set('alquilerAnual', !inputs.alquilerAnual)}
-                  annualLabel={lang === 'es' ? 'Anual' : 'Annual'}
-                />
-                <DeductionRow
-                  label={lang === 'es' ? 'Servicio doméstico (sin tope)' : 'Domestic service (no cap)'}
+                  label={lang === 'es' ? 'Servicio doméstico (tope GNI)' : 'Domestic service (MNI cap)'}
                   value={rawInputs.domestico}
                   onChange={(v) => setRaw('domestico', v, 'domestico')}
                   isAnnual={inputs.domesticoAnual}
@@ -601,7 +721,7 @@ export default function TaxCalculator() {
                   annualLabel={lang === 'es' ? 'Anual' : 'Annual'}
                 />
                 <DeductionRow
-                  label={lang === 'es' ? 'Educación (tope $2.060.721)' : 'Education (cap $2,060,721)'}
+                  label={lang === 'es' ? 'Educación (tope 40% GNI)' : 'Education (cap 40% MNI)'}
                   value={rawInputs.educacion}
                   onChange={(v) => setRaw('educacion', v, 'educacion')}
                   isAnnual={inputs.educacionAnual}
@@ -617,7 +737,7 @@ export default function TaxCalculator() {
                   annualLabel={lang === 'es' ? 'Anual' : 'Annual'}
                 />
                 <DeductionRow
-                  label={lang === 'es' ? 'Seguros vida/retiro (tope $655.000)' : 'Life insurance (cap $655,000)'}
+                  label={lang === 'es' ? 'Seguros vida/retiro (tope $753.472)' : 'Life insurance (cap $753,472)'}
                   value={rawInputs.seguroVida}
                   onChange={(v) => setRaw('seguroVida', v, 'seguroVida')}
                   isAnnual={inputs.seguroVidaAnual}
@@ -634,7 +754,7 @@ export default function TaxCalculator() {
                 />
                 <div className="sm:col-span-2">
                   <DeductionRow
-                    label={lang === 'es' ? 'Insumos de trabajo (sin tope)' : 'Work supplies (no cap)'}
+                    label={lang === 'es' ? 'Equipamiento obligatorio no reintegrado' : 'Mandatory unreimbursed equipment'}
                     value={rawInputs.insumos}
                     onChange={(v) => setRaw('insumos', v, 'insumos')}
                     isAnnual={inputs.insumosAnual}
@@ -670,7 +790,7 @@ export default function TaxCalculator() {
                   </p>
                   <p className="text-lg sm:text-2xl font-bold text-red-200 truncate">{fmt(result.monthlyTax)}</p>
                   <p className="text-xs text-gray-500 mt-1">
-                    {lang === 'es' ? 'Con actualización estimada' : 'With estimated update'}
+                    {lang === 'es' ? 'Promedio de 12 meses · SAC prorrateado' : '12-month average · prorated SAC'}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 min-w-0">
@@ -681,7 +801,7 @@ export default function TaxCalculator() {
                     {fmt(previousResult?.monthlyTax ?? 0)}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    {lang === 'es' ? 'Parámetros enero-junio' : 'January-June parameters'}
+                    {lang === 'es' ? 'Misma fórmula · escala sin actualizar' : 'Same formula · pre-update brackets'}
                   </p>
                 </div>
                 <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 min-w-0">
@@ -702,6 +822,15 @@ export default function TaxCalculator() {
                     </span>
                   </p>
                 </div>
+              </div>
+
+              <div className="mb-5 flex items-start gap-2 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
+                <Info size={14} className="text-sky-300 mt-0.5 shrink-0" />
+                <p className="text-xs text-gray-300">
+                  {lang === 'es'
+                    ? 'El promedio distribuye la retención total proyectada entre 12 meses. Por eso el efecto de Ganancias sobre el aguinaldo ya se va reteniendo durante el año y normalmente queda poco ajuste al cobrar cada cuota del SAC.'
+                    : 'The average spreads projected total withholding over 12 months. This means income tax on the annual bonus is withheld throughout the year, usually leaving only a small adjustment when each SAC installment is paid.'}
+                </p>
               </div>
 
               {/* SVG Doughnut Chart */}
@@ -729,9 +858,33 @@ export default function TaxCalculator() {
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-gray-400 mb-1">
-                    {lang === 'es' ? 'Impuesto Anual Proyectado' : 'Projected Annual Tax'}
+                    {lang === 'es' ? 'Retención Total 2026 Proyectada' : 'Projected Total 2026 Withholding'}
                   </p>
                   <p className="text-base sm:text-xl font-semibold text-gray-200 truncate">{fmt(result.annualTax)}</p>
+                </div>
+                <div className="col-span-2 bg-sky-500/10 border border-sky-500/20 rounded-xl p-4 min-w-0">
+                  <p className="text-xs text-sky-300 mb-1">
+                    {lang === 'es' ? 'Liquidación Anual/Final Estimada' : 'Estimated Annual/Final Liquidation'}
+                  </p>
+                  <p className="text-base sm:text-xl font-semibold text-sky-200 truncate">
+                    {fmt(annualFinalResult?.annualTax ?? 0)}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {estimatedAnnualSettlement > 0
+                      ? (lang === 'es'
+                        ? `Posible reintegro posterior: ${fmt(estimatedAnnualSettlement)}`
+                        : `Potential later refund: ${fmt(estimatedAnnualSettlement)}`)
+                      : estimatedAnnualSettlement < 0
+                        ? (lang === 'es'
+                          ? `Posible retención adicional: ${fmt(Math.abs(estimatedAnnualSettlement))}`
+                          : `Potential additional withholding: ${fmt(Math.abs(estimatedAnnualSettlement))}`)
+                        : (lang === 'es' ? 'Sin ajuste adicional estimado' : 'No additional adjustment estimated')}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {lang === 'es'
+                      ? 'Referencia con la tabla anual oficial y la doceava de deducciones del SAC prevista por ARCA.'
+                      : 'Reference using the official annual table and ARCA’s additional twelfth of SAC deductions.'}
+                  </p>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 min-w-0">
                   <p className="text-xs text-gray-400 mb-1">
@@ -745,7 +898,9 @@ export default function TaxCalculator() {
                   </p>
                   <p className="text-base sm:text-xl font-semibold text-yellow-200 truncate">{fmt(result.aportesMensuales)}</p>
                   <p className="text-xs text-gray-500 mt-1">
-                    {lang === 'es' ? 'Base imponible con topes AFIP aplicados' : 'Taxable base with AFIP caps applied'}
+                    {lang === 'es'
+                      ? 'Tope ANSES julio 2026 aplicado a la proyección'
+                      : 'July 2026 ANSES cap applied to the projection'}
                   </p>
                 </div>
               </div>
@@ -784,8 +939,8 @@ export default function TaxCalculator() {
               <div className="overflow-x-auto">
                 <div className="mb-3 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs text-gray-300">
                   {lang === 'es'
-                    ? 'La columna estimada aplica +16,85% a los límites y montos fijos de la escala vigente. Las alícuotas no cambian.'
-                    : 'The estimated column applies +16.85% to the current bracket limits and fixed amounts. Tax rates remain unchanged.'}
+                    ? 'La columna actualizada usa la escala acumulada oficial aplicable a las retenciones de julio-diciembre 2026. La liquidación anual/final se informa por separado.'
+                    : 'The updated column uses the official cumulative brackets for July-December 2026 withholding. The annual/final liquidation is shown separately.'}
                 </div>
                 <table className="w-full text-xs text-gray-300 border-collapse">
                   <thead>
@@ -794,13 +949,13 @@ export default function TaxCalculator() {
                         {lang === 'es' ? 'Escala Ene-Jun 2026' : 'Jan-Jun 2026 Bracket'}
                       </th>
                       <th className="text-left py-2 pr-4 text-sky-300">
-                        {lang === 'es' ? 'Escala Jul-Dic Estimada' : 'Estimated Jul-Dec Bracket'}
+                        {lang === 'es' ? 'Escala Jul-Dic 2026 Oficial' : 'Official Jul-Dec 2026 Bracket'}
                       </th>
                       <th className="text-right py-2 pr-4 text-gray-400">
                         {lang === 'es' ? 'Fijo Anterior' : 'Previous Fixed'}
                       </th>
                       <th className="text-right py-2 pr-4 text-sky-300">
-                        {lang === 'es' ? 'Fijo Estimado' : 'Estimated Fixed'}
+                        {lang === 'es' ? 'Fijo Oficial' : 'Official Fixed'}
                       </th>
                       <th className="text-right py-2 text-gray-400">%</th>
                     </tr>
@@ -808,21 +963,21 @@ export default function TaxCalculator() {
                   <tbody>
                     {taxParams.escala.map((tramo, i) => {
                       const next = taxParams.escala[i + 1];
-                      const estimatedTramo = estimatedTaxParams?.escala[i];
-                      const estimatedNext = estimatedTaxParams?.escala[i + 1];
+                      const officialTramo = secondSemesterTaxParams?.escala[i];
+                      const officialNext = secondSemesterTaxParams?.escala[i + 1];
                       const rangeLabel = next
                         ? `${tramo.limite.toLocaleString('es-AR')} – ${next.limite.toLocaleString('es-AR')}`
                         : `> ${tramo.limite.toLocaleString('es-AR')}`;
-                      const estimatedRangeLabel = estimatedTramo && estimatedNext
-                        ? `${estimatedTramo.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })} – ${estimatedNext.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })}`
-                        : `> ${(estimatedTramo?.limite ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}`;
+                      const officialRangeLabel = officialTramo && officialNext
+                        ? `${officialTramo.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })} – ${officialNext.limite.toLocaleString('es-AR', { maximumFractionDigits: 2 })}`
+                        : `> ${(officialTramo?.limite ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}`;
                       return (
                         <tr key={i} className="border-b border-white/5 hover:bg-white/5">
                           <td className="py-1.5 pr-4">{rangeLabel}</td>
-                          <td className="py-1.5 pr-4 text-sky-200">{estimatedRangeLabel}</td>
+                          <td className="py-1.5 pr-4 text-sky-200">{officialRangeLabel}</td>
                           <td className="py-1.5 pr-4 text-right">{tramo.fijo.toLocaleString('es-AR')}</td>
                           <td className="py-1.5 pr-4 text-right text-sky-200">
-                            {(estimatedTramo?.fijo ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}
+                            {(officialTramo?.fijo ?? 0).toLocaleString('es-AR', { maximumFractionDigits: 2 })}
                           </td>
                           <td className="py-1.5 text-right text-sky-400">{(tramo.pct * 100).toFixed(0)}%</td>
                         </tr>
