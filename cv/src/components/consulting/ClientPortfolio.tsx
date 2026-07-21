@@ -20,6 +20,25 @@ type ClientSite = {
 
 const CLIENT_SITES: ClientSite[] = [
   {
+    id: 'racing',
+    name: 'Racing Club — Data & GenAI',
+    industry: { es: 'Deportes & Entretenimiento', en: 'Sports & Entertainment' },
+    description: {
+      es: 'Propuesta interactiva de Datos, Analytics y GenAI para el área comercial de Racing Club: fundación de datos, motor de ROI de sponsors con computer vision y unificación omnicanal de la tienda oficial.',
+      en: 'Interactive Data, Analytics & GenAI proposal for Racing Club\'s commercial area: data foundation, sponsorship ROI engine with computer vision, and omnichannel unification of the official store.',
+    },
+    deliverable: {
+      es: 'Propuesta interactiva · Simulador de media value · Dashboards demo · Roadmap 90 días',
+      en: 'Interactive proposal · Media value simulator · Demo dashboards · 90-day roadmap',
+    },
+    tags: ['Data Engineering', 'Computer Vision', 'GenAI', 'BI'],
+    url: '/racing-propuesta/',
+    thumbnail:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Estadio_Presidente_Per%C3%B3n_-_Avellaneda%2C_Racing_Club_venue_%282021%29_3.jpg/1400px-Estadio_Presidente_Per%C3%B3n_-_Avellaneda%2C_Racing_Club_venue_%282021%29_3.jpg',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg',
+    accentColor: 'sky',
+  },
+  {
     id: 'neil',
     name: 'Neil Climatizadores',
     industry: { es: 'Climatización Industrial', en: 'Industrial Cooling' },
