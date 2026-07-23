@@ -1,0 +1,284 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","openyak-open-source-cowork-runs-any-model-owns-filesystem","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","openyak-open-source-cowork-runs-any-model-owns-filesystem","d"],{"children":["__PAGE__?{\"slug\":\"openyak-open-source-cowork-runs-any-model-owns-filesystem\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","openyak-open-source-cowork-runs-any-model-owns-filesystem","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T44e,{"@context":"https://schema.org","@type":"Article","headline":"Arquitectura Fundamental de OpenYak","description":"La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-c...","url":"https://www.mgatc.com/blog/openyak-open-source-cowork-runs-any-model-owns-filesystem/","datePublished":"2026-03-29","dateModified":"2026-03-29","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/openyak-open-source-cowork-runs-any-model-owns-filesystem/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T4dcf,<p>La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-computadora. Sin embargo, la dependencia de infraestructuras en la nube para la ejecución de estos modelos introduce desafíos significativos en términos de privacidad de datos, soberanía de la información y latencia. Además, la integración profunda de la inteligencia artificial con los flujos de trabajo locales del usuario a menudo se ve obstaculizada por la fragmentación de herramientas y la complejidad inherente a la gestión de modelos en el entorno local.</p>
+<p>Es en este contexto que emerge OpenYak, una iniciativa de código abierto que propone un entorno de "Cowork" local diseñado para ejecutar cualquier modelo de inteligencia artificial y operar directamente sobre el sistema de archivos del usuario. Esta propuesta no solo busca democratizar el acceso a la IA avanzada, sino también redefinir la relación entre el usuario, sus datos y las capacidades de inteligencia artificial, devolviendo el control al entorno local.</p>
+<h2>Arquitectura Fundamental de OpenYak</h2>
+<p>OpenYak se concibe como una aplicación de escritorio que encapsula una serie de servicios y abstracciones para facilitar la ejecución de modelos de IA de manera agnóstica y con una profunda integración con el sistema de archivos. Su arquitectura se puede desglosar en varios componentes clave, cada uno con una función específica pero interconectada:</p>
+<h3>El Core Engine de OpenYak</h3>
+<p>El corazón de OpenYak es su Core Engine, un orquestador que gestiona la carga, ejecución y descarga de modelos de IA. Este motor es responsable de:</p>
+<ul>
+<li><strong>Gestión de Modelos</strong>: Provee una API unificada para interactuar con diferentes backends de inferencia (por ejemplo, <code>ollama</code> para modelos GGUF, Hugging Face <code>transformers</code> para modelos basados en PyTorch/TensorFlow, etc.). Se encarga de la descarga de pesos de modelos, la inicialización del runtime y la asignación de recursos.</li>
+<li><strong>Orquestación de Tareas (Cowork Tasks/Skills)</strong>: Define y ejecuta "Skills" o "Cowork Tasks", que son unidades de lógica encapsulada que combinan uno o más modelos de IA con acceso controlado al sistema de archivos y otras herramientas.</li>
+<li><strong>Gestión de Recursos</strong>: Monitorea y asigna recursos de hardware (CPU, GPU, RAM) de manera eficiente para evitar conflictos entre modelos o tareas concurrentes. Implementa mecanismos de descarga y carga perezosa para optimizar el uso de memoria VRAM.</li>
+<li><strong>Seguridad y Permisos</strong>: Es el encargado de hacer cumplir las políticas de acceso al sistema de archivos y otras operaciones sensibles, garantizando que los modelos y las tareas operen dentro de los límites definidos por el usuario.</li>
+</ul>
+<h3>La Interfaz de Usuario (UI/UX)</h3>
+<p>La aplicación de escritorio de OpenYak provee la interfaz principal para el usuario. Esta interfaz permite:</p>
+<ul>
+<li><strong>Configuración y Gestión de Modelos</strong>: Permite al usuario descubrir, descargar, configurar y activar/desactivar modelos de diferentes proveedores o formatos.</li>
+<li><strong>Creación y Ejecución de Tareas</strong>: Facilita la definición de "Cowork Tasks" o la selección de "Skills" predefinidos, especificando los parámetros de entrada y los modelos a utilizar.</li>
+<li><strong>Visualización de Resultados</strong>: Muestra los resultados de las operaciones de IA, incluyendo logs, texto generado, diferencias de código, etc.</li>
+<li><strong>Control de Acceso al Sistema de Archivos</strong>: Presenta al usuario solicitudes de permisos de acceso al sistema de archivos por parte de las tareas, garantizando la transparencia y el control.</li>
+</ul>
+<h3>Adaptadores de Modelos y Sistema de Plugins</h3>
+<p>Para cumplir con la promesa de "ejecutar cualquier modelo", OpenYak emplea un sistema de adaptadores y plugins.</p>
+<ul>
+<li><strong>Adaptadores de Modelos</strong>: Son módulos que traducen las llamadas de la API interna de OpenYak a las API específicas de cada runtime de modelo (e.g., <code>ollama</code> REST API, <code>llama.cpp</code> bindings, <code>transformers</code> Python API). Esto abstrae la complejidad de la inferencia para los desarrolladores de "Skills".</li>
+<li><strong>Sistema de Plugins/Skills</strong>: Permite a la comunidad y a los usuarios desarrollar nuevas "Skills" o "Cowork Tasks" que extienden la funcionalidad de OpenYak. Estos plugins pueden ser scripts Python, ejecutables compilados o configuraciones que definen un flujo de trabajo de IA.</li>
+</ul>
+<h3>Integración Profunda con el Sistema de Archivos</h3>
+<p>Este es quizás el diferenciador más significativo de OpenYak. La plataforma está diseñada para interactuar directamente con el sistema de archivos local del usuario, bajo un estricto control. Esta integración no es una mera lectura de archivos, sino una capacidad para:</p>
+<ul>
+<li><strong>Indexación y Contextualización</strong>: Los modelos pueden acceder y procesar grandes volúmenes de datos locales (documentos, código fuente, registros, bases de datos locales) para construir un contexto rico y relevante para sus tareas.</li>
+<li><strong>Manipulación del Sistema de Archivos</strong>: Ciertas "Skills" pueden solicitar permisos para crear, modificar o eliminar archivos y directorios, permitiendo a la IA realizar acciones concretas como refactorizar código, generar informes o reorganizar documentos.</li>
+<li><strong>Auditoría y Reversión</strong>: Dado el potencial impacto, la integración del sistema de archivos debe incluir mecanismos de auditoría para rastrear las acciones de la IA y, idealmente, funcionalidades de reversión o versionado.</li>
+</ul>
+<h2>Funcionamiento de OpenYak: Un Profundo Análisis Técnico</h2>
+<h3>Ejecución Local de Modelos: Abstracción y Optimización</h3>
+<p>La capacidad de OpenYak para ejecutar modelos localmente se basa en una capa de abstracción robusta y una optimización cuidadosa del hardware disponible.</p>
+<h4>Abstracción de Backends de Inferencias</h4>
+<p>OpenYak no reinventa la rueda de la inferencia de modelos. En cambio, se integra con soluciones existentes y probadas. Por ejemplo, para modelos basados en el formato GGUF (que son eficientes para CPU y GPU de consumo), OpenYak probablemente utiliza o abstrae la interacción con:</p>
+<ul>
+<li><strong>Ollama</strong>: Una herramienta popular para ejecutar LLMs de código abierto localmente, proveyendo una API REST que OpenYak puede consumir.</li>
+<li><strong><code>llama.cpp</code></strong>: La librería subyacente que <code>ollama</code> a menudo utiliza, directamente o a través de bindings para otros lenguajes.</li>
+<li><strong>Hugging Face <code>transformers</code> localmente</strong>: Para modelos más complejos o específicos que requieren el ecosistema de PyTorch o TensorFlow, OpenYak puede configurar entornos Python aislados para ejecutar el pipeline de inferencia.</li>
+</ul>
+<p>La clave es que, desde la perspectiva de un desarrollador de "Skills" en OpenYak, la interacción con un modelo es uniforme, independientemente del backend. Esto se logra a través de una API común, por ejemplo:</p>
+<pre><code class="language-python"># openyak_api.py (Conceptual internal API)
+class ModelClient:
+    def __init__(self, model_id: str):
+        self._model_config = OpenYakCore.get_model_config(model_id)
+        self._backend = self._initialize_backend(self._model_config)
+
+    def _initialize_backend(self, config):
+        if config["provider"] == "ollama":
+            return OllamaBackend(config["model_name"], config["host"], config["port"])
+        elif config["provider"] == "transformers":
+            return TransformersBackend(config["model_path"], config["device"])
+        # ... otros backends
+        else:
+            raise ValueError(f"Unknown model provider: {config['provider']}")
+
+    def generate(self, prompt: str, **kwargs) -> dict:
+        """
+        Genera una respuesta del modelo.
+        :param prompt: El texto de entrada para el modelo.
+        :param kwargs: Parámetros adicionales para la generación (temperatura, max_tokens, etc.).
+        :return: Un diccionario con la respuesta y metadatos.
+        """
+        return self._backend.inference(prompt, **kwargs)
+
+    def embed(self, text: str) -> list:
+        """
+        Genera embeddings para el texto.
+        :param text: El texto a embeber.
+        :return: Una lista de floats representando el embedding.
+        """
+        if hasattr(self._backend, 'embed'):
+            return self._backend.embed(text)
+        raise NotImplementedError("Embedding not supported by this model backend.")
+
+# Ejemplo de uso en un Skill (conceptual)
+# from openyak_api import ModelClient
+# model = ModelClient("my_configured_llm_id")
+# response = model.generate("Explícame la computación cuántica.", max_tokens=200)
+# print(response["text"])
+</code></pre>
+<h4>Gestión de Hardware y Optimización</h4>
+<p>La ejecución local de modelos requiere una gestión astuta de los recursos.</p>
+<ul>
+<li><strong>Aceleración GPU</strong>: OpenYak debe detectar y utilizar GPUs disponibles (NVIDIA CUDA, AMD ROCm, Apple Metal) para la inferencia, aprovechando frameworks como <code>cuBLAS</code> o <code>clBLAST</code> vía <code>llama.cpp</code> o directamente con <code>PyTorch</code>/<code>TensorFlow</code>. La configuración de un modelo especificaría si se debe intentar la aceleración GPU y la cantidad de capas del modelo a descargar en la GPU.</li>
+<li><strong>Cuantificación</strong>: Para modelos grandes, la cuantificación (por ejemplo, a 4-bit o 8-bit) es crucial para reducir el uso de VRAM y RAM, permitiendo que modelos más grandes se ejecuten en hardware de consumo. OpenYak gestiona la carga de estos modelos cuantificados.</li>
+<li><strong>Gestión de Memoria</strong>: Los modelos pueden ser grandes consumidores de RAM y VRAM. OpenYak implementa estrategias para:
+<ul>
+<li><strong>Carga y descarga perezosa</strong>: Los modelos se cargan solo cuando son necesarios y se descargan si los recursos son escasos o han estado inactivos por un tiempo.</li>
+<li><strong>Compartir recursos</strong>: Si es posible, múltiples "Skills" podrían compartir una instancia del mismo modelo en memoria.</li>
+<li><strong>Aislamiento de procesos</strong>: Cada instancia de modelo podría ejecutarse en un proceso separado para robustez y gestión de recursos más granular.</li>
+</ul>
+</li>
+</ul>
+<h3>Integración con el Sistema de Archivos: Un Enfoque de Soberanía de Datos</h3>
+<p>El concepto de "owning your filesystem" (poseer tu sistema de archivos) se refiere a la capacidad de OpenYak para operar <em>directamente</em> sobre los datos del usuario <em>en su máquina local</em>, sin requerir que los datos sean subidos a la nube. Esto tiene implicaciones profundas para la privacidad y la eficiencia.</p>
+<h4>Mecanismos de Acceso Controlado</h4>
+<p>OpenYak implementa un modelo de permisos explícito para el acceso al sistema de archivos. Cuando un "Skill" requiere acceso a archivos o directorios, debe declararlo en su manifiesto. El Core Engine de OpenYak intercepta estas solicitudes y las presenta al usuario para su aprobación.</p>
+<pre><code class="language-yaml"># openyak_skill_manifest.yaml
+skill_name: "DocumentSummarizer"
+description: "Summarizes PDF and text documents in a specified directory."
+model_requirements:
+  - id: "summarizer-llm"
+    provider: "ollama"
+    model_name: "llama3:8b-instruct-q4_K_M"
+    min_memory_gb: 8
+
+filesystem_access:
+  read_only_dirs:
+    - "{user_home}/Documents" # Permite leer documentos del usuario
+    - "./data" # Permite leer el subdirectorio 'data' relativo al skill
+  read_write_dirs:
+    - "{user_home}/Summaries" # Permite escribir resúmenes en un directorio específico
+  allowed_file_types:
+    - ".pdf"
+    - ".txt"
+    - ".md"
+</code></pre>
+<p>El Core Engine de OpenYak expone una API de sistema de archivos abstraída para los "Skills":</p>
+<pre><code class="language-python"># openyak_api.py (Conceptual internal API para filesystem)
+class FilesystemContext:
+    def __init__(self, skill_id: str):
+        self._permissions = OpenYakCore.get_skill_permissions(skill_id)
+
+    def list_files(self, path: str, recursive: bool = False, extensions: list = None) -> list:
+        """Lista archivos dentro de un path permitido."""
+        # Internamente verifica permisos _permissions
+        pass
+
+    def read_file(self, path: str) -> str:
+        """Lee el contenido de un archivo permitido."""
+        # Internamente verifica permisos _permissions y allowed_file_types
+        pass
+
+    def write_file(self, path: str, content: str, overwrite: bool = False):
+        """Escribe contenido a un archivo permitido."""
+        # Internamente verifica permisos _permissions y allowed_file_types
+        pass
+
+    def exists(self, path: str) -> bool:
+        """Verifica la existencia de un archivo o directorio."""
+        pass
+
+    # ... otras operaciones como mkdir, rmdir, etc., con verificación de permisos
+</code></pre>
+<h4>Casos de Uso del Acceso al Sistema de Archivos</h4>
+<ul>
+<li><strong>Análisis de Código Fuente</strong>: Un modelo puede leer el codebase local de un proyecto, identificar patrones, sugerir refactorizaciones o generar tests.</li>
+<li><strong>Resumen de Documentos Locales</strong>: Procesar colecciones de PDFs, artículos o correos electrónicos almacenados en el disco para generar resúmenes o extraer información clave.</li>
+<li><strong>Generación de Contenido Contextual</strong>: Un modelo puede generar un nuevo documento (por ejemplo, un informe) basándose en la información extraída de otros archivos locales, manteniendo la coherencia y el contexto.</li>
+<li><strong>Automatización de Tareas</strong>: Crear agentes que interactúan con el sistema de archivos para organizar, renombrar o mover archivos basándose en su contenido o metadatos.</li>
+</ul>
+<h4>Consideraciones de Seguridad</h4>
+<p>La interacción profunda con el sistema de archivos exige medidas de seguridad robustas:</p>
+<ul>
+<li><strong>Sandboxing</strong>: Los "Skills" deben ejecutarse en entornos aislados (contenedores ligeros, procesos con permisos restringidos) para limitar el daño potencial de un modelo o "Skill" malicioso o erróneo.</li>
+<li><strong>Auditoría y Logs</strong>: Cada operación de escritura o modificación de archivos debe ser registrada, con la posibilidad de mostrar al usuario un historial de cambios.</li>
+<li><strong>Control de Versiones Integrado (Opcional)</strong>: Para "Skills" que modifican código o documentos críticos, la integración con sistemas de control de versiones (Git) o copias de seguridad incrementales podría ofrecer una capa adicional de seguridad.</li>
+</ul>
+<h3>Modelo de Plugins y Extensibilidad</h3>
+<p>El diseño de plugins de OpenYak es fundamental para su adaptabilidad. Los "Skills" son plugins que encapsulan la lógica de IA y las interacciones con el sistema de archivos.</p>
+<ul>
+<li><strong>Estructura de un Plugin</strong>: Un plugin típico podría consistir en:
+<ul>
+<li>Un archivo de manifiesto (YAML o JSON) que declara el nombre del Skill, su descripción, modelos requeridos, y permisos de acceso al sistema de archivos.</li>
+<li>Uno o más scripts (Python, JavaScript, etc.) que implementan la lógica del Skill, utilizando la API de OpenYak para interactuar con modelos y el sistema de archivos.</li>
+<li>Dependencias adicionales (librerías Python, ejecutables auxiliares) que se gestionan en un entorno aislado.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-yaml"># Ejemplo de Manifiesto de un Plugin/Skill
+name: "CodeReviewer"
+version: "0.1.0"
+description: "Performs an AI-powered code review on specified Python files."
+author: "OpenYak Community"
+license: "MIT"
+entrypoint: "review_code.py" # Script principal del plugin
+
+model_requirements:
+  - id: "code_analyzer"
+    provider: "ollama"
+    model_name: "codellama:34b-instruct-q4_K_M"
+    min_memory_gb: 24 # Requiere un modelo grande
+    temperature: 0.2
+
+filesystem_access:
+  read_only_dirs:
+    - "{current_project_root}" # Acceso de lectura al directorio raíz del proyecto
+  read_write_dirs:
+    # No write access for a pure reviewer, but could be added for auto-fixing
+    # - "{current_project_root}/suggestions.md" 
+  allowed_file_types:
+    - ".py"
+    - ".ipynb"
+
+required_tools:
+  - "git" # Si el skill necesita interactuar con Git
+</code></pre>
+<ul>
+<li><strong>Ciclo de Vida del Plugin</strong>: OpenYak gestionaría la instalación, actualización y desinstalación de plugins, asegurando que sus entornos de ejecución sean consistentes y aislados. Esto incluye la gestión de dependencias Python mediante <code>venv</code> o <code>conda</code> para evitar conflictos.</li>
+</ul>
+<h2>Casos de Uso Prácticos y Ejemplos de Implementación</h2>
+<h3>Desarrollo de Software Asistido por IA</h3>
+<p>Un caso de uso primordial para OpenYak es la asistencia a desarrolladores.</p>
+<ul>
+<li><strong>Generación y Refactorización de Código</strong>: Un "Skill" puede tomar un archivo de código existente, analizarlo con un LLM como CodeLlama o LlamaCode, y proponer refactorizaciones para mejorar la legibilidad, el rendimiento o la seguridad.</li>
+<li><strong>Documentación Automática</strong>: Leer el código fuente y generar automáticamente <code>docstrings</code>, comentarios o incluso secciones de documentación en Markdown, basándose en el contexto del proyecto.</li>
+<li><strong>Análisis de Seguridad y Detección de Bugs</strong>: Escanear el código en busca de vulnerabilidades conocidas o patrones de bugs, reportando los hallazgos directamente en el entorno de desarrollo local.</li>
+</ul>
+<pre><code class="language-python"># review_code.py (Script de un Skill 'CodeReviewer' conceptual)
+import os
+from openyak_api import OpenYakAPI
+
+def review_code(file_path: str, api: OpenYakAPI):
+    model = api.get_model_client("code_analyzer")
+    fs = api.get_filesystem_context("CodeReviewer")
+    logger = api.get_ui_logger()
+
+    if not fs.exists(file_path):
+        logger.error(f"Error: El archivo {file_path} no existe.")
+        return
+
+    if not file_path.endswith(".py"):
+        logger.warning(f"Advertencia: El archivo {file_path} no es un archivo Python. Saltando.")
+        return
+
+    code_content = fs.read_file(file_path)
+    
+    prompt = f"""Realiza una revisión de código exhaustiva para el siguiente código Python.
+    Identifica posibles errores, vulnerabilidades de seguridad, ineficiencias, problemas de estilo (PEP 8)
+    y sugiere mejoras detalladas. Organiza tu respuesta en secciones: Errores, Vulnerabilidades, Rendimiento, Estilo, Sugerencias Generales.
+    
+    Código de {file_path}:
+    ```python
+    {code_content}
+    ```
+    """
+    
+    logger.info(f"Revisando código en {file_path}...")
+    
+    response = model.generate(prompt, max_tokens=4096, temperature=0.3)
+    
+    review_output = response["text"]
+    logger.success(f"Revisión completada para {file_path}:\n{review_output}")
+
+    # Opcional: Escribir el informe de revisión a un archivo
+    output_dir = os.path.dirname(file_path) # o un directorio de informes configurado
+    report_path = os.path.join(output_dir, f"{os.path.basename(file_path)}_review.md")
+    # fs.write_file(report_path, review_output) # Requiere permiso de escritura si se activa
+    # logger.info(f"Informe de revisión guardado en {report_path}")
+
+# La función principal que OpenYak invocaría
+# if __name__ == "__main__":
+#     # Esto sería manejado por el Core Engine de OpenYak, pasando el camino y la API
+#     # review_code("/path/to/my/project/my_module.py", OpenYakAPI())
+#     pass
+</code></pre>
+<h3>Análisis y Resumen de Datos Locales</h3>
+<ul>
+<li><strong>Investigación y Educación</strong>: Resum</li>
+</ul>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Arquitectura Fundamental de OpenYak"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-c..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"29 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"13 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Arquitectura Fundamental de OpenYak | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-c..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/openyak-open-source-cowork-runs-any-model-owns-filesystem/"}],["$","meta","11",{"property":"og:title","content":"Arquitectura Fundamental de OpenYak"}],["$","meta","12",{"property":"og:description","content":"La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-c..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/openyak-open-source-cowork-runs-any-model-owns-filesystem/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Arquitectura Fundamental de OpenYak"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-03-29"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Arquitectura Fundamental de OpenYak"}],["$","meta","25",{"name":"twitter:description","content":"La proliferación de modelos de lenguaje grandes (LLMs) y modelos de lenguaje pequeños (SLMs) ha transformado radicalmente el panorama de la interacción humano-c..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Arquitectura Fundamental de OpenYak"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

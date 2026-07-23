@@ -1,0 +1,215 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","ramain-yc-w26-is-hiring","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","ramain-yc-w26-is-hiring","d"],{"children":["__PAGE__?{\"slug\":\"ramain-yc-w26-is-hiring\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","ramain-yc-w26-is-hiring","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T41d,{"@context":"https://schema.org","@type":"Article","headline":"El Ecosistema de Investigación y Desarrollo en AI/ML","description":"En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define ...","url":"https://www.mgatc.com/blog/ramain-yc-w26-is-hiring/","datePublished":"2026-03-31","dateModified":"2026-03-31","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/ramain-yc-w26-is-hiring/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T4556,<p>En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define la frontera actual del progreso tecnológico. El rol de un Ingeniero de Investigación de AI/ML, particularmente en entornos dinámicos como los que se encuentran en startups innovadoras respaldadas por aceleradoras como Y Combinator (e.g., RamAIn), es pivotal para traducir los avances teóricos en sistemas robustos y de alto rendimiento. Este perfil no se limita a la aplicación de modelos existentes, sino que abarca la concepción, el diseño experimental, la optimización y la implementación de arquitecturas algorítmicas novedosas, operando en la intersección de la ciencia de datos, la ingeniería de software y la informática de alto rendimiento.</p>
+<h2>El Ecosistema de Investigación y Desarrollo en AI/ML</h2>
+<p>El ciclo de vida de un producto de inteligencia artificial, especialmente uno que aspira a redefinir un dominio, es inherentemente iterativo y multifacético. Comienza con la identificación de un problema, seguido de una fase intensiva de investigación para explorar soluciones algorítmicas. Esta fase no es puramente académica; exige una comprensión profunda de las limitaciones computacionales y de datos. Un Ingeniero de Investigación de AI/ML actúa como el puente crítico entre el "qué es posible" en el laboratorio y el "qué es viable" en producción.</p>
+<h3>Desafíos Intrínsecos en la Convergencia de Investigación y Producción</h3>
+<ol>
+<li><strong>Escalabilidad Algorítmica y Computacional</strong>: Los modelos de AI/ML de última generación, como los modelos de lenguaje grandes (LLMs), los modelos de difusión o las arquitecturas de transformadores para visión, a menudo requieren cantidades masivas de datos y recursos computacionales para su entrenamiento y ajuste fino. Diseñar algoritmos que sean eficientes tanto en tiempo de entrenamiento como en inferencia, y que puedan distribuirse a través de clústeres heterogéneos, es un reto fundamental.</li>
+<li><strong>Gestión de Datos a Gran Escala</strong>: La calidad y la cantidad de los datos son determinantes para el éxito de cualquier sistema de AI/ML. Un ingeniero de investigación debe no solo ser capaz de procesar y transformar petabytes de datos, sino también de desarrollar estrategias para la aumentación de datos, la síntesis y la curación que sean específicas para el problema en cuestión y que mitiguen sesgos.</li>
+<li><strong>Reproducibilidad y Experimentación Sistemática</strong>: La investigación en AI/ML es inherentemente experimental. Asegurar que los experimentos sean reproducibles, que las métricas de rendimiento se rastreen de manera consistente y que los resultados se puedan comparar rigurosamente es crucial para validar hipótesis y avanzar de manera efectiva. Esto requiere una infraestructura robusta para el seguimiento de experimentos, la gestión de versiones de código y datos, y la orquestación de flujos de trabajo.</li>
+<li><strong>Optimización de Modelos para la Inferencia</strong>: Un modelo que funciona bien en un entorno de investigación no siempre es adecuado para la producción. Esto implica la optimización de la latencia, el rendimiento y el consumo de recursos (CPU, GPU, memoria) del modelo a través de técnicas como la cuantificación, la poda de red (pruning), la destilación de conocimiento o el uso de aceleradores de hardware especializados.</li>
+<li><strong>Desarrollo de Sistemas Robustos y Resilientes</strong>: Los sistemas de AI/ML deben ser capaces de manejar datos ruidosos, entradas inesperadas y fallos de infraestructura. La resiliencia se logra a través de una combinación de diseño algorítmico robusto, técnicas de manejo de errores y arquitecturas de microservicios tolerantes a fallos.</li>
+</ol>
+<h2>Competencias Técnicas Fundamentales</h2>
+<p>El perfil de un Ingeniero de Investigación de AI/ML exige un dominio profundo de múltiples dominios técnicos, que van desde los fundamentos matemáticos hasta las complejidades de la ingeniería de sistemas distribuidos.</p>
+<h3>Arquitecturas de Modelos y Algoritmos Avanzados</h3>
+<p>Se espera una comprensión exhaustiva de las arquitecturas neuronales contemporáneas y su evolución. Esto incluye:</p>
+<ul>
+<li><strong>Redes de Transformadores</strong>: Dominio de la arquitectura <em>self-attention</em>, variantes como BERT, GPT, T5, y su aplicación en NLP, visión (ViT) y otras modalidades.</li>
+<li><strong>Redes Generativas Antagónicas (GANs) y Modelos de Difusión</strong>: Conceptos subyacentes, algoritmos de entrenamiento (e.g., DDPM, Stable Diffusion) y sus aplicaciones en la generación de datos.</li>
+<li><strong>Redes Neuronales Gráficas (GNNs)</strong>: Fundamentos y aplicaciones en el análisis de datos relacionales, sistemas de recomendación y química computacional.</li>
+<li><strong>Modelos Bayesianos y de Aprendizaje por Refuerzo</strong>: Cuando el problema lo requiere, entender los principios de inferencia probabilística y la optimización secuencial.</li>
+</ul>
+<p>El dominio se extiende a la capacidad de leer y comprender <em>papers</em> de investigación de vanguardia, replicar resultados y proponer modificaciones o nuevas arquitecturas basadas en un análisis crítico.</p>
+<h3>Ingeniería de Datos para AI/ML</h3>
+<p>La "Data-Centric AI" es una filosofía que enfatiza la mejora continua de los datos como la principal palanca para el rendimiento de AI.</p>
+<ul>
+<li><strong>Pipelines de Datos Escalables</strong>: Diseño e implementación de flujos de trabajo de ingesta, procesamiento, transformación y almacenamiento de datos utilizando herramientas como Apache Spark, Dask, o frameworks específicos de nube (e.g., Google Dataflow, AWS Glue).</li>
+<li><strong>Estrategias de Aumentación y Curación</strong>: Desarrollo de algoritmos para expandir conjuntos de datos escasos o desequilibrados (e.g., <em>mixup</em>, <em>cutmix</em>, transformaciones generativas), y técnicas para la identificación y corrección de datos ruidosos o anómalos.</li>
+<li><strong>Ingeniería de Características (Feature Engineering)</strong>: Aunque el <em>deep learning</em> reduce la dependencia de la ingeniería manual de características, para muchos problemas, especialmente con datos estructurados o series temporales, sigue siendo crucial. Esto incluye el conocimiento de técnicas de reducción de dimensionalidad (PCA, UMAP) y selección de características.</li>
+</ul>
+<h3>MLOps y Experimentación Rigurosa</h3>
+<p>La transición de la investigación al desarrollo y finalmente a la producción exige una disciplina operativa.</p>
+<ul>
+<li><strong>Seguimiento de Experimentos</strong>: Uso de plataformas como MLflow, Weights &#x26; Biases (W&#x26;B) o Comet ML para registrar parámetros, métricas, artefactos (modelos, <em>checkpoints</em>) y visualizaciones de los experimentos.</li>
+<li><strong>Gestión de Versiones</strong>: Control de versiones de código (Git), datasets (DVC, Pachyderm) y modelos (MLflow Models, S3/GCS versioning).</li>
+<li><strong>Contenerización y Orquestación</strong>: Dominio de Docker para el empaquetado de entornos y de Kubernetes para la orquestación de cargas de trabajo distribuidas, especialmente para el entrenamiento y la inferencia.</li>
+<li><strong>Flujos de Trabajo de CI/CD para ML</strong>: Integración continua y despliegue continuo específicos para modelos de ML, asegurando que las actualizaciones de código o modelo se prueben y desplieguen automáticamente.</li>
+</ul>
+<h3>Computación Distribuida y de Alto Rendimiento</h3>
+<p>Para entrenar modelos de vanguardia, la capacidad de distribuir la carga de trabajo es indispensable.</p>
+<ul>
+<li><strong>Frameworks de Entrenamiento Distribuido</strong>: Dominio de PyTorch Distributed (DDP, RPC), TensorFlow Distributed, Horovod o Ray para el entrenamiento en clústeres de GPUs.</li>
+<li><strong>Optimización de Rendimiento</strong>: Comprensión de las arquitecturas de GPU, NVLink, y técnicas de optimización como la mezcla de precisión (FP16), la gradient accumulation, y la elección de optimizadores eficientes.</li>
+<li><strong>Gestión de Recursos</strong>: Uso de Slurm, Kubernetes o plataformas de nube para la asignación eficiente de recursos computacionales.</li>
+</ul>
+<h3>Ética en AI y Explicabilidad (XAI)</h3>
+<p>Más allá del rendimiento, la confianza y la responsabilidad son pilares.</p>
+<ul>
+<li><strong>Mitigación de Sesgos</strong>: Técnicas para identificar y reducir sesgos en los datos de entrenamiento y las predicciones del modelo.</li>
+<li><strong>Explicabilidad</strong>: Uso de métodos como LIME, SHAP, o <em>attention maps</em> para entender las decisiones del modelo y comunicarlas de manera efectiva.</li>
+<li><strong>Privacidad</strong>: Consideraciones sobre el entrenamiento con privacidad diferencial o el uso de técnicas federadas.</li>
+</ul>
+<h2>Un Ejemplo Práctico: Optimización de Modelos de Lenguaje para un Dominio Específico</h2>
+<p>Consideremos el problema de adaptar un modelo de lenguaje grande (LLM) pre-entrenado a un dominio altamente especializado, como la documentación técnica de una industria específica, para tareas de generación de código o respuesta a preguntas.</p>
+<p>El proceso implica varias etapas críticas donde el Ingeniero de Investigación de AI/ML aporta valor sustancial:</p>
+<ol>
+<li>
+<p><strong>Curación de Datos de Dominio</strong>: Identificar y recopilar volúmenes significativos de texto y código relevante, limpiarlos, normalizarlos y estructurarlos para el entrenamiento. Esto puede implicar el uso de técnicas de scraping web avanzado, extracción de información de PDFs o el procesamiento de bases de datos internas.</p>
+<pre><code class="language-python">import pandas as pd
+from datasets import load_dataset
+import re
+
+def preprocess_text(text):
+    text = re.sub(r'\s+', ' ', text).strip() # Normalizar espacios en blanco
+    text = text.sub(r'[^a-zA-Z0-9\s.,;\'"!?\-]', '', text) # Limpieza básica de caracteres
+    return text
+
+# Ejemplo de carga y preprocesamiento de un dataset sintético o de pequeña escala
+# En un entorno real, esto involucraría ETL robusto con Spark/Dask
+raw_data = [
+    {"id": 1, "text": "La función `calculate_checksum` es crítica para la integridad de los datos."},
+    {"id": 2, "text": "Implemente la interfaz `IServiceProvider` para la inyección de dependencias."},
+    {"id": 3, "text": "Los logs indican un error en el módulo de autenticación: `AUTH_FAILURE_001`."},
+]
+df = pd.DataFrame(raw_data)
+df['processed_text'] = df['text'].apply(preprocess_text)
+
+# Convertir a formato Dataset de Hugging Face
+from datasets import Dataset
+domain_dataset = Dataset.from_pandas(df)
+
+print(domain_dataset[0]['processed_text'])
+</code></pre>
+</li>
+<li>
+<p><strong>Estrategias de Fine-tuning</strong>: Decidir entre <em>full fine-tuning</em>, <em>parameter-efficient fine-tuning</em> (PEFT) como LoRA o QLoRA, o técnicas de <em>prompt engineering</em> avanzadas. Para LLMs, PEFT es a menudo preferible debido a los requisitos computacionales.</p>
+<pre><code class="language-python">from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, Trainer
+from peft import LoraConfig, get_peft_model, TaskType
+import torch
+
+# Cargar tokenizer y modelo base
+model_name = "mistralai/Mistral-7B-v0.1" # Ejemplo de un LLM base
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.bfloat16)
+
+# Configuración de LoRA
+lora_config = LoraConfig(
+    r=8,
+    lora_alpha=16,
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj"], # Módulos de atención
+    lora_dropout=0.05,
+    bias="none",
+    task_type=TaskType.CAUSAL_LM # Para generación de texto
+)
+
+# Aplicar LoRA al modelo
+peft_model = get_peft_model(model, lora_config)
+peft_model.print_trainable_parameters()
+
+# Tokenización del dataset
+def tokenize_function(examples):
+    return tokenizer(examples["processed_text"], truncation=True, max_length=512)
+
+tokenized_dataset = domain_dataset.map(tokenize_function, batched=True)
+
+# Configuración de entrenamiento
+training_args = TrainingArguments(
+    output_dir="./results",
+    num_train_epochs=3,
+    per_device_train_batch_size=4,
+    gradient_accumulation_steps=4,
+    learning_rate=2e-4,
+    optim="paged_adamw_8bit", # Para eficiencia de memoria
+    logging_dir="./logs",
+    logging_steps=100,
+    save_steps=500,
+    save_total_limit=3,
+    bf16=True, # Usar bfloat16 si la GPU lo soporta
+    # ... otras configuraciones para entrenamiento distribuido ...
+)
+
+# Trainer para fine-tuning
+trainer = Trainer(
+    model=peft_model,
+    args=training_args,
+    train_dataset=tokenized_dataset,
+    tokenizer=tokenizer,
+)
+
+# Iniciar entrenamiento
+# trainer.train()
+</code></pre>
+</li>
+<li>
+<p><strong>Evaluación y Métrica de Dominio</strong>: Más allá de métricas genéricas como <em>perplexity</em>, se necesitan métricas específicas del dominio (e.g., precisión de la generación de código, calidad de las respuestas a preguntas técnicas, coherencia contextual). Esto implica el desarrollo de <em>benchmarks</em> personalizados y métodos de evaluación automatizados o asistidos por humanos.</p>
+<pre><code class="language-python"># Ejemplo de una métrica personalizada para evaluación de generación de código
+import evaluate
+
+# Simular una métrica de evaluación (ej. METEOR para texto o una métrica de coincidencia de sintaxis para código)
+def compute_code_metrics(eval_pred):
+    predictions, labels = eval_pred
+    # Post-procesamiento para extraer el código generado y el código de referencia
+    # ... (lógica compleja para comparar la validez y corrección del código) ...
+    # Por simplicidad, un ejemplo trivial:
+    correct_syntax_matches = 0
+    total_code_snippets = len(predictions)
+    for pred, label in zip(predictions, labels):
+        # Asumir que 'pred' y 'label' son cadenas de código tokenizadas
+        if "def " in tokenizer.decode(pred) and "def " in tokenizer.decode(label):
+            correct_syntax_matches += 1
+    
+    # Una métrica de toy para demostrar el concepto
+    accuracy_of_def = correct_syntax_matches / total_code_snippets
+    
+    return {"code_syntax_accuracy": accuracy_of_def}
+
+# El 'compute_metrics' se pasaría al Trainer en un escenario real
+# trainer = Trainer(..., compute_metrics=compute_code_metrics)
+</code></pre>
+</li>
+<li>
+<p><strong>Optimización para Inferencia</strong>: Una vez que el modelo está ajustado, se deben aplicar técnicas para reducir la latencia y el tamaño del modelo en inferencia. Esto podría incluir la cuantificación a INT8, el uso de frameworks como ONNX Runtime o TensorRT, o la destilación de conocimiento a un modelo más pequeño.</p>
+<pre><code class="language-python">from transformers import pipeline
+# from optimum.onnxruntime import ORTModelForCausalLM # Requiere instalación específica
+
+# Simular un pipeline de inferencia
+# En producción, se usaría un servidor de modelos como FastAPI + Triton Inference Server, o Seldon Core
+generator = pipeline('text-generation', model=peft_model, tokenizer=tokenizer)
+
+# Ejemplo de inferencia
+prompt = "Escribe una función Python para calcular el factorial de un número:"
+result = generator(prompt, max_new_tokens=50, num_return_sequences=1)
+print(result[0]['generated_text'])
+
+# Para optimización, se podría exportar a ONNX:
+# ort_model = ORTModelForCausalLM.from_pretrained(peft_model.save_pretrained('./optimized_model'), from_transformers=True)
+# ort_model.save_pretrained('./onnx_model')
+</code></pre>
+</li>
+</ol>
+<p>Este ejemplo ilustra la profundidad técnica y el amplio espectro de responsabilidades de un Ingeniero de Investigación de AI/ML. No solo se trata de ejecutar código preexistente, sino de innovar en cada etapa del ciclo de vida del modelo.</p>
+<h2>El Impacto Estratégico del Rol</h2>
+<p>El Ingeniero de Investigación de AI/ML es un impulsor clave de la innovación. Su capacidad para explorar nuevas arquitecturas, validar hipótesis con rigor científico y, al mismo tiempo, considerar la viabilidad de la implementación a escala, lo convierte en un activo inestimable. En startups como RamAIn, donde el objetivo es a menudo la disrupción de un mercado o la creación de una nueva categoría de producto basada en capacidades de AI superiores, este rol es central para la ventaja competitiva.</p>
+<p>Se espera que estos profesionales no solo resuelvan problemas técnicos, sino que también contribuyan a la visión estratégica del producto, identificando oportunidades para aplicar AI de maneras que generen valor real para los usuarios finales. Esto implica una comunicación efectiva con equipos de producto, diseño y otras áreas de ingeniería.</p>
+<p>En resumen, la demanda de Ingenieros de Investigación de AI/ML, que combinan un rigor académico con una mentalidad de ingeniería pragmática, está en constante crecimiento. Son los arquitectos de los sistemas inteligentes del mañana, capaces de navegar la complejidad de la investigación de vanguardia y las demandas de la producción a gran escala. Su trabajo es fundamental para el desarrollo de productos de AI que no solo funcionen, sino que también sean fiables, eficientes, escalables y éticos.</p>
+<p>Para explorar cómo la experiencia profunda en Data Engineering y AI puede transformar sus proyectos y operaciones, o para discutir estrategias avanzadas de implementación y optimización de sistemas de inteligencia artificial, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> para servicios de consultoría especializada.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El Ecosistema de Investigación y Desarrollo en AI/ML"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define ..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"31 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"El Ecosistema de Investigación y Desarrollo en AI/ML | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define ..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/ramain-yc-w26-is-hiring/"}],["$","meta","11",{"property":"og:title","content":"El Ecosistema de Investigación y Desarrollo en AI/ML"}],["$","meta","12",{"property":"og:description","content":"En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define ..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/ramain-yc-w26-is-hiring/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"El Ecosistema de Investigación y Desarrollo en AI/ML"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-03-31"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"El Ecosistema de Investigación y Desarrollo en AI/ML"}],["$","meta","25",{"name":"twitter:description","content":"En la vanguardia de la ingeniería de datos y la inteligencia artificial, la convergencia entre la investigación fundamental y la implementación práctica define ..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"El Ecosistema de Investigación y Desarrollo en AI/ML"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

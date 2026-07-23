@@ -1,0 +1,307 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","chrome-prompt-api","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","chrome-prompt-api","d"],{"children":["__PAGE__?{\"slug\":\"chrome-prompt-api\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","chrome-prompt-api","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T404,{"@context":"https://schema.org","@type":"Article","headline":"Chrome Prompt API: IA nativa en el navegador","description":"El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de us...","url":"https://www.mgatc.com/blog/chrome-prompt-api/","datePublished":"2026-04-27","dateModified":"2026-04-27","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/chrome-prompt-api/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T5605,<p>El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de usuario. Tradicionalmente, la integración de IA en aplicaciones web implicaba complejas llamadas a APIs externas, la gestión de estados de sesión, y la orquestación de flujos de trabajo que podían ser difíciles de mantener y escalar. La llegada de APIs nativas en navegadores, como la Prompt API de Chrome, representa un paso significativo hacia la simplificación y la democratización del acceso a capacidades de IA directamente en el lado del cliente.</p>
+<p>Este artículo técnico profundiza en la Prompt API de Chrome, analizando su arquitectura, casos de uso potenciales, y las implicaciones para los desarrolladores de aplicaciones web. Se abordarán los aspectos técnicos de su implementación, las consideraciones de seguridad y privacidad, y cómo puede integrarse en flujos de trabajo de desarrollo existentes.</p>
+<h2>La Prompt API de Chrome: Un Vistazo General</h2>
+<p>La Prompt API de Chrome es una interfaz programática expuesta por el navegador que permite a las aplicaciones web interactuar de manera segura y eficiente con modelos de IA generativa alojados en el dispositivo del usuario. Su objetivo principal es abstraer la complejidad de la ejecución de modelos de IA, proporcionando una forma estandarizada para que las aplicaciones envíen "prompts" (instrucciones o datos de entrada) a estos modelos y reciban las respuestas generadas.</p>
+<p>La filosofía detrás de la Prompt API se centra en la privacidad y el rendimiento. Al ejecutar modelos localmente, se minimiza la necesidad de enviar datos sensibles a servidores externos, lo cual es crucial para aplicaciones que manejan información personal o confidencial. Además, la latencia se reduce drásticamente, ya que las respuestas se generan sin la necesidad de viajes de red extensos.</p>
+<h3>Arquitectura y Componentes Clave</h3>
+<p>La Prompt API opera sobre un modelo de ejecución donde el navegador actúa como un orquestador. Los componentes esenciales son:</p>
+<ol>
+<li><strong>El Navegador (Chrome):</strong> Responsable de exponer la API, gestionar el acceso a los modelos de IA y coordinar la comunicación entre la aplicación web y los modelos.</li>
+<li><strong>Modelos de IA Localizados:</strong> Estos modelos son descargados y gestionados por el navegador. Actualmente, la Prompt API se enfoca en modelos optimizados para la ejecución en dispositivos, como aquellos basados en arquitecturas eficientes.</li>
+<li><strong>La Aplicación Web (Frontend):</strong> El código JavaScript que utiliza la Prompt API para enviar prompts y procesar las respuestas.</li>
+</ol>
+<p>La interacción se basa en la siguiente secuencia:</p>
+<ol>
+<li>La aplicación web solicita acceso a un modelo de IA a través de la Prompt API.</li>
+<li>Si el modelo está disponible y el usuario otorga permiso (en una implementación futura, o a través de configuraciones del navegador en la actualidad), la aplicación puede enviar un prompt.</li>
+<li>El navegador ejecuta el prompt contra el modelo de IA local.</li>
+<li>El modelo genera una respuesta.</li>
+<li>El navegador devuelve la respuesta a la aplicación web.</li>
+</ol>
+<h3>Interfaz Programática</h3>
+<p>La Prompt API se expone a través de objetos JavaScript accesibles globalmente o a través de namespaces específicos. El objeto principal para interactuar con los modelos de IA podría ser <code>navigator.ai</code> o similar, seguido de métodos para listar modelos disponibles, cargar un modelo específico y enviar un prompt.</p>
+<p>Un ejemplo conceptual de cómo se vería la interfaz:</p>
+<pre><code class="language-javascript">// Verificar si la API está disponible
+if (navigator.ai &#x26;&#x26; navigator.ai.canRunModel('some-model-name')) {
+    const model = await navigator.ai.loadModel('some-model-name');
+
+    // Definir el prompt
+    const promptText = "Escribe un breve poema sobre la naturaleza.";
+    const promptData = { text: promptText }; // O podría ser un objeto más complejo con metadatos
+
+    // Enviar el prompt y obtener la respuesta
+    const response = await model.generate(promptData);
+
+    // Procesar la respuesta
+    console.log(response.text); // Asumiendo que la respuesta tiene una propiedad 'text'
+} else {
+    console.log("La Prompt API o el modelo especificado no están disponibles.");
+}
+</code></pre>
+<p>Este pseudocódigo ilustra la simplicidad deseada: verificar disponibilidad, cargar modelo, definir prompt, generar respuesta y procesar. Los detalles de <code>canRunModel</code>, <code>loadModel</code>, <code>generate</code> y la estructura de <code>promptData</code> y <code>response</code> serían definidos por la especificación oficial.</p>
+<h2>Casos de Uso Potenciales</h2>
+<p>La Prompt API abre un abanico de posibilidades para enriquecer las aplicaciones web con funcionalidades de IA generativa sin depender de servicios cloud costosos y con latencia variable.</p>
+<h3>1. Asistentes de Escritura y Generación de Contenido</h3>
+<p>Aplicaciones de notas, procesadores de texto, plataformas de blogs o herramientas de redes sociales podrían integrar la Prompt API para ofrecer sugerencias de texto, completar frases, generar borradores, resumir contenido, o incluso crear descripciones de productos. Un editor de texto podría, al detectar una pausa en la escritura, ofrecer sugerencias de continuación basadas en el contexto actual y un modelo de lenguaje.</p>
+<pre><code class="language-javascript">// Ejemplo conceptual en un editor de texto
+document.getElementById('editor').addEventListener('input', async (event) => {
+    const currentText = event.target.value;
+    // Lógica para determinar si se debe ofrecer una sugerencia
+    if (shouldSuggest(currentText)) {
+        const prompt = `Completa la siguiente frase: "${currentText}"`;
+        const suggestions = await getAIC suggestions(prompt);
+        displaySuggestions(suggestions);
+    }
+});
+
+async function getAIC_suggestions(promptText) {
+    if (navigator.ai &#x26;&#x26; await navigator.ai.canRunModel('text-completion-model')) {
+        const model = await navigator.ai.loadModel('text-completion-model');
+        const response = await model.generate({ text: promptText, max_tokens: 50 });
+        return response.text; // O una lista de posibles continuaciones
+    }
+    return "";
+}
+</code></pre>
+<h3>2. Herramientas de Creatividad y Diseño</h3>
+<p>Las aplicaciones de diseño gráfico, edición de imágenes o generación de prototipos podrían usar la Prompt API para generar elementos visuales a partir de descripciones textuales, crear variaciones de diseños existentes, o generar paletas de colores. Un diseñador podría escribir "un logo minimalista para una cafetería con tonos marrones y dorados" y obtener rápidamente varias propuestas visuales.</p>
+<pre><code class="language-javascript">// Ejemplo conceptual en una herramienta de diseño
+document.getElementById('generate-button').addEventListener('click', async () => {
+    const description = document.getElementById('prompt-input').value;
+    const imageUrl = await generateImageFromPrompt(description);
+    document.getElementById('design-canvas').src = imageUrl;
+});
+
+async function generateImageFromPrompt(promptText) {
+    if (navigator.ai &#x26;&#x26; await navigator.ai.canRunModel('image-generation-model')) {
+        const model = await navigator.ai.loadModel('image-generation-model');
+        // La estructura de datos para prompts de imagen puede ser diferente
+        const response = await model.generate({ prompt: promptText, width: 256, height: 256 });
+        return response.imageUrl; // Asumiendo que el modelo devuelve una URL de imagen generada
+    }
+    return null;
+}
+</code></pre>
+<h3>3. Soporte y Resolución de Problemas</h3>
+<p>Herramientas de diagnóstico, documentación interactiva, o asistentes virtuales para soporte técnico podrían utilizar la Prompt API para analizar mensajes de error, ofrecer soluciones basadas en la descripción del problema, o guiar al usuario a través de procesos complejos.</p>
+<pre><code class="language-javascript">// Ejemplo conceptual en una herramienta de soporte
+document.getElementById('diagnose-button').addEventListener('click', async () => {
+    const errorDescription = document.getElementById('error-log').value;
+    const solution = await getSolutionForError(errorDescription);
+    document.getElementById('solution-display').innerText = solution;
+});
+
+async function getSolutionForError(promptText) {
+    if (navigator.ai &#x26;&#x26; await navigator.ai.canRunModel('troubleshooting-model')) {
+        const model = await navigator.ai.loadModel('troubleshooting-model');
+        const response = await model.generate({ context: promptText, task: "provide troubleshooting steps" });
+        return response.solution;
+    }
+    return "No se pudo encontrar una solución automática.";
+}
+</code></pre>
+<h3>4. Optimización de la Experiencia de Usuario</h3>
+<p>La Prompt API puede ser utilizada para personalizar dinámicamente el contenido, adaptar la interfaz de usuario, o proporcionar explicaciones contextualizadas sobre características de la aplicación, mejorando la usabilidad y el engagement.</p>
+<h2>Consideraciones Técnicas y de Implementación</h2>
+<p>La adopción de la Prompt API requiere una comprensión de sus particularidades y limitaciones.</p>
+<h3>Gestión de Modelos</h3>
+<p>Los modelos de IA, especialmente los de gran tamaño, consumen recursos significativos (CPU, GPU, memoria). La Prompt API deberá implementar mecanismos para:</p>
+<ul>
+<li><strong>Descarga y Almacenamiento:</strong> Los modelos se descargarán y almacenarán en un caché del navegador o en un espacio dedicado. La gestión del espacio es crucial.</li>
+<li><strong>Carga y Descarga Dinámica:</strong> Permitir que los modelos se carguen bajo demanda y se descarguen cuando no se utilizan para liberar recursos.</li>
+<li><strong>Versiones de Modelos:</strong> Soporte para diferentes versiones de modelos, permitiendo a los desarrolladores elegir entre precisión, velocidad y tamaño.</li>
+<li><strong>Disponibilidad y Compatibilidad:</strong> No todos los dispositivos tendrán la capacidad de ejecutar modelos complejos. La API debe proporcionar métodos para verificar la compatibilidad del hardware y la disponibilidad de modelos específicos.</li>
+</ul>
+<h3>Seguridad y Privacidad</h3>
+<p>La ejecución de IA en el dispositivo del usuario es un gran avance en privacidad. Sin embargo, hay consideraciones:</p>
+<ul>
+<li><strong>Acceso a Datos:</strong> La API debe tener mecanismos estrictos para controlar a qué datos puede acceder la aplicación web para generar prompts. Las APIs de navegador suelen seguir un modelo de permisos explícitos.</li>
+<li><strong>Seguridad del Modelo:</strong> Los modelos descargados deben ser confiables. Podrían requerirse firmas digitales o mecanismos de validación para asegurar que los modelos no han sido manipulados.</li>
+<li><strong>Aislamiento:</strong> La ejecución de los modelos de IA debe estar aislada del resto del proceso del navegador para prevenir vulnerabilidades de seguridad.</li>
+</ul>
+<h3>Rendimiento</h3>
+<p>Si bien la ejecución local reduce la latencia de red, la ejecución del modelo en sí puede ser intensiva en recursos. Las consideraciones de rendimiento incluyen:</p>
+<ul>
+<li><strong>Optimización de Modelos:</strong> Uso de modelos optimizados para inferencia en hardware de consumo (ej. modelos cuantizados, arquitecturas eficientes).</li>
+<li><strong>Carga Asíncrona:</strong> Todas las operaciones de la Prompt API, especialmente <code>loadModel</code> y <code>generate</code>, deben ser asíncronas para no bloquear el hilo principal de la UI.</li>
+<li><strong>Gestión de Recursos:</strong> El navegador podría limitar la cantidad de recursos que una aplicación web puede usar para la ejecución de IA, para evitar degradar la experiencia del usuario en otras pestañas o aplicaciones.</li>
+</ul>
+<h3>Formatos de Prompt y Respuesta</h3>
+<p>La especificación de la Prompt API definirá los formatos de entrada y salida. Esto puede incluir:</p>
+<ul>
+<li><strong>Texto:</strong> Para modelos de lenguaje.</li>
+<li><strong>Imágenes:</strong> Posiblemente como <code>ArrayBuffer</code>, <code>Blob</code>, o referencias a recursos ya cargados.</li>
+<li><strong>Audio:</strong> Similar a imágenes.</li>
+<li><strong>Estructuras de Datos Complejas:</strong> Para pasar metadatos adicionales o configuraciones específicas del modelo.</li>
+</ul>
+<p>Las respuestas podrían ser:</p>
+<ul>
+<li><strong>Texto generado.</strong></li>
+<li><strong>Datos en formato JSON.</strong></li>
+<li><strong>Imágenes o audio generados.</strong></li>
+<li><strong>Información sobre el proceso de generación:</strong> como tokens procesados, tiempo de inferencia, etc.</li>
+</ul>
+<h2>Ejemplos de Código Detallados (Conceptuales)</h2>
+<p>Para ilustrar de manera más concreta, presentaremos ejemplos que se basan en la hipotética estructura de la Prompt API. Es importante recordar que la API real puede variar en su sintaxis y funcionalidades.</p>
+<h3>Escenario 1: Generación de Texto con Análisis de Sentimiento</h3>
+<p>Supongamos que tenemos un modelo de IA local llamado <code>sentiment-analyzer</code> que puede clasificar el sentimiento de un texto (positivo, negativo, neutral).</p>
+<pre><code class="language-javascript">// App Script - main.js
+async function analyzeUserFeedback(feedbackText) {
+    if (!navigator.ai) {
+        console.error("Prompt API no está disponible.");
+        return "No se pudo analizar el sentimiento.";
+    }
+
+    const modelName = 'sentiment-analyzer';
+    try {
+        // Verificar si el modelo está disponible y es ejecutable
+        const isAvailable = await navigator.ai.canRunModel(modelName);
+        if (!isAvailable) {
+            console.warn(`El modelo '${modelName}' no está disponible o no es compatible.`);
+            // Podríamos intentar descargar el modelo aquí si la API lo soporta
+            // await navigator.ai.downloadModel(modelName);
+            return "La herramienta de análisis no está disponible.";
+        }
+
+        // Cargar el modelo
+        console.log(`Cargando modelo: ${modelName}`);
+        const model = await navigator.ai.loadModel(modelName);
+        console.log("Modelo cargado exitosamente.");
+
+        // Preparar el prompt. Para un analizador de sentimiento, puede ser directo.
+        const promptData = {
+            text: feedbackText,
+            task: "classify_sentiment" // Un campo para especificar la tarea al modelo
+        };
+
+        // Ejecutar la inferencia
+        console.log("Enviando prompt para análisis de sentimiento...");
+        const startTime = performance.now();
+        const response = await model.generate(promptData);
+        const endTime = performance.now();
+        console.log(`Análisis completado en ${(endTime - startTime).toFixed(2)} ms.`);
+
+        // Procesar la respuesta
+        if (response &#x26;&#x26; response.sentiment) {
+            console.log(`Sentimiento detectado: ${response.sentiment}`);
+            return `El sentimiento de tu feedback es: ${response.sentiment}. Gracias por tu opinión.`;
+        } else {
+            console.error("Respuesta inesperada del modelo:", response);
+            return "Hubo un problema al analizar el sentimiento.";
+        }
+
+    } catch (error) {
+        console.error(`Error al utilizar la Prompt API para análisis de sentimiento: ${error}`);
+        return "Ocurrió un error técnico al procesar tu feedback.";
+    }
+}
+
+// Ejemplo de uso en un evento de botón
+document.getElementById('analyzeBtn').addEventListener('click', async () => {
+    const feedbackInput = document.getElementById('feedbackInput');
+    const feedback = feedbackInput.value;
+    if (feedback) {
+        const result = await analyzeUserFeedback(feedback);
+        document.getElementById('resultDisplay').innerText = result;
+    }
+});
+</code></pre>
+<h3>Escenario 2: Generación de Código Pequeño con Resumen Explicativo</h3>
+<p>Imaginemos un modelo <code>code-generator</code> que puede generar fragmentos de código y proporcionar una breve explicación.</p>
+<pre><code class="language-javascript">// App Script - code_generator.js
+async function generateCodeSnippet(description) {
+    if (!navigator.ai) {
+        console.error("Prompt API no está disponible.");
+        return { code: "// Prompt API no disponible", explanation: "Error: Prompt API no está presente." };
+    }
+
+    const modelName = 'code-generator'; // Asumiendo un modelo específico para código
+    try {
+        const isAvailable = await navigator.ai.canRunModel(modelName);
+        if (!isAvailable) {
+            console.warn(`El modelo '${modelName}' no está disponible o no es compatible.`);
+            return { code: "// Modelo no disponible", explanation: "La herramienta de generación de código no está lista." };
+        }
+
+        const model = await navigator.ai.loadModel(modelName);
+
+        // El prompt podría ser una estructura más compleja para el código
+        const promptData = {
+            description: `Genera una función en JavaScript que ${description}`,
+            language: "javascript",
+            include_explanation: true,
+            max_lines: 20 // Un parámetro para controlar la longitud del código
+        };
+
+        const response = await model.generate(promptData);
+
+        if (response &#x26;&#x26; response.generated_code &#x26;&#x26; response.explanation) {
+            console.log("Fragmento de código generado.");
+            return {
+                code: response.generated_code,
+                explanation: response.explanation
+            };
+        } else {
+            console.error("Respuesta inesperada del modelo de código:", response);
+            return { code: "// Error en la respuesta", explanation: "No se pudo generar el código." };
+        }
+
+    } catch (error) {
+        console.error(`Error al utilizar la Prompt API para generación de código: ${error}`);
+        return { code: "// Error de sistema", explanation: "Ocurrió un error técnico." };
+    }
+}
+
+// Ejemplo de uso en la UI
+document.getElementById('generateCodeBtn').addEventListener('click', async () => {
+    const descriptionInput = document.getElementById('codeDescriptionInput');
+    const codeOutputElement = document.getElementById('codeOutput');
+    const explanationOutputElement = document.getElementById('explanationOutput');
+
+    const description = descriptionInput.value;
+    if (description) {
+        const result = await generateCodeSnippet(description);
+        codeOutputElement.textContent = result.code; // Mostrar código formateado
+        explanationOutputElement.innerText = result.explanation;
+    }
+});
+</code></pre>
+<h2>Desafíos y el Futuro de la Prompt API</h2>
+<p>La Prompt API, aunque prometedora, enfrenta desafíos inherentes a cualquier tecnología emergente:</p>
+<ul>
+<li><strong>Adopción y Estandarización:</strong> La amplia adopción por parte de los desarrolladores de navegadores y la estandarización de la API por parte de organismos como el W3C son cruciales para su éxito a largo plazo.</li>
+<li><strong>Gestión de Modelos y Recursos:</strong> La optimización de modelos para la ejecución local y la gestión eficiente de recursos del dispositivo seguirán siendo áreas de investigación y desarrollo activas.</li>
+<li><strong>Complejidad de Modelos:</strong> A medida que los modelos de IA se vuelven más grandes y complejos, la capacidad de ejecutarlos en dispositivos de gama baja podría verse limitada.</li>
+<li><strong>Experiencia del Desarrollador:</strong> Una documentación clara, herramientas de depuración robustas y ejemplos prácticos son esenciales para facilitar la curva de aprendizaje.</li>
+</ul>
+<p>El futuro de la Prompt API probablemente incluirá:</p>
+<ul>
+<li><strong>Soporte para más tipos de modelos:</strong> Más allá del texto y la imagen, se podrían integrar modelos para audio, video, o incluso para tareas más específicas como la simulación.</li>
+<li><strong>Integración más profunda con el ecosistema del navegador:</strong> Posibilidad de interactuar directamente con el DOM, la cámara, el micrófono, o el sistema de archivos de manera segura y controlada.</li>
+<li><strong>API de Machine Learning más amplias:</strong> La Prompt API podría ser el primer paso hacia un conjunto más robusto de APIs de ML nativas en el navegador, abarcando el entrenamiento ligero en el cliente o el ajuste fino de modelos.</li>
+<li><strong>Mecanismos de privacidad mejorados:</strong> Controles granulares sobre el acceso a datos y la transparencia en el uso de modelos.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>La Prompt API de Chrome representa una evolución significativa en cómo las aplicaciones web pueden aprovechar el poder de la inteligencia artificial. Al permitir la ejecución de modelos de IA directamente en el navegador del usuario, se abren nuevas posibilidades para crear experiencias de usuario más ricas, privadas y rápidas. Los desarrolladores tienen ahora la oportunidad de innovar en áreas como la generación de contenido, la asistencia inteligente y las herramientas creativas, liberándose de las dependencias de la infraestructura en la nube para ciertas tareas de IA.</p>
+<p>La transición hacia aplicaciones web con capacidades de IA integradas localmente es un camino que recién comienza. La Prompt API es una pieza clave en esta transición, sentando las bases para un futuro donde la inteligencia artificial esté más accesible y sea una parte integral de nuestras interacciones digitales diarias.</p>
+<p>Para explorar cómo estas tecnologías de vanguardia pueden ser aplicadas a sus desafíos empresariales y obtener asesoramiento experto en la implementación de soluciones de Data Engineering y AI, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Chrome Prompt API: IA nativa en el navegador"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de us..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"27 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"14 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Chrome Prompt API: IA nativa en el navegador | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de us..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/chrome-prompt-api/"}],["$","meta","11",{"property":"og:title","content":"Chrome Prompt API: IA nativa en el navegador"}],["$","meta","12",{"property":"og:description","content":"El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de us..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/chrome-prompt-api/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Chrome Prompt API: IA nativa en el navegador"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-04-27"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Chrome Prompt API: IA nativa en el navegador"}],["$","meta","25",{"name":"twitter:description","content":"El desarrollo de aplicaciones web capaces de interactuar con modelos de inteligencia artificial generativa ha abierto un nuevo paradigma en la experiencia de us..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Chrome Prompt API: IA nativa en el navegador"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

@@ -1,0 +1,156 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","theyre-vibe-coding-spam-now","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","theyre-vibe-coding-spam-now","d"],{"children":["__PAGE__?{\"slug\":\"theyre-vibe-coding-spam-now\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","theyre-vibe-coding-spam-now","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T42e,{"@context":"https://schema.org","@type":"Article","headline":"La Arquitectura Tecnológica del Spam Generativo Contextual","description":"La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léx...","url":"https://www.mgatc.com/blog/theyre-vibe-coding-spam-now/","datePublished":"2026-03-23","dateModified":"2026-03-23","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/theyre-vibe-coding-spam-now/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T303b,<p>La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léxica y las tácticas de ingeniería social rudimentarias. Nos encontramos ante una nueva categoría de ataques que podríamos denominar "spam generativo contextual" o "spam con codificación de tono" (vibe-coded spam), donde la generación de contenido ya no se basa en plantillas estáticas o la manipulación superficial de palabras clave, sino en la emulación profunda de la comunicación humana, adaptada al contexto y al perfil emocional del objetivo. Esta transformación exige una reevaluación completa de nuestras estrategias de defensa, impulsando la necesidad de soluciones robustas en Data Engineering y Artificial Intelligence (AI).</p>
+<p>El concepto de "vibe-coding" en el contexto de spam hace referencia a la capacidad de los adversarios para generar mensajes que no solo evaden los filtros sintácticos o basados en reglas, sino que también mimetizan el estilo, el tono emocional y la autenticidad percibida de las interacciones humanas legítimas. Esta mimetización es el resultado directo del advenimiento y la democratización de modelos de lenguaje grandes (LLMs) y otras técnicas avanzadas de IA generativa. Los atacantes ahora pueden producir correos electrónicos, mensajes de texto o interacciones en redes sociales que se sienten "normales" o incluso "personalizados" para el destinatario, haciendo que la detección por parte de usuarios finales y sistemas automatizados sea exponencialmente más compleja.</p>
+<h2>La Arquitectura Tecnológica del Spam Generativo Contextual</h2>
+<p>La capacidad de generar spam con una codificación de tono sofisticada se asienta en varios pilares tecnológicos avanzados, principalmente derivados de la investigación en procesamiento del lenguaje natural (NLP) y IA generativa.</p>
+<h3>Generación de Contenido Basada en LLMs</h3>
+<p>Los modelos de lenguaje grandes (LLMs) como GPT-4, Llama 2, o modelos equivalentes de código abierto, son el componente central. Estos modelos han sido entrenados en vastos corpus de texto, lo que les permite comprender y replicar patrones lingüísticos, gramática, semántica, e incluso aspectos pragmáticos del lenguaje humano, incluyendo el tono, el estilo y la intención.</p>
+<p>Los spammers no utilizan estos LLMs directamente de forma genérica. En su lugar, aplican técnicas de <em>prompt engineering</em> avanzadas y, en algunos casos, <em>fine-tuning</em> sobre conjuntos de datos específicos para adecuar el estilo y el objetivo del spam. Un LLM puede ser instruido para generar un correo electrónico con un tono específico (e.g., urgente, empático, corporativo, técnico, informal) y con un objetivo particular (e.g., phishing de credenciales, distribución de malware, fraude romántico, venta de productos falsos), mientras se adhiere a la información contextual del destinatario.</p>
+<p>Considere el siguiente ejemplo conceptual de cómo un atacante podría instruir a un LLM:</p>
+<pre><code class="language-python"># Ejemplo conceptual de prompt avanzado para un LLM para generar spam "vibe-coded"
+def generar_email_persuasivo_avanzado(
+    perfil_objetivo: dict,
+    objetivo_estrategico: str,
+    tono_emocional_deseado: str,
+    formato_comunicacion: str = "correo electrónico profesional"
+) -> str:
+    """
+    Genera un fragmento de comunicación persuasiva utilizando un LLM,
+    adaptado a un perfil de usuario específico y un tono emocional.
+
+    Args:
+        perfil_objetivo (dict): Un diccionario con atributos del destinatario (nombre, intereses, rol, actividad_reciente).
+        objetivo_estrategico (str): La meta del spam (e.g., "obtener credenciales de AWS", "promocionar inversión fraudulenta").
+        tono_emocional_deseado (str): El tono deseado del mensaje (e.g., "urgente pero servicial", "empático y exclusivo").
+        formato_comunicacion (str): El tipo de comunicación a generar (e.g., "correo electrónico profesional").
+
+    Returns:
+        str: El texto generado por el LLM.
+    """
+    nombre_usuario = perfil_objetivo.get('nombre', 'Estimado Usuario')
+    intereses_usuario = ', '.join(perfil_objetivo.get('intereses', ['tecnología', 'finanzas']))
+    rol_usuario = perfil_objetivo.get('rol', 'profesional')
+    actividad_reciente = perfil_objetivo.get('actividad_reciente', 'ha mostrado interés en temas de liderazgo')
+
+    prompt = f"""
+    Eres un agente de comunicación de IA altamente sofisticado, capaz de emular
+    estilos de escritura humana y tonos emocionales con gran precisión.
+    Tu tarea es redactar un {formato_comunicacion} que se sienta genuino y personal,
+    dirigido al siguiente individuo:
+
+    - Nombre: {nombre_usuario}
+    - Intereses Principales: {intereses_usuario}
+    - Rol/Contexto Profesional: {rol_usuario}
+    - Actividad o Interés Reciente Observado: {actividad_reciente}
+
+    El propósito subyacente de esta comunicación es: "{objetivo_estrategico}".
+    El mensaje debe imbuirse de un tono general que sea: "{tono_emocional_deseado}".
+    Debe sonar naturalmente persuasivo, evitando cualquier lenguaje que active filtros de spam tradicionales.
+
+    Consideraciones clave para la redacción:
+    1.  **Personalización Profunda**: Referencia indirecta o directa a los intereses/actividad reciente.
+    2.  **Fluidez y Coherencia**: El texto debe ser impecable gramaticalmente y semánticamente.
+    3.  **Sutilidad**: La llamada a la acción o el objetivo final debe ser introducido de manera orgánica, no abrupta.
+    4.  **Imitación de Patrones Legítimos**: Emular el formato y las expresiones comunes en comunicaciones legítimas del ámbito del usuario.
+
+    Evita: errores tipográficos, mayúsculas excesivas, jerga de spam, URLs sospechosas directas (usar enlaces ofuscados o indirectos).
+    """
+    
+    # En un entorno de producción, aquí se realizaría una llamada API a un LLM
+    # Por ejemplo:
+    # from openai import OpenAI
+    # client = OpenAI(api_key="YOUR_API_KEY")
+    # response = client.chat.completions.create(
+    #     model="gpt-4", # o cualquier LLM disponible
+    #     messages=[
+    #         {"role": "system", "content": "Eres un asistente de comunicación altamente sofisticado."},
+    #         {"role": "user", "content": prompt}
+    #     ]
+    # )
+    # return response.choices[0].message.content
+
+    # Para demostración, retornamos una cadena representativa
+    return f"[[CONTENIDO_GENERADO_POR_LLM]]\n---\nPrompt Utilizado:\n{prompt}\n---"
+
+# Ejemplo de uso:
+perfil_ejemplo = {
+    'nombre': 'Ing. Sofía Ramos',
+    'intereses': ['energías renovables', 'optimización de procesos', 'blockchain en logística'],
+    'rol': 'Directora de Operaciones',
+    'actividad_reciente': 'ha participado en un webinar sobre eficiencia energética en cadenas de suministro'
+}
+objetivo_fraude = "ofrecer una inversión 'exclusiva' en una startup de energía solar de blockchain que no existe"
+tono_exclusivo_profesional = "asesoramiento exclusivo, profesional, con un toque de urgencia por oportunidad limitada"
+
+# print(generar_email_persuasivo_avanzado(perfil_ejemplo, objetivo_fraude, tono_exclusivo_profesional))
+</code></pre>
+<h3>Personalización a Escala e Ingeniería de Características del Objetivo</h3>
+<p>Para que el LLM genere un contenido verdaderamente "vibe-coded", necesita datos. Los atacantes combinan la potencia de los LLMs con técnicas de recolección de datos y perfilado. Esto implica:</p>
+<ul>
+<li><strong>OSINT (Open Source Intelligence):</strong> Recopilación de información de redes sociales, perfiles públicos de LinkedIn, sitios web de empresas, etc., para construir un perfil detallado del objetivo (intereses profesionales, hobbies, roles, conexiones, publicaciones recientes).</li>
+<li><strong>Ingeniería de Características del Destinatario:</strong> Creación de vectores de datos que representen las preferencias, comportamientos y contexto del objetivo, que luego se alimentan al LLM a través de prompts o <em>fine-tuning</em>.</li>
+</ul>
+<h3>Técnicas Adversarias y Ofuscación Avanzada</h3>
+<p>Más allá de la generación del contenido, los atacantes emplean tácticas para eludir la detección a nivel de infraestructura y de endpoint:</p>
+<ul>
+<li><strong>Rotación de Dominios e IPs:</strong> Utilización de dominios recién registrados o comprometidos y redes de bots para enviar spam, dificultando la detección por reputación.</li>
+<li><strong>Ofuscación de Enlaces:</strong> Empleo de servicios de acortamiento de URL, redirecciones múltiples o dominios con errores tipográficos sutiles (typosquatting) para ocultar destinos maliciosos.</li>
+<li><strong>Variabilidad de Contenido:</strong> Al generar cada email con ligeras variaciones (sinónimos, refraseo), evitan la detección por huellas dactilares exactas o hashes de contenido.</li>
+</ul>
+<h2>Limitaciones de los Sistemas de Detección Tradicionales</h2>
+<p>Los enfoques convencionales de detección de spam son cada vez menos efectivos frente a esta nueva amenaza:</p>
+<ul>
+<li><strong>Filtros Basados en Reglas y Palabras Clave:</strong> Ineficaces. Los LLMs pueden parafrasear, usar sinónimos o estructurar frases de tal manera que las palabras clave maliciosas se diluyan o no aparezcan explícitamente.</li>
+<li><strong>Modelos Estadísticos Clásicos (Naive Bayes, SVM con N-gramas):</strong> Aunque más robustos que las reglas, estos modelos se basan en la distribución de términos o secuencias de caracteres. El spam generativo produce distribuciones de texto que se asemejan mucho a las de los correos legítimos, reduciendo su precisión.</li>
+<li><strong>Sistemas Basados en Reputación:</strong> Siguen siendo útiles para bloquear fuentes conocidas de spam, pero son lentos para adaptarse a la rápida rotación de dominios y IPs de los atacantes. Además, no abordan el problema si un LLM es usado por una entidad aparentemente legítima.</li>
+<li><strong>Análisis de Encabezados (Headers):</strong> Aunque proveen información valiosa (SPF, DKIM, DMARC), los spammers pueden comprometer cuentas o servidores legítimos, haciendo que los encabezados parezcan válidos.</li>
+</ul>
+<h2>Estrategias Avanzadas de Detección y Mitigación: Una Perspectiva de Data Engineering y AI</h2>
+<p>La defensa contra el spam generativo contextual requiere un enfoque multifacético que integre lo último en Data Engineering para el procesamiento de datos a escala y técnicas de AI para la detección profunda.</p>
+<h3>Modelado de Lenguaje Profundo y Embeddings Contextuales</h3>
+<p>La clave para detectar este tipo de spam reside en la capacidad de comprender el <em>significado profundo</em> y el <em>tono sutil</em> de un mensaje, en lugar de solo su superficie.</p>
+<ul>
+<li><strong>Embeddings Contextuales:</strong> Modelos como BERT, RoBERTa, o sus variantes multilingües, pueden generar representaciones vectoriales (embeddings) de palabras, frases o documentos que capturan su significado semántico y el contexto en el que aparecen. Estos embeddings son mucho más resistentes a la parafraseo y la sinonimia.
+<pre><code class="language-python">from transformers import AutoTokenizer, AutoModel
+import torch
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
+# Cargar un modelo pre-entrenado para embeddings multilingües (ej. Sentence-BERT)
+# Este modelo es eficiente para generar embeddings de oraciones o documentos cortos.
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+model = AutoModel.from_pretrained("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+def get_text_embedding(text: str) -> np.ndarray:
+    """
+    Genera un embedding vectorial para un texto dado utilizando un modelo Transformer.
+    """
+    inputs = tokenizer(text, return_tensors='pt', truncation=True, padding=True, max_length=512)
+    with torch.no_grad():
+        # Obtener los últimos estados ocultos del modelo
+        model_output = model(**inputs)
+        # Realizar "mean pooling" para obtener un embedding a nivel de oración/documento
+        # Esto promedia los embeddings de los tokens de entrada para obtener un único vector.
+        embeddings = model_output.last_hidden_state.mean(dim=1)
+</code></pre>
+</li>
+</ul>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"La Arquitectura Tecnológica del Spam Generativo Contextual"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léx..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"23 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"8 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"La Arquitectura Tecnológica del Spam Generativo Contextual | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léx..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/theyre-vibe-coding-spam-now/"}],["$","meta","11",{"property":"og:title","content":"La Arquitectura Tecnológica del Spam Generativo Contextual"}],["$","meta","12",{"property":"og:description","content":"La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léx..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/theyre-vibe-coding-spam-now/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"La Arquitectura Tecnológica del Spam Generativo Contextual"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-03-23"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"La Arquitectura Tecnológica del Spam Generativo Contextual"}],["$","meta","25",{"name":"twitter:description","content":"La evolución del spam ha entrado en una fase crítica y significativamente más sofisticada, marcando una desviación fundamental de las técnicas de ofuscación léx..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"La Arquitectura Tecnológica del Spam Generativo Contextual"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

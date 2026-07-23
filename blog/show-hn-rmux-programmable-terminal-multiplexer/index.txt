@@ -1,0 +1,222 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","show-hn-rmux-programmable-terminal-multiplexer","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","show-hn-rmux-programmable-terminal-multiplexer","d"],{"children":["__PAGE__?{\"slug\":\"show-hn-rmux-programmable-terminal-multiplexer\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","show-hn-rmux-programmable-terminal-multiplexer","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T45a,{"@context":"https://schema.org","@type":"Article","headline":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright","description":"La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como `tmux` son indispensables para la ges...","url":"https://www.mgatc.com/blog/show-hn-rmux-programmable-terminal-multiplexer/","datePublished":"2026-05-21","dateModified":"2026-05-21","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/show-hn-rmux-programmable-terminal-multiplexer/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T4bf8,<h1>Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright</h1>
+<p>La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como <code>tmux</code> son indispensables para la gestión de sesiones interactivas y la multitarea, pero la automatización de tareas complejas que requieren la lectura y manipulación de la salida de comandos puede volverse engorrosa. Las técnicas tradicionales, como el <code>grep</code> combinado con pausas (<code>sleep</code>), son frágiles, propensas a errores y difíciles de mantener. Rmux surge como una solución a esta frustración, reinventando el concepto de multiplexor de terminal con una capa programable diseñada para la automatización robusta.</p>
+<p>Este artículo técnico detalla la arquitectura, los componentes clave y los casos de uso potenciales de Rmux, un nuevo multiplexor de terminal desarrollado en Rust que ofrece una interfaz de línea de comandos compatible con <code>tmux</code> y un SDK asíncrono tipado. El objetivo es proporcionar una experiencia de automatización de terminal comparable a la que ofrecen herramientas como Playwright para la automatización de navegadores web.</p>
+<h2>Motivación y Filosofía de Diseño</h2>
+<p>La principal motivación detrás de Rmux es superar las limitaciones de los multiplexores de terminal existentes en cuanto a automatización programática. La dependencia de <code>grep</code> y <code>sleep</code> para interactuar con la salida de procesos ejecutados en panes de <code>tmux</code> es intrínsecamente defectuosa:</p>
+<ul>
+<li><strong>Fragilidad:</strong> Pequeños cambios en la salida (espacios, saltos de línea, formato) pueden romper los patrones de <code>grep</code>.</li>
+<li><strong>Latencia:</strong> <code>sleep</code> introduce latencias arbitrarias que no se alinean con los eventos reales del sistema o de la aplicación.</li>
+<li><strong>Falta de Estructura:</strong> La salida de la terminal es texto plano. Extraer información estructurada (por ejemplo, un valor numérico, un estado) requiere un análisis <code>ad hoc</code> costoso.</li>
+<li><strong>Manejo de Errores:</strong> Detectar y reaccionar a errores específicos mostrados en la salida es difícil de implementar de manera confiable.</li>
+</ul>
+<p>Rmux aborda estos problemas introduciendo dos conceptos fundamentales:</p>
+<ol>
+<li><strong>Una Interfaz de Línea de Comandos (CLI) Compatible con <code>tmux</code>:</strong> Permite a los usuarios existentes de <code>tmux</code> transicionar sin problemas, conservando sus atajos de teclado y comandos familiares. La CLI de Rmux implementa aproximadamente el 90% de los comandos de <code>tmux</code>, facilitando la migración.</li>
+<li><strong>Un SDK Asíncrono Tipado en Rust:</strong> Proporciona una API programática para interactuar con las sesiones de Rmux. Este SDK está diseñado con principios similares a los de Playwright, permitiendo la automatización precisa y declarativa de procesos de terminal.</li>
+</ol>
+<p>La filosofía central es tratar la terminal no solo como un canal de texto, sino como una superficie de interacción con estado, donde los elementos (panes, ventanas, sesiones) tienen identificadores estables y se puede esperar de manera confiable a que ocurran eventos o se cumpla una condición.</p>
+<h2>Arquitectura de Rmux</h2>
+<p>Rmux se compone de dos partes principales:</p>
+<h3>El Demonio (Daemon) de Rmux</h3>
+<p>El corazón de Rmux es un demonio de larga duración escrito en Rust. Este demonio es responsable de gestionar las sesiones, los procesos subyacentes y la comunicación entre la CLI, el SDK y los procesos del sistema operativo.</p>
+<ul>
+<li><strong>Gestión de Sesiones y Ventanas:</strong> Mantiene el estado de las sesiones, ventanas y panes, incluyendo la asignación de identificadores únicos y estables para cada pane.</li>
+<li><strong>Orquestación de Procesos:</strong> Inicia, gestiona y se comunica con los procesos que se ejecutan dentro de cada pane.</li>
+<li><strong>Captura y Procesamiento de Salida:</strong> Recopila la salida estándar (<code>stdout</code>) y el error estándar (<code>stderr</code>) de los procesos en cada pane. A diferencia de las herramientas tradicionales, Rmux puede ofrecer esta salida en un formato más estructurado o emitir eventos basados en ella.</li>
+<li><strong>Protocolo de Comunicación:</strong> Expone un protocolo de comunicación (probablemente basado en sockets Unix o TCP) para que la CLI y el SDK interactúen con él. Este protocolo es crucial para la modularidad y la extensibilidad.</li>
+<li><strong>Compatibilidad con la Terminal:</strong> Gestiona la emulación de terminal y la interacción con el sistema operativo subyacente para renderizar la salida y manejar la entrada del usuario/SDK. Rmux soporta nativamente Linux, macOS y Windows (utilizando <code>ConPTY</code>).</li>
+</ul>
+<h3>El SDK de Rust</h3>
+<p>El SDK tipado y asíncrono en Rust es la interfaz programática para interactuar con el demonio de Rmux. Su diseño se inspira en las librerías de automatización modernas:</p>
+<ul>
+<li><strong>Tipado Fuerte:</strong> Aprovecha las características de Rust para proporcionar tipos seguros y claros, reduciendo errores en tiempo de ejecución.</li>
+<li><strong>Asincronía:</strong> Utiliza el modelo de concurrencia asíncrona de Rust (<code>async/await</code>) para una gestión eficiente de las operaciones I/O, especialmente cuando se espera la salida de comandos.</li>
+<li><strong>Identificadores Estables de Pane:</strong> Permite referenciar panes por identificadores persistentes, en lugar de depender de índices volátiles que pueden cambiar si se crean o destruyen otros panes.</li>
+<li><strong>Instantáneas Estructuradas (Structured Snapshots):</strong> En lugar de obtener la salida de un pane como una cadena de texto cruda, Rmux puede proporcionar "instantáneas" de la salida que pueden estar estructuradas o anotadas, facilitando la extracción de información.</li>
+<li><strong>Estrategias de Localización y Espera (Locator-style Waits):</strong> Permite definir condiciones para esperar a que ocurran eventos específicos en la salida de un pane, similar a <code>page.waitForSelector()</code> o <code>page.waitForResponse()</code> en Playwright. Estas esperas son más robustas que <code>sleep</code> porque solo esperan hasta que la condición se cumpla, no un tiempo fijo.</li>
+</ul>
+<h2>Características Clave y Componentes Técnicos</h2>
+<h3>1. CLI Compatible con <code>tmux</code></h3>
+<p>La CLI de Rmux está diseñada para minimizar la curva de aprendizaje para los usuarios de <code>tmux</code>. Al ejecutar comandos como <code>tmux new-session</code> o <code>tmux send-keys</code>, los usuarios deberían encontrar una funcionalidad similar en Rmux. Esto se logra mediante:</p>
+<ul>
+<li><strong>Implementación de Comandos <code>tmux</code>:</strong> El demonio de Rmux intercepta y procesa comandos que imitan la sintaxis de <code>tmux</code>.</li>
+<li><strong>Gestión de Atajos de Teclado:</strong> Los atajos de teclado predeterminados de <code>tmux</code> (como <code>Ctrl-b</code> seguido de una tecla de comando) son compatibles.</li>
+<li><strong>Interacción con el Demonio:</strong> La CLI actúa como un cliente ligero que envía peticiones al demonio de Rmux a través de su protocolo de comunicación.</li>
+</ul>
+<p>Ejemplo de uso potencial (sintaxis similar a <code>tmux</code>):</p>
+<pre><code class="language-bash"># Crear una nueva sesión
+rmux new-session -d -s my_session
+
+# Dividir el pane actual horizontalmente
+rmux split-window -h
+
+# Enviar texto a un pane específico (usando ID de pane estable)
+rmux send-keys -t my_session:0.1 "echo 'Hello from Rmux'" C-m
+
+# Adjuntar a la sesión
+rmux attach-session -t my_session
+</code></pre>
+<h3>2. SDK de Rust</h3>
+<p>El SDK es donde reside el poder de automatización programática de Rmux. Se construye sobre el demonio y expone una API asíncrona en Rust.</p>
+<h4>a) Conexión al Demonio</h4>
+<p>El primer paso al usar el SDK es establecer una conexión con el demonio de Rmux.</p>
+<pre><code class="language-rust">use rmux_sdk::{Client, Result};
+
+#[tokio::main]
+async fn main() -> Result&#x3C;()> {
+    let mut client = Client::connect("unix:///tmp/rmux.sock").await?;
+    // Ahora puedes interactuar con el demonio
+    Ok(())
+}
+</code></pre>
+<h4>b) Gestión de Sesiones, Ventanas y Panes</h4>
+<p>El SDK permite crear, listar y manipular estos objetos. Los identificadores de pane son cruciales aquí.</p>
+<pre><code class="language-rust">use rmux_sdk::{Client, Session, Window, Pane, Result};
+
+#[tokio::main]
+async fn main() -> Result&#x3C;()> {
+    let mut client = Client::connect("unix:///tmp/rmux.sock").await?;
+
+    // Crear una nueva sesión
+    let session = client.new_session("my_automation_session", None).await?;
+    println!("Created session: {}", session.name());
+
+    // Obtener la primera ventana de la sesión
+    let window = session.windows().await?.first().ok_or("No windows found")?;
+    println!("First window: {}", window.index());
+
+    // Dividir la ventana
+    let pane1 = window.split_pane(rmux_sdk::SplitDirection::Horizontal, None).await?;
+    let pane2 = window.split_pane(rmux_sdk::SplitDirection::Vertical, Some(&#x26;pane1)).await?;
+
+    // Obtener el ID del pane principal (o cualquier pane)
+    let main_pane_id = window.panes().await?.first().ok_or("No panes found")?.id();
+    println!("Main pane ID: {}", main_pane_id);
+
+    // Enviar comandos a un pane específico
+    client.send_keys(&#x26;main_pane_id, "echo 'Hello Rmux SDK'", true).await?;
+
+    Ok(())
+}
+</code></pre>
+<h4>c) Captura de Salida y Esperas Estilo Playwright</h4>
+<p>Este es uno de los aspectos más innovadores. En lugar de <code>sleep</code> y <code>grep</code>, se utilizan mecanismos de espera declarativos.</p>
+<pre><code class="language-rust">use rmux_sdk::{Client, PaneOutput, WaitCondition, Result};
+use tokio::time::{sleep, Duration};
+
+#[tokio::main]
+async fn main() -> Result&#x3C;()> {
+    let mut client = Client::connect("unix:///tmp/rmux.sock").await?;
+    let session = client.new_session("wait_demo", None).await?;
+    let window = session.windows().await?.first().ok_or("No windows")?;
+    let target_pane = window.panes().await?.first().ok_or("No panes")?;
+
+    // Ejecutar un comando que produce salida gradualmente
+    client.send_keys(&#x26;target_pane.id(), "for i in $(seq 1 5); do echo 'Line '$i; sleep 1; done", true).await?;
+
+    // Esperar a que aparezca una línea específica en la salida del pane
+    println!("Waiting for 'Line 3'...");
+    let condition = WaitCondition::TextContent(|content: &#x26;PaneOutput| {
+        content.lines().any(|line| line.contains("Line 3"))
+    });
+    target_pane.wait_for(condition, Duration::from_secs(10)).await?;
+    println!("'Line 3' found!");
+
+    // Esperar a que el pane tenga un cierto número de líneas
+    println!("Waiting for 5 lines...");
+    let line_count_condition = WaitCondition::LineCount(5);
+    target_pane.wait_for(line_count_condition, Duration::from_secs(10)).await?;
+    println!("Pane has 5 lines!");
+
+    // Capturar la salida completa después de las esperas
+    let final_output: PaneOutput = target_pane.capture_output().await?;
+    println!("Final output:\n{}", final_output);
+
+    Ok(())
+}
+</code></pre>
+<p>La estructura <code>PaneOutput</code> podría contener metadatos adicionales, como marcas de tiempo para cada línea o incluso una representación más estructurada si el demonio pudiera inferirla.</p>
+<h3>3. Soporte Nativo para Windows (<code>ConPTY</code>)</h3>
+<p>La compatibilidad con Windows es un diferenciador importante. Rmux utiliza la API <code>ConPTY</code> de Windows (Introducida en Windows 10). <code>ConPTY</code> proporciona una capa de emulación de terminal moderna que permite a las aplicaciones de consola interactuar con la consola de Windows de una manera más consistente y programática, superando muchas de las limitaciones del antiguo subsistema de consola de Windows.</p>
+<ul>
+<li><strong>Emulación de Terminal:</strong> Rmux implementa su propia lógica de emulación de terminal o utiliza una librería para interpretar secuencias de escape ANSI y gestionar el estado del cursor, el color, etc.</li>
+<li><strong>Conexión a Procesos:</strong> Utiliza <code>CreateProcess</code> y <code>CreatePseudoConsole</code> (para <code>ConPTY</code>) para iniciar y adjuntar a procesos, capturando su salida y enviandoles entrada.</li>
+<li><strong>Compatibilidad Real:</strong> Esto significa que Rmux puede ejecutarse de forma nativa en Windows sin necesidad de WSL (Windows Subsystem for Linux) para su funcionalidad principal de multiplexión y ejecución de comandos.</li>
+</ul>
+<h3>4. Protocolo de Comunicación</h3>
+<p>El diseño del protocolo de comunicación entre el demonio y sus clientes (CLI/SDK) es fundamental para la extensibilidad y la robustez. Probablemente se basa en un protocolo de mensajes serializado (como Protobuf, JSON sobre TCP, o un protocolo binario personalizado) que permite:</p>
+<ul>
+<li><strong>Envío de Comandos:</strong> La CLI/SDK envía comandos al demonio para crear sesiones, enviar teclas, consultar estados, etc.</li>
+<li><strong>Recepción de Eventos:</strong> El demonio puede emitir eventos al cliente, como "salida de pane actualizada", "pane cerrado", etc. Esto permite un modelo de programación reactivo.</li>
+<li><strong>Serialización Eficiente:</strong> Para el manejo de grandes volúmenes de salida de terminal, un protocolo binario eficiente sería preferible.</li>
+</ul>
+<h3>5. Identificadores Estables de Pane</h3>
+<p>A diferencia de <code>tmux</code> donde los índices de pane pueden cambiar si se manipula la disposición de los panes, Rmux promete identificadores estables. Esto significa que un pane específico tendrá el mismo ID independientemente de las operaciones de división, fusión o cierre de otros panes. Esto se puede lograr mediante:</p>
+<ul>
+<li><strong>UUIDs o Identificadores Genéricos:</strong> Asignar un identificador único globalmente a cada pane cuando se crea.</li>
+<li><strong>Mapeo Persistente:</strong> El demonio mantiene un mapa interno de estos identificadores estables a las referencias de pane internas.</li>
+</ul>
+<h3>6. Snapshots Estructurados y Localizadores</h3>
+<p>La capacidad de "esperar" a que ocurra algo y obtener información estructurada es clave.</p>
+<ul>
+<li><strong><code>PaneOutput</code>:</strong> Una estructura de datos que representa la salida de un pane. Podría incluir no solo el texto, sino también metadatos como:
+<ul>
+<li>Timestamp de la última actualización.</li>
+<li>Número de líneas.</li>
+<li>Posición del cursor.</li>
+<li>Posiblemente, información sobre el estado del prompt si se puede inferir.</li>
+</ul>
+</li>
+<li><strong><code>WaitCondition</code>:</strong> Un enum o trait que define diferentes tipos de condiciones de espera:
+<ul>
+<li><code>TextContent(F)</code>: Espera a que una función <code>F</code> aplicada al <code>PaneOutput</code> actual devuelva <code>true</code>.</li>
+<li><code>LineCount(usize)</code>: Espera a que el número de líneas alcance un valor específico.</li>
+<li><code>PromptVisible</code>: Espera a que un prompt reconocido sea visible.</li>
+<li><code>ProcessExited</code>: Espera a que el proceso en el pane termine.</li>
+</ul>
+</li>
+<li><strong><code>Locator</code>:</strong> En un sentido más amplio (aunque no explícito en la descripción inicial de Rmux), se podría imaginar un sistema de localizadores para panes o ventanas, como <code>session.find_pane(by_id("pane-123"))</code> o <code>window.find_pane(by_title("Logs"))</code>.</li>
+</ul>
+<h2>Casos de Uso Potenciales</h2>
+<p>Rmux abre la puerta a una nueva categoría de herramientas de automatización de terminal:</p>
+<ol>
+<li><strong>Automatización de Despliegues:</strong> Scripts que interactúan con herramientas de línea de comandos para desplegar aplicaciones, esperar confirmaciones, y verificar estados.</li>
+<li><strong>Pruebas de Aplicaciones de Consola:</strong> Frameworks de testing que pueden iniciar aplicaciones de servidor de consola, enviarles comandos, verificar su salida y simular interacciones de usuario.</li>
+<li><strong>Monitoreo y Alertas:</strong> Scripts que monitorizan la salida de procesos de larga duración (logs, métricas) y disparan alertas o acciones cuando se cumplen ciertas condiciones.</li>
+<li><strong>Orquestación de Tareas Distribuidas:</strong> Controlar la ejecución de comandos en múltiples máquinas virtuales o contenedores desde una única interfaz programática.</li>
+<li><strong>Entornos de Desarrollo Interactivo:</strong> Crear herramientas que se integran con el flujo de trabajo de desarrollo, automatizando tareas repetitivas dentro de la terminal.</li>
+<li><strong>Educación y Demostración:</strong> Mostrar flujos de trabajo complejos en la terminal de manera programática y confiable.</li>
+</ol>
+<h2>Desafíos y Consideraciones Futuras</h2>
+<ul>
+<li><strong>Manejo de Secuencias de Escape Complejas:</strong> La emulación de terminal es un campo complejo. Rmux debe manejar correctamente una amplia gama de secuencias de escape de terminal (ANSI, VT100, etc.) para la representación precisa de la salida.</li>
+<li><strong>Rendimiento:</strong> Procesar y analizar grandes volúmenes de salida de terminal en tiempo real puede ser intensivo en recursos. La arquitectura del demonio y la eficiencia del SDK son cruciales.</li>
+<li><strong>Concurrencia y Paralelismo:</strong> Gestionar múltiples sesiones, ventanas y panes, cada uno con sus propios procesos y flujos de salida, requiere un diseño concurrente robusto en Rust.</li>
+<li><strong>Depuración del SDK:</strong> Depurar scripts escritos con el SDK puede ser más fácil que con métodos <code>grep</code>/<code>sleep</code>, pero aún requiere herramientas de depuración adecuadas para el código Rust asíncrono.</li>
+<li><strong>Evolución del Protocolo:</strong> A medida que Rmux evoluciona, el protocolo de comunicación deberá ser versionado y gestionado cuidadosamente.</li>
+<li><strong>Compatibilidad con Diferentes Shells y Herramientas:</strong> Asegurar que Rmux se comporta correctamente con una amplia variedad de comandos y shells es un desafío continuo.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Rmux representa un avance significativo en el campo de la automatización de terminal. Al combinar la familiaridad de una CLI compatible con <code>tmux</code> con la potencia y robustez de un SDK programático inspirado en Playwright, ofrece una solución elegante a problemas persistentes de automatización de consola. Su diseño en Rust, junto con el soporte nativo para Windows a través de <code>ConPTY</code>, lo posiciona como una herramienta moderna y versátil.</p>
+<p>La promesa de identificadores estables, instantáneas estructuradas y esperas declarativas transforma la manera en que los ingenieros pueden interactuar y automatizar flujos de trabajo en la terminal, alejándose de las soluciones frágiles basadas en <code>grep</code> y <code>sleep</code> hacia un enfoque más seguro, confiable y mantenible.</p>
+<p>Para aquellos interesados en explorar soluciones avanzadas de ingeniería de datos, automatización de sistemas y desarrollo de inteligencia artificial, y que buscan consultoría experta, les invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como `tmux` son indispensables para la ges..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"21 de mayo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"13 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como `tmux` son indispensables para la ges..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/show-hn-rmux-programmable-terminal-multiplexer/"}],["$","meta","11",{"property":"og:title","content":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright"}],["$","meta","12",{"property":"og:description","content":"La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como `tmux` son indispensables para la ges..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/show-hn-rmux-programmable-terminal-multiplexer/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-05-21"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright"}],["$","meta","25",{"name":"twitter:description","content":"La automatización de flujos de trabajo en entornos de consola a menudo presenta desafíos significativos. Herramientas como `tmux` son indispensables para la ges..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Rmux: Un Multiplexor de Terminal Programable con SDK estilo Playwright"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

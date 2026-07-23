@@ -1,0 +1,261 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","newsroom-ai-policy","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","newsroom-ai-policy","d"],{"children":["__PAGE__?{\"slug\":\"newsroom-ai-policy\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","newsroom-ai-policy","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T417,{"@context":"https://schema.org","@type":"Article","headline":"Fundamentos de una Política de IA en Salas de Redacción","description":"La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafío...","url":"https://www.mgatc.com/blog/newsroom-ai-policy/","datePublished":"2026-04-23","dateModified":"2026-04-23","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/newsroom-ai-policy/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T46e8,<p>La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafíos técnicos y éticos significativos. Este artículo aborda la formulación y aplicación de una política de IA en una redacción, centrándose en los aspectos prácticos de integración, las consideraciones técnicas y las mejores prácticas para garantizar la calidad, veracidad y transparencia del contenido generado o asistido por IA.</p>
+<h2>Fundamentos de una Política de IA en Salas de Redacción</h2>
+<p>La piedra angular de cualquier política de IA exitosa reside en la claridad de sus objetivos y la definición de los roles y responsabilidades. En una sala de redacción, los objetivos primordiales son:</p>
+<ol>
+<li><strong>Mejora de la Eficiencia y Productividad:</strong> Automatizar tareas repetitivas, acelerar la investigación y optimizar la generación de borradores.</li>
+<li><strong>Aumento de la Calidad del Contenido:</strong> Asistir en la verificación de hechos, sugerir mejoras estilísticas y garantizar la coherencia.</li>
+<li><strong>Innovación en Formatos y Narrativas:</strong> Explorar nuevas formas de presentar información y personalizar la experiencia del lector.</li>
+<li><strong>Mantenimiento de Estándares Éticos y de Veracidad:</strong> Evitar la desinformación, el plagio y la parcialidad, preservando la confianza del público.</li>
+</ol>
+<p>La política debe definir explícitamente qué tipos de herramientas de IA están permitidas, para qué propósitos y bajo qué supervisión. Esto incluye diferenciar entre IA utilizada para la generación de contenido desde cero, la asistencia en la edición, la investigación y el análisis de datos.</p>
+<h3>Definición de Alcance y Herramientas</h3>
+<p>Es crucial categorizar las herramientas de IA según su función y nivel de autonomía:</p>
+<ul>
+<li><strong>Herramientas de Asistencia:</strong>
+<ul>
+<li><strong>Completado de Texto y Sugerencias:</strong> Modelos de lenguaje que ofrecen continuaciones de frases, sinónimos o reformulaciones. Ejemplos: modelos de autocompletado integrados en editores de texto.</li>
+<li><strong>Verificación Gramatical y de Estilo:</strong> Software que identifica errores gramaticales, de puntuación y sugiere mejoras estilísticas. Ejemplos: Grammarly, LanguageTool.</li>
+<li><strong>Resumen y Síntesis:</strong> Herramientas que condensan textos largos en resúmenes concisos. Ejemplos: modelos basados en BART, T5.</li>
+</ul>
+</li>
+<li><strong>Herramientas de Generación de Contenido:</strong>
+<ul>
+<li><strong>Generación de Borradores Iniciales:</strong> Modelos que producen texto coherente basado en <em>prompts</em> (instrucciones) detallados. Ejemplos: GPT-3.5, GPT-4, Claude.</li>
+<li><strong>Generación de Contenido Especializado:</strong> Modelos entrenados en dominios específicos (ej. datos financieros, reportes técnicos).</li>
+</ul>
+</li>
+<li><strong>Herramientas de Investigación y Análisis:</strong>
+<ul>
+<li><strong>Análisis de Sentimiento:</strong> Modelos que evalúan el tono emocional de un texto.</li>
+<li><strong>Extracción de Información:</strong> Herramientas que identifican y extraen entidades nombradas (personas, lugares, organizaciones) y relaciones de textos.</li>
+<li><strong>Análisis de Datos y Visualización:</strong> Sistemas que procesan grandes volúmenes de datos y generan gráficos o tablas.</li>
+</ul>
+</li>
+</ul>
+<p>La política debe especificar cuáles de estas categorías y qué herramientas concretas están permitidas, siempre condicionadas a un uso supervisado y responsable.</p>
+<h3>Roles y Responsabilidades</h3>
+<p>La política debe asignar roles claros:</p>
+<ul>
+<li><strong>Editores:</strong> Responsables de la supervisar el contenido generado por IA, verificar su precisión, coherencia y adherencia a las directrices editoriales. Tienen la autoridad final para aprobar o rechazar cualquier contenido.</li>
+<li><strong>Periodistas/Creadores de Contenido:</strong> Deben entender las capacidades y limitaciones de las herramientas de IA, utilizarlas de manera ética y transparente, y reportar cualquier hallazgo o problema.</li>
+<li><strong>Equipo Técnico/IT:</strong> Encargado de implementar, mantener y asegurar las herramientas de IA, garantizando la seguridad de los datos y el cumplimiento de la política.</li>
+<li><strong>Equipo Legal/Cumplimiento:</strong> Revisa la política para asegurar el cumplimiento de leyes de propiedad intelectual, privacidad y otras regulaciones.</li>
+</ul>
+<h3>Supervisión y Verificación Humana</h3>
+<p>Este es el pilar fundamental. Ningún contenido generado o asistido por IA debe publicarse sin una revisión y aprobación humana exhaustiva. La IA puede ser una herramienta para agilizar procesos, pero la responsabilidad editorial y la verificación de la veracidad recaen en los profesionales humanos.</p>
+<h2>Consideraciones Técnicas para la Implementación</h2>
+<p>La integración de IA en flujos de trabajo de redacción requiere una infraestructura técnica robusta y un diseño cuidadoso de los procesos.</p>
+<h3>Selección de Modelos y Plataformas</h3>
+<p>La elección de modelos de IA depende de la tarea específica y los recursos disponibles.</p>
+<ul>
+<li>
+<p><strong>Modelos <em>Open-Source</em> vs. Modelos Propietarios:</strong></p>
+<ul>
+<li><strong>Modelos Propietarios (APIs):</strong> Ofrecen facilidad de uso, escalabilidad y a menudo un rendimiento de vanguardia. Requieren gestión de claves API, consideración de costos por uso y políticas de privacidad de datos del proveedor. Ejemplos: OpenAI API, Google AI Platform, Anthropic API.</li>
+<li><strong>Modelos <em>Open-Source</em>:</strong> Proporcionan mayor control, personalización y transparencia. Requieren infraestructura para alojamiento, mantenimiento y <em>fine-tuning</em>. Ejemplos: Llama 2, Mistral, Falcon.</li>
+</ul>
+</li>
+<li>
+<p><strong>Infraestructura de Despliegue:</strong></p>
+<ul>
+<li><strong>Nube Pública:</strong> AWS, Google Cloud, Azure ofrecen servicios gestionados para alojar y ejecutar modelos de IA (ej. SageMaker, Vertex AI, Azure ML).</li>
+<li><strong>On-Premise:</strong> Para organizaciones con requisitos estrictos de privacidad de datos o latencia, el despliegue local puede ser necesario, pero implica una inversión significativa en hardware (GPUs, TPUs) y personal especializado.</li>
+</ul>
+</li>
+</ul>
+<h3>Integración en Flujos de Trabajo Existentes</h3>
+<p>La IA debe integrarse de manera fluida en las herramientas y procesos que ya utiliza la redacción.</p>
+<ul>
+<li>
+<p><strong>Plugins para Editores de Texto/CMS:</strong> Desarrollar o utilizar plugins que permitan acceder a funcionalidades de IA directamente desde el entorno de edición (ej. sugerencias de texto, resúmenes, verificación de hechos).</p>
+<pre><code class="language-python"># Ejemplo conceptual de un plugin para editor que llama a una API de LLM
+import requests
+import json
+
+def generar_revision(texto_original, prompt_instruccion):
+    api_url = "https://api.example.com/v1/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_KEY"
+    }
+    data = {
+        "prompt": f"{prompt_instruccion}\n\n{texto_original}",
+        "max_tokens": 500,
+        "temperature": 0.7
+    }
+    try:
+        response = requests.post(api_url, headers=headers, data=json.dumps(data))
+        response.raise_for_status() # Lanza un error para códigos de estado HTTP erróneos
+        result = response.json()
+        return result['choices'][0]['text'].strip()
+    except requests.exceptions.RequestException as e:
+        print(f"Error al llamar a la API: {e}")
+        return None
+
+texto_articulo = "El congreso aprobó una nueva ley sobre protección de datos. Los detalles aún se están analizando."
+instruccion = "Genera un breve resumen de este texto enfocado en las implicaciones para los ciudadanos."
+resumen_generado = generar_revision(texto_articulo, instruccion)
+
+if resumen_generado:
+    print("Resumen generado por IA:")
+    print(resumen_generado)
+</code></pre>
+</li>
+<li>
+<p><strong>APIs Internas y Orquestación:</strong> Crear APIs internas que actúen como intermediarios entre las herramientas de IA y los sistemas de la redacción. Esto permite estandarizar el acceso, aplicar políticas de seguridad y monitorizar el uso.</p>
+<pre><code class="language-python"># Ejemplo conceptual de una API interna para orquestar llamadas a LLM
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import os
+
+app = FastAPI()
+
+class PromptRequest(BaseModel):
+    prompt: str
+    text_to_process: str
+    model_name: str = "gpt-3.5-turbo"
+    max_tokens: int = 500
+
+@app.post("/generate_content/")
+async def generate_content(request: PromptRequest):
+    # Aquí iría la lógica para llamar a la API del LLM correspondiente
+    # según request.model_name, utilizando request.prompt y request.text_to_process.
+    # Se deben implementar medidas de seguridad, autenticación y control de acceso.
+
+    # Simulación de llamada a LLM
+    simulated_response = f"Contenido generado para: '{request.text_to_process}' con prompt: '{request.prompt}'"
+    return {"generated_text": simulated_response}
+
+# Para ejecutar esta API, se necesitaría un servidor ASGI como uvicorn:
+# uvicorn your_module_name:app --reload
+</code></pre>
+</li>
+</ul>
+<h3>Gestión de Datos y Privacidad</h3>
+<p>La IA a menudo requiere grandes cantidades de datos para entrenamiento y operación. La política debe abordar:</p>
+<ul>
+<li><strong>Datos de Entrenamiento:</strong> Si se utilizan modelos personalizados, los datos de entrenamiento deben ser anonimizados y cumplir con las regulaciones de privacidad (ej. GDPR). El uso de datos sensibles o propietarios para entrenar modelos de terceros puede implicar riesgos.</li>
+<li><strong>Datos de Input/Output:</strong> Cualquier dato enviado a las APIs de IA (prompts, textos) debe ser manejado con cuidado. Se debe verificar si los proveedores de IA utilizan estos datos para entrenamiento de sus modelos. Preferiblemente, se deben utilizar servicios con garantías explícitas de no uso de datos para entrenamiento.</li>
+<li><strong>Almacenamiento Seguro:</strong> Los resultados generados por IA, especialmente si son borradores de contenido no publicado, deben almacenarse de forma segura.</li>
+</ul>
+<h3>Monitorización y Auditoría</h3>
+<p>Es esencial monitorizar el uso de las herramientas de IA para:</p>
+<ul>
+<li><strong>Detectar Abusos:</strong> Identificar patrones de uso no autorizados o para fines inapropiados.</li>
+<li><strong>Evaluar Rendimiento:</strong> Medir la efectividad de las herramientas y la calidad del contenido generado.</li>
+<li><strong>Cumplimiento Normativo:</strong> Asegurar que se siguen las directrices de la política y las regulaciones.</li>
+</ul>
+<pre><code class="language-python"># Ejemplo conceptual de logging de uso de API de IA
+import logging
+from datetime import datetime
+
+logging.basicConfig(filename='ai_usage.log', level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+def log_ai_interaction(user_id, tool_name, prompt, result_summary):
+    timestamp = datetime.now().isoformat()
+    log_message = (
+        f"Timestamp: {timestamp}, "
+        f"UserID: {user_id}, "
+        f"Tool: {tool_name}, "
+        f"Prompt: \"{prompt[:100]}...\", " # Truncar prompt para logs
+        f"ResultSummary: \"{result_summary[:100]}...\"" # Truncar resumen
+    )
+    logging.info(log_message)
+
+# Ejemplo de uso
+user = "editor_01"
+tool = "GPT-4 Content Assistant"
+user_prompt = "Escribe un titular impactante para esta noticia: [noticia]"
+ai_output = "La economía mundial se tambalea ante la crisis energética."
+log_ai_interaction(user, tool, user_prompt, ai_output)
+</code></pre>
+<h2>Mejores Prácticas y Ética</h2>
+<p>La aplicación de IA en una sala de redacción no es solo una cuestión técnica, sino también una responsabilidad ética y periodística.</p>
+<h3>Transparencia con la Audiencia</h3>
+<p>La política debe dictar cuándo y cómo se debe informar a la audiencia si el contenido ha sido generado o asistido significativamente por IA. Esto puede variar desde una nota discreta en el pie de página hasta una advertencia explícita, dependiendo de la naturaleza y el grado de intervención de la IA.</p>
+<ul>
+<li><strong>Marcado de Contenido:</strong> Implementar un sistema de etiquetado para contenido generado por IA.
+<ul>
+<li><strong>Nivel 1: Asistencia Menor:</strong> Corrección gramatical, sugerencias de estilo. No requiere divulgación explícita.</li>
+<li><strong>Nivel 2: Asistencia Mayor:</strong> Generación de borradores, resúmenes, análisis de datos. Requiere una nota de divulgación genérica.</li>
+<li><strong>Nivel 3: Generación Principal:</strong> Si la mayor parte del contenido es generada por IA y editada mínimamente. Requiere una divulgación clara y destacada.</li>
+</ul>
+</li>
+</ul>
+<h3>Verificación de Hechos y Sesgos</h3>
+<p>Los modelos de IA, especialmente los LLMs, pueden "alucinar" (generar información falsa pero convincente) y perpetuar sesgos inherentes a los datos con los que fueron entrenados.</p>
+<ul>
+<li><strong>Doble Verificación Humana:</strong> Cada afirmación fáctica generada o sugerida por IA debe ser verificada de forma independiente por un periodista.</li>
+<li><strong>Identificación y Mitigación de Sesgos:</strong> Los editores y periodistas deben ser conscientes de los posibles sesgos (de género, raciales, políticos) en el contenido generado por IA y tomar medidas para corregirlos. Esto puede incluir el uso de <em>prompts</em> diseñados para fomentar la neutralidad o la revisión cruzada de diferentes modelos de IA.
+<pre><code class="language-python"># Ejemplo de prompt para mitigar sesgos
+prompt_neutro = """
+Analiza las implicaciones económicas de la nueva política, asegurándote de presentar
+una perspectiva equilibrada que incluya los puntos de vista de todos los actores
+involucrados (empresas, consumidores, gobierno) sin favorecer a ninguno.
+Evita el lenguaje cargado o tendencioso.
+"""
+</code></pre>
+</li>
+</ul>
+<h3>Propiedad Intelectual y Plagio</h3>
+<p>El contenido generado por IA puede plantear dudas sobre la autoría y el riesgo de plagio involuntario.</p>
+<ul>
+<li><strong>Originalidad:</strong> Se debe garantizar que el contenido generado por IA sea original y no infrinja derechos de autor existentes. Las herramientas de detección de plagio deben utilizarse como parte del proceso de edición.</li>
+<li><strong>Licencias de Modelos:</strong> Comprender los términos de licencia de las herramientas de IA utilizadas, especialmente si se entrenan modelos personalizados.</li>
+</ul>
+<h3>Formación Continua</h3>
+<p>El campo de la IA evoluciona rápidamente. Es crucial que el personal de la redacción reciba formación continua sobre:</p>
+<ul>
+<li>Las últimas herramientas y capacidades de IA.</li>
+<li>Las mejores prácticas para su uso seguro y ético.</li>
+<li>Los riesgos asociados y cómo mitigarlos.</li>
+</ul>
+<h2>Casos de Uso Específicos y Ejemplos Prácticos</h2>
+<h3>Generación de Titulares y Resúmenes</h3>
+<p>Los LLMs son excelentes para generar múltiples opciones de titulares o resúmenes rápidos de artículos extensos.</p>
+<ul>
+<li><strong>Input:</strong> Texto completo de un artículo.</li>
+<li><strong>Prompt:</strong> "Genera 5 titulares alternativos para este artículo, cada uno con un tono diferente (informativo, intrigante, conciso)."</li>
+<li><strong>Output:</strong> Una lista de titulares que el editor puede seleccionar o refinar.</li>
+<li><strong>Supervisión:</strong> El editor elige el titular más adecuado, verificando su precisión y relevancia.</li>
+</ul>
+<h3>Asistencia en la Investigación</h3>
+<p>La IA puede ayudar a identificar fuentes, extraer información clave de documentos largos o analizar tendencias en grandes conjuntos de datos.</p>
+<ul>
+<li><strong>Input:</strong> Documentos legales, informes financieros, transcripciones de entrevistas.</li>
+<li><strong>Prompt:</strong> "Extrae todas las menciones de empresas y las fechas asociadas en este documento."</li>
+<li><strong>Output:</strong> Una lista estructurada de entidades y fechas.</li>
+<li><strong>Supervisión:</strong> Un periodista revisa la información extraída para verificar su corrección y contexto.</li>
+</ul>
+<h3>Personalización de Contenido</h3>
+<p>Los sistemas de IA pueden ayudar a adaptar la presentación del contenido a las preferencias de segmentos de audiencia específicos, mejorando el <em>engagement</em>.</p>
+<ul>
+<li><strong>Input:</strong> Artículo base y perfil del usuario (intereses, historial de lectura).</li>
+<li><strong>Proceso:</strong> La IA puede sugerir reformulaciones, puntos de énfasis o enlaces internos relevantes para ese usuario.</li>
+<li><strong>Supervisión:</strong> Se requiere un cuidadoso equilibrio para evitar la creación de "burbujas de filtro" o contenido sesgado algorítmicamente.</li>
+</ul>
+<h2>Conclusión y Futuro</h2>
+<p>La integración de la IA en las salas de redacción es una evolución inevitable que ofrece un potencial significativo para mejorar la eficiencia y la calidad. Sin embargo, su adopción debe ser medida, estratégica y siempre priorizando los principios éticos del periodismo. Una política de IA bien definida, con una sólida base técnica y un compromiso inquebrantable con la supervisión humana, es esencial para navegar este nuevo panorama. La clave no está en reemplazar el juicio humano, sino en aumentarlo con herramientas poderosas, siempre con la veracidad, la precisión y la confianza del público como objetivos primordiales.</p>
+<p>Para organizaciones que buscan implementar o refinar sus estrategias de IA en entornos de producción de contenido, la consultoría experta es invaluable.</p>
+<p><a href="https://www.mgatc.com">https://www.mgatc.com</a> ofrece servicios especializados en ingeniería de datos, inteligencia artificial y transformación digital para ayudar a su empresa a navegar estos desafíos y capitalizar las oportunidades.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Fundamentos de una Política de IA en Salas de Redacción"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafío..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"23 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Fundamentos de una Política de IA en Salas de Redacción | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafío..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/newsroom-ai-policy/"}],["$","meta","11",{"property":"og:title","content":"Fundamentos de una Política de IA en Salas de Redacción"}],["$","meta","12",{"property":"og:description","content":"La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafío..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/newsroom-ai-policy/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Fundamentos de una Política de IA en Salas de Redacción"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-04-23"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Fundamentos de una Política de IA en Salas de Redacción"}],["$","meta","25",{"name":"twitter:description","content":"La implementación de Inteligencia Artificial (IA) en entornos de producción de contenido, particularmente en salas de redacción, presenta un conjunto de desafío..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Fundamentos de una Política de IA en Salas de Redacción"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

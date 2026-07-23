@@ -1,0 +1,333 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","substrate-ai-hiring-harness-engineers","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","substrate-ai-hiring-harness-engineers","d"],{"children":["__PAGE__?{\"slug\":\"substrate-ai-hiring-harness-engineers\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","substrate-ai-hiring-harness-engineers","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+11:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+12:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+15:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:T4bbe,<p>La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica</p>
+<p>El campo de la inteligencia artificial (IA) avanza a un ritmo vertiginoso, impulsado por la constante innovación en arquitecturas de modelos, algoritmos de entrenamiento y técnicas de despliegue. En este contexto, la infraestructura subyacente que permite la experimentación, el entrenamiento a gran escala y la producción de modelos de IA se vuelve crítica. Substrate AI, una organización que se dedica a la investigación y desarrollo en IA, busca activamente Ingenieros de Harness. Este rol, aunque quizás menos conocido que el de "AI Researcher" o "ML Engineer", es fundamental para el éxito operativo y la escalabilidad de cualquier iniciativa seria en IA.</p>
+<p>Un Ingeniero de Harness, en el contexto de la IA, se refiere a un profesional especializado en la construcción, mantenimiento y optimización de la infraestructura que "habilita" o "soporta" el ciclo de vida completo de los modelos de IA. Esto abarca desde la gestión de datos y la orquestación de experimentos hasta el despliegue y monitoreo de modelos en producción. El término "harness" evoca la idea de un sistema de soporte robusto y seguro que permite realizar tareas complejas con confianza.</p>
+<p>El objetivo de este artículo es desglosar las responsabilidades, las habilidades técnicas y las consideraciones arquitectónicas asociadas con el rol de Ingeniero de Harness en una empresa como Substrate AI, que opera en la vanguardia de la investigación y desarrollo de IA.</p>
+<h3>El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness</h3>
+<p>Para comprender la importancia de un Ingeniero de Harness, es necesario visualizar el ciclo de vida típico de un proyecto de IA:</p>
+<ol>
+<li><strong>Recopilación y Preparación de Datos</strong>: Los datos son el combustible de la IA. La recopilación, limpieza, anotación y transformación de grandes volúmenes de datos requieren sistemas robustos y eficientes.</li>
+<li><strong>Experimentación y Prototipado</strong>: Los investigadores e ingenieros de ML iteran constantemente sobre arquitecturas de modelos, hiperparámetros y algoritmos de entrenamiento. Se necesita una plataforma que facilite la ejecución de miles de experimentos de manera reproducible y escalable.</li>
+<li><strong>Entrenamiento de Modelos</strong>: El entrenamiento de modelos de IA, especialmente modelos de lenguaje grandes (LLMs) o modelos de visión avanzados, puede requerir clústeres masivos de GPUs y estrategias de entrenamiento distribuidas.</li>
+<li><strong>Evaluación y Validación</strong>: Medir el rendimiento de un modelo, compararlo con otros y validar su robustez y generalización son pasos cruciales antes del despliegue.</li>
+<li><strong>Despliegue (Inferencia)</strong>: Poner un modelo en producción para que sirva predicciones en tiempo real o por lotes requiere una infraestructura de baja latencia y alta disponibilidad.</li>
+<li><strong>Monitoreo y Mantenimiento</strong>: Una vez desplegado, un modelo debe ser monitoreado por rendimiento, deriva de datos y posibles sesgos. La re-entrenamiento y actualización son procesos continuos.</li>
+</ol>
+<p>El Ingeniero de Harness es responsable de construir y mantener la infraestructura que soporta cada una de estas etapas. No necesariamente diseñan los modelos de IA, pero aseguran que los investigadores y otros ingenieros tengan las herramientas y plataformas necesarias para hacerlo de manera efectiva y eficiente.</p>
+<h3>Habilidades Técnicas Fundamentales</h3>
+<p>Un Ingeniero de Harness en IA debe poseer una combinación de habilidades en ingeniería de software, ingeniería de sistemas, operaciones (DevOps) y, de manera crucial, una comprensión sólida de los flujos de trabajo de machine learning.</p>
+<h4>1. Infraestructura y Computación en la Nube</h4>
+<ul>
+<li>
+<p><strong>Gestión de Infraestructura como Código (IaC)</strong>: Dominio de herramientas como Terraform, Pulumi o AWS CloudFormation para aprovisionar y gestionar recursos en la nube de forma automatizada y repetible.</p>
+<ul>
+<li>Ejemplo práctico: Aprovisionar un clúster de Kubernetes con GPUs utilizando Terraform y configurarlo para un trabajo de entrenamiento de ML.</li>
+</ul>
+<pre><code class="language-terraform">resource "aws_eks_cluster" "ml_cluster" {
+  name     = "substrate-ml-cluster"
+  role_arn = aws_iam_role.eks_cluster_role.arn
+
+  vpc_config {
+    subnet_ids = [aws_subnet.private.id, aws_subnet.public.id]
+  }
+}
+
+resource "aws_eks_node_group" "gpu_nodes" {
+  cluster_name    = aws_eks_cluster.ml_cluster.name
+  node_group_name = "gpu-worker-nodes"
+  node_role_arn   = aws_iam_role.eks_node_role.arn
+  subnet_ids      = [aws_subnet.private.id]
+
+  scaling_config {
+    desired_size = 5
+    max_size     = 10
+    min_size     = 2
+  }
+
+  # Especificar instancias con GPUs
+  instance_types = ["g4dn.xlarge", "p3.2xlarge"]
+
+  # Configuración para el disco y ami
+  launch_template {
+    id      = aws_launch_template.gpu_template.id
+    version = "$Latest"
+  }
+}
+
+resource "aws_launch_template" "gpu_template" {
+  name_prefix   = "substrate-gpu-template-"
+  image_id      = "ami-0abcdef1234567890" # AMI optimizada para GPU
+  instance_type = "g4dn.xlarge"
+  iam_instance_profile {
+    arn = aws_iam_instance_profile.instance_profile_gpu.arn
+  }
+
+  # Configuración de la red y detalles de arranque
+  network_interfaces {
+    associate_public_ip_address = false
+    device_index                = 0
+    # ... otros detalles de red
+  }
+
+  user_data = base64encode(&#x3C;&#x3C;-EOF
+    #!/bin/bash
+    # Script de arranque para instalar drivers de NVIDIA y Docker
+    echo "Downloading NVIDIA drivers..."
+    # ... comandos para instalar drivers
+    echo "Installing Docker..."
+    # ... comandos para instalar Docker
+    EOF
+  )
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Orquestación de Contenedores</strong>: Profundo conocimiento de Kubernetes (K8s) es esencial. Esto incluye la gestión de <code>Deployments</code>, <code>StatefulSets</code>, <code>Jobs</code>, <code>CronJobs</code>, <code>Services</code>, <code>Ingresses</code>, <code>ConfigMaps</code>, <code>Secrets</code>, <code>PersistentVolumes</code> y la optimización de recursos para cargas de trabajo de ML.</p>
+<ul>
+<li>Ejemplo práctico: Configurar un pipeline de entrenamiento en Kubernetes que escale automáticamente los nodos de GPU basándose en la demanda de trabajos de entrenamiento.</li>
+</ul>
+<pre><code class="language-yaml">apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-training-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: trainer
+        image: your-docker-repo/ml-trainer:latest
+        resources:
+          limits:
+            nvidia.com/gpu: 1 # Solicitar una GPU
+        env:
+        - name: DATASET_PATH
+          value: "s3://my-ml-datasets/training/v1"
+        # ... otras variables de entorno
+      restartPolicy: Never
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4 # Ejemplo GKE
+        # O un selector de etiquetas más genérico para on-prem o AWS
+        # nvidia.com/gpu.present: "true"
+  backoffLimit: 4
+</code></pre>
+</li>
+<li>
+<p><strong>Servicios de Nube</strong>: Experiencia con proveedores de nube líderes como AWS, GCP o Azure, incluyendo sus servicios de cómputo, almacenamiento, red, bases de datos y servicios de ML gestionados (SageMaker, Vertex AI, Azure ML).</p>
+</li>
+</ul>
+<h4>2. Herramientas y Plataformas de Machine Learning</h4>
+<ul>
+<li>
+<p><strong>Plataformas de ML Orchestration/Experiment Tracking</strong>: Familiaridad con herramientas como MLflow, Weights &#x26; Biases (W&#x26;B), Kubeflow, Comet.ml, que permiten rastrear experimentos, gestionar modelos, reproducir resultados y visualizar métricas.</p>
+<ul>
+<li>Ejemplo práctico: Integrar MLflow en un script de entrenamiento para registrar parámetros, métricas y artefactos del modelo.</li>
+</ul>
+<pre><code class="language-python">import mlflow
+import mlflow.keras
+from tensorflow import keras
+
+# Configurar MLflow para registrar en un servidor centralizado
+mlflow.set_tracking_uri("http://mlflow-server.internal:5000")
+experiment_name = "Substrate_LLM_Finetuning"
+mlflow.set_experiment(experiment_name)
+
+with mlflow.start_run():
+    # ... código de preprocesamiento de datos ...
+
+    # Definir el modelo
+    model = keras.Sequential([...])
+    model.compile(optimizer='adam', loss='categorical_crossentropy')
+
+    # Registrar hiperparámetros del modelo
+    mlflow.log_param("learning_rate", 0.001)
+    mlflow.log_param("batch_size", 32)
+    mlflow.log_param("epochs", 10)
+
+    # Entrenar el modelo
+    history = model.fit(x_train, y_train, epochs=10, validation_data=(x_val, y_val))
+
+    # Registrar métricas de validación
+    for epoch, val_loss in enumerate(history.history['val_loss']):
+        mlflow.log_metric("val_loss", val_loss, step=epoch)
+
+    # Guardar el modelo y registrarlo
+    mlflow.keras.log_model(model, "model")
+    print(f"Model logged to MLflow run: {mlflow.active_run().info.run_id}")
+</code></pre>
+</li>
+<li>
+<p><strong>Frameworks de Deep Learning</strong>: Comprensión de cómo funcionan frameworks como TensorFlow, PyTorch y JAX, y cómo optimizar su ejecución en hardware distribuido.</p>
+</li>
+<li>
+<p><strong>Contenerización (Docker)</strong>: Experiencia en la creación de <code>Dockerfiles</code> para empaquetar entornos de ML y asegurar la reproducibilidad.</p>
+<ul>
+<li>Ejemplo práctico: Construir una imagen de Docker para un servicio de inferencia que incluya las dependencias necesarias y el modelo serializado.</li>
+</ul>
+<pre><code class="language-dockerfile">FROM nvidia/cuda:11.8.0-base-ubuntu22.04
+
+WORKDIR /app
+
+RUN apt-get update &#x26;&#x26; apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    # Instalar otras dependencias necesarias
+    &#x26;&#x26; rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY inference_server.py .
+COPY models/ /app/models/ # Copiar el modelo serializado
+
+EXPOSE 8080
+
+CMD ["python3", "inference_server.py"]
+</code></pre>
+</li>
+</ul>
+<h4>3. Pipelines de CI/CD y Automatización</h4>
+<ul>
+<li>
+<p><strong>Herramientas de CI/CD</strong>: Experiencia con plataformas como Jenkins, GitLab CI, GitHub Actions para automatizar la construcción, prueba y despliegue de código y modelos.</p>
+<ul>
+<li>Ejemplo práctico: Configurar un pipeline de CI que, tras un commit en el repositorio de código de un modelo, construya una imagen de Docker, la suba a un registro, ejecute pruebas de inferencia y, si todo es exitoso, despliegue la nueva versión en un entorno de staging.</li>
+</ul>
+<pre><code class="language-yaml"># .github/workflows/deploy_inference.yml
+name: Deploy Inference Service
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: your-docker-repo/ml-inference:latest,your-docker-repo/ml-inference:${{ github.sha }}
+
+    - name: Deploy to Kubernetes
+      uses: azure/k8s-action@v2 # O una acción similar para tu cluster K8s
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+      # Lógica para actualizar el Deployment de Kubernetes (ej: kubectl set image...)
+      # ... se necesitaría un script bash para aplicar el kubectl set image o similar
+</code></pre>
+</li>
+<li>
+<p><strong>Scripting</strong>: Dominio de lenguajes como Python, Bash para automatizar tareas repetitivas y crear herramientas auxiliares.</p>
+</li>
+</ul>
+<h4>4. Big Data y Gestión de Datos</h4>
+<ul>
+<li><strong>Sistemas de Almacenamiento de Datos</strong>: Conocimiento de soluciones como S3, GCS, Azure Blob Storage, y la gestión eficiente de grandes datasets (ej. usando Apache Arrow, Parquet).</li>
+<li><strong>Bases de Datos</strong>: Familiaridad con bases de datos relacionales (PostgreSQL) y NoSQL (MongoDB, Cassandra) y su rol en el almacenamiento de metadatos de ML o resultados de inferencia.</li>
+<li><strong>Herramientas de Procesamiento de Datos</strong>: Experiencia con frameworks como Spark o Dask para el preprocesamiento y la ingeniería de características a gran escala.</li>
+</ul>
+<h4>5. Fundamentos de Redes y Seguridad</h4>
+<ul>
+<li><strong>Conceptos de Redes</strong>: Comprensión de TCP/IP, DNS, balanceadores de carga, firewalls, y cómo se aplican en arquitecturas distribuidas para la comunicación entre servicios de ML.</li>
+<li><strong>Seguridad</strong>: Conocimiento de la gestión de secretos, control de acceso (RBAC), hardening de sistemas y la protección de datos sensibles.</li>
+</ul>
+<h3>Desafíos Específicos en IA</h3>
+<p>Más allá de las habilidades generales de ingeniería de sistemas y DevOps, el Ingeniero de Harness en IA enfrenta desafíos únicos:</p>
+<ul>
+<li><strong>Gestión de Dependencias Complejas</strong>: Los entornos de ML a menudo involucran bibliotecas muy específicas (ej. versiones concretas de CUDA, cuDNN, PyTorch) que deben coexistir y ser compatibles. La gestión de estas dependencias a través de múltiples experimentos y entornos es un reto.</li>
+<li><strong>Escalabilidad del Entrenamiento</strong>: Entrenar modelos de IA modernos (LLMs, modelos de visión avanzados) puede requerir miles de horas de GPU y petabytes de datos. El Ingeniero de Harness debe diseñar sistemas que permitan escalar eficientemente el cómputo y el almacenamiento, gestionar colas de trabajos y optimizar la utilización del hardware.</li>
+<li><strong>Reproducibilidad</strong>: Asegurar que los experimentos y los resultados de entrenamiento sean reproducibles es fundamental. Esto implica gestionar versiones de código, datos, configuraciones y entornos de manera rigurosa.</li>
+<li><strong>Infraestructura para Inferencia</strong>: El despliegue de modelos para inferencia presenta desafíos distintos al entrenamiento: baja latencia, alta concurrencia, optimización de modelos para hardware específico (CPUs, GPUs, TPUs, NPUs) y la gestión de modelos con diferentes requisitos de tamaño y rendimiento.</li>
+<li><strong>Costo y Eficiencia</strong>: La computación para IA, especialmente con GPUs, es costosa. Un Ingeniero de Harness debe buscar constantemente formas de optimizar el uso de recursos, automatizar el escalado y gestionar los costos de la infraestructura.</li>
+<li><strong>Observabilidad y Monitoreo</strong>: Monitorear no solo la salud de la infraestructura (CPU, memoria, red), sino también el rendimiento del modelo (precisión, latencia, tasa de error) y la posible deriva de datos es crucial.</li>
+</ul>
+<h3>Arquitectura de un Sistema de Soporte para IA</h3>
+<p>Una arquitectura típica para el soporte de IA podría incluir los siguientes componentes, donde el Ingeniero de Harness juega un rol clave en su implementación y mantenimiento:</p>
+<ol>
+<li>
+<p><strong>Plataforma de Cómputo Distribuido</strong>:</p>
+<ul>
+<li><strong>Orquestador</strong>: Kubernetes es la opción predominante para gestionar clústeres de cómputo.</li>
+<li><strong>Nodos de Trabajo</strong>: Servidores con GPUs (NVIDIA es el estándar de facto) o TPUs, configurados con los drivers y entornos de ejecución necesarios.</li>
+<li><strong>Gestión de Recursos</strong>: Soluciones como Slurm, Ray, o las capacidades nativas de Kubernetes para la gestión de trabajos y la asignación de recursos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gestión de Datos y Almacenamiento</strong>:</p>
+<ul>
+<li><strong>Almacenamiento de Objetos</strong>: S3, GCS, Azure Blob Storage para datasets crudos y procesados.</li>
+<li><strong>Sistemas de Archivos Distribuidos</strong>: DFS (ej. Ceph, Lustre) si se requiere acceso de baja latencia a grandes datasets.</li>
+<li><strong>Bases de Datos de Metadatos</strong>: Para rastrear datasets, experimentos, versiones de modelos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Herramientas de ML Lifecycle Management</strong>:</p>
+<ul>
+<li><strong>Experiment Tracking</strong>: MLflow, W&#x26;B, Comet.ml para registrar experimentos, parámetros, métricas y artefactos.</li>
+<li><strong>Model Registry</strong>: Para versionar y gestionar el ciclo de vida de los modelos entrenados.</li>
+<li><strong>Feature Stores</strong>: Para gestionar y servir características de manera consistente entre entrenamiento e inferencia.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pipelines de MLOps</strong>:</p>
+<ul>
+<li><strong>CI/CD para ML</strong>: Automatización de la construcción de imágenes de contenedor, pruebas de modelos, y despliegue.</li>
+<li><strong>Orquestación de Pipelines</strong>: Kubeflow Pipelines, Airflow, Dagster para definir y ejecutar flujos de trabajo complejos de ML.</li>
+</ul>
+</li>
+<li>
+<p><strong>Servicios de Inferencia</strong>:</p>
+<ul>
+<li><strong>Plataformas de Serving</strong>: KServe, Triton Inference Server, Seldon Core, o servicios gestionados en la nube.</li>
+<li><strong>APIs de Servicio</strong>: Para exponer modelos entrenados a aplicaciones cliente.</li>
+<li><strong>Balanceadores de Carga y Gateways de API</strong>: Para gestionar el tráfico de inferencia.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitoreo y Observabilidad</strong>:</p>
+<ul>
+<li><strong>Métricas de Infraestructura</strong>: Prometheus, Grafana para el monitoreo del sistema.</li>
+<li><strong>Métricas de Modelos</strong>: Herramientas personalizadas o integraciones con plataformas de ML para monitorear el rendimiento del modelo en producción.</li>
+<li><strong>Logging</strong>: ELK Stack (Elasticsearch, Logstash, Kibana) o Fluentd para recopilar y analizar logs.</li>
+</ul>
+</li>
+</ol>
+<h3>El Futuro y la Especialización</h3>
+<p>El rol de Ingeniero de Harness está destinado a volverse aún más especializado y crítico a medida que la IA se integra más profundamente en todas las industrias. La demanda de sistemas que puedan entrenar modelos más grandes, de manera más eficiente y desplegarlos de forma más confiable seguirá creciendo. Las empresas como Substrate AI, que se enfocan en empujar los límites de la IA, necesitan profesionales que puedan construir y mantener la compleja maquinaria que hace posible esta investigación y desarrollo.</p>
+<p>La capacidad de un Ingeniero de Harness para comprender tanto las complejidades de la infraestructura moderna como las necesidades específicas de los flujos de trabajo de IA es lo que les permite cerrar la brecha entre la investigación teórica y la aplicación práctica. Este rol es esencial para escalar el impacto de la IA.</p>
+<p>Para organizaciones que buscan construir o mejorar sus capacidades en IA, la inversión en talento con experiencia en la construcción de estas plataformas de soporte es una decisión estratégica.</p>
+<p>Si su organización busca servicios de consultoría experta en la construcción de infraestructura para IA, desarrollo de MLOps, y optimización de flujos de trabajo de machine learning, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness\",\"description\":\"La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica...\",\"url\":\"https://www.mgatc.com/blog/substrate-ai-hiring-harness-engineers/\",\"datePublished\":\"2026-04-17\",\"dateModified\":\"2026-04-17\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/logo.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/substrate-ai-hiring-harness-engineers/\"},\"keywords\":\"\",\"articleSection\":\"General\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$L11",null,{"site_section":"blog"}],["$","$L12",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L13",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"17 de abril de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"12 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$14"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L13",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L13",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L15",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/substrate-ai-hiring-harness-engineers/"}],["$","meta","11",{"property":"og:title","content":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness"}],["$","meta","12",{"property":"og:description","content":"La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/substrate-ai-hiring-harness-engineers/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-04-17"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness"}],["$","meta","25",{"name":"twitter:description","content":"La contratación de Ingenieros de Harness en Substrate AI: Una perspectiva técnica..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"El Ciclo de Vida de un Modelo de IA y el Rol del Ingeniero de Harness"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

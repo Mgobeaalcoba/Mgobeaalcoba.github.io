@@ -1,0 +1,220 @@
+3:I[39275,[],""]
+5:I[61343,[],""]
+7:I[9886,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"DataErrorBoundary"]
+8:I[45064,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"ThemeProvider"]
+9:I[78155,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"LanguageProvider"]
+a:I[61050,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"SupabaseDataProvider"]
+b:I[84211,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+c:I[18709,["205","static/chunks/205-99588de6efb30cbe.js","138","static/chunks/138-691eadfccc08e62f.js","160","static/chunks/app/not-found-8e4033c4c67114e1.js"],"default"]
+d:I[86216,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+e:I[44905,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],"default"]
+f:I[84080,["205","static/chunks/205-99588de6efb30cbe.js","327","static/chunks/327-408e60b2ee21959b.js","279","static/chunks/279-811b21ec322083ed.js","858","static/chunks/858-f39af86606d48569.js","216","static/chunks/216-7ed6784aeb0b4fec.js","50","static/chunks/50-66c73f94103505be.js","185","static/chunks/app/layout-c42e31f071d92dbf.js"],""]
+4:["slug","openrouter-fusion-api","d"]
+6:T47f,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}0:["52S5onsBmt9tKMYQ1sXz0",[[["",{"children":["blog",{"children":[["slug","openrouter-fusion-api","d"],{"children":["__PAGE__?{\"slug\":\"openrouter-fusion-api\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","openrouter-fusion-api","d"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null]},[["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}]]}],["$","body",null,{"children":[["$","$L7",null,{"children":["$","$L8",null,{"children":["$","$L9",null,{"children":["$","$La",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$Lb",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lc",null,{}],"notFoundStyles":[],"styles":null}]}],["$","$Ld",null,{}],["$","$Le",null,{}]]}]}]}]}],["$","$Lf",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$Lf",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c09449406605189.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L10"]]]]]
+12:I[53655,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+13:I[61592,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+14:I[231,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],""]
+16:I[65190,["138","static/chunks/138-691eadfccc08e62f.js","324","static/chunks/324-78595757c1f3a9c5.js","177","static/chunks/177-c58ad8eb142952a1.js","308","static/chunks/app/blog/%5Bslug%5D/page-454a39af5a434eda.js"],"default"]
+11:T424,{"@context":"https://schema.org","@type":"Article","headline":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API","description":"El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se deta...","url":"https://www.mgatc.com/blog/openrouter-fusion-api/","datePublished":"2026-06-15","dateModified":"2026-06-15","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/openrouter-fusion-api/"},"keywords":"","articleSection":"General","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}15:T3b6a,<p>El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se detallarán su arquitectura, casos de uso prácticos y consideraciones técnicas para su implementación.</p>
+<h2>Desbloqueando la Orquestación de LLMs con Openrouter Fusion API</h2>
+<p>La proliferación de Modelos de Lenguaje Grandes (LLMs) ha abierto un abanico de posibilidades para aplicaciones innovadoras. Sin embargo, la gestión, integración y optimización de múltiples LLMs de distintos proveedores presenta desafíos significativos. La Openrouter Fusion API emerge como una solución robusta para abordar estas complejidades, ofreciendo una capa de abstracción y orquestación que simplifica el desarrollo y la escalabilidad de sistemas basados en LLMs.</p>
+<h3>Arquitectura y Componentes Clave de Openrouter Fusion API</h3>
+<p>La arquitectura de Openrouter Fusion API se fundamenta en un diseño modular que permite la integración fluida de diversos LLMs y la implementación de estrategias de orquestación avanzadas. Los componentes principales incluyen:</p>
+<ul>
+<li>
+<p><strong>Adaptadores de Proveedor (Provider Adapters):</strong> Cada LLM de un proveedor específico (OpenAI, Anthropic, Google, etc.) se accede a través de un adaptador dedicado. Estos adaptadores se encargan de traducir las solicitudes de la API de Fusion a los formatos específicos de cada proveedor y viceversa, manejando las diferencias en los esquemas de entrada/salida, los parámetros de configuración y los mecanismos de autenticación. Esto abstrae la complejidad inherente a las APIs nativas de cada modelo.</p>
+</li>
+<li>
+<p><strong>Capa de Orquestación (Orchestration Layer):</strong> Este es el corazón de Fusion API. Permite definir flujos de trabajo complejos que involucran múltiples LLMs. Las estrategias de orquestación comunes incluyen:</p>
+<ul>
+<li><strong>Enrutamiento (Routing):</strong> Dirigir una solicitud a un LLM específico basándose en criterios predefinidos (costo, rendimiento, capacidad, etc.).</li>
+<li><strong>Balanceo de Carga (Load Balancing):</strong> Distribuir las solicitudes entre instancias del mismo LLM para optimizar el rendimiento y la disponibilidad.</li>
+<li><strong>Encadenamiento (Chaining):</strong> Ejecutar una secuencia de LLMs donde la salida de un modelo se convierte en la entrada del siguiente.</li>
+<li><strong>Agregación (Aggregation):</strong> Enviar una solicitud a varios LLMs simultáneamente y combinar sus respuestas (por ejemplo, para votación o para obtener la mejor respuesta).</li>
+<li><strong>Fallback y Resiliencia (Fallback &#x26; Resilience):</strong> Configurar mecanismos para recurrir a LLMs alternativos en caso de fallos o latencias elevadas de un modelo principal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Caché (Caching):</strong> Para mejorar la eficiencia y reducir costos, Fusion API puede implementar un sistema de caché para almacenar y reutilizar respuestas a solicitudes idénticas o similares. La estrategia de caché (por ejemplo, basada en la similitud semántica de la entrada) es crucial para su efectividad.</p>
+</li>
+<li>
+<p><strong>Métricas y Monitoreo (Metrics &#x26; Monitoring):</strong> Una infraestructura integral de recolección de métricas permite rastrear el rendimiento de cada LLM, los patrones de uso, los costos y la latencia. Esto es esencial para la optimización continua y la detección de problemas.</p>
+</li>
+<li>
+<p><strong>Gestión de Modelos (Model Management):</strong> Permite registrar, versionar y configurar los LLMs disponibles a través de la API, facilitando la experimentación y la actualización de modelos sin interrumpir las aplicaciones cliente.</p>
+</li>
+</ul>
+<h3>Casos de Uso Prácticos</h3>
+<p>La versatilidad de Openrouter Fusion API se manifiesta en una amplia gama de escenarios de aplicación:</p>
+<h4>1. Orquestación de Múltiples LLMs para Tareas Complejas</h4>
+<p>Consideremos una aplicación que requiere una tarea de clasificación de texto con alta precisión. En lugar de depender de un único LLM que podría no ser óptimo para todas las categorías o que podría tener costos elevados, Fusion API permite:</p>
+<ul>
+<li><strong>Enrutamiento Inteligente:</strong> Un clasificador inicial (posiblemente un modelo más pequeño y rápido) dirige la solicitud al LLM más adecuado para la clase detectada.</li>
+<li><strong>Agregación de Respuestas:</strong> Para tareas críticas, la misma entrada se envía a dos o tres LLMs diferentes. Un mecanismo de votación o selección de la respuesta con mayor confianza se utiliza para determinar la clasificación final.</li>
+<li><strong>Fallback:</strong> Si el LLM principal falla, se activa un LLM de respaldo más general.</li>
+</ul>
+<pre><code class="language-python">from openrouter.fusion import FusionAPI
+
+# Inicializar la API de Fusion
+fusion_api = FusionAPI(api_key="tu_clave_api")
+
+# Definir una estrategia de enrutamiento simple
+# En este ejemplo, dirigimos a 'model-a' si la longitud del prompt es > 100,
+# de lo contrario a 'model-b'. En un escenario real, esto sería más sofisticado.
+def route_prompt(prompt):
+    if len(prompt) > 100:
+        return "proveedor_x/modelo_a"
+    else:
+        return "proveedor_y/modelo_b"
+
+prompt_text = "Este es un prompt de ejemplo para demostrar el enrutamiento avanzado en la Openrouter Fusion API. La longitud de este prompt supera los cien caracteres, lo que debería activar la lógica de enrutamiento."
+
+# Ejecutar la solicitud a través de la estrategia de enrutamiento
+try:
+    response = fusion_api.complete(
+        prompt=prompt_text,
+        model_selector=route_prompt, # Usa una función personalizada para seleccionar el modelo
+        max_tokens=150
+    )
+    print(f"Respuesta del modelo seleccionado: {response.choices[0].message.content}")
+except Exception as e:
+    print(f"Ocurrió un error: {e}")
+</code></pre>
+<h4>2. Optimización de Costos y Latencia</h4>
+<p>La selección del LLM adecuado puede tener un impacto directo en los costos operativos y la experiencia del usuario. Fusion API permite implementar políticas de optimización:</p>
+<ul>
+<li><strong>Priorización por Costo:</strong> Para tareas menos críticas o aquellas que no requieren la máxima sofisticación, se pueden preferir LLMs más económicos.</li>
+<li><strong>Priorización por Latencia:</strong> En aplicaciones interactivas donde la respuesta rápida es fundamental, se seleccionarán modelos optimizados para baja latencia.</li>
+<li><strong>Combinación Dinámica:</strong> Un modelo rápido y económico puede usarse para una respuesta inicial (por ejemplo, generar un resumen), y luego un modelo más potente puede ser invocado para refinar o expandir la respuesta si es necesario.</li>
+</ul>
+<pre><code class="language-python">from openrouter.fusion import FusionAPI
+
+fusion_api = FusionAPI(api_key="tu_clave_api")
+
+# Definir una estrategia para seleccionar el modelo más barato
+def cheapest_model_selector(models_available):
+    # Supongamos que los precios se obtienen de metadatos o una tabla de precios configurada
+    # En la práctica, esto requeriría una forma de acceder a la información de costos
+    cheapest = min(models_available, key=lambda m: m.get("cost_per_token", float('inf')))
+    return cheapest.get("id") # Retorna el ID del modelo más barato
+
+prompt_text = "¿Cuál es la capital de Francia?"
+
+try:
+    response = fusion_api.complete(
+        prompt=prompt_text,
+        model_selector=cheapest_model_selector, # Usa un selector de modelo para elegir el más barato
+        max_tokens=50
+    )
+    print(f"Respuesta usando el modelo más barato: {response.choices[0].message.content}")
+except Exception as e:
+    print(f"Ocurrió un error: {e}")
+</code></pre>
+<h4>3. Creación de Agentes Autónomos y Sistemas Multi-Agente</h4>
+<p>Fusion API es un componente esencial para la construcción de agentes inteligentes capaces de razonar, planificar y ejecutar tareas. La capacidad de encadenar LLMs y de usar diferentes modelos para distintas funciones (planificación, ejecución, reflexión) es fundamental.</p>
+<ul>
+<li><strong>Planificación:</strong> Un LLM se utiliza para descomponer una tarea compleja en pasos manejables.</li>
+<li><strong>Ejecución:</strong> Otros LLMs se encargan de ejecutar cada paso, interactuando potencialmente con herramientas externas (APIs, bases de datos).</li>
+<li><strong>Reflexión/Auto-corrección:</strong> Un LLM analiza el resultado de la ejecución y, si es necesario, ajusta el plan o genera nuevas instrucciones.</li>
+</ul>
+<pre><code class="language-python">from openrouter.fusion import FusionAPI
+from openrouter.fusion.strategies import ChainStrategy
+
+fusion_api = FusionAPI(api_key="tu_clave_api")
+
+# Definir una cadena de modelos para una tarea de resumen y traducción
+# Paso 1: Resumir un texto largo usando un modelo eficiente.
+# Paso 2: Traducir el resumen a otro idioma usando un modelo especializado en traducción.
+
+# Supongamos que 'model-summarizer' es bueno para resumir y 'model-translator' para traducir.
+# En un escenario real, 'ChainStrategy' manejaría la transferencia de salida a entrada.
+
+# Ejemplo conceptual de cadena (la implementación detallada de ChainStrategy puede variar)
+# Este es un ejemplo simplificado para ilustrar el concepto.
+# Una implementación real requeriría definir cómo la salida de un modelo
+# se formatea para ser la entrada del siguiente.
+
+task_description = "Por favor, resume el siguiente texto y luego traduce el resumen al español. Texto: [Texto largo aquí...]"
+
+# Para la implementación real de ChainStrategy, se suelen definir pasos
+# con sus respectivos modelos y transformaciones de entrada/salida.
+# Por ejemplo:
+# chain_steps = [
+#     {"model": "proveedor_x/model-summarizer", "prompt_template": "Resume: {input}"},
+#     {"model": "proveedor_y/model-translator", "prompt_template": "Traduce al español: {output_from_previous_step}"}
+# ]
+# response = fusion_api.execute_chain(steps=chain_steps, input_data={"input": "Texto largo aquí..."})
+
+# Dado que no podemos simular ChainStrategy sin su estructura interna,
+# presentaremos un enfoque conceptual:
+
+def execute_complex_task(long_text):
+    # Paso 1: Resumir
+    try:
+        summary_response = fusion_api.complete(
+            prompt=f"Resume el siguiente texto: {long_text}",
+            model="proveedor_x/model-summarizer", # Modelo específico para resumir
+            max_tokens=200
+        )
+        summary = summary_response.choices[0].message.content
+    except Exception as e:
+        print(f"Error al resumir: {e}")
+        return None
+
+    # Paso 2: Traducir el resumen
+    try:
+        translation_response = fusion_api.complete(
+            prompt=f"Traduce el siguiente resumen al español: {summary}",
+            model="proveedor_y/model-translator", # Modelo específico para traducir
+            max_tokens=200
+        )
+        translated_summary = translation_response.choices[0].message.content
+        return translated_summary
+    except Exception as e:
+        print(f"Error al traducir: {e}")
+        return None
+
+# Ejemplo de uso (asumiendo que tienes un texto largo)
+# text_to_process = "..."
+# final_output = execute_complex_task(text_to_process)
+# if final_output:
+#     print(f"Resumen traducido: {final_output}")
+
+</code></pre>
+<h3>Consideraciones Técnicas para la Implementación</h3>
+<p>La adopción exitosa de Openrouter Fusion API requiere una cuidadosa planificación e implementación, prestando atención a los siguientes aspectos:</p>
+<ul>
+<li><strong>Gestión de Claves y Autenticación:</strong> Asegurar el manejo seguro de las claves API de los diferentes proveedores. Fusion API puede ofrecer mecanismos para centralizar o gestionar estas claves de forma segura.</li>
+<li><strong>Manejo de Errores y Reintentos:</strong> Implementar estrategias robustas de manejo de errores, incluyendo reintentos con backoff exponencial para fallos transitorios. La latencia impredecible de los LLMs externos lo hace esencial.</li>
+<li><strong>Monitorización y Observabilidad:</strong> Establecer un sistema de monitoreo para rastrear la latencia, las tasas de error, el uso de tokens y los costos por modelo y por proveedor. Herramientas como Prometheus, Grafana o sistemas de observabilidad específicos son cruciales.</li>
+<li><strong>Seguridad de Datos:</strong> Comprender las políticas de privacidad y seguridad de datos de cada proveedor de LLM. Si se manejan datos sensibles, es imperativo seleccionar proveedores que cumplan con los requisitos normativos y considerar la anonimización o el enmascaramiento de datos.</li>
+<li><strong>Evolución de Modelos:</strong> Los LLMs están en constante evolución. La arquitectura de Fusion API debe ser lo suficientemente flexible para incorporar fácilmente nuevos modelos o versiones de modelos sin requerir cambios extensos en la aplicación cliente.</li>
+<li><strong>Costos de Tokens:</strong> Si bien Fusion API ayuda a optimizar, es fundamental tener una visibilidad clara del consumo de tokens. Implementar límites y alertas puede prevenir gastos inesperados.</li>
+<li><strong>Latencia y Caching:</strong> Para casos de uso interactivos, la latencia es un factor crítico. Implementar estrategias de caché efectivas, considerando la similitud semántica para casos de uso avanzados, puede mitigar la latencia y reducir costos.</li>
+</ul>
+<pre><code class="language-python"># Ejemplo de configuración de reintentos y backoff
+from openrouter.fusion import FusionAPI
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Decorador de reintento para llamadas a la API
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
+def call_llm_with_retry(fusion_api_instance: FusionAPI, prompt: str, model: str, max_tokens: int):
+    return fusion_api_instance.complete(prompt=prompt, model=model, max_tokens=max_tokens)
+
+fusion_api = FusionAPI(api_key="tu_clave_api")
+prompt_text = "¿Cuál es la capital de Italia?"
+model_name = "some/model-that-might-be-unreliable"
+
+try:
+    response = call_llm_with_retry(fusion_api, prompt_text, model_name, max_tokens=50)
+    print(f"Respuesta (con reintentos): {response.choices[0].message.content}")
+except Exception as e:
+    print(f"La llamada falló después de varios reintentos: {e}")
+
+</code></pre>
+<h3>Conclusión</h3>
+<p>La Openrouter Fusion API representa un avance significativo en la forma en que las organizaciones pueden aprovechar el poder de los Modelos de Lenguaje Grandes. Al proporcionar una capa de abstracción, orquestación y optimización, simplifica la integración de múltiples LLMs, permite la construcción de aplicaciones más sofisticadas y resilientes, y facilita la gestión eficiente de costos y rendimiento. A medida que el panorama de los LLMs continúa evolucionando, herramientas como Fusion API serán cada vez más indispensables para desbloquear su potencial completo en el mundo real.</p>
+<p>Para obtener más información sobre cómo optimizar su infraestructura de IA y LLM, o para explorar soluciones de orquestación avanzadas, visite <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+2:["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$11"}}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"General"}],false]}],["$","h1",null,{"className":"text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se deta..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"15 de junio de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"10 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none prose-headings:text-gray-100 prose-headings:font-bold prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400 prose-strong:text-gray-100 prose-li:text-gray-300 prose-hr:border-white/10 prose-table:border-collapse prose-thead:bg-gray-800/60 prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2 prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$15"}}],["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Consultoría →"}]]}]]}]]}],["$","$L16",null,{}]]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API | Mariano Gobea Alcoba"}],["$","meta","3",{"name":"description","content":"El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se deta..."}],["$","link","4",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","5",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/openrouter-fusion-api/"}],["$","meta","11",{"property":"og:title","content":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API"}],["$","meta","12",{"property":"og:description","content":"El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se deta..."}],["$","meta","13",{"property":"og:url","content":"https://www.mgatc.com/blog/openrouter-fusion-api/"}],["$","meta","14",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","15",{"property":"og:image:width","content":"1200"}],["$","meta","16",{"property":"og:image:height","content":"630"}],["$","meta","17",{"property":"og:image:alt","content":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API"}],["$","meta","18",{"property":"og:type","content":"article"}],["$","meta","19",{"property":"article:published_time","content":"2026-06-15"}],["$","meta","20",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","24",{"name":"twitter:title","content":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API"}],["$","meta","25",{"name":"twitter:description","content":"El artículo abordará la Openrouter Fusion API, un componente fundamental para la orquestación y gestión eficiente de modelos de lenguaje grandes (LLMs). Se deta..."}],["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","27",{"name":"twitter:image:width","content":"1200"}],["$","meta","28",{"name":"twitter:image:height","content":"630"}],["$","meta","29",{"name":"twitter:image:alt","content":"Desbloqueando la Orquestación de LLMs con Openrouter Fusion API"}],["$","link","30",{"rel":"icon","href":"/icon.png?eced7bd6d4cd2c8e","type":"image/png","sizes":"512x512"}]]
+1:null

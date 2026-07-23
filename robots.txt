@@ -1,0 +1,61 @@
+User-agent: *
+Allow: /
+
+# Disallow dev/build artifacts and private files
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /cv/
+Disallow: /neil/
+Disallow: /elportugues/
+Disallow: /private/
+Disallow: /tasks/
+Disallow: /*.txt
+Disallow: /index.txt
+
+# Allow important public files explicitly
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /humans.txt
+Allow: /llms.txt
+
+# Sitemap
+Sitemap: https://www.mgatc.com/sitemap.xml
+
+# LLMs / AI agents discovery file
+LLMs-txt: https://www.mgatc.com/llms.txt
+
+# Preferred domain
+Host: https://www.mgatc.com
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: FacebookBot
+Allow: /
+Allow: /images/
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /images/
+
+# AI/LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
