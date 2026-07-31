@@ -25,6 +25,7 @@ export function AIAssistant() {
   const [inputValue, setInputValue] = useState("");
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [formError, setFormError] = useState("");
+  const [isIdentifying, setIsIdentifying] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const [isListening, setIsListening] = useState(false);
@@ -141,7 +142,7 @@ export function AIAssistant() {
     }
   };
 
-  const handleIdentify = (e: React.FormEvent) => {
+  const handleIdentify = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormError("");
 
@@ -164,7 +165,19 @@ export function AIAssistant() {
       return;
     }
 
-    identifyUser(formData);
+    setIsIdentifying(true);
+    try {
+      await identifyUser({ name: formData.name.trim(), email: formData.email.trim() });
+    } catch (error) {
+      console.error("Error registering assistant lead:", error);
+      setFormError(
+        lang === "en"
+          ? "We couldn't register your details. Please try again."
+          : "No pudimos registrar tus datos. Por favor, intentá nuevamente."
+      );
+    } finally {
+      setIsIdentifying(false);
+    }
   };
 
   const handleOpenContact = () => {
@@ -313,9 +326,12 @@ export function AIAssistant() {
 
                       <button
                         type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-2"
+                        disabled={isIdentifying}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-2 disabled:cursor-wait disabled:opacity-70"
                       >
-                        {lang === "en"
+                        {isIdentifying
+                          ? (lang === "en" ? "Registering..." : "Registrando...")
+                          : lang === "en"
                           ? "Continue to the assistant"
                           : "Ingresar al asistente"}
                       </button>

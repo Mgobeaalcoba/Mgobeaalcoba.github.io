@@ -14,6 +14,8 @@ export interface UserIdentity {
     email: string;
 }
 
+const ASSISTANT_LEAD_WEBHOOK = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
+
 function buildSystemPrompt(lang: 'es' | 'en'): string {
     const langInstruction = lang === 'en'
         ? 'IMPORTANT: The site is currently set to English. Your INITIAL welcome message MUST be in English. Then, ALWAYS reply in the SAME LANGUAGE the user writes in. If they write in Spanish, reply in Spanish. If they write in English, reply in English. Never mix languages in a single response.'
@@ -116,10 +118,30 @@ export function useAIAssistant() {
 
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
 
-    const identifyUser = useCallback((identity: UserIdentity) => {
+    const identifyUser = useCallback(async (identity: UserIdentity) => {
+        const response = await fetch(ASSISTANT_LEAD_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: identity.name.trim(),
+                email: identity.email.trim(),
+                message: `Nuevo interesado registrado desde el asistente IA: ${identity.name.trim()} (${identity.email.trim()})`,
+                channel: 'email',
+                source: 'ai_assistant',
+                form_type: 'ai_assistant_identity',
+                page: typeof window !== 'undefined' ? window.location.pathname : '/',
+                timestamp: new Date().toISOString(),
+                userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+                language: typeof document !== 'undefined' ? document.documentElement.lang : 'es',
+            }),
+            signal: AbortSignal.timeout(8000),
+        });
+
+        if (!response.ok) throw new Error(`Assistant lead webhook returned ${response.status}`);
         setUser(identity);
         localStorage.setItem('mga_assistant_user', JSON.stringify(identity));
-        events.aiAssistantUserIdentified(); // Track event if needed
+        events.aiAssistantUserIdentified();
+        events.leadFormSent('ai_assistant', 'ai_assistant_identity');
     }, []);
 
     const sendMessage = useCallback(async (content: string) => {
