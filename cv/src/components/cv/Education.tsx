@@ -2,137 +2,43 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Box } from 'lucide-react';
+import { Box, GraduationCap, LibraryBig } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import Timeline3D from '@/components/shared/Timeline3D';
 
 export default function Education() {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
   const { education, certifications, loading } = useSupabaseData();
   const [show3D, setShow3D] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  const visibleCertifications = showAll ? certifications : certifications.slice(0, 10);
 
   return (
-    <section id="education" data-section="education" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
-      >
-        {loading && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div>
-              <div className="h-8 w-40 bg-white/10 rounded mb-8 animate-pulse" />
-              <div className="space-y-4">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="glass rounded-xl p-5 animate-pulse h-24">
-                    <div className="h-3 bg-white/10 rounded w-40 mb-2" />
-                    <div className="h-3 bg-white/10 rounded w-24" />
-                  </div>
-                ))}
+    <section id="education" data-section="education" className="signal-portfolio-chapter signal-learning-v2">
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
+        <div className="signal-chapter-heading signal-chapter-heading--action">
+          <div><span className="signal-eyebrow">04 / {lang === 'es' ? 'Aprendizaje' : 'Learning'}</span><h2>{lang === 'es' ? 'Aprender es parte del sistema.' : 'Learning is part of the system.'}</h2></div>
+          <button onClick={() => setShow3D(!show3D)} className="signal-inline-action"><Box size={15} />{show3D ? (lang === 'es' ? 'Vista editorial' : 'Editorial view') : (lang === 'es' ? 'Explorar timeline 3D' : 'Explore 3D timeline')}</button>
+        </div>
+
+        {loading ? <div className="signal-loading-block" /> : show3D ? (
+          <Timeline3D items={education.map((edu) => ({ date: edu.date, title: edu.title[lang], subtitle: edu.school, description: edu.subtitle?.[lang] ?? '' }))} lang={lang} />
+        ) : (
+          <div className="signal-learning-grid">
+            <div className="signal-learning-column">
+              <div className="signal-learning-column__title"><GraduationCap size={20} /><div><span>{lang === 'es' ? 'Fundamentos' : 'Foundations'}</span><strong>{education.length} {lang === 'es' ? 'instancias formativas' : 'learning milestones'}</strong></div></div>
+              <div className="signal-education-list">
+                {education.map((edu) => <article key={`${edu.school}-${edu.date}`}><time>{edu.date}</time><div><h3>{edu.title[lang]}</h3><p>{edu.school}</p>{edu.subtitle && <small>{edu.subtitle[lang]}</small>}</div></article>)}
               </div>
             </div>
-            <div>
-              <div className="h-8 w-52 bg-white/10 rounded mb-8 animate-pulse" />
-              <div className="glass rounded-xl p-4 animate-pulse h-96" />
-            </div>
-          </div>
-        )}
-
-        {!loading && (
-          <div>
-            {/* 3D Toggle */}
-            <button
-              onClick={() => setShow3D(!show3D)}
-              className="mb-6 flex items-center gap-2 text-xs text-gray-400 hover:text-sky-400 transition-colors glass px-3 py-1.5 rounded-full"
-            >
-              <Box size={14} />
-              {show3D
-                ? (lang === 'es' ? 'Vista Normal' : 'Normal View')
-                : (lang === 'es' ? 'Vista 3D Interactiva' : 'Interactive 3D View')}
-            </button>
-
-            {show3D ? (
-              <Timeline3D
-                items={education.map((edu) => ({
-                  date: edu.date,
-                  title: edu.title[lang],
-                  subtitle: edu.school,
-                  description: edu.subtitle ? edu.subtitle[lang] : '',
-                }))}
-                lang={lang}
-              />
-            ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                {/* Education */}
-                <div>
-                  <h3 className="section-title">{t('education_title')}</h3>
-                  <div className="space-y-4">
-                    {education.map((edu, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ delay: i * 0.08 }}
-                        className="glass rounded-xl p-5 glow-border"
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <GraduationCap size={16} className="text-sky-400" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-gray-100 text-sm leading-snug">
-                              {edu.title[lang]}
-                            </h3>
-                            <p className="text-sky-400 text-sm mt-0.5">{edu.school}</p>
-                            {edu.subtitle && (
-                              <p className="text-gray-500 text-xs mt-0.5">{edu.subtitle[lang]}</p>
-                            )}
-                            <p className="text-gray-500 text-xs mt-1">{edu.date}</p>
-                            {edu.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-2">
-                                {edu.tags.slice(0, 4).map((tag) => (
-                                  <span
-                                    key={tag}
-                                    className="text-xs px-1.5 py-0.5 bg-white/5 text-gray-400 rounded"
-                                  >
-                                    {tag}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Certifications */}
-                <div className="lg:relative">
-                  <div className="flex flex-col lg:absolute lg:inset-0">
-                    <h3 className="section-title">{t('certifications_title')}</h3>
-                    <div className="glass rounded-xl p-4 max-h-96 lg:max-h-none flex-1 min-h-0 overflow-y-auto custom-scrollbar space-y-2">
-                      {certifications.map((cert, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true, margin: '-50px' }}
-                          transition={{ delay: i * 0.015 }}
-                          className="flex items-start gap-2 py-1.5 border-b border-white/5 last:border-0"
-                        >
-                          <span className="text-sky-500 text-xs mt-0.5 shrink-0">▸</span>
-                          <span className="text-gray-300 text-xs leading-snug">{cert.name}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+            <div className="signal-learning-column">
+              <div className="signal-learning-column__title"><LibraryBig size={20} /><div><span>{lang === 'es' ? 'Actualización continua' : 'Continuous learning'}</span><strong>{certifications.length}+ {lang === 'es' ? 'certificaciones registradas' : 'certifications recorded'}</strong></div></div>
+              <div className="signal-cert-list">
+                {visibleCertifications.map((cert, i) => <article key={`${cert.name}-${i}`}><span>{String(i + 1).padStart(2, '0')}</span><p>{cert.name}</p></article>)}
               </div>
-            )}
+              {certifications.length > 10 && <button className="signal-inline-action signal-inline-action--full" onClick={() => setShowAll(!showAll)}>{showAll ? (lang === 'es' ? 'Ver selección' : 'Show selection') : `${lang === 'es' ? 'Ver historial completo' : 'Show full history'} (+${certifications.length - 10})`}</button>}
+            </div>
           </div>
         )}
       </motion.div>

@@ -13,7 +13,7 @@ const LINKS = [
   { href: '/#soluciones', es: 'Soluciones', en: 'Solutions' },
   { href: '/#casos', es: 'Casos', en: 'Cases' },
   { href: '/portfolio/', es: 'Mariano', en: 'Mariano' },
-  { href: '/blog/', es: 'Insights', en: 'Insights' },
+  { href: '/blog/', es: 'Blog', en: 'Blog' },
   { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
 ];
 

@@ -9,7 +9,7 @@ import { events } from '@/lib/gtag';
 const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -55,18 +55,22 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" data-section="contact" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" data-section="contact" className="signal-portfolio-chapter signal-contact-v2">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">{t('contact_title')}</h2>
+        <div className="signal-chapter-heading">
+          <span className="signal-eyebrow">06 / {lang === 'es' ? 'Contacto' : 'Contact'}</span>
+          <h2>{lang === 'es' ? 'La próxima conversación puede empezar acá.' : 'The next conversation can start here.'}</h2>
+          <p>{lang === 'es' ? 'Liderazgo, arquitectura, datos o IA aplicada. Contame qué decisión o sistema necesitás destrabar.' : 'Leadership, architecture, data or applied AI. Tell me what decision or system you need to unblock.'}</p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="signal-contact-v2__grid">
           {/* Contact info */}
-          <div className="space-y-4">
+          <div className="signal-contact-v2__channels">
             {[
               { icon: <Mail size={18} />, label: 'mariano@mgatc.com', href: 'mailto:mariano@mgatc.com' },
               { icon: <Phone size={18} />, label: '+54 9 11 27475569', href: 'tel:+5491127475569' },
@@ -79,7 +83,7 @@ export default function Contact() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.08 }}
-                className="glass rounded-xl p-4 flex items-center gap-3 glow-border"
+                className="signal-contact-channel"
               >
                 <div className="text-sky-400 shrink-0">{icon}</div>
                 {href ? (
@@ -107,7 +111,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => events.whatsappClick('cv')}
-                className="flex items-center gap-3 px-6 py-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 hover:bg-green-500/20 transition-all font-medium w-full"
+                className="signal-contact-channel signal-contact-channel--whatsapp"
               >
                 <MessageSquare size={18} />
                 WhatsApp directo →
@@ -120,7 +124,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="glass rounded-2xl p-6 glow-border"
+            className="signal-contact-v2__form"
           >
             {sent ? (
               <div className="flex flex-col items-center justify-center h-full gap-4 py-8">

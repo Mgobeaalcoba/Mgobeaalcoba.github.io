@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, Search } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowDown, ArrowUpRight, Search } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PostCard from '@/components/blog/PostCard';
 import SpecialReportsSection from '@/components/blog/SpecialReportsSection';
@@ -22,6 +23,7 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
   const [category, setCategory] = useState('all');
   const [query, setQuery] = useState('');
   const [visible, setVisible] = useState(12);
+  const latest = posts.slice(0, 6);
 
   useEffect(() => {
     const value = new URLSearchParams(window.location.search).get('category');
@@ -48,9 +50,9 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
   return (
     <>
       <section className="signal-editorial-hero">
-        <span className="signal-eyebrow">MGA / Field notes</span>
+        <span className="signal-eyebrow">MGA / Insights &amp; field notes</span>
         <div className="signal-editorial-hero__grid">
-          <h1>{lang === 'es' ? <>Ideas para construir<br /><em>mejores sistemas.</em></> : <>Ideas for building<br /><em>better systems.</em></>}</h1>
+          <h1>{lang === 'es' ? <>Ideas, análisis y<br /><em>mejores sistemas.</em></> : <>Ideas, analysis and<br /><em>better systems.</em></>}</h1>
           <div>
             <p>{lang === 'es' ? 'Análisis, aprendizajes y herramientas sobre Data Engineering, IA aplicada y automatización desde la práctica.' : 'Analysis, lessons and tools about Data Engineering, applied AI and automation from the field.'}</p>
             <div className="signal-editorial-count"><strong>{posts.length}</strong><span>{lang === 'es' ? 'notas publicadas' : 'published notes'}</span></div>
@@ -58,12 +60,36 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
         </div>
       </section>
 
-      <SpecialReportsSection />
+      <nav className="signal-blog-nav" aria-label={lang === 'es' ? 'Secciones del blog' : 'Blog sections'}>
+        <a href="#videos">{lang === 'es' ? 'Videos' : 'Videos'}</a>
+        <a href="#latest">{lang === 'es' ? 'Últimas notas' : 'Latest'}</a>
+        <a href="#research">{lang === 'es' ? 'Investigaciones' : 'Research'}</a>
+        <a href="#posts">{lang === 'es' ? 'Archivo' : 'Archive'}</a>
+      </nav>
+
       <VideoSection />
+
+      <section id="latest" className="signal-blog-latest">
+        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">02 / {lang === 'es' ? 'Ahora' : 'Now'}</span><h2>{lang === 'es' ? 'Últimas notas.' : 'Latest notes.'}</h2></div><p>{lang === 'es' ? 'Ideas recientes sobre sistemas de datos, IA aplicada y decisiones técnicas.' : 'Recent ideas about data systems, applied AI and technical decisions.'}</p></div>
+        {!!latest.length && (
+          <div className="signal-latest-grid">
+            <Link href={`/blog/${latest[0].slug}/`} className="signal-latest-feature" onClick={() => events.blogPostCardClick(latest[0].slug, latest[0].title[lang], latest[0].category)}>
+              <div className="signal-latest-feature__meta"><span>FEATURE / 01</span><span>{latest[0].category.replaceAll('-', ' ')}</span></div>
+              <h3>{latest[0].title[lang]}</h3><p>{latest[0].excerpt[lang]}</p>
+              <div className="signal-latest-feature__footer"><span>{latest[0].readTime}</span><span>{lang === 'es' ? 'Leer nota' : 'Read note'} <ArrowUpRight size={16} /></span></div>
+            </Link>
+            <div className="signal-latest-list">
+              {latest.slice(1).map((post, index) => <Link key={post.slug} href={`/blog/${post.slug}/`} onClick={() => events.blogPostCardClick(post.slug, post.title[lang], post.category)}><span>{String(index + 2).padStart(2, '0')}</span><div><small>{post.category.replaceAll('-', ' ')}</small><h3>{post.title[lang]}</h3></div><ArrowUpRight size={16} /></Link>)}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <SpecialReportsSection />
 
       <section id="posts" className="signal-editorial-index">
         <div className="signal-editorial-index__top">
-          <div><span className="signal-eyebrow">{lang === 'es' ? 'Archivo' : 'Archive'}</span><h2>{lang === 'es' ? 'Notas técnicas' : 'Technical notes'}</h2></div>
+          <div><span className="signal-eyebrow">04 / {lang === 'es' ? 'Archivo' : 'Archive'}</span><h2>{lang === 'es' ? 'Todas las notas.' : 'All notes.'}</h2></div>
           <label className="signal-blog-search">
             <Search size={18} />
             <span className="sr-only">{lang === 'es' ? 'Buscar artículos' : 'Search articles'}</span>

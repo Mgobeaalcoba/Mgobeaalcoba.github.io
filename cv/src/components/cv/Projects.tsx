@@ -2,14 +2,30 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
 import { useFilter } from '@/contexts/FilterContext';
-import SplitText from '@/components/shared/SplitText';
 
 const INITIAL_SHOW = 6;
+
+const FILTERS = [
+  { id: 'all', es: 'Todos', en: 'All', terms: [] },
+  { id: 'ai', es: 'IA', en: 'AI', terms: ['ai', 'llm', 'rag', 'machine learning', 'openai', 'genai'] },
+  { id: 'automation', es: 'Automatización', en: 'Automation', terms: ['n8n', 'automation', 'automatización', 'workflow'] },
+  { id: 'data', es: 'Data', en: 'Data', terms: ['python', 'pandas', 'sql', 'sqlite', 'data', 'bi', 'etl'] },
+  { id: 'products', es: 'Productos', en: 'Products', terms: ['javascript', 'typescript', 'next', 'react', 'html', 'css', 'product'] },
+  { id: 'education', es: 'Educación', en: 'Education', terms: ['education', 'educación', 'learning', 'masterclass', 'course'] },
+];
+
+function matchesCategory(project: { tags: string[]; title: { es: string; en: string }; description: { es: string; en: string } }, category: string) {
+  if (category === 'all') return true;
+  const filter = FILTERS.find((item) => item.id === category);
+  if (!filter) return project.tags.includes(category);
+  const searchable = [...project.tags, project.title.es, project.title.en, project.description.es, project.description.en].join(' ').toLowerCase();
+  return filter.terms.some((term) => searchable.includes(term));
+}
 
 export default function Projects() {
   const { lang, t } = useLanguage();
@@ -19,34 +35,30 @@ export default function Projects() {
   const { projects: allProjects, loading } = useSupabaseData();
   const { activeTag: globalTag } = useFilter();
 
-  // Collect unique tags
-  const tags = ['all', ...Array.from(new Set(allProjects.flatMap((p) => p.tags))).slice(0, 12)];
-
   // Use global filter if set (from Skills section), otherwise use local filter
   const effectiveTag = globalTag !== 'all' ? globalTag : activeTag;
 
   const filtered =
     effectiveTag === 'all'
       ? allProjects
-      : allProjects.filter((p) => p.tags.includes(effectiveTag));
+      : allProjects.filter((p) => matchesCategory(p, effectiveTag));
 
   const visible = showAll ? filtered : filtered.slice(0, INITIAL_SHOW);
   const { setActiveTag: setGlobalTag } = useFilter();
 
   return (
-    <section id="projects" data-section="projects" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" data-section="projects" className="signal-portfolio-chapter signal-projects-v2">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <SplitText
-          text={t('projects_title')}
-          className="section-title"
-          as="h2"
-          stagger={0.04}
-        />
+        <div className="signal-chapter-heading">
+          <span className="signal-eyebrow">03 / {lang === 'es' ? 'Trabajo' : 'Work'}</span>
+          <h2>{lang === 'es' ? 'Productos, sistemas y experimentos.' : 'Products, systems and experiments.'}</h2>
+          <p>{lang === 'es' ? 'Casos seleccionados donde la tecnología se traduce en una capacidad concreta.' : 'Selected work where technology becomes a concrete capability.'}</p>
+        </div>
 
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -77,24 +89,24 @@ export default function Projects() {
         )}
 
         {/* Tag filters */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {tags.map((tag) => (
+        <div className="signal-project-filters" aria-label={lang === 'es' ? 'Filtrar proyectos' : 'Filter projects'}>
+          {FILTERS.map((filter) => (
             <button
-              key={tag}
-              onClick={() => { setActiveTag(tag); setGlobalTag('all'); setShowAll(false); }}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                effectiveTag === tag && globalTag === 'all'
-                  ? 'bg-sky-500 text-white border-sky-500'
-                  : 'glass border-white/10 text-gray-400 hover:text-sky-400 hover:border-sky-500/30'
+              key={filter.id}
+              onClick={() => { setActiveTag(filter.id); setGlobalTag('all'); setShowAll(false); }}
+              className={`signal-project-filter ${
+                effectiveTag === filter.id && globalTag === 'all'
+                  ? 'is-active'
+                  : ''
               }`}
             >
-              {tag === 'all' ? t('filter_all') : tag}
+              {filter[lang]}
             </button>
           ))}
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="signal-project-grid">
           {visible.map((project, i) => (
             <motion.div
               key={project.id}
@@ -102,40 +114,25 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="glass rounded-xl p-5 flex flex-col gap-3 glow-border hover:scale-[1.01] transition-transform group"
+              className={`signal-project-card group ${i < 2 && effectiveTag === 'all' ? `signal-project-card--featured ${i === 1 ? 'signal-project-card--reverse' : ''}` : ''}`}
             >
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2 py-0.5 bg-sky-500/10 text-sky-300 rounded-full border border-sky-500/20"
-                  >
-                    {tag}
-                  </span>
-                ))}
-                {project.tags.length > 3 && (
-                  <span className="text-xs text-gray-500">+{project.tags.length - 3}</span>
-                )}
+              <div className="signal-project-card__rail">
+                <div className="signal-project-card__index">{String(i + 1).padStart(2, '0')} / {i < 2 && effectiveTag === 'all' ? (lang === 'es' ? 'Destacado' : 'Featured') : 'Lab'}</div>
+                <span>{lang === 'es' ? 'Caso seleccionado' : 'Selected case'}</span>
               </div>
-
-              <h3 className="font-semibold text-gray-100 text-sm leading-snug group-hover:text-sky-400 transition-colors">
-                {project.title[lang]}
-              </h3>
-              <p className="text-gray-400 text-xs leading-relaxed flex-1">
-                {project.description[lang]}
-              </p>
-
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => events.projectView(project.title[lang])}
-                className="flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 transition-colors mt-auto"
-              >
-                <Github size={13} />
-                {t('view_repo')}
-                <ExternalLink size={11} />
-              </a>
+              <div className="signal-project-card__main">
+                <div className="signal-project-card__tags">
+                  {project.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}
+                  {project.tags.length > 3 && <span>+{project.tags.length - 3}</span>}
+                </div>
+                <h3>{project.title[lang]}</h3>
+              </div>
+              <div className="signal-project-card__aside">
+                <p>{project.description[lang]}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={() => events.projectView(project.title[lang])} className="signal-project-card__link">
+                  <Github size={13} />{t('view_repo')}<ArrowUpRight size={14} />
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>

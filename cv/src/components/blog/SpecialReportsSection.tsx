@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -9,7 +9,6 @@ import {
   TrendingUp,
   Bot,
   ArrowRight,
-  Sparkles,
   Gamepad2,
   GraduationCap,
   Brain,
@@ -20,8 +19,6 @@ import {
   BarChart3,
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const VISIBLE_ROWS = 1;
 
 interface ReportCard {
   href: string;
@@ -131,134 +128,34 @@ const REPORTS: ReportCard[] = [
 export default function SpecialReportsSection() {
   const { lang } = useLanguage();
   const sectionRef = useRef(null);
-  const gridRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
-  const [maxHeight, setMaxHeight] = useState<number | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(REPORTS.length);
-
-  const hasOverflow = REPORTS.length > visibleCount;
-
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    let rafId: number | null = null;
-    const update = () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const cards = Array.from(grid.children) as HTMLElement[];
-        if (!cards.length) { setMaxHeight(null); return; }
-        const gridStyles = getComputedStyle(grid);
-        const firstTop = cards[0].offsetTop;
-        const columns = cards.reduce((c, card) => (Math.abs(card.offsetTop - firstTop) <= 1 ? c + 1 : c), 0) || 1;
-        setVisibleCount(columns * VISIBLE_ROWS);
-        const rowGap = parseFloat(gridStyles.rowGap || '0') || 0;
-        const totalRows = Math.ceil(cards.length / columns);
-        const visibleRows = Math.min(VISIBLE_ROWS, totalRows);
-        const cardH = cards[0].offsetHeight;
-        setMaxHeight(cardH * visibleRows + rowGap * Math.max(visibleRows - 1, 0));
-      });
-    };
-
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(grid);
-    window.addEventListener('resize', update);
-    return () => { ro.disconnect(); window.removeEventListener('resize', update); if (rafId !== null) cancelAnimationFrame(rafId); };
-  }, []);
 
   return (
-    <section
-      id="special-report"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 scroll-mt-24"
-    >
+    <section id="research" className="signal-blog-research scroll-mt-24">
       <motion.div
         ref={sectionRef}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-center gap-3 mb-8">
-          <Sparkles size={24} className="text-amber-400" />
-          <h2 className="section-title mb-0">Special Reports</h2>
-        </div>
-
-        <div
-          className={hasOverflow
-            ? 'rounded-2xl border-2 border-amber-500/35 bg-amber-950/10 shadow-[0_0_0_1px_rgba(245,158,11,0.18),0_20px_45px_rgba(0,0,0,0.35)] p-2'
-            : ''}
-        >
-          <div
-            className={hasOverflow ? 'overflow-y-auto blog-scroll-container pr-1' : ''}
-            style={hasOverflow && maxHeight ? { maxHeight: `${maxHeight}px` } : undefined}
-          >
-            <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">03 / Research desk</span><h2>{lang === 'es' ? 'Investigaciones.' : 'Research.'}</h2></div><p>{lang === 'es' ? 'Informes data-driven y experiencias interactivas para entender sistemas complejos.' : 'Data-driven reports and interactive experiences for understanding complex systems.'}</p></div>
+        <div className="signal-research-grid">
               {REPORTS.map((report, idx) => (
                 <motion.div
                   key={report.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: idx * 0.15 }}
+                  className={idx === 0 ? 'signal-research-card-wrap--featured' : ''}
                 >
-                  <Link href={report.href} className="block group h-full">
-                    <div className={`relative overflow-hidden rounded-2xl border ${report.borderColor} ${report.bgClass} h-full`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-white/[0.02] pointer-events-none" />
-
-                      <div className="relative z-10 p-5 sm:p-6 flex flex-col h-full">
-                        {/* Badge + date */}
-                        <div className="flex items-center gap-3 mb-3 flex-wrap">
-                          <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 border rounded-full text-[11px] font-bold tracking-wider uppercase ${report.badgeColor}`}>
-                            {report.badge}
-                          </span>
-                          <span className="text-[11px] text-gray-500 font-medium">
-                            {lang === 'es' ? report.dateLine.es : report.dateLine.en}
-                          </span>
-                        </div>
-
-                        {/* Title + description */}
-                        <h3 className="text-lg sm:text-xl font-black leading-tight mb-2 special-report-title">
-                          {lang === 'es' ? report.title.es : report.title.en}
-                        </h3>
-                        <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 flex-1">
-                          {lang === 'es' ? report.description.es : report.description.en}
-                        </p>
-
-                        {/* KPIs */}
-                        <div className="grid grid-cols-2 gap-2 mb-4">
-                          {report.kpis.map((kpi, i) => {
-                            const Icon = kpi.icon;
-                            return (
-                              <div key={i} className={`rounded-lg border p-2.5 ${kpi.bgColor} transition-all`}>
-                                <div className="flex items-center gap-1.5 mb-0.5">
-                                  <Icon size={12} className={kpi.color} />
-                                  <span className={`text-lg font-black ${kpi.color}`}>{kpi.value}</span>
-                                </div>
-                                <span className="text-[10px] text-gray-500 leading-tight block">
-                                  {lang === 'es' ? kpi.labelEs : kpi.labelEn}
-                                </span>
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        {/* Sources + CTA */}
-                        {report.sources && (
-                          <p className="text-[10px] text-gray-600 mb-3">
-                            {lang === 'es' ? report.sources.es : report.sources.en}
-                          </p>
-                        )}
-
-                        <div className={`flex items-center gap-2 text-sm font-semibold ${report.accentColor} transition-colors`}>
-                          <span>{lang === 'es' ? report.cta.es : report.cta.en}</span>
-                          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </div>
+                  <Link href={report.href} className="signal-research-card group">
+                    <div className="signal-research-card__meta"><span>REPORT / {String(idx + 1).padStart(2, '0')}</span><time>{lang === 'es' ? report.dateLine.es : report.dateLine.en}</time></div>
+                    <div className="signal-research-card__content"><h3>{lang === 'es' ? report.title.es : report.title.en}</h3><p>{lang === 'es' ? report.description.es : report.description.en}</p></div>
+                    <div className="signal-research-card__signal"><strong>{report.kpis[0].value}</strong><span>{lang === 'es' ? report.kpis[0].labelEs : report.kpis[0].labelEn}</span></div>
+                    <div className="signal-research-card__footer"><span>{lang === 'es' ? report.cta.es : report.cta.en}</span><ArrowRight size={16} /></div>
                   </Link>
                 </motion.div>
               ))}
-            </div>
-          </div>
         </div>
       </motion.div>
     </section>

@@ -12,13 +12,13 @@ export default function PortfolioConsultingCTA() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section className="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="signal-portfolio-consulting-cta">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
-        className="glass rounded-2xl p-8 sm:p-10 border border-sky-500/15 relative overflow-hidden"
+        className="signal-portfolio-consulting-cta__panel"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-sky-500/[0.04] via-transparent to-purple-500/[0.04] pointer-events-none" />
 

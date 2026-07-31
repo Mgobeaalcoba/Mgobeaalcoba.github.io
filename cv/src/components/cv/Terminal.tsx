@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { ChevronDown, TerminalSquare } from 'lucide-react';
 
 interface HistoryEntry {
   type: 'input' | 'output';
@@ -48,6 +49,7 @@ export default function Terminal() {
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
   const [cmdIndex, setCmdIndex] = useState(-1);
   const [matrixActive, setMatrixActive] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -288,9 +290,14 @@ export default function Terminal() {
         />
       )}
 
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="signal-terminal-dock" aria-label={lang === 'es' ? 'Terminal interactiva opcional' : 'Optional interactive terminal'}>
+        <button className="signal-terminal-dock__trigger" onClick={() => setExpanded(!expanded)} aria-expanded={expanded}>
+          <span><TerminalSquare size={18} /><span><strong>mga@portfolio</strong><small>{lang === 'es' ? 'Experiencia opcional para perfiles técnicos' : 'Optional experience for technical profiles'}</small></span></span>
+          <span>{expanded ? (lang === 'es' ? 'Cerrar' : 'Close') : (lang === 'es' ? 'Explorar terminal' : 'Explore terminal')}<ChevronDown size={16} className={expanded ? 'rotate-180' : ''} /></span>
+        </button>
+        {expanded && (
         <div
-          className="rounded-xl overflow-hidden border border-green-500/30"
+          className="signal-terminal-dock__terminal rounded-xl overflow-hidden border border-green-500/30"
           style={{ background: '#0a0a0a' }}
           onClick={() => inputRef.current?.focus()}
         >
@@ -339,6 +346,7 @@ export default function Terminal() {
             )}
           </form>
         </div>
+        )}
       </section>
     </>
   );

@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronRight, Building2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Building2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
-import SplitText from '@/components/shared/SplitText';
+import OverlayShell from '@/components/shared/OverlayShell';
 import type { ExperienceItem } from '@/types/content';
 
 // ─── Duration helpers ────────────────────────────────────────
@@ -82,64 +82,27 @@ function ExperienceModal({ job, onClose }: { job: ExperienceItem; onClose: () =>
   const { lang } = useLanguage();
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        onClick={onClose}
-      >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          className="relative glass rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto custom-scrollbar"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-          >
-            <X size={20} />
-          </button>
-
-          <div className="flex items-center gap-3 mb-4">
-            <CompanyLogo logo={job.companyLogo} company={job.company} size="sm" />
-            <div>
-              <span className="text-xs font-semibold text-sky-400 bg-sky-500/10 px-2 py-1 rounded-full">
-                {job.date[lang]}
-              </span>
-            </div>
-          </div>
-
-          <h3 className="text-xl font-bold text-gray-100 mb-1">{job.title[lang]}</h3>
-          <p className="text-sky-400 font-medium mb-1">{job.company}</p>
-          {job.startDate && (
-            <p className="text-xs text-gray-500 mb-4">
-              {formatDuration(job.startDate, job.endDate, lang)}
-            </p>
-          )}
-
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {job.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2 py-0.5 bg-sky-500/10 text-sky-300 rounded-full border border-sky-500/20"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <ul
-            className="space-y-2 text-gray-300 text-sm leading-relaxed list-none"
-            dangerouslySetInnerHTML={{ __html: job.description[lang] }}
-          />
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+    <OverlayShell
+      isOpen
+      onClose={onClose}
+      layer={`experience-${job.id}`}
+      eyebrow={job.company}
+      title={job.title[lang]}
+      meta={`${job.date[lang]} · ${formatDuration(job.startDate, job.endDate, lang)}`}
+    >
+      <div className="signal-experience-detail__intro">
+        <CompanyLogo logo={job.companyLogo} company={job.company} size="md" />
+        <p>{lang === 'es' ? 'Alcance, decisiones y resultados de esta etapa profesional.' : 'Scope, decisions and results from this career stage.'}</p>
+      </div>
+      <section className="signal-experience-detail__section">
+        <span>01 / {lang === 'es' ? 'Impacto' : 'Impact'}</span>
+        <div className="signal-prose" dangerouslySetInnerHTML={{ __html: job.description[lang] }} />
+      </section>
+      <section className="signal-experience-detail__section">
+        <span>02 / Stack</span>
+        <div className="signal-detail-tags">{job.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+      </section>
+    </OverlayShell>
   );
 }
 
@@ -197,18 +160,18 @@ function EmployerGroupCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-      className="glass rounded-2xl overflow-hidden"
+      className="signal-career-company"
     >
       {/* Employer header */}
-      <div className="flex items-center gap-4 px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+      <div className="signal-career-company__header">
         <CompanyLogo logo={group.companyLogo} company={group.company} size="md" />
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-100 text-base truncate">{group.company}</h3>
+          <h3>{group.company}</h3>
           {totalDuration && (
             <span className="text-xs text-gray-500">{totalDuration}</span>
           )}
         </div>
-        <span className="text-xs text-gray-600 shrink-0">
+        <span className="signal-career-company__count">
           {group.roles.length === 1
             ? lang === 'es' ? '1 rol' : '1 role'
             : lang === 'es' ? `${group.roles.length} roles` : `${group.roles.length} roles`}
@@ -216,7 +179,7 @@ function EmployerGroupCard({
       </div>
 
       {/* Roles list */}
-      <div className="divide-y divide-white/5">
+      <div className="signal-career-roles">
         {group.roles.map((job, roleIndex) => {
           const roleDuration = formatDuration(job.startDate, job.endDate, lang);
           return (
@@ -227,14 +190,14 @@ function EmployerGroupCard({
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: groupIndex * 0.1 + roleIndex * 0.05 + 0.1 }}
               onClick={() => onOpenModal(job)}
-              className="w-full text-left px-6 py-4 hover:bg-white/[0.04] transition-colors group flex items-start justify-between gap-4"
+              className="signal-career-role group"
             >
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-gray-200 group-hover:text-sky-400 transition-colors text-sm truncate">
+                <p className="signal-career-role__title">
                   {job.title[lang]}
                 </p>
-                <div className="flex flex-wrap items-center gap-2 mt-1">
-                  <span className="text-xs text-sky-400/80 bg-sky-500/10 px-2 py-0.5 rounded-full">
+                <div className="signal-career-role__meta">
+                  <span>
                     {job.date[lang]}
                   </span>
                   {roleDuration && (
@@ -242,9 +205,9 @@ function EmployerGroupCard({
                   )}
                 </div>
                 {job.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-2">
+                  <div className="signal-career-role__tags">
                     {job.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="text-xs px-1.5 py-0.5 bg-white/5 text-gray-500 rounded">
+                      <span key={tag}>
                         {tag}
                       </span>
                     ))}
@@ -254,10 +217,7 @@ function EmployerGroupCard({
                   </div>
                 )}
               </div>
-              <ChevronRight
-                size={15}
-                className="text-gray-600 group-hover:text-sky-400 transition-all group-hover:translate-x-0.5 shrink-0 mt-0.5"
-              />
+              <ArrowUpRight size={18} className="signal-career-role__arrow" />
             </motion.button>
           );
         })}
@@ -281,22 +241,21 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" data-section="experience" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" data-section="experience" className="signal-portfolio-chapter signal-career-v2">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <SplitText
-          text={t('experience_title')}
-          className="section-title"
-          as="h2"
-          stagger={0.04}
-        />
+        <div className="signal-chapter-heading">
+          <span className="signal-eyebrow">02 / {lang === 'es' ? 'Trayectoria' : 'Career'}</span>
+          <h2>{t('experience_title')}</h2>
+          <p>{lang === 'es' ? 'Una evolución de alcance: de construir soluciones a diseñar sistemas y habilitar equipos.' : 'An evolution of scope: from building solutions to designing systems and enabling teams.'}</p>
+        </div>
 
         {loading && (
-          <div className="space-y-4">
+          <div className="signal-career-list">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="glass rounded-2xl p-5 animate-pulse">
                 <div className="flex items-center gap-3 mb-4">

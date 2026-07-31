@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react';
+import { Send, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
+import OverlayShell from '@/components/shared/OverlayShell';
 
 const WEBHOOK_URL = 'https://mgobeaalcoba.app.n8n.cloud/webhook/solicitud-automatizacion';
 
@@ -93,27 +93,15 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          onClick={handleClose}
-        >
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="relative glass rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button onClick={handleClose} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-              <X size={20} />
-            </button>
-
+    <OverlayShell
+      isOpen={isOpen}
+      onClose={handleClose}
+      layer="proposal"
+      variant="dialog"
+      eyebrow={lang === 'es' ? 'Diagnóstico inicial' : 'Initial assessment'}
+      title={lang === 'es' ? 'Solicitar automatización' : 'Request automation'}
+      meta={lang === 'es' ? 'Sin compromiso · Respuesta en 24 hs' : 'No commitment · Reply within 24h'}
+    >
             {!submitted ? (
               <>
                 <div className="mb-5">
@@ -250,9 +238,6 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                 </div>
               </div>
             )}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    </OverlayShell>
   );
 }

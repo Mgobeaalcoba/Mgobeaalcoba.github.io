@@ -1,50 +1,49 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ArrowDownRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
-import SplitText from '@/components/shared/SplitText';
 
 export default function About() {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
   const { cvAbout } = useSupabaseData();
+  const principles = lang === 'es'
+    ? [
+        ['01', 'Pensamiento sistémico', 'Conecto arquitectura, producto, operación y personas antes de elegir una tecnología.'],
+        ['02', 'Impacto observable', 'Defino métricas y señales de adopción para que el valor no quede en una presentación.'],
+        ['03', 'Equipos autónomos', 'Construyo contexto, estándares y herramientas para que las decisiones escalen.'],
+      ]
+    : [
+        ['01', 'Systems thinking', 'I connect architecture, product, operations and people before choosing a technology.'],
+        ['02', 'Observable impact', 'I define metrics and adoption signals so value does not remain in a presentation.'],
+        ['03', 'Autonomous teams', 'I build context, standards and tools so decision-making can scale.'],
+      ];
 
   return (
-    <section id="about" data-section="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
-      >
-        <SplitText
-          text={t('about_title')}
-          className="section-title"
-          as="h2"
-          stagger={0.04}
-        />
-        <div className="glass rounded-2xl p-8 glow-border">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            <div className="lg:col-span-2">
-              <p className="text-gray-300 leading-relaxed text-lg">
-                {cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}
-              </p>
-            </div>
+    <section id="about" data-section="about" className="signal-portfolio-chapter signal-about-v2">
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
+        <div className="signal-chapter-heading">
+          <span className="signal-eyebrow">01 / {lang === 'es' ? 'Perfil' : 'Profile'}</span>
+          <h2>{lang === 'es' ? 'Liderazgo técnico con mirada de producto.' : 'Technical leadership with a product mindset.'}</h2>
+          <ArrowDownRight size={28} aria-hidden="true" />
+        </div>
 
-            {/* Key highlights */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: '🎯', label: { es: 'Liderazgo', en: 'Leadership' } },
-                { icon: '🤖', label: { es: 'IA & ML', en: 'AI & ML' } },
-                { icon: '📊', label: { es: 'Data Eng.', en: 'Data Eng.' } },
-                { icon: '🚀', label: { es: 'Automatización', en: 'Automation' } },
-              ].map((item) => (
-                <div key={item.label.es} className="glass rounded-xl p-4 text-center">
-                  <div className="text-2xl mb-1">{item.icon}</div>
-                  <div className="text-xs text-gray-400 font-medium">{item.label[lang]}</div>
-                </div>
-              ))}
-            </div>
+        <div className="signal-about-v2__grid">
+          <div className="signal-about-v2__statement">
+            <p>{cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}</p>
+            <blockquote>
+              {lang === 'es'
+                ? 'Mi trabajo es reducir ambigüedad: convertir problemas abiertos en sistemas que un equipo pueda operar, medir y mejorar.'
+                : 'My job is to reduce ambiguity: turning open-ended problems into systems a team can operate, measure and improve.'}
+            </blockquote>
+          </div>
+          <div className="signal-principles">
+            {principles.map(([number, title, body]) => (
+              <article key={number}>
+                <span>{number}</span><div><h3>{title}</h3><p>{body}</p></div>
+              </article>
+            ))}
           </div>
         </div>
       </motion.div>
