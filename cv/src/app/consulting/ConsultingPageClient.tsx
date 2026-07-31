@@ -4,6 +4,7 @@ import { ArrowRight, ChartNoAxesCombined, Check, DatabaseZap, GraduationCap, Wor
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import ScrollTracker from '@/components/shared/ScrollTracker';
+import ClientPortfolio from '@/components/consulting/ClientPortfolio';
 import { openContactModal } from '@/components/shared/ContactModal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
@@ -163,6 +164,8 @@ export default function ConsultingPageClient() {
           {c.cases.map((item, index) => <a className="signal-card signal-case" href={item.href} key={item.name}><div className="signal-case__visual"><div className={`signal-case-graphic signal-case-graphic--${index + 1}`}><DatabaseZap size={38} /><span>{item.result}</span></div></div><div className="signal-case__body"><div className="signal-case__meta"><span>{item.type}</span><span>0{index + 1}</span></div><h3>{item.name}</h3><p>{item.body}</p><div className="signal-case__result"><strong>{item.result}</strong><span>{item.label}</span></div></div></a>)}
         </div>
       </section>
+
+      <ClientPortfolio />
 
       <section className="signal-section signal-process" aria-labelledby="process-title">
         <div className="signal-process__intro"><span className="signal-eyebrow">{c.processEyebrow}</span><h2 id="process-title">{c.processTitle}</h2><p>{c.processLead}</p></div>

@@ -39,6 +39,9 @@ export default function ContactModal() {
   const close = useCallback(() => {
     setOpen(false);
     setTimeout(reset, 300);
+    if (typeof window !== "undefined" && window.history.state?.mgaLayer === "contact") {
+      window.history.back();
+    }
   }, [reset]);
 
   useEffect(() => {
@@ -48,6 +51,13 @@ export default function ContactModal() {
       if (detail?.prefillMessage) {
         setForm((prev) => ({ ...prev, message: detail.prefillMessage! }));
       }
+      if (window.history.state?.mgaLayer !== "contact") {
+        window.history.pushState(
+          { ...window.history.state, mgaLayer: "contact" },
+          "",
+          window.location.href
+        );
+      }
       setOpen(true);
       events.contactModalOpen(detail?.source ?? "cv");
     };
@@ -56,14 +66,31 @@ export default function ContactModal() {
       window.removeEventListener(CONTACT_MODAL_EVENT, handler as EventListener);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onPopState = () => {
+      if (window.history.state?.mgaLayer !== "contact") {
+        setOpen(false);
+        setTimeout(reset, 300);
+      }
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [open, reset]);
+
   // ESC to close
   useEffect(() => {
     if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
   }, [open, close]);
 
   const postToWebhook = async (channel: Channel) => {
@@ -148,7 +175,7 @@ export default function ContactModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4"
           onClick={close}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
@@ -157,19 +184,31 @@ export default function ContactModal() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 10 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
-            className="relative glass rounded-2xl p-6 sm:p-7 w-full max-w-lg max-h-[92vh] overflow-y-auto border border-white/10"
+            className="relative glass flex w-full max-w-lg max-h-[min(640px,calc(100dvh-0.5rem))] flex-col overflow-hidden rounded-t-2xl border border-white/10 p-0 sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
             aria-label={t("Formulario de contacto", "Contact form")}
           >
-            <button
-              onClick={close}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors"
-              aria-label={t("Cerrar", "Close")}
-            >
-              <X size={20} />
-            </button>
+            <header className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 px-5 py-4">
+              <div>
+                <h3 className="text-lg font-bold text-gray-100">
+                  {t("Contactame", "Contact me")}
+                </h3>
+                <p className="hidden text-xs text-gray-400 sm:block">
+                  {t("Elegí el canal y te respondo en menos de 24hs.", "Choose a channel and I'll reply within 24h.")}
+                </p>
+              </div>
+              <button
+                onClick={close}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-gray-950/80 text-gray-300 hover:text-white transition-colors"
+                aria-label={t("Cerrar", "Close")}
+              >
+                <X size={20} />
+              </button>
+            </header>
+
+            <div className="min-h-0 overflow-y-auto overscroll-contain px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
 
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center py-8 gap-3">
@@ -192,17 +231,7 @@ export default function ContactModal() {
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-bold text-gray-100 mb-1">
-                  {t("Contactame", "Contact me")}
-                </h3>
-                <p className="text-gray-400 text-sm mb-5">
-                  {t(
-                    "Escribí tu mensaje y elegí por dónde preferís enviarlo. Te respondo en menos de 24hs.",
-                    "Write your message and choose how to send it. I'll reply within 24h."
-                  )}
-                </p>
-
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
                   <div>
                     <label className="block text-xs text-gray-400 mb-1.5">
                       {t("Tu nombre", "Your name")}{" "}
@@ -241,7 +270,7 @@ export default function ContactModal() {
                     />
                   </div>
 
-                  <div>
+                  <div className="sm:col-span-2">
                     <label className="block text-xs text-gray-400 mb-1.5">
                       {t("Mensaje", "Message")} <span className="text-red-400">*</span>
                     </label>
@@ -250,7 +279,7 @@ export default function ContactModal() {
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value })
                       }
-                      rows={4}
+                      rows={2}
                       placeholder={t(
                         "Contame brevemente qué necesitás o sobre qué querés charlar...",
                         "Briefly tell me what you need or what you'd like to chat about..."
@@ -261,7 +290,7 @@ export default function ContactModal() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3">
                   <button
                     type="button"
                     onClick={openWhatsApp}
@@ -273,7 +302,8 @@ export default function ContactModal() {
                     ) : (
                       <MessageSquare size={16} />
                     )}
-                    {t("Enviar por WhatsApp", "Send via WhatsApp")}
+                    <span className="hidden sm:inline">{t("Enviar por WhatsApp", "Send via WhatsApp")}</span>
+                    <span className="sm:hidden">WhatsApp</span>
                   </button>
                   <button
                     type="button"
@@ -286,11 +316,12 @@ export default function ContactModal() {
                     ) : (
                       <Mail size={16} />
                     )}
-                    {t("Enviar por Email", "Send via Email")}
+                    <span className="hidden sm:inline">{t("Enviar por Email", "Send via Email")}</span>
+                    <span className="sm:hidden">Email</span>
                   </button>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-white/10">
+                <div className="hidden sm:block mt-4 pt-4 border-t border-white/10">
                   <p className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-2">
                     {t("O contactame directo", "Or reach me directly")}
                   </p>
@@ -313,7 +344,7 @@ export default function ContactModal() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 mt-5 text-[11px] text-gray-600">
+                <div className="hidden sm:flex items-center gap-1 mt-3 text-[11px] text-gray-600">
                   <Send size={11} />
                   {t(
                     "Tu mensaje se registra para hacer seguimiento.",
@@ -322,6 +353,7 @@ export default function ContactModal() {
                 </div>
               </>
             )}
+            </div>
           </motion.div>
         </motion.div>
       )}

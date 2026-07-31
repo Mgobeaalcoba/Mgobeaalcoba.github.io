@@ -63,9 +63,8 @@ export function useAIAssistant() {
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    // Let visitors try the assistant before asking for contact details.
-    // Identity is collected only when they intentionally choose to continue the conversation.
-    const [user, setUser] = useState<UserIdentity | null>({ name: 'Website visitor', email: '' });
+    // The identity gate feeds user_info to the n8n lead workflow on the first message.
+    const [user, setUser] = useState<UserIdentity | null>(null);
 
     const hasInitialized = useRef(false);
     const currentLang = useRef(lang);
@@ -77,9 +76,15 @@ export function useAIAssistant() {
             const savedUser = localStorage.getItem('mga_assistant_user');
             if (savedUser) {
                 try {
-                    setUser(JSON.parse(savedUser));
+                    const parsed = JSON.parse(savedUser) as UserIdentity;
+                    if (parsed.name?.trim() && parsed.email?.trim()) {
+                        setUser(parsed);
+                    } else {
+                        localStorage.removeItem('mga_assistant_user');
+                    }
                 } catch (e) {
                     console.error('Error parsing saved user:', e);
+                    localStorage.removeItem('mga_assistant_user');
                 }
             }
 

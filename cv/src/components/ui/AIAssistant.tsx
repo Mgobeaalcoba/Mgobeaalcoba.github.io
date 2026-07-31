@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, User, MessageSquareText, Mic, MicOff } from "lucide-react";
 import { useAIAssistant } from "@/hooks/useAIAssistant";
@@ -17,9 +17,9 @@ export function AIAssistant() {
     isOpen,
     error,
     user,
-    toggleChat,
     sendMessage,
     identifyUser,
+    setIsOpen,
   } = useAIAssistant();
   const { lang } = useLanguage();
   const [inputValue, setInputValue] = useState("");
@@ -87,16 +87,51 @@ export function AIAssistant() {
     }
   }, [messages, isOpen]);
 
+  const openAssistant = useCallback(() => {
+    if (isOpen) return;
+    if (window.history.state?.mgaLayer !== "assistant") {
+      window.history.pushState(
+        { ...window.history.state, mgaLayer: "assistant" },
+        "",
+        window.location.href
+      );
+    }
+    setIsOpen(true);
+  }, [isOpen, setIsOpen]);
+
+  const closeAssistant = useCallback(() => {
+    setIsOpen(false);
+    if (window.history.state?.mgaLayer === "assistant") {
+      window.history.back();
+    }
+  }, [setIsOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onPopState = () => {
+      if (window.history.state?.mgaLayer !== "assistant") {
+        setIsOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeAssistant();
+    };
+    window.addEventListener("popstate", onPopState);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, closeAssistant, setIsOpen]);
+
   // Global event listener to open assistant from other components
   useEffect(() => {
     const handleOpen = () => {
-      if (!isOpen) {
-        toggleChat();
-      }
+      openAssistant();
     };
     window.addEventListener("open-ai-assistant", handleOpen);
     return () => window.removeEventListener("open-ai-assistant", handleOpen);
-  }, [isOpen, toggleChat]);
+  }, [openAssistant]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -169,11 +204,19 @@ export function AIAssistant() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[75] bg-black/[0.03]"
+            onClick={closeAssistant}
+          >
+          <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-20 right-5 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100vh-7rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden"
+            className="fixed bottom-20 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100dvh-6rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden sm:right-5"
+            onClick={(event) => event.stopPropagation()}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shrink-0 flex items-center justify-between shadow-md">
@@ -193,7 +236,7 @@ export function AIAssistant() {
                 </div>
               </div>
               <button
-                onClick={toggleChat}
+                onClick={closeAssistant}
                 className="text-white/80 hover:text-white p-1 rounded-md transition-colors hover:bg-white/10"
                 aria-label={lang === "en" ? "Close assistant" : "Cerrar asistente"}
               >
@@ -215,8 +258,8 @@ export function AIAssistant() {
                     </h4>
                     <p className="text-gray-500 dark:text-gray-400 text-xs mb-6 text-center leading-relaxed">
                       {lang === "en"
-                        ? "Please introduce yourself to start chatting with our assistant."
-                        : "Por favor, identifícate para comenzar a chatear con nuestro asistente."}
+                        ? "Tell us who you are to start. Your details help us follow up on your inquiry."
+                        : "Contanos quién sos para comenzar. Tus datos nos permiten registrar y dar seguimiento a tu consulta."}
                     </p>
 
                     <form onSubmit={handleIdentify} className="space-y-4">
@@ -273,8 +316,8 @@ export function AIAssistant() {
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-2"
                       >
                         {lang === "en"
-                          ? "Start Chatting"
-                          : "Comenzar a Chatear"}
+                          ? "Continue to the assistant"
+                          : "Ingresar al asistente"}
                       </button>
                     </form>
                   </div>
@@ -431,14 +474,17 @@ export function AIAssistant() {
               </form>
             </div>
           </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Compact assistant trigger — intentionally avoids covering page content. */}
       <button
-        onClick={toggleChat}
-        className="signal-assistant-trigger"
-        aria-label={lang === "en" ? "Open MGA assistant" : "Abrir asistente MGA"}
+        onClick={isOpen ? closeAssistant : openAssistant}
+        className={`signal-assistant-trigger ${isOpen ? "is-open" : ""}`}
+        aria-label={isOpen
+          ? (lang === "en" ? "Close MGA assistant" : "Cerrar asistente MGA")
+          : (lang === "en" ? "Open MGA assistant" : "Abrir asistente MGA")}
       >
         <span className="signal-assistant-trigger__icon">{isOpen ? <X size={17} /> : <Bot size={17} />}</span>
         <span>{lang === "en" ? "Ask MGA" : "Preguntá a MGA"}</span>
