@@ -173,7 +173,7 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-24 right-6 w-[350px] max-w-[calc(100vw-3rem)] h-[500px] max-h-[calc(100vh-8rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-50 overflow-hidden mt-16"
+            className="fixed bottom-20 right-5 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100vh-7rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shrink-0 flex items-center justify-between shadow-md">
@@ -195,6 +195,7 @@ export function AIAssistant() {
               <button
                 onClick={toggleChat}
                 className="text-white/80 hover:text-white p-1 rounded-md transition-colors hover:bg-white/10"
+                aria-label={lang === "en" ? "Close assistant" : "Cerrar asistente"}
               >
                 <X size={20} />
               </button>
@@ -414,6 +415,7 @@ export function AIAssistant() {
                         : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
                     }`}
                     title={lang === "en" ? "Voice Input" : "Entrada de voz"}
+                    aria-label={lang === "en" ? "Voice input" : "Entrada de voz"}
                   >
                     {isListening ? <MicOff size={16} /> : <Mic size={16} />}
                   </button>
@@ -422,6 +424,7 @@ export function AIAssistant() {
                   type="submit"
                   disabled={!inputValue.trim() || isLoading}
                   className="p-2.5 rounded-full bg-blue-600 text-white disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors flex flex-col justify-center items-center"
+                  aria-label={lang === "en" ? "Send message" : "Enviar mensaje"}
                 >
                   <Send size={16} className="-ml-0.5" />
                 </button>
@@ -431,64 +434,14 @@ export function AIAssistant() {
         )}
       </AnimatePresence>
 
-      {/* Floating Trigger Button (Siri Orb) */}
+      {/* Compact assistant trigger — intentionally avoids covering page content. */}
       <button
         onClick={toggleChat}
-        className="fixed top-24 right-6 z-50 w-14 h-14 rounded-full shadow-lg group focus:outline-none mt-2"
-        aria-label="Toggle AI Assistant"
+        className="signal-assistant-trigger"
+        aria-label={lang === "en" ? "Open MGA assistant" : "Abrir asistente MGA"}
       >
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute inset-0 rounded-full bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-blue-400 via-indigo-500 to-purple-600 blur-[2px] opacity-70 group-hover:opacity-100 transition-opacity"
-        />
-        <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-gray-900 to-black flex items-center justify-center border border-white/10 z-10">
-          <AnimatePresence mode="wait">
-            {isOpen ? (
-              <motion.div
-                key="close"
-                initial={{ opacity: 0, scale: 0.5, rotate: -90 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.5, rotate: 90 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X
-                  className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
-                  size={24}
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="bot"
-                initial={{ opacity: 0, scale: 0.5, rotate: 90 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.5, rotate: -90 }}
-                transition={{ duration: 0.2 }}
-                className="relative"
-              >
-                <Bot
-                  className="text-blue-300 drop-shadow-[0_0_12px_rgba(147,197,253,0.8)]"
-                  size={26}
-                />
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 bg-blue-400 rounded-full blur-xl -z-10"
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <span className="signal-assistant-trigger__icon">{isOpen ? <X size={17} /> : <Bot size={17} />}</span>
+        <span>{lang === "en" ? "Ask MGA" : "Preguntá a MGA"}</span>
       </button>
     </>
   );

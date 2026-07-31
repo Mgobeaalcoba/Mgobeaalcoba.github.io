@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
-import NewsletterBanner from "@/components/shared/NewsletterBanner";
 import ScrollTracker from "@/components/shared/ScrollTracker";
 import RecursosClient from "./RecursosClient";
-import FloatingCTA from "@/components/shared/FloatingCTA";
 import JsonLd from "@/components/shared/JsonLd";
 
 const PAGE_URL = "https://www.mgatc.com/recursos/";
@@ -84,14 +82,12 @@ const faqSchema = {
 
 export default function RecursosPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen signal-tools-page">
       <JsonLd data={faqSchema} />
       <ScrollTracker />
       <Navbar />
       <RecursosClient />
-      <NewsletterBanner />
       <Footer />
-      <FloatingCTA labelKey="floating_cta_recursos" site_section="recursos" />
     </main>
   );
 }

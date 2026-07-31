@@ -9,6 +9,7 @@ import ContactModal from "@/components/shared/ContactModal";
 import CommandPalette from "@/components/shared/CommandPalette";
 import Script from "next/script";
 import "./globals.css";
+import "./signal.css";
 
 const GA_ID = "G-DG0SLT5RY3";
 const SITE_URL = "https://www.mgatc.com";
@@ -112,10 +113,10 @@ export const metadata: Metadata = {
       "Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.",
     images: [
       {
-        url: "https://www.mgatc.com/images/logo.png",
+        url: "https://www.mgatc.com/og.png",
         width: 1200,
         height: 630,
-        alt: "Mariano Gobea Alcoba",
+        alt: "MGA Tech Consulting — Sistemas medibles para operar mejor",
       },
     ],
   },
@@ -123,6 +124,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@MGobeaAlcoba",
     creator: "@MGobeaAlcoba",
+    images: ["https://www.mgatc.com/og.png"],
   },
   icons: {
     apple: "/images/favicon-192.png",
@@ -155,7 +157,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="#111827" />
@@ -165,6 +167,7 @@ export default function RootLayout({
         <JsonLd data={websiteSchema} />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Saltar al contenido</a>
         <DataErrorBoundary>
           <ThemeProvider>
             <LanguageProvider>

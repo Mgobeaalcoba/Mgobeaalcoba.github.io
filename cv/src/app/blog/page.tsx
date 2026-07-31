@@ -4,7 +4,6 @@ import Footer from '@/components/shared/Footer';
 import NewsletterBanner from '@/components/shared/NewsletterBanner';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import BlogClientPage from './BlogClientPage';
-import FloatingCTA from '@/components/shared/FloatingCTA';
 import { getAllPostsMeta, getCategories } from '@/lib/blog';
 
 export const metadata: Metadata = {
@@ -25,13 +24,12 @@ export default async function BlogPage() {
   const [posts, categories] = await Promise.all([getAllPostsMeta(), getCategories()]);
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen signal-editorial-page">
       <ScrollTracker />
       <Navbar />
       <BlogClientPage posts={posts} categories={categories} />
       <NewsletterBanner />
       <Footer />
-      <FloatingCTA labelKey="floating_cta_blog" site_section="blog" />
     </main>
   );
 }

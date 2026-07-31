@@ -19,7 +19,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 const THEMES: Theme[] = ['dark', 'light', 'terminal'];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('terminal');
+  const [theme, setThemeState] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(saved);
       applyTheme(saved);
     } else {
-      applyTheme('terminal');
+      const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      setThemeState(preferred);
+      applyTheme(preferred);
     }
     setMounted(true);
   }, []);
@@ -57,13 +59,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme(next);
   }
 
-  if (!mounted) {
-    return (
-      <div className="bg-black min-h-screen">
-        {children}
-      </div>
-    );
-  }
+  if (!mounted) return <div className="min-h-screen bg-[#070b12]">{children}</div>;
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, cycleTheme }}>

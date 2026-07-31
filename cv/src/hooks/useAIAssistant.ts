@@ -63,7 +63,9 @@ export function useAIAssistant() {
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [user, setUser] = useState<UserIdentity | null>(null);
+    // Let visitors try the assistant before asking for contact details.
+    // Identity is collected only when they intentionally choose to continue the conversation.
+    const [user, setUser] = useState<UserIdentity | null>({ name: 'Website visitor', email: '' });
 
     const hasInitialized = useRef(false);
     const currentLang = useRef(lang);
@@ -199,7 +201,7 @@ export function useAIAssistant() {
 
             // Real-time logging to Supabase (Async fire-and-forget)
             // Logging AFTER response to capture responseTime and conversion status correctly
-            if (user) {
+            if (user?.email) {
                 supabase.from('assistant_logs').insert({
                     user_name: user.name,
                     user_email: user.email,

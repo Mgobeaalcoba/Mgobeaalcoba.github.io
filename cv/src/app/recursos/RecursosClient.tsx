@@ -2,20 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import {
-  Calculator,
-  BarChart2,
-  TrendingUp,
-  Wrench,
-  Bot,
-  Activity,
-  Calendar,
-  HelpCircle,
-  ChevronDown,
-  LayoutGrid,
-  Share2,
-  CornerDownRight,
-} from "lucide-react";
+import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
 import TokenCalculator from "@/components/recursos/TokenCalculator";
@@ -171,14 +158,6 @@ export default function RecursosClient() {
   );
   const isWide = currentTabItem?.wide || false;
 
-  const handleCategoryChange = (categoryId: CategoryId) => {
-    setActiveCategory(categoryId);
-    const category = TAB_CATEGORIES.find((cat) => cat.id === categoryId);
-    if (category && category.tabs.length > 0) {
-      setActiveTab(category.tabs[0].id);
-    }
-  };
-
   const handleTabChange = (tabId: TabId) => {
     setActiveTab(tabId);
     const categoryForTab = TAB_CATEGORIES.find((cat) =>
@@ -191,146 +170,32 @@ export default function RecursosClient() {
 
   if (!isMounted) return null; // Avoid hydration mismatch by waiting for mount
 
-  return (
-    <>
-      {/* Hero */}
-      <section className="pt-28 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <Wrench size={28} className="text-sky-400" />
-            <h1 className="text-4xl font-black gradient-text">
-              {lang === "es" ? "Recursos Útiles" : "Useful Resources"}
-            </h1>
-          </div>
-          <p className="text-gray-400 text-lg max-w-2xl">
-            {lang === "es"
-              ? "Herramientas financieras y calculadoras especializadas para Argentina"
-              : "Financial tools and specialized calculators for Argentina"}
-          </p>
-        </motion.div>
-      </section>
+  return <>
+    <section className="signal-tools-hero">
+      <span className="signal-eyebrow">MGA / Utility lab</span>
+      <div className="signal-tools-hero__grid">
+        <h1>{lang === "es" ? <>Herramientas para<br /><em>decidir mejor.</em></> : <>Tools to help you<br /><em>decide better.</em></>}</h1>
+        <p>{lang === "es" ? "Calculadoras y laboratorios interactivos para modelar decisiones financieras, de automatización y de arquitectura." : "Interactive calculators and labs for modeling financial, automation and architecture decisions."}</p>
+      </div>
+    </section>
 
-      {/* Quick nav */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
-        {/* Mobile: styled select dropdown for categories */}
-        <div className="relative sm:hidden mb-2">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-sky-400 pointer-events-none">
-            <LayoutGrid size={16} />
-          </div>
-          <select
-            value={activeCategory}
-            onChange={(e) => handleCategoryChange(e.target.value as CategoryId)}
-            className="w-full appearance-none glass border border-sky-500/40 rounded-xl pl-9 pr-10 py-3 text-sm font-medium text-gray-200 bg-transparent focus:outline-none focus:border-sky-500 cursor-pointer"
-          >
-            {TAB_CATEGORIES.map(({ id, label }) => (
-              <option key={id} value={id} className="bg-gray-900 text-gray-200">
-                {label[lang]}
-              </option>
-            ))}
-          </select>
-          <ChevronDown
-            size={16}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-          />
-        </div>
+    <section className="signal-tools-workspace">
+      <div className="signal-tool-mobile-select">
+        <span>{currentTabItem?.icon}</span>
+        <select value={activeTab} onChange={(event) => handleTabChange(event.target.value as TabId)} aria-label={lang === "es" ? "Seleccionar herramienta" : "Select tool"}>
+          {TAB_CATEGORIES.map((group) => <optgroup key={group.id} label={group.label[lang]}>{group.tabs.map((tab) => <option key={tab.id} value={tab.id}>{tab.label[lang]}</option>)}</optgroup>)}
+        </select>
+        <ChevronDown size={17} />
+      </div>
 
-        {/* Mobile: styled select dropdown for tabs within active category */}
-        <div className="relative sm:hidden">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-sky-400 pointer-events-none">
-            {currentTabItem?.icon}
-          </div>
-          <select
-            value={activeTab}
-            onChange={(e) => handleTabChange(e.target.value as TabId)}
-            className="w-full appearance-none glass border border-sky-500/40 rounded-xl pl-9 pr-10 py-3 text-sm font-medium text-gray-200 bg-transparent focus:outline-none focus:border-sky-500 cursor-pointer"
-          >
-            {TAB_CATEGORIES.find((cat) => cat.id === activeCategory)?.tabs.map(
-              ({ id, label }) => (
-                <option
-                  key={id}
-                  value={id}
-                  className="bg-gray-900 text-gray-200"
-                >
-                  {label[lang]}
-                </option>
-              )
-            )}
-          </select>
-          <ChevronDown
-            size={16}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-          />
-        </div>
+      <aside className="signal-tool-nav" aria-label={lang === "es" ? "Herramientas disponibles" : "Available tools"}>
+        <div className="signal-tool-nav__header"><strong>{lang === "es" ? "Laboratorio" : "Laboratory"}</strong><span>{TAB_CATEGORIES.reduce((total, group) => total + group.tabs.length, 0)} tools</span></div>
+        {TAB_CATEGORIES.map((group) => <div className="signal-tool-nav__group" key={group.id}><span>{group.label[lang]}</span>{group.tabs.map((tab) => <button key={tab.id} className={activeTab === tab.id ? 'is-active' : ''} onClick={() => handleTabChange(tab.id)}>{tab.icon}<span>{tab.label[lang]}</span></button>)}</div>)}
+      </aside>
 
-        {/* Desktop: unified 2-level navigation panel */}
-        <div className="hidden sm:block glass rounded-2xl border border-white/10 p-4">
-          {/* Level 1: Category */}
-          <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
-            <span className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold pt-3 shrink-0 w-24">
-              {lang === "es" ? "Categoría" : "Category"}
-            </span>
-            <div className="flex gap-2 flex-wrap flex-1">
-              {TAB_CATEGORIES.map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => handleCategoryChange(id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                    activeCategory === id
-                      ? "bg-sky-500 text-white shadow-md shadow-sky-500/25"
-                      : "text-gray-400 hover:text-sky-400 border border-white/10 hover:border-sky-500/30"
-                  }`}
-                >
-                  <LayoutGrid size={16} />
-                  {label[lang]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Divider between levels */}
-          <div className="border-t border-white/10 -mx-4 my-4" />
-
-          {/* Level 2: Sub-tabs within active category */}
-          <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
-            <span className="text-[10px] text-sky-400/80 uppercase tracking-[0.15em] font-semibold pt-2 shrink-0 w-24 flex items-center gap-1">
-              <CornerDownRight size={12} className="text-sky-400" />
-              {lang === "es" ? "Herramienta" : "Tool"}
-            </span>
-            <div className="flex gap-2 flex-wrap flex-1">
-              {TAB_CATEGORIES.find((cat) => cat.id === activeCategory)?.tabs.map(
-                ({ id, icon, label }) => (
-                  <button
-                    key={id}
-                    onClick={() => handleTabChange(id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      activeTab === id
-                        ? "bg-sky-400/15 text-sky-300 border border-sky-400/40"
-                        : "text-gray-400 hover:text-sky-300 border border-transparent hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    {icon}
-                    {label[lang]}
-                  </button>
-                )
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className={isWide ? "" : "max-w-2xl"}
-        >
+      <div className="signal-tool-stage">
+        <div className="signal-tool-stage__bar"><div><span>{TAB_CATEGORIES.find((group) => group.id === activeCategory)?.label[lang]}</span><strong>{currentTabItem?.label[lang]}</strong></div><span className="signal-tool-status"><i />{lang === "es" ? "Disponible" : "Available"}</span></div>
+        <motion.div key={activeTab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.18 }} className={isWide ? "" : "max-w-2xl"}>
           {activeTab === "calculator" && <TaxCalculator />}
           {activeTab === "roi" && <ROICalculator />}
           {activeTab === "arch" && <ArchVisualizer />}
@@ -342,7 +207,7 @@ export default function RecursosClient() {
           {activeTab === "holidays" && <HolidaysArgentina />}
           {activeTab === "faq" && <FAQRecursos />}
         </motion.div>
-      </section>
-    </>
-  );
+      </div>
+    </section>
+  </>;
 }

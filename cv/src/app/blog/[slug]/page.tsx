@@ -114,12 +114,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen signal-article-page">
       <JsonLd data={articleSchema} />
       <ScrollTracker site_section="blog" />
       <Navbar />
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+      <article className="signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         {/* Back link */}
         <Link
           href="/blog/"
@@ -142,7 +142,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4">
+          <h1 className="signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4">
             {post.title.es}
           </h1>
 

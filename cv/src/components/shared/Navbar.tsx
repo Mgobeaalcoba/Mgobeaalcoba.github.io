@@ -1,203 +1,115 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from './TransitionLink';
-import { usePathname } from 'next/navigation';
-import { Monitor, Sun, Moon, Globe, Menu, X, Terminal } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
-import type { Theme } from '@/contexts/ThemeContext';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { Command, Globe2, Menu, Moon, Search, Sun, Terminal, X } from 'lucide-react';
+import Link from './TransitionLink';
+import { useTheme, type Theme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 
-const NAV_LINKS = [
-  { href: '/', labelKey: 'nav_consulting' },
-  { href: '/portfolio/', labelKey: 'nav_portfolio' },
-  { href: '/blog/', labelKey: 'nav_blog' },
-  { href: '/recursos/', labelKey: 'nav_recursos' },
+const LINKS = [
+  { href: '/#soluciones', es: 'Soluciones', en: 'Solutions' },
+  { href: '/#casos', es: 'Casos', en: 'Cases' },
+  { href: '/portfolio/', es: 'Mariano', en: 'Mariano' },
+  { href: '/blog/', es: 'Insights', en: 'Insights' },
+  { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
 ];
 
 const THEME_ICONS: Record<Theme, React.ReactNode> = {
-  dark: <Moon size={16} />,
-  light: <Sun size={16} />,
-  terminal: <Terminal size={16} />,
+  dark: <Moon size={17} />,
+  light: <Sun size={17} />,
+  terminal: <Terminal size={17} />,
 };
 
-function NavLogo({ isConsultingPage, forceDarkLogo }: { isConsultingPage: boolean; forceDarkLogo: boolean }) {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark' || theme === 'terminal' || forceDarkLogo;
-
-  if (isConsultingPage) {
-    return (
-      <Image
-        src={isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png'}
-        alt="MGA Tech Consulting"
-        width={160}
-        height={67}
-        className="h-9 w-auto object-contain"
-        priority
-      />
-    );
-  }
-  return (
-    <Image
-      src={isDark ? '/images/portfolio-logo-dark.png' : '/images/portfolio-logo.png'}
-      alt="MGA Portfolio"
-      width={160}
-      height={67}
-      className="h-9 w-auto object-contain"
-      priority
-    />
-  );
-}
-
 export default function Navbar() {
+  const pathname = usePathname();
   const { theme, cycleTheme } = useTheme();
-  const { lang, setLang, t } = useLanguage();
+  const { lang, setLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
-
-  const isPortfolioPage = pathname.startsWith('/portfolio');
-  const isConsultingPage = !isPortfolioPage;
-
-  // On the portfolio page the hero always has a dark video background.
-  // When not yet scrolled and in light mode the transparent navbar would have
-  // dark text over the dark video → unreadable. CSS class nav-on-dark-bg
-  // restores the light-palette with higher specificity than the !important rules.
-  const forceWhiteText = isPortfolioPage && !scrolled && theme === 'light';
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 18);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => setMenuOpen(false), [pathname]);
+
   const isActive = (href: string) => {
-    if (href === '/') return pathname === '/' || pathname === '';
+    if (href.startsWith('/#')) return false;
     return pathname.startsWith(href.replace(/\/$/, ''));
   };
 
-  const logoHref = isPortfolioPage ? '/portfolio/' : '/';
+  const switchLanguage = () => {
+    const next = lang === 'es' ? 'en' : 'es';
+    events.languageSwitch(lang, next);
+    setLang(next);
+  };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg' : 'bg-transparent'
-      } ${forceWhiteText ? 'nav-on-dark-bg' : ''}`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href={logoHref} className="flex items-center group">
-            <NavLogo isConsultingPage={isConsultingPage} forceDarkLogo={forceWhiteText} />
-          </Link>
+    <nav className={`signal-nav ${scrolled ? 'signal-nav--scrolled' : ''}`} aria-label="Navegación principal">
+      <div className="signal-nav__inner">
+        <Link href="/" className="signal-brand" aria-label="MGA Tech Consulting — Inicio">
+          <Image src={theme === 'light' ? '/images/consulting-logo-light.png' : '/images/consulting-logo-dark.png'} alt="MGA Tech Consulting" width={176} height={74} priority />
+          <span className="signal-brand__descriptor">Systems for growth</span>
+        </Link>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => events.navClick(link.href, t(link.labelKey))}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                  isActive(link.href) ? 'text-sky-400' : 'text-gray-300'
-                }`}
-              >
-                {t(link.labelKey)}
-              </Link>
-            ))}
-          </div>
-
-          {/* Controls */}
-          <div className="flex items-center gap-2">
-            {/* Language toggle */}
-            <div className="hidden sm:flex items-center gap-1 glass rounded-lg px-2 py-1">
-              <Globe size={12} className="text-gray-400" />
-              <button
-                onClick={() => { if (lang !== 'es') events.languageSwitch(lang, 'es'); setLang('es'); }}
-                className={`text-xs px-1.5 py-0.5 rounded transition-colors ${
-                  lang === 'es' ? 'text-sky-400 font-bold' : 'text-gray-400 hover:text-gray-200'
-                }`}
-              >
-                ES
-              </button>
-              <span className="text-gray-600">|</span>
-              <button
-                onClick={() => { if (lang !== 'en') events.languageSwitch(lang, 'en'); setLang('en'); }}
-                className={`text-xs px-1.5 py-0.5 rounded transition-colors ${
-                  lang === 'en' ? 'text-sky-400 font-bold' : 'text-gray-400 hover:text-gray-200'
-                }`}
-              >
-                EN
-              </button>
-            </div>
-
-            {/* Command Palette shortcut badge */}
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-              className="hidden lg:flex items-center gap-1.5 glass px-2.5 py-1 rounded-lg text-xs text-gray-400 hover:text-sky-400 transition-colors border border-white/5"
-              title="Abrir buscador (⌘K)"
+        <div className="signal-nav__links">
+          {LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => events.navClick(link.href, link[lang])}
+              className={isActive(link.href) ? 'is-active' : ''}
             >
-              <span>Buscar</span>
-              <kbd className="bg-white/10 px-1 rounded text-[9px] font-mono font-bold">⌘K</kbd>
-            </button>
-
-            {/* Theme toggle */}
-            <button
-              onClick={cycleTheme}
-              className="glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"
-              title={`Theme: ${theme}`}
-            >
-              {THEME_ICONS[theme]}
-            </button>
-
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"
-            >
-              {menuOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </div>
+              {link[lang]}
+            </Link>
+          ))}
         </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden glass rounded-xl mb-4 p-4 space-y-2">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => { events.navClick(link.href, t(link.labelKey)); setMenuOpen(false); }}
-                className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? 'text-sky-400 bg-sky-500/10'
-                    : 'text-gray-300 hover:text-sky-400 hover:bg-white/5'
-                }`}
-              >
-                {t(link.labelKey)}
-              </Link>
-            ))}
-            <div className="flex items-center gap-2 pt-2 border-t border-white/10">
-              <Globe size={14} className="text-gray-400" />
-              <button
-                onClick={() => { if (lang !== 'es') events.languageSwitch(lang, 'es'); setLang('es'); }}
-                className={`text-sm px-2 py-1 rounded ${lang === 'es' ? 'text-sky-400 font-bold' : 'text-gray-400'}`}
-              >
-                Español
-              </button>
-              <span className="text-gray-600">/</span>
-              <button
-                onClick={() => { if (lang !== 'en') events.languageSwitch(lang, 'en'); setLang('en'); }}
-                className={`text-sm px-2 py-1 rounded ${lang === 'en' ? 'text-sky-400 font-bold' : 'text-gray-400'}`}
-              >
-                English
-              </button>
-            </div>
-          </div>
-        )}
+        <div className="signal-nav__actions">
+          <button
+            className="signal-icon-button signal-search-button"
+            onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
+            aria-label={lang === 'es' ? 'Abrir búsqueda rápida' : 'Open quick search'}
+          >
+            <Search size={16} />
+            <span>{lang === 'es' ? 'Buscar' : 'Search'}</span>
+            <kbd><Command size={10} />K</kbd>
+          </button>
+          <button className="signal-icon-button" onClick={switchLanguage} aria-label={lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}>
+            <Globe2 size={16} />
+            <span>{lang.toUpperCase()}</span>
+          </button>
+          <button className="signal-icon-button signal-theme-button" onClick={cycleTheme} aria-label={`${lang === 'es' ? 'Cambiar tema' : 'Change theme'}: ${theme}`}>
+            {THEME_ICONS[theme]}
+          </button>
+          <button
+            className="signal-icon-button signal-menu-button"
+            onClick={() => setMenuOpen((value) => !value)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <div id="mobile-navigation" className="signal-mobile-menu">
+          {LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className={isActive(link.href) ? 'is-active' : ''}>
+              <span>{link[lang]}</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
