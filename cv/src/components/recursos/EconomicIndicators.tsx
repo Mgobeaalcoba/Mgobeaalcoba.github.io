@@ -26,7 +26,29 @@ const INDICATORS: Indicator[] = [
 
 type HistoryEntry = { fecha: string; valor: number };
 
-type HistoryRange = '7d' | '30d' | '90d' | '1y' | 'max';
+type HistoryRange = '6m' | '1y' | '5y' | 'max';
+
+const HISTORY_RANGES: Array<{ value: HistoryRange; label: { es: string; en: string } }> = [
+  { value: '6m', label: { es: '6 meses', en: '6 months' } },
+  { value: '1y', label: { es: '1 año', en: '1 year' } },
+  { value: '5y', label: { es: '5 años', en: '5 years' } },
+  { value: 'max', label: { es: 'Máximo', en: 'All time' } },
+];
+
+function normalizeHistory(data: unknown): HistoryEntry[] {
+  if (!Array.isArray(data)) return [];
+
+  return data
+    .filter((entry): entry is HistoryEntry => {
+      if (!entry || typeof entry !== 'object') return false;
+      const candidate = entry as Partial<HistoryEntry>;
+      return typeof candidate.fecha === 'string'
+        && typeof candidate.valor === 'number'
+        && Number.isFinite(candidate.valor)
+        && !Number.isNaN(Date.parse(candidate.fecha));
+    })
+    .sort((a, b) => Date.parse(a.fecha) - Date.parse(b.fecha));
+}
 
 function MiniSparkline({ data }: { data: HistoryEntry[] }) {
   if (data.length < 2) return null;
@@ -50,28 +72,29 @@ function MiniSparkline({ data }: { data: HistoryEntry[] }) {
 
 function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: () => void }) {
   const { lang } = useLanguage();
-  const [range, setRange] = useState<HistoryRange>('30d');
+  const [range, setRange] = useState<HistoryRange>('1y');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const fetchHistory = useCallback(async () => {
     if (!indicator.historyApi) return;
     setLoading(true);
+    setHasError(false);
     try {
       const res = await fetch(`https://api.argentinadatos.com/v1/finanzas/indices/${indicator.historyApi}`);
       if (!res.ok) throw new Error();
-      const all: HistoryEntry[] = await res.json();
+      const all = normalizeHistory(await res.json());
       const now = new Date();
       const cutoff = new Date();
-      if (range === '7d') cutoff.setDate(now.getDate() - 7);
-      else if (range === '30d') cutoff.setDate(now.getDate() - 30);
-      else if (range === '90d') cutoff.setDate(now.getDate() - 90);
+      if (range === '6m') cutoff.setMonth(now.getMonth() - 6);
       else if (range === '1y') cutoff.setFullYear(now.getFullYear() - 1);
-      else cutoff.setFullYear(2020);
+      else if (range === '5y') cutoff.setFullYear(now.getFullYear() - 5);
 
       setHistory(range === 'max' ? all : all.filter((d) => new Date(d.fecha) >= cutoff));
     } catch {
       setHistory([]);
+      setHasError(true);
     } finally {
       setLoading(false);
     }
@@ -79,7 +102,12 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
 
   useEffect(() => { fetchHistory(); }, [fetchHistory]);
 
-  const RANGES: HistoryRange[] = ['7d', '30d', '90d', '1y', 'max'];
+  const firstEntry = history[0];
+  const lastEntry = history[history.length - 1];
+  const absoluteChange = firstEntry && lastEntry ? lastEntry.valor - firstEntry.valor : null;
+  const formatDate = (date: string) => new Intl.DateTimeFormat(lang === 'es' ? 'es-AR' : 'en-US', {
+    month: 'short', year: 'numeric', timeZone: 'UTC',
+  }).format(new Date(date));
 
   return (
     <motion.div
@@ -101,11 +129,11 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
         <h3 className="font-bold text-gray-100 mb-1">{indicator.label[lang]}</h3>
         <p className="text-xs text-gray-500 mb-4">{lang === 'es' ? 'Fuente:' : 'Source:'} {indicator.source}</p>
 
-        <div className="flex gap-2 mb-4">
-          {RANGES.map((r) => (
-            <button key={r} onClick={() => setRange(r)}
-              className={`text-xs px-2.5 py-1 rounded-full font-medium transition-all ${range === r ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'}`}>
-              {r}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {HISTORY_RANGES.map((option) => (
+            <button key={option.value} onClick={() => setRange(option.value)}
+              className={`text-xs px-2.5 py-1 rounded-full font-medium transition-all ${range === option.value ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'}`}>
+              {option.label[lang]}
             </button>
           ))}
         </div>
@@ -115,14 +143,21 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
         ) : history.length > 0 ? (
           <>
             <MiniSparkline data={history} />
+            <div className="flex items-center justify-between mt-1 text-[11px] text-gray-500">
+              <span>{firstEntry && formatDate(firstEntry.fecha)}</span>
+              <span>{history.length} {lang === 'es' ? 'observaciones' : 'observations'}</span>
+              <span>{lastEntry && formatDate(lastEntry.fecha)}</span>
+            </div>
             <div className="grid grid-cols-3 gap-3 mt-4 text-center">
               <div className="bg-white/5 rounded-xl p-3">
                 <p className="text-xs text-gray-500">{lang === 'es' ? 'Último' : 'Latest'}</p>
                 <p className={`font-bold ${indicator.color}`}>{history[history.length - 1]?.valor.toFixed(2)}</p>
               </div>
               <div className="bg-white/5 rounded-xl p-3">
-                <p className="text-xs text-gray-500">{lang === 'es' ? 'Máximo' : 'Max'}</p>
-                <p className="font-bold text-gray-200">{Math.max(...history.map((d) => d.valor)).toFixed(2)}</p>
+                <p className="text-xs text-gray-500">{lang === 'es' ? 'Variación' : 'Change'}</p>
+                <p className={`font-bold ${absoluteChange != null && absoluteChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  {absoluteChange != null ? `${absoluteChange >= 0 ? '+' : ''}${absoluteChange.toFixed(2)}` : '—'}
+                </p>
               </div>
               <div className="bg-white/5 rounded-xl p-3">
                 <p className="text-xs text-gray-500">{lang === 'es' ? 'Mínimo' : 'Min'}</p>
@@ -131,7 +166,14 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
             </div>
           </>
         ) : (
-          <p className="text-center text-sm text-gray-500 py-6">{lang === 'es' ? 'Sin datos disponibles' : 'No data available'}</p>
+          <div className="text-center py-6">
+            <p className="text-sm text-gray-500">
+              {hasError
+                ? (lang === 'es' ? 'No se pudo cargar el historial.' : 'History could not be loaded.')
+                : (lang === 'es' ? 'No hay datos para este período.' : 'No data for this period.')}
+            </p>
+            {hasError && <button onClick={fetchHistory} className="mt-3 text-xs text-sky-400 hover:underline">{lang === 'es' ? 'Reintentar' : 'Try again'}</button>}
+          </div>
         )}
       </motion.div>
     </motion.div>
@@ -159,7 +201,7 @@ export default function EconomicIndicators() {
 
       const readLast = async (res: PromiseSettledResult<Response>): Promise<HistoryEntry | null> => {
         if (res.status !== 'fulfilled' || !res.value.ok) return null;
-        const arr: HistoryEntry[] = await res.value.json();
+        const arr = normalizeHistory(await res.value.json());
         return arr.length > 0 ? arr[arr.length - 1] : null;
       };
 
