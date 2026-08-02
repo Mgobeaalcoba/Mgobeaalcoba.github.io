@@ -6,6 +6,7 @@ import { ArrowRight, Download, Github, Linkedin, Loader2, Mail } from 'lucide-re
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
+import { getCareerExperienceLabel } from '@/lib/experience';
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -24,8 +25,8 @@ export default function Hero() {
   };
 
   const stats = lang === 'es'
-    ? [['6+ años', 'Liderando Data & Analytics'], ['30+ productos', 'Proyectos y repositorios'], ['400+ cursos', 'Formación técnica continua'], ['USD 500K+', 'Impacto anual estimado']]
-    : [['6+ years', 'Leading Data & Analytics'], ['30+ products', 'Projects and repositories'], ['400+ courses', 'Continuous technical learning'], ['USD 500K+', 'Estimated annual impact']];
+    ? [[getCareerExperienceLabel(lang), 'Liderando Data & Analytics'], ['30+ productos', 'Proyectos y repositorios'], ['100+ certificaciones', 'Formación técnica continua'], ['USD 500K+', 'Impacto anual estimado']]
+    : [[getCareerExperienceLabel(lang), 'Leading Data & Analytics'], ['30+ products', 'Projects and repositories'], ['100+ certifications', 'Continuous technical learning'], ['USD 500K+', 'Estimated annual impact']];
 
   return (
     <section className="signal-portfolio-hero" aria-labelledby="portfolio-title">
@@ -56,11 +57,21 @@ export default function Hero() {
         </div>
 
         <div className="signal-portfolio-hero__evidence">
-          <div className="signal-portrait-frame">
+          <figure className="signal-portrait-frame">
             <div className="signal-portrait-frame__halo" />
-            <Image src="/images/profile.png" alt="Mariano Gobea Alcoba" width={480} height={560} priority />
-            <span>{lang === 'es' ? 'Buenos Aires · Argentina' : 'Buenos Aires · Argentina'}</span>
-          </div>
+            <div className="signal-portrait-frame__rail" aria-hidden="true"><span>01</span><span>PROFILE</span></div>
+            <Image
+              src="/images/profile.png"
+              alt="Retrato de Mariano Gobea Alcoba"
+              fill
+              sizes="(max-width: 768px) 100vw, 42vw"
+              priority
+            />
+            <figcaption className="signal-portrait-frame__caption">
+              <span><strong>Mariano Gobea Alcoba</strong><small>Data &amp; Analytics</small></span>
+              <span>{lang === 'es' ? 'Buenos Aires · Argentina' : 'Buenos Aires · Argentina'}</span>
+            </figcaption>
+          </figure>
           <div className="signal-portfolio-stats">
             {stats.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}
           </div>

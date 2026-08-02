@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { ChevronDown, TerminalSquare } from 'lucide-react';
+import { getCareerExperienceYears } from '@/lib/experience';
 
 interface HistoryEntry {
   type: 'input' | 'output';
@@ -29,7 +30,7 @@ const BOOT_LINES = [
   '[  OK  ] kernel: Memory: 36GB LPDDR5',
   '[  OK  ] kernel: Loading MGA Personality Module...',
   '[  OK  ] systemd: Started Network Stack (IPv6 + IPv4)',
-  '[  OK  ] systemd: Mounting /career (6+ years @ MercadoLibre)',
+  `[  OK  ] systemd: Mounting /career (${getCareerExperienceYears()}+ years @ MercadoLibre)`,
   '[  OK  ] systemd: Mounting /skills (Python, SQL, Cloud, GenAI)',
   '[  OK  ] mga-init: Starting Data Engineering Daemon...',
   '[  OK  ] mga-init: Loading ML/AI Accelerators...',
@@ -200,7 +201,7 @@ export default function Terminal() {
           `Role:     Data & Analytics Tech Lead`,
           `Company:  MercadoLibre`,
           `Shell:    Python / SQL / n8n`,
-          `Uptime:   6+ years at MeLi`,
+          `Uptime:   ${getCareerExperienceYears()}+ years at MeLi`,
           ``,
           `Skills:`,
           ` - Python, Java, Go, Cloud`,

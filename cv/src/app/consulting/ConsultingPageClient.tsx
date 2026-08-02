@@ -8,6 +8,7 @@ import ClientPortfolio from '@/components/consulting/ClientPortfolio';
 import { openContactModal } from '@/components/shared/ContactModal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
+import { getCareerExperienceLabel } from '@/lib/experience';
 
 const CONTENT = {
   es: {
@@ -23,7 +24,7 @@ const CONTENT = {
       ['2 sem', 'Para poner el primer flujo en producción'],
     ],
     trust: [
-      ['6+ años', 'Liderando Data & Analytics en Mercado Libre'],
+      [getCareerExperienceLabel('es'), 'Liderando Data & Analytics en Mercado Libre'],
       ['15+ proyectos', 'Implementaciones y productos entregados'],
       ['Docencia tech', 'Henry, UADE y formación de equipos'],
     ],
@@ -72,7 +73,7 @@ const CONTENT = {
     primary: 'Request a diagnosis', secondary: 'View real cases',
     risk: 'First simple automation at no cost, so you can validate value before investing.',
     proof: [['−80%', 'Potential operational cost reduction'], ['×3', 'Target average ROI per implementation'], ['2 wks', 'To put the first workflow in production']],
-    trust: [['6+ years', 'Leading Data & Analytics at Mercado Libre'], ['15+ projects', 'Implementations and products delivered'], ['Tech teaching', 'Henry, UADE and team enablement']],
+    trust: [[getCareerExperienceLabel('en'), 'Leading Data & Analytics at Mercado Libre'], ['15+ projects', 'Implementations and products delivered'], ['Tech teaching', 'Henry, UADE and team enablement']],
     problemEyebrow: 'Where we create impact', problemTitle: 'Technology matters when it changes how the business works.', problemLead: 'We start from the operational bottleneck and design the smallest solution that creates a verifiable result.',
     problems: [['01', 'Manual operations', 'Processes that depend on copying, chasing, remembering and correcting become auditable workflows that run on their own.'], ['02', 'Decisions without data', 'We unify scattered signals into clear metrics, actionable dashboards and alerts that arrive before the problem.'], ['03', 'Support that cannot scale', 'Agents and assistants that solve, classify and route without losing context or human control.']],
     capabilitiesEyebrow: 'Capabilities', capabilitiesTitle: 'Three systems. One goal: execute better.', capabilitiesLead: 'Every project combines product, automation and knowledge transfer so the solution keeps creating value after delivery.',
@@ -151,7 +152,34 @@ export default function ConsultingPageClient() {
           <p>{c.capabilitiesLead}</p>
         </div>
         <div className="signal-capabilities-grid">
-          {c.capabilities.map((item) => <article className="signal-card signal-capability" key={item.title}><div className="signal-capability__icon"><item.icon size={23} /></div><h3>{item.title}</h3><p>{item.body}</p><ul>{item.items.map((value) => <li key={value}>{value}</li>)}</ul><button className="signal-card__link" onClick={() => contact(`capability_${item.title}`)}>{lang === 'es' ? 'Explorar solución' : 'Explore solution'}<ArrowRight size={15} /></button></article>)}
+          {c.capabilities.map((item) => {
+            const openCapabilityContact = () => contact(`capability_${item.title}`);
+
+            return (
+              <article
+                className="signal-card signal-capability"
+                key={item.title}
+                role="button"
+                tabIndex={0}
+                aria-label={`${lang === 'es' ? 'Explorar solución' : 'Explore solution'}: ${item.title}`}
+                onClick={openCapabilityContact}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openCapabilityContact();
+                  }
+                }}
+              >
+                <div className="signal-capability__icon"><item.icon size={23} /></div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                <ul>{item.items.map((value) => <li key={value}>{value}</li>)}</ul>
+                <span className="signal-card__link" aria-hidden="true">
+                  {lang === 'es' ? 'Explorar solución' : 'Explore solution'}<ArrowRight size={15} />
+                </span>
+              </article>
+            );
+          })}
         </div>
       </section>
 

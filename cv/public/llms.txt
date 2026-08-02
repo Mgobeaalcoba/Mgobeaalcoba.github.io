@@ -4,7 +4,7 @@
 
 ## About
 
-Mariano Gobea Alcoba is a Data & Analytics Technical Leader with over 6 years of experience at Mercado Libre, Latin America's leading e-commerce and fintech platform. He specializes in Data Engineering, Business Intelligence, Machine Learning, and applied AI to solve real-world business challenges. He leads high-performance technical teams and consults for small and medium businesses (SMBs/PyMEs) in Argentina, helping them automate processes and leverage data to grow.
+Mariano Gobea Alcoba is a Data & Analytics Technical Leader at Mercado Libre since May 2019, Latin America's leading e-commerce and fintech platform. He specializes in Data Engineering, Business Intelligence, Machine Learning, and applied AI to solve real-world business challenges. He leads high-performance technical teams and consults for small and medium businesses (SMBs/PyMEs) in Argentina, helping them automate processes and leverage data to grow.
 
 ## Expertise
 

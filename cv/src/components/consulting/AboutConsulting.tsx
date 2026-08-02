@@ -5,13 +5,14 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { Gift } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getCareerExperienceYears } from '@/lib/experience';
 
 interface AboutConsultingProps {
   onOpenProposal?: () => void;
 }
 
 const METRICS = [
-  { value: '6+', label: { es: 'Años en MercadoLibre', en: 'Years at MercadoLibre' } },
+  { value: `${getCareerExperienceYears()}+`, label: { es: 'Años en MercadoLibre', en: 'Years at MercadoLibre' } },
   { value: '$500K+', label: { es: 'Procesados', en: 'Processed' } },
   { value: '80%', label: { es: 'Reducción de costos', en: 'Cost reduction' } },
   { value: '15+', label: { es: 'Proyectos exitosos', en: 'Successful projects' } },
@@ -106,8 +107,8 @@ export default function AboutConsulting({ onOpenProposal }: AboutConsultingProps
           <div>
             <p className="text-gray-300 leading-relaxed mb-4">
               {lang === 'es'
-                ? 'Con 6+ años de experiencia en MercadoLibre como Technical Leader de Data & Analytics, pasé de ingeniero a líder de equipos de datos a escala. Fui docente en Henry Bootcamp y la Universidad UADE, formando a la próxima generación de profesionales tech.'
-                : 'With 6+ years of experience at MercadoLibre as Data & Analytics Technical Leader, I went from engineer to data team leader at scale. I was a teacher at Henry Bootcamp and UADE University, training the next generation of tech professionals.'}
+                ? `Con ${getCareerExperienceYears()}+ años de experiencia en MercadoLibre como Technical Leader de Data & Analytics, pasé de ingeniero a líder de equipos de datos a escala. Fui docente en Henry Bootcamp y la Universidad UADE, formando a la próxima generación de profesionales tech.`
+                : `With ${getCareerExperienceYears()}+ years of experience at MercadoLibre as Data & Analytics Technical Leader, I went from engineer to data team leader at scale. I was a teacher at Henry Bootcamp and UADE University, training the next generation of tech professionals.`}
             </p>
             <p className="text-gray-300 leading-relaxed mb-6">
               {lang === 'es'

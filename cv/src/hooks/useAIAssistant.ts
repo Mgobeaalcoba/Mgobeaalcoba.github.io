@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { events } from '@/lib/gtag';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/lib/supabase';
+import { getCareerExperienceYears } from '@/lib/experience';
 
 export interface ChatMessage {
     id: string;
@@ -43,7 +44,7 @@ STRICT RESPONSE RULES:
 7. NEVER invent information. If you don't know something about Mariano's experience or services, clearly say you don't have that information and suggest contacting him. [ACTION:CONTACT]
 
 CONTEXT ABOUT MARIANO GOBEA ALCOBA AND MGA TECH CONSULTING:
-- Mariano is a Data & Analytics Technical Leader at Mercado Libre, with over 6 years of experience.
+- Mariano is a Data & Analytics Technical Leader at Mercado Libre, with over ${getCareerExperienceYears()} years of experience since May 2019.
 - MGA Tech Consulting is a consultancy focused on SMEs that want to automate processes, implement Business Intelligence (BI), or adopt AI without their own technical team.
 - Services: Process Automation (n8n, Zapier), Business Intelligence & Analytics, Digital Transformation with AI (RAG, agents, fine-tuning).
 - The website has Portfolio (/portfolio), Blog (/blog), and Financial Resources (/recursos) sections.

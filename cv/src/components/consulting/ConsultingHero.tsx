@@ -18,6 +18,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import ParticleBackground from "@/components/shared/ParticleBackground";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import SplitText from "@/components/shared/SplitText";
+import { getCareerExperienceYears } from "@/lib/experience";
 
 const TYPING_WORDS = [
   "Automatización de Procesos",
@@ -173,7 +174,7 @@ export default function ConsultingHero({
     { value: "×3", label: { es: "ROI promedio", en: "Average ROI" } },
     { value: "$0", label: { es: "1ª automatización", en: "1st automation" } },
     {
-      value: "6+",
+      value: `${getCareerExperienceYears()}+`,
       label: { es: "Años MercadoLibre", en: "Years at MercadoLibre" },
     },
   ];
@@ -181,7 +182,7 @@ export default function ConsultingHero({
   const TRUST_BADGES = [
     {
       icon: Building2,
-      text: { es: "6 años MercadoLibre", en: "6 years at MercadoLibre" },
+      text: { es: `${getCareerExperienceYears()}+ años MercadoLibre`, en: `${getCareerExperienceYears()}+ years at MercadoLibre` },
     },
     {
       icon: GraduationCap,

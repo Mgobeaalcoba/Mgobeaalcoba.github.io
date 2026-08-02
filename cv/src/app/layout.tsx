@@ -10,6 +10,7 @@ import CommandPalette from "@/components/shared/CommandPalette";
 import Script from "next/script";
 import "./globals.css";
 import "./signal.css";
+import { getCareerExperienceYears } from "@/lib/experience";
 
 const GA_ID = "G-DG0SLT5RY3";
 const SITE_URL = "https://www.mgatc.com";
@@ -20,7 +21,7 @@ const personSchema = {
   name: "Mariano Gobea Alcoba",
   jobTitle: "Data & Analytics Technical Leader",
   description:
-    "Data & Analytics Technical Leader con más de 6 años de experiencia en Mercado Libre. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.",
+    `Data & Analytics Technical Leader con más de ${getCareerExperienceYears()} años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.`,
   url: SITE_URL,
   image: `${SITE_URL}/images/profile.png`,
   email: "mgobeaalcoba@gmail.com",
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
     template: "%s | Mariano Gobea Alcoba",
   },
   description:
-    "Data & Analytics Technical Leader en Mercado Libre. Portfolio, consultoría tecnológica, blog técnico y recursos financieros. +6 años de experiencia en IA, Data Engineering y Business Intelligence.",
+    `Data & Analytics Technical Leader en Mercado Libre. Portfolio, consultoría tecnológica, blog técnico y recursos financieros. ${getCareerExperienceYears()}+ años de experiencia en IA, Data Engineering y Business Intelligence.`,
   keywords: [
     "data analytics",
     "technical leader",

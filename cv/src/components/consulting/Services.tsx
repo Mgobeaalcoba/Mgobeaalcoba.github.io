@@ -9,6 +9,7 @@ import ContactButton from '@/components/shared/ContactButton';
 import MagneticCard from '@/components/shared/MagneticCard';
 import SplitText from '@/components/shared/SplitText';
 import RippleEffect from '@/components/shared/RippleEffect';
+import { getCareerExperienceYears } from '@/lib/experience';
 
 // ============ SERVICE CARDS (6 types) ============
 type Service = {
@@ -71,7 +72,7 @@ const SERVICES: Service[] = [
     title: { es: 'Mentorías Tech Personalizadas', en: 'Personalized Tech Mentoring' },
     desc: { es: 'Destranque su carrera tech con mentoría personalizada. Sesiones prácticas enfocadas en sus desafíos reales.', en: 'Unblock your tech career with personalized mentoring. Practical sessions focused on your real challenges.' },
     items: { es: ['SQL complejo, arquitectura de pipelines, dashboards', 'Transición junior → senior, entrevistas, negociación salarial', 'Proyectos de portfolio impactantes', 'Decisiones de arquitectura: RAG, LLMs, ML, BI stack', 'Mindset de liderazgo: IC a Tech Lead'], en: ['Complex SQL, pipeline architecture, dashboards', 'Junior → senior transition, interviews, salary negotiation', 'Impactful portfolio projects', 'Architecture decisions: RAG, LLMs, ML, BI stack', 'Leadership mindset: IC to Tech Lead'] },
-    benefits: { es: ['6+ años MercadoLibre como referencia real', 'Sesiones prácticas 1-a-1, no teóricas', 'Feedback personalizado y seguimiento continuo', 'Primera sesión sin riesgo: devolvemos si no aporta valor'], en: ['6+ years at MercadoLibre as real reference', 'Practical 1-on-1 sessions, not theoretical', 'Personalized feedback and continuous follow-up', 'First session risk-free: refund if no value'] },
+    benefits: { es: [`${getCareerExperienceYears()}+ años MercadoLibre como referencia real`, 'Sesiones prácticas 1-a-1, no teóricas', 'Feedback personalizado y seguimiento continuo', 'Primera sesión sin riesgo: devolvemos si no aporta valor'], en: [`${getCareerExperienceYears()}+ years at MercadoLibre as real reference`, 'Practical 1-on-1 sessions, not theoretical', 'Personalized feedback and continuous follow-up', 'First session risk-free: refund if no value'] },
     successCase: { es: 'Juan, Data Analyst con 2 años de experiencia, pasó a Sr Data Engineer en 8 meses. Resultado: 45% aumento salarial + oferta remote internacional.', en: 'Juan, a Data Analyst with 2 years of experience, became a Sr Data Engineer in 8 months. Result: 45% salary increase + international remote offer.' },
     cta: { es: 'Agendar Primera Sesión', en: 'Schedule First Session' },
   },
