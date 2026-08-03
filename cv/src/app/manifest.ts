@@ -12,8 +12,24 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'portrait-primary',
     categories: ['business', 'productivity', 'education'],
     icons: [
-      { src: '/images/favicon-192.png', sizes: '192x192', type: 'image/png' },
-      { src: '/icon.png', sizes: '512x512', type: 'image/png' },
+      {
+        src: '/images/app-icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/images/app-icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/images/app-icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
     ],
     shortcuts: [
       { name: 'Soluciones', short_name: 'Soluciones', url: '/#soluciones' },
