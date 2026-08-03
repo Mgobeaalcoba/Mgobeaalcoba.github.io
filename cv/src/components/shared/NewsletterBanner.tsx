@@ -22,7 +22,7 @@ export default function NewsletterBanner() {
     setLoading(true);
     const page = window.location.pathname;
     try {
-      await fetch(WEBHOOK_URL, {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -36,10 +36,12 @@ export default function NewsletterBanner() {
         }),
         signal: AbortSignal.timeout(10000),
       });
+      if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
+      events.leadDelivery('success', page, 'newsletter');
+      events.newsletterSubscribe(page);
     } catch {
-      // Show success even on network error — subscriber is in the DB from retry
+      events.leadDelivery('error', page, 'newsletter');
     } finally {
-      events.newsletterSubscribe(page); // fires always, regardless of fetch outcome
       setLoading(false);
       setSubmitted(true);
     }

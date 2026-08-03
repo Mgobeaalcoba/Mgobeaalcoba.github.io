@@ -3,13 +3,20 @@ export const GA_ID = 'G-DG0SLT5RY3';
 
 declare global {
   interface Window {
-    gtag: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
 export function pageview(url: string) {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_ID, { page_path: url });
+    window.gtag('event', 'page_view', {
+      page_path: url,
+      page_location: window.location.href,
+      page_title: document.title,
+      user_lang: getUserLang(),
+      app_display_mode: getDisplayMode(),
+      send_to: GA_ID,
+    });
   }
 }
 
@@ -18,9 +25,19 @@ function getUserLang(): string {
   return (localStorage.getItem('language') as string) || document.documentElement.lang || 'es';
 }
 
+function getDisplayMode(): string {
+  if (typeof window === 'undefined') return 'browser';
+  if (window.matchMedia('(display-mode: standalone)').matches) return 'standalone';
+  return 'browser';
+}
+
 export function event(action: string, params: Record<string, unknown> = {}) {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, { user_lang: getUserLang(), ...params });
+    window.gtag('event', action, {
+      user_lang: getUserLang(),
+      app_display_mode: getDisplayMode(),
+      ...params,
+    });
   }
 }
 
@@ -30,6 +47,41 @@ function keyEvent(action: string, params: Record<string, unknown> = {}) {
 }
 
 export const events = {
+  pwaInstallEligible: () => event('pwa_install_eligible'),
+  pwaInstallPromptView: () => event('pwa_install_prompt_view'),
+  pwaInstallClick: () => event('pwa_install_click'),
+  pwaInstallResult: (outcome: 'accepted' | 'dismissed') =>
+    event(`pwa_install_${outcome}`),
+  pwaInstalled: () => keyEvent('pwa_installed'),
+  pwaLaunch: () => event('pwa_launch'),
+
+  uiLayerClose: (layer: 'contact' | 'assistant' | 'video', method: string, site_section: string) =>
+    event('ui_layer_close', { layer, close_method: method, site_section }),
+
+  contentAction: (action: 'save' | 'unsave' | 'share', content_type: string, content_id: string, method?: string) =>
+    event('content_action', { action, content_type, content_id, method, site_section: 'blog' }),
+
+  contentFilter: (content_type: string, filter_type: string, filter_value: string) =>
+    event('content_filter', { content_type, filter_type, filter_value }),
+
+  contentLoadMore: (content_type: string, visible_count: number) =>
+    event('content_load_more', { content_type, visible_count }),
+
+  contentSearch: (content_type: string, query_length: number, results_count: number) =>
+    event('content_search', { content_type, query_length, results_count }),
+
+  videoSelect: (video_id: string, source: string) =>
+    event('video_select', { video_id, source, site_section: 'blog' }),
+
+  toolSelect: (tool_id: string, category: string) =>
+    event('tool_select', { tool_id, category, site_section: 'recursos' }),
+
+  toolAction: (tool_id: string, action: string, detail?: string) =>
+    event('tool_action', { tool_id, action, detail, site_section: 'recursos' }),
+
+  leadDelivery: (status: 'success' | 'error', source: string, form_type: string) =>
+    event(`lead_webhook_${status}`, { source, form_type, site_section: source }),
+
   scrollDepth: (percent: number, site_section = 'cv') =>
     event('scroll_depth', { percent, site_section }),
 

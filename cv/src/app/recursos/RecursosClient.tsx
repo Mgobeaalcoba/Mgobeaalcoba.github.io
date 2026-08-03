@@ -14,6 +14,7 @@ import FAQRecursos from "@/components/recursos/FAQRecursos";
 import ROICalculator from "@/components/showcase/ROICalculator";
 import ArchVisualizer from "@/components/showcase/ArchVisualizer";
 import AgentDashboard from "@/components/showcase/AgentDashboard";
+import { events } from "@/lib/gtag";
 
 type TabId =
   | "calculator"
@@ -165,6 +166,7 @@ export default function RecursosClient() {
     );
     if (categoryForTab) {
       setActiveCategory(categoryForTab.id);
+      events.toolSelect(tabId, categoryForTab.id);
     }
   };
 

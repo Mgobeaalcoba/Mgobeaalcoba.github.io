@@ -29,7 +29,7 @@ export default function Contact() {
     if (loading) return;
     setLoading(true);
     try {
-      await fetch(WEBHOOK_URL, {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -45,11 +45,13 @@ export default function Contact() {
         }),
         signal: AbortSignal.timeout(10000),
       });
+      if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
+      events.leadDelivery('success', 'cv', 'contact_portfolio');
+      events.leadFormSent('cv', 'contact_portfolio');
     } catch {
-      // Show success even on network error to avoid user frustration
+      events.leadDelivery('error', 'cv', 'contact_portfolio');
     } finally {
       setLoading(false);
-      events.leadFormSent('cv', 'contact_portfolio');
       setSent(true);
     }
   };

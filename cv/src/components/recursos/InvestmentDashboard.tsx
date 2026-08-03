@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { BarChart2, RefreshCw, Share2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRecursosData } from '@/contexts/RecursosDataContext';
+import { events } from '@/lib/gtag';
 
 type Period = '3m' | '6m' | '12m';
 
@@ -167,7 +168,9 @@ export default function InvestmentDashboard() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => {
-              if (typeof window !== 'undefined' && navigator.share) {
+              const canNativeShare = 'share' in navigator;
+              events.toolAction('investments', 'share', canNativeShare ? 'native_share' : 'clipboard');
+              if (typeof window !== 'undefined' && canNativeShare) {
                 navigator.share({ title: 'Dashboard Inversiones Argentina', url: window.location.href });
               } else {
                 navigator.clipboard?.writeText(window.location.href);

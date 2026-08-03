@@ -5,6 +5,7 @@ import { Calculator, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRecursosData } from '@/contexts/RecursosDataContext';
 import type { TaxParams } from '@/lib/queries';
+import { events } from '@/lib/gtag';
 
 
 interface TaxInputs {
@@ -546,6 +547,7 @@ export default function TaxCalculator() {
 
   const handleCalculate = useCallback(() => {
     if (!previousTaxParams || !secondSemesterTaxParams || !officialAnnualTaxParams) return;
+    events.toolAction('calculator', 'calculate');
     setResult(calculateTax(inputs, secondSemesterTaxParams));
     setPreviousResult(calculateTax(inputs, previousTaxParams));
     setAnnualFinalResult(calculateTax(inputs, officialAnnualTaxParams));

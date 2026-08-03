@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, RefreshCw, ExternalLink, X, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { events } from '@/lib/gtag';
 
 type Indicator = {
   id: string;
@@ -131,7 +132,7 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
 
         <div className="flex flex-wrap gap-2 mb-4">
           {HISTORY_RANGES.map((option) => (
-            <button key={option.value} onClick={() => setRange(option.value)}
+            <button key={option.value} onClick={() => { events.toolAction('indicators', 'range_select', option.value); setRange(option.value); }}
               className={`text-xs px-2.5 py-1 rounded-full font-medium transition-all ${range === option.value ? 'bg-sky-500 text-white' : 'glass text-gray-400 hover:text-white'}`}>
               {option.label[lang]}
             </button>
@@ -261,7 +262,7 @@ export default function EconomicIndicators() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.08 }}
               className={`glass rounded-2xl p-5 ${hasHistory ? 'cursor-pointer hover:scale-[1.02] transition-transform' : ''}`}
-              onClick={() => hasHistory && setSelectedIndicator(ind)}
+              onClick={() => { if (hasHistory) { events.toolAction('indicators', 'history_open', ind.id); setSelectedIndicator(ind); } }}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>

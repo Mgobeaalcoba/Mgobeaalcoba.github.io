@@ -60,7 +60,7 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
 
     setLoading(true);
     try {
-      await fetch(WEBHOOK_URL, {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -77,10 +77,12 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
         }),
         signal: AbortSignal.timeout(10000),
       });
+      if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
+      events.leadDelivery('success', 'consulting', 'proposal');
+      events.leadFormSent('consulting', 'proposal');
     } catch {
-      // Graceful handling: proceed to success state even on network error
+      events.leadDelivery('error', 'consulting', 'proposal');
     } finally {
-      events.leadFormSent('consulting'); // fires always, regardless of fetch outcome
       setLoading(false);
       setSubmitted(true);
     }

@@ -35,7 +35,7 @@ export default function VideoSection() {
             </AnimatePresence>
             <div className="signal-video-playlist">
               <header><span>{lang === 'es' ? 'A continuación' : 'Up next'}</span><strong>{playlist.length} {lang === 'es' ? 'episodios' : 'episodes'}</strong></header>
-              {playlist.map((video, index) => <button key={video.id} type="button" onClick={() => { setPlayingId(null); setSelectedId(video.id); }}><span>{String(index + 2).padStart(2, '0')}</span><div><small>{video.channel} · {video.duration}</small><h3>{lang === 'es' ? video.titleEs : video.titleEn}</h3></div><Play size={15} /></button>)}
+              {playlist.map((video, index) => <button key={video.id} type="button" onClick={() => { events.videoSelect(video.youtubeId, 'featured_playlist'); setPlayingId(null); setSelectedId(video.id); }}><span>{String(index + 2).padStart(2, '0')}</span><div><small>{video.channel} · {video.duration}</small><h3>{lang === 'es' ? video.titleEs : video.titleEn}</h3></div><Play size={15} /></button>)}
               <Link className="signal-video-youtube" href="/blog/videos/"><Youtube size={16} />{lang === 'es' ? 'Explorar todos los videos' : 'Explore all videos'}<ArrowUpRight size={14} /></Link>
             </div>
           </div>

@@ -119,7 +119,7 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
         </div>
 
         {!filtered.length && <p className="signal-empty-state">{lang === 'es' ? 'No encontramos notas con ese criterio.' : 'No notes match that criteria.'}</p>}
-        {visible < filtered.length && <button className="signal-load-more" onClick={() => setVisible((count) => count + 12)}>{lang === 'es' ? 'Cargar 12 notas más' : 'Load 12 more notes'}<ArrowDown size={16} /></button>}
+        {visible < filtered.length && <button className="signal-load-more" onClick={() => { const next = visible + 12; events.contentLoadMore('article', next); setVisible(next); }}>{lang === 'es' ? 'Cargar 12 notas más' : 'Load 12 more notes'}<ArrowDown size={16} /></button>}
       </section>
     </>
   );

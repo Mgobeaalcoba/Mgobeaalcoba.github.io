@@ -93,7 +93,7 @@ export default function Projects() {
           {FILTERS.map((filter) => (
             <button
               key={filter.id}
-              onClick={() => { setActiveTag(filter.id); setGlobalTag('all'); setShowAll(false); }}
+              onClick={() => { events.contentFilter('project', 'category', filter.id); setActiveTag(filter.id); setGlobalTag('all'); setShowAll(false); }}
               className={`signal-project-filter ${
                 effectiveTag === filter.id && globalTag === 'all'
                   ? 'is-active'
@@ -140,7 +140,7 @@ export default function Projects() {
         {filtered.length > INITIAL_SHOW && !showAll && (
           <div className="text-center mt-8">
             <button
-              onClick={() => setShowAll(true)}
+              onClick={() => { events.contentLoadMore('project', filtered.length); setShowAll(true); }}
               className="px-6 py-3 glass border border-sky-500/30 text-sky-400 rounded-xl hover:bg-sky-500/10 transition-all text-sm font-medium"
             >
               {t('load_more')} ({filtered.length - INITIAL_SHOW} más)

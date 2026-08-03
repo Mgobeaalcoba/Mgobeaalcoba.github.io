@@ -5,6 +5,7 @@ import { Bot, Trophy, AlertTriangle, Upload } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRecursosData } from '@/contexts/RecursosDataContext';
 import type { AiModel } from '@/lib/queries';
+import { events } from '@/lib/gtag';
 
 type ModelPricing = AiModel;
 
@@ -76,7 +77,8 @@ export default function TokenCalculator() {
 
     setResults(computed);
     setCalculated(true);
-  }, [text, outputRatio]);
+    events.toolAction('tokens', 'calculate', inputTokens > 10000 ? 'large' : inputTokens > 1000 ? 'medium' : 'small');
+  }, [text, outputRatio, aiModels]);
 
   const fmt = (n: number): string => {
     if (n === 0) return 'USD $0.00';

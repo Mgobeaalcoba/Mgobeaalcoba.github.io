@@ -36,13 +36,14 @@ export default function ContactModal() {
     setSending(null);
   }, []);
 
-  const close = useCallback(() => {
+  const close = useCallback((method = "button") => {
+    events.uiLayerClose("contact", method, source);
     setOpen(false);
     setTimeout(reset, 300);
     if (typeof window !== "undefined" && window.history.state?.mgaLayer === "contact") {
       window.history.back();
     }
-  }, [reset]);
+  }, [reset, source]);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -70,13 +71,14 @@ export default function ContactModal() {
     if (!open) return;
     const onPopState = () => {
       if (window.history.state?.mgaLayer !== "contact") {
+        events.uiLayerClose("contact", "browser_back", source);
         setOpen(false);
         setTimeout(reset, 300);
       }
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
-  }, [open, reset]);
+  }, [open, reset, source]);
 
   // ESC to close
   useEffect(() => {
@@ -84,7 +86,7 @@ export default function ContactModal() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") close("escape");
     };
     window.addEventListener("keydown", onKey);
     return () => {
@@ -93,10 +95,9 @@ export default function ContactModal() {
     };
   }, [open, close]);
 
-  const postToWebhook = async (channel: Channel) => {
-    // Fire-and-forget; don't block on errors
+  const postToWebhook = async (channel: Channel): Promise<boolean> => {
     try {
-      await fetch(WEBHOOK_URL, {
+      const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -118,8 +119,13 @@ export default function ContactModal() {
         }),
         signal: AbortSignal.timeout(8000),
       });
+      if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
+      events.leadDelivery("success", source, "contact_modal");
+      events.leadFormSent(source, "contact_modal");
+      return true;
     } catch {
-      // Silent — we still open the channel app
+      events.leadDelivery("error", source, "contact_modal");
+      return false;
     }
   };
 
@@ -128,7 +134,6 @@ export default function ContactModal() {
     if (!form.message.trim()) return;
     setSending("whatsapp");
     events.contactChannelSelect("whatsapp", source);
-    events.leadFormSent(source, "contact_modal");
     await postToWebhook("whatsapp");
     const greeting = form.name.trim()
       ? `Hola Mariano, soy ${form.name.trim()}.`
@@ -145,7 +150,6 @@ export default function ContactModal() {
     if (!form.message.trim()) return;
     setSending("email");
     events.contactChannelSelect("email", source);
-    events.leadFormSent(source, "contact_modal");
     await postToWebhook("email");
     const subject = encodeURIComponent(
       lang === "es"
@@ -176,7 +180,7 @@ export default function ContactModal() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="signal-contact-modal fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4"
-          onClick={close}
+          onClick={() => close("outside")}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
           <motion.div
@@ -200,7 +204,7 @@ export default function ContactModal() {
                 </p>
               </div>
               <button
-                onClick={close}
+                onClick={() => close("button")}
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-gray-950/80 text-gray-300 hover:text-white transition-colors"
                 aria-label={t("Cerrar", "Close")}
               >
@@ -223,7 +227,7 @@ export default function ContactModal() {
                   )}
                 </p>
                 <button
-                  onClick={close}
+                  onClick={() => close("button")}
                   className="mt-2 px-5 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-medium text-sm transition-colors"
                 >
                   {t("Cerrar", "Close")}

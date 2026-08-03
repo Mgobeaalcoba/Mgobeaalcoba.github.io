@@ -100,7 +100,8 @@ export function AIAssistant() {
     setIsOpen(true);
   }, [isOpen, setIsOpen]);
 
-  const closeAssistant = useCallback(() => {
+  const closeAssistant = useCallback((method = "button") => {
+    events.uiLayerClose("assistant", method, "assistant");
     setIsOpen(false);
     if (window.history.state?.mgaLayer === "assistant") {
       window.history.back();
@@ -111,11 +112,12 @@ export function AIAssistant() {
     if (!isOpen) return;
     const onPopState = () => {
       if (window.history.state?.mgaLayer !== "assistant") {
+        events.uiLayerClose("assistant", "browser_back", "assistant");
         setIsOpen(false);
       }
     };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeAssistant();
+      if (event.key === "Escape") closeAssistant("escape");
     };
     window.addEventListener("popstate", onPopState);
     window.addEventListener("keydown", onKeyDown);
@@ -221,7 +223,7 @@ export function AIAssistant() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="signal-assistant-scrim fixed inset-0 z-[75] bg-black/[0.03]"
-            onClick={closeAssistant}
+            onClick={() => closeAssistant("outside")}
           >
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -249,7 +251,7 @@ export function AIAssistant() {
                 </div>
               </div>
               <button
-                onClick={closeAssistant}
+                onClick={() => closeAssistant("button")}
                 className="text-white/80 hover:text-white p-1 rounded-md transition-colors hover:bg-white/10"
                 aria-label={lang === "en" ? "Close assistant" : "Cerrar asistente"}
               >
@@ -496,7 +498,7 @@ export function AIAssistant() {
 
       {/* Compact assistant trigger — intentionally avoids covering page content. */}
       <button
-        onClick={isOpen ? closeAssistant : openAssistant}
+        onClick={isOpen ? () => closeAssistant("trigger") : openAssistant}
         className={`signal-assistant-trigger ${isOpen ? "is-open" : ""}`}
         aria-label={isOpen
           ? (lang === "en" ? "Close MGA assistant" : "Cerrar asistente MGA")

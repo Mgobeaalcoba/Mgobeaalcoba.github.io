@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowLeft, CheckCircle, Gamepad2, GraduationCap, Brain, Zap, Users, Target } from 'lucide-react';
 import Link from 'next/link';
@@ -36,18 +36,6 @@ export default function ReqQuestContent() {
   const { lang } = useLanguage();
   const [gameOpen, setGameOpen] = useState(false);
   const t = (es: string, en: string) => (lang === 'es' ? es : en);
-
-  useEffect(() => {
-    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-    if (typeof w.gtag === 'function') {
-      w.gtag('event', 'page_view', {
-        page_title: 'Special Report: ReqQuest 3D — Gamification',
-        page_location: window.location.href,
-        content_group: 'Special Report',
-        content_type: 'interactive-game',
-      });
-    }
-  }, []);
 
   return (
     <div className="pt-28 pb-12">
