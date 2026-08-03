@@ -180,6 +180,22 @@ export default function RecursosClient() {
     </section>
 
     <section className="signal-tools-workspace">
+      <div className="signal-tool-mobile-dock" aria-label={lang === "es" ? "Explorar herramientas" : "Explore tools"}>
+        <div className="signal-tool-mobile-categories">
+          {TAB_CATEGORIES.map((group) => (
+            <button key={group.id} className={activeCategory === group.id ? "is-active" : ""} onClick={() => { setActiveCategory(group.id); handleTabChange(group.tabs[0].id); }}>
+              {group.label[lang]}
+            </button>
+          ))}
+        </div>
+        <div className="signal-tool-mobile-items">
+          {TAB_CATEGORIES.find((group) => group.id === activeCategory)?.tabs.map((tab) => (
+            <button key={tab.id} className={activeTab === tab.id ? "is-active" : ""} onClick={() => handleTabChange(tab.id)}>
+              <span>{tab.icon}</span><strong>{tab.label[lang]}</strong>
+            </button>
+          ))}
+        </div>
+      </div>
       <div className="signal-tool-mobile-select">
         <span>{currentTabItem?.icon}</span>
         <select value={activeTab} onChange={(event) => handleTabChange(event.target.value as TabId)} aria-label={lang === "es" ? "Seleccionar herramienta" : "Select tool"}>

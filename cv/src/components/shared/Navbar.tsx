@@ -23,6 +23,13 @@ const THEME_ICONS: Record<Theme, React.ReactNode> = {
   terminal: <Terminal size={17} />,
 };
 
+const MOBILE_TITLES: Record<string, { es: string; en: string }> = {
+  '/': { es: 'Inicio', en: 'Home' },
+  '/portfolio': { es: 'Mariano', en: 'Mariano' },
+  '/blog': { es: 'Blog', en: 'Blog' },
+  '/recursos': { es: 'Herramientas', en: 'Tools' },
+};
+
 export default function Navbar() {
   const pathname = usePathname();
   const { theme, cycleTheme } = useTheme();
@@ -50,6 +57,8 @@ export default function Navbar() {
     setLang(next);
   };
 
+  const mobileTitle = Object.entries(MOBILE_TITLES).find(([route]) => route === '/' ? pathname === '/' : pathname.startsWith(route))?.[1]?.[lang] ?? 'MGA';
+
   return (
     <nav className={`signal-nav ${scrolled ? 'signal-nav--scrolled' : ''}`} aria-label="Navegación principal">
       <div className="signal-nav__inner">
@@ -57,6 +66,7 @@ export default function Navbar() {
           <Image src={theme === 'light' ? '/images/consulting-logo-light.png' : '/images/consulting-logo-dark.png'} alt="MGA Tech Consulting" width={176} height={74} priority />
           <span className="signal-brand__descriptor">Systems for growth</span>
         </Link>
+        <strong className="signal-mobile-page-title">{mobileTitle}</strong>
 
         <div className="signal-nav__links">
           {LINKS.map((link) => (

@@ -23,6 +23,7 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
   const [category, setCategory] = useState('all');
   const [query, setQuery] = useState('');
   const [visible, setVisible] = useState(12);
+  const [savedSlugs, setSavedSlugs] = useState<string[]>([]);
   const latest = posts.slice(0, 6);
 
   useEffect(() => {
@@ -30,20 +31,30 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
     if (value && (categories.includes(value) || value === 'all')) setCategory(value);
   }, [categories]);
 
+  useEffect(() => {
+    const loadSaved = () => {
+      try { setSavedSlugs(JSON.parse(localStorage.getItem('mga_saved_articles') ?? '[]')); }
+      catch { setSavedSlugs([]); }
+    };
+    loadSaved();
+    window.addEventListener('mga-saved-articles-change', loadSaved);
+    return () => window.removeEventListener('mga-saved-articles-change', loadSaved);
+  }, []);
+
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return posts.filter((post) => {
-      const matchesCategory = category === 'all' || post.category === category;
+      const matchesCategory = category === 'all' || (category === 'saved' ? savedSlugs.includes(post.slug) : post.category === category);
       const searchable = `${post.title[lang]} ${post.excerpt[lang]} ${post.tags.join(' ')}`.toLowerCase();
       return matchesCategory && (!normalized || searchable.includes(normalized));
     });
-  }, [posts, category, query, lang]);
+  }, [posts, category, query, lang, savedSlugs]);
 
   const updateCategory = (value: string) => {
     setCategory(value);
     setVisible(12);
     events.blogCategoryFilter(value);
-    const url = value === 'all' ? '/blog/' : `/blog/?category=${encodeURIComponent(value)}`;
+    const url = value === 'all' || value === 'saved' ? '/blog/' : `/blog/?category=${encodeURIComponent(value)}`;
     window.history.replaceState(null, '', url);
   };
 
@@ -99,6 +110,7 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
 
         <div className="signal-blog-filters" aria-label={lang === 'es' ? 'Filtrar por categoría' : 'Filter by category'}>
           <button className={category === 'all' ? 'is-active' : ''} onClick={() => updateCategory('all')}>{lang === 'es' ? 'Todas' : 'All'} <span>{posts.length}</span></button>
+          <button className={category === 'saved' ? 'is-active' : ''} onClick={() => updateCategory('saved')}>{lang === 'es' ? 'Guardadas' : 'Saved'} <span>{savedSlugs.length}</span></button>
           {categories.map((value) => <button key={value} className={category === value ? 'is-active' : ''} onClick={() => updateCategory(value)}>{CATEGORY_LABELS[value]?.[lang] ?? value} <span>{posts.filter((post) => post.category === value).length}</span></button>)}
         </div>
 

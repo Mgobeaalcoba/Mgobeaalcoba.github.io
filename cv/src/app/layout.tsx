@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { SupabaseDataProvider } from "@/contexts/SupabaseDataContext";
@@ -80,6 +80,9 @@ const websiteSchema = {
 };
 
 export const metadata: Metadata = {
+  applicationName: "MGA Tech Consulting",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "MGA" },
   title: {
     default: "Mariano Gobea Alcoba | Data & Analytics Technical Leader",
     template: "%s | Mariano Gobea Alcoba",
@@ -135,6 +138,16 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070b12" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
+  ],
 };
 
 export default function RootLayout({

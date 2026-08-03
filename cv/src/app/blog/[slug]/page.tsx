@@ -6,6 +6,7 @@ import Footer from '@/components/shared/Footer';
 import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
+import ArticleMobileActions from '@/components/blog/ArticleMobileActions';
 
 const SITE_URL = 'https://www.mgatc.com';
 
@@ -168,6 +169,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               ))}
             </div>
           </div>
+          <ArticleMobileActions slug={params.slug} title={post.title.es} />
         </header>
 
         {/* Content */}

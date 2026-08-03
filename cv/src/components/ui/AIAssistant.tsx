@@ -220,7 +220,7 @@ export function AIAssistant() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[75] bg-black/[0.03]"
+            className="signal-assistant-scrim fixed inset-0 z-[75] bg-black/[0.03]"
             onClick={closeAssistant}
           >
           <motion.div
@@ -228,7 +228,7 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-20 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100dvh-6rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden sm:right-5"
+            className="signal-assistant-panel fixed bottom-20 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100dvh-6rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden sm:right-5"
             onClick={(event) => event.stopPropagation()}
           >
             {/* Header */}
