@@ -7,6 +7,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
 import ArticleMobileActions from '@/components/blog/ArticleMobileActions';
+import ArticleServiceCTA from '@/components/commerce/ArticleServiceCTA';
 
 const SITE_URL = 'https://www.mgatc.com';
 
@@ -191,6 +192,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 
+        <ArticleServiceCTA category={post.category} />
+
         {/* Footer */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <p className="text-gray-400 text-sm mb-4">
@@ -204,10 +207,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               ← Otros artículos
             </Link>
             <Link
-              href="/"
+              href="/servicios/"
               className="text-sm text-sky-400 hover:text-sky-300 transition-colors"
             >
-              Consultoría →
+              Servicios →
             </Link>
           </div>
         </div>

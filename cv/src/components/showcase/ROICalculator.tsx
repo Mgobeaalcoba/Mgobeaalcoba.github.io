@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
+import Link from "@/components/shared/TransitionLink";
 import { motion } from "framer-motion";
 import {
   TrendingUp,
@@ -78,7 +79,7 @@ export default function ROICalculator() {
   }, [inputs]);
 
   // Track simulation event (debounced)
-  useMemo(() => {
+  useEffect(() => {
     const handler = setTimeout(() => {
       if (results.annualSavings > 0) {
         gtag.events.roiCalculatorSimulate(
@@ -389,6 +390,14 @@ export default function ROICalculator() {
                     : "Includes maintenance and licensing"}
                 </p>
               </div>
+              <Link
+                href="/servicios/diagnostico-automatizacion/"
+                onClick={() => gtag.events.selectItem('diagnostico-automatizacion', 'Diagnóstico de Automatización', 99)}
+                className="mt-5 min-h-12 flex items-center justify-center gap-2 rounded-xl bg-sky-500 text-slate-950 font-bold hover:bg-sky-400 transition-colors"
+              >
+                {lang === 'es' ? 'Convertir esta estimación en un plan real' : 'Turn this estimate into a real plan'}
+                <ArrowRight size={17} />
+              </Link>
             </div>
           </div>
         </div>

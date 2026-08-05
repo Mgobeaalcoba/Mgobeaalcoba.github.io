@@ -10,8 +10,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 
 const LINKS = [
-  { href: '/#soluciones', es: 'Soluciones', en: 'Solutions' },
-  { href: '/#casos', es: 'Casos', en: 'Cases' },
+  { href: '/', es: 'Soluciones', en: 'Solutions' },
+  { href: '/servicios/', es: 'Servicios', en: 'Services' },
   { href: '/portfolio/', es: 'Mariano', en: 'Mariano' },
   { href: '/blog/', es: 'Blog', en: 'Blog' },
   { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
@@ -28,6 +28,7 @@ const MOBILE_TITLES: Record<string, { es: string; en: string }> = {
   '/portfolio': { es: 'Mariano', en: 'Mariano' },
   '/blog': { es: 'Blog', en: 'Blog' },
   '/recursos': { es: 'Herramientas', en: 'Tools' },
+  '/servicios': { es: 'Servicios', en: 'Services' },
 };
 
 export default function Navbar() {
@@ -48,6 +49,7 @@ export default function Navbar() {
 
   const isActive = (href: string) => {
     if (href.startsWith('/#')) return false;
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href.replace(/\/$/, ''));
   };
 

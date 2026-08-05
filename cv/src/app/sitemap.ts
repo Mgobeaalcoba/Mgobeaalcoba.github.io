@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
+import { OFFERS } from '@/lib/offers';
 
 const SITE_URL = 'https://www.mgatc.com';
 
@@ -24,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/servicios/`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    ...OFFERS.map((offer) => ({
+      url: `${SITE_URL}/servicios/${offer.slug}/`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    })),
     {
       url: `${SITE_URL}/portfolio/`,
       lastModified: new Date(),

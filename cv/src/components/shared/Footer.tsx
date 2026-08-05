@@ -50,7 +50,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-gray-400 hover:text-sky-400 transition-colors">
-                  {t('nav_consulting')}
+                  Soluciones
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                  Servicios a demanda
                 </Link>
               </li>
               <li>

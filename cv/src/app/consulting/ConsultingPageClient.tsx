@@ -9,6 +9,7 @@ import { openContactModal } from '@/components/shared/ContactModal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
 import { getCareerExperienceLabel } from '@/lib/experience';
+import OfferGrid from '@/components/commerce/OfferGrid';
 
 const CONTENT = {
   es: {
@@ -17,7 +18,7 @@ const CONTENT = {
     lead: 'Diseñamos automatizaciones, agentes y dashboards para PyMEs que necesitan operar mejor sin construir un equipo técnico desde cero.',
     primary: 'Solicitar diagnóstico',
     secondary: 'Ver casos reales',
-    risk: 'Primera automatización simple sin costo, para validar valor antes de invertir.',
+    risk: 'Diagnóstico desde USD 99. Se descuenta si avanzamos con la implementación.',
     proof: [
       ['−80%', 'Reducción potencial de costos operativos'],
       ['×3', 'ROI promedio objetivo por implementación'],
@@ -63,15 +64,15 @@ const CONTENT = {
     ],
     ctaEyebrow: 'El primer paso es pequeño',
     ctaTitle: 'Traé un proceso que hoy te quite tiempo. Diseñamos cómo devolverlo.',
-    ctaBody: 'En el diagnóstico inicial identificamos impacto, viabilidad y el MVP correcto. Si aplica, implementamos una primera automatización simple sin costo.',
-    ctaButton: 'Contar mi caso',
+    ctaBody: 'Elegí un servicio con alcance y precio definidos o contame un desafío que requiera una solución a medida.',
+    ctaButton: 'Contar un caso a medida',
   },
   en: {
     eyebrow: 'Automation · Applied AI · Data',
     title: <>We turn manual operations into <em>measurable systems.</em></>,
     lead: 'We design automations, agents and dashboards for SMEs that need to operate better without building a technical team from scratch.',
     primary: 'Request a diagnosis', secondary: 'View real cases',
-    risk: 'First simple automation at no cost, so you can validate value before investing.',
+    risk: 'Diagnosis from USD 99. Deducted if we move forward with implementation.',
     proof: [['−80%', 'Potential operational cost reduction'], ['×3', 'Target average ROI per implementation'], ['2 wks', 'To put the first workflow in production']],
     trust: [[getCareerExperienceLabel('en'), 'Leading Data & Analytics at Mercado Libre'], ['15+ projects', 'Implementations and products delivered'], ['Tech teaching', 'Henry, UADE and team enablement']],
     problemEyebrow: 'Where we create impact', problemTitle: 'Technology matters when it changes how the business works.', problemLead: 'We start from the operational bottleneck and design the smallest solution that creates a verifiable result.',
@@ -90,7 +91,7 @@ const CONTENT = {
     ],
     processEyebrow: 'How we work', processTitle: 'From a concrete friction to a working system.', processLead: 'No endless projects or decorative deliverables. Each stage ends with a decision or an observable outcome.',
     steps: [['01', 'Diagnosis', 'We map the process, data, risk and target metric. The outcome is a prioritized opportunity.'], ['02', 'Design', 'We define the MVP, architecture and adoption plan before building.'], ['03', 'Implementation', 'We put the workflow in production, measure it and improve it with real users.'], ['04', 'Transfer', 'We document, train and leave metrics in place so the system can evolve.']],
-    ctaEyebrow: 'The first step is small', ctaTitle: 'Bring us a process that takes your time. We will design how to give it back.', ctaBody: 'In the initial diagnosis we identify impact, feasibility and the right MVP. When it fits, we implement a first simple automation at no cost.', ctaButton: 'Tell us about it',
+    ctaEyebrow: 'The first step is small', ctaTitle: 'Bring us a process that takes your time. We will design how to give it back.', ctaBody: 'Choose a fixed-scope service or tell us about a challenge that needs a custom solution.', ctaButton: 'Discuss a custom case',
   },
 };
 
@@ -194,6 +195,8 @@ export default function ConsultingPageClient() {
       </section>
 
       <ClientPortfolio />
+
+      <OfferGrid />
 
       <section className="signal-section signal-process" aria-labelledby="process-title">
         <div className="signal-process__intro"><span className="signal-eyebrow">{c.processEyebrow}</span><h2 id="process-title">{c.processTitle}</h2><p>{c.processLead}</p></div>

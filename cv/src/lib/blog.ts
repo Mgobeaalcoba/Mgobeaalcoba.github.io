@@ -34,6 +34,15 @@ function calculateReadTime(content: string): string {
   return `${minutes} min read`;
 }
 
+function inferCategory(title: string, content: string, tags: string[]): string {
+  const searchable = `${title} ${tags.join(' ')} ${content.slice(0, 1200)}`.toLowerCase();
+  if (/n8n|automatiz|workflow|agente de ia|ai agent|mcp\b|rag\b/.test(searchable)) return 'Automatización & IA';
+  if (/data engineer|analytics|bigquery|sql\b|pipeline|business intelligence|dashboard|python|machine learning/.test(searchable)) return 'Data & Analytics';
+  if (/career|carrera|liderazgo|leadership|entrevista|empleo|hiring|layoff|developer/.test(searchable)) return 'Carrera & Liderazgo';
+  if (/security|seguridad|vulnerab|privacy|privacidad|encryption/.test(searchable)) return 'Seguridad';
+  return 'Tecnología aplicada';
+}
+
 async function getPostMetaFromFile(fileName: string): Promise<PostMeta | null> {
   const filePath = path.join(POSTS_DIR, fileName);
   if (!fs.existsSync(filePath) || !fileName.endsWith('.md')) return null;
@@ -54,7 +63,7 @@ async function getPostMetaFromFile(fileName: string): Promise<PostMeta | null> {
   }
 
   // Extract excerpt from content if not in frontmatter
-  let excerpt = data.excerpt || '';
+  let excerpt = data.excerpt || data.description || '';
   if (!excerpt) {
     const paragraphs = content.split('\n').filter(line => line.trim() && !line.startsWith('#'));
     excerpt = paragraphs.length > 0 ? paragraphs[0].slice(0, 160) + '...' : '';
@@ -66,7 +75,7 @@ async function getPostMetaFromFile(fileName: string): Promise<PostMeta | null> {
     title: typeof title === 'object' ? title : { es: title, en: title },
     excerpt: typeof excerpt === 'object' ? excerpt : { es: excerpt, en: excerpt },
     date: data.date ? new Date(data.date).toISOString().split('T')[0] : defaultDate,
-    category: data.category || 'General',
+    category: data.category || inferCategory(String(title), content, data.tags || []),
     tags: data.tags || [],
     featured: !!data.featured,
     readTime: data.readTime || calculateReadTime(content),
@@ -107,7 +116,7 @@ export async function getPostBySlug(slug: string): Promise<PostWithContent | nul
 
   const processedContent = await remark()
     .use(remarkGfm)
-    .use(html, { sanitize: false })
+    .use(html, { sanitize: true })
     .process(content);
   const contentHtml = processedContent.toString();
 

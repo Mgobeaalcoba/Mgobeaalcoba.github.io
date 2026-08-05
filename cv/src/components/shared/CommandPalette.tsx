@@ -15,7 +15,8 @@ import {
   BookOpen, 
   User, 
   X,
-  Sparkles
+  Sparkles,
+  ShoppingBag
 } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -97,10 +98,18 @@ export default function CommandPalette() {
     {
       id: 'nav-consulting',
       category: 'navigation',
-      labelEs: 'Ir a Consultoría Tecnológica (Inicio)',
-      labelEn: 'Go to Tech Consulting (Home)',
+      labelEs: 'Ver soluciones de consultoría',
+      labelEn: 'View consulting solutions',
       icon: <Sparkles className="w-4 h-4 text-sky-400" />,
       action: () => navigateTo('/'),
+    },
+    {
+      id: 'nav-services',
+      category: 'navigation',
+      labelEs: 'Ver servicios y precios',
+      labelEn: 'View services and pricing',
+      icon: <ShoppingBag className="w-4 h-4 text-cyan-400" />,
+      action: () => navigateTo('/servicios/'),
     },
     {
       id: 'nav-portfolio',

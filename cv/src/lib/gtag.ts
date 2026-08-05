@@ -11,9 +11,10 @@ declare global {
 
 export function pageview(url: string) {
   if (typeof window !== 'undefined' && window.gtag) {
+    const safePath = url.split('?')[0].split('#')[0] || '/';
     window.gtag('event', 'page_view', {
-      page_path: url,
-      page_location: window.location.href,
+      page_path: safePath,
+      page_location: `${window.location.origin}${safePath}`,
       page_title: document.title,
       user_lang: getUserLang(),
       app_display_mode: getDisplayMode(),
@@ -65,6 +66,24 @@ function keyEvent(action: string, params: Record<string, unknown> = {}) {
 }
 
 export const events = {
+  viewItemList: (list_id: string) =>
+    event('view_item_list', { item_list_id: list_id, site_section: 'services' }),
+
+  selectItem: (item_id: string, item_name: string, price: number) =>
+    event('select_item', { item_list_id: 'services', currency: 'USD', value: price, items: [{ item_id, item_name, price, quantity: 1 }] }),
+
+  viewItem: (item_id: string, item_name: string, price: number) =>
+    event('view_item', { currency: 'USD', value: price, site_section: 'services', items: [{ item_id, item_name, price, quantity: 1 }] }),
+
+  beginCheckout: (item_id: string, item_name: string, price: number, payment_type: string) =>
+    keyEvent('begin_checkout', { currency: 'USD', value: price, payment_type, site_section: 'services', items: [{ item_id, item_name, price, quantity: 1 }] }),
+
+  checkoutUnavailable: (item_id: string) =>
+    event('checkout_unavailable', { item_id, site_section: 'services' }),
+
+  serviceOnboardingStart: (item_id: string) =>
+    event('service_onboarding_start', { item_id, site_section: 'services' }),
+
   pwaInstallEligible: () => event('pwa_install_eligible'),
   pwaInstallPromptView: () => event('pwa_install_prompt_view'),
   pwaInstallClick: () => event('pwa_install_click'),
