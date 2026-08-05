@@ -1,5 +1,7 @@
 // Rebuild trigger: removing [skip ci] functionality from workflow
 export const GA_ID = 'G-DG0SLT5RY3';
+export const CONSENT_STORAGE_KEY = 'mga_consent_v1';
+export type ConsentChoice = 'essential' | 'analytics' | 'all';
 
 declare global {
   interface Window {
@@ -38,6 +40,22 @@ export function event(action: string, params: Record<string, unknown> = {}) {
       app_display_mode: getDisplayMode(),
       ...params,
     });
+  }
+}
+
+export function updateConsent(choice: ConsentChoice) {
+  if (typeof window === 'undefined') return;
+  const analytics = choice === 'analytics' || choice === 'all' ? 'granted' : 'denied';
+  const ads = choice === 'all' ? 'granted' : 'denied';
+  window.gtag?.('consent', 'update', {
+    analytics_storage: analytics,
+    ad_storage: ads,
+    ad_user_data: ads,
+    ad_personalization: ads,
+  });
+  window.gtag?.('set', 'ads_data_redaction', choice !== 'all');
+  if (analytics === 'granted') {
+    event('consent_update', { consent_choice: choice, site_section: 'privacy' });
   }
 }
 

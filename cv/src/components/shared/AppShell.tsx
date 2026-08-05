@@ -5,6 +5,7 @@ import MobileAppNav from '@/components/shared/MobileAppNav';
 import ServiceWorkerRegistration from '@/components/shared/ServiceWorkerRegistration';
 import PWAInstallPrompt from '@/components/shared/PWAInstallPrompt';
 import AnalyticsTracker from '@/components/shared/AnalyticsTracker';
+import ConsentBanner from '@/components/shared/ConsentBanner';
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <ServiceWorkerRegistration />
       <PWAInstallPrompt />
       <AnalyticsTracker />
+      <ConsentBanner />
     </>
   );
 }

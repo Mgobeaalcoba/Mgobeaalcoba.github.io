@@ -7,6 +7,7 @@ import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { events } from '@/lib/gtag';
+import { CONSENT_SETTINGS_EVENT } from './ConsentBanner';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -142,6 +143,18 @@ export default function Footer() {
             >
               GitHub
             </a>
+            <span>·</span>
+            <Link href="/privacidad/" className="hover:text-sky-400 transition-colors">
+              Privacidad
+            </Link>
+            <span>·</span>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(CONSENT_SETTINGS_EVENT))}
+              className="hover:text-sky-400 transition-colors"
+            >
+              Cookies
+            </button>
             <span>·</span>
             <a
               href="https://www.linkedin.com/in/mariano-gobea-alcoba/"

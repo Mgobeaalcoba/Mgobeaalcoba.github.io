@@ -179,6 +179,11 @@ export default function RootLayout({
         <meta name="geo.placename" content="Buenos Aires" />
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();`,
+          }}
+        />
       </head>
       <body>
         <a href="#main-content" className="skip-link">Saltar al contenido</a>
@@ -202,7 +207,7 @@ export default function RootLayout({
         <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || function(){dataLayer.push(arguments);};
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               send_page_view: false,

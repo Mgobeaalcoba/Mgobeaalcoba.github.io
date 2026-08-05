@@ -43,6 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/privacidad/`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
       url: `${SITE_URL}/blog/special/layoffs-genai/`,
       lastModified: new Date('2026-04-03'),
       changeFrequency: 'monthly',
