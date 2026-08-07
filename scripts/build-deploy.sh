@@ -4,7 +4,7 @@
 # Builds all three Next.js sites and assembles them into _site/
 #
 # Cloudflare Pages settings:
-#   Build command : bash build-cloudflare.sh
+#   Build command : bash scripts/build-deploy.sh
 #   Output dir    : _site
 # ============================================================
 set -e
@@ -29,8 +29,8 @@ cp -r apps/neil/out/. _site/neil-site/
 mkdir -p _site/elportugues-site
 cp -r apps/el-portugues/out/. _site/elportugues-site/
 
-# Copy security headers
-cp _headers _site/
+# GitHub Pages compatibility marker. Cloudflare safely ignores it.
+touch _site/.nojekyll
 
 echo "✓ Build complete. Directory structure:"
 ls -la _site/
