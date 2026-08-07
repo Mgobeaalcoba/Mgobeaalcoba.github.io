@@ -106,6 +106,9 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
   const firstEntry = history[0];
   const lastEntry = history[history.length - 1];
   const absoluteChange = firstEntry && lastEntry ? lastEntry.valor - firstEntry.valor : null;
+  const percentageChange = absoluteChange != null && firstEntry.valor !== 0
+    ? (absoluteChange / firstEntry.valor) * 100
+    : null;
   const formatDate = (date: string) => new Intl.DateTimeFormat(lang === 'es' ? 'es-AR' : 'en-US', {
     month: 'short', year: 'numeric', timeZone: 'UTC',
   }).format(new Date(date));
@@ -158,6 +161,9 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
                 <p className="text-xs text-gray-500">{lang === 'es' ? 'Variación' : 'Change'}</p>
                 <p className={`font-bold ${absoluteChange != null && absoluteChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                   {absoluteChange != null ? `${absoluteChange >= 0 ? '+' : ''}${absoluteChange.toFixed(2)}` : '—'}
+                </p>
+                <p className={`text-xs font-semibold ${percentageChange != null && percentageChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  {percentageChange != null ? `${percentageChange >= 0 ? '+' : ''}${percentageChange.toFixed(2)}%` : '—'}
                 </p>
               </div>
               <div className="bg-white/5 rounded-xl p-3">
