@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --cyan-accent: #0CC1C1;
@@ -143,5 +143,4 @@ body {
   border: 2px solid rgba(12, 193, 193, 0.8);
   animation: ctaPulse 2s ease-out infinite;
 }
-
 

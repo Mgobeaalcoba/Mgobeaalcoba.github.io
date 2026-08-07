@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 export default function CursorGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const glow = glowRef.current;

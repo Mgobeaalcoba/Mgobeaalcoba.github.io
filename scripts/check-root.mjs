@@ -16,6 +16,7 @@ const durableEntries = new Set([
   'automation',
   'build-cloudflare.sh',
   'docs',
+  'eslint.config.mjs',
   'infra',
   'package-lock.json',
   'package.json',

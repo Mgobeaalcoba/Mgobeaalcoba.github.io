@@ -26,13 +26,18 @@
     "check:static": "node scripts/smoke-static.mjs",
     "doctor": "node scripts/doctor.mjs && npm run check:root",
     "deploy": "bash scripts/build-deploy.sh",
+    "lint": "eslint apps",
     "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
   },
   "devDependencies": {
-    "@types/react": "^18.3.28",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.3.0",
     "png-to-ico": "^3.0.1",
     "prettier": "^3.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "sharp": "^0.35.3"
   },
   "keywords": [
@@ -45,14 +50,22 @@
     "tailwindcss"
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.9.0"
   },
   "overrides": {
-    "@next/eslint-plugin-next": {
-      "glob": "10.5.0"
-    },
     "@supabase/realtime-js": {
       "ws": "8.21.1"
+    },
+    "js-yaml": "4.3.1",
+    "postcss": "8.5.24",
+    "anymatch": {
+      "picomatch": "2.3.2"
+    },
+    "micromatch": {
+      "picomatch": "2.3.2"
+    },
+    "readdirp": {
+      "picomatch": "2.3.2"
     }
   }
 }

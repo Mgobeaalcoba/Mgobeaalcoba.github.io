@@ -12,7 +12,7 @@ import ArticleServiceCTA from '@/components/commerce/ArticleServiceCTA';
 const SITE_URL = 'https://www.mgatc.com';
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -21,10 +21,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   if (!post) return { title: 'Post not found' };
 
-  const postUrl = `${SITE_URL}/blog/${params.slug}/`;
+  const postUrl = `${SITE_URL}/blog/${slug}/`;
 
   return {
     title: post.title.es,
@@ -52,7 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return (
@@ -71,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     );
   }
 
-  const postUrl = `${SITE_URL}/blog/${params.slug}/`;
+  const postUrl = `${SITE_URL}/blog/${slug}/`;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -170,7 +172,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               ))}
             </div>
           </div>
-          <ArticleMobileActions slug={params.slug} title={post.title.es} />
+          <ArticleMobileActions slug={slug} title={post.title.es} />
         </header>
 
         {/* Content */}

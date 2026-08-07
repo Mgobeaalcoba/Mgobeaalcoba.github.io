@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { load as loadYaml } from 'js-yaml';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
@@ -8,6 +9,9 @@ import { fetchBlogPosts, fetchBlogCategories } from '@/lib/queries';
 import type { BlogPostMeta } from '@/lib/queries';
 
 const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
+const MATTER_OPTIONS = {
+  engines: { yaml: (source: string) => loadYaml(source) as Record<string, unknown> },
+};
 
 export interface PostMeta {
   slug: string;
@@ -48,7 +52,7 @@ async function getPostMetaFromFile(fileName: string): Promise<PostMeta | null> {
   if (!fs.existsSync(filePath) || !fileName.endsWith('.md')) return null;
 
   const fileContents = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContents);
+  const { data, content } = matter(fileContents, MATTER_OPTIONS);
 
   // Default values from filename: YYYY-MM-DD-slug.md
   const fileDateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-(.+)\.md$/);
@@ -112,7 +116,7 @@ export async function getPostBySlug(slug: string): Promise<PostWithContent | nul
 
   const filePath = path.join(POSTS_DIR, meta.file);
   const fileContents = fs.readFileSync(filePath, 'utf8');
-  const { content } = matter(fileContents);
+  const { content } = matter(fileContents, MATTER_OPTIONS);
 
   const processedContent = await remark()
     .use(remarkGfm)
