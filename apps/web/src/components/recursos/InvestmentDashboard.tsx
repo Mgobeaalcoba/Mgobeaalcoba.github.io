@@ -67,8 +67,46 @@ function getUvaMonthlyChanges(data: MonthData[]): Map<string, number> {
   return changes;
 }
 
+function getDynamicAxis(values: number[]) {
+  if (values.length === 0) {
+    return { min: 0, max: 1, ticks: [0, 0.25, 0.5, 0.75, 1], decimals: 2 };
+  }
+
+  const dataMin = Math.min(...values);
+  const dataMax = Math.max(...values);
+  const dataRange = dataMax - dataMin;
+  const padding = dataRange === 0
+    ? Math.max(Math.abs(dataMax) * 0.1, 0.5)
+    : dataRange * 0.15;
+  const paddedMin = dataMin - padding;
+  const paddedMax = dataMax + padding;
+  const roughStep = (paddedMax - paddedMin) / 5;
+  const magnitude = 10 ** Math.floor(Math.log10(roughStep));
+  const normalizedStep = roughStep / magnitude;
+  const multiplier = normalizedStep <= 1
+    ? 1
+    : normalizedStep <= 2
+      ? 2
+      : normalizedStep <= 2.5
+        ? 2.5
+        : normalizedStep <= 5
+          ? 5
+          : 10;
+  const step = multiplier * magnitude;
+  const min = Math.floor(paddedMin / step) * step;
+  const max = Math.ceil(paddedMax / step) * step;
+  const tickCount = Math.round((max - min) / step);
+  const ticks = Array.from(
+    { length: tickCount + 1 },
+    (_, index) => Number((min + index * step).toFixed(10)),
+  );
+  const decimals = step >= 1 ? 0 : step >= 0.1 ? 1 : 2;
+
+  return { min, max, ticks, decimals };
+}
+
 // Simple SVG line chart
-function LineChart({ data, period }: { data: ChartData; period: Period }) {
+function LineChart({ data }: { data: ChartData }) {
   if (!data.labels.length) return null;
 
   const width = 560;
@@ -78,15 +116,16 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
   const chartH = height - padding.top - padding.bottom;
 
   const allVals = [
-    ...data.plazoFijo.filter(Boolean) as number[],
-    ...data.inflacion.filter(Boolean) as number[],
-    ...data.uvaMonthly.filter(Boolean) as number[],
-  ];
-  const minVal = Math.min(-1, ...allVals);
-  const maxVal = Math.max(15, ...allVals);
+    ...data.plazoFijo,
+    ...data.inflacion,
+    ...data.uvaMonthly,
+  ].filter((value): value is number => value != null && Number.isFinite(value));
+  const { min: minVal, max: maxVal, ticks, decimals } = getDynamicAxis(allVals);
   const valRange = maxVal - minVal;
 
-  const toX = (i: number) => padding.left + (i / (data.labels.length - 1)) * chartW;
+  const toX = (i: number) => data.labels.length === 1
+    ? padding.left + chartW / 2
+    : padding.left + (i / (data.labels.length - 1)) * chartW;
   const toY = (v: number) => padding.top + chartH - ((v - minVal) / valRange) * chartH;
 
   const buildPath = (vals: (number | null)[]) => {
@@ -95,19 +134,24 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
     return `M ${pts.join(' L ')}`;
   };
 
-  const zeroY = toY(0);
-
   return (
     <svg viewBox={`0 0 ${width} ${height}`} className="w-full" style={{ maxHeight: 220 }}>
       {/* Grid */}
-      {[-0, 5, 10, 15].map((val) => (
+      {ticks.map((val) => (
         <g key={val}>
-          <line x1={padding.left} y1={toY(val)} x2={width - padding.right} y2={toY(val)} stroke="rgba(255,255,255,0.07)" strokeDasharray="4" />
-          <text x={padding.left - 5} y={toY(val)} textAnchor="end" fill="#9ca3af" fontSize="9" dominantBaseline="middle">{val}%</text>
+          <line
+            x1={padding.left}
+            y1={toY(val)}
+            x2={width - padding.right}
+            y2={toY(val)}
+            stroke={val === 0 ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.07)'}
+            strokeDasharray={val === 0 ? undefined : '4'}
+          />
+          <text x={padding.left - 5} y={toY(val)} textAnchor="end" fill="#9ca3af" fontSize="9" dominantBaseline="middle">
+            {`${Math.abs(val) < 1e-10 ? (0).toFixed(decimals) : val.toFixed(decimals)}%`}
+          </text>
         </g>
       ))}
-      {/* Zero line */}
-      <line x1={padding.left} y1={zeroY} x2={width - padding.right} y2={zeroY} stroke="rgba(255,255,255,0.2)" />
 
       {/* Lines */}
       <path d={buildPath(data.plazoFijo)} fill="none" stroke="#38bdf8" strokeWidth="2" />
@@ -264,7 +308,7 @@ export default function InvestmentDashboard() {
         </div>
       ) : (
         <div className="mb-3">
-          <LineChart data={chartData} period={period} />
+          <LineChart data={chartData} />
         </div>
       )}
 
