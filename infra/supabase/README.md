@@ -10,6 +10,7 @@ Scripts SQL para el schema y datos de Supabase. Todos los archivos aquí están 
 | `002_seed_initial_data.sql` | Datos iniciales para todas las tablas |
 | `003_migrate_ai_models_feb2026.sql` | Actualización de precios de modelos de IA a Feb 2026 |
 | `004_migrate_ai_models_apr2026.sql` | Actualización de modelos de IA a Abr 2026 (GPT-4.1, Claude Sonnet 4.6, Gemini 2.5, Grok 3) |
+| `012_update_frontier_ai_models_aug2026.sql` | Modelos frontier y precios API estándar verificados al 7 Ago 2026 |
 
 ## Cómo ejecutar
 

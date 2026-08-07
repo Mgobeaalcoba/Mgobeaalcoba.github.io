@@ -348,7 +348,9 @@ export interface Database {
           name: string;
           provider: string;
           input_per_1m: string;
+          is_frontier: boolean;
           output_per_1m: string;
+          pricing_verified_at: string | null;
           color_class: string | null;
           sort_order: number;
         };

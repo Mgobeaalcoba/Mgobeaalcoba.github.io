@@ -1,4 +1,11 @@
 import { supabase } from '@/lib/supabase';
+import {
+  FRONTIER_AI_MODELS,
+  FRONTIER_AI_PRICING_VERIFIED_AT,
+  type AiModel,
+} from '@/data/frontierAiModels';
+
+export type { AiModel } from '@/data/frontierAiModels';
 
 export interface TaxBracket {
   limite: number;
@@ -53,14 +60,6 @@ export interface TaxTab {
   contentEn: string;
   formulaEs: string;
   formulaEn: string;
-}
-
-export interface AiModel {
-  name: string;
-  provider: string;
-  inputPer1M: number;
-  outputPer1M: number;
-  color: string;
 }
 
 export async function fetchTaxData(): Promise<{
@@ -137,15 +136,36 @@ export async function fetchTaxData(): Promise<{
 }
 
 export async function fetchAiModels(): Promise<AiModel[]> {
+  const fallbackModels = () => FRONTIER_AI_MODELS.map((model) => ({ ...model }));
   const { data, error } = await supabase.from('ai_models').select('*').order('sort_order');
-  if (error) throw error;
-  return (data ?? []).map((m) => ({
+  if (error) return fallbackModels();
+
+  const currentFrontierModels = (data ?? []).filter((model) => (
+    model.is_frontier === true
+    && typeof model.pricing_verified_at === 'string'
+    && model.pricing_verified_at >= FRONTIER_AI_PRICING_VERIFIED_AT
+  ));
+
+  if (currentFrontierModels.length !== FRONTIER_AI_MODELS.length) {
+    return fallbackModels();
+  }
+
+  const parsedModels = currentFrontierModels.map((m) => ({
     name: m.name,
     provider: m.provider,
     inputPer1M: Number(m.input_per_1m),
     outputPer1M: Number(m.output_per_1m),
-    color: m.color_class,
+    color: m.color_class ?? 'text-gray-300',
   }));
+
+  const hasInvalidPrices = parsedModels.some((model) => (
+    !Number.isFinite(model.inputPer1M)
+    || !Number.isFinite(model.outputPer1M)
+    || model.inputPer1M < 0
+    || model.outputPer1M < 0
+  ));
+
+  return hasInvalidPrices ? fallbackModels() : parsedModels;
 }
 
 export async function fetchPlazoFijoRates(): Promise<Record<string, number>> {
