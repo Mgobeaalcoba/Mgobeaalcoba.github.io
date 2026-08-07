@@ -1,5 +1,9 @@
 # Dependencies
 /node_modules
+/output/
+/tmp/
+/.work/
+/_site/
 
 # Next.js build output directories (managed by deploy scripts)
 /cv/out/
@@ -68,6 +72,7 @@ Thumbs.db
 !LICENSE.md
 !CONTRIBUTING.md
 !CODE_OF_CONDUCT.md
+!AGENTS.md
 
 # Keep all blog posts and content markdown files
 !blog/**/*.md
