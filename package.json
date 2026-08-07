@@ -9,22 +9,36 @@
     "type": "git",
     "url": "https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io.git"
   },
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "cd cv && npm run dev",
-    "dev:neil": "cd neil && npm run dev",
-    "dev:elportugues": "cd elportugues && npm run dev",
-    "build": "cd cv && npm run build",
-    "build:neil": "cd neil && npm run build",
-    "build:elportugues": "cd elportugues && npm run build",
-    "deploy": "npm run build && rsync -a --exclude='_next' --exclude='consulting' --exclude='recursos' --exclude='blog' cv/out/ ./ && rsync -a --delete cv/out/_next/ ./_next/ && rsync -a --delete cv/out/consulting/ ./consulting/ && rsync -a --delete cv/out/recursos/ ./recursos/ && rsync -a cv/out/blog/ ./blog/ && rm -f ./index.txt ./favicon.png ./favicon-32.png",
-    "deploy:neil": "npm run build:neil && rsync -a --delete neil/out/ ./neil-site/",
-    "deploy:elportugues": "npm run build:elportugues && rsync -a --delete elportugues/out/ ./elportugues-site/",
+    "bootstrap": "npm ci",
+    "dev": "npm run dev --workspace=cv",
+    "dev:neil": "npm run dev --workspace=neil-landing",
+    "dev:elportugues": "npm run dev --workspace=elportugues-landing",
+    "build": "node scripts/build-workspace.mjs cv",
+    "build:neil": "node scripts/build-workspace.mjs neil",
+    "build:elportugues": "node scripts/build-workspace.mjs el-portugues",
+    "build:all": "npm run build && npm run build:neil && npm run build:elportugues",
+    "check": "npm run doctor && npm run build:all && npm run check:static",
+    "check:root": "node scripts/check-root.mjs",
+    "check:static": "node scripts/smoke-static.mjs",
+    "doctor": "node scripts/doctor.mjs && npm run check:root",
+    "deploy": "bash scripts/build-deploy.sh",
+    "lint": "eslint apps",
     "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
   },
   "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.3.0",
     "png-to-ico": "^3.0.1",
     "prettier": "^3.0.0",
-    "sharp": "^0.34.5"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.3"
   },
   "keywords": [
     "portfolio",
@@ -36,6 +50,22 @@
     "tailwindcss"
   ],
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.9.0"
+  },
+  "overrides": {
+    "@supabase/realtime-js": {
+      "ws": "8.21.1"
+    },
+    "js-yaml": "4.3.1",
+    "postcss": "8.5.24",
+    "anymatch": {
+      "picomatch": "2.3.2"
+    },
+    "micromatch": {
+      "picomatch": "2.3.2"
+    },
+    "readdirp": {
+      "picomatch": "2.3.2"
+    }
   }
 }
