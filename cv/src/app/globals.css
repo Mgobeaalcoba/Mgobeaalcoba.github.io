@@ -28,15 +28,6 @@ html.light-mode {
   --scrollbar-track: #e5e7eb;
 }
 
-html.terminal-mode {
-  --bg: #0a0a0a;
-  --bg-card: rgba(0, 255, 0, 0.05);
-  --text: #00ff00;
-  --text-secondary: #00cc00;
-  --primary: #00ff00;
-  --border: rgba(0, 255, 0, 0.2);
-}
-
 /* ================================================================
    BASE STYLES
    ================================================================ */
@@ -460,24 +451,6 @@ html.light-mode .hero-video-bg .pointer-events-none.absolute {
 }
 
 /* ================================================================
-   TERMINAL MODE OVERRIDES
-   ================================================================ */
-
-html.terminal-mode body {
-  font-family: "JetBrains Mono", monospace;
-}
-
-html.terminal-mode .glass {
-  background: rgba(0, 255, 0, 0.05);
-  border-color: rgba(0, 255, 0, 0.2);
-}
-
-html.terminal-mode .gradient-text {
-  background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-/* ================================================================
    PREMIUM BUTTONS
    ================================================================ */
 
@@ -505,17 +478,6 @@ html.light-mode .special-report-bg {
 
 html.light-mode .special-report-title {
   background: linear-gradient(135deg, #b45309 0%, #dc2626 50%, #7c3aed 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-html.terminal-mode .special-report-bg {
-  background: rgba(0, 255, 0, 0.03);
-  border-color: rgba(0, 255, 0, 0.25) !important;
-}
-
-html.terminal-mode .special-report-title {
-  background: linear-gradient(135deg, #00ff00 0%, #ffff00 50%, #ff4444 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -552,15 +514,6 @@ html.light-mode .report-hl-body {
 
 html.light-mode .report-hl-body strong {
   color: #111827 !important;
-}
-
-html.terminal-mode .report-heading {
-  color: #00ff00;
-}
-
-html.terminal-mode .report-analysis {
-  border-color: #00ff00;
-  background: rgba(0,255,0,0.03);
 }
 
 .btn-premium-primary {
@@ -611,11 +564,6 @@ html.light-mode .scroll-progress {
   background: linear-gradient(90deg, #0ea5e9, #4f46e5);
 }
 
-html.terminal-mode .scroll-progress {
-  background: #00ff00;
-  height: 2px;
-}
-
 @keyframes scroll-progress-animation {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
@@ -634,9 +582,6 @@ html.terminal-mode .scroll-progress {
   background-color: #38bdf8;
   border-radius: 9999px;
   animation: voice-pulse 0.8s ease-in-out infinite alternate;
-}
-html.terminal-mode .voice-bar {
-  background-color: #00ff00;
 }
 html.light-mode .voice-bar {
   background-color: #0ea5e9;
@@ -675,12 +620,6 @@ html.light-mode .skills-tooltip {
   color: #1f2937;
   border: 1px solid rgba(14, 165, 233, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-html.terminal-mode .skills-tooltip {
-  background: #0a0a0a;
-  color: #00ff00;
-  border: 1px solid rgba(0, 255, 0, 0.4);
 }
 
 /* Hover triggers visibility for both native and fallback modes */
@@ -776,4 +715,3 @@ html {
 .boot-glitch {
   animation: boot-glitch 0.3s ease-in-out;
 }
-

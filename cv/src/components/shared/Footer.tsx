@@ -13,7 +13,7 @@ export default function Footer() {
   const { t } = useLanguage();
   const { theme } = useTheme();
   const pathname = usePathname();
-  const isDark = theme === 'dark' || theme === 'terminal';
+  const isDark = theme === 'dark';
   const isPortfolioPage = pathname.startsWith('/portfolio');
   const isConsultingPage = !isPortfolioPage;
 

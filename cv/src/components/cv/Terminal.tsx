@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useTheme } from '@/contexts/ThemeContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { ChevronDown, TerminalSquare } from 'lucide-react';
 import { getCareerExperienceYears } from '@/lib/experience';
@@ -43,7 +42,6 @@ const BOOT_LINES = [
 
 export default function Terminal() {
   const { lang, t } = useLanguage();
-  const { theme } = useTheme();
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [booting, setBooting] = useState(true);
@@ -141,8 +139,6 @@ export default function Terminal() {
       document.removeEventListener('keydown', handleKey);
     };
   }, [matrixActive, stopMatrix]);
-
-  if (theme !== 'terminal') return null;
 
   function processCommand(cmd: string): string {
     const parts = cmd.trim().split(/\s+/);
@@ -298,22 +294,21 @@ export default function Terminal() {
         </button>
         {expanded && (
         <div
-          className="signal-terminal-dock__terminal rounded-xl overflow-hidden border border-green-500/30"
-          style={{ background: '#0a0a0a' }}
+          className="signal-terminal-dock__terminal rounded-xl overflow-hidden"
           onClick={() => inputRef.current?.focus()}
         >
           {/* Terminal header */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-green-500/20" style={{ background: '#111' }}>
+          <div className="signal-terminal-dock__chrome flex items-center gap-2 px-4 py-3">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
-            <span className="ml-2 text-xs text-green-600 terminal-font">mga@portfolio ~ zsh</span>
+            <span className="signal-terminal-dock__title ml-2 text-xs terminal-font">mga@portfolio ~ zsh</span>
           </div>
 
           {/* Terminal body */}
           <div
             ref={bodyRef}
-            className="p-4 h-80 overflow-y-auto custom-scrollbar terminal-font text-xs text-green-400 space-y-1"
+            className="signal-terminal-dock__body p-4 h-80 overflow-y-auto custom-scrollbar terminal-font text-xs text-green-400 space-y-1"
           >
             {history.map((entry, i) => (
               <pre
@@ -328,8 +323,8 @@ export default function Terminal() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="flex items-center px-4 py-2 border-t border-green-500/20">
-            <span className="text-green-500 text-xs terminal-font mr-2">mga@portfolio:~$</span>
+          <form onSubmit={handleSubmit} className="signal-terminal-dock__command-line flex items-center px-4 py-3">
+            <span className="signal-terminal-dock__prompt text-xs terminal-font mr-2">mga@portfolio:~$</span>
             <input
               ref={inputRef}
               type="text"
@@ -340,7 +335,8 @@ export default function Terminal() {
               autoCorrect="off"
               spellCheck={false}
               disabled={booting}
-              className="flex-1 bg-transparent text-green-400 text-xs terminal-font focus:outline-none caret-green-400 disabled:opacity-40"
+              aria-label={lang === 'es' ? 'Comando de terminal' : 'Terminal command'}
+              className="signal-terminal-dock__input flex-1 text-xs terminal-font focus:outline-none disabled:opacity-40"
             />
             {booting && (
               <span className="text-[10px] text-green-600 animate-pulse mr-1">BOOTING...</span>

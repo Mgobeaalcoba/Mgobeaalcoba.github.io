@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { 
   Sun, 
   Moon, 
-  Terminal as TerminalIcon, 
   Globe, 
   Search, 
   MessageSquare, 
@@ -192,17 +191,6 @@ export default function CommandPalette() {
       },
     },
     {
-      id: 'theme-terminal',
-      category: 'settings',
-      labelEs: 'Cambiar Tema a Modo Terminal',
-      labelEn: 'Switch Theme to Terminal Mode',
-      icon: <TerminalIcon className="w-4 h-4 text-green-400" />,
-      action: () => {
-        setTheme('terminal');
-        setIsOpen(false);
-      },
-    },
-    {
       id: 'lang-es',
       category: 'settings',
       labelEs: 'Cambiar Idioma a Español',
@@ -278,7 +266,7 @@ export default function CommandPalette() {
       />
 
       {/* Palette Container */}
-      <div className="relative w-full max-w-2xl bg-gray-900/90 dark:bg-gray-950/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[50vh] transition-all scale-100 animate-in fade-in zoom-in-95 duration-150 theme-terminal-border">
+      <div className="relative w-full max-w-2xl bg-gray-900/90 dark:bg-gray-950/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[50vh] transition-all scale-100 animate-in fade-in zoom-in-95 duration-150">
         {/* Search Input bar */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10 shrink-0">
           <Search className="w-5 h-5 text-gray-400 shrink-0" />

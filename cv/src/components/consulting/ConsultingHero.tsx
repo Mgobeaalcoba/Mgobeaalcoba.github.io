@@ -89,17 +89,6 @@ const THEME_CONFIG = {
       "radial-gradient(circle, rgba(251,146,60,0.40) 0%, transparent 70%)",
     particle: "bg-sky-500",
   },
-  terminal: {
-    bgGradient: "linear-gradient(to bottom, #000000, #040d04, #0a0a0a)",
-    topGlow:
-      "radial-gradient(ellipse 80% 50% at 50% -5%, rgba(0,255,0,0.09) 0%, transparent 60%)",
-    bottomFade: "linear-gradient(to top, #0a0a0a, transparent)",
-    gridColor: "rgba(0,255,0,0.08)",
-    glowBg: "radial-gradient(circle, rgba(0,255,0,0.10) 0%, transparent 70%)",
-    rocketClass: "text-green-400 drop-shadow-[0_0_28px_rgba(0,255,0,0.65)]",
-    bloomBg: "radial-gradient(circle, rgba(0,200,0,0.40) 0%, transparent 70%)",
-    particle: "bg-green-400",
-  },
 } as const;
 
 export default function ConsultingHero({

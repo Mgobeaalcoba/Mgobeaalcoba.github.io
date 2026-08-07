@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Command, Globe2, Menu, Moon, Search, Sun, Terminal, X } from 'lucide-react';
+import { Command, Globe2, Menu, Moon, Search, Sun, X } from 'lucide-react';
 import Link from './TransitionLink';
 import { useTheme, type Theme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -20,7 +20,6 @@ const LINKS = [
 const THEME_ICONS: Record<Theme, React.ReactNode> = {
   dark: <Moon size={17} />,
   light: <Sun size={17} />,
-  terminal: <Terminal size={17} />,
 };
 
 const MOBILE_TITLES: Record<string, { es: string; en: string }> = {

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'dark' | 'light' | 'terminal';
+export type Theme = 'dark' | 'light';
 
 interface ThemeContextValue {
   theme: Theme;
@@ -16,17 +16,22 @@ const ThemeContext = createContext<ThemeContextValue>({
   cycleTheme: () => {},
 });
 
-const THEMES: Theme[] = ['dark', 'light', 'terminal'];
+const THEMES: Theme[] = ['dark', 'light'];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
-    if (saved && THEMES.includes(saved)) {
-      setThemeState(saved);
-      applyTheme(saved);
+    const saved = localStorage.getItem('theme');
+    const savedTheme = THEMES.find((candidate) => candidate === saved);
+    if (savedTheme) {
+      setThemeState(savedTheme);
+      applyTheme(savedTheme);
+    } else if (saved === 'terminal') {
+      setThemeState('dark');
+      localStorage.setItem('theme', 'dark');
+      applyTheme('dark');
     } else {
       const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       setThemeState(preferred);
@@ -40,10 +45,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.classList.remove('dark', 'light', 'terminal', 'light-mode', 'terminal-mode');
     if (t === 'dark') {
       root.classList.add('dark');
-    } else if (t === 'light') {
-      root.classList.add('light', 'light-mode');
     } else {
-      root.classList.add('dark', 'terminal-mode');
+      root.classList.add('light', 'light-mode');
     }
   }
 
