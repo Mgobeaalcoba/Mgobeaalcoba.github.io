@@ -120,19 +120,19 @@ jobs:
 
     steps:
       - name: Download CV build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: cv-out
           path: /tmp/deploy/cv-out/
 
       - name: Download Neil build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: neil-out
           path: /tmp/deploy/neil-out/
 
       - name: Download El Portugués build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: elportugues-out
           path: /tmp/deploy/elportugues-out/
