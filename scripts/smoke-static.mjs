@@ -1,9 +1,9 @@
 import { existsSync } from 'node:fs';
 
 const expectedOutputs = [
-  ['cv', ['out/index.html', 'out/portfolio/index.html', 'out/blog/index.html']],
-  ['neil', ['out/index.html']],
-  ['elportugues', ['out/index.html']],
+  ['apps/web', ['out/index.html', 'out/portfolio/index.html', 'out/blog/index.html']],
+  ['apps/neil', ['out/index.html']],
+  ['apps/el-portugues', ['out/index.html']],
 ];
 
 const missing = expectedOutputs.flatMap(([app, files]) =>

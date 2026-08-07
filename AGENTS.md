@@ -4,9 +4,9 @@ This repository contains three statically exported Next.js applications. Treat t
 
 ## Applications
 
-- `cv/`: MGA Tech Consulting, portfolio, blog and tools. Deployed at the domain root.
-- `neil/`: Neil Climatizadores. Exported with `/neil-site` as its base path.
-- `elportugues/`: El Portugués. Exported with `/elportugues-site` as its base path.
+- `apps/web/`: MGA Tech Consulting, portfolio, blog and tools. Deployed at the domain root.
+- `apps/neil/`: Neil Climatizadores. Exported with `/neil-site` as its base path.
+- `apps/el-portugues/`: El Portugués. Exported with `/elportugues-site` as its base path.
 
 ## Safe workflow
 

@@ -4,12 +4,12 @@ const minimumNodeMajor = 20;
 const nodeMajor = Number.parseInt(process.versions.node.split('.')[0], 10);
 const requiredFiles = [
   'package.json',
-  'cv/package.json',
-  'cv/.env.example',
-  'neil/package.json',
-  'neil/.env.example',
-  'elportugues/package.json',
-  'elportugues/.env.example',
+  'apps/web/package.json',
+  'apps/web/.env.example',
+  'apps/neil/package.json',
+  'apps/neil/.env.example',
+  'apps/el-portugues/package.json',
+  'apps/el-portugues/.env.example',
   '.github/workflows/deploy.yml',
 ];
 
@@ -23,7 +23,7 @@ for (const file of requiredFiles) {
   if (!existsSync(file)) errors.push(`Missing required file: ${file}`);
 }
 
-for (const app of ['cv', 'neil', 'elportugues']) {
+for (const app of ['apps/web', 'apps/neil', 'apps/el-portugues']) {
   const packagePath = `${app}/package.json`;
   if (!existsSync(packagePath)) continue;
   const packageJson = JSON.parse(readFileSync(packagePath, 'utf8'));

@@ -9,37 +9,25 @@
 # ============================================================
 set -e
 
-echo "▶ Building Neil site..."
-cd neil
+echo "▶ Installing workspace dependencies..."
 npm ci
-npm run build
-cd ..
 
-echo "▶ Building El Portugués site..."
-cd elportugues
-npm ci
-npm run build
-cd ..
-
-echo "▶ Building CV site..."
-cd cv
-npm ci
-npm run build
-cd ..
+echo "▶ Building all sites..."
+npm run build:all
 
 echo "▶ Assembling output into _site/ ..."
 rm -rf _site
 mkdir -p _site
 
 # CV is the root
-cp -r cv/out/. _site/
+cp -r apps/web/out/. _site/
 
 # Sub-sites go into their respective subdirectories
 mkdir -p _site/neil-site
-cp -r neil/out/. _site/neil-site/
+cp -r apps/neil/out/. _site/neil-site/
 
 mkdir -p _site/elportugues-site
-cp -r elportugues/out/. _site/elportugues-site/
+cp -r apps/el-portugues/out/. _site/elportugues-site/
 
 # Copy security headers
 cp _headers _site/
