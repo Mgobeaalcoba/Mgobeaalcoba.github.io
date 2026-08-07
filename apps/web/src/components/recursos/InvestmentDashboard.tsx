@@ -16,14 +16,15 @@ interface MonthData {
 interface ChartData {
   labels: string[];
   plazoFijo: (number | null)[];
-  dolarMep: (number | null)[];
   inflacion: (number | null)[];
+  uvaMonthly: (number | null)[];
 }
 
 interface LiveData {
   mepNow: number | null;
   inflacionNow: number | null;
   plazoFijoNow: number;
+  uvaMonthlyNow: number | null;
   lastUpdated: string;
 }
 
@@ -34,9 +35,36 @@ function getMonthLabel(fecha: string): string {
   return `${months[parseInt(m) - 1]} ${y.slice(2)}`;
 }
 
-function getMepMonthly(mepPrice: number, prevMepPrice: number): number {
-  if (prevMepPrice === 0) return 0;
-  return ((mepPrice - prevMepPrice) / prevMepPrice) * 100;
+function normalizeMonthData(data: unknown): MonthData[] {
+  if (!Array.isArray(data)) return [];
+
+  return data
+    .filter((entry): entry is MonthData => {
+      if (!entry || typeof entry !== 'object') return false;
+      const candidate = entry as Partial<MonthData>;
+      return typeof candidate.fecha === 'string'
+        && !Number.isNaN(Date.parse(candidate.fecha))
+        && typeof candidate.valor === 'number'
+        && Number.isFinite(candidate.valor);
+    })
+    .sort((a, b) => Date.parse(a.fecha) - Date.parse(b.fecha));
+}
+
+function getUvaMonthlyChanges(data: MonthData[]): Map<string, number> {
+  const monthEndValues = new Map<string, number>();
+  data.forEach(({ fecha, valor }) => monthEndValues.set(fecha.slice(0, 7), valor));
+
+  const changes = new Map<string, number>();
+  const monthKeys = Array.from(monthEndValues.keys()).sort();
+  monthKeys.forEach((month, index) => {
+    if (index === 0) return;
+    const previousValue = monthEndValues.get(monthKeys[index - 1]);
+    const currentValue = monthEndValues.get(month);
+    if (previousValue == null || currentValue == null || previousValue === 0) return;
+    changes.set(month, ((currentValue - previousValue) / previousValue) * 100);
+  });
+
+  return changes;
 }
 
 // Simple SVG line chart
@@ -51,8 +79,8 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
 
   const allVals = [
     ...data.plazoFijo.filter(Boolean) as number[],
-    ...data.dolarMep.filter(Boolean) as number[],
     ...data.inflacion.filter(Boolean) as number[],
+    ...data.uvaMonthly.filter(Boolean) as number[],
   ];
   const minVal = Math.min(-1, ...allVals);
   const maxVal = Math.max(15, ...allVals);
@@ -83,8 +111,8 @@ function LineChart({ data, period }: { data: ChartData; period: Period }) {
 
       {/* Lines */}
       <path d={buildPath(data.plazoFijo)} fill="none" stroke="#38bdf8" strokeWidth="2" />
-      <path d={buildPath(data.dolarMep)} fill="none" stroke="#4ade80" strokeWidth="2" />
       <path d={buildPath(data.inflacion)} fill="none" stroke="#f87171" strokeWidth="2" />
+      <path d={buildPath(data.uvaMonthly)} fill="none" stroke="#c084fc" strokeWidth="2" />
 
       {/* X labels */}
       {data.labels.map((label, i) => {
@@ -103,8 +131,8 @@ export default function InvestmentDashboard() {
   const { lang } = useLanguage();
   const { plazoFijoRates } = useRecursosData();
   const [period, setPeriod] = useState<Period>('12m');
-  const [chartData, setChartData] = useState<ChartData>({ labels: [], plazoFijo: [], dolarMep: [], inflacion: [] });
-  const [liveData, setLiveData] = useState<LiveData>({ mepNow: null, inflacionNow: null, plazoFijoNow: 2.75, lastUpdated: '' });
+  const [chartData, setChartData] = useState<ChartData>({ labels: [], plazoFijo: [], inflacion: [], uvaMonthly: [] });
+  const [liveData, setLiveData] = useState<LiveData>({ mepNow: null, inflacionNow: null, plazoFijoNow: 2.75, uvaMonthlyNow: null, lastUpdated: '' });
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
@@ -112,20 +140,28 @@ export default function InvestmentDashboard() {
     try {
       const months = period === '3m' ? 3 : period === '6m' ? 6 : 12;
 
-      const [inflRes, mepRes] = await Promise.allSettled([
+      const [inflRes, mepRes, uvaRes] = await Promise.allSettled([
         fetch('https://api.argentinadatos.com/v1/finanzas/indices/inflacion'),
         fetch('https://dolarapi.com/v1/dolares/bolsa'),
+        fetch('https://api.argentinadatos.com/v1/finanzas/indices/uva'),
       ]);
 
       let inflArray: MonthData[] = [];
+      let uvaArray: MonthData[] = [];
       let mepNow: number | null = null;
 
       if (inflRes.status === 'fulfilled' && inflRes.value.ok) {
-        inflArray = await inflRes.value.json();
+        inflArray = normalizeMonthData(await inflRes.value.json());
       }
       if (mepRes.status === 'fulfilled' && mepRes.value.ok) {
-        const d = await mepRes.value.json();
-        mepNow = d.venta ?? null;
+        const d: unknown = await mepRes.value.json();
+        if (d && typeof d === 'object') {
+          const venta = (d as { venta?: unknown }).venta;
+          mepNow = typeof venta === 'number' && Number.isFinite(venta) ? venta : null;
+        }
+      }
+      if (uvaRes.status === 'fulfilled' && uvaRes.value.ok) {
+        uvaArray = normalizeMonthData(await uvaRes.value.json());
       }
 
       const lastInflData = inflArray.slice(-months);
@@ -134,16 +170,18 @@ export default function InvestmentDashboard() {
       const inflacionNow = inflArray.length > 0 ? inflArray[inflArray.length - 1]?.valor : null;
 
       const plazoFijo = lastInflData.map((d) => plazoFijoRates[d.fecha] ?? 2.75);
-      const dolarMep = lastInflData.map((_) => null as number | null); // no historical MEP available
+      const uvaChangesByMonth = getUvaMonthlyChanges(uvaArray);
+      const uvaMonthly = lastInflData.map((d) => uvaChangesByMonth.get(d.fecha.slice(0, 7)) ?? null);
+      const uvaMonthlyNow = [...uvaMonthly].reverse().find((value) => value != null) ?? null;
 
-      setChartData({ labels, plazoFijo, dolarMep, inflacion });
-      setLiveData({ mepNow, inflacionNow, plazoFijoNow: 2.75, lastUpdated: new Date().toLocaleTimeString('es-AR') });
+      setChartData({ labels, plazoFijo, inflacion, uvaMonthly });
+      setLiveData({ mepNow, inflacionNow, plazoFijoNow: 2.75, uvaMonthlyNow, lastUpdated: new Date().toLocaleTimeString('es-AR') });
     } catch {
       // keep previous
     } finally {
       setLoading(false);
     }
-  }, [period]);
+  }, [period, plazoFijoRates]);
 
   useEffect(() => {
     fetchData();
@@ -153,6 +191,7 @@ export default function InvestmentDashboard() {
     { label: { es: 'Plazo Fijo 30d', en: 'Fixed Term 30d' }, value: `${liveData.plazoFijoNow.toFixed(2)}%`, sub: { es: 'mensual (est.)', en: 'monthly (est.)' }, color: 'text-sky-400', icon: '🏦' },
     { label: { es: 'Inflación mensual', en: 'Monthly inflation' }, value: liveData.inflacionNow != null ? `${liveData.inflacionNow.toFixed(1)}%` : '—', sub: { es: 'IPC (INDEC)', en: 'CPI (INDEC)' }, color: 'text-red-400', icon: '📈' },
     { label: { es: 'Dólar MEP', en: 'MEP Dollar' }, value: liveData.mepNow != null ? `$${liveData.mepNow.toLocaleString('es-AR')}` : '—', sub: { es: 'precio de venta', en: 'selling price' }, color: 'text-green-400', icon: '💵' },
+    { label: { es: 'Variación UVA', en: 'UVA change' }, value: liveData.uvaMonthlyNow != null ? `${liveData.uvaMonthlyNow.toFixed(2)}%` : '—', sub: { es: 'mensual (BCRA)', en: 'monthly (BCRA)' }, color: 'text-purple-400', icon: '🏠' },
   ];
 
   return (
@@ -162,7 +201,7 @@ export default function InvestmentDashboard() {
           <BarChart2 size={20} className="text-sky-400" />
           <div>
             <h3 className="font-bold text-gray-100">{lang === 'es' ? 'Dashboard de Inversiones' : 'Investment Dashboard'}</h3>
-            <p className="text-xs text-gray-500">{lang === 'es' ? 'Plazo Fijo vs Inflación mensual' : 'Fixed Term vs Monthly Inflation'}</p>
+            <p className="text-xs text-gray-500">{lang === 'es' ? 'Plazo Fijo vs Inflación vs UVA mensual' : 'Fixed Term vs Inflation vs Monthly UVA'}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -192,7 +231,7 @@ export default function InvestmentDashboard() {
       </div>
 
       {/* Live metrics */}
-      <div className="grid grid-cols-3 gap-3 mb-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
         {METRICS.map((m) => (
           <div key={m.label.es} className="bg-white/5 rounded-xl p-3 text-center">
             <div className="text-lg mb-1">{m.icon}</div>
@@ -230,9 +269,10 @@ export default function InvestmentDashboard() {
       )}
 
       {/* Legend */}
-      <div className="flex gap-4 text-xs text-gray-400 mb-3">
+      <div className="flex flex-wrap gap-4 text-xs text-gray-400 mb-3">
         <span className="flex items-center gap-1.5"><span className="w-3 h-0.5 bg-sky-400 inline-block" />{lang === 'es' ? 'Plazo Fijo' : 'Fixed Term'}</span>
         <span className="flex items-center gap-1.5"><span className="w-3 h-0.5 bg-red-400 inline-block" />{lang === 'es' ? 'Inflación' : 'Inflation'}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-0.5 bg-purple-400 inline-block" />{lang === 'es' ? 'Variación UVA' : 'UVA change'}</span>
       </div>
 
       {liveData.lastUpdated && (
