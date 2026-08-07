@@ -309,7 +309,7 @@ git push origin main
 
 ## 10. Pricing Reference
 
-Ver `tasks/PRICING_ELPORTUGUES.md` para benchmark. Regla rápida:
+Ver `docs/archive/tasks/PRICING_ELPORTUGUES.md` para el benchmark histórico. Regla rápida:
 
 | Entregable | Piso USD | Techo USD |
 |---|---|---|

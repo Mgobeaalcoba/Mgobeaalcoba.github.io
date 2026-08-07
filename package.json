@@ -22,8 +22,9 @@
     "build:elportugues": "node scripts/build-workspace.mjs el-portugues",
     "build:all": "npm run build && npm run build:neil && npm run build:elportugues",
     "check": "npm run doctor && npm run build:all && npm run check:static",
+    "check:root": "node scripts/check-root.mjs",
     "check:static": "node scripts/smoke-static.mjs",
-    "doctor": "node scripts/doctor.mjs",
+    "doctor": "node scripts/doctor.mjs && npm run check:root",
     "deploy": "bash scripts/build-deploy.sh",
     "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
   },
