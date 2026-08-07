@@ -29,9 +29,11 @@
     "format": "prettier --write '**/*.{html,css,js,ts,tsx,json}' --ignore-path .prettierignore"
   },
   "devDependencies": {
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
     "png-to-ico": "^3.0.1",
     "prettier": "^3.0.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.3"
   },
   "keywords": [
     "portfolio",
@@ -44,5 +46,13 @@
   ],
   "engines": {
     "node": ">=20.0.0"
+  },
+  "overrides": {
+    "@next/eslint-plugin-next": {
+      "glob": "10.5.0"
+    },
+    "@supabase/realtime-js": {
+      "ws": "8.21.1"
+    }
   }
 }

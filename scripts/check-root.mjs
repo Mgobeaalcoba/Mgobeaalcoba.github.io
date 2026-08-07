@@ -14,6 +14,7 @@ const durableEntries = new Set([
   'README.md',
   'apps',
   'automation',
+  'build-cloudflare.sh',
   'docs',
   'infra',
   'package-lock.json',
