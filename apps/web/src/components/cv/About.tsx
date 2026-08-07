@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 import { ArrowDownRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 export default function About() {
   const { lang } = useLanguage();
-  const { cvAbout } = useSupabaseData();
+  const profileSummary = lang === 'es'
+    ? 'Líder técnico de Data & Analytics en Mercado Libre, con más de 7 años convirtiendo problemas complejos de negocio en sistemas escalables y productos medibles.'
+    : 'Data & Analytics technical leader at Mercado Libre, with 7+ years turning complex business problems into scalable systems and measurable products.';
   const principles = lang === 'es'
     ? [
         ['01', 'Pensamiento sistémico', 'Conecto arquitectura, producto, operación y personas antes de elegir una tecnología.'],
@@ -31,12 +32,7 @@ export default function About() {
 
         <div className="signal-about-v2__grid">
           <div className="signal-about-v2__statement">
-            <p>{cvAbout ? (lang === 'es' ? cvAbout.textEs : cvAbout.textEn) : ''}</p>
-            <blockquote>
-              {lang === 'es'
-                ? 'Mi trabajo es reducir ambigüedad: convertir problemas abiertos en sistemas que un equipo pueda operar, medir y mejorar.'
-                : 'My job is to reduce ambiguity: turning open-ended problems into systems a team can operate, measure and improve.'}
-            </blockquote>
+            <p>{profileSummary}</p>
           </div>
           <div className="signal-principles">
             {principles.map(([number, title, body]) => (
