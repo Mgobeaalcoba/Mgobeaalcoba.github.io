@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/2vk1aq-nwgi6i.css","style"]
+:HL["/_next/static/chunks/36gck4qxcq9p6.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"blog","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"turboquant-redefining-ai-efficiency-extreme-compression","siblings":["special","videos"]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"OjPf6srIBRbhJvVE_LsiO"}

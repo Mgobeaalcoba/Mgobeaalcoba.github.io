@@ -1,0 +1,279 @@
+1:"$Sreact.fragment"
+9:I[68027,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default",1]
+:HL["/_next/static/chunks/2vk1aq-nwgi6i.css","style"]
+:HL["/_next/static/chunks/36gck4qxcq9p6.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+2:T492,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 7 años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}7:X
+0:{"P":null,"c":["","blog","kin-semantic-version-control",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","kin-semantic-version-control","d",["special","videos"]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0mpl9gy_lazli.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1gfj15o6-upwq.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/128owwa-r12ws.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/02i8boh2pnwzw.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/3vx7k7p5eu9id.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L3"]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La","$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"OjPf6srIBRbhJvVE_LsiO"}
+c:I[7623,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"DataErrorBoundary"]
+d:I[627,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ThemeProvider"]
+e:I[89190,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"LanguageProvider"]
+f:I[97221,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"SupabaseDataProvider"]
+10:I[69272,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+11:I[39756,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+12:I[37457,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+13:I[27943,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/1k0lhgr7gvt20.js"],"default"]
+14:I[6482,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+15:I[20199,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+16:I[79520,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],""]
+18:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+1d:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+3:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}],["$","$L15",null,{}]]}]}]}]}],["$","$L16",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L16",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$L17",[["$","script","script-0",{"src":"/_next/static/chunks/3eirrjw6ufj0r.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/07lumgg3jqv4b.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":"$L1c"}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1e"}]}]}],null]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+b:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:I[8037,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+21:I[78208,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+22:I[22016,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],""]
+7:C
+1f:T438,{"@context":"https://schema.org","@type":"Article","headline":"La Insuficiencia del Control de Versiones Basado en Archivos","description":"El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establ...","url":"https://www.mgatc.com/blog/kin-semantic-version-control/","datePublished":"2026-03-20","dateModified":"2026-03-20","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/kin-semantic-version-control/"},"keywords":"","articleSection":"Tecnología aplicada","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}17:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$1f"}}],["$","$L20",null,{"site_section":"blog"}],["$","$L21",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L22",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Tecnología aplicada"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"La Insuficiencia del Control de Versiones Basado en Archivos"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establ..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"20 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"14 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],"$L23"]}],"$L24","$L25","$L26"]}],"$L27"]}]
+28:I[66158,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+2a:I[6265,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+2b:I[21686,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+23:["$","$L28",null,{"slug":"kin-semantic-version-control","title":"La Insuficiencia del Control de Versiones Basado en Archivos"}]
+29:T4ef1,<p>El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establecido un paradigma dominante, ofreciendo una solución robusta y distribuida para el seguimiento de cambios a nivel de archivo y línea de texto. Sin embargo, a medida que la complejidad de los sistemas de software ha escalado —especialmente en dominios como la ingeniería de datos, los microservicios y la inteligencia artificial—, las limitaciones inherentes a un modelo basado en archivos se han vuelto más pronunciadas. La visión de Kin, un sistema de control de versiones que opera sobre entidades semánticas en lugar de archivos estáticos, emerge como una respuesta a estas deficiencias, proponiendo un cambio fundamental en cómo percibimos y gestionamos el código fuente.</p>
+<h2>La Insuficiencia del Control de Versiones Basado en Archivos</h2>
+<p>Los sistemas de control de versiones (VCS) tradicionales, como Git, tratan el código como una colección de archivos de texto. Los <code>diffs</code> se calculan a nivel de línea, y la historia se registra como una secuencia de instantáneas de archivos. Este enfoque, aunque eficaz para muchas tareas, presenta desafíos significativos:</p>
+<ol>
+<li><strong>Semantic Dissociation</strong>: Un cambio en una función, una clase o una interfaz de un servicio rara vez se confina a un único archivo o un conjunto de líneas contiguas. La refactorización, el movimiento de código o la evolución de la arquitectura pueden dispersar los elementos lógicos a través de múltiples archivos y directorios. El historial de Git sigue el <em>archivo</em>, no la <em>entidad lógica</em> que contiene el código. Esto dificulta la trazabilidad de la evolución de una función o un componente a lo largo del tiempo.</li>
+<li><strong>Conflictos de Fusión Ineficientes</strong>: Los conflictos de fusión ocurren cuando dos ramas modifican las mismas líneas en el mismo archivo. A menudo, estos conflictos son sintácticos más que semánticos; dos desarrolladores pueden modificar la misma función en un archivo, pero en partes lógicamente distintas que no deberían generar un conflicto complejo si el sistema entendiera el código. La resolución manual de estos conflictos es una tarea propensa a errores y que consume mucho tiempo.</li>
+<li><strong>Análisis de Impacto Limitado</strong>: Determinar el impacto de un cambio requiere una comprensión profunda del código, más allá de las referencias textuales. Si una interfaz de datos cambia, ¿qué servicios, funciones o modelos de ML se ven afectados? Git proporciona poca ayuda nativa para responder a estas preguntas de manera precisa y automatizada.</li>
+<li><strong>Gestión de Artefactos de AI/ML y Datos</strong>: En el ámbito de la IA y la ingeniería de datos, el código es solo una parte de la ecuación. Los modelos de machine learning, los conjuntos de datos, los esquemas de datos y las configuraciones de pipeline son artefactos críticos que evolucionan y tienen dependencias complejas. Los VCS tradicionales luchan por versionar estos elementos de manera integrada y semántica, lo que lleva a soluciones ad-hoc y a menudo inconsistentes (e.g., DVC para datos, MLflow para modelos).</li>
+</ol>
+<p>Kin aborda estas limitaciones al operar en un nivel de abstracción superior: el de las entidades semánticas del código.</p>
+<h2>Kin: Control de Versiones Basado en Entidades Semánticas</h2>
+<p>La premisa central de Kin es que el código fuente no es simplemente texto, sino una colección de <em>entidades lógicas interconectadas</em>. Estas entidades pueden ser funciones, clases, métodos, interfaces, estructuras de datos, variables globales o incluso componentes de alto nivel como servicios o pipelines. Kin tiene como objetivo rastrear la evolución de estas entidades, sus relaciones y dependencias, en lugar de la mera evolución de los archivos que las contienen.</p>
+<h3>Arquitectura Fundacional de Kin</h3>
+<p>La capacidad de Kin para operar a nivel de entidad se basa en una arquitectura que integra el análisis semántico del código con un modelo de almacenamiento de grafos.</p>
+<ol>
+<li>
+<p><strong>Análisis de Árbol de Sintaxis Abstracta (AST)</strong>:</p>
+<ul>
+<li>Kin utiliza parsers específicos de cada lenguaje para construir un AST del código fuente. Este AST representa la estructura jerárquica y lógica del código.</li>
+<li>A partir del AST, Kin identifica y extrae las entidades semánticas. Por ejemplo, en Python, una definición de <code>def</code> sería una entidad "función", y una definición de <code>class</code> sería una entidad "clase". Los métodos dentro de una clase también se identifican como entidades.</li>
+</ul>
+<pre><code class="language-python"># Ejemplo de código fuente
+class DataTransformer:
+    def __init__(self, config_path):
+        self.config = self._load_config(config_path)
+
+    def transform_dataframe(self, df):
+        """Aplica transformaciones definidas en la configuración."""
+        if self.config.get("apply_standardization"):
+            df = self._standardize(df)
+        if self.config.get("apply_normalization"):
+            df = self._normalize(df)
+        return df
+
+    def _load_config(self, path):
+        # Carga una configuración YAML
+        import yaml
+        with open(path, 'r') as f:
+            return yaml.safe_load(f)
+
+    def _standardize(self, df):
+        # Lógica de estandarización
+        return (df - df.mean()) / df.std()
+
+    def _normalize(self, df):
+        # Lógica de normalización
+        return (df - df.min()) / (df.max() - df.min())
+
+# Kin identificaría las siguientes entidades principales (ejemplo simplificado):
+# - Clase: DataTransformer
+# - Método: DataTransformer.__init__
+# - Método: DataTransformer.transform_dataframe
+# - Método: DataTransformer._load_config
+# - Método: DataTransformer._standardize
+# - Método: DataTransformer._normalize
+# Cada una con su propio contenido semántico (cuerpo de la función, parámetros, etc.)
+</code></pre>
+</li>
+<li>
+<p><strong>Identificación de Entidades y Hash Semántico</strong>:</p>
+<ul>
+<li>Cada entidad extraída se normaliza y se le asigna un identificador único (un hash semántico). Este hash no depende de la ubicación del archivo o las líneas de texto, sino del <em>contenido lógico</em> de la entidad.</li>
+<li>Si una función se mueve de un archivo a otro sin cambios en su lógica interna (cuerpo, firma), su hash semántico permanece inalterado. Esto permite a Kin rastrear la misma entidad a través de refactorizaciones que serían "rupturas" para los VCS tradicionales.</li>
+</ul>
+</li>
+<li>
+<p><strong>Grafo de Entidades Semánticas (SEG - Semantic Entity Graph)</strong>:</p>
+<ul>
+<li>Kin construye un grafo donde los nodos son las entidades (funciones, clases, variables) y los aristas representan las relaciones semánticas entre ellas (llamadas de función, herencia de clase, uso de variables, dependencias de tipo).</li>
+<li>Este grafo es dinámico y se actualiza con cada cambio de código. Permite a Kin comprender cómo los cambios en una entidad pueden propagarse o afectar a otras entidades.</li>
+</ul>
+<pre><code># Representación conceptual de un SEG
+(DataTransformer) ---hereda--> (object)
+(DataTransformer.__init__) ---llama_a--> (DataTransformer._load_config)
+(DataTransformer.transform_dataframe) ---llama_a--> (DataTransformer._standardize)
+(DataTransformer.transform_dataframe) ---llama_a--> (DataTransformer._normalize)
+(DataTransformer._standardize) ---usa_dependencia_externa--> (pandas.DataFrame)
+</code></pre>
+</li>
+<li>
+<p><strong>Almacenamiento Content-Addressable</strong>:</p>
+<ul>
+<li>De manera similar a Git, Kin utiliza un almacenamiento content-addressable para las versiones de las entidades. Cada versión única de una entidad se almacena una sola vez y se referencia por su hash semántico.</li>
+<li>Las "commits" en Kin no son instantáneas de archivos, sino instantáneas del estado del grafo de entidades y las versiones de las entidades que han cambiado.</li>
+</ul>
+</li>
+</ol>
+<h3>Workflow con Kin: Una Perspectiva Transformada</h3>
+<p>El workflow con Kin se sentiría familiar en su superficie (inicializar, hacer cambios, commitear, fusionar), pero las operaciones subyacentes son fundamentalmente diferentes.</p>
+<ol>
+<li>
+<p><strong>Inicialización (<code>kin init</code>)</strong>:</p>
+<ul>
+<li>Al inicializar un repositorio, Kin escanea el código base para construir el SEG inicial, identificando todas las entidades existentes.</li>
+</ul>
+<pre><code class="language-bash">kin init
+# Analiza el código, construye el SEG inicial, y guarda las entidades.
+</code></pre>
+</li>
+<li>
+<p><strong>Modificación de Código</strong>:</p>
+<ul>
+<li>Los desarrolladores editan el código como lo harían normalmente. Kin monitorea estos cambios.</li>
+</ul>
+</li>
+<li>
+<p><strong>Staging y Committing (<code>kin stage</code>, <code>kin commit</code>)</strong>:</p>
+<ul>
+<li>Cuando se <code>stagean</code> cambios, Kin re-parsea las secciones afectadas del código, identifica las entidades que han cambiado (o se han creado/eliminado) y recalcula sus hashes semánticos.</li>
+<li>Un <code>kin commit</code> registra la nueva versión de las entidades modificadas y actualiza el SEG. La "descripción del commit" se asocia con estos cambios a nivel de entidad.</li>
+</ul>
+<pre><code class="language-bash"># Después de modificar DataTransformer.transform_dataframe
+kin stage DataTransformer.py
+# Kin detecta que la entidad `DataTransformer.transform_dataframe` ha cambiado.
+# Puede que también detecte cambios en las entidades que llama o de las que depende.
+kin commit -m "feat: Add optional normalization to data transformer"
+# El commit registra la nueva versión de la entidad DataTransformer.transform_dataframe
+# y las actualizaciones del SEG, no solo el cambio en el archivo.
+</code></pre>
+</li>
+<li>
+<p><strong>Historial y Arqueología (<code>kin log</code>, <code>kin blame</code>, <code>kin entity show</code>)</strong>:</p>
+<ul>
+<li>Ver el historial de una entidad específica es ahora trivial, incluso si se ha movido o refactorizado múltiples veces.</li>
+</ul>
+<pre><code class="language-bash">kin log --entity DataTransformer.transform_dataframe
+# Muestra el historial de cambios para esta función específica,
+# ignorando movimientos de archivo o cambios en otras funciones del mismo archivo.
+
+kin blame --entity DataTransformer.transform_dataframe
+# Atribuye cada parte de la lógica de la función a su último autor,
+# basado en el historial semántico, no en las líneas de archivo.
+
+kin entity show DataTransformer.transform_dataframe@&#x3C;commit_hash>
+# Muestra una versión específica de la entidad.
+</code></pre>
+</li>
+<li>
+<p><strong>Fusión Semántica (<code>kin merge</code>)</strong>:</p>
+<ul>
+<li>Aquí es donde Kin proporciona una ventaja significativa. En lugar de fusionar <code>diffs</code> de archivos a nivel de línea, Kin intenta fusionar <code>diffs</code> de entidades a nivel semántico.</li>
+<li>Si dos ramas modifican la misma función, pero en partes lógicamente disjuntas del cuerpo de la función, Kin puede ser capaz de realizar una fusión automática inteligente.</li>
+<li>Los conflictos se presentan a nivel de entidad, ofreciendo un contexto mucho más rico para la resolución. Por ejemplo, Kin podría indicar que "la firma de la función <code>mi_funcion</code> ha sido modificada de dos formas incompatibles" en lugar de "conflicto en las líneas 20-25 del archivo <code>utils.py</code>".</li>
+</ul>
+</li>
+<li>
+<p><strong>Branching (<code>kin branch</code>)</strong>:</p>
+<ul>
+<li>Las ramas en Kin representan puntos de partida alternativos en el grafo de entidades. El concepto sigue siendo análogo al de Git, pero la base subyacente de los cambios es a nivel de entidad.</li>
+</ul>
+</li>
+</ol>
+<h3>Beneficios Clave de la Aproximación de Kin</h3>
+<ol>
+<li><strong>Historial Coherente y Trazable</strong>: El historial de una entidad persiste a través de refactorizaciones, movimientos de archivo y cambios en su contexto circundante. Esto facilita la auditoría, la depuración y la comprensión de la evolución del sistema.</li>
+<li><strong>Resolución de Conflictos Mejorada</strong>: Al entender el código a nivel semántico, Kin puede resolver automáticamente más conflictos y presentar los conflictos restantes en un contexto más significativo, reduciendo la carga cognitiva del desarrollador.</li>
+<li><strong>Análisis de Impacto Preciso</strong>: El SEG permite realizar consultas potentes sobre dependencias. Si se cambia la firma de una función, Kin puede identificar instantáneamente todas las demás entidades que la llaman y que, por lo tanto, requieren actualización. Esto es crítico en arquitecturas de microservicios o pipelines de datos complejos.</li>
+<li><strong>Soporte Nativo para Artefactos de AI/ML y Datos</strong>:
+<ul>
+<li><strong>Modelos de ML</strong>: Un modelo de ML puede ser tratado como una entidad semántica. Su hash se basaría en su arquitectura, pesos, versionado del dataset de entrenamiento y parámetros. Kin podría rastrear cómo una versión específica de un modelo depende de una versión específica de un dataset y de una versión específica de un algoritmo de entrenamiento (código).</li>
+<li><strong>Esquemas de Datos</strong>: Un esquema de base de datos o un esquema de un objeto JSON pueden ser entidades. Kin puede rastrear su evolución, identificar los cambios y alertar sobre rupturas en los consumidores de esos esquemas.</li>
+<li><strong>Pipelines de Datos</strong>: Cada etapa de un pipeline (ingesta, transformación, agregación) puede ser una entidad. Kin podría mostrar cómo la modificación de una etapa afecta a las etapas subsiguientes o a los dashboards que consumen los datos finales.</li>
+<li>Esto permite una integración más holística del versionado de código, datos y modelos, un desafío constante en MLOps y DataOps.</li>
+</ul>
+</li>
+<li><strong>Integración con CI/CD Inteligente</strong>: Un sistema de CI/CD podría utilizar el SEG de Kin para optimizar la ejecución de pruebas o el despliegue. Si solo una función específica ha cambiado, y Kin sabe qué otras funciones o servicios dependen de ella, la CI/CD podría ejecutar solo los tests relevantes o desplegar únicamente los servicios afectados, en lugar de un <code>build</code> completo.</li>
+</ol>
+<h2>Implicaciones Técnicas y Desafíos</h2>
+<p>La implementación de Kin no está exenta de desafíos técnicos significativos.</p>
+<ol>
+<li>
+<p><strong>Robustez del Análisis AST y la Identificación de Entidades</strong>:</p>
+<ul>
+<li>La precisión de Kin depende fundamentalmente de la calidad de sus parsers y de su capacidad para identificar entidades consistentemente a través de diferentes idiomas y estilos de codificación.</li>
+<li>Manejar la diversidad de lenguajes (Python, Java, Go, Rust, TypeScript, C++, etc.) y sus paradigmas (orientado a objetos, funcional, declarativo) requiere una ingeniería considerable. La complejidad de los preprocesadores de C++ o las macros de Rust, por ejemplo, representa un obstáculo.</li>
+<li>Las herramientas existentes para el análisis AST (e.g., Tree-sitter, ANTLR) son un buen punto de partida, pero la lógica para la "normalización semántica" (cómo se hash el contenido de una entidad para que los espacios en blanco o los comentarios no triviales no generen hashes diferentes) es crucial.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gestión de Gran Grafos de Entidades</strong>:</p>
+<ul>
+<li>En repositorios de código muy grandes (monorepos), el SEG puede crecer exponencialmente. La eficiencia de las operaciones de grafo (recorridos, actualizaciones, consultas) es vital para el rendimiento.</li>
+<li>Se requerirán bases de datos de grafos optimizadas y algoritmos eficientes para mantener la capacidad de respuesta.</li>
+<li>La computación del hash semántico de cada entidad y la actualización del grafo después de cada cambio pueden introducir una sobrecarga de rendimiento en comparación con las operaciones de <code>diff</code> textuales de Git. Estrategias de indexación incremental y caching serían esenciales.</li>
+</ul>
+</li>
+<li>
+<p><strong>Transición y Adopción</strong>:</p>
+<ul>
+<li>Cambiar un paradigma arraigado como el control de versiones es un esfuerzo masivo. La interoperabilidad con Git o la capacidad de importar historiales de Git de manera razonable sería un factor clave para la adopción.</li>
+<li>La necesidad de integraciones con IDEs, sistemas de revisión de código (code review tools) y pipelines de CI/CD adaptados a la lógica de entidades es crítica. Los desarrolladores necesitan herramientas que presenten los <code>diffs</code> y los conflictos a nivel de entidad de una manera intuitiva.</li>
+<li>La curva de aprendizaje para los desarrolladores, al pensar en "entidades" en lugar de "archivos" y "líneas", requerirá educación y herramientas de usuario bien diseñadas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Extensibilidad para Datos y Modelos</strong>:</p>
+<ul>
+<li>Para que Kin sea verdaderamente transformador en Data Engineering y AI, su modelo de entidades debe ser extensible para manejar no solo el código, sino también los metadatos de los datasets, los archivos de configuración de modelos, los parámetros de entrenamiento y las métricas de evaluación. Esto puede requerir un sistema de "plugins" o una arquitectura que permita definir nuevos tipos de entidades y sus relaciones semánticas.</li>
+</ul>
+<pre><code class="language-python"># Ejemplo conceptual de una entidad "MLModel" en Kin
+@kin.entity_type("MLModel")
+class FraudDetectionModel:
+    def __init__(self, version: str, artifact_path: Path, training_config: Dict):
+        self.version = version
+        self.artifact_path = artifact_path
+        self.training_config = training_config
+        self.model = self._load_model()
+
+    @kin.entity_attribute(type="artifact_reference")
+    def _load_model(self):
+        # Cargar el modelo desde el artefacto persistido
+        return joblib.load(self.artifact_path)
+
+    @kin.entity_attribute(type="data_reference")
+    def get_training_dataset_id(self):
+        # Referencia al ID del dataset de entrenamiento usado
+        return self.training_config.get("dataset_id")
+
+    @kin.entity_method()
+    def predict(self, features):
+        return self.model.predict(features)
+
+# Kin podría entonces rastrear:
+# - La entidad "MLModel" FraudDetectionModel, versionada por su configuración y artefacto.
+# - Su dependencia del "Dataset" identificado por 'dataset_id'.
+# - Su dependencia del código de entrenamiento que generó el modelo.
+</code></pre>
+</li>
+</ol>
+<p>Este tipo de extensibilidad permitiría a Kin ir más allá del código fuente, ofreciendo una solución unificada para la gestión de versiones en el ciclo de vida completo de aplicaciones de IA y sistemas de datos.</p>
+<h2>Conclusión</h2>
+<p>Kin representa una evolución natural en el control de versiones, un paso necesario para abordar la complejidad de los sistemas de software modernos. Al elevar el nivel de abstracción del archivo a la entidad semántica, Kin promete un historial de código más claro, una resolución de conflictos más inteligente y capacidades de análisis de impacto sin precedentes. Para dominios como la ingeniería de datos y la inteligencia artificial, donde la interdependencia entre código, datos y modelos es intrínseca, un sistema como Kin podría ser transformador, proporcionando la gobernanza y la trazabilidad necesarias para construir sistemas robustos y fiables. La transición no será trivial, pero los beneficios a largo plazo en productividad, calidad del código y fiabilidad del sistema justifican plenamente la inversión en esta nueva forma de pensar sobre el control de versiones.</p>
+<p>Para explorar cómo estas metodologías avanzadas de gestión de datos y código pueden aplicarse a sus desafíos específicos y transformar su ingeniería de datos y pipelines de IA, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> para servicios de consultoría especializada.</p>
+2c:I[27201,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+24:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$29"}}]
+25:["$","$L2a",null,{"category":"Tecnología aplicada"}]
+26:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L22",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L22",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+27:["$","$L2b",null,{}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]
+1a:null
+1e:[["$","title","0",{"children":"La Insuficiencia del Control de Versiones Basado en Archivos | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establ..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/kin-semantic-version-control/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"La Insuficiencia del Control de Versiones Basado en Archivos"}],["$","meta","15",{"property":"og:description","content":"El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establ..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/kin-semantic-version-control/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"La Insuficiencia del Control de Versiones Basado en Archivos"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-03-20"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"La Insuficiencia del Control de Versiones Basado en Archivos"}],["$","meta","28",{"name":"twitter:description","content":"El control de versiones, tal como lo conocemos hoy, ha sido fundamental para la evolución del desarrollo de software colaborativo. Git, en particular, ha establ..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L2c","31",{}]]

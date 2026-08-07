@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+9:I[68027,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default",1]
+:HL["/_next/static/chunks/2vk1aq-nwgi6i.css","style"]
+:HL["/_next/static/chunks/36gck4qxcq9p6.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+2:T492,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 7 años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}7:X
+0:{"P":null,"c":["","blog","autoresearch-at-home",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","autoresearch-at-home","d",["special","videos"]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0mpl9gy_lazli.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1gfj15o6-upwq.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/128owwa-r12ws.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/02i8boh2pnwzw.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/3vx7k7p5eu9id.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L3"]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La","$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"OjPf6srIBRbhJvVE_LsiO"}
+c:I[7623,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"DataErrorBoundary"]
+d:I[627,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ThemeProvider"]
+e:I[89190,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"LanguageProvider"]
+f:I[97221,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"SupabaseDataProvider"]
+10:I[69272,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+11:I[39756,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+12:I[37457,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+13:I[27943,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/1k0lhgr7gvt20.js"],"default"]
+14:I[6482,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+15:I[20199,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+16:I[79520,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],""]
+18:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+1d:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+3:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}],["$","$L15",null,{}]]}]}]}]}],["$","$L16",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L16",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$L17",[["$","script","script-0",{"src":"/_next/static/chunks/3eirrjw6ufj0r.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/07lumgg3jqv4b.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":"$L1c"}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1e"}]}]}],null]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+b:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:I[8037,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+21:I[78208,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+22:I[22016,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],""]
+23:I[66158,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+7:C
+1f:T40c,{"@context":"https://schema.org","@type":"Article","headline":"Introducción a Autoresearch@Home","description":"Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Ins...","url":"https://www.mgatc.com/blog/autoresearch-at-home/","datePublished":"2026-03-12","dateModified":"2026-03-12","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/autoresearch-at-home/"},"keywords":"","articleSection":"Automatización & IA","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}24:T1ab4,<h2>Introducción a Autoresearch@Home</h2>
+<p>Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Inspirado en proyectos como SETI@Home, este colectivo utiliza agentes de inteligencia artificial (IA) que comparten recursos de cómputo para entrenar y optimizar modelos de aprendizaje profundo. La idea central es que cada agente puede leer el mejor resultado actual, proponer una hipótesis, modificar el script de entrenamiento (<code>train.py</code>), ejecutar el experimento en su GPU local y publicar los resultados de vuelta al colectivo. Si un agente logra superar la pérdida de validación actual, ese resultado se convierte en el nuevo punto de referencia para todos los demás agentes.</p>
+<h3>Funcionamiento de Autoresearch@Home</h3>
+<h4>Arquitectura del Proyecto</h4>
+<ol>
+<li><strong>Agentes de IA</strong>: Cada participante debe tener un agente de IA que maneja todo el proceso, desde la clonación del repositorio hasta la publicación de resultados.</li>
+<li><strong>Repositorio Git</strong>: El código base y las instrucciones están disponibles en un repositorio de GitHub.</li>
+<li><strong>Capa de Memoria Colectiva (Ensue)</strong>: Ensue actúa como una capa de memoria compartida donde los agentes pueden almacenar y recuperar información sobre experimentos exitosos y fallidos.</li>
+</ol>
+<h4>Flujo de Trabajo</h4>
+<ol>
+<li><strong>Clonación del Repositorio</strong>: El agente clona el repositorio de GitHub que contiene el código base y las instrucciones.</li>
+<li><strong>Conexión al Colectivo</strong>: El agente se conecta a la red de autoresearch@home para sincronizarse con el estado actual del proyecto.</li>
+<li><strong>Selección de Experimentos</strong>: El agente elige un experimento basado en la hipótesis propuesta y las condiciones actuales.</li>
+<li><strong>Modificación del Script de Entrenamiento</strong>: El agente modifica <code>train.py</code> según la hipótesis seleccionada.</li>
+<li><strong>Ejecución del Experimento</strong>: El agente ejecuta el experimento en la GPU local.</li>
+<li><strong>Publicación de Resultados</strong>: Los resultados del experimento se publican de vuelta al colectivo.</li>
+<li><strong>Verificación Humana</strong>: Para evitar el spam y asegurar la integridad del sistema, el agente solicita al usuario que verifique su identidad a través de correo electrónico.</li>
+</ol>
+<h3>Implementación Práctica</h3>
+<p>Para participar en Autoresearch@Home, sigue estos pasos:</p>
+<ol>
+<li>
+<p><strong>Instalar Dependencias</strong>:</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+</li>
+<li>
+<p><strong>Configurar el Agente</strong>:
+Crea un archivo de configuración <code>config.json</code> con los siguientes parámetros:</p>
+<pre><code class="language-json">{
+  "agent_name": "mi_agente",
+  "gpu_id": 0,
+  "email": "mi_email@example.com"
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Iniciar el Agente</strong>:
+Ejecuta el script principal del agente:</p>
+<pre><code class="language-bash">python main.py
+</code></pre>
+</li>
+<li>
+<p><strong>Seguir Instrucciones</strong>:
+El agente te guiará a través del proceso de clonación del repositorio, conexión al colectivo y verificación de identidad.</p>
+</li>
+</ol>
+<h3>Ejemplo de Código</h3>
+<p>A continuación, se presenta un ejemplo simplificado del script <code>train.py</code> que los agentes modificarán y ejecutarán:</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import torch.optim as optim
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+
+# Definición del modelo
+class SimpleModel(nn.Module):
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.fc = nn.Linear(784, 10)
+
+    def forward(self, x):
+        x = x.view(-1, 784)
+        return self.fc(x)
+
+# Carga de datos
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+train_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+
+# Inicialización del modelo, función de pérdida y optimizador
+model = SimpleModel()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# Entrenamiento
+def train(epochs):
+    for epoch in range(epochs):
+        running_loss = 0.0
+        for data, target in train_loader:
+            optimizer.zero_grad()
+            output = model(data)
+            loss = criterion(output, target)
+            loss.backward()
+            optimizer.step()
+            running_loss += loss.item()
+        print(f'Epoch {epoch+1}, Loss: {running_loss/len(train_loader)}')
+
+if __name__ == "__main__":
+    train(5)
+</code></pre>
+<h3>Beneficios de Autoresearch@Home</h3>
+<ol>
+<li><strong>Optimización Colaborativa</strong>: Al compartir resultados y aprender de los experimentos de otros agentes, se acelera el proceso de optimización del modelo.</li>
+<li><strong>Distribución de Recursos</strong>: La utilización de GPU distribuidas permite escalar el entrenamiento y reducir significativamente el tiempo de computación.</li>
+<li><strong>Transparencia y Reproducibilidad</strong>: Todos los experimentos y sus resultados son públicos, lo que fomenta la transparencia y la reproducibilidad en la investigación científica.</li>
+<li><strong>Aprendizaje Continuo</strong>: Los agentes aprenden tanto de los éxitos como de los fracasos, mejorando constantemente sus estrategias de experimentación.</li>
+</ol>
+<h3>Desafíos y Consideraciones</h3>
+<ol>
+<li><strong>Integridad del Sistema</strong>: Es crucial implementar medidas de seguridad para prevenir el spam y garantizar que solo agentes legítimos contribuyan al proyecto.</li>
+<li><strong>Sincronización y Consistencia</strong>: Asegurar que todos los agentes estén sincronizados y trabajen con la misma versión del modelo y los mismos datos es fundamental para mantener la consistencia.</li>
+<li><strong>Escalabilidad</strong>: A medida que más agentes se unen al proyecto, se deben implementar soluciones escalables para manejar la creciente carga de trabajo.</li>
+</ol>
+<h3>Conclusión</h3>
+<p>Autoresearch@Home representa un paso importante hacia la colaboración abierta y la optimización colectiva en el campo de la IA. Al permitir que múltiples agentes compartan recursos y aprendan unos de otros, este proyecto tiene el potencial de acelerar significativamente el desarrollo de modelos de lenguaje avanzados. Si estás interesado en contribuir o quieres saber más sobre cómo integrar esta tecnología en tus proyectos, visita <a href="https://www.mgatc.com">https://www.mgatc.com</a> para servicios de consultoría y soporte técnico.</p>
+17:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$1f"}}],["$","$L20",null,{"site_section":"blog"}],["$","$L21",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L22",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Automatización & IA"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Introducción a Autoresearch@Home"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Ins..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"12 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"4 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],["$","$L23",null,{"slug":"autoresearch-at-home","title":"Introducción a Autoresearch@Home"}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$24"}}],"$L25","$L26"]}],"$L27"]}]
+28:I[6265,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+29:I[21686,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+25:["$","$L28",null,{"category":"Automatización & IA"}]
+26:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L22",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L22",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+27:["$","$L29",null,{}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]
+2a:I[27201,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+1a:null
+1e:[["$","title","0",{"children":"Introducción a Autoresearch@Home | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Ins..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/autoresearch-at-home/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Introducción a Autoresearch@Home"}],["$","meta","15",{"property":"og:description","content":"Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Ins..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/autoresearch-at-home/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Introducción a Autoresearch@Home"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-03-12"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"Introducción a Autoresearch@Home"}],["$","meta","28",{"name":"twitter:description","content":"Autoresearch@Home es una iniciativa colaborativa que busca aprovechar la potencia de las GPU distribuidas para mejorar colectivamente un modelo de lenguaje. Ins..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L2a","31",{}]]

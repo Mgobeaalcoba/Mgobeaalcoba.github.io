@@ -1,0 +1,152 @@
+1:"$Sreact.fragment"
+3:I[8037,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+4:I[78208,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+5:I[22016,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],""]
+6:I[66158,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+2:T40d,{"@context":"https://schema.org","@type":"Article","headline":"Setup del benchmark","description":"Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes....","url":"https://www.mgatc.com/blog/pandas-vs-polars-performance/","datePublished":"2025-12-07","dateModified":"2025-12-07","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/pandas-vs-polars-performance/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}f:X
+14:X
+14:C
+0:{"buildId":"OjPf6srIBRbhJvVE_LsiO","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","$L3",null,{"site_section":"blog"}],["$","$L4",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L5",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Setup del benchmark"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes...."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"7 de diciembre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"3 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],["$","$L6",null,{"slug":"pandas-vs-polars-performance","title":"Setup del benchmark"}]]}],"$L7","$L8","$L9"]}],"$La"]}],["$Lb","$Lc"],"$Ld"]}],"isPartial":"$@e","staleTime":"$f","varyParams":null},{"rsc":"$L10","isPartial":"$@11","staleTime":"$f","varyParams":null},{"rsc":"$L12","isPartial":"$@13","staleTime":"$f","varyParams":"$14"},{"rsc":"$L15","isPartial":"$@16","staleTime":"$f","varyParams":"$14"}],"isUpgradeableISRFallback":false,"a":"$@17","rootVaryParams":null,"needsRuntimeRequest":"$@18"}
+1a:I[6265,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+1b:I[21686,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+1c:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+1d:"$Sreact.suspense"
+1f:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+20:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+21:I[27201,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+22:I[39756,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+23:I[37457,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+19:Tf5d,<p>Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes.</p>
+<h2>Setup del benchmark</h2>
+<p>Dataset: 50 millones de filas, 12 columnas (similar a nuestra tabla de eventos).</p>
+<pre><code class="language-python">import pandas as pd
+import polars as pl
+import time
+
+# Generamos datos de prueba
+n_rows = 50_000_000
+df_pandas = pd.DataFrame({
+    "user_id": np.random.randint(1, 1_000_000, n_rows),
+    "event_type": np.random.choice(["view", "click", "purchase"], n_rows),
+    "gmv": np.random.exponential(500, n_rows),
+    "created_at": pd.date_range("2025-01-01", periods=n_rows, freq="s"),
+    "country": np.random.choice(["AR", "BR", "MX", "CO", "CL"], n_rows),
+})
+
+df_polars = pl.from_pandas(df_pandas)
+</code></pre>
+<h2>Benchmark 1: GroupBy + Aggregation</h2>
+<pre><code class="language-python"># Pandas
+start = time.time()
+result_pandas = df_pandas.groupby(["country", "event_type"]).agg(
+    total_gmv=("gmv", "sum"),
+    count=("user_id", "count"),
+    unique_users=("user_id", "nunique")
+).reset_index()
+pandas_time = time.time() - start
+
+# Polars
+start = time.time()
+result_polars = df_polars.group_by(["country", "event_type"]).agg([
+    pl.col("gmv").sum().alias("total_gmv"),
+    pl.col("user_id").count().alias("count"),
+    pl.col("user_id").n_unique().alias("unique_users"),
+])
+polars_time = time.time() - start
+
+print(f"Pandas: {pandas_time:.2f}s")   # 18.4s
+print(f"Polars: {polars_time:.2f}s")   # 1.8s
+print(f"Speedup: {pandas_time/polars_time:.1f}x")  # 10.2x
+</code></pre>
+<h2>Benchmark 2: Filtros + Joins</h2>
+<pre><code class="language-python"># Pandas
+start = time.time()
+filtered = df_pandas[
+    (df_pandas["event_type"] == "purchase") &#x26;
+    (df_pandas["gmv"] > 100) &#x26;
+    (df_pandas["country"].isin(["AR", "BR"]))
+]
+merged = filtered.merge(sellers_pandas, on="user_id", how="left")
+result = merged.groupby("country")["gmv"].mean()
+pandas_time = time.time() - start
+
+# Polars - lazy evaluation
+start = time.time()
+result = (
+    df_polars.lazy()
+    .filter(
+        (pl.col("event_type") == "purchase") &#x26;
+        (pl.col("gmv") > 100) &#x26;
+        (pl.col("country").is_in(["AR", "BR"]))
+    )
+    .join(sellers_polars.lazy(), on="user_id", how="left")
+    .group_by("country")
+    .agg(pl.col("gmv").mean())
+    .collect()
+)
+polars_time = time.time() - start
+
+# Pandas: 24.1s | Polars: 2.3s | Speedup: 10.5x
+</code></pre>
+<h2>Uso de memoria</h2>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Pandas</th>
+<th>Polars</th>
+<th>Ahorro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50M filas</td>
+<td>4.8 GB</td>
+<td>1.9 GB</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>100M filas</td>
+<td>9.6 GB</td>
+<td>3.7 GB</td>
+<td>61%</td>
+</tr>
+</tbody>
+</table>
+<p>Polars usa memoria más eficientemente gracias a Arrow columnar format.</p>
+<h2>Cuándo Pandas sigue siendo mejor</h2>
+<ol>
+<li><strong>Ecosistema</strong>: scikit-learn, matplotlib, seaborn — todos hablan Pandas nativamente</li>
+<li><strong>Operaciones string complejas</strong>: Pandas tiene operaciones de string más ricas</li>
+<li><strong>Datos pequeños</strong> (&#x3C; 1M filas): la diferencia no importa</li>
+<li><strong>Interoperabilidad</strong>: más fácil de integrar con código existente</li>
+</ol>
+<h2>Cuándo usar Polars</h2>
+<ol>
+<li>Datasets > 5M filas donde la velocidad importa</li>
+<li>Transformaciones que se pueden expresar con lazy evaluation</li>
+<li>Proyectos nuevos donde podés elegir libremente</li>
+<li>Cuando la memoria es un constraint</li>
+</ol>
+<h2>Conclusión</h2>
+<p>Polars es genuinamente más rápido. El speedup de 10x en groupby/aggregation es real y reproducible. Si empezás un proyecto nuevo hoy y vas a procesar datos grandes, Polars es la elección correcta.</p>
+<p>Para proyectos existentes: migrar no es trivial, la API es diferente. Solo vale la pena si tenés problemas reales de performance.</p>
+7:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$19"}}]
+8:["$","$L1a",null,{"category":"Data & Analytics"}]
+9:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L5",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L5",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+a:["$","$L1b",null,{}]
+b:["$","script","script-0",{"src":"/_next/static/chunks/3eirrjw6ufj0r.js","async":true}]
+c:["$","script","script-1",{"src":"/_next/static/chunks/07lumgg3jqv4b.js","async":true}]
+d:["$","$L1c",null,{"children":["$","$1d",null,{"name":"Next.MetadataOutlet","children":"$@1e"}]}]
+10:["$","$1","h",{"children":[null,["$","$L1f",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$L20",null,{"children":["$","$1d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Setup del benchmark | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes...."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/pandas-vs-polars-performance/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Setup del benchmark"}],["$","meta","15",{"property":"og:description","content":"Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes...."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/pandas-vs-polars-performance/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Setup del benchmark"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2025-12-07"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"Setup del benchmark"}],["$","meta","28",{"name":"twitter:description","content":"Polars promete ser 10-100x más rápido que Pandas. Hice benchmarks reales con datasets del tamaño que procesamos en producción. Los resultados son interesantes...."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L21","31",{}]]}]}]}],null]}]
+12:["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","template":["$","$L23",null,{}]}]]}]
+15:["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","template":["$","$L23",null,{}]}]]}]
+18:true
+1e:null
+f:300
+f:C
+17:0
+11:"$undefined"
+13:"$undefined"
+16:"$undefined"
+e:"$undefined"

@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:I[8037,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/2f18a76h3i82p.js","/_next/static/chunks/2dzz1al671-72.js","/_next/static/chunks/2sdanndxtp-q8.js"],"default"]
+3:I[78208,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/2f18a76h3i82p.js","/_next/static/chunks/2dzz1al671-72.js","/_next/static/chunks/2sdanndxtp-q8.js"],"default"]
+4:I[66289,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/2f18a76h3i82p.js","/_next/static/chunks/2dzz1al671-72.js","/_next/static/chunks/2sdanndxtp-q8.js"],"default"]
+5:I[21686,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/2f18a76h3i82p.js","/_next/static/chunks/2dzz1al671-72.js","/_next/static/chunks/2sdanndxtp-q8.js"],"default"]
+6:I[83114,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/2f18a76h3i82p.js","/_next/static/chunks/2dzz1al671-72.js","/_next/static/chunks/2sdanndxtp-q8.js"],"default"]
+7:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+c:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+d:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+b:X
+27:X
+27:C
+0:{"buildId":"OjPf6srIBRbhJvVE_LsiO","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Layoffs, Hiring & GenAI: The Great Labor Readjustment\",\"description\":\"100% data-driven analysis on mass layoffs in IT and white-collar sectors, hiring trends and their correlation with Generative AI milestones.\",\"url\":\"https://www.mgatc.com/blog/special/layoffs-genai/\",\"datePublished\":\"2026-04-03T00:00:00Z\",\"dateModified\":\"2026-04-03T00:00:00Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/special/layoffs-genai/\"},\"inLanguage\":[\"es\",\"en\"],\"keywords\":\"layoffs, GenAI, AI impact, tech jobs, hiring trends, white collar, labor market, data analysis\",\"articleSection\":\"Special Report\",\"about\":[{\"@type\":\"Thing\",\"name\":\"Generative AI\"},{\"@type\":\"Thing\",\"name\":\"Labor Market\"},{\"@type\":\"Thing\",\"name\":\"Technology Layoffs\"}]}"}}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{"labelKey":"floating_cta_blog","site_section":"special_report"}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/2f18a76h3i82p.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/2dzz1al671-72.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/2sdanndxtp-q8.js","async":true}]],["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lc",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Layoffs, Hiring & GenAI: The Great Labor Readjustment | MGA Tech | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"100% data-driven analysis on mass layoffs in IT and white-collar sectors, hiring trends and their correlation with Generative AI milestones. Interactive charts, verified sources and 1-10 year projections."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"layoffs,tech layoffs 2024 2025,GenAI impact jobs,AI job market,hiring trends,white collar automation,generative AI employment,data-driven labor analysis,IT workforce trends,AI labor market report"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/special/layoffs-genai/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Layoffs, Hiring & GenAI — The Great Labor Readjustment"}],["$","meta","15",{"property":"og:description","content":"Global analysis with verifiable data, interactive charts and 1, 2, 5 and 10-year projections on AI impact on employment."}],"$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23"]}]}]}],null]}],"isPartial":"$@24","staleTime":"$b","varyParams":null},{"rsc":"$L25","isPartial":"$@26","staleTime":"$b","varyParams":"$27"},{"rsc":"$L28","isPartial":"$@29","staleTime":"$b","varyParams":"$27"},{"rsc":"$L2a","isPartial":"$@2b","staleTime":"$b","varyParams":"$27"}],"isUpgradeableISRFallback":false,"a":"$@2c","rootVaryParams":null,"needsRuntimeRequest":"$@2d"}
+2e:I[27201,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+2f:I[39756,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+30:I[37457,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+9:null
+e:["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/special/layoffs-genai/"}]
+f:["$","meta","17",{"property":"og:site_name","content":"MGA Tech"}]
+10:["$","meta","18",{"property":"og:locale","content":"en_US"}]
+11:["$","meta","19",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}]
+12:["$","meta","20",{"property":"og:image:width","content":"1200"}]
+13:["$","meta","21",{"property":"og:image:height","content":"630"}]
+14:["$","meta","22",{"property":"og:image:alt","content":"Layoffs, Hiring & GenAI — Data-Driven Report"}]
+15:["$","meta","23",{"property":"og:locale:alternate","content":"es_AR"}]
+16:["$","meta","24",{"property":"og:type","content":"article"}]
+17:["$","meta","25",{"property":"article:published_time","content":"2026-04-03T00:00:00Z"}]
+18:["$","meta","26",{"property":"article:author","content":"Mariano Gobea Alcoba"}]
+19:["$","meta","27",{"name":"twitter:card","content":"summary_large_image"}]
+1a:["$","meta","28",{"name":"twitter:site","content":"@MGobeaAlcoba"}]
+1b:["$","meta","29",{"name":"twitter:creator","content":"@MGobeaAlcoba"}]
+1c:["$","meta","30",{"name":"twitter:title","content":"Layoffs, Hiring & GenAI — The Great Labor Readjustment"}]
+1d:["$","meta","31",{"name":"twitter:description","content":"100% data-driven analysis on AI impact on jobs. Interactive charts and multi-year projections."}]
+1e:["$","meta","32",{"name":"twitter:image","content":"https://www.mgatc.com/images/logo.png"}]
+1f:["$","meta","33",{"name":"twitter:image:alt","content":"Layoffs, Hiring & GenAI — Data-Driven Report"}]
+20:["$","meta","34",{"name":"twitter:image:width","content":"1200"}]
+21:["$","meta","35",{"name":"twitter:image:height","content":"630"}]
+22:["$","link","36",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}]
+23:["$","$L2e","37",{}]
+25:["$","$1","c",{"children":[null,["$","$L2f",null,{"parallelRouterKey":"children","template":["$","$L30",null,{}]}]]}]
+28:["$","$1","c",{"children":[null,["$","$L2f",null,{"parallelRouterKey":"children","template":["$","$L30",null,{}]}]]}]
+2a:["$","$1","c",{"children":[null,["$","$L2f",null,{"parallelRouterKey":"children","template":["$","$L30",null,{}]}]]}]
+2d:true
+b:300
+b:C
+2c:0
+24:"$undefined"
+26:"$undefined"
+29:"$undefined"
+2b:"$undefined"
+a:"$undefined"

@@ -1,0 +1,227 @@
+1:"$Sreact.fragment"
+9:I[68027,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default",1]
+:HL["/_next/static/chunks/2vk1aq-nwgi6i.css","style"]
+:HL["/_next/static/chunks/36gck4qxcq9p6.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+2:T492,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 7 años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}7:X
+0:{"P":null,"c":["","blog","robust-llm-extractor-websites-typescript",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","robust-llm-extractor-websites-typescript","d",["special","videos"]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0mpl9gy_lazli.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1gfj15o6-upwq.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/128owwa-r12ws.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/02i8boh2pnwzw.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/3vx7k7p5eu9id.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L3"]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La","$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"OjPf6srIBRbhJvVE_LsiO"}
+c:I[7623,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"DataErrorBoundary"]
+d:I[627,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ThemeProvider"]
+e:I[89190,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"LanguageProvider"]
+f:I[97221,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"SupabaseDataProvider"]
+10:I[69272,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+11:I[39756,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+12:I[37457,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+13:I[27943,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/1k0lhgr7gvt20.js"],"default"]
+14:I[6482,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+15:I[20199,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+16:I[79520,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],""]
+18:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+1d:I[97367,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+3:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}],["$","$L15",null,{}]]}]}]}]}],["$","$L16",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L16",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$L17",[["$","script","script-0",{"src":"/_next/static/chunks/3eirrjw6ufj0r.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/07lumgg3jqv4b.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":"$L1c"}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1e"}]}]}],null]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2vk1aq-nwgi6i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+b:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/36gck4qxcq9p6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:I[8037,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+21:I[78208,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+22:I[22016,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],""]
+7:C
+1f:T44f,{"@context":"https://schema.org","@type":"Article","headline":"Desafíos Inherentes en la Extracción de Datos Web con LLMs","description":"En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de comple...","url":"https://www.mgatc.com/blog/robust-llm-extractor-websites-typescript/","datePublished":"2026-03-26","dateModified":"2026-03-26","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/robust-llm-extractor-websites-typescript/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}17:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$1f"}}],["$","$L20",null,{"site_section":"blog"}],["$","$L21",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L22",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Desafíos Inherentes en la Extracción de Datos Web con LLMs"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de comple..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"26 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"13 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],"$L23"]}],"$L24","$L25","$L26"]}],"$L27"]}]
+28:I[66158,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+2a:I[6265,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+2b:I[21686,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/3eirrjw6ufj0r.js","/_next/static/chunks/07lumgg3jqv4b.js"],"default"]
+23:["$","$L28",null,{"slug":"robust-llm-extractor-websites-typescript","title":"Desafíos Inherentes en la Extracción de Datos Web con LLMs"}]
+29:T4cf4,<p>En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de complejidades y fragilidades inherentes. La construcción de pipelines de datos dedicados al scraping de sitios web, con el fin de obtener conjuntos de datos coherentes para análisis, modelado o ingesta en sistemas transaccionales, es una constante lucha contra la variabilidad y la volatilidad del diseño web. La metodología predominante ha implicado la definición manual de selectores CSS o expresiones XPath, un enfoque que, si bien efectivo en condiciones estáticas, es intrínsecamente susceptible a fallos. La más mínima alteración en la estructura DOM de una página, la reubicación de un elemento crítico o la introducción de una nueva clase CSS pueden invalidar por completo los selectores predefinidos, resultando en interrupciones operativas que a menudo se manifiestan en momentos críticos, demandando una intervención manual y una reescritura laboriosa de los parsers afectados.</p>
+<p>La irrupción de los Modelos de Lenguaje de Gran Escala (LLMs) presentó una propuesta aparentemente transformadora: la capacidad de procesar HTML en su forma cruda y, mediante instrucciones en lenguaje natural, extraer datos estructurados en formatos como JSON. La premisa es atractiva: delegar la complejidad del análisis de la estructura y el contenido a un modelo con capacidades semánticas avanzadas, eliminando la necesidad de selectores rígidos. Sin embargo, la implementación práctica de esta visión revela una serie de desafíos no triviales que mitigan significativamente su eficiencia y fiabilidad.</p>
+<h2>Desafíos Inherentes en la Extracción de Datos Web con LLMs</h2>
+<p>La aplicación directa de LLMs para la extracción de datos de páginas web presenta obstáculos fundamentales que deben ser abordados sistemáticamente para lograr una solución robusta:</p>
+<h3>Sobrecarga de Tokens y Ruido Contextual</h3>
+<p>El HTML de una página web moderna no es un documento conciso centrado en el contenido. Por el contrario, está profusamente cargado de elementos de navegación, cabeceras, pies de página, scripts de seguimiento, anuncios y otros componentes estructurales que, si bien son esenciales para la experiencia de usuario, son puramente ruido desde la perspectiva de la extracción de datos del contenido principal. Un típico documento HTML de una página de producto, por ejemplo, puede contener hasta un 80% de elementos irrelevantes para la tarea de extracción de detalles específicos del producto. Alimentar este volumen de información contextual a un LLM consume una proporción desproporcionada del presupuesto de tokens disponible, incrementando los costos computacionales y reduciendo la ventana de contexto efectiva para la información verdaderamente relevante.</p>
+<h3>Malformación de Salida Estructurada (JSON)</h3>
+<p>Aunque los LLMs son capaces de generar JSON, su fiabilidad en la producción de estructuras anidadas complejas o arrays de objetos puede ser inconsistente. La probabilidad de que un LLM genere un JSON malformado —un corchete fuera de lugar, una coma faltante, una cadena sin escape adecuado— aumenta con la complejidad del esquema de salida deseado. Un único error de formato puede provocar el fallo catastrófico de un pipeline de datos downstream, interrumpiendo el flujo de procesamiento y requiriendo un manejo de errores robusto y a menudo manual. La recuperación de datos parciales de una salida malformada es un desafío significativo.</p>
+<h3>Idiosincrasias de URL y Enlaces</h3>
+<p>Los enlaces y referencias de URL en el contenido web son otro foco de complejidad. Las URLs pueden ser relativas, lo que requiere su resolución a una URL absoluta dentro del contexto de la página actual. Además, es común encontrar URLs con parámetros de seguimiento incrustados que deben ser limpiados o normalizados para evitar duplicidades o referencias erróneas. Los enlaces pueden estar encapsulados en formatos de Markdown dentro del texto que un LLM extrae, o bien contener caracteres especiales que requieren un escape adecuado. Estas "pequeñas" inconsistencias se magnifican exponencialmente cuando se procesan miles o millones de páginas, comprometiendo la integridad de los datos extraídos.</p>
+<h3>Repetición de Lógica Boilerplate</h3>
+<p>La implementación de una solución de extracción basada en LLMs de manera ad-hoc para cada proyecto conduce a la reimplementación constante de una serie de pasos estándar. Estos incluyen: la limpieza y preprocesamiento de HTML, la conversión a un formato más amigable para LLMs (como Markdown), la invocación del LLM, el análisis y validación de la salida JSON, y la implementación de mecanismos de recuperación de errores. Este ciclo de desarrollo repetitivo consume recursos de ingeniería valiosos y carece de la estandarización y la reutilización que caracterizan a los sistemas de software maduros.</p>
+<h2>Lightfeed Extractor: Una Solución Integrada y Robusta</h2>
+<p>Reconociendo estas deficiencias operacionales y de diseño, se ha desarrollado Lightfeed Extractor, una biblioteca TypeScript que encapsula y estandariza todo el pipeline desde el HTML crudo hasta la obtención de datos estructurados y validados. Esta biblioteca está diseñada para mitigar los desafíos antes mencionados, proporcionando una base sólida para la construcción de sistemas de extracción de datos web a escala industrial.</p>
+<h3>Conversión Inteligente de HTML a Markdown</h3>
+<p>Uno de los pilares de Lightfeed Extractor es su capacidad para preprocesar HTML de manera inteligente. Antes de ser presentado a un LLM, el documento HTML pasa por un proceso de limpieza que tiene múltiples objetivos:</p>
+<ol>
+<li><strong>Extracción de Contenido Principal</strong>: Identifica y aísla el contenido central de la página, eliminando elementos periféricos como barras de navegación, cabeceras, pies de página, barras laterales y otros bloques no esenciales que contribuyen al ruido contextual. Esto se logra mediante algoritmos heurísticos y análisis de la estructura DOM, optimizando el presupuesto de tokens del LLM y mejorando la relevancia del contexto proporcionado.</li>
+<li><strong>Conversión a Markdown</strong>: El HTML relevante se transforma en un formato Markdown limpio. Markdown es inherentemente más compacto y legible para los LLMs que el HTML crudo, lo que facilita el procesamiento y reduce la probabilidad de errores interpretativos.</li>
+<li><strong>Inclusión Opcional de Imágenes</strong>: Permite la inclusión selectiva de información sobre imágenes (como sus atributos <code>alt</code> y <code>src</code>), lo cual es crucial para la extracción de datos en escenarios donde las imágenes son portadoras de información significativa.</li>
+<li><strong>Limpieza de URLs</strong>: Normaliza y resuelve URLs relativas a absolutas, elimina parámetros de seguimiento superfluos y maneja otros problemas comunes relacionados con los enlaces, garantizando la consistencia y validez de las referencias URL extraídas.</li>
+</ol>
+<h3>Compatibilidad Amplia con LLMs</h3>
+<p>Lightfeed Extractor ha sido diseñado con la interoperabilidad en mente. No impone restricciones sobre el proveedor de LLM subyacente, sino que se integra con cualquier modelo compatible con la interfaz de LangChain. Esto incluye, pero no se limita a, OpenAI (GPT-x), Google Gemini, Anthropic Claude, y modelos de código abierto ejecutados localmente a través de plataformas como Ollama. Esta abstracción permite a los ingenieros seleccionar el LLM más adecuado para sus requisitos de costo, rendimiento y privacidad, sin alterar la lógica de extracción principal.</p>
+<h3>Extracción Tipada y Validación con Zod</h3>
+<p>La fiabilidad de la salida de datos es primordial. Lightfeed Extractor aborda el problema del JSON malformado y la validación de tipos mediante la integración profunda con Zod, una biblioteca de declaración y validación de esquemas de TypeScript. Los usuarios definen sus esquemas de datos deseados utilizando Zod, lo que proporciona una validación en tiempo de ejecución de la estructura y los tipos de datos esperados.</p>
+<p>Consideremos un esquema para extraer datos de una página de producto:</p>
+<pre><code class="language-typescript">import { z } from 'zod';
+
+const productSchema = z.object({
+  name: z.string().describe("Nombre completo del producto"),
+  price: z.number().positive().describe("Precio del producto en formato numérico"),
+  currency: z.string().length(3).describe("Código de divisa ISO 4217, e.g., 'USD', 'EUR'"),
+  description: z.string().optional().describe("Descripción detallada del producto"),
+  availability: z.enum(['in_stock', 'out_of_stock', 'pre_order']).describe("Estado de disponibilidad del producto"),
+  sku: z.string().optional().describe("Número de referencia del producto"),
+  images: z.array(z.object({
+    url: z.string().url().describe("URL de la imagen del producto"),
+    altText: z.string().optional().describe("Texto alternativo de la imagen")
+  })).optional().describe("Array de URLs e.g. [{url: '...', altText: '...'}]"),
+  specifications: z.record(z.string(), z.string()).optional().describe("Objeto con especificaciones técnicas (clave-valor)"),
+  reviewsCount: z.number().int().nonnegative().optional().describe("Número total de reseñas"),
+  averageRating: z.number().min(0).max(5).optional().describe("Puntuación media de las reseñas")
+});
+
+type Product = z.infer&#x3C;typeof productSchema>;
+</code></pre>
+<p>Este esquema no solo define la estructura esperada, sino que también incluye descripciones semánticas (<code>.describe()</code>) que pueden ser utilizadas para generar prompts más efectivos para el LLM. La validación con Zod se ejecuta automáticamente sobre la salida del LLM, garantizando que los datos extraídos se adhieran estrictamente a la estructura y los tipos definidos.</p>
+<h3>Recuperación de Datos Parciales</h3>
+<p>Uno de los diferenciadores críticos de Lightfeed Extractor es su estrategia de recuperación de errores. En lugar de fallar completamente ante una salida JSON malformada por el LLM, la biblioteca intenta recuperar la mayor cantidad posible de datos válidos. Si un array de veinte productos se procesa y diecinueve de ellos cumplen con el esquema Zod, pero uno está malformado, Lightfeed Extractor retornará los diecinueve productos válidos junto con información sobre el error del producto defectuoso. Esta capacidad de "recuperación parcial" es fundamental para la resiliencia en entornos de producción, donde la perfección es rara y la continuidad del procesamiento es esencial.</p>
+<h3>Automatización de Navegadores con Playwright</h3>
+<p>La extracción de datos a menudo requiere más que solo procesar HTML estático. Muchos sitios web dependen de JavaScript para cargar contenido dinámicamente o implementan mecanismos anti-bot que requieren una interacción simulada con el navegador. Lightfeed Extractor integra de manera nativa la automatización de navegadores a través de Playwright, una potente biblioteca para el control de navegadores headless y con interfaz gráfica.</p>
+<p>Esto permite:</p>
+<ul>
+<li><strong>Renderizado de Contenido Dinámico</strong>: Ejecutar JavaScript para renderizar contenido que de otro modo no estaría presente en el HTML inicial.</li>
+<li><strong>Simulación de Interacción</strong>: Clics, desplazamiento, llenado de formularios para acceder a datos ocultos o navegar por secciones específicas.</li>
+<li><strong>Bypass de Medidas Anti-bot</strong>: Implementa parches y configuraciones para emular el comportamiento de un navegador real, minimizando la detección por sistemas de protección anti-scraping.
+La integración con Playwright puede ejecutarse localmente, en entornos serverless o en infraestructuras remotas, proporcionando flexibilidad operacional.</li>
+</ul>
+<h3>Agente de Navegación Dirigido por IA</h3>
+<p>Para escenarios más complejos que requieren una interacción dinámica y adaptativa con el sitio web, Lightfeed Extractor se complementa con <code>@lightfeed/browser-agent</code>. Este componente permite la navegación guiada por IA, donde un LLM puede interpretar el contenido de la página y decidir las acciones a realizar (por ejemplo, hacer clic en un botón de "siguiente página", seleccionar un filtro, o navegar a una categoría específica) antes de iniciar el proceso de extracción. Esto eleva la capacidad de extracción de datos de un modelo reactivo a uno proactivo y adaptativo.</p>
+<h2>Implementación Técnica y Ejemplos de Código</h2>
+<p>La utilización de Lightfeed Extractor es directa y se integra perfectamente en entornos TypeScript.</p>
+<h3>Instalación</h3>
+<p>La biblioteca se instala mediante npm:</p>
+<pre><code class="language-bash">npm install @lightfeed/extractor zod
+</code></pre>
+<h3>Configuración del Extractor</h3>
+<p>Primero, se instancia el extractor, proporcionándole un LLM compatible con LangChain. Aquí se muestra un ejemplo con OpenAI:</p>
+<pre><code class="language-typescript">import { Extractor } from '@lightfeed/extractor';
+import { ChatOpenAI } from '@langchain/openai'; // O cualquier otro LLM compatible con LangChain
+import { z } from 'zod';
+
+// Definir el esquema de datos usando Zod
+const articleSchema = z.object({
+  title: z.string().describe("Título principal del artículo"),
+  author: z.string().optional().describe("Nombre del autor del artículo"),
+  publishDate: z.string().transform(str => new Date(str)).optional().describe("Fecha de publicación en formato YYYY-MM-DD"),
+  tags: z.array(z.string()).optional().describe("Lista de etiquetas o categorías"),
+  contentSummary: z.string().optional().describe("Un breve resumen del contenido del artículo"),
+  mainImageUrl: z.string().url().optional().describe("URL de la imagen principal del artículo"),
+});
+
+// Inicializar el LLM
+const llm = new ChatOpenAI({
+  model: "gpt-4o", // O "gpt-3.5-turbo", etc.
+  temperature: 0, // Para una salida más consistente
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+// Instanciar el extractor con el LLM
+const extractor = new Extractor({ llm });
+</code></pre>
+<h3>Extracción de Datos</h3>
+<p>Para realizar una extracción, se invoca el método <code>extract</code> con el HTML y el esquema Zod:</p>
+<pre><code class="language-typescript">async function extractArticleData(htmlContent: string) {
+  try {
+    const result = await extractor.extract({
+      html: htmlContent,
+      schema: articleSchema,
+      instruction: "Extrae la información clave del siguiente artículo de blog.",
+      // Opciones de limpieza de HTML
+      htmlCleanOptions: {
+        removeHeadings: false, // Mantener encabezados
+        removeFooters: true,
+        removeNavigations: true,
+        stripTags: ['script', 'style', 'noscript'], // Eliminar tags específicos
+        includeImages: false, // No incluir info de imágenes por defecto
+        cleanUrls: true,
+      },
+      // Configuración de Playwright si se necesita renderizado JS
+      playwrightOptions: {
+        // browserType: 'chromium', // 'chromium', 'firefox', 'webkit'
+        // launchOptions: { headless: true },
+        // navigationOptions: { waitUntil: 'networkidle' }
+      }
+    });
+
+    if (result.success) {
+      console.log("Datos extraídos con éxito:", result.data);
+      // result.data es de tipo z.infer&#x3C;typeof articleSchema>
+      return result.data;
+    } else {
+      console.error("Fallo en la extracción. Errores:", result.errors);
+      if (result.partialData) {
+        console.log("Datos parciales recuperados:", result.partialData);
+      }
+      return null;
+    }
+  } catch (error) {
+    console.error("Error inesperado durante la extracción:", error);
+    return null;
+  }
+}
+
+// Ejemplo de uso con un HTML ficticio
+const sampleHtml = `
+  &#x3C;!DOCTYPE html>
+  &#x3C;html>
+  &#x3C;head>&#x3C;title>Mi Artículo Genial&#x3C;/title>&#x3C;/head>
+  &#x3C;body>
+    &#x3C;nav>...&#x3C;/nav>
+    &#x3C;header>&#x3C;h1>Mi Artículo Genial&#x3C;/h1>&#x3C;/header>
+    &#x3C;article>
+      &#x3C;h2>Introducción&#x3C;/h2>
+      &#x3C;p>Este es un párrafo de introducción sobre algo interesante.&#x3C;/p>
+      &#x3C;p>Publicado el &#x3C;time datetime="2023-10-26">26 de Octubre de 2023&#x3C;/time> por John Doe.&#x3C;/p>
+      &#x3C;img src="https://example.com/image.jpg" alt="Imagen principal">
+      &#x3C;section>
+        &#x3C;h3>Contenido Principal&#x3C;/h3>
+        &#x3C;p>Aquí va el contenido real del artículo.&#x3C;/p>
+        &#x3C;p>Etiquetas: &#x3C;a href="#">Tecnología&#x3C;/a>, &#x3C;a href="#">IA&#x3C;/a>&#x3C;/p>
+      &#x3C;/section>
+    &#x3C;/article>
+    &#x3C;footer>...&#x3C;/footer>
+  &#x3C;/body>
+  &#x3C;/html>
+`;
+
+extractArticleData(sampleHtml);
+</code></pre>
+<h3>Manejo de Salida y Errores</h3>
+<p>El objeto <code>result</code> retornado por <code>extract</code> contiene una propiedad <code>success</code> booleana. Si es <code>true</code>, los datos válidos se encuentran en <code>result.data</code>. Si es <code>false</code>, <code>result.errors</code> contendrá detalles sobre los fallos de validación o parsing. Crucialmente, <code>result.partialData</code> contendrá cualquier dato que haya podido ser extraído y validado antes de que se encontrara un error irrecuperable.</p>
+<pre><code class="language-typescript">// Ejemplo de manejo de un resultado
+const extractionResult = await extractor.extract({ html: malformedHtml, schema: articleSchema });
+
+if (!extractionResult.success) {
+  console.error("La extracción falló.");
+  for (const error of extractionResult.errors) {
+    console.error(`- Campo: ${error.path.join('.') || 'N/A'}, Mensaje: ${error.message}`);
+  }
+  if (extractionResult.partialData) {
+    console.warn("Se recuperaron datos parciales:", extractionResult.partialData);
+    // Aquí puedes decidir qué hacer con los datos parciales
+  }
+}
+</code></pre>
+<p>La robustez de esta aproximación reside en la combinación de un preprocesamiento inteligente del contenido, una interfaz de LLM flexible, una validación estricta y recuperable con Zod, y la capacidad de interactuar dinámicamente con las páginas web a través de Playwright.</p>
+<h2>Conclusión</h2>
+<p>La extracción de datos estructurados de la web es una tarea compleja que requiere un enfoque multifacético y robusto. Si bien los LLMs ofrecen un potencial sin precedentes para interpretar y extraer información de texto semiestructurado como el HTML, su aplicación directa se ve obstaculizada por desafíos prácticos relacionados con la gestión de tokens, la fiabilidad de la salida y la diversidad de las estructuras web. Lightfeed Extractor ha sido desarrollado para superar estos obstáculos, proporcionando una solución integral y de grado de producción que optimiza el preprocesamiento de HTML, garantiza la tipificación segura de datos con Zod, permite la recuperación inteligente de errores y se integra con potentes herramientas de automatización de navegadores. Al encapsular la complejidad subyacente, permite a los ingenieros de datos concentrarse en la definición de los datos deseados, en lugar de en la gestión de las idiosincrasias de la web y los LLMs. Esta biblioteca representa un avance significativo hacia la democratización y robustez de los pipelines de extracción de datos web basados en inteligencia artificial.</p>
+<p>Para obtener más información sobre cómo podemos ayudar a optimizar sus pipelines de datos y soluciones de ingeniería de IA, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> para servicios de consultoría.</p>
+2c:I[27201,["/_next/static/chunks/0mpl9gy_lazli.js","/_next/static/chunks/1gfj15o6-upwq.js","/_next/static/chunks/128owwa-r12ws.js","/_next/static/chunks/02i8boh2pnwzw.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+24:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$29"}}]
+25:["$","$L2a",null,{"category":"Data & Analytics"}]
+26:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L22",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L22",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+27:["$","$L2b",null,{}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]
+1a:null
+1e:[["$","title","0",{"children":"Desafíos Inherentes en la Extracción de Datos Web con LLMs | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de comple..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/robust-llm-extractor-websites-typescript/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Desafíos Inherentes en la Extracción de Datos Web con LLMs"}],["$","meta","15",{"property":"og:description","content":"En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de comple..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/robust-llm-extractor-websites-typescript/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Desafíos Inherentes en la Extracción de Datos Web con LLMs"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-03-26"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"Desafíos Inherentes en la Extracción de Datos Web con LLMs"}],["$","meta","28",{"name":"twitter:description","content":"En el ámbito de la ingeniería de datos, la extracción de información estructurada a partir de fuentes web ha sido, tradicionalmente, una tarea plagada de comple..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L2c","31",{}]]
