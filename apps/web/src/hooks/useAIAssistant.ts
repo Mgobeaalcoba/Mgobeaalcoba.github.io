@@ -1,7 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { events } from '@/lib/gtag';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { supabase } from '@/lib/supabase';
 import { getCareerExperienceYears } from '@/lib/experience';
 
 export interface ChatMessage {
@@ -179,7 +178,6 @@ export function useAIAssistant() {
             const isProxyValid = apiProxyUrl.length > 0 && !apiProxyUrl.includes('tu-instancia.com');
 
             let responseContent = '';
-            const startTime = Date.now();
 
             if (isProxyValid) {
                 // Production mode using n8n webhook proxy
@@ -222,26 +220,6 @@ export function useAIAssistant() {
                 responseContent = data.choices[0].message.content;
             } else {
                 throw new Error('No API Key or Webhook URL configured.');
-            }
-
-            const endTime = Date.now();
-            const responseTime = Math.floor((endTime - startTime) / 1000);
-
-            // Real-time logging to Supabase (Async fire-and-forget)
-            // Logging AFTER response to capture responseTime and conversion status correctly
-            if (user?.email) {
-                supabase.from('assistant_logs').insert({
-                    user_name: user.name,
-                    user_email: user.email,
-                    content: content,
-                    // Simple logic to tag intent/sentiment for the demo
-                    intent: content.toLowerCase().includes('consult') || responseContent.toLowerCase().includes('reunion') ? 'consultancy' : 'general',
-                    sentiment: 'neutral',
-                    conversion: /\[ACTION:CONTACT\]/.test(responseContent),
-                    response_time: responseTime
-                }).then(({ error }) => {
-                    if (error) console.error('Error logging to Supabase:', error);
-                });
             }
 
             const assistantMessage: ChatMessage = {

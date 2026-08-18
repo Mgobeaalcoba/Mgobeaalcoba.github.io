@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { events } from "@/lib/gtag";
 import { motion } from "framer-motion";
@@ -27,14 +27,11 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-import { Line, Bar, Pie } from "react-chartjs-2";
+import { Line, Pie } from "react-chartjs-2";
 import {
   MOCK_DASHBOARD_DATA,
   getAggregatedKpis,
-  DashboardSession,
-  formatSupabaseData,
 } from "@/data/MockDashboardData";
-import { supabase } from "@/lib/supabase";
 
 ChartJS.register(
   CategoryScale,
@@ -61,37 +58,15 @@ const kpiVariants = {
 export default function AgentDashboard() {
   const { lang } = useLanguage();
   const [timeFilter, setTimeFilter] = useState<"7d" | "30d" | "all">("all");
-  const [realData, setRealData] = useState<DashboardSession[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase
-        .from("assistant_logs")
-        .select("*")
-        .order("created_at", { ascending: true });
-
-      if (error) {
-        console.error("Error fetching logs from Supabase:", error);
-      } else if (data) {
-        setRealData(formatSupabaseData(data));
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const combinedData = useMemo(() => {
-    return [...realData].sort(
-      (a, b) =>
-        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-    );
-  }, [realData]);
+  const combinedData = MOCK_DASHBOARD_DATA;
 
   const filteredData = useMemo(() => {
     if (timeFilter === "all") return combinedData;
-    const now = new Date();
     const days = timeFilter === "7d" ? 7 : 30;
-    const cutoff = new Date(now.setDate(now.getDate() - days)).getTime();
+    const latestTimestamp = new Date(
+      combinedData[combinedData.length - 1].timestamp
+    ).getTime();
+    const cutoff = latestTimestamp - days * 24 * 60 * 60 * 1000;
     return combinedData.filter(
       (s) => new Date(s.timestamp).getTime() >= cutoff
     );
@@ -189,13 +164,13 @@ export default function AgentDashboard() {
         <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
           <ShieldCheck size={24} className="text-sky-400" />
           {lang === "es"
-            ? "Transparency BI: Monitoreo de IA en Tiempo Real"
-            : "Transparency BI: Real-Time AI Monitoring"}
+            ? "Transparency BI: Demostración de monitoreo de IA"
+            : "Transparency BI: AI Monitoring Demo"}
         </h3>
         <p className="text-gray-400 text-sm leading-relaxed max-w-3xl">
           {lang === "es"
-            ? "Este dashboard muestra el rendimiento real de nuestro asistente inteligente. A diferencia de un chat convencional, nuestras soluciones están conectadas a una capa de observabilidad que permite medir conversiones, sentimientos e impacto en el ahorro de tiempo operativo de forma granular."
-            : "This dashboard displays the actual performance of our intelligent assistant. Unlike conventional chats, our solutions are connected to an observability layer that measures conversions, sentiment, and operational time-saving impact in a granular way."}
+            ? "Este dashboard usa datos sintéticos para demostrar cómo una capa de observabilidad puede medir conversiones, sentimientos e impacto en el ahorro de tiempo operativo sin exponer conversaciones ni datos personales."
+            : "This dashboard uses synthetic data to demonstrate how an observability layer can measure conversions, sentiment, and operational time savings without exposing conversations or personal data."}
         </p>
       </div>
 
@@ -284,7 +259,7 @@ export default function AgentDashboard() {
               {lang === "es" ? "Tendencia de Tráfico" : "Traffic Trend"}
             </h3>
             <span className="text-[10px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded-full border border-sky-500/20">
-              Live Data
+              {lang === "es" ? "Datos de demo" : "Demo data"}
             </span>
           </div>
           <div className="flex-1">
@@ -331,10 +306,9 @@ export default function AgentDashboard() {
               Impacto en Disponibilidad
             </h4>
             <p className="text-xs text-gray-400 leading-relaxed">
-              El asistente virtual ha gestionado el{" "}
-              <strong>100% de las consultas de primera línea</strong> sin
-              intervención humana, filtrando prospectos y resolviendo dudas
-              técnicas 24/7.
+              {lang === "es"
+                ? "El escenario simulado muestra cómo un asistente puede gestionar consultas de primera línea, filtrar prospectos y resolver dudas técnicas 24/7."
+                : "The simulated scenario shows how an assistant can handle first-line inquiries, qualify prospects, and resolve technical questions 24/7."}
             </p>
           </div>
         </div>
@@ -348,9 +322,19 @@ export default function AgentDashboard() {
               Ahorro Mensual Proyectado
             </h4>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Basado en el volumen actual, el ahorro operativo se estima en
-              aproximadamente <strong>{kpis.hoursSaved} horas mensuales</strong>{" "}
-              de trabajo administrativo y soporte técnico.
+              {lang === "es" ? (
+                <>
+                  En este conjunto sintético, el ahorro operativo estimado es de
+                  aproximadamente <strong>{kpis.hoursSaved} horas mensuales</strong>{" "}
+                  de trabajo administrativo y soporte técnico.
+                </>
+              ) : (
+                <>
+                  In this synthetic dataset, estimated operational savings are
+                  approximately <strong>{kpis.hoursSaved} hours per month</strong>{" "}
+                  of administrative and technical support work.
+                </>
+              )}
             </p>
           </div>
         </div>
