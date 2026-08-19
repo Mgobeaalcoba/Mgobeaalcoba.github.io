@@ -1135,8 +1135,10 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-share { min-height: 42px; display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px; border: 1px solid var(--signal-line-strong); border-radius: 999px; color: var(--signal-muted); padding: 0 14px; font-size: 12px; font-weight: 700; }
 .mortgage-share:hover { border-color: var(--signal-cyan); color: var(--signal-cyan); }
 .mortgage-source-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; border: 1px solid var(--signal-line); border-radius: 12px; background: color-mix(in srgb,var(--signal-surface-raised) 82%,transparent); padding: 9px; }
-.mortgage-source-strip > span { min-height: 32px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--signal-line); border-radius: 8px; color: var(--signal-muted); padding: 0 10px; font-family: var(--signal-mono); font-size: 10px; }
+.mortgage-source-strip > span, .mortgage-source-strip > a { min-height: 32px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--signal-line); border-radius: 8px; color: var(--signal-muted); padding: 0 10px; font-family: var(--signal-mono); font-size: 10px; }
 .mortgage-source-strip > span:first-child { border-color: rgba(163,230,53,.24); color: var(--signal-lime); }
+.mortgage-source-strip > a { border-color: rgba(34,211,238,.22); color: var(--signal-cyan); }
+.mortgage-source-strip > a:hover { background: rgba(34,211,238,.07); }
 .mortgage-source-strip strong { color: var(--signal-text); }
 .mortgage-panel { min-width: 0; border: 1px solid var(--signal-line); border-radius: 16px; background: var(--signal-surface-raised); padding: 20px; }
 .mortgage-main-grid { display: grid; grid-template-columns: minmax(320px,.8fr) minmax(410px,1.2fr); gap: 14px; align-items: stretch; }
@@ -1308,6 +1310,67 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-methodology > div { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-bottom: 8px; }
 .mortgage-methodology p { border-left: 2px solid var(--signal-line-strong); color: var(--signal-muted); padding-left: 10px; font-size: 10px; line-height: 1.5; }
 .mortgage-methodology strong { color: var(--signal-text); }
+.mortgage-market { display: grid; gap: 18px; scroll-margin-top: 100px; }
+.mortgage-market-signal { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 12px; border: 1px solid var(--signal-line); border-radius: 12px; padding: 14px; }
+.mortgage-market-signal > svg { align-self: start; }
+.mortgage-market-signal strong { color: var(--signal-text); font-size: 13px; }
+.mortgage-market-signal p { max-width: 850px; margin-top: 3px; color: var(--signal-muted); font-size: 10px; line-height: 1.5; }
+.mortgage-market-signal > span { border-radius: 999px; padding: 5px 9px; font-family: var(--signal-mono); font-size: 9px; font-weight: 750; white-space: nowrap; }
+.mortgage-market-signal.is-borrow { border-color: rgba(217,70,239,.23); background: rgba(217,70,239,.045); }
+.mortgage-market-signal.is-borrow > svg, .mortgage-market-signal.is-borrow > span { color: #e879f9; }
+.mortgage-market-signal.is-borrow > span { background: rgba(217,70,239,.1); }
+.mortgage-market-signal.is-neutral { border-color: rgba(251,191,36,.23); background: rgba(251,191,36,.04); }
+.mortgage-market-signal.is-neutral > svg, .mortgage-market-signal.is-neutral > span { color: var(--signal-amber); }
+.mortgage-market-signal.is-neutral > span { background: rgba(251,191,36,.09); }
+.mortgage-market-signal.is-repay { border-color: rgba(163,230,53,.24); background: rgba(163,230,53,.04); }
+.mortgage-market-signal.is-repay > svg, .mortgage-market-signal.is-repay > span { color: var(--signal-lime); }
+.mortgage-market-signal.is-repay > span { background: rgba(163,230,53,.09); }
+.mortgage-market-layout { display: grid; grid-template-columns: minmax(240px,.55fr) minmax(500px,1.45fr); gap: 12px; }
+.mortgage-market-summary, .mortgage-market-visual { min-width: 0; border: 1px solid var(--signal-line); border-radius: 12px; padding: 14px; }
+.mortgage-market-summary > span { color: var(--signal-subtle); font-size: 9px; font-weight: 750; text-transform: uppercase; }
+.mortgage-market-summary > div { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: 1px 8px; margin-top: 12px; }
+.mortgage-market-summary > div svg { grid-row: 1 / 3; align-self: center; color: var(--signal-cyan); }
+.mortgage-market-summary > div strong { color: var(--signal-cyan); font-family: var(--signal-mono); font-size: clamp(2.2rem,4vw,4rem); line-height: .9; letter-spacing: -.06em; }
+.mortgage-market-summary > div em { color: var(--signal-muted); font-family: var(--signal-mono); font-size: 9px; font-style: normal; }
+.mortgage-market-summary > p { margin-top: 13px; color: var(--signal-muted); font-size: 10px; line-height: 1.5; }
+.mortgage-market-summary dl { display: grid; gap: 7px; margin-top: 18px; }
+.mortgage-market-summary dl div { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--signal-line); padding-top: 7px; }
+.mortgage-market-summary dt { color: var(--signal-subtle); font-size: 8px; }
+.mortgage-market-summary dd { color: var(--signal-text); font-family: var(--signal-mono); font-size: 10px; }
+.mortgage-market-visual > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mortgage-market-visual > header > div:first-child { display: flex; align-items: center; gap: 8px; color: var(--signal-text); font-size: 11px; font-weight: 750; }
+.mortgage-market-visual > header svg { color: var(--signal-cyan); }
+.mortgage-market-ranges { display: flex; gap: 4px; }
+.mortgage-market-ranges button { min-height: 30px; border: 1px solid var(--signal-line); border-radius: 7px; color: var(--signal-muted); padding: 0 8px; font-size: 9px; font-weight: 700; }
+.mortgage-market-ranges button.is-active { border-color: var(--signal-cyan); background: rgba(34,211,238,.08); color: var(--signal-cyan); }
+.mortgage-market-chart { margin-top: 7px; overflow: hidden; }
+.mortgage-market-chart svg { width: 100%; min-width: 520px; }
+.mortgage-market-chart text { fill: var(--signal-subtle); font-family: var(--signal-mono); font-size: 8px; }
+.mortgage-market-chart__repay { fill: rgba(163,230,53,.06); }
+.mortgage-market-chart__neutral { fill: rgba(251,191,36,.035); }
+.mortgage-market-chart__borrow { fill: rgba(217,70,239,.055); }
+.mortgage-market-chart__quartile { stroke: var(--signal-line-strong); stroke-dasharray: 3 5; }
+.mortgage-market-chart__median { stroke: rgba(251,191,36,.8); stroke-dasharray: 7 5; }
+.mortgage-market-chart__line { fill: none; stroke: var(--signal-cyan); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 5px rgba(34,211,238,.28)); }
+.mortgage-market-chart__current { fill: var(--signal-cyan); stroke: var(--signal-bg); stroke-width: 2; }
+.mortgage-market-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+.mortgage-market-legend span { border-radius: 999px; padding: 3px 7px; font-size: 8px; }
+.mortgage-market-legend .is-repay { background: rgba(163,230,53,.08); color: var(--signal-lime); }
+.mortgage-market-legend .is-neutral { background: rgba(251,191,36,.08); color: var(--signal-amber); }
+.mortgage-market-legend .is-borrow { background: rgba(217,70,239,.08); color: #e879f9; }
+.mortgage-market-personal { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8px; }
+.mortgage-market-personal article { border: 1px solid var(--signal-line); border-radius: 11px; background: color-mix(in srgb,var(--signal-surface) 58%,transparent); padding: 13px; }
+.mortgage-market-personal span { color: var(--signal-subtle); font-size: 8px; font-weight: 750; text-transform: uppercase; }
+.mortgage-market-personal strong { display: block; margin-top: 5px; color: var(--signal-cyan); font-family: var(--signal-mono); font-size: 20px; }
+.mortgage-market-personal p { margin-top: 5px; color: var(--signal-muted); font-size: 9px; line-height: 1.5; }
+.mortgage-market-personal article.is-borrow { border-color: rgba(217,70,239,.2); }
+.mortgage-market-personal article.is-neutral { border-color: rgba(251,191,36,.2); }
+.mortgage-market-personal article.is-repay { border-color: rgba(163,230,53,.2); }
+.mortgage-market-fundamentals article { min-height: 120px; }
+.mortgage-market-methodology { margin-top: -4px; }
+.mortgage-market-sources { display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--signal-line); padding-top: 12px; }
+.mortgage-market-sources a { min-height: 31px; display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--signal-line); border-radius: 8px; color: var(--signal-muted); padding: 0 9px; font-size: 8px; font-weight: 700; }
+.mortgage-market-sources a:hover { border-color: var(--signal-cyan); color: var(--signal-cyan); }
 .mortgage-disclaimer { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; border: 1px solid var(--signal-line); border-radius: 12px; background: var(--signal-surface); padding: 14px; }
 .mortgage-disclaimer > div:first-child { display: flex; max-width: 740px; align-items: flex-start; gap: 9px; color: var(--signal-subtle); }
 .mortgage-disclaimer > div:first-child svg { flex: 0 0 auto; }
@@ -1323,7 +1386,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-error button { min-height: 38px; border: 1px solid var(--signal-line-strong); border-radius: 9px; color: var(--signal-cyan); padding: 0 12px; font-size: 11px; font-weight: 700; }
 
 @media (max-width: 1100px) {
-  .mortgage-main-grid, .mortgage-scenario-layout { grid-template-columns: 1fr; }
+  .mortgage-main-grid, .mortgage-scenario-layout, .mortgage-market-layout { grid-template-columns: 1fr; }
   .mortgage-fundamentals { grid-template-columns: 1fr 1fr; }
   .mortgage-comparison-grid { grid-template-columns: repeat(2,1fr); }
 }
@@ -1336,7 +1399,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
   .mortgage-tool__header p { font-size: 14px; }
   .mortgage-share { width: fit-content; }
   .mortgage-source-strip { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-  .mortgage-source-strip > span { flex: 0 0 auto; }
+  .mortgage-source-strip > span, .mortgage-source-strip > a { flex: 0 0 auto; }
   .mortgage-panel { border-radius: 13px; padding: 14px; }
   .mortgage-main-grid { display: grid; grid-template-columns: 1fr; }
   .mortgage-result-panel { order: -1; }
@@ -1354,7 +1417,10 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
   .mortgage-comparison-grid article { scroll-snap-align: start; }
   .mortgage-fundamentals { display: grid; grid-auto-columns: minmax(210px,72vw); grid-auto-flow: column; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; }
   .mortgage-fundamentals article { scroll-snap-align: start; }
-  .mortgage-scenario-chart { overflow-x: auto; }
+  .mortgage-scenario-chart, .mortgage-market-visual { overflow-x: auto; }
+  .mortgage-market-signal { grid-template-columns: auto 1fr; }
+  .mortgage-market-signal > span { grid-column: 2; width: fit-content; }
+  .mortgage-market-personal { grid-template-columns: 1fr; }
   .mortgage-methodology > div { grid-template-columns: 1fr; }
   .mortgage-disclaimer { display: grid; }
   .mortgage-source-links { flex-wrap: wrap; }
@@ -1365,6 +1431,9 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
   .mortgage-fundamentals { grid-auto-columns: minmax(190px,80vw); }
   .mortgage-scenario-presets { grid-template-columns: 1fr; }
   .mortgage-horizon-grid { grid-template-columns: 1fr 1fr; }
+  .mortgage-market-visual > header { display: grid; }
+  .mortgage-market-ranges { width: 100%; }
+  .mortgage-market-ranges button { flex: 1; }
 }
 
 @media (max-width: 820px) {

@@ -8,9 +8,58 @@ export interface MortgageProjectionPoint {
   projectedUva: number;
 }
 
+export type UvaDollarSignal = 'borrow' | 'neutral' | 'repay';
+
+export interface UvaDollarStatistics {
+  current: number;
+  mean: number;
+  median: number;
+  percentile25: number;
+  percentile75: number;
+  currentPercentile: number;
+  signal: UvaDollarSignal;
+}
+
 export function clampNumber(value: number, minimum: number, maximum: number): number {
   if (!Number.isFinite(value)) return minimum;
   return Math.min(Math.max(value, minimum), maximum);
+}
+
+export function quantile(values: number[], percentile: number): number {
+  const sorted = values
+    .filter((value) => Number.isFinite(value))
+    .sort((left, right) => left - right);
+  if (sorted.length === 0) return 0;
+  if (sorted.length === 1) return sorted[0];
+
+  const position = clampNumber(percentile, 0, 1) * (sorted.length - 1);
+  const lowerIndex = Math.floor(position);
+  const upperIndex = Math.ceil(position);
+  const weight = position - lowerIndex;
+  return sorted[lowerIndex] * (1 - weight) + sorted[upperIndex] * weight;
+}
+
+export function calculateUvaDollarStatistics(values: number[]): UvaDollarStatistics | null {
+  const validValues = values.filter((value) => Number.isFinite(value) && value > 0);
+  if (validValues.length < 2) return null;
+
+  const current = validValues[validValues.length - 1];
+  const percentile25 = quantile(validValues, 0.25);
+  const median = quantile(validValues, 0.5);
+  const percentile75 = quantile(validValues, 0.75);
+  const currentPercentile = (
+    validValues.filter((value) => value <= current).length / validValues.length
+  ) * 100;
+
+  return {
+    current,
+    mean: validValues.reduce((total, value) => total + value, 0) / validValues.length,
+    median,
+    percentile25,
+    percentile75,
+    currentPercentile,
+    signal: current <= percentile25 ? 'borrow' : current >= percentile75 ? 'repay' : 'neutral',
+  };
 }
 
 export function annualEffectiveToMonthlyRate(annualEffectiveRate: number): number {

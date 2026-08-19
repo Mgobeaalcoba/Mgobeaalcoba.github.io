@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AlertTriangle,
+  ArrowDownRight,
+  ArrowUpRight,
   Banknote,
   Calculator,
   Check,
   ChevronDown,
   CircleHelp,
+  DollarSign,
   ExternalLink,
   Home,
   Info,
@@ -24,15 +27,19 @@ import { events } from '@/lib/gtag';
 import {
   annualEffectiveToMonthlyRate,
   buildMortgageProjection,
+  calculateUvaDollarStatistics,
   clampNumber,
   frenchInstallment,
   type MortgageProjectionPoint,
+  type UvaDollarSignal,
+  type UvaDollarStatistics,
 } from '@/lib/mortgageCalculations';
 
 type Currency = 'USD' | 'ARS';
 type ApplicantProfile = 'salary' | 'account' | 'public' | 'employee' | 'monotributo' | 'any';
 type ScenarioMode = 'same' | 'lag' | 'frozen' | 'custom';
 type ShareStatus = 'idle' | 'shared' | 'copied' | 'unavailable';
+type MarketRange = '1y' | '3y' | '5y' | 'max';
 
 interface MortgageProduct {
   id: string;
@@ -64,10 +71,34 @@ interface MortgageSnapshot {
   schemaVersion: number;
   generatedAt: string;
   sourceUpdatedAt: string;
-  sources: { mortgages: string; uva: string; mep: string };
+  sources: {
+    mortgages: string;
+    uva: string;
+    mep: string;
+    mepHistory?: string;
+    mepMethodology?: string;
+  };
   uva: { date: string; value: number };
   mep: { date: string; value: number };
+  marketContext?: UvaDollarContext;
   products: MortgageProduct[];
+}
+
+interface UvaDollarPoint {
+  date: string;
+  uvaArs: number;
+  mepArs: number;
+  uvaPerUsd: number;
+}
+
+interface UvaDollarContext {
+  methodologyVersion: number;
+  metric: 'uva-per-usd-mep';
+  firstDate: string;
+  lastDate: string;
+  officialUva: boolean;
+  reconstructedMep: boolean;
+  points: UvaDollarPoint[];
 }
 
 interface ProductResult {
@@ -76,6 +107,8 @@ interface ProductResult {
   installmentUva: number;
   requiredIncome: number;
 }
+
+type AnalyticsConfigurationState = Record<string, string | number | boolean>;
 
 const DESTINATIONS = [
   'Vivienda propia, única y permanente',
@@ -116,6 +149,28 @@ function isValidSnapshot(payload: unknown): payload is MortgageSnapshot {
   );
 }
 
+function isValidMarketContext(payload: unknown): payload is UvaDollarContext {
+  if (!payload || typeof payload !== 'object') return false;
+  const candidate = payload as Partial<UvaDollarContext>;
+  if (
+    candidate.methodologyVersion !== 1
+    || candidate.metric !== 'uva-per-usd-mep'
+    || !Array.isArray(candidate.points)
+    || candidate.points.length < 365
+    || candidate.points.length > 10_000
+  ) return false;
+
+  return candidate.points.every((point) => (
+    Boolean(point)
+    && /^\d{4}-\d{2}-\d{2}$/.test(point.date)
+    && !Number.isNaN(Date.parse(`${point.date}T00:00:00Z`))
+    && finite(point.uvaArs) > 0
+    && finite(point.mepArs) > 0
+    && finite(point.uvaPerUsd) >= 0.01
+    && finite(point.uvaPerUsd) <= 10
+  ));
+}
+
 function isShareCancellation(error: unknown): boolean {
   if (!error || typeof error !== 'object') return false;
   const candidate = error as { name?: unknown; message?: unknown };
@@ -147,6 +202,30 @@ function formatNumber(value: number, decimals = 0): string {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(value);
+}
+
+function downPaymentBand(value: number): string {
+  if (value < 20) return '05_19';
+  if (value < 30) return '20_29';
+  if (value < 40) return '30_39';
+  if (value < 50) return '40_49';
+  return '50_plus';
+}
+
+function filterMarketPoints(points: UvaDollarPoint[], range: MarketRange): UvaDollarPoint[] {
+  if (points.length === 0 || range === 'max') return points;
+  const years = range === '1y' ? 1 : range === '3y' ? 3 : 5;
+  const lastDate = new Date(`${points.at(-1)?.date}T00:00:00Z`);
+  lastDate.setUTCFullYear(lastDate.getUTCFullYear() - years);
+  const cutoff = lastDate.toISOString().slice(0, 10);
+  return points.filter((point) => point.date >= cutoff);
+}
+
+function formatPercentile(value: number): string {
+  if (!Number.isFinite(value)) return '—';
+  if (value > 0 && value < 1) return '<1';
+  if (value > 99 && value < 100) return '>99';
+  return formatNumber(value, 0);
 }
 
 function formatDate(value: string, lang: 'es' | 'en'): string {
@@ -252,6 +331,73 @@ function EffortChart({ points, lang }: { points: MortgageProjectionPoint[]; lang
   );
 }
 
+function UvaDollarChart({
+  points,
+  statistics,
+  lang,
+}: {
+  points: UvaDollarPoint[];
+  statistics: UvaDollarStatistics;
+  lang: 'es' | 'en';
+}) {
+  if (points.length < 2) return null;
+  const width = 900;
+  const height = 310;
+  const padding = { top: 22, right: 44, bottom: 42, left: 52 };
+  const chartWidth = width - padding.left - padding.right;
+  const chartHeight = height - padding.top - padding.bottom;
+  const rawMinimum = Math.min(...points.map((point) => point.uvaPerUsd));
+  const rawMaximum = Math.max(...points.map((point) => point.uvaPerUsd));
+  const rangePadding = Math.max(0.04, (rawMaximum - rawMinimum) * 0.08);
+  const minimum = Math.max(0, rawMinimum - rangePadding);
+  const maximum = rawMaximum + rangePadding;
+  const valueRange = Math.max(0.01, maximum - minimum);
+  const toX = (index: number) => padding.left + (index / (points.length - 1)) * chartWidth;
+  const toY = (value: number) => padding.top + chartHeight - ((value - minimum) / valueRange) * chartHeight;
+  const sampleEvery = Math.max(1, Math.ceil(points.length / 520));
+  const sampled = points.filter((_, index) => index % sampleEvery === 0 || index === points.length - 1);
+  const sampledPath = sampled.map((point, index) => {
+    const sourceIndex = index === sampled.length - 1
+      ? points.length - 1
+      : Math.min(index * sampleEvery, points.length - 1);
+    return `${index === 0 ? 'M' : 'L'} ${toX(sourceIndex)} ${toY(point.uvaPerUsd)}`;
+  }).join(' ');
+  const dateTicks = [0, Math.floor((points.length - 1) / 2), points.length - 1];
+  const formatTickDate = (date: string) => new Intl.DateTimeFormat(
+    lang === 'es' ? 'es-AR' : 'en-US',
+    { month: 'short', year: 'numeric', timeZone: 'UTC' },
+  ).format(new Date(`${date}T00:00:00Z`));
+
+  return (
+    <div
+      className="mortgage-market-chart"
+      role="img"
+      aria-label={lang === 'es'
+        ? `Evolución histórica de UVA por dólar MEP. Valor actual ${statistics.current.toFixed(2)}, mediana ${statistics.median.toFixed(2)}.`
+        : `Historical UVA per MEP dollar. Current value ${statistics.current.toFixed(2)}, median ${statistics.median.toFixed(2)}.`}
+    >
+      <svg viewBox={`0 0 ${width} ${height}`}>
+        <rect x={padding.left} y={padding.top} width={chartWidth} height={Math.max(0, toY(statistics.percentile75) - padding.top)} className="mortgage-market-chart__repay" />
+        <rect x={padding.left} y={toY(statistics.percentile75)} width={chartWidth} height={Math.max(0, toY(statistics.percentile25) - toY(statistics.percentile75))} className="mortgage-market-chart__neutral" />
+        <rect x={padding.left} y={toY(statistics.percentile25)} width={chartWidth} height={Math.max(0, padding.top + chartHeight - toY(statistics.percentile25))} className="mortgage-market-chart__borrow" />
+        {[statistics.percentile25, statistics.median, statistics.percentile75].map((value, index) => (
+          <g key={`${value}-${index}`}>
+            <line x1={padding.left} y1={toY(value)} x2={width - padding.right} y2={toY(value)} className={index === 1 ? 'mortgage-market-chart__median' : 'mortgage-market-chart__quartile'} />
+            <text x={width - padding.right + 7} y={toY(value)} dominantBaseline="middle">{formatNumber(value, 2)}</text>
+          </g>
+        ))}
+        <path d={sampledPath} className="mortgage-market-chart__line" />
+        <circle cx={toX(points.length - 1)} cy={toY(statistics.current)} r="4.5" className="mortgage-market-chart__current" />
+        {dateTicks.map((index) => (
+          <text key={points[index].date} x={toX(index)} y={height - 12} textAnchor={index === 0 ? 'start' : index === points.length - 1 ? 'end' : 'middle'}>
+            {formatTickDate(points[index].date)}
+          </text>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export default function MortgageUvaCalculator() {
   const { lang } = useLanguage();
   const [snapshot, setSnapshot] = useState<MortgageSnapshot | null>(null);
@@ -275,7 +421,11 @@ export default function MortgageUvaCalculator() {
   const [monthlyUvaChange, setMonthlyUvaChange] = useState(2);
   const [monthlyIncomeChange, setMonthlyIncomeChange] = useState(2);
   const [horizonYears, setHorizonYears] = useState(5);
+  const [marketRange, setMarketRange] = useState<MarketRange>('5y');
   const [shareStatus, setShareStatus] = useState<ShareStatus>('idle');
+  const hasTrackedToolView = useRef(false);
+  const previousConfiguration = useRef<AnalyticsConfigurationState | null>(null);
+  const previousScenario = useRef<AnalyticsConfigurationState | null>(null);
 
   const loadSnapshot = async () => {
     setLoading(true);
@@ -287,8 +437,10 @@ export default function MortgageUvaCalculator() {
       if (!isValidSnapshot(payload)) throw new Error('INVALID_SNAPSHOT');
       setSnapshot(payload);
       setExchangeRate(payload.mep.value);
+      events.mortgageDataLoad('success', 'retry', payload.products.length);
     } catch {
       setLoadError(true);
+      events.mortgageDataLoad('error', 'retry');
     } finally {
       setLoading(false);
     }
@@ -307,10 +459,14 @@ export default function MortgageUvaCalculator() {
           setSnapshot(payload);
           setExchangeRate(payload.mep.value);
           setLoadError(false);
+          events.mortgageDataLoad('success', 'initial', payload.products.length);
         }
       })
       .catch(() => {
-        if (!cancelled) setLoadError(true);
+        if (!cancelled) {
+          setLoadError(true);
+          events.mortgageDataLoad('error', 'initial');
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -415,12 +571,184 @@ export default function MortgageUvaCalculator() {
       .sort((left, right) => left - right);
   }, [effectiveHorizonYears]);
 
+  const allMarketPoints = useMemo<UvaDollarPoint[]>(() => {
+    if (!isValidMarketContext(snapshot?.marketContext)) return [];
+    return snapshot.marketContext.points;
+  }, [snapshot]);
+
+  const displayedMarketPoints = useMemo<UvaDollarPoint[]>(() => {
+    return filterMarketPoints(allMarketPoints, marketRange);
+  }, [allMarketPoints, marketRange]);
+
+  const marketStatistics = useMemo(
+    () => calculateUvaDollarStatistics(displayedMarketPoints.map((point) => point.uvaPerUsd)),
+    [displayedMarketPoints],
+  );
+
+  const analyticsConfiguration = useMemo<AnalyticsConfigurationState>(() => ({
+    currency,
+    property_value: numericPropertyValue,
+    exchange_rate: safeExchangeRate,
+    down_payment_percent: safeDownPayment,
+    commission_enabled: realEstateCommissionApplies,
+    commission_percent: safeRealEstateCommissionPercent,
+    deed_cost_percent: safeDeedCostsPercent,
+    purpose: (['primary_home', 'second_home', 'construction', 'renovation'] as const)[DESTINATIONS.indexOf(destination as typeof DESTINATIONS[number])] ?? 'unknown',
+    applicant_profile: profile,
+    term_years: termYears,
+    family_income: familyIncome,
+  }), [
+    currency,
+    numericPropertyValue,
+    safeExchangeRate,
+    safeDownPayment,
+    realEstateCommissionApplies,
+    safeRealEstateCommissionPercent,
+    safeDeedCostsPercent,
+    destination,
+    profile,
+    termYears,
+    familyIncome,
+  ]);
+
+  const analyticsScenario = useMemo<AnalyticsConfigurationState>(() => ({
+    scenario_mode: scenarioMode,
+    monthly_uva_change: monthlyUvaChange,
+    monthly_income_change: monthlyIncomeChange,
+    horizon_years: effectiveHorizonYears,
+  }), [scenarioMode, monthlyUvaChange, monthlyIncomeChange, effectiveHorizonYears]);
+
+  useEffect(() => {
+    if (!snapshot || hasTrackedToolView.current) return;
+    hasTrackedToolView.current = true;
+    events.mortgageToolView(
+      snapshot.products.length,
+      bestByBank.length,
+      marketStatistics?.signal ?? 'unavailable',
+    );
+  }, [snapshot, bestByBank.length, marketStatistics?.signal]);
+
+  useEffect(() => {
+    if (!snapshot) return;
+    const previous = previousConfiguration.current;
+    if (!previous) {
+      previousConfiguration.current = analyticsConfiguration;
+      return;
+    }
+
+    const aliases: Record<string, string> = {
+      currency: 'currency',
+      property_value: 'property_value',
+      exchange_rate: 'exchange_rate',
+      down_payment_percent: 'down_payment',
+      commission_enabled: 'commission_toggle',
+      commission_percent: 'commission_rate',
+      deed_cost_percent: 'deed_rate',
+      purpose: 'purpose',
+      applicant_profile: 'profile',
+      term_years: 'term',
+      family_income: 'income',
+    };
+    const changedParameters = Object.keys(analyticsConfiguration)
+      .filter((key) => analyticsConfiguration[key] !== previous[key])
+      .map((key) => aliases[key] ?? key);
+    if (changedParameters.length === 0) return;
+
+    const timer = window.setTimeout(() => {
+      events.mortgageConfigurationUpdate({
+        changed_parameters: Array.from(new Set(changedParameters)).slice(0, 6).join(','),
+        changed_parameter_count: changedParameters.length,
+        currency,
+        property_value_status: numericPropertyValue > 0 ? 'provided' : 'empty',
+        exchange_rate_edited: currency === 'USD' && Math.abs(safeExchangeRate - snapshot.mep.value) > 0.01,
+        down_payment_band: downPaymentBand(safeDownPayment),
+        commission_enabled: realEstateCommissionApplies,
+        commission_percent: safeRealEstateCommissionPercent,
+        deed_cost_percent: safeDeedCostsPercent,
+        purpose: String(analyticsConfiguration.purpose),
+        applicant_profile: profile,
+        term_years: termYears,
+        income_provided: familyIncome > 0,
+        compatible_bank_count: bestByBank.length,
+        has_result: Boolean(selectedResult),
+      });
+      previousConfiguration.current = analyticsConfiguration;
+    }, 700);
+
+    return () => window.clearTimeout(timer);
+  }, [
+    snapshot,
+    analyticsConfiguration,
+    currency,
+    numericPropertyValue,
+    safeExchangeRate,
+    safeDownPayment,
+    realEstateCommissionApplies,
+    safeRealEstateCommissionPercent,
+    safeDeedCostsPercent,
+    profile,
+    termYears,
+    familyIncome,
+    bestByBank.length,
+    selectedResult,
+  ]);
+
+  useEffect(() => {
+    if (!snapshot) return;
+    const previous = previousScenario.current;
+    if (!previous) {
+      previousScenario.current = analyticsScenario;
+      return;
+    }
+    if (Object.keys(analyticsScenario).every((key) => analyticsScenario[key] === previous[key])) return;
+
+    const timer = window.setTimeout(() => {
+      events.mortgageScenarioUpdate({
+        scenario_mode: scenarioMode,
+        monthly_uva_change: monthlyUvaChange,
+        monthly_income_change: monthlyIncomeChange,
+        horizon_years: effectiveHorizonYears,
+      });
+      previousScenario.current = analyticsScenario;
+    }, 500);
+
+    return () => window.clearTimeout(timer);
+  }, [
+    snapshot,
+    analyticsScenario,
+    scenarioMode,
+    monthlyUvaChange,
+    monthlyIncomeChange,
+    effectiveHorizonYears,
+  ]);
+
+  useEffect(() => {
+    if (!snapshot || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const sectionName = (entry.target as HTMLElement).dataset.mortgageSection;
+        if (sectionName) events.mortgageSectionView(sectionName);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll<HTMLElement>('[data-mortgage-section]').forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [snapshot]);
+
+  const referenceFinancedUsd = currency === 'USD'
+    ? numericPropertyValue * (financingPercent / 100)
+    : (snapshot?.mep.value ?? 0) > 0 ? loanAmountArs / (snapshot?.mep.value ?? 1) : 0;
+  const referenceFinancedUva = marketStatistics
+    ? referenceFinancedUsd * marketStatistics.current
+    : 0;
+
   const applyScenario = (mode: ScenarioMode) => {
     setScenarioMode(mode);
     if (mode === 'same') setMonthlyIncomeChange(monthlyUvaChange);
     if (mode === 'lag') setMonthlyIncomeChange(Math.max(0, monthlyUvaChange - 1));
     if (mode === 'frozen') setMonthlyIncomeChange(0);
-    events.toolAction('mortgages', 'scenario_select', mode);
   };
 
   const changeUvaScenario = (value: number) => {
@@ -430,28 +758,98 @@ export default function MortgageUvaCalculator() {
     if (scenarioMode === 'lag') setMonthlyIncomeChange(Math.max(0, nextValue - 1));
   };
 
-  const toggleComparison = (id: string) => {
+  const selectProduct = (id: string, source: 'calculator' | 'ranking') => {
+    setSelectedProductId(id);
+    const result = bestByBank.find((item) => item.product.id === id);
+    events.mortgageBankSelect(
+      result ? formatBankName(result.product.bankName) : 'unknown',
+      source,
+    );
+  };
+
+  const toggleComparison = (result: ProductResult) => {
+    const id = result.product.id;
     if (validComparisonIds.includes(id)) {
       setComparisonIds(validComparisonIds.filter((item) => item !== id));
+      events.mortgageComparisonUpdate(
+        'remove',
+        formatBankName(result.product.bankName),
+        Math.max(0, validComparisonIds.length - 1),
+      );
       return;
     }
-    if (validComparisonIds.length < 3) setComparisonIds([...validComparisonIds, id]);
+    if (validComparisonIds.length < 3) {
+      setComparisonIds([...validComparisonIds, id]);
+      events.mortgageComparisonUpdate(
+        'add',
+        formatBankName(result.product.bankName),
+        validComparisonIds.length + 1,
+      );
+    }
+  };
+
+  const selectMarketRange = (range: MarketRange) => {
+    setMarketRange(range);
+    const nextStatistics = calculateUvaDollarStatistics(
+      filterMarketPoints(allMarketPoints, range).map((point) => point.uvaPerUsd),
+    );
+    events.mortgageMarketRangeSelect(range, nextStatistics?.signal ?? 'unavailable');
   };
 
   const t = (es: string, en: string) => lang === 'es' ? es : en;
 
+  const marketSignalContent: Record<UvaDollarSignal, {
+    title: string;
+    explanation: string;
+    disclaimer: string;
+  }> = {
+    borrow: {
+      title: t('Señal histórica: buen momento relativo para endeudarse en UVA', 'Historical signal: relatively favorable time to borrow in UVA'),
+      explanation: t('El dólar MEP compra pocas UVA frente al período elegido. Una propiedad valuada en USD se transforma, relativamente, en menos capital UVA.', 'The MEP dollar buys few UVA versus the selected period. A USD-priced property therefore translates into relatively less UVA principal.'),
+      disclaimer: t('Antes de tomar deuda evaluá también TEA y CFTEA, cuota/ingreso, estabilidad y evolución de tus ingresos, plazo, anticipo, precio del inmueble y margen para absorber subas de la UVA.', 'Before borrowing, also assess APR and total cost, payment-to-income, income stability and growth, term, down payment, property price and your capacity to absorb UVA increases.'),
+    },
+    neutral: {
+      title: t('Señal histórica: zona intermedia', 'Historical signal: middle range'),
+      explanation: t('La relación dólar/UVA está dentro de la franja central del período elegido y no aporta una señal relativa fuerte para endeudarse o cancelar.', 'The dollar/UVA ratio is within the middle band for the selected period and provides no strong relative signal to borrow or repay.'),
+      disclaimer: t('La decisión debe apoyarse en la tasa, el esfuerzo cuota/ingreso, el plazo, la liquidez disponible, los costos de la operación y tus objetivos financieros.', 'The decision should rely on the rate, payment-to-income effort, term, available liquidity, transaction costs and your financial goals.'),
+    },
+    repay: {
+      title: t('Señal histórica: buen momento relativo para cancelar deuda UVA', 'Historical signal: relatively favorable time to repay UVA debt'),
+      explanation: t('El dólar MEP compra muchas UVA frente al período elegido. Cada USD permite reducir relativamente más saldo expresado en UVA.', 'The MEP dollar buys many UVA versus the selected period. Each USD can reduce relatively more UVA-denominated principal.'),
+      disclaimer: t('Antes de cancelar evaluá también comisión de precancelación, plazo restante, condiciones del banco, reserva de liquidez, impuestos y gastos, y el rendimiento alternativo de esos dólares.', 'Before repaying, also assess early repayment fees, remaining term, bank terms, liquidity reserves, taxes and expenses, and the alternative return on those dollars.'),
+    },
+  };
+  const activeMarketSignal = marketStatistics
+    ? marketSignalContent[marketStatistics.signal]
+    : null;
+  const MarketSignalIcon = marketStatistics?.signal === 'borrow'
+    ? ArrowDownRight
+    : marketStatistics?.signal === 'repay' ? ArrowUpRight : Scale;
+  const marketRangeLabel = ({
+    '1y': t('último año', 'last year'),
+    '3y': t('últimos 3 años', 'last 3 years'),
+    '5y': t('últimos 5 años', 'last 5 years'),
+    max: t('máximo disponible', 'maximum available'),
+  } as Record<MarketRange, string>)[marketRange];
+  const marketMedianDifference = marketStatistics && marketStatistics.median > 0
+    ? ((marketStatistics.current / marketStatistics.median) - 1) * 100
+    : 0;
+
   const shareMortgageTool = async () => {
     setShareStatus('idle');
-    events.toolAction('mortgages', 'share', 'url');
     const shareUrl = new URL('/recursos/hipotecarios/', window.location.origin).toString();
 
     if (typeof navigator.share === 'function') {
       try {
         await navigator.share({ title: 'Comparador Hipotecario UVA', url: shareUrl });
         setShareStatus('shared');
+        events.mortgageShareResult('shared', 'native_share');
         return;
       } catch (error) {
-        if (isShareCancellation(error)) return;
+        if (isShareCancellation(error)) {
+          events.mortgageShareResult('cancelled', 'native_share');
+          return;
+        }
       }
     }
 
@@ -459,8 +857,10 @@ export default function MortgageUvaCalculator() {
       if (!navigator.clipboard) throw new Error('CLIPBOARD_UNAVAILABLE');
       await navigator.clipboard.writeText(shareUrl);
       setShareStatus('copied');
+      events.mortgageShareResult('copied', 'clipboard');
     } catch {
       setShareStatus('unavailable');
+      events.mortgageShareResult('unavailable', 'clipboard');
     }
   };
 
@@ -515,10 +915,11 @@ export default function MortgageUvaCalculator() {
         <span><ShieldCheck size={15} /> {t('Datos oficiales BCRA', 'Official BCRA data')}</span>
         <span>UVA <strong>{formatArs(snapshot.uva.value)}</strong> · {formatDate(snapshot.uva.date, lang)}</span>
         <span>MEP <strong>{formatArs(snapshot.mep.value)}</strong></span>
+        {marketStatistics && <a href="#uva-dollar-context" onClick={() => events.mortgageSectionNavigation('market_context')}>USD 1 MEP = <strong>{formatNumber(marketStatistics.current, 2)} UVA</strong></a>}
         <span>{snapshot.products.length} {t('líneas UVA', 'UVA products')}</span>
       </div>
 
-      <section className="mortgage-main-grid">
+      <section className="mortgage-main-grid" data-mortgage-section="calculator">
         <div className="mortgage-panel mortgage-form-panel">
           <div className="mortgage-section-title">
             <span>01</span>
@@ -618,7 +1019,7 @@ export default function MortgageUvaCalculator() {
             <>
               <label className="mortgage-field">
                 <span>{t('Banco y línea aplicada', 'Selected bank and product')}</span>
-                <div className="mortgage-select"><select value={selectedResult.product.id} onChange={(event) => { setSelectedProductId(event.target.value); events.toolAction('mortgages', 'bank_select', event.target.value); }}>{bestByBank.map((result) => <option key={result.product.id} value={result.product.id}>{formatBankName(result.product.bankName)} · {result.product.annualEffectiveRate.toFixed(2)}% TEA</option>)}</select><ChevronDown size={16} /></div>
+                <div className="mortgage-select"><select value={selectedResult.product.id} onChange={(event) => selectProduct(event.target.value, 'calculator')}>{bestByBank.map((result) => <option key={result.product.id} value={result.product.id}>{formatBankName(result.product.bankName)} · {result.product.annualEffectiveRate.toFixed(2)}% TEA</option>)}</select><ChevronDown size={16} /></div>
               </label>
 
               <div className="mortgage-hero-result">
@@ -646,8 +1047,8 @@ export default function MortgageUvaCalculator() {
                 </dl>
                 <p><AlertTriangle size={14} /> {t('Reserva adicional: Sellos, tasación, seguros y cargos bancarios pueden sumarse según tu operación.', 'Additional reserve: stamp tax, appraisal, insurance and bank charges may apply to your transaction.')}</p>
                 <nav aria-label={t('Fuentes sobre gastos de compraventa', 'Home purchase cost sources')}>
-                  <a href="https://www.colegio-escribanos.org.ar/2020/04/24/compraventa/" target="_blank" rel="noopener noreferrer">{t('Qué paga el comprador', 'Buyer responsibilities')} <ExternalLink size={12} /></a>
-                  <a href="https://www.agip.gob.ar/beneficios/64" target="_blank" rel="noopener noreferrer">{t('Exención Sellos CABA', 'CABA stamp tax exemption')} <ExternalLink size={12} /></a>
+                  <a href="https://www.colegio-escribanos.org.ar/2020/04/24/compraventa/" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('colegio_escribanos_costs', 'closing_costs')}>{t('Qué paga el comprador', 'Buyer responsibilities')} <ExternalLink size={12} /></a>
+                  <a href="https://www.agip.gob.ar/beneficios/64" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('agip_stamp_tax', 'closing_costs')}>{t('Exención Sellos CABA', 'CABA stamp tax exemption')} <ExternalLink size={12} /></a>
                 </nav>
               </section>
 
@@ -667,7 +1068,7 @@ export default function MortgageUvaCalculator() {
         </aside>
       </section>
 
-      <section className="mortgage-ranking mortgage-panel">
+      <section className="mortgage-ranking mortgage-panel" data-mortgage-section="bank_ranking">
         <div className="mortgage-ranking__header">
           <div className="mortgage-section-title"><span>03</span><div><h3>{t('Qué banco te conviene', 'Which bank fits best')}</h3><p>{bestByBank.length} {t('bancos compatibles ordenados por primera cuota', 'compatible banks ranked by first payment')}</p></div></div>
           <div className="mortgage-ranking__legend"><i /> {t('Elegí hasta 3 para comparar', 'Choose up to 3 to compare')}</div>
@@ -683,20 +1084,20 @@ export default function MortgageUvaCalculator() {
                   const compared = validComparisonIds.includes(result.product.id);
                   return (
                     <tr key={result.product.id} className={selected ? 'is-selected' : ''}>
-                      <td><button type="button" className={`mortgage-compare-check ${compared ? 'is-active' : ''}`} disabled={!compared && validComparisonIds.length >= 3} onClick={() => toggleComparison(result.product.id)} aria-label={t('Comparar banco', 'Compare bank')}>{compared ? <Check size={14} /> : index + 1}</button></td>
+                      <td><button type="button" className={`mortgage-compare-check ${compared ? 'is-active' : ''}`} disabled={!compared && validComparisonIds.length >= 3} onClick={() => toggleComparison(result)} aria-label={t('Comparar banco', 'Compare bank')}>{compared ? <Check size={14} /> : index + 1}</button></td>
                       <td><strong>{formatBankName(result.product.bankName)}</strong><small>{result.product.shortName || result.product.productName} · {result.product.beneficiary}</small></td>
                       <td><strong>{formatArs(result.installmentArs)}</strong><small>{formatNumber(result.installmentUva, 2)} UVA</small></td>
                       <td>{result.product.annualEffectiveRate.toFixed(2)}%</td>
                       <td>{result.product.totalFinancialCost.toFixed(2)}%</td>
                       <td>{formatNumber(result.product.loanToValueRatio)}%</td>
                       <td>{formatArs(result.requiredIncome)}</td>
-                      <td><button type="button" className="mortgage-use-bank" onClick={() => { setSelectedProductId(result.product.id); events.toolAction('mortgages', 'ranking_select', result.product.id); }}>{selected ? t('Elegido', 'Selected') : t('Elegir', 'Choose')}</button></td>
+                      <td><button type="button" className="mortgage-use-bank" onClick={() => selectProduct(result.product.id, 'ranking')}>{selected ? t('Elegido', 'Selected') : t('Elegir', 'Choose')}</button></td>
                     </tr>
                   );
                 })}</tbody>
               </table>
             </div>
-            {bestByBank.length > 8 && <button type="button" className="mortgage-show-more" onClick={() => setShowAllBanks((value) => !value)}>{showAllBanks ? t('Ver menos', 'Show less') : `${t('Ver todos', 'Show all')} (${bestByBank.length})`} <ChevronDown size={15} /></button>}
+            {bestByBank.length > 8 && <button type="button" className="mortgage-show-more" onClick={() => { const nextState = !showAllBanks; setShowAllBanks(nextState); events.mortgageBankListToggle(nextState ? 'expanded' : 'collapsed', bestByBank.length); }}>{showAllBanks ? t('Ver menos', 'Show less') : `${t('Ver todos', 'Show all')} (${bestByBank.length})`} <ChevronDown size={15} /></button>}
           </>
         ) : <div className="mortgage-empty-ranking"><AlertTriangle size={20} /> {t('Ningún producto oficial satisface simultáneamente el monto, anticipo, plazo y condición elegidos.', 'No official product matches the chosen amount, down payment, term and profile.')}</div>}
       </section>
@@ -715,7 +1116,7 @@ export default function MortgageUvaCalculator() {
       )}
 
       {selectedResult && (
-        <section className="mortgage-scenarios mortgage-panel">
+        <section className="mortgage-scenarios mortgage-panel" data-mortgage-section="scenarios">
           <div className="mortgage-scenario-intro">
             <div className="mortgage-section-title"><span>04</span><div><h3>{t('Cómo podría evolucionar tu cuota', 'How your payment could evolve')}</h3><p>{t('Escenarios educativos · supuestos editables · no es un pronóstico', 'Educational scenarios · editable assumptions · not a forecast')}</p></div></div>
             <span className="mortgage-not-forecast"><AlertTriangle size={15} /> {t('Escenario, no pronóstico', 'Scenario, not forecast')}</span>
@@ -785,7 +1186,7 @@ export default function MortgageUvaCalculator() {
             })}
           </div>
 
-          <details className="mortgage-methodology">
+          <details className="mortgage-methodology" onToggle={(event) => { if (event.currentTarget.open) events.mortgageMethodologyOpen('scenario'); }}>
             <summary>{t('Fundamentos, fórmula y límites del escenario', 'Scenario fundamentals, formula and limits')} <ChevronDown size={16} /></summary>
             <div>
               <p><strong>{t('Qué permanece constante:', 'What remains constant:')}</strong> {t('la cuota financiera en UVA y la TEA informada para la línea elegida.', 'the financial payment in UVA and the selected product’s reported TEA.')}</p>
@@ -797,11 +1198,107 @@ export default function MortgageUvaCalculator() {
         </section>
       )}
 
+      {marketStatistics && activeMarketSignal && (
+        <section id="uva-dollar-context" className="mortgage-market mortgage-panel" data-mortgage-section="market_context">
+          <div className="mortgage-scenario-intro">
+            <div className="mortgage-section-title"><span>05</span><div><h3>{t('El dólar frente a la UVA', 'The dollar versus UVA')}</h3><p>{t('Poder de compra del dólar MEP medido en UVA', 'Purchasing power of the MEP dollar measured in UVA')}</p></div></div>
+            <span className="mortgage-not-forecast"><AlertTriangle size={15} /> {t('Contexto, no recomendación', 'Context, not advice')}</span>
+          </div>
+
+          <div className={`mortgage-market-signal is-${marketStatistics.signal}`}>
+            <MarketSignalIcon size={22} />
+            <div>
+              <strong>{activeMarketSignal.title}</strong>
+              <p>{activeMarketSignal.explanation}</p>
+            </div>
+            <span>{t('Percentil', 'Percentile')} {formatPercentile(marketStatistics.currentPercentile)}</span>
+          </div>
+
+          <div className="mortgage-market-layout">
+            <aside className="mortgage-market-summary">
+              <span>{t('Valor actual', 'Current value')}</span>
+              <div><DollarSign size={22} /><strong>{formatNumber(marketStatistics.current, 2)}</strong><em>UVA / USD MEP</em></div>
+              <p>{t('Cada USD 1 convertido al MEP representa hoy esta cantidad de UVA.', 'Each USD 1 converted at the MEP rate represents this amount of UVA today.')}</p>
+              <dl>
+                <div><dt>{t('Mediana', 'Median')} · {marketRangeLabel}</dt><dd>{formatNumber(marketStatistics.median, 2)}</dd></div>
+                <div><dt>{t('Franja central', 'Middle band')} · P25–P75</dt><dd>{formatNumber(marketStatistics.percentile25, 2)}–{formatNumber(marketStatistics.percentile75, 2)}</dd></div>
+                <div><dt>{t('Distancia a mediana', 'Distance from median')}</dt><dd>{marketMedianDifference >= 0 ? '+' : ''}{formatNumber(marketMedianDifference, 1)}%</dd></div>
+              </dl>
+            </aside>
+
+            <div className="mortgage-market-visual">
+              <header>
+                <div><LineChart size={18} /><span>{t('Evolución histórica', 'Historical evolution')}</span></div>
+                <div className="mortgage-market-ranges" role="group" aria-label={t('Período histórico', 'Historical period')}>
+                  {([
+                    ['1y', t('1 año', '1 year')],
+                    ['3y', t('3 años', '3 years')],
+                    ['5y', t('5 años', '5 years')],
+                    ['max', t('Máx.', 'Max')],
+                  ] as Array<[MarketRange, string]>).map(([range, label]) => (
+                    <button key={range} type="button" className={marketRange === range ? 'is-active' : ''} onClick={() => selectMarketRange(range)}>{label}</button>
+                  ))}
+                </div>
+              </header>
+              <UvaDollarChart points={displayedMarketPoints} statistics={marketStatistics} lang={lang} />
+              <div className="mortgage-market-legend">
+                <span className="is-repay">{t('Más UVA por USD · favorece cancelar', 'More UVA per USD · favors repayment')}</span>
+                <span className="is-neutral">{t('Zona intermedia', 'Middle range')}</span>
+                <span className="is-borrow">{t('Menos UVA por USD · favorece endeudarse', 'Fewer UVA per USD · favors borrowing')}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mortgage-market-personal">
+            <article>
+              <span>{t('Aplicado a tu operación', 'Applied to your transaction')}</span>
+              <strong>{formatNumber(referenceFinancedUva)} UVA</strong>
+              <p>{t(
+                `A la cotización MEP de referencia, los ${formatUsd(referenceFinancedUsd)} financiados equivalen a este capital UVA.`,
+                `At the reference MEP rate, the financed ${formatUsd(referenceFinancedUsd)} equals this UVA principal.`,
+              )}</p>
+            </article>
+            <article className={`is-${marketStatistics.signal}`}>
+              <span>{t('Qué más tenés que evaluar', 'What else to assess')}</span>
+              <p>{activeMarketSignal.disclaimer}</p>
+            </article>
+          </div>
+
+          <div className="mortgage-fundamentals mortgage-market-fundamentals">
+            {[
+              { Icon: Calculator, title: t('Fórmula', 'Formula'), description: t('Dólar MEP en ARS dividido por UVA en ARS. El resultado se expresa en UVA por USD.', 'MEP dollar in ARS divided by UVA in ARS. The result is UVA per USD.') },
+              { Icon: Scale, title: t('Referencia robusta', 'Robust benchmark'), description: t('La señal usa mediana y percentiles 25/75 del período elegido; no copia un promedio fijo.', 'The signal uses the median and 25th/75th percentiles for the chosen period; it does not copy a fixed average.') },
+              { Icon: ShieldCheck, title: t('Fuentes separadas', 'Separate sources'), description: t('UVA oficial BCRA. MEP histórico referencial no oficial, identificado y fechado.', 'Official BCRA UVA. Non-official reference MEP history, identified and dated.') },
+              { Icon: AlertTriangle, title: t('No es una decisión completa', 'Not a complete decision'), description: t('No incorpora tasa, ingresos, comisiones, impuestos, liquidez ni costo de oportunidad.', 'It excludes interest rate, income, fees, taxes, liquidity and opportunity cost.') },
+            ].map(({ Icon: FundamentalIcon, title, description }) => (
+              <article key={title}><FundamentalIcon size={18} /><strong>{title}</strong><p>{description}</p></article>
+            ))}
+          </div>
+
+          <details className="mortgage-methodology mortgage-market-methodology" onToggle={(event) => { if (event.currentTarget.open) events.mortgageMethodologyOpen('market_context'); }}>
+            <summary>{t('Fundamentos, fuentes y límites del indicador', 'Indicator fundamentals, sources and limits')} <ChevronDown size={16} /></summary>
+            <div>
+              <p><strong>{t('Cálculo:', 'Calculation:')}</strong> {t('MEP ARS/USD ÷ UVA ARS/UVA = UVA/USD. Se unen ambos valores por fecha y se usa la última fecha común disponible.', 'MEP ARS/USD ÷ UVA ARS/UVA = UVA/USD. Both values are joined by date, using the latest common available date.')}</p>
+              <p><strong>{t('Benchmark:', 'Benchmark:')}</strong> {t('la mediana reduce el efecto de picos extremos. P25 y P75 delimitan la mitad central de observaciones del período seleccionado.', 'the median reduces the effect of extreme spikes. P25 and P75 delimit the middle half of observations in the selected period.')}</p>
+              <p><strong>{t('Serie:', 'Series:')}</strong> {t(`disponible desde ${formatDate(snapshot.marketContext?.firstDate ?? '', lang)}. En días sin mercado la fuente histórica puede repetir el último valor informado.`, `available since ${formatDate(snapshot.marketContext?.firstDate ?? '', lang)}. On non-trading days the historical source may repeat the last reported value.`)}</p>
+              <p><strong>{t('Alcance:', 'Scope:')}</strong> {t('“Buen momento” significa solamente una posición relativa favorable dentro de esta relación histórica. No anticipa el dólar ni la UVA y no reemplaza una evaluación financiera integral.', '“Favorable time” only means a favorable relative position within this historical relationship. It forecasts neither FX nor UVA and does not replace a full financial assessment.')}</p>
+            </div>
+          </details>
+
+          <nav className="mortgage-market-sources" aria-label={t('Fuentes del indicador dólar UVA', 'Dollar UVA indicator sources')}>
+            <a href="https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/31" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('bcra_uva', 'market_context')}>BCRA · UVA <ExternalLink size={12} /></a>
+            <a href="https://argentinadatos.com/docs/operations/get-cotizaciones-dolares" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('argentina_datos_mep_history', 'market_context')}>ArgentinaDatos · MEP {t('histórico', 'history')} <ExternalLink size={12} /></a>
+            <a href="https://dolarapi.com/docs/argentina/operations/get-dolar-bolsa" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('dolar_api_mep_current', 'market_context')}>DolarAPI · MEP {t('actual', 'current')} <ExternalLink size={12} /></a>
+            <a href="https://www.byma.com.ar/newsroom/byma-presenta-dos-nuevos-ndices-para-el-mercado-argentino" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('byma_methodology', 'market_context')}>BYMA · {t('referencia metodológica', 'methodology reference')} <ExternalLink size={12} /></a>
+          </nav>
+        </section>
+      )}
+
       <footer className="mortgage-disclaimer">
         <div><Info size={18} /><p>{t('Herramienta informativa. No constituye asesoramiento financiero ni una oferta crediticia. La aprobación, tasa final, seguros y gastos dependen de la evaluación y documentación de cada entidad.', 'Informational tool. It is not financial advice or a credit offer. Approval, final rate, insurance and costs depend on each bank’s assessment and documentation.')}</p></div>
         <div className="mortgage-source-links">
-          <a href={snapshot.sources.mortgages} target="_blank" rel="noopener noreferrer">BCRA · {t('Hipotecarios', 'Mortgages')} <ExternalLink size={13} /></a>
-          <a href="https://www.bcra.gob.ar/regimen-de-transparencia/" target="_blank" rel="noopener noreferrer">{t('Metodología', 'Methodology')} <ExternalLink size={13} /></a>
+          <a href={snapshot.sources.mortgages} target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('bcra_mortgage_products', 'mortgage_products')}>BCRA · {t('Hipotecarios', 'Mortgages')} <ExternalLink size={13} /></a>
+          <a href="https://www.bcra.gob.ar/regimen-de-transparencia/" target="_blank" rel="noopener noreferrer" onClick={() => events.mortgageSourceClick('bcra_transparency_methodology', 'mortgage_products')}>{t('Metodología', 'Methodology')} <ExternalLink size={13} /></a>
         </div>
       </footer>
     </div>

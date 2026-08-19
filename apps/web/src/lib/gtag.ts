@@ -116,6 +116,71 @@ export const events = {
   toolAction: (tool_id: string, action: string, detail?: string) =>
     event('tool_action', { tool_id, action, detail, site_section: 'recursos' }),
 
+  mortgageDataLoad: (status: 'success' | 'error', load_source: 'initial' | 'retry', product_count = 0) =>
+    event('mortgage_data_load', { status, load_source, product_count, site_section: 'recursos' }),
+
+  mortgageToolView: (product_count: number, compatible_bank_count: number, market_signal: string) =>
+    event('mortgage_tool_view', {
+      product_count,
+      compatible_bank_count,
+      market_signal,
+      site_section: 'recursos',
+    }),
+
+  mortgageSectionView: (section_name: string) =>
+    event('mortgage_section_view', { section_name, site_section: 'recursos' }),
+
+  mortgageSectionNavigation: (destination_section: string) =>
+    event('mortgage_section_navigation', { destination_section, site_section: 'recursos' }),
+
+  mortgageConfigurationUpdate: (parameters: {
+    changed_parameters: string;
+    changed_parameter_count: number;
+    currency: string;
+    property_value_status: string;
+    exchange_rate_edited: boolean;
+    down_payment_band: string;
+    commission_enabled: boolean;
+    commission_percent: number;
+    deed_cost_percent: number;
+    purpose: string;
+    applicant_profile: string;
+    term_years: number;
+    income_provided: boolean;
+    compatible_bank_count: number;
+    has_result: boolean;
+  }) => event('mortgage_configuration_update', { ...parameters, site_section: 'recursos' }),
+
+  mortgageBankSelect: (bank_name: string, selection_source: 'calculator' | 'ranking') =>
+    event('mortgage_bank_select', { bank_name, selection_source, site_section: 'recursos' }),
+
+  mortgageComparisonUpdate: (operation: 'add' | 'remove', bank_name: string, selected_count: number) =>
+    event('mortgage_comparison_update', { operation, bank_name, selected_count, site_section: 'recursos' }),
+
+  mortgageBankListToggle: (list_state: 'expanded' | 'collapsed', bank_count: number) =>
+    event('mortgage_bank_list_toggle', { list_state, bank_count, site_section: 'recursos' }),
+
+  mortgageScenarioUpdate: (parameters: {
+    scenario_mode: string;
+    monthly_uva_change: number;
+    monthly_income_change: number;
+    horizon_years: number;
+  }) => event('mortgage_scenario_update', { ...parameters, site_section: 'recursos' }),
+
+  mortgageMarketRangeSelect: (market_range: string, market_signal: string) =>
+    event('mortgage_market_range_select', { market_range, market_signal, site_section: 'recursos' }),
+
+  mortgageShareResult: (
+    outcome: 'shared' | 'copied' | 'cancelled' | 'unavailable',
+    share_method: 'native_share' | 'clipboard',
+  ) => event('mortgage_share_result', { outcome, share_method, site_section: 'recursos' }),
+
+  mortgageMethodologyOpen: (methodology_section: 'scenario' | 'market_context') =>
+    event('mortgage_methodology_open', { methodology_section, site_section: 'recursos' }),
+
+  mortgageSourceClick: (source_name: string, source_section: 'closing_costs' | 'market_context' | 'mortgage_products') =>
+    event('mortgage_source_click', { source_name, source_section, site_section: 'recursos' }),
+
   leadDelivery: (status: 'success' | 'error', source: string, form_type: string) =>
     event(`lead_webhook_${status}`, { source, form_type, site_section: source }),
 
