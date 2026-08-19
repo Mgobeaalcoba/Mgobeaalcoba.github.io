@@ -9,7 +9,7 @@
     "export": "next build"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.97.0",
+    "@supabase/supabase-js": "^2.112.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.408.0",
