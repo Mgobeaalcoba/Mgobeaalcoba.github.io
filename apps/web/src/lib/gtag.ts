@@ -160,6 +160,17 @@ export const events = {
   mortgageBankListToggle: (list_state: 'expanded' | 'collapsed', bank_count: number) =>
     event('mortgage_bank_list_toggle', { list_state, bank_count, site_section: 'recursos' }),
 
+  mortgageAdditionalDataToggle: (panel_state: 'expanded' | 'collapsed') =>
+    event('mortgage_additional_data_toggle', { panel_state, device_layout: 'mobile', site_section: 'recursos' }),
+
+  mortgageResultNavigation: (compatible_bank_count: number) =>
+    event('mortgage_result_navigation', {
+      navigation_source: 'mobile_summary',
+      compatible_bank_count,
+      device_layout: 'mobile',
+      site_section: 'recursos',
+    }),
+
   mortgageScenarioUpdate: (parameters: {
     scenario_mode: string;
     monthly_uva_change: number;

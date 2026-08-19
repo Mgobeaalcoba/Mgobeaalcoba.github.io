@@ -423,6 +423,7 @@ export default function MortgageUvaCalculator() {
   const [horizonYears, setHorizonYears] = useState(5);
   const [marketRange, setMarketRange] = useState<MarketRange>('5y');
   const [shareStatus, setShareStatus] = useState<ShareStatus>('idle');
+  const [mobileAdditionalDataOpen, setMobileAdditionalDataOpen] = useState(false);
   const hasTrackedToolView = useRef(false);
   const previousConfiguration = useRef<AnalyticsConfigurationState | null>(null);
   const previousScenario = useRef<AnalyticsConfigurationState | null>(null);
@@ -864,6 +865,17 @@ export default function MortgageUvaCalculator() {
     }
   };
 
+  const toggleMobileAdditionalData = () => {
+    const nextState = !mobileAdditionalDataOpen;
+    setMobileAdditionalDataOpen(nextState);
+    events.mortgageAdditionalDataToggle(nextState ? 'expanded' : 'collapsed');
+  };
+
+  const openMobileResult = () => {
+    events.mortgageResultNavigation(bestByBank.length);
+    document.getElementById('mortgage-result')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   if (loading) {
     return (
       <div className="mortgage-loading glass">
@@ -926,13 +938,13 @@ export default function MortgageUvaCalculator() {
             <div><h3>{t('Tu operación', 'Your transaction')}</h3><p>{t('Importes y condiciones iniciales', 'Starting amounts and conditions')}</p></div>
           </div>
 
-          <div className="mortgage-currency-toggle" role="group" aria-label={t('Moneda de la propiedad', 'Property currency')}>
+          <div className="mortgage-currency-toggle mortgage-mobile-order-currency" role="group" aria-label={t('Moneda de la propiedad', 'Property currency')}>
             {(['USD', 'ARS'] as Currency[]).map((option) => (
               <button key={option} type="button" className={currency === option ? 'is-active' : ''} onClick={() => setCurrency(option)}>{option}</button>
             ))}
           </div>
 
-          <label className="mortgage-field">
+          <label className="mortgage-field mortgage-mobile-order-property">
             <span>{t('Valor de la propiedad', 'Property value')}</span>
             <div className="mortgage-input-prefix"><strong>{currency === 'USD' ? 'US$' : '$'}</strong><input type="number" min={1} max={2_000_000_000} step={currency === 'USD' ? 1000 : 100000} value={propertyValue} onChange={(event) => {
               const nextValue = event.target.value;
@@ -941,20 +953,20 @@ export default function MortgageUvaCalculator() {
           </label>
 
           {currency === 'USD' && (
-            <label className="mortgage-field">
+            <label id="mortgage-mobile-exchange-rate" className={`mortgage-field mortgage-mobile-optional mortgage-mobile-order-exchange ${mobileAdditionalDataOpen ? 'is-expanded' : 'is-collapsed'}`}>
               <span>{t('Cotización usada', 'Exchange rate')}</span>
               <div className="mortgage-input-prefix"><strong>$</strong><input type="number" min={1} max={100000} step={1} value={exchangeRate} onChange={(event) => setExchangeRate(clampNumber(finite(event.target.value), 1, 100_000))} /></div>
               <small>{t('MEP de referencia. Podés editarlo para simular la operación.', 'Reference MEP rate. You can edit it for the transaction.')}</small>
             </label>
           )}
 
-          <label className="mortgage-field">
+          <label className="mortgage-field mortgage-mobile-order-down-payment">
             <span>{t('Anticipo', 'Down payment')} <strong>{formatNumber(safeDownPayment)}%</strong></span>
             <input type="range" min={5} max={90} step={1} value={safeDownPayment} onChange={(event) => setDownPaymentPercent(finite(event.target.value, 25))} />
             <small>{formatArs(downPaymentArs)} · {currency === 'USD' ? formatUsd(downPaymentArs / safeExchangeRate) : `${formatNumber(downPaymentArs / safeExchangeRate)} USD ref.`}</small>
           </label>
 
-          <fieldset className="mortgage-cost-settings">
+          <fieldset id="mortgage-mobile-closing-costs" className={`mortgage-cost-settings mortgage-mobile-optional mortgage-mobile-order-costs ${mobileAdditionalDataOpen ? 'is-expanded' : 'is-collapsed'}`}>
             <legend>{t('Otros fondos al firmar', 'Other funds due at closing')}</legend>
 
             <div className={`mortgage-cost-control ${realEstateCommissionApplies ? '' : 'is-disabled'}`}>
@@ -987,29 +999,65 @@ export default function MortgageUvaCalculator() {
             <p><Info size={14} /> {t('El 3% es una previsión base, no un arancel. No incluye Impuesto de Sellos: depende de la jurisdicción, el destino y las exenciones vigentes.', 'The 3% is a budgeting baseline, not a fixed fee. Stamp tax is excluded because it depends on jurisdiction, purpose and current exemptions.')}</p>
           </fieldset>
 
-          <label className="mortgage-field">
+          <label className="mortgage-field mortgage-mobile-order-purpose">
             <span>{t('Destino', 'Purpose')}</span>
             <div className="mortgage-select"><select value={destination} onChange={(event) => setDestination(event.target.value)}>{DESTINATIONS.map((item) => <option key={item} value={item}>{item}</option>)}</select><ChevronDown size={16} /></div>
           </label>
 
-          <label className="mortgage-field">
+          <label className="mortgage-field mortgage-mobile-order-profile">
             <span>{t('Tu condición', 'Your profile')}</span>
             <div className="mortgage-select"><select value={profile} onChange={(event) => setProfile(event.target.value as ApplicantProfile)}>{PROFILE_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option[lang]}</option>)}</select><ChevronDown size={16} /></div>
           </label>
 
-          <fieldset className="mortgage-field">
+          <fieldset className="mortgage-field mortgage-mobile-order-term">
             <legend>{t('Plazo', 'Term')}</legend>
             <div className="mortgage-term-grid">{TERMS.map((term) => <button key={term} type="button" className={termYears === term ? 'is-active' : ''} onClick={() => { setTermYears(term); if (horizonYears > term) setHorizonYears(term); }}>{term}<small>{t('años', 'yrs')}</small></button>)}</div>
           </fieldset>
 
-          <label className="mortgage-field">
+          <button
+            type="button"
+            className="mortgage-mobile-details-toggle"
+            aria-expanded={mobileAdditionalDataOpen}
+            aria-controls={currency === 'USD'
+              ? 'mortgage-mobile-exchange-rate mortgage-mobile-closing-costs mortgage-mobile-family-income'
+              : 'mortgage-mobile-closing-costs mortgage-mobile-family-income'}
+            onClick={toggleMobileAdditionalData}
+          >
+            <span>
+              <strong>{t('Gastos y datos adicionales', 'Costs and additional data')}</strong>
+              <small>{t(
+                `${currency === 'USD' ? 'MEP de referencia · ' : ''}Comisión ${formatNumber(safeRealEstateCommissionPercent, 1)}% · Escritura ${formatNumber(safeDeedCostsPercent, 1)}% · Ingreso opcional`,
+                `${currency === 'USD' ? 'Reference MEP · ' : ''}Commission ${formatNumber(safeRealEstateCommissionPercent, 1)}% · Deed costs ${formatNumber(safeDeedCostsPercent, 1)}% · Optional income`,
+              )}</small>
+            </span>
+            <ChevronDown size={18} aria-hidden="true" />
+          </button>
+
+          <label id="mortgage-mobile-family-income" className={`mortgage-field mortgage-mobile-optional mortgage-mobile-order-income ${mobileAdditionalDataOpen ? 'is-expanded' : 'is-collapsed'}`}>
             <span>{t('Ingreso familiar mensual', 'Monthly household income')} <em>{t('opcional', 'optional')}</em></span>
             <div className="mortgage-input-prefix"><strong>$</strong><input type="number" min={0} max={5_000_000_000} step={100000} placeholder={t('Para medir esfuerzo', 'To measure affordability')} value={familyIncome || ''} onChange={(event) => setFamilyIncome(clampNumber(finite(event.target.value), 0, 5_000_000_000))} /></div>
             <small>{t('Este dato se usa solamente en tu navegador y no se guarda.', 'This value is only used in your browser and is not stored.')}</small>
           </label>
+
+          {selectedResult && (
+            <section className="mortgage-mobile-result-summary" aria-label={t('Resumen de tu primera cuota', 'First payment summary')}>
+              <header>
+                <span>{t('Resultado preliminar', 'Preliminary result')}</span>
+                <small>{bestByBank.length} {t(bestByBank.length === 1 ? 'banco compatible' : 'bancos compatibles', bestByBank.length === 1 ? 'compatible bank' : 'compatible banks')}</small>
+              </header>
+              <div>
+                <p><small>{t('Primera cuota', 'First payment')}</small><strong>{formatArs(selectedResult.installmentArs)}</strong></p>
+                <p><small>{t('Fondos iniciales', 'Upfront funds')}</small><strong>{formatArs(totalUpfrontFundsArs)}</strong></p>
+              </div>
+              <button type="button" onClick={openMobileResult}>
+                {t('Ver cuota y comparar bancos', 'See payment and compare banks')}
+                <ChevronDown size={17} aria-hidden="true" />
+              </button>
+            </section>
+          )}
         </div>
 
-        <aside className="mortgage-panel mortgage-result-panel">
+        <aside id="mortgage-result" className="mortgage-panel mortgage-result-panel">
           <div className="mortgage-section-title">
             <span>02</span>
             <div><h3>{t('Tu primera cuota', 'Your first payment')}</h3><p>{t('Sistema francés · UVA de hoy', 'French system · current UVA')}</p></div>

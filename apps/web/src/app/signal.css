@@ -1147,6 +1147,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-section-title h3 { color: var(--signal-text); font-size: 17px; letter-spacing: -.02em; }
 .mortgage-section-title p { margin-top: 2px; color: var(--signal-subtle); font-size: 11px; }
 .mortgage-form-panel { display: grid; align-content: start; gap: 14px; }
+.mortgage-mobile-details-toggle, .mortgage-mobile-result-summary { display: none; }
 .mortgage-currency-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; border: 1px solid var(--signal-line); border-radius: 11px; padding: 4px; }
 .mortgage-currency-toggle button { min-height: 37px; border-radius: 8px; color: var(--signal-muted); font-size: 12px; font-weight: 750; }
 .mortgage-currency-toggle button.is-active { background: var(--signal-cyan); color: #041014; }
@@ -1402,7 +1403,33 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
   .mortgage-source-strip > span, .mortgage-source-strip > a { flex: 0 0 auto; }
   .mortgage-panel { border-radius: 13px; padding: 14px; }
   .mortgage-main-grid { display: grid; grid-template-columns: 1fr; }
-  .mortgage-result-panel { order: -1; }
+  .mortgage-mobile-order-currency { order: 1; }
+  .mortgage-mobile-order-property { order: 2; }
+  .mortgage-mobile-order-down-payment { order: 3; }
+  .mortgage-mobile-order-purpose { order: 4; }
+  .mortgage-mobile-order-profile { order: 5; }
+  .mortgage-mobile-order-term { order: 6; }
+  .mortgage-mobile-details-toggle { min-height: 58px; display: grid; grid-template-columns: minmax(0,1fr) auto; order: 7; align-items: center; gap: 12px; border: 1px solid var(--signal-line-strong); border-radius: 11px; background: color-mix(in srgb,var(--signal-surface) 72%,transparent); color: var(--signal-text); padding: 10px 12px; text-align: left; }
+  .mortgage-mobile-details-toggle > span { display: grid; gap: 3px; }
+  .mortgage-mobile-details-toggle strong { font-size: 11px; }
+  .mortgage-mobile-details-toggle small { color: var(--signal-subtle); font-size: 8px; line-height: 1.4; }
+  .mortgage-mobile-details-toggle svg { color: var(--signal-cyan); transition: transform .18s ease; }
+  .mortgage-mobile-details-toggle[aria-expanded="true"] { border-color: rgba(34,211,238,.45); background: rgba(34,211,238,.06); }
+  .mortgage-mobile-details-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .mortgage-mobile-order-exchange { order: 8; }
+  .mortgage-mobile-order-costs { order: 9; }
+  .mortgage-mobile-order-income { order: 10; }
+  .mortgage-mobile-optional.is-collapsed { display: none; }
+  .mortgage-mobile-result-summary { display: grid; order: 11; gap: 12px; overflow: hidden; border: 1px solid rgba(34,211,238,.28); border-radius: 13px; background: linear-gradient(135deg,rgba(34,211,238,.09),rgba(82,113,255,.06)); padding: 13px; }
+  .mortgage-mobile-result-summary header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .mortgage-mobile-result-summary header span { color: var(--signal-cyan); font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+  .mortgage-mobile-result-summary header small { color: var(--signal-subtle); font-size: 8px; }
+  .mortgage-mobile-result-summary > div { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mortgage-mobile-result-summary p { min-width: 0; display: grid; gap: 3px; border: 1px solid var(--signal-line); border-radius: 9px; background: color-mix(in srgb,var(--signal-surface) 56%,transparent); padding: 10px; }
+  .mortgage-mobile-result-summary p small { color: var(--signal-subtle); font-size: 8px; }
+  .mortgage-mobile-result-summary p strong { overflow: hidden; color: var(--signal-text); font-family: var(--signal-mono); font-size: clamp(12px,3.5vw,15px); text-overflow: ellipsis; white-space: nowrap; }
+  .mortgage-mobile-result-summary > button { min-height: 42px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9px; background: var(--signal-cyan); color: #041014; font-size: 10px; font-weight: 800; }
+  .mortgage-result-panel { scroll-margin-top: 84px; }
   .mortgage-hero-result > strong { font-size: clamp(2.45rem,12vw,4rem); }
   .mortgage-metrics { grid-template-columns: 1fr 1fr; }
   .mortgage-upfront-costs > header { display: grid; gap: 7px; }
