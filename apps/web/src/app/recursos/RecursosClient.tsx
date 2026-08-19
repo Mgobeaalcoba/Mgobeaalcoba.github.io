@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2 } from "lucide-react";
+import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2, Home } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
 import TokenCalculator from "@/components/recursos/TokenCalculator";
@@ -11,6 +11,7 @@ import ExchangeRates from "@/components/recursos/ExchangeRates";
 import EconomicIndicators from "@/components/recursos/EconomicIndicators";
 import HolidaysArgentina from "@/components/recursos/HolidaysArgentina";
 import FAQRecursos from "@/components/recursos/FAQRecursos";
+import MortgageUvaCalculator from "@/components/recursos/MortgageUvaCalculator";
 import ROICalculator from "@/components/showcase/ROICalculator";
 import ArchVisualizer from "@/components/showcase/ArchVisualizer";
 import AgentDashboard from "@/components/showcase/AgentDashboard";
@@ -18,6 +19,7 @@ import { events } from "@/lib/gtag";
 
 type TabId =
   | "calculator"
+  | "mortgages"
   | "roi"
   | "arch"
   | "tokens"
@@ -52,6 +54,12 @@ const TAB_CATEGORIES: TabCategory[] = [
         id: "calculator",
         icon: <Calculator size={16} />,
         label: { es: "Ganancias", en: "Income Tax" },
+        wide: true,
+      },
+      {
+        id: "mortgages",
+        icon: <Home size={16} />,
+        label: { es: "Hipotecarios UVA", en: "UVA Mortgages" },
         wide: true,
       },
       {
@@ -215,6 +223,7 @@ export default function RecursosClient() {
         <div className="signal-tool-stage__bar"><div><span>{TAB_CATEGORIES.find((group) => group.id === activeCategory)?.label[lang]}</span><strong>{currentTabItem?.label[lang]}</strong></div><span className="signal-tool-status"><i />{lang === "es" ? "Disponible" : "Available"}</span></div>
         <motion.div key={activeTab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.18 }} className={isWide ? "" : "max-w-2xl"}>
           {activeTab === "calculator" && <TaxCalculator />}
+          {activeTab === "mortgages" && <MortgageUvaCalculator />}
           {activeTab === "roi" && <ROICalculator />}
           {activeTab === "arch" && <ArchVisualizer />}
           {activeTab === "agent-dash" && <AgentDashboard />}

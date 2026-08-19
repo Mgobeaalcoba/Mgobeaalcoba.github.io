@@ -10,13 +10,18 @@ const PAGE_URL = "https://www.mgatc.com/recursos/";
 export const metadata: Metadata = {
   title: "Recursos Tech & Financieros | Arquitectura IA y Calculadoras",
   description:
-    "Visualizador de Arquitecturas IA, Calculadora de ROI en Automatización, y herramientas financieras para Argentina: Ganancias 2026, Simulador Sueldo, Cotizaciones en tiempo real.",
+    "Comparador de créditos hipotecarios UVA con primera cuota, fondos iniciales, gastos de escrituración y escenarios de cuota/ingreso, junto a herramientas para Argentina.",
   keywords: [
     "visualizador arquitectura n8n",
     "automatización procesos ia",
     "calculadora roi automatización",
     "arquitectura tech interactiva",
     "calculadora ganancias argentina",
+    "calculadora credito hipotecario uva",
+    "comparador bancos hipotecarios argentina",
+    "primera cuota credito uva",
+    "gastos escritura credito hipotecario",
+    "comision inmobiliaria comprador",
     "dolar blue hoy",
     "transparency bi",
     "metricas ia tiempo real",
@@ -37,6 +42,30 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cómo se calcula la primera cuota de un crédito hipotecario UVA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La cuota financiera se calcula en UVA mediante sistema francés y la tasa efectiva mensual equivalente de la línea elegida. Para expresarla en pesos se multiplica por el valor vigente de la UVA.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿La proyección de cuotas UVA es un pronóstico?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Es un escenario educativo construido con supuestos editables sobre la evolución mensual de la UVA y del ingreso familiar. No predice inflación, salarios ni el tipo de cambio.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué gastos iniciales debo considerar además del anticipo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La herramienta permite estimar una comisión inmobiliaria opcional y los gastos de escrituración. Usa 4% y 3% como referencias editables. Sellos, tasación, seguros y cargos bancarios dependen de la jurisdicción y de cada operación.",
+      },
+    },
     {
       "@type": "Question",
       name: "¿Qué es Transparency BI en la integración de IA?",
