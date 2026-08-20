@@ -5,6 +5,7 @@
  */
 import { supabase } from '@/lib/supabase';
 import type { SiteContent, EpTimelineEntry } from '@/types/content';
+import { trackAppError } from '@/lib/gtag';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type EpConfig = Record<string, any>;
@@ -16,7 +17,7 @@ export async function fetchEpConfig(): Promise<EpConfig | null> {
     .single();
 
   if (error) {
-    console.error('[EP] fetchEpConfig error:', error.message);
+    trackAppError('ep_config', 'load', 'query_failed', true);
     return null;
   }
 
@@ -45,7 +46,7 @@ export async function fetchEpHistoryTimeline(): Promise<EpTimelineEntry[]> {
     .order('sort_order');
 
   if (error) {
-    console.error('[EP] fetchEpHistoryTimeline error:', error.message);
+    trackAppError('ep_timeline', 'load', 'query_failed', true);
     return [];
   }
 

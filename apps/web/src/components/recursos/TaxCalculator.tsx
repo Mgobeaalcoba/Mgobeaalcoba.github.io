@@ -548,9 +548,11 @@ export default function TaxCalculator() {
   const handleCalculate = useCallback(() => {
     if (!previousTaxParams || !secondSemesterTaxParams || !officialAnnualTaxParams) return;
     events.toolAction('calculator', 'calculate');
-    setResult(calculateTax(inputs, secondSemesterTaxParams));
+    const nextResult = calculateTax(inputs, secondSemesterTaxParams);
+    setResult(nextResult);
     setPreviousResult(calculateTax(inputs, previousTaxParams));
     setAnnualFinalResult(calculateTax(inputs, officialAnnualTaxParams));
+    events.toolResult('calculator', 'success', nextResult.monthlyTax > 0 ? 'tax_due' : 'no_tax');
   }, [inputs, previousTaxParams, secondSemesterTaxParams, officialAnnualTaxParams]);
 
   const loadScenario = (grossSalary: number, conyuge: boolean, hijos: number, hijosIncap: number, alquiler: number, alquilerAnual: boolean, extraIncome: number, includeSAC: boolean) => {

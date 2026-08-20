@@ -39,6 +39,7 @@ export default function ArticleMobileActions({ slug, title }: { slug: string; ti
       if (canNativeShare) await navigator.share(data);
       else await navigator.clipboard.writeText(window.location.href);
       events.contentAction('share', 'article', slug, method);
+      events.share(method, 'article', slug);
       setShared(true);
       window.setTimeout(() => setShared(false), 1800);
     } catch { /* User cancelled the native share sheet. */ }

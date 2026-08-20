@@ -1,5 +1,15 @@
 const CONTACT_WEBHOOK = process.env.NEXT_PUBLIC_N8N_CONTACT_WEBHOOK ?? '';
 const QUOTE_WEBHOOK = process.env.NEXT_PUBLIC_N8N_QUOTE_WEBHOOK ?? '';
+const ALLOWED_WEBHOOK_ORIGIN = 'https://mgobeaalcoba.app.n8n.cloud';
+
+function allowedWebhookUrl(value: string): string | null {
+  try {
+    const url = new URL(value);
+    return url.origin === ALLOWED_WEBHOOK_ORIGIN && url.pathname.startsWith('/webhook/') && !url.search && !url.hash
+      ? url.toString()
+      : null;
+  } catch { return null; }
+}
 
 export interface ContactFormData {
   name: string;
@@ -19,19 +29,17 @@ export interface QuoteFormData extends ContactFormData {
 }
 
 async function sendToWebhook(url: string, data: ContactFormData | QuoteFormData): Promise<boolean> {
-  if (!url) {
-    console.warn('[webhookService] Webhook URL not configured. Simulating success.');
-    return true;
-  }
+  const endpoint = allowedWebhookUrl(url);
+  if (!endpoint) return false;
   try {
-    const res = await fetch(url, {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+      signal: AbortSignal.timeout(10_000),
     });
     return res.ok;
-  } catch (err) {
-    console.error('[webhookService] Failed to send webhook:', err);
+  } catch {
     return false;
   }
 }

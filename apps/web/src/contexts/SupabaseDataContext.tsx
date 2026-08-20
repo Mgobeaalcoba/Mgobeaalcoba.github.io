@@ -25,6 +25,7 @@ import {
   fetchBlogCategories,
   fetchVideos,
 } from '@/lib/queries';
+import { events } from '@/lib/gtag';
 import type {
   ExperienceItem,
   ProjectItem,
@@ -144,7 +145,7 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[SupabaseData] fetch failed:', err);
+          events.appError('supabase_data', 'load', 'data_load_failed', true);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

@@ -10,6 +10,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchNeilProducts } from '@/lib/queries';
 import type { NeilConfig, NeilProductCategory, NeilTranslations } from '@/lib/queries';
+import { trackAppError } from '@/lib/gtag';
 import esTranslations from '@/data/translations/es.json';
 import enTranslations from '@/data/translations/en.json';
 import itTranslations from '@/data/translations/it.json';
@@ -71,7 +72,7 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[NeilData] fetch failed:', err);
+          trackAppError('neil_data', 'load', 'data_load_failed', true);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

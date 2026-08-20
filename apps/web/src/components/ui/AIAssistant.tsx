@@ -26,6 +26,7 @@ export function AIAssistant() {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [formError, setFormError] = useState("");
   const [isIdentifying, setIsIdentifying] = useState(false);
+  const [identityFormStarted, setIdentityFormStarted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const [isListening, setIsListening] = useState(false);
@@ -49,8 +50,8 @@ export function AIAssistant() {
         rec.onend = () => {
           setIsListening(false);
         };
-        rec.onerror = (e: any) => {
-          console.error("Speech recognition error", e);
+        rec.onerror = () => {
+          events.appError("ai_assistant", "speech_recognition", "recognition_error", true, "cv");
           setIsListening(false);
         };
         rec.onresult = (event: any) => {
@@ -72,8 +73,8 @@ export function AIAssistant() {
     } else {
       try {
         recognitionRef.current.start();
-      } catch (err) {
-        console.error(err);
+      } catch {
+        events.appError("ai_assistant", "speech_recognition_start", "start_error", true, "cv");
       }
     }
   };
@@ -87,6 +88,18 @@ export function AIAssistant() {
       scrollToBottom();
     }
   }, [messages, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || user) return;
+    events.aiAssistantFormView();
+    events.formView("ai_assistant_identity", "cv");
+  }, [isOpen, user]);
+
+  const markIdentityFormStarted = () => {
+    if (identityFormStarted) return;
+    setIdentityFormStarted(true);
+    events.formStart("ai_assistant_identity", "cv");
+  };
 
   const openAssistant = useCallback(() => {
     if (isOpen) return;
@@ -149,6 +162,7 @@ export function AIAssistant() {
     setFormError("");
 
     if (!formData.name.trim() || !formData.email.trim()) {
+      events.formValidationError("ai_assistant_identity", "required_fields", "required", "cv");
       setFormError(
         lang === "en"
           ? "Please fill all fields"
@@ -159,6 +173,7 @@ export function AIAssistant() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
+      events.formValidationError("ai_assistant_identity", "email", "invalid", "cv");
       setFormError(
         lang === "en"
           ? "Please enter a valid email"
@@ -167,11 +182,12 @@ export function AIAssistant() {
       return;
     }
 
+    events.formSubmitAttempt("ai_assistant_identity", "cv");
     setIsIdentifying(true);
     try {
       await identifyUser({ name: formData.name.trim(), email: formData.email.trim() });
-    } catch (error) {
-      console.error("Error registering assistant lead:", error);
+    } catch {
+      events.leadDelivery("error", "ai_assistant", "ai_assistant_identity");
       setFormError(
         lang === "en"
           ? "We couldn't register your details. Please try again."
@@ -277,14 +293,24 @@ export function AIAssistant() {
                         : "Contanos quién sos para comenzar. Tus datos nos permiten registrar y dar seguimiento a tu consulta."}
                     </p>
 
-                    <form onSubmit={handleIdentify} className="space-y-4">
+                    <form
+                      onSubmit={handleIdentify}
+                      onInvalid={(event) => {
+                        const field = (event.target as HTMLInputElement).name || "unknown";
+                        events.formValidationError("ai_assistant_identity", field, "invalid", "cv");
+                      }}
+                      className="space-y-4"
+                    >
                       <div>
                         <label className="block text-[10px] uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-1 ml-1">
                           {lang === "en" ? "Full Name" : "Nombre Completo"}
                         </label>
                         <input
                           type="text"
+                          name="name"
                           required
+                          maxLength={120}
+                          onFocus={markIdentityFormStarted}
                           value={formData.name}
                           onChange={(e) =>
                             setFormData((prev) => ({
@@ -307,7 +333,10 @@ export function AIAssistant() {
                         </label>
                         <input
                           type="email"
+                          name="email"
                           required
+                          maxLength={254}
+                          onFocus={markIdentityFormStarted}
                           value={formData.email}
                           onChange={(e) =>
                             setFormData((prev) => ({
@@ -455,6 +484,7 @@ export function AIAssistant() {
                 ) : (
                   <input
                     type="text"
+                    maxLength={4000}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder={

@@ -1,113 +1,74 @@
-/**
- * GA4 Measurement Plan — El Portugués S.A. Landing
- * Property: G-DG0SLT5RY3 (compartido con mgobeaalcoba.github.io)
- *
- * Separación de tráfico: custom dimension "site_section" = "elportugues"
- * Filtrar en GA4: Explorations → Add filter → site_section contains "elportugues"
- *
- * Eventos implementados:
- * ─────────────────────────────────────────────────────────────────────
- * ACQUISITION
- *   page_view           → automático vía gtag config
- *
- * ENGAGEMENT
- *   scroll_depth        → 25 / 50 / 75 / 90 / 100%
- *   section_view        → cuando una sección entra al viewport
- *   service_view        → hover sobre card de servicio
- *   proposal_view       → cuando la sección #propuesta entra al viewport
- *
- * CONVERSION
- *   lead_form_sent      → formulario de contacto enviado con éxito
- *   cta_click           → cualquier CTA principal clickeado
- *   proposal_cta_click  → click en el botón flotante hacia #propuesta
- *   consulting_click    → click en el link al portfolio de consulting
- *
- * PIPELINE
- *   quote_requested     → formulario tipo "Cotización de servicios"
- *   contact_attempted   → formulario enviado (antes de saber si tuvo éxito)
- * ─────────────────────────────────────────────────────────────────────
- */
-
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-DG0SLT5RY3';
-
-type GTagEventParams = {
-  action: string;
-  category?: string;
-  label?: string;
-  value?: number;
-  [key: string]: string | number | boolean | undefined;
-};
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'G-DG0SLT5RY3';
+export const CONSENT_STORAGE_KEY = 'mga_consent_v1';
+export type ConsentChoice = 'essential' | 'analytics' | 'all';
 
 declare global {
-  interface Window {
-    gtag: (...args: unknown[]) => void;
-    dataLayer: unknown[];
-  }
+  interface Window { gtag?: (...args: unknown[]) => void; mgaAnalyticsReady?: boolean; }
 }
 
-const safeGtag = (command: string, ...args: unknown[]) => {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
-  window.gtag(command, ...args);
-};
+const COMMON_DIMS = { site_section: 'elportugues', client_name: 'El Portugues SA' };
+let previousPageLocation = '';
 
-export const pageview = (url: string) => {
-  safeGtag('config', GA_MEASUREMENT_ID, { page_path: url });
-};
-
-export const event = ({ action, category, label, value, ...rest }: GTagEventParams) => {
-  safeGtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value,
-    site_section: 'elportugues',
-    client_name: 'El Portugues SA',
-    ...rest,
+function sanitize(params: Record<string, unknown>) {
+  const result: Record<string, string | number | boolean> = {};
+  Object.entries(params).forEach(([key, value]) => {
+    if (typeof value === 'string' && value.trim()) result[key] = value.trim().slice(0, 100);
+    else if (typeof value === 'number' && Number.isFinite(value)) result[key] = value;
+    else if (typeof value === 'boolean') result[key] = value;
   });
-};
+  return result;
+}
 
-// ── ENGAGEMENT ──────────────────────────────────────────────────────
+function sendEvent(action: string, params: Record<string, unknown> = {}) {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', action, { ...COMMON_DIMS, ...sanitize(params) });
+}
 
-export const trackScrollDepth = (depth: number) => {
-  event({ action: 'scroll_depth', category: 'engagement', label: `${depth}%`, value: depth });
-};
+export function pageview(url: string) {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  let pagePath = '/elportugues-site/';
+  try { pagePath = new URL(url, window.location.origin).pathname || pagePath; } catch { /* Keep fallback. */ }
+  const pageLocation = `${window.location.origin}${pagePath}`;
+  let initialReferrer = 'not_apply';
+  try {
+    if (document.referrer) {
+      const referrer = new URL(document.referrer);
+      initialReferrer = `${referrer.origin}${referrer.pathname}`;
+    }
+  } catch { /* Keep fallback. */ }
+  window.gtag('event', 'page_view', {
+    ...COMMON_DIMS,
+    page_path: pagePath,
+    page_location: pageLocation,
+    page_referrer: previousPageLocation || initialReferrer,
+    page_title: document.title,
+    page_type: 'landing',
+    user_lang: document.documentElement.lang || 'es',
+    send_to: GA_MEASUREMENT_ID,
+  });
+  previousPageLocation = pageLocation;
+}
 
-export const trackSectionView = (sectionName: string) => {
-  event({ action: 'section_view', category: 'engagement', label: sectionName });
-};
+export function updateConsent(choice: ConsentChoice) {
+  const analytics = choice === 'analytics' || choice === 'all' ? 'granted' : 'denied';
+  const ads = choice === 'all' ? 'granted' : 'denied';
+  window.gtag?.('consent', 'update', { analytics_storage: analytics, ad_storage: ads, ad_user_data: ads, ad_personalization: ads });
+  window.gtag?.('set', 'ads_data_redaction', choice !== 'all');
+}
 
-export const trackServiceView = (serviceName: string) => {
-  event({ action: 'service_view', category: 'engagement', label: serviceName });
-};
-
-export const trackProposalView = () => {
-  event({ action: 'proposal_view', category: 'engagement', label: 'sales_proposal_section' });
-};
-
-// ── CONVERSION ──────────────────────────────────────────────────────
-
-export const trackLeadFormSent = (formType: string) => {
-  event({ action: 'lead_form_sent', category: 'conversion', label: formType });
-  // Also fire GA4 recommended event
-  safeGtag('event', 'generate_lead', { currency: 'ARS', value: 1, form_type: formType });
-};
-
-export const trackQuoteRequested = (formType: string) => {
-  event({ action: 'quote_requested', category: 'conversion', label: formType });
-  safeGtag('event', 'generate_lead', { currency: 'ARS', value: 5, form_type: 'quote' });
-};
-
-export const trackContactAttempted = (formType: string) => {
-  event({ action: 'contact_attempted', category: 'pipeline', label: formType });
-};
-
-export const trackCtaClick = (ctaLabel: string, destination: string) => {
-  event({ action: 'cta_click', category: 'conversion', label: ctaLabel, destination });
-};
-
-export const trackProposalCtaClick = () => {
-  event({ action: 'proposal_cta_click', category: 'conversion', label: 'floating_button' });
-};
-
-export const trackConsultingClick = () => {
-  event({ action: 'consulting_click', category: 'conversion', label: 'mgobeaalcoba_consulting' });
-};
+export const trackScrollDepth = (percent: number) => sendEvent('scroll_depth', { percent });
+export const trackSectionView = (sectionName: string) => sendEvent('section_view', { section_name: sectionName });
+export const trackServiceView = (serviceName: string) => sendEvent('service_view', { service_name: serviceName });
+export const trackProposalView = () => sendEvent('proposal_view');
+export const trackFormView = (formType: string) => sendEvent('form_view', { form_type: formType });
+export const trackFormStart = (formType: string) => sendEvent('form_start', { form_type: formType });
+export const trackFormValidationError = (formType: string, fieldId: string) => sendEvent('form_validation_error', { form_type: formType, field_id: fieldId, error_code: 'invalid' });
+export const trackContactAttempted = (formType: string) => sendEvent('form_submit_attempt', { form_type: formType });
+export const trackLeadDelivery = (status: 'success' | 'error', formType: string) => sendEvent(`lead_webhook_${status}`, { form_type: formType });
+export const trackLeadFormSent = (formType: string) => sendEvent('generate_lead', { form_type: formType });
+export const trackQuoteRequested = (formType: string) => sendEvent('quote_requested', { form_type: formType });
+export const trackCtaClick = (ctaLabel: string, destination: string) => sendEvent('cta_click', { cta_name: ctaLabel, destination_type: destination.startsWith('#') ? 'section' : 'page' });
+export const trackProposalCtaClick = () => sendEvent('proposal_cta_click');
+export const trackConsultingClick = () => sendEvent('consulting_click');
+export const trackAppError = (component: string, operation: string, errorCode: string, recoverable: boolean) => sendEvent('app_error', { component, operation, error_code: errorCode, recoverable });
+export const trackErrorRecovery = (component: string) => sendEvent('error_recovery', { component });

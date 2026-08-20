@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { events } from '@/lib/gtag';
 
 interface Props {
   children: React.ReactNode;
@@ -22,8 +23,8 @@ export class DataErrorBoundary extends React.Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('[DataErrorBoundary]', error, info.componentStack);
+  componentDidCatch() {
+    events.appError('data_error_boundary', 'render', 'render_error', true);
   }
 
   render() {
@@ -35,7 +36,10 @@ export class DataErrorBoundary extends React.Component<Props, State> {
               <p className="text-lg font-medium">Error cargando la página</p>
               <p className="text-sm">Intentá recargar. Si el problema persiste, volvé más tarde.</p>
               <button
-                onClick={() => this.setState({ hasError: false, error: null })}
+                onClick={() => {
+                  events.errorRecovery('data_error_boundary');
+                  this.setState({ hasError: false, error: null });
+                }}
                 className="mt-4 px-4 py-2 rounded bg-indigo-600 text-white text-sm hover:bg-indigo-500 transition"
               >
                 Reintentar

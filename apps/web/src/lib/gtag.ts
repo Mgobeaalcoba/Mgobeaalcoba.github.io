@@ -3,23 +3,134 @@ export const GA_ID = 'G-DG0SLT5RY3';
 export const CONSENT_STORAGE_KEY = 'mga_consent_v1';
 export type ConsentChoice = 'essential' | 'analytics' | 'all';
 
+type AnalyticsPrimitive = string | number | boolean;
+type AnalyticsValue = AnalyticsPrimitive | AnalyticsPrimitive[] | Record<string, unknown>[];
+let previousPageLocation = '';
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    mgaAnalyticsReady?: boolean;
   }
+}
+
+function safePath(url: string): string {
+  if (typeof window === 'undefined') return '/';
+  try {
+    const parsed = new URL(url, window.location.origin);
+    return parsed.pathname || '/';
+  } catch {
+    return (url.split('?')[0].split('#')[0] || '/').startsWith('/')
+      ? url.split('?')[0].split('#')[0] || '/'
+      : '/';
+  }
+}
+
+function safeLocation(url: string): string {
+  const path = safePath(url);
+  return typeof window === 'undefined' ? path : `${window.location.origin}${path}`;
+}
+
+function safeReferrer(url: string): string {
+  if (typeof window === 'undefined' || !url) return 'not_apply';
+  try {
+    const parsed = new URL(url, window.location.origin);
+    return `${parsed.origin}${parsed.pathname || '/'}`;
+  } catch {
+    return 'not_apply';
+  }
+}
+
+function getPageContext(pathname: string): { site_section: string; page_type: string } {
+  if (pathname.startsWith('/blog/special/')) {
+    return { site_section: 'blog', page_type: pathname.includes('/methodology') ? 'methodology' : 'special_report' };
+  }
+  if (pathname.startsWith('/blog/videos')) return { site_section: 'blog', page_type: 'video_library' };
+  if (pathname.startsWith('/blog/')) return { site_section: 'blog', page_type: 'article' };
+  if (pathname === '/blog' || pathname === '/blog/') return { site_section: 'blog', page_type: 'content_hub' };
+  if (pathname.startsWith('/recursos/hipotecarios')) return { site_section: 'recursos', page_type: 'mortgage_tool' };
+  if (pathname.startsWith('/recursos')) return { site_section: 'recursos', page_type: 'tool_hub' };
+  if (pathname.startsWith('/servicios/gracias')) return { site_section: 'services', page_type: 'checkout_return' };
+  if (pathname.startsWith('/servicios/')) return { site_section: 'services', page_type: 'service_detail' };
+  if (pathname === '/servicios' || pathname === '/servicios/') return { site_section: 'services', page_type: 'service_list' };
+  if (pathname.startsWith('/consulting')) return { site_section: 'consulting', page_type: 'landing' };
+  if (pathname.startsWith('/portfolio')) return { site_section: 'portfolio', page_type: 'portfolio' };
+  if (pathname.startsWith('/privacidad')) return { site_section: 'privacy', page_type: 'policy' };
+  if (pathname.startsWith('/offline')) return { site_section: 'system', page_type: 'offline' };
+  return { site_section: 'cv', page_type: pathname === '/' ? 'home' : 'page' };
+}
+
+function sanitizeValue(value: unknown): AnalyticsValue | undefined {
+  if (typeof value === 'string') {
+    const normalized = value.trim();
+    return normalized ? normalized.slice(0, 100) : undefined;
+  }
+  if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
+  if (typeof value === 'boolean') return value;
+  if (Array.isArray(value)) {
+    const objectItems = value
+      .filter((item) => item && typeof item === 'object' && !Array.isArray(item))
+      .map((item) => sanitizeParams(item as Record<string, unknown>));
+    if (objectItems.length) return objectItems;
+    const primitiveItems: AnalyticsPrimitive[] = [];
+    value.forEach((item) => {
+      const sanitized = sanitizeValue(item);
+      if (typeof sanitized === 'string' || typeof sanitized === 'number' || typeof sanitized === 'boolean') {
+        primitiveItems.push(sanitized);
+      }
+    });
+    return primitiveItems;
+  }
+  return undefined;
+}
+
+function sanitizeParams(params: Record<string, unknown>): Record<string, AnalyticsValue> {
+  return Object.fromEntries(
+    Object.entries(params)
+      .map(([key, value]) => [key, sanitizeValue(value)] as const)
+      .filter((entry): entry is readonly [string, AnalyticsValue] => entry[1] !== undefined),
+  );
+}
+
+function linkContext(url: string): { link_type: string; link_domain: string; link_path: string } {
+  const raw = url.trim();
+  if (raw.startsWith('mailto:')) return { link_type: 'email', link_domain: 'email', link_path: 'not_apply' };
+  if (raw.startsWith('tel:')) return { link_type: 'phone', link_domain: 'phone', link_path: 'not_apply' };
+  try {
+    const parsed = new URL(raw, window.location.origin);
+    const internal = parsed.origin === window.location.origin;
+    return {
+      link_type: internal ? 'internal' : 'external',
+      link_domain: internal ? 'internal' : parsed.hostname.toLowerCase(),
+      link_path: parsed.pathname || '/',
+    };
+  } catch {
+    return { link_type: 'unknown', link_domain: 'unknown', link_path: 'not_apply' };
+  }
+}
+
+function numericBand(value: number, limits: [number, number], labels: [string, string, string]): string {
+  if (value < limits[0]) return labels[0];
+  if (value < limits[1]) return labels[1];
+  return labels[2];
 }
 
 export function pageview(url: string) {
   if (typeof window !== 'undefined' && window.gtag) {
-    const safePath = url.split('?')[0].split('#')[0] || '/';
+    const path = safePath(url);
+    const location = safeLocation(path);
+    const referrer = previousPageLocation || safeReferrer(document.referrer);
     window.gtag('event', 'page_view', {
-      page_path: safePath,
-      page_location: `${window.location.origin}${safePath}`,
+      page_path: path,
+      page_location: location,
+      page_referrer: referrer,
       page_title: document.title,
       user_lang: getUserLang(),
       app_display_mode: getDisplayMode(),
+      ...getPageContext(path),
       send_to: GA_ID,
     });
+    previousPageLocation = location;
   }
 }
 
@@ -34,12 +145,14 @@ function getDisplayMode(): string {
   return 'browser';
 }
 
-export function event(action: string, params: Record<string, unknown> = {}) {
+function event(action: string, params: Record<string, unknown> = {}) {
   if (typeof window !== 'undefined' && window.gtag) {
+    const context = getPageContext(window.location.pathname);
     window.gtag('event', action, {
       user_lang: getUserLang(),
       app_display_mode: getDisplayMode(),
-      ...params,
+      ...context,
+      ...sanitizeParams(params),
     });
   }
 }
@@ -60,7 +173,7 @@ export function updateConsent(choice: ConsentChoice) {
   }
 }
 
-// Key events always include send_to to guarantee attribution to the correct GA4 property
+// Candidate key events still need to be marked as key events in GA4 Admin.
 function keyEvent(action: string, params: Record<string, unknown> = {}) {
   event(action, { send_to: GA_ID, ...params });
 }
@@ -78,11 +191,20 @@ export const events = {
   beginCheckout: (item_id: string, item_name: string, price: number, payment_type: string) =>
     keyEvent('begin_checkout', { currency: 'USD', value: price, payment_type, site_section: 'services', items: [{ item_id, item_name, price, quantity: 1 }] }),
 
+  checkoutReturn: (status: 'approved' | 'pending' | 'rejected' | 'unknown', offer_id = 'unknown') =>
+    event('checkout_return', { status, offer_id, site_section: 'services' }),
+
+  purchase: (transaction_id: string, item_id: string, item_name: string, price: number) =>
+    keyEvent('purchase', { transaction_id, currency: 'USD', value: price, site_section: 'services', items: [{ item_id, item_name, price, quantity: 1 }] }),
+
   checkoutUnavailable: (item_id: string) =>
     event('checkout_unavailable', { item_id, site_section: 'services' }),
 
   serviceOnboardingStart: (item_id: string) =>
     event('service_onboarding_start', { item_id, site_section: 'services' }),
+
+  serviceOnboardingComplete: (item_id: string) =>
+    event('service_onboarding_complete', { item_id, site_section: 'services' }),
 
   pwaInstallEligible: () => event('pwa_install_eligible'),
   pwaInstallPromptView: () => event('pwa_install_prompt_view'),
@@ -98,6 +220,15 @@ export const events = {
   contentAction: (action: 'save' | 'unsave' | 'share', content_type: string, content_id: string, method?: string) =>
     event('content_action', { action, content_type, content_id, method, site_section: 'blog' }),
 
+  share: (method: string, content_type: string, item_id: string) =>
+    event('share', { method, content_type, item_id }),
+
+  contentEngaged: (content_type: string, content_id: string, engagement_seconds: number, scroll_percent: number) =>
+    event('content_engaged', { content_type, content_id, engagement_seconds, scroll_percent, site_section: 'blog' }),
+
+  contentComplete: (content_type: string, content_id: string, scroll_percent: number) =>
+    event('content_complete', { content_type, content_id, scroll_percent, site_section: 'blog' }),
+
   contentFilter: (content_type: string, filter_type: string, filter_value: string) =>
     event('content_filter', { content_type, filter_type, filter_value }),
 
@@ -110,8 +241,29 @@ export const events = {
   videoSelect: (video_id: string, source: string) =>
     event('video_select', { video_id, source, site_section: 'blog' }),
 
+  videoStart: (video_id: string, source: string) =>
+    event('video_start', { video_id, source, site_section: 'blog' }),
+
+  videoProgress: (video_id: string, progress_percent: 25 | 50 | 75, source: string) =>
+    event('video_progress', { video_id, progress_percent, source, site_section: 'blog' }),
+
+  videoComplete: (video_id: string, source: string) =>
+    event('video_complete', { video_id, source, site_section: 'blog' }),
+
   toolSelect: (tool_id: string, category: string) =>
     event('tool_select', { tool_id, category, site_section: 'recursos' }),
+
+  toolView: (tool_id: string, source: 'initial' | 'tab' | 'direct') =>
+    event('tool_view', { tool_id, source, site_section: 'recursos' }),
+
+  toolStart: (tool_id: string) =>
+    event('tool_start', { tool_id, site_section: 'recursos' }),
+
+  toolResult: (tool_id: string, result_status: 'success' | 'empty' | 'fallback', result_band = 'not_apply') =>
+    event('tool_result', { tool_id, result_status, result_band, site_section: 'recursos' }),
+
+  toolError: (tool_id: string, error_code: string, recoverable: boolean) =>
+    event('tool_error', { tool_id, error_code, recoverable, site_section: 'recursos' }),
 
   toolAction: (tool_id: string, action: string, detail?: string) =>
     event('tool_action', { tool_id, action, detail, site_section: 'recursos' }),
@@ -149,7 +301,12 @@ export const events = {
     income_provided: boolean;
     compatible_bank_count: number;
     has_result: boolean;
-  }) => event('mortgage_configuration_update', { ...parameters, site_section: 'recursos' }),
+  }) => {
+    const safeParameters: Record<string, unknown> = { ...parameters };
+    delete safeParameters.applicant_profile;
+    delete safeParameters.income_provided;
+    event('mortgage_configuration_update', { ...safeParameters, site_section: 'recursos' });
+  },
 
   mortgageBankSelect: (bank_name: string, selection_source: 'calculator' | 'ranking') =>
     event('mortgage_bank_select', { bank_name, selection_source, site_section: 'recursos' }),
@@ -176,7 +333,13 @@ export const events = {
     monthly_uva_change: number;
     monthly_income_change: number;
     horizon_years: number;
-  }) => event('mortgage_scenario_update', { ...parameters, site_section: 'recursos' }),
+  }) => event('mortgage_scenario_update', {
+    scenario_mode: parameters.scenario_mode,
+    monthly_uva_change_band: numericBand(parameters.monthly_uva_change, [1, 3], ['low', 'medium', 'high']),
+    monthly_income_change_band: numericBand(parameters.monthly_income_change, [1, 3], ['low', 'medium', 'high']),
+    horizon_years: parameters.horizon_years,
+    site_section: 'recursos',
+  }),
 
   mortgageMarketRangeSelect: (market_range: string, market_signal: string) =>
     event('mortgage_market_range_select', { market_range, market_signal, site_section: 'recursos' }),
@@ -184,7 +347,12 @@ export const events = {
   mortgageShareResult: (
     outcome: 'shared' | 'copied' | 'cancelled' | 'unavailable',
     share_method: 'native_share' | 'clipboard',
-  ) => event('mortgage_share_result', { outcome, share_method, site_section: 'recursos' }),
+  ) => {
+    event('mortgage_share_result', { outcome, share_method, site_section: 'recursos' });
+    if (outcome === 'shared' || outcome === 'copied') {
+      event('share', { method: share_method, content_type: 'mortgage_result', item_id: 'uva_mortgage_calculator' });
+    }
+  },
 
   mortgageMethodologyOpen: (methodology_section: 'scenario' | 'market_context') =>
     event('mortgage_methodology_open', { methodology_section, site_section: 'recursos' }),
@@ -193,7 +361,19 @@ export const events = {
     event('mortgage_source_click', { source_name, source_section, site_section: 'recursos' }),
 
   leadDelivery: (status: 'success' | 'error', source: string, form_type: string) =>
-    event(`lead_webhook_${status}`, { source, form_type, site_section: source }),
+    event(`lead_webhook_${status}`, { source, form_type }),
+
+  formView: (form_type: string, site_section: string) =>
+    event('form_view', { form_type, site_section }),
+
+  formStart: (form_type: string, site_section: string) =>
+    event('form_start', { form_type, site_section }),
+
+  formValidationError: (form_type: string, field_id: string, error_code: string, site_section: string) =>
+    event('form_validation_error', { form_type, field_id, error_code, site_section }),
+
+  formSubmitAttempt: (form_type: string, site_section: string) =>
+    event('form_submit_attempt', { form_type, site_section }),
 
   scrollDepth: (percent: number, site_section = 'cv') =>
     event('scroll_depth', { percent, site_section }),
@@ -207,9 +387,9 @@ export const events = {
   experienceOpen: (company: string, role: string) =>
     event('experience_modal_open', { company, role }),
 
-  // KEY EVENT — GA4 recommended name for file/CV downloads
+  // Enhanced-measurement-compatible download event for a generated CV.
   downloadCV: () =>
-    keyEvent('cv_download', { site_section: 'cv' }),
+    keyEvent('file_download', { file_name: 'mariano_gobea_alcoba_cv.pdf', file_extension: 'pdf', content_type: 'cv', site_section: 'cv' }),
 
   socialClick: (platform: string) =>
     event('social_click', { platform, site_section: 'cv' }),
@@ -222,23 +402,23 @@ export const events = {
 
   // Conversion funnel — step 1: user starts filling a form
   contactFormStart: (site_section: string) =>
-    event('contact_form_start', { site_section }),
+    event('form_start', { form_type: 'contact', site_section }),
 
   // Conversion funnel — step 1: user focuses newsletter input
   newsletterFormFocus: (page: string) =>
-    event('newsletter_form_focus', { page, site_section: page }),
+    event('newsletter_form_focus', { page }),
 
   // Conversion funnel — proposal modal opened (step 1 before submit)
   proposalModalOpen: () =>
     event('proposal_modal_open', { site_section: 'consulting' }),
 
-  // KEY EVENT — GA4 recommended name: sign_up (replaces newsletter_subscribe)
+  // Newsletter subscription is not an account sign-up, so it remains custom.
   newsletterSubscribe: (page: string) =>
-    keyEvent('sign_up', { page, site_section: page, form_type: 'newsletter', method: 'newsletter_form' }),
+    keyEvent('newsletter_subscribe', { page, form_type: 'newsletter', method: 'newsletter_form' }),
 
   // KEY EVENT — GA4 recommended name: generate_lead (replaces lead_form_sent)
   leadFormSent: (page: string, form_type = 'contact') =>
-    keyEvent('generate_lead', { page, site_section: page, form_type }),
+    keyEvent('generate_lead', { page, form_type }),
 
   // KEY EVENT — Contact intent (opens contact modal)
   contactClick: (site_section = 'cv') =>
@@ -264,7 +444,7 @@ export const events = {
 
   // Navigation Events
   navClick: (href: string, label: string, site_section = 'cv') =>
-    event('nav_click', { link_url: href, link_text: label, site_section }),
+    event('nav_click', { ...linkContext(href), link_text: label, site_section }),
 
   languageSwitch: (from_language: string, to_language: string) =>
     event('language_switch', { from_language, to_language, site_section: 'cv' }),
@@ -283,20 +463,23 @@ export const events = {
   blogPostRead: (slug: string, title: string) =>
     event('blog_post_read', { slug, post_title: title, site_section: 'blog' }),
 
-  // KEY EVENT — YouTube video click from blog section
+  // Video selection is engagement; video completion can be promoted in GA4 if needed.
   youtubeVideoClick: (video_title: string, video_id: string) =>
-    keyEvent('video_click', { video_title, video_id, site_section: 'blog' }),
+    event('video_select', { video_title, video_id, source: 'video_card', site_section: 'blog' }),
 
   // Outbound link tracking (social/external links in footer)
   outboundClick: (url: string, label: string, site_section = 'cv') =>
-    event('outbound_click', { link_url: url, link_text: label, site_section }),
+    event('outbound_click', { ...linkContext(url), link_text: label, site_section }),
 
   // AI Assistant Events
   aiAssistantOpen: () =>
     event('ai_assistant_open', { site_section: 'cv' }),
 
   aiAssistantMessageSent: (message_length: number) =>
-    event('ai_assistant_message_sent', { message_length, site_section: 'cv' }),
+    event('ai_assistant_message_sent', {
+      message_length_band: numericBand(message_length, [80, 300], ['short', 'medium', 'long']),
+      site_section: 'cv',
+    }),
 
   aiAssistantContactClick: () =>
     keyEvent('ai_assistant_contact_click', { site_section: 'cv' }),
@@ -307,6 +490,9 @@ export const events = {
   aiAssistantFormView: () =>
     event('ai_assistant_form_view', { site_section: 'cv' }),
 
+  aiAssistantResponseResult: (status: 'success' | 'error', latency_band: string) =>
+    event('ai_assistant_response_result', { status, latency_band, site_section: 'cv' }),
+
   // Resource Tools Events
   archVisualizerAddNode: (nodeId: string) =>
     event('arch_visualizer_add_node', { node_id: nodeId, site_section: 'recursos' }),
@@ -316,10 +502,15 @@ export const events = {
 
   roiCalculatorSimulate: (monthlySavings: number) =>
     keyEvent('roi_simulate', { 
-      monthly_savings: monthlySavings, 
+      monthly_savings_band: numericBand(monthlySavings, [1000, 5000], ['low', 'medium', 'high']),
       site_section: 'recursos',
-      currency: 'USD'
     }),
+
+  appError: (component: string, operation: string, error_code: string, recoverable: boolean, site_section?: string) =>
+    event('app_error', { component, operation, error_code, recoverable, site_section }),
+
+  errorRecovery: (component: string, site_section?: string) =>
+    event('error_recovery', { component, site_section }),
   
   // Agent Dashboard Events
   agentDashboardFilterUsed: (filter: string) =>

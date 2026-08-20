@@ -15,6 +15,26 @@ export interface UserIdentity {
 }
 
 const ASSISTANT_LEAD_WEBHOOK = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
+const ASSISTANT_PROXY_ORIGIN = 'https://mgobeaalcoba.app.n8n.cloud';
+
+function getAssistantProxyUrl(): string | null {
+    const configured = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL?.trim();
+    if (!configured) return null;
+    try {
+        const url = new URL(configured);
+        const allowedPath = url.pathname.startsWith('/webhook/');
+        if (url.origin !== ASSISTANT_PROXY_ORIGIN || !allowedPath || url.search || url.hash) return null;
+        return url.toString();
+    } catch {
+        return null;
+    }
+}
+
+function latencyBand(milliseconds: number): 'under_2s' | '2s_to_5s' | 'over_5s' {
+    if (milliseconds < 2_000) return 'under_2s';
+    if (milliseconds <= 5_000) return '2s_to_5s';
+    return 'over_5s';
+}
 
 function buildSystemPrompt(lang: 'es' | 'en'): string {
     const langInstruction = lang === 'en'
@@ -74,19 +94,18 @@ export function useAIAssistant() {
     // Initialize messages and user identity on first mount
     useEffect(() => {
         if (!hasInitialized.current) {
-            // Load user from localStorage
-            const savedUser = localStorage.getItem('mga_assistant_user');
+            // Keep contact data scoped to the current browser tab/session.
+            const savedUser = sessionStorage.getItem('mga_assistant_user');
             if (savedUser) {
                 try {
                     const parsed = JSON.parse(savedUser) as UserIdentity;
                     if (parsed.name?.trim() && parsed.email?.trim()) {
                         setUser(parsed);
                     } else {
-                        localStorage.removeItem('mga_assistant_user');
+                        sessionStorage.removeItem('mga_assistant_user');
                     }
-                } catch (e) {
-                    console.error('Error parsing saved user:', e);
-                    localStorage.removeItem('mga_assistant_user');
+                } catch {
+                    sessionStorage.removeItem('mga_assistant_user');
                 }
             }
 
@@ -119,108 +138,86 @@ export function useAIAssistant() {
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
 
     const identifyUser = useCallback(async (identity: UserIdentity) => {
+        const safeIdentity = {
+            name: identity.name.trim().slice(0, 120),
+            email: identity.email.trim().slice(0, 254),
+        };
         const response = await fetch(ASSISTANT_LEAD_WEBHOOK, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: identity.name.trim(),
-                email: identity.email.trim(),
-                message: `Nuevo interesado registrado desde el asistente IA: ${identity.name.trim()} (${identity.email.trim()})`,
+                name: safeIdentity.name,
+                email: safeIdentity.email,
+                message: 'Nuevo interesado registrado desde el asistente IA.',
                 channel: 'email',
                 source: 'ai_assistant',
                 form_type: 'ai_assistant_identity',
                 page: typeof window !== 'undefined' ? window.location.pathname : '/',
                 timestamp: new Date().toISOString(),
-                userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
                 language: typeof document !== 'undefined' ? document.documentElement.lang : 'es',
             }),
             signal: AbortSignal.timeout(8000),
         });
 
         if (!response.ok) throw new Error(`Assistant lead webhook returned ${response.status}`);
-        setUser(identity);
-        localStorage.setItem('mga_assistant_user', JSON.stringify(identity));
+        setUser(safeIdentity);
+        sessionStorage.setItem('mga_assistant_user', JSON.stringify(safeIdentity));
         events.aiAssistantUserIdentified();
+        events.leadDelivery('success', 'ai_assistant', 'ai_assistant_identity');
         events.leadFormSent('ai_assistant', 'ai_assistant_identity');
     }, []);
 
     const sendMessage = useCallback(async (content: string) => {
         if (!content.trim()) return;
 
-        events.aiAssistantMessageSent(content.length);
+        const safeContent = content.trim().slice(0, 4_000);
+        events.aiAssistantMessageSent(safeContent.length);
 
         const userMessage: ChatMessage = {
             id: Date.now().toString(),
             role: 'user',
-            content: content.trim()
+            content: safeContent
         };
 
         setMessages(prev => [...prev, userMessage]);
         setIsLoading(true);
         setError(null);
+        const requestStartedAt = Date.now();
 
         try {
             // Build message array: system prompt + history (excluding welcome) + new user message
             const systemPrompt = buildSystemPrompt(currentLang.current);
             const apiMessages = [
                 { role: 'system', content: systemPrompt },
-                ...messages.filter(m => m.role !== 'system' && m.id !== 'welcome-1').map(m => ({
+                ...messages.filter(m => m.role !== 'system' && m.id !== 'welcome-1').slice(-12).map(m => ({
                     role: m.role,
-                    content: m.content
+                    content: m.content.slice(0, 4_000)
                 })),
                 { role: 'user', content: userMessage.content }
             ];
 
-            // In Next.js static exports, NEXT_PUBLIC_ variables are replaced at build time.
-            const rawApiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || '';
-            const apiKey = rawApiKey.replace(/"/g, '');
-            const apiProxyUrl = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL || '';
-            const isProxyValid = apiProxyUrl.length > 0 && !apiProxyUrl.includes('tu-instancia.com');
+            // AI credentials stay server-side. The browser only calls the allowlisted n8n proxy.
+            const apiProxyUrl = getAssistantProxyUrl();
+            if (!apiProxyUrl) throw new Error('assistant_proxy_unavailable');
 
-            let responseContent = '';
+            const res = await fetch(apiProxyUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: apiMessages,
+                    source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
+                    user_info: user,
+                }),
+                signal: AbortSignal.timeout(20_000),
+            });
 
-            if (isProxyValid) {
-                // Production mode using n8n webhook proxy
-                const res = await fetch(apiProxyUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        messages: apiMessages,
-                        source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
-                        user_info: user // Send name and email to n8n
-                    })
-                });
-
-                if (!res.ok) throw new Error('Network error from proxy');
-                const data = await res.json();
-                responseContent = data.content || data.output || data.message || 'Error in webhook response.';
-
-            } else if (apiKey) {
-                // Direct OpenRouter call
-                const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${apiKey}`,
-                        'HTTP-Referer': 'https://www.mgatc.com',
-                        'X-OpenRouter-Title': 'MGA Tech Consulting',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        model: 'z-ai/glm-4.5-air:free',
-                        messages: apiMessages,
-                    })
-                });
-
-                if (!res.ok) {
-                    const errText = await res.text();
-                    throw new Error(`OpenRouter API error: ${errText}`);
-                }
-
-                const data = await res.json();
-                responseContent = data.choices[0].message.content;
-            } else {
-                throw new Error('No API Key or Webhook URL configured.');
+            if (!res.ok) throw new Error('assistant_proxy_error');
+            const data = await res.json() as Record<string, unknown>;
+            const candidate = data.content ?? data.output ?? data.message;
+            if (typeof candidate !== 'string' || !candidate.trim()) {
+                throw new Error('assistant_invalid_response');
             }
+            const responseContent = candidate.trim().slice(0, 8_000);
 
             const assistantMessage: ChatMessage = {
                 id: (Date.now() + 1).toString(),
@@ -229,12 +226,13 @@ export function useAIAssistant() {
             };
 
             setMessages(prev => [...prev, assistantMessage]);
+            events.aiAssistantResponseResult('success', latencyBand(Date.now() - requestStartedAt));
 
-        } catch (err) {
-            console.error('Error sending message:', err);
+        } catch {
+            events.aiAssistantResponseResult('error', latencyBand(Date.now() - requestStartedAt));
             const errorMsg = currentLang.current === 'en'
-                ? 'There was a connection error. Please make sure the AI credentials are configured and try again.'
-                : 'Hubo un error de conexión al procesar tu solicitud. Asegúrate de que las credenciales de IA estén configuradas.';
+                ? 'There was a connection error while processing your request. Please try again.'
+                : 'Hubo un error de conexión al procesar tu solicitud. Por favor, intentá nuevamente.';
             setError(currentLang.current === 'en' ? 'There was an error. Please try again.' : 'Hubo un error. Por favor, intenta nuevamente.');
             setMessages(prev => [...prev, {
                 id: (Date.now() + 1).toString(),

@@ -8,6 +8,7 @@ import JsonLd from '@/components/shared/JsonLd';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog';
 import ArticleMobileActions from '@/components/blog/ArticleMobileActions';
 import ArticleServiceCTA from '@/components/commerce/ArticleServiceCTA';
+import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
 
 const SITE_URL = 'https://www.mgatc.com';
 
@@ -120,6 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <main id="main-content" className="min-h-screen signal-article-page">
       <JsonLd data={articleSchema} />
+      <ContentEngagementTracker contentType="article" contentId={slug} title={post.title.es} />
       <ScrollTracker site_section="blog" />
       <Navbar />
 

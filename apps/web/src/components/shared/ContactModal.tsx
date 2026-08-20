@@ -29,11 +29,13 @@ export default function ContactModal() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState<Channel | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [started, setStarted] = useState(false);
 
   const reset = useCallback(() => {
     setForm({ name: "", email: "", message: "" });
     setSubmitted(false);
     setSending(null);
+    setStarted(false);
   }, []);
 
   const close = useCallback((method = "button") => {
@@ -61,6 +63,7 @@ export default function ContactModal() {
       }
       setOpen(true);
       events.contactModalOpen(detail?.source ?? "cv");
+      events.formView("contact_modal", detail?.source ?? "cv");
     };
     window.addEventListener(CONTACT_MODAL_EVENT, handler as EventListener);
     return () =>
@@ -110,8 +113,6 @@ export default function ContactModal() {
           page:
             typeof window !== "undefined" ? window.location.pathname : "/",
           timestamp: new Date().toISOString(),
-          userAgent:
-            typeof navigator !== "undefined" ? navigator.userAgent : "",
           language:
             typeof document !== "undefined"
               ? document.documentElement.lang
@@ -122,6 +123,9 @@ export default function ContactModal() {
       if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
       events.leadDelivery("success", source, "contact_modal");
       events.leadFormSent(source, "contact_modal");
+      if (source === "post_payment_onboarding") {
+        events.serviceOnboardingComplete("post_payment");
+      }
       return true;
     } catch {
       events.leadDelivery("error", source, "contact_modal");
@@ -131,8 +135,12 @@ export default function ContactModal() {
 
   const openWhatsApp = async () => {
     if (sending) return;
-    if (!form.message.trim()) return;
+    if (!form.message.trim()) {
+      events.formValidationError("contact_modal", "message", "required", source);
+      return;
+    }
     setSending("whatsapp");
+    events.formSubmitAttempt("contact_modal", source);
     events.contactChannelSelect("whatsapp", source);
     await postToWebhook("whatsapp");
     const greeting = form.name.trim()
@@ -147,8 +155,12 @@ export default function ContactModal() {
 
   const openEmail = async () => {
     if (sending) return;
-    if (!form.message.trim()) return;
+    if (!form.message.trim()) {
+      events.formValidationError("contact_modal", "message", "required", source);
+      return;
+    }
     setSending("email");
+    events.formSubmitAttempt("contact_modal", source);
     events.contactChannelSelect("email", source);
     await postToWebhook("email");
     const subject = encodeURIComponent(
@@ -171,6 +183,11 @@ export default function ContactModal() {
 
   const t = (es: string, en: string) => (lang === "es" ? es : en);
   const messageValid = form.message.trim().length > 0;
+  const markStarted = () => {
+    if (started) return;
+    setStarted(true);
+    events.formStart("contact_modal", source);
+  };
 
   return (
     <AnimatePresence>
@@ -245,6 +262,8 @@ export default function ContactModal() {
                     </label>
                     <input
                       type="text"
+                      maxLength={120}
+                      onFocus={markStarted}
                       value={form.name}
                       onChange={(e) =>
                         setForm({ ...form, name: e.target.value })
@@ -264,6 +283,8 @@ export default function ContactModal() {
                     </label>
                     <input
                       type="email"
+                      maxLength={254}
+                      onFocus={markStarted}
                       value={form.email}
                       onChange={(e) =>
                         setForm({ ...form, email: e.target.value })
@@ -279,6 +300,8 @@ export default function ContactModal() {
                       {t("Mensaje", "Message")} <span className="text-red-400">*</span>
                     </label>
                     <textarea
+                      maxLength={5000}
+                      onFocus={markStarted}
                       value={form.message}
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value })

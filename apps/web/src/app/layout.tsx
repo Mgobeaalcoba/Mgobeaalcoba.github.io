@@ -213,6 +213,7 @@ export default function RootLayout({
               send_page_view: false,
               site_section: 'cv',
             });
+            window.mgaAnalyticsReady = true;
           `}
         </Script>
       </body>

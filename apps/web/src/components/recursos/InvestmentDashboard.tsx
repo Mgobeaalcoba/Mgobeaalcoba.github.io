@@ -220,8 +220,10 @@ export default function InvestmentDashboard() {
 
       setChartData({ labels, plazoFijo, inflacion, uvaMonthly });
       setLiveData({ mepNow, inflacionNow, plazoFijoNow: 2.75, uvaMonthlyNow, lastUpdated: new Date().toLocaleTimeString('es-AR') });
+      events.toolResult('investments', labels.length ? 'success' : 'fallback', labels.length ? period : 'no_history');
     } catch {
       // keep previous
+      events.toolError('investments', 'market_data_load_failed', true);
     } finally {
       setLoading(false);
     }
@@ -250,13 +252,19 @@ export default function InvestmentDashboard() {
         </div>
         <div className="flex items-center gap-2">
           <button
-            onClick={() => {
+            onClick={async () => {
               const canNativeShare = 'share' in navigator;
               events.toolAction('investments', 'share', canNativeShare ? 'native_share' : 'clipboard');
-              if (typeof window !== 'undefined' && canNativeShare) {
-                navigator.share({ title: 'Dashboard Inversiones Argentina', url: window.location.href });
-              } else {
-                navigator.clipboard?.writeText(window.location.href);
+              const method = canNativeShare ? 'native_share' : 'clipboard';
+              try {
+                if (canNativeShare) {
+                  await navigator.share({ title: 'Dashboard Inversiones Argentina', url: window.location.href });
+                } else {
+                  await navigator.clipboard.writeText(window.location.href);
+                }
+                events.share(method, 'tool_result', 'investments');
+              } catch {
+                events.toolAction('investments', 'share_result', 'cancelled_or_unavailable');
               }
             }}
             className="glass p-2 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"

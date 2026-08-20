@@ -10,6 +10,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchEpConfig, fetchEpHistoryTimeline } from '@/lib/queries';
 import type { SiteContent, EpTimelineEntry } from '@/types/content';
+import { trackAppError } from '@/lib/gtag';
 import localContent from '@/data/content.json';
 
 interface EpData {
@@ -54,7 +55,7 @@ export function EpDataProvider({ children }: { children: React.ReactNode }) {
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[EP] context fetch failed:', err);
+          trackAppError('ep_data', 'load', 'data_load_failed', true);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

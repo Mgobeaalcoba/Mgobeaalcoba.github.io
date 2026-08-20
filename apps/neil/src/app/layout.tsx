@@ -3,6 +3,8 @@ import Script from 'next/script';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { NeilDataProvider } from '@/contexts/NeilDataContext';
 import { DataErrorBoundary } from '@/components/DataErrorBoundary';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
+import ConsentBanner from '@/components/ConsentBanner';
 import './globals.css';
 
 const GA_ID = 'G-DG0SLT5RY3';
@@ -40,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#0B1120" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var a=c==='analytics'||c==='all'?'granted':'denied',d=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:a,ad_storage:d,ad_user_data:d,ad_personalization:d,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();` }} />
       </head>
       <body>
         {/* GA4 */}
@@ -53,17 +56,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
+              send_page_view: false,
               site_section: 'neil',
               client_name: 'Neil Climatizadores',
             });
+            window.mgaAnalyticsReady = true;
           `}
         </Script>
 
         <DataErrorBoundary>
           <NeilDataProvider>
             <LanguageProvider>
+              <AnalyticsTracker />
               {children}
+              <ConsentBanner />
             </LanguageProvider>
           </NeilDataProvider>
         </DataErrorBoundary>

@@ -92,10 +92,13 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
       else if (range === '1y') cutoff.setFullYear(now.getFullYear() - 1);
       else if (range === '5y') cutoff.setFullYear(now.getFullYear() - 5);
 
-      setHistory(range === 'max' ? all : all.filter((d) => new Date(d.fecha) >= cutoff));
+      const filtered = range === 'max' ? all : all.filter((d) => new Date(d.fecha) >= cutoff);
+      setHistory(filtered);
+      events.toolResult('indicators', filtered.length ? 'success' : 'empty', 'history');
     } catch {
       setHistory([]);
       setHasError(true);
+      events.toolError('indicators', 'history_load_failed', true);
     } finally {
       setLoading(false);
     }
@@ -223,8 +226,11 @@ export default function EconomicIndicators() {
 
       setValues(newVals);
       setLastUpdated(new Date().toLocaleTimeString('es-AR'));
+      const liveCount = Object.keys(newVals).length;
+      events.toolResult('indicators', liveCount ? 'success' : 'fallback', liveCount >= 4 ? 'complete' : 'partial');
     } catch {
       // use static fallbacks
+      events.toolError('indicators', 'current_load_failed', true);
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   AlertTriangle,
   ArrowDownRight,
@@ -400,6 +401,8 @@ function UvaDollarChart({
 
 export default function MortgageUvaCalculator() {
   const { lang } = useLanguage();
+  const pathname = usePathname();
+  const isDedicatedPage = pathname.startsWith('/recursos/hipotecarios');
   const [snapshot, setSnapshot] = useState<MortgageSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
@@ -427,6 +430,21 @@ export default function MortgageUvaCalculator() {
   const hasTrackedToolView = useRef(false);
   const previousConfiguration = useRef<AnalyticsConfigurationState | null>(null);
   const previousScenario = useRef<AnalyticsConfigurationState | null>(null);
+  const previousResultState = useRef<'success' | 'empty' | null>(null);
+  const dedicatedViewTracked = useRef(false);
+  const dedicatedStartTracked = useRef(false);
+
+  useEffect(() => {
+    if (!isDedicatedPage || dedicatedViewTracked.current) return;
+    dedicatedViewTracked.current = true;
+    events.toolView('mortgages', 'direct');
+  }, [isDedicatedPage]);
+
+  const trackDedicatedStart = () => {
+    if (!isDedicatedPage || dedicatedStartTracked.current) return;
+    dedicatedStartTracked.current = true;
+    events.toolStart('mortgages');
+  };
 
   const loadSnapshot = async () => {
     setLoading(true);
@@ -628,6 +646,14 @@ export default function MortgageUvaCalculator() {
       marketStatistics?.signal ?? 'unavailable',
     );
   }, [snapshot, bestByBank.length, marketStatistics?.signal]);
+
+  useEffect(() => {
+    if (!snapshot) return;
+    const nextState = bestByBank.length > 0 ? 'success' : 'empty';
+    if (previousResultState.current === nextState) return;
+    previousResultState.current = nextState;
+    events.toolResult('mortgages', nextState, nextState === 'success' ? 'compatible_products' : 'no_compatible_products');
+  }, [snapshot, bestByBank.length]);
 
   useEffect(() => {
     if (!snapshot) return;
@@ -899,7 +925,7 @@ export default function MortgageUvaCalculator() {
   }
 
   return (
-    <div className="mortgage-tool">
+    <div className="mortgage-tool" onPointerDownCapture={trackDedicatedStart} onKeyDownCapture={trackDedicatedStart}>
       <header className="mortgage-tool__header">
         <div>
           <span className="mortgage-kicker"><Home size={14} /> MGA / Hipotecarios UVA</span>

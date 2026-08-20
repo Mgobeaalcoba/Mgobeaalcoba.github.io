@@ -137,7 +137,6 @@ Recibe los envíos del formulario de contacto del sitio web, los registra en Goo
   "form_type": "contact_portfolio",
   "page": "/",
   "timestamp": "2026-01-01T00:00:00.000Z",
-  "userAgent": "...",
   "language": "es"
 }
 ```

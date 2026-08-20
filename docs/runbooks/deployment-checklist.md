@@ -1,5 +1,7 @@
 # 🚀 CHECKLIST DE DEPLOY - Analytics Fase 1
 
+> **Documento histórico.** Los nombres y objetivos de esta Fase 1 ya no son la taxonomía vigente. Para cualquier release actual usar [`docs/runbooks/analytics.md`](./analytics.md); en particular, newsletter emite `newsletter_subscribe` sólo después del webhook exitoso y las herramientas usan el funnel `tool_view` → `tool_start` → `tool_result`/`tool_error`.
+
 ## ✅ COMPLETADO - Listo para Producción
 
 ---

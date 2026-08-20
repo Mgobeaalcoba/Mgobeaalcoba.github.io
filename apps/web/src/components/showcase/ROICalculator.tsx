@@ -85,10 +85,15 @@ export default function ROICalculator() {
         gtag.events.roiCalculatorSimulate(
           Math.round(results.annualSavings / 12)
         );
+        gtag.events.toolResult(
+          'roi',
+          'success',
+          results.paybackMonths <= 6 ? 'fast_payback' : results.paybackMonths <= 18 ? 'medium_payback' : 'long_payback',
+        );
       }
     }, 2000);
     return () => clearTimeout(handler);
-  }, [results.annualSavings]);
+  }, [results.annualSavings, results.paybackMonths]);
 
   const chartData = {
     labels:

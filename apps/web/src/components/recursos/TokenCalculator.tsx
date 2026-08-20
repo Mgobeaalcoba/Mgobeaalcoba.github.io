@@ -77,7 +77,9 @@ export default function TokenCalculator() {
 
     setResults(computed);
     setCalculated(true);
-    events.toolAction('tokens', 'calculate', inputTokens > 10000 ? 'large' : inputTokens > 1000 ? 'medium' : 'small');
+    const inputBand = inputTokens > 10000 ? 'large' : inputTokens > 1000 ? 'medium' : 'small';
+    events.toolAction('tokens', 'calculate', inputBand);
+    events.toolResult('tokens', computed.length ? 'success' : 'empty', inputBand);
   }, [text, outputRatio, aiModels]);
 
   const fmt = (n: number): string => {

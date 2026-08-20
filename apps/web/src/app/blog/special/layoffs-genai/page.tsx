@@ -5,6 +5,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import ReportContent from './ReportContent';
+import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
 
 const REPORT_URL = 'https://www.mgatc.com/blog/special/layoffs-genai/';
 
@@ -97,6 +98,7 @@ export default function LayoffsGenAIReportPage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={articleSchema} />
+      <ContentEngagementTracker contentType="special_report" contentId="layoffs_genai" />
       <ScrollTracker />
       <Navbar />
       <ReportContent />

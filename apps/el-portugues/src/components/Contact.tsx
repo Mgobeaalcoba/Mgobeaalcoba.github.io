@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, Mail, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { sendContactForm, type ContactFormData } from '@/services/webhookService';
-import { trackLeadFormSent } from '@/lib/gtag';
+import { trackContactAttempted, trackFormStart, trackFormValidationError, trackFormView, trackLeadDelivery, trackLeadFormSent, trackQuoteRequested } from '@/lib/gtag';
 import type { Contact as ContactData, Automations } from '@/types/content';
 import AutomationBadge from '@/components/AutomationBadge';
 
@@ -31,6 +31,15 @@ export default function Contact({ data, automations }: ContactProps) {
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [form, setForm] = useState<ContactFormData>(initialForm);
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => { if (inView) trackFormView(form.type || 'general'); }, [inView, form.type]);
+
+  const markStarted = () => {
+    if (started) return;
+    setStarted(true);
+    trackFormStart(form.type || 'general');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -38,13 +47,18 @@ export default function Contact({ data, automations }: ContactProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const formType = form.type || 'general';
+    trackContactAttempted(formType);
     setStatus('loading');
     try {
       await sendContactForm(form);
-      trackLeadFormSent(form.type || 'general');
+      trackLeadDelivery('success', formType);
+      trackLeadFormSent(formType);
+      if (form.type === 'Cotización de servicios') trackQuoteRequested(formType);
       setStatus('success');
       setForm(initialForm);
     } catch {
+      trackLeadDelivery('error', formType);
       setStatus('error');
     }
   };
@@ -204,7 +218,7 @@ export default function Contact({ data, automations }: ContactProps) {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit} onInvalid={(event) => trackFormValidationError(form.type || 'general', (event.target as HTMLInputElement).name || 'unknown')} className="flex flex-col gap-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-slate-400 text-xs mb-1.5 font-medium">Nombre completo *</label>
@@ -212,6 +226,8 @@ export default function Contact({ data, automations }: ContactProps) {
                         name="name"
                         type="text"
                         required
+                        maxLength={120}
+                        onFocus={markStarted}
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Juan García"
@@ -224,6 +240,8 @@ export default function Contact({ data, automations }: ContactProps) {
                         name="email"
                         type="email"
                         required
+                        maxLength={254}
+                        onFocus={markStarted}
                         value={form.email}
                         onChange={handleChange}
                         placeholder="juan@empresa.com"
@@ -238,6 +256,8 @@ export default function Contact({ data, automations }: ContactProps) {
                       <input
                         name="phone"
                         type="tel"
+                        maxLength={40}
+                        onFocus={markStarted}
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="+54 11 xxxx-xxxx"
@@ -249,6 +269,8 @@ export default function Contact({ data, automations }: ContactProps) {
                       <input
                         name="company"
                         type="text"
+                        maxLength={160}
+                        onFocus={markStarted}
                         value={form.company}
                         onChange={handleChange}
                         placeholder="Mi Empresa S.A."
@@ -262,6 +284,7 @@ export default function Contact({ data, automations }: ContactProps) {
                     <select
                       name="type"
                       required
+                      onFocus={markStarted}
                       value={form.type}
                       onChange={handleChange}
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#0CC1C1]/50 transition-colors appearance-none"
@@ -278,6 +301,8 @@ export default function Contact({ data, automations }: ContactProps) {
                     <textarea
                       name="message"
                       required
+                      maxLength={5000}
+                      onFocus={markStarted}
                       value={form.message}
                       onChange={handleChange}
                       rows={5}

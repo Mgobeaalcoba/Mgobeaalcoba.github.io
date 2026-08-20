@@ -5,6 +5,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import MethodologyContent from './MethodologyContent';
+import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
 
 const PAGE_URL =
   'https://www.mgatc.com/blog/special/funnel-hipotecario-bna/methodology/';
@@ -69,6 +70,7 @@ export default function MethodologyPage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={schema} />
+      <ContentEngagementTracker contentType="methodology" contentId="funnel_hipotecario_bna_methodology" />
       <ScrollTracker />
       <Navbar />
       <MethodologyContent />
