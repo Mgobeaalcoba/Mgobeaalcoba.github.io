@@ -1,0 +1,202 @@
+1:"$Sreact.fragment"
+2:I[28675,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+3:I[8037,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+4:I[78208,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+5:I[22016,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],""]
+6:I[66158,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+f:X
+14:X
+14:C
+0:{"buildId":"o0lVOw2fGLYAJMLRcD9FU","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"El contexto\",\"description\":\"Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar...\",\"url\":\"https://www.mgatc.com/blog/airflow-vs-prefect-2026/\",\"datePublished\":\"2026-01-11\",\"dateModified\":\"2026-01-11\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/logo.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/airflow-vs-prefect-2026/\"},\"keywords\":\"\",\"articleSection\":\"Data & Analytics\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$L2",null,{"contentType":"article","contentId":"airflow-vs-prefect-2026","title":"El contexto"}],["$","$L3",null,{"site_section":"blog"}],["$","$L4",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L5",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"El contexto"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"11 de enero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"4 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],["$","$L6",null,{"slug":"airflow-vs-prefect-2026","title":"El contexto"}]]}],"$L7","$L8","$L9"]}],"$La"]}],["$Lb","$Lc"],"$Ld"]}],"isPartial":"$@e","staleTime":"$f","varyParams":null},{"rsc":"$L10","isPartial":"$@11","staleTime":"$f","varyParams":null},{"rsc":"$L12","isPartial":"$@13","staleTime":"$f","varyParams":"$14"},{"rsc":"$L15","isPartial":"$@16","staleTime":"$f","varyParams":"$14"}],"isUpgradeableISRFallback":false,"a":"$@17","rootVaryParams":null,"needsRuntimeRequest":"$@18"}
+1a:I[6265,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+1b:I[21686,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+1c:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+1d:"$Sreact.suspense"
+1f:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+20:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+21:I[27201,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+22:I[39756,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+23:I[37457,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+19:T19cd,<p>Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar en condiciones reales. Acá el análisis honesto de qué usar y cuándo.</p>
+<h2>El contexto</h2>
+<p>No existe el "mejor" orquestador en abstracto. Depende del equipo, la infraestructura, y el tipo de pipelines. Lo que sí existe son trade-offs claros.</p>
+<h2>Apache Airflow</h2>
+<h3>Fortalezas</h3>
+<p><strong>Ecosistema maduro</strong>: Airflow tiene providers para todo — BigQuery, Snowflake, dbt, Kubernetes, AWS, GCP. La mayoría de integraciones están resueltas out-of-the-box.</p>
+<p><strong>Visibilidad</strong>: La UI de Airflow muestra el DAG, el estado de cada task, los logs históricos, y permite re-runs de tasks individuales. Para debugging en producción, es invaluable.</p>
+<p><strong>Escalabilidad probada</strong>: Con CeleryExecutor o KubernetesExecutor, Airflow puede manejar miles de DAGs concurrentes. Empresas como Airbnb, Twitter, y Lyft lo usan a escala masiva.</p>
+<h3>Debilidades</h3>
+<p><strong>Setup complejo</strong>: Airflow requiere una base de datos (PostgreSQL recomendado), un executor (Celery o K8s), y configuración cuidadosa. Managed (Cloud Composer, MWAA) resuelve esto a costo elevado.</p>
+<p><strong>DAGs como código Python con restricciones</strong>: El código del DAG se parsea constantemente por el scheduler. Si hacés requests HTTP o lógica pesada al nivel del DAG (fuera de tasks), podés romper el scheduler.</p>
+<p><strong>Backfill verboso</strong>: Hacer backfill de un rango de fechas es soportado pero la UX no es intuitiva.</p>
+<pre><code class="language-python"># Airflow DAG típico
+from airflow import DAG
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+from datetime import datetime, timedelta
+
+default_args = {
+    'owner': 'data-team',
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
+    'email_on_failure': True,
+}
+
+with DAG(
+    'seller_metrics',
+    default_args=default_args,
+    schedule_interval='@daily',
+    start_date=datetime(2025, 1, 1),
+    catchup=False,
+    tags=['analytics', 'sellers'],
+) as dag:
+    
+    extract = BigQueryInsertJobOperator(
+        task_id='extract_orders',
+        configuration={
+            'query': {
+                'query': 'SELECT * FROM orders WHERE DATE(created_at) = "{{ ds }}"',
+                'useLegacySql': False,
+                'destinationTable': {
+                    'projectId': 'my-project',
+                    'datasetId': 'staging',
+                    'tableId': 'orders_{{ ds_nodash }}',
+                },
+                'writeDisposition': 'WRITE_TRUNCATE',
+            }
+        }
+    )
+    
+    transform = BigQueryInsertJobOperator(
+        task_id='compute_metrics',
+        configuration={...}
+    )
+    
+    extract >> transform
+</code></pre>
+<h2>Prefect</h2>
+<h3>Fortalezas</h3>
+<p><strong>Developer experience</strong>: La experiencia de escribir flows en Prefect es mucho más cercana a escribir Python normal. No hay restricciones de cómo estructurás el código.</p>
+<pre><code class="language-python"># El mismo pipeline en Prefect
+from prefect import flow, task
+from prefect.tasks import task_input_hash
+from datetime import timedelta
+
+@task(cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=1))
+def extract_orders(date: str) -> list[dict]:
+    # Código Python normal, sin restricciones
+    result = bigquery_client.query(f"""
+        SELECT * FROM orders WHERE DATE(created_at) = '{date}'
+    """).result()
+    return [dict(row) for row in result]
+
+@task(retries=3, retry_delay_seconds=60)
+def compute_metrics(orders: list[dict]) -> dict:
+    # Lógica Python pura
+    return {
+        'total_gmv': sum(o['gmv'] for o in orders),
+        'order_count': len(orders),
+    }
+
+@flow(name="seller-metrics")
+def seller_metrics_flow(date: str = None):
+    if date is None:
+        date = datetime.utcnow().strftime('%Y-%m-%d')
+    
+    orders = extract_orders(date)
+    metrics = compute_metrics(orders)
+    return metrics
+</code></pre>
+<p><strong>Caching nativo</strong>: El caching de tasks es un ciudadano de primera clase en Prefect. Evitar re-procesar datos ya procesados es trivial.</p>
+<p><strong>Deployment moderno</strong>: Prefect Cloud o Prefect Server gestionan el scheduling y observabilidad. El deployment a Kubernetes es más simple que en Airflow.</p>
+<h3>Debilidades</h3>
+<p><strong>Ecosistema más pequeño</strong>: Menos providers out-of-the-box. Integraciones complejas requieren más código custom.</p>
+<p><strong>Observabilidad más limitada</strong>: La UI de Prefect es más moderna pero tiene menos detalle histórico que Airflow para debugging profundo.</p>
+<p><strong>Menor adopción enterprise</strong>: Menos documentación de casos de uso a gran escala.</p>
+<h2>Comparación directa</h2>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Airflow</th>
+<th>Prefect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Curva de aprendizaje</td>
+<td>Alta</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Setup inicial</td>
+<td>Complejo</td>
+<td>Simple</td>
+</tr>
+<tr>
+<td>Developer experience</td>
+<td>Buena</td>
+<td>Excelente</td>
+</tr>
+<tr>
+<td>Ecosistema de providers</td>
+<td>Muy amplio</td>
+<td>Amplio</td>
+</tr>
+<tr>
+<td>Observabilidad</td>
+<td>Excelente</td>
+<td>Buena</td>
+</tr>
+<tr>
+<td>Escalabilidad probada</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Costo managed</td>
+<td>Alto ($$$)</td>
+<td>Medio ($$)</td>
+</tr>
+<tr>
+<td>Debugging en prod</td>
+<td>Excelente</td>
+<td>Bueno</td>
+</tr>
+</tbody>
+</table>
+<h2>Mi recomendación</h2>
+<p><strong>Usar Airflow si:</strong></p>
+<ul>
+<li>Tenés un equipo > 5 data engineers</li>
+<li>Necesitás integraciones enterprise (Snowflake, dbt Cloud, etc.)</li>
+<li>La observabilidad y debugging en producción es crítica</li>
+<li>Ya tenés Airflow y el equipo lo conoce</li>
+</ul>
+<p><strong>Usar Prefect si:</strong></p>
+<ul>
+<li>Empezás un proyecto nuevo con equipo pequeño</li>
+<li>Querés iterar rápido en los pipelines</li>
+<li>El equipo viene de Python y quiere la experiencia más Pythónica</li>
+<li>Los pipelines son principalmente de Python/ML</li>
+</ul>
+<p><strong>La respuesta honesta</strong>: Para la mayoría de equipos de 3-10 data engineers, Prefect va a ser más productivo. Para equipos grandes con pipelines complejos y muchas integraciones, Airflow sigue siendo el estándar.</p>
+<p>En nuestro caso, mantenemos Airflow para pipelines de producción críticos (los que mueven millones de dólares) y usamos Prefect para pipelines de analytics experimentales y ML.</p>
+7:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$19"}}]
+8:["$","$L1a",null,{"category":"Data & Analytics"}]
+9:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L5",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L5",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+a:["$","$L1b",null,{}]
+b:["$","script","script-0",{"src":"/_next/static/chunks/28jr1cb-9gzxc.js","async":true}]
+c:["$","script","script-1",{"src":"/_next/static/chunks/1301of3kqx4a8.js","async":true}]
+d:["$","$L1c",null,{"children":["$","$1d",null,{"name":"Next.MetadataOutlet","children":"$@1e"}]}]
+10:["$","$1","h",{"children":[null,["$","$L1f",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$L20",null,{"children":["$","$1d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"El contexto | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/airflow-vs-prefect-2026/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"El contexto"}],["$","meta","15",{"property":"og:description","content":"Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/airflow-vs-prefect-2026/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"El contexto"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-01-11"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"El contexto"}],["$","meta","28",{"name":"twitter:description","content":"Llevamos 3 años usando Apache Airflow como orquestador de pipelines en Mercado Libre. El año pasado migramos un subconjunto de pipelines a Prefect para comparar..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L21","31",{}]]}]}]}],null]}]
+12:["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","template":["$","$L23",null,{}]}]]}]
+15:["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","template":["$","$L23",null,{}]}]]}]
+18:true
+1e:null
+f:300
+f:C
+17:0
+11:"$undefined"
+13:"$undefined"
+16:"$undefined"
+e:"$undefined"

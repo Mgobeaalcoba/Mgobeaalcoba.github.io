@@ -1,0 +1,181 @@
+1:"$Sreact.fragment"
+9:I[68027,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default",1]
+:HL["/_next/static/chunks/2u255v_c-5y3x.css","style"]
+:HL["/_next/static/chunks/3ukb2bs4d3149.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+2:T492,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 7 años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}7:X
+0:{"P":null,"c":["","blog","bigquery-costos-optimizacion",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","bigquery-costos-optimizacion","d",["special","videos"]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2u255v_c-5y3x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/3ukb2bs4d3149.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3i7xoqveyifnu.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/083n7tpiidnn5.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1krfijeef-hxv.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/2y0okst8_0_cb.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/3vx7k7p5eu9id.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L3"]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La","$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"o0lVOw2fGLYAJMLRcD9FU"}
+c:I[7623,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"DataErrorBoundary"]
+d:I[627,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ThemeProvider"]
+e:I[89190,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"LanguageProvider"]
+f:I[97221,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"SupabaseDataProvider"]
+10:I[69272,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+11:I[39756,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+12:I[37457,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+13:I[27943,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/1k0lhgr7gvt20.js"],"default"]
+14:I[6482,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+15:I[20199,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+16:I[79520,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],""]
+18:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+1d:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+3:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}],["$","$L15",null,{}]]}]}]}]}],["$","$L16",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L16",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$L17",[["$","script","script-0",{"src":"/_next/static/chunks/28jr1cb-9gzxc.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1301of3kqx4a8.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":"$L1c"}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1e"}]}]}],null]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2u255v_c-5y3x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+b:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/3ukb2bs4d3149.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:I[28675,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+21:I[8037,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+22:I[78208,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+23:I[22016,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],""]
+7:C
+1f:T421,{"@context":"https://schema.org","@type":"Article","headline":"Entender el modelo de costos de BigQuery","description":"BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarro...","url":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/","datePublished":"2026-01-25","dateModified":"2026-01-25","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}17:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$1f"}}],["$","$L20",null,{"contentType":"article","contentId":"bigquery-costos-optimizacion","title":"Entender el modelo de costos de BigQuery"}],["$","$L21",null,{"site_section":"blog"}],["$","$L22",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L23",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Entender el modelo de costos de BigQuery"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarro..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"25 de enero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"4 min read"]}],"$L24"]}],"$L25"]}],"$L26","$L27","$L28"]}],"$L29"]}]
+2a:I[66158,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+2c:I[6265,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+2d:I[21686,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+24:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+25:["$","$L2a",null,{"slug":"bigquery-costos-optimizacion","title":"Entender el modelo de costos de BigQuery"}]
+2b:T1844,<p>BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarrollo. Acá el framework que uso para mantener los costos bajo control en equipos de 20+ analistas.</p>
+<h2>Entender el modelo de costos de BigQuery</h2>
+<p>BigQuery tiene dos modelos de pricing:</p>
+<ol>
+<li><strong>On-demand</strong>: $5-6.25 USD por TB escaneado (según región)</li>
+<li><strong>Reservas de slots</strong>: Precio fijo por capacidad de compute</li>
+</ol>
+<p>Para la mayoría de los equipos medianos, on-demand es lo que usan. El problema: 1 TB escaneado = $6.25. Una tabla de 5 TB consultada 100 veces por día = $3,125/día sin optimización.</p>
+<h2>Las 5 palancas de reducción de costos</h2>
+<h3>1. Particionamiento efectivo</h3>
+<pre><code class="language-sql">-- Tabla sin particionar: escanea TODO
+SELECT * FROM events WHERE DATE(created_at) = '2026-01-15';
+
+-- Tabla particionada por created_at:
+-- Escanea solo la partición del 2026-01-15
+CREATE TABLE events_partitioned
+PARTITION BY DATE(created_at)
+AS SELECT * FROM events;
+
+-- Ahora esta query escanea 1/365 de los datos (o menos)
+SELECT * FROM events_partitioned WHERE DATE(created_at) = '2026-01-15';
+</code></pre>
+<p><strong>Reducción típica</strong>: 80-95% en tablas con muchos períodos históricos.</p>
+<h3>2. Clustering para filtros frecuentes</h3>
+<p>El clustering ordena físicamente los datos dentro de cada partición:</p>
+<pre><code class="language-sql">CREATE TABLE events_optimized
+PARTITION BY DATE(created_at)
+CLUSTER BY country_id, seller_id, event_type
+AS SELECT * FROM events;
+
+-- Esta query ahora escanea una fracción mínima de la partición
+SELECT seller_id, COUNT(*) as events
+FROM events_optimized
+WHERE DATE(created_at) = '2026-01-15'
+  AND country_id = 'ARG'
+  AND event_type = 'purchase'
+GROUP BY seller_id;
+</code></pre>
+<p><strong>Cuándo usar</strong>: Cuando las queries frecuentes filtran por las mismas 2-4 columnas.</p>
+<h3>3. Tablas materializadas para queries repetitivas</h3>
+<pre><code class="language-sql">CREATE MATERIALIZED VIEW seller_daily_summary AS
+SELECT
+  DATE(created_at) as metric_date,
+  country_id,
+  seller_id,
+  COUNT(*) as total_events,
+  COUNTIF(event_type = 'purchase') as purchases,
+  SUM(gmv) as total_gmv
+FROM events_partitioned
+WHERE created_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 90 DAY)
+GROUP BY 1, 2, 3;
+</code></pre>
+<p>BigQuery actualiza las materialized views automáticamente cuando los datos fuente cambian (con algunas limitaciones). Para reportes que se consultan cientos de veces por día, esto puede ahorrar 99% del costo.</p>
+<h3>4. Proyección selectiva</h3>
+<pre><code class="language-sql">-- Mal: escanea todas las columnas de una tabla de 40 columnas
+SELECT * FROM orders WHERE seller_id = 12345;
+
+-- Bien: solo escanea las columnas necesarias
+SELECT order_id, status, gmv, created_at
+FROM orders
+WHERE seller_id = 12345;
+</code></pre>
+<p><strong>Impacto</strong>: En BigQuery columnar storage, <code>SELECT *</code> escanea 40 columnas. <code>SELECT 4 columns</code> escanea solo esas 4. Si las otras 36 columnas son pesadas (strings largos, arrays), el ahorro puede ser del 70%+.</p>
+<h3>5. Usar BI Engine para dashboards</h3>
+<p>Para dashboards que los analistas consultan constantemente, BigQuery BI Engine crea un cache in-memory:</p>
+<pre><code>BigQuery BI Engine:
+- Precio: ~$37/GB de capacity reservada por mes
+- Velocidad: queries en milisegundos en lugar de segundos
+- Costo por query: $0 (no escanea bytes)
+</code></pre>
+<p>Para un dashboard consultado 10,000 veces por día sobre una tabla de 100 GB, BI Engine puede ser 10-50x más barato que on-demand.</p>
+<h2>Governance de costos en equipos</h2>
+<p>El problema real no es una sola query costosa — es 20 analistas corriendo queries sin awareness del costo.</p>
+<h3>Configurar alertas de costos</h3>
+<pre><code class="language-python"># Script para detectar queries costosas via BigQuery Jobs API
+from google.cloud import bigquery
+from datetime import datetime, timedelta
+
+def get_expensive_queries(project_id: str, threshold_gb: float = 100) -> list:
+    client = bigquery.Client(project=project_id)
+    
+    yesterday = (datetime.utcnow() - timedelta(days=1)).strftime('%Y-%m-%d')
+    
+    query = f"""
+    SELECT
+      job_id,
+      user_email,
+      ROUND(total_bytes_processed / POW(1024, 3), 2) as gb_processed,
+      ROUND(total_bytes_processed / POW(1024, 4) * 6.25, 2) as cost_usd,
+      query
+    FROM `region-us`.INFORMATION_SCHEMA.JOBS
+    WHERE creation_time >= '{yesterday}'
+      AND total_bytes_processed > {threshold_gb * 1024**3}
+    ORDER BY total_bytes_processed DESC
+    LIMIT 20
+    """
+    
+    results = client.query(query).result()
+    return [dict(row) for row in results]
+</code></pre>
+<h3>Custom quotas por usuario</h3>
+<pre><code class="language-sql">-- En BigQuery, configurar custom quotas vía API
+-- Limitar a 1 TB por día por usuario:
+gcloud alpha bigquery quotas update \
+  --project=my-project \
+  --metric=bigquery.googleapis.com/quota/query/usage \
+  --user=analyst@company.com \
+  --limit=1000000000000  # 1 TB en bytes
+</code></pre>
+<h3>Dashboard de costos en tiempo real</h3>
+<pre><code class="language-sql">-- Vista en BigQuery para monitorear costos del día
+CREATE OR REPLACE VIEW cost_monitoring AS
+SELECT
+  DATE(creation_time) as query_date,
+  user_email,
+  COUNT(*) as query_count,
+  SUM(total_bytes_processed) / POW(1024, 4) as total_tb,
+  ROUND(SUM(total_bytes_processed) / POW(1024, 4) * 6.25, 2) as estimated_cost_usd
+FROM `region-us`.INFORMATION_SCHEMA.JOBS
+WHERE creation_time >= DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
+  AND job_type = 'QUERY'
+  AND state = 'DONE'
+GROUP BY 1, 2
+ORDER BY estimated_cost_usd DESC;
+</code></pre>
+<h2>Resultado real</h2>
+<p>Implementando estas 5 palancas en nuestro equipo:</p>
+<ul>
+<li><strong>Costo mensual antes</strong>: ~$45,000 USD</li>
+<li><strong>Costo mensual después</strong>: ~$8,200 USD</li>
+<li><strong>Ahorro</strong>: $36,800 USD/mes (82% de reducción)</li>
+</ul>
+<p>El cambio más impactante fue el particionamiento + clustering de las 3 tablas más consultadas. Ese solo ajuste redujo el costo en 60%.</p>
+26:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$2b"}}]
+27:["$","$L2c",null,{"category":"Data & Analytics"}]
+28:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L23",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L23",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+29:["$","$L2d",null,{}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]
+2e:I[27201,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+1a:null
+1e:[["$","title","0",{"children":"Entender el modelo de costos de BigQuery | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarro..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Entender el modelo de costos de BigQuery"}],["$","meta","15",{"property":"og:description","content":"BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarro..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/bigquery-costos-optimizacion/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Entender el modelo de costos de BigQuery"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-01-25"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"Entender el modelo de costos de BigQuery"}],["$","meta","28",{"name":"twitter:description","content":"BigQuery factura por los bytes escaneados, no por tiempo de ejecución. Esto significa que una sola query mal escrita puede costar más que todo un mes de desarro..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L2e","31",{}]]

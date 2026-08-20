@@ -1,0 +1,235 @@
+1:"$Sreact.fragment"
+9:I[68027,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default",1]
+:HL["/_next/static/chunks/2u255v_c-5y3x.css","style"]
+:HL["/_next/static/chunks/3ukb2bs4d3149.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","style"]
+2:T492,{"@context":"https://schema.org","@type":"Person","name":"Mariano Gobea Alcoba","jobTitle":"Data & Analytics Technical Leader","description":"Data & Analytics Technical Leader con más de 7 años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.","url":"https://www.mgatc.com","image":"https://www.mgatc.com/images/profile.png","email":"mgobeaalcoba@gmail.com","sameAs":["https://linkedin.com/in/mgobeaalcoba","https://github.com/Mgobeaalcoba","https://twitter.com/MGobeaAlcoba"],"worksFor":{"@type":"Organization","name":"Mercado Libre","url":"https://mercadolibre.com"},"knowsAbout":["Data Engineering","BigQuery","Python","Machine Learning","Business Intelligence","GenAI","LLMs","Apache Airflow","dbt","Apache Kafka","automatización de procesos","consultoría tecnológica"],"hasOccupation":{"@type":"Occupation","name":"Data & Analytics Technical Leader","occupationLocation":{"@type":"Country","name":"Argentina"}},"address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"nationality":"Argentine"}7:X
+0:{"P":null,"c":["","blog","cloudflare-flags-archivetoday-cnc-botnet",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","cloudflare-flags-archivetoday-cnc-botnet","d",["special","videos"]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2u255v_c-5y3x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/3ukb2bs4d3149.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3i7xoqveyifnu.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/083n7tpiidnn5.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1krfijeef-hxv.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/2y0okst8_0_cb.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/3vx7k7p5eu9id.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#111827"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"description\":\"Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L3"]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La","$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"o0lVOw2fGLYAJMLRcD9FU"}
+c:I[7623,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"DataErrorBoundary"]
+d:I[627,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ThemeProvider"]
+e:I[89190,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"LanguageProvider"]
+f:I[97221,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"SupabaseDataProvider"]
+10:I[69272,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+11:I[39756,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+12:I[37457,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+13:I[27943,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/1k0lhgr7gvt20.js"],"default"]
+14:I[6482,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+15:I[20199,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"default"]
+16:I[79520,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],""]
+18:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"ViewportBoundary"]
+1d:I[97367,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"MetadataBoundary"]
+3:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}],["$","$L15",null,{}]]}]}]}]}],["$","$L16",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L16",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$L17",[["$","script","script-0",{"src":"/_next/static/chunks/28jr1cb-9gzxc.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1301of3kqx4a8.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":"$L1c"}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1e"}]}]}],null]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2u255v_c-5y3x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+b:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/3ukb2bs4d3149.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:I[28675,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+21:I[8037,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+22:I[78208,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+23:I[22016,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],""]
+7:C
+1f:T465,{"@context":"https://schema.org","@type":"Article","headline":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas","description":"La reciente clasificación del dominio `archive.today` por parte de Cloudflare como infraestructura de \"Command and Control/Botnet\" (C&C/Botnet), resultando en s...","url":"https://www.mgatc.com/blog/cloudflare-flags-archivetoday-cnc-botnet/","datePublished":"2026-03-22","dateModified":"2026-03-22","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/cloudflare-flags-archivetoday-cnc-botnet/"},"keywords":"","articleSection":"Automatización & IA","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}17:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$1f"}}],["$","$L20",null,{"contentType":"article","contentId":"cloudflare-flags-archivetoday-cnc-botnet","title":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}],["$","$L21",null,{"site_section":"blog"}],["$","$L22",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L23",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Automatización & IA"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La reciente clasificación del dominio `archive.today` por parte de Cloudflare como infraestructura de \"Command and Control/Botnet\" (C&C/Botnet), resultando en s..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"22 de marzo de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":["$L24","$L25","$undefined"]}],"14 min read"]}],"$L26"]}],"$L27"]}],"$L28","$L29","$L2a"]}],"$L2b"]}]
+2c:I[66158,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+2e:I[6265,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+2f:I[21686,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js","/_next/static/chunks/28jr1cb-9gzxc.js","/_next/static/chunks/1301of3kqx4a8.js"],"default"]
+24:["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}]
+25:["$","path","mmk7yg",{"d":"M12 6v6l4 2"}]
+26:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+27:["$","$L2c",null,{"slug":"cloudflare-flags-archivetoday-cnc-botnet","title":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}]
+2d:T50ef,<p>La reciente clasificación del dominio <code>archive.today</code> por parte de Cloudflare como infraestructura de "Command and Control/Botnet" (C&#x26;C/Botnet), resultando en su no resolución a través de los servidores DNS públicos 1.1.1.1 y 1.0.0.1, representa un evento significativo desde una perspectiva de ingeniería de datos y seguridad. Este incidente subraya la complejidad y las implicaciones de los sistemas automatizados de detección de amenazas en la infraestructura de Internet global.</p>
+<h2>Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas</h2>
+<p>Cloudflare opera una de las redes de entrega de contenido (CDN) y servicios DNS más grandes del mundo. Su resolución DNS pública, accesible a través de 1.1.1.1, se ha posicionado como una alternativa rápida y centrada en la privacidad. Sin embargo, más allá de la mera resolución de nombres de dominio a direcciones IP, Cloudflare ha integrado capacidades avanzadas de seguridad a nivel de DNS y red, alimentadas por su vasta telemetría de tráfico global.</p>
+<p>Cloudflare Radar es una plataforma que expone parte de esta inteligencia de amenazas, ofreciendo visibilidad sobre patrones de tráfico, ataques DDoS y dominios maliciosos. La clasificación de un dominio en Cloudflare Radar no es meramente un acto administrativo; es el resultado de un proceso de análisis de datos a gran escala, a menudo impulsado por modelos de machine learning y heurísticas sofisticadas. Cuando un dominio es etiquetado, como en este caso con "C&#x26;C/Botnet", sus implicaciones se extienden a través de múltiples productos y servicios de Cloudflare, afectando la forma en que los usuarios acceden a ese dominio y cómo las organizaciones se protegen contra él.</p>
+<p>La resolución DNS es un componente fundamental de Internet. Una solicitud típica se vería así:</p>
+<pre><code class="language-bash"># Consulta DNS para archive.today usando 1.1.1.1 (antes de la clasificación)
+$ dig @1.1.1.1 archive.today +short
+178.63.15.19
+
+# Consulta DNS para archive.today usando 8.8.8.8 (Google DNS)
+$ dig @8.8.8.8 archive.today +short
+178.63.15.19
+</code></pre>
+<p>Después de la clasificación de Cloudflare, la resolución a través de 1.1.1.1 devolverá un resultado que impide el acceso, como NXDOMAIN o una dirección IP de bloqueo/sumidero (sinkhole), mientras que otros resolvedores DNS podrían seguir operando normalmente si no han implementado la misma lista de bloqueo.</p>
+<pre><code class="language-bash"># Ejemplo de respuesta esperada de 1.1.1.1 después de la clasificación
+$ dig @1.1.1.1 archive.today +short
+# No devuelve una IP válida, posiblemente vacío o error de resolución.
+</code></pre>
+<h2>El Incidente: archive.today y la Clasificación "C&#x26;C/Botnet"</h2>
+<p>La etiqueta "C&#x26;C/Botnet" en el contexto de ciberseguridad se refiere a la infraestructura utilizada por actores maliciosos para controlar redes de computadoras comprometidas (botnets) o para emitir comandos a sistemas infectados. Esto puede incluir servidores que distribuyen malware, recolectan datos robados (exfiltración), o coordinan ataques distribuidos.</p>
+<p>La aplicación de esta etiqueta a <code>archive.today</code> sugiere que Cloudflare, a través de su análisis de datos, ha detectado patrones de tráfico o comportamiento asociados con el uso de este dominio en actividades de Command and Control. Es crucial entender que la clasificación de Cloudflare se basa en la <em>observación de patrones de uso malicioso</em>, no necesariamente en la intención del propietario del servicio o en la naturaleza intrínseca del servicio en sí.</p>
+<h3>Posibles Vectores de Abuso que Conducen a una Clasificación C&#x26;C/Botnet:</h3>
+<ol>
+<li><strong>Almacenamiento Transitorio de C&#x26;C</strong>: Los atacantes podrían utilizar servicios de archivo web como <code>archive.today</code> para alojar, de forma efímera o persistente, URLs, archivos de configuración, o incluso instrucciones codificadas para sus botnets. Las páginas archivadas ofrecen una URL estable y, en algunos casos, pueden evadir la detección inicial al parecer "legítimas".</li>
+<li><strong>Exfiltración de Datos</strong>: Datos robados de sistemas comprometidos podrían ser incrustados en URLs de <code>archive.today</code> o subidos como parte de un proceso de archivado, utilizando el servicio como un conducto de exfiltración disfrazado.</li>
+<li><strong>Redireccionamiento o Proxy Malicioso</strong>: Los botnets podrían usar <code>archive.today</code> como un eslabón en una cadena de redireccionamiento para ofuscar el verdadero destino de una carga útil maliciosa o para dirigir el tráfico C&#x26;C.</li>
+<li><strong>Alojamiento de Contenido Malicioso</strong>: Aunque <code>archive.today</code> archiva contenido de otros sitios, si se archivan repetidamente sitios de phishing, malware o exploit kits, y estos archivos son luego distribuidos por botnets, el dominio podría ser asociado con la cadena de ataque.</li>
+<li><strong>Compromiso Directo del Servicio</strong>: Aunque menos probable en un servicio de esta escala, cualquier compromiso de la infraestructura de <code>archive.today</code> que permitiera a los atacantes controlar el contenido o el flujo de datos a través de sus servicios podría llevar a tal clasificación.</li>
+</ol>
+<h2>Implicaciones Técnicas de la Clasificación</h2>
+<p>La decisión de Cloudflare de dejar de resolver <code>archive.today</code> a través de 1.1.1.1/1.0.0.1 tiene varias ramificaciones técnicas:</p>
+<ol>
+<li><strong>Bloqueo de Resolución DNS</strong>: Los usuarios y sistemas que dependen de 1.1.1.1 para la resolución DNS experimentarán fallos al intentar acceder a <code>archive.today</code>. Esto se manifiesta como un "Host no encontrado" o un tiempo de espera agotado, impidiendo la conexión a la dirección IP asociada.
+<ul>
+<li><strong>Impacto en Usuarios Finales</strong>: Quienes usan 1.1.1.1 directamente en sus sistemas operativos o en sus enrutadores verán el sitio inaccesible.</li>
+<li><strong>Impacto en Sistemas Automatizados</strong>: Scripts, bots o servicios que archivan contenido de forma programática y que utilizan Cloudflare DNS, fallarán al intentar interactuar con <code>archive.today</code>.</li>
+</ul>
+</li>
+<li><strong>Extensión a Productos de Seguridad de Cloudflare</strong>: La clasificación se integra automáticamente en la suite de productos de seguridad de Cloudflare, incluyendo:
+<ul>
+<li><strong>Cloudflare Gateway/Zero Trust</strong>: Las organizaciones que utilizan estos servicios para proteger su red corporativa y sus usuarios verán automáticamente bloqueado el acceso a <code>archive.today</code> para sus empleados, sin necesidad de configuración manual. Esto es una característica clave del modelo Zero Trust.</li>
+<li><strong>WAF (Web Application Firewall)</strong> y otros servicios de seguridad de borde de Cloudflare: Aunque <code>archive.today</code> no está proxyado por Cloudflare, si lo estuviera, esta clasificación podría influir en el comportamiento del WAF u otras políticas de mitigación de amenazas.</li>
+</ul>
+</li>
+<li><strong>Disparidad en la Resolución DNS</strong>: Se crea una fragmentación en la resolución DNS. Otros resolvedores públicos (ej., Google DNS 8.8.8.8, OpenDNS 208.67.222.222, o DNS de ISPs) podrían seguir resolviendo <code>archive.today</code> sin problemas, a menos que también hayan implementado listas de bloqueo similares. Esto puede llevar a confusión y problemas de depuración para los usuarios.</li>
+</ol>
+<h2>Análisis de las Metodologías de Detección: Ingeniería de Datos y AI en Acción</h2>
+<p>La detección de infraestructura C&#x26;C y botnets es un problema complejo que requiere una infraestructura robusta de ingeniería de datos y el empleo de algoritmos avanzados de inteligencia artificial. Cloudflare, dada su posición en la red, tiene una ventaja única para recopilar y analizar datos a escala masiva.</p>
+<h3>1. Recopilación y Procesamiento de Datos a Gran Escala</h3>
+<ul>
+<li><strong>Telemetría DNS Global</strong>: Cada consulta DNS a 1.1.1.1/1.0.0.1 se registra (de forma anonimizada o agregada) y se analiza. Esto incluye el dominio solicitado, la IP de origen, la frecuencia de las solicitudes, y patrones temporales.</li>
+<li><strong>Datos de Tráfico HTTP/S y Red</strong>: Para los dominios que usan Cloudflare CDN/proxy, se analiza el tráfico HTTP/S: user agents, encabezados, tamaños de payload, latencias, y comportamientos inusuales. Incluso para dominios no proxyados, la telemetría a nivel de red (rutas, BGP) puede ofrecer pistas.</li>
+<li><strong>Fuentes de Inteligencia de Amenazas (Threat Intelligence Feeds)</strong>: Integración con listas negras de IPs y dominios maliciosos conocidas de terceros, así como datos generados internamente a partir de incidentes reportados o ataques mitigados.</li>
+<li><strong>Análisis de Registros (Logs)</strong>: Recopilación y centralización de petabytes de registros de diferentes servicios (WAF, DDoS, Workers, etc.) para su análisis.</li>
+</ul>
+<h3>2. Modelos de Machine Learning para la Detección de Amenazas</h3>
+<p>La identificación de C&#x26;C/Botnets rara vez se basa en una única heurística. En cambio, se utilizan una combinación de modelos de ML para identificar patrones sutiles y comportamientos anómalos:</p>
+<ul>
+<li>
+<p><strong>Clasificación de Dominios (Supervisada)</strong>:</p>
+<ul>
+<li><strong>Caracterización de Features</strong>: Se extraen características (features) de los dominios, como:
+<ul>
+<li><strong>Lexicales</strong>: Longitud del dominio, presencia de números, uso de caracteres especiales, entropía de los nombres de subdominio (indicador de dominios generados algorítmicamente - DGA).</li>
+<li><strong>Comportamentales de DNS</strong>: Frecuencia de cambio de IP (Fast Flux), número de IPs asociadas, TTL (Time To Live) bajos, patrones de consultas (picos, consultas a dominios inexistentes).</li>
+<li><strong>Históricos</strong>: Reputación histórica del dominio y sus IPs asociadas, edad del registro del dominio.</li>
+<li><strong>Contextuales</strong>: Asociaciones con otros dominios o IPs ya conocidos como maliciosos.</li>
+</ul>
+</li>
+<li><strong>Modelos</strong>: Random Forests, Gradient Boosting Machines (XGBoost, LightGBM), o redes neuronales (como autoencoders para detección de anomalías o redes siamesas para similitud de dominios). Estos modelos se entrenan con conjuntos de datos etiquetados (dominios benignos vs. maliciosos) para clasificar nuevos dominios.</li>
+</ul>
+<pre><code class="language-python">import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+# Pseudo-código para un clasificador de dominios maliciosos
+def extract_features(domain_name):
+    # Implementación real mucho más compleja, incluyendo DNS lookups, whois, etc.
+    features = {
+        'len_domain': len(domain_name),
+        'num_digits': sum(c.isdigit() for c in domain_name),
+        'entropy': calculate_entropy(domain_name), # Shannon entropy
+        'has_hyphen': '-' in domain_name,
+        # ... otras features DNS y contextuales
+    }
+    return features
+
+# Ejemplo de datos (en un escenario real, esto vendría de una base de datos de telemetría)
+data = [
+    ("google.com", 0), ("malicious-c2.xyz", 1), ("legitsite.net", 0),
+    ("randomdga123.cn", 1), ("archive.today", 0), # archive.today podría tener características anómalas
+    # ... miles de entradas
+]
+df = pd.DataFrame([extract_features(d[0]) for d in data])
+df['label'] = [d[1] for d in data]
+
+X = df.drop('label', axis=1)
+y = df['label']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_test)
+print(classification_report(y_test, predictions))
+
+# Predecir para un dominio específico
+new_domain_features = extract_features("archive.today") # Con sus métricas reales de uso
+prediction_for_archive = model.predict(pd.DataFrame([new_domain_features]))
+# Si prediction_for_archive == 1, indicaría una clasificación maliciosa.
+</code></pre>
+</li>
+<li>
+<p><strong>Detección de Anomalías (No Supervisada)</strong>:</p>
+<ul>
+<li>Identifica comportamientos atípicos en el tráfico DNS o HTTP/S que se desvían de la norma establecida. Esto es útil para detectar amenazas emergentes sin etiquetas previas.</li>
+<li><strong>Técnicas</strong>: Isolation Forests, One-Class SVMs, redes neuronales autoencoder que aprenden una representación del comportamiento "normal" y marcan lo que se desvía. Por ejemplo, un pico inusual de consultas DNS provenientes de una red de IPs dispares para un dominio específico podría ser una anomalía.</li>
+</ul>
+</li>
+<li>
+<p><strong>Análisis de Grafo</strong>:</p>
+<ul>
+<li>Representa las entidades de Internet (dominios, IPs, ASNs, URLs) como nodos en un grafo y sus relaciones como aristas. Los algoritmos de grafo pueden identificar comunidades maliciosas, patrones de conexión, y la centralidad de ciertos nodos en redes de ataque.</li>
+<li>Un dominio que se conecta o es solicitado por un gran número de nodos ya clasificados como maliciosos, o que comparte infraestructura con ellos, puede ser un fuerte indicador.</li>
+</ul>
+</li>
+<li>
+<p><strong>Procesamiento de Lenguaje Natural (NLP)</strong>:</p>
+<ul>
+<li>Utilizado para analizar los nombres de dominio en busca de patrones de generación algorítmica (DGA), que a menudo carecen de sentido lingüístico humano.</li>
+<li>También puede analizar el contenido de las páginas web (para dominios proxyados) o los metadatos para identificar indicadores de compromiso.</li>
+</ul>
+</li>
+</ul>
+<h3>3. Heurísticas y Reglas de Negocio</h3>
+<p>Además del ML, las reglas expertas y las heurísticas juegan un papel vital. Estas son definidas por analistas de seguridad humanos basándose en su conocimiento de amenazas conocidas. Por ejemplo:</p>
+<ul>
+<li>Un dominio que se resuelve a una IP que está en una lista negra conocida.</li>
+<li>Dominios recién registrados que muestran un volumen de tráfico inusualmente alto en un corto período.</li>
+<li>Patrones de subdominios que imitan servicios legítimos para phishing.</li>
+</ul>
+<p>La integración de estas metodologías es clave. Un resultado de ML podría ser una señal para que una heurística más específica se active, o un analista humano podría revisar los dominios marcados con alta confianza por los modelos.</p>
+<h2>Discusión sobre la Naturaleza de <code>archive.today</code> y la Justificación Potencial</h2>
+<p><code>archive.today</code> es un servicio público de archivo web, similar a la Wayback Machine, que permite a los usuarios tomar "instantáneas" de páginas web en un momento dado. Su función principal es preservar contenido web, lo cual es útil para investigación, periodismo y verificación de hechos.</p>
+<p>Sin embargo, la naturaleza abierta y de contenido generado por el usuario de estos servicios los hace susceptibles al abuso. Como se mencionó, los actores de amenazas pueden explotar estas plataformas para sus propios fines. La clasificación de Cloudflare no implica que <code>archive.today</code> sea inherentemente malicioso o que sus operadores estén involucrados en actividades nefastas. Más bien, sugiere que la telemetría de Cloudflare ha detectado que <code>archive.today</code> está siendo <em>utilizado</em> de una manera que coincide con los patrones de infraestructura de C&#x26;C/Botnet, posiblemente por atacantes que aprovechan el servicio para ofuscar sus actividades.</p>
+<p>Este escenario destaca un desafío fundamental en la ciberseguridad: distinguir entre el uso legítimo y el uso malicioso de servicios de propósito general. Las herramientas de seguridad automatizadas, aunque poderosas, operan basándose en patrones y probabilidades, no en la intención. Un "falso positivo" (un dominio legítimo clasificado como malicioso) puede ocurrir si los patrones de tráfico de un servicio legítimo se superponen significativamente con los de actividades maliciosas, o si el servicio es objeto de abuso a gran escala.</p>
+<p>La discusión en foros como Hacker News refleja esta tensión. Mientras que algunos defienden la legitimidad de <code>archive.today</code> como herramienta de archivo, otros reconocen la complejidad de la detección de amenazas y la postura de Cloudflare de priorizar la seguridad de sus usuarios.</p>
+<h2>Consideraciones y Mejores Prácticas para Operadores y Desarrolladores</h2>
+<p>Para las organizaciones y desarrolladores que confían en servicios de terceros o que gestionan su propia infraestructura, este incidente ofrece lecciones valiosas:</p>
+<ol>
+<li>
+<p><strong>Diversificación de Resolvers DNS</strong>: Evitar la dependencia exclusiva de un único resolvedor DNS para la infraestructura crítica. Configurar sistemas para usar resolvedores alternativos o implementar estrategias de "failover" de DNS puede mitigar el impacto de un bloqueo por parte de un proveedor.</p>
+</li>
+<li>
+<p><strong>Monitoreo Proactivo de DNS</strong>: Implementar monitoreo continuo de la resolución DNS para dominios y servicios esenciales. Herramientas de monitoreo pueden alertar si un dominio clave deja de resolverse o si la resolución cambia inesperadamente.</p>
+</li>
+<li>
+<p><strong>Evaluación de Riesgos de Servicios de Terceros</strong>: Al integrar servicios de terceros (especialmente aquellos que permiten contenido generado por el usuario o de archivo), realizar una evaluación de riesgos sobre su potencial abuso y cómo esto podría afectar la reputación o accesibilidad de sus propios servicios.</p>
+</li>
+<li>
+<p><strong>Implementación de Cloudflare Zero Trust/Gateway para Protección</strong>: Para proteger a sus propios usuarios y sistemas, las organizaciones pueden aprovechar las soluciones de Cloudflare Zero Trust o Cloudflare Gateway. Estos productos consumen las mismas listas de amenazas internas de Cloudflare Radar, bloqueando automáticamente el acceso a dominios clasificados como maliciosos, incluso si no son los operadores del dominio en cuestión. Esto proporciona una capa proactiva de defensa para la red corporativa.</p>
+<pre><code class="language-bash"># Ejemplo de cómo un administrador de red podría configurar un firewall o proxy
+# para usar un resolvedor DNS específico o bloquear un dominio
+# (Esto es una configuración de ejemplo, no directamente de Cloudflare Gateway)
+
+# Configuración de resolvedores DNS en un sistema Linux
+# /etc/resolv.conf
+# nameserver 8.8.8.8
+# nameserver 1.1.1.1 # Si no se desea el bloqueo, evitar 1.1.1.1 o listarlo segundo
+
+# Bloqueo de dominio a nivel de host (simplificado)
+# /etc/hosts
+# 127.0.0.1 archive.today # Esto redirige localmente el dominio a localhost
+</code></pre>
+</li>
+<li>
+<p><strong>Comunicación y Transparencia</strong>: Para los operadores de servicios, es vital tener canales de comunicación con proveedores de seguridad como Cloudflare para disputar clasificaciones o entender las razones detrás de un bloqueo. La transparencia, en la medida de lo posible, ayuda a mantener la confianza.</p>
+</li>
+</ol>
+<h2>Conclusión</h2>
+<p>El incidente de <code>archive.today</code> y su clasificación como infraestructura C&#x26;C/Botnet por parte de Cloudflare es un recordatorio palpable de la constante y compleja batalla en la ciberseguridad. Demuestra cómo los proveedores de infraestructura a gran escala, utilizando sofisticadas técnicas de ingeniería de datos y modelos de machine learning, juegan un papel crucial en la higiene de Internet, incluso cuando sus acciones pueden ser controvertidas o tener efectos secundarios en servicios legítimos.</p>
+<p>Desde una perspectiva de ingeniería de datos e IA, el caso ilustra la madurez y la necesidad crítica de sistemas que puedan procesar y analizar volúmenes masivos de telemetría de red para identificar patrones de comportamiento malicioso. Sin embargo, también subraya los desafíos inherentes a la detección automatizada, como la posibilidad de falsos positivos y la dificultad de diferenciar el uso intencional del abuso por terceros. La resiliencia en la infraestructura moderna requiere una comprensión profunda de estas dinámicas y la adopción de estrategias defensivas multicapa.</p>
+<p>Para servicios de consultoría avanzada en ingeniería de datos, inteligencia artificial, arquitectura de sistemas en la nube y estrategias de ciberseguridad, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+30:I[27201,["/_next/static/chunks/3i7xoqveyifnu.js","/_next/static/chunks/083n7tpiidnn5.js","/_next/static/chunks/1krfijeef-hxv.js","/_next/static/chunks/2y0okst8_0_cb.js","/_next/static/chunks/3vx7k7p5eu9id.js"],"IconMark"]
+28:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$2d"}}]
+29:["$","$L2e",null,{"category":"Automatización & IA"}]
+2a:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L23",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L23",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+2b:["$","$L2f",null,{}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]
+1a:null
+1e:[["$","title","0",{"children":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"La reciente clasificación del dominio `archive.today` por parte de Cloudflare como infraestructura de \"Command and Control/Botnet\" (C&C/Botnet), resultando en s..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/cloudflare-flags-archivetoday-cnc-botnet/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}],["$","meta","15",{"property":"og:description","content":"La reciente clasificación del dominio `archive.today` por parte de Cloudflare como infraestructura de \"Command and Control/Botnet\" (C&C/Botnet), resultando en s..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/cloudflare-flags-archivetoday-cnc-botnet/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-03-22"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:site","content":"@MGobeaAlcoba"}],["$","meta","26",{"name":"twitter:creator","content":"@MGobeaAlcoba"}],["$","meta","27",{"name":"twitter:title","content":"Contexto Técnico de Cloudflare DNS y su Arquitectura de Detección de Amenazas"}],["$","meta","28",{"name":"twitter:description","content":"La reciente clasificación del dominio `archive.today` por parte de Cloudflare como infraestructura de \"Command and Control/Botnet\" (C&C/Botnet), resultando en s..."}],["$","meta","29",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","30",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L30","31",{}]]
