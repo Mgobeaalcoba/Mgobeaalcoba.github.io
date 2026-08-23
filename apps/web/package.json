@@ -15,7 +15,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "chart.js": "^4.5.1",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.4.2",
     "framer-motion": "^12.34.3",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.3.1",
