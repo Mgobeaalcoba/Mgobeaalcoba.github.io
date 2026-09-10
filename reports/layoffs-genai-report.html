@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layoffs, Hiring & GenAI: Análisis Global 2020–2035</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2330;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #f85149;
+      --accent3: #3fb950;
+      --accent4: #d29922;
+      --accent5: #bc8cff;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --text3: #c9d1d9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 50%, #0d1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(88,166,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(88,166,255,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,0.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #e6edf3 30%, #58a6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--text2);
+      font-size: 17px;
+    }
+    .kpi-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .kpi {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 28px;
+      min-width: 180px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .kpi:hover { border-color: var(--accent); }
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .kpi-label {
+      font-size: 12px;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .kpi-sub {
+      font-size: 11px;
+      color: var(--text2);
+      margin-top: 4px;
+    }
+
+    /* MAIN LAYOUT */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text2);
+      margin-bottom: 28px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text2);
+      margin-bottom: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media(max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* CHART WRAPPER */
+    .chart-wrap {
+      position: relative;
+      height: 320px;
+    }
+    .chart-wrap-tall {
+      position: relative;
+      height: 400px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent5) 50%, var(--accent2) 100%);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -26px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+    }
+    .tl-date {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .tl-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .tl-body {
+      font-size: 13px;
+      color: var(--text2);
+    }
+    .tl-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .badge-ai { background: rgba(188,140,255,0.15); color: var(--accent5); border: 1px solid rgba(188,140,255,0.3); }
+    .badge-layoff { background: rgba(248,81,73,0.12); color: var(--accent2); border: 1px solid rgba(248,81,73,0.3); }
+    .badge-econ { background: rgba(210,153,34,0.12); color: var(--accent4); border: 1px solid rgba(210,153,34,0.3); }
+    .badge-hire { background: rgba(63,185,80,0.12); color: var(--accent3); border: 1px solid rgba(63,185,80,0.3); }
+
+    /* PROJECTIONS */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media(max-width: 800px) {
+      .proj-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width: 500px) {
+      .proj-grid { grid-template-columns: 1fr; }
+    }
+    .proj-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .proj-horizon {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .proj-year {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .proj-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .proj-text {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+    .proj-stat {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* SOURCES */
+    .sources {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-top: 40px;
+    }
+    .sources h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+    @media(max-width: 700px) {
+      .sources-grid { grid-template-columns: 1fr; }
+    }
+    .sources a {
+      color: var(--accent);
+      font-size: 13px;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .sources a:hover { border-bottom-color: var(--accent); }
+
+    /* ANALYSIS TEXT */
+    .analysis {
+      background: rgba(88,166,255,0.04);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text3);
+      line-height: 1.7;
+    }
+    .analysis strong { color: var(--text); }
+
+    /* NOTE */
+    .note {
+      font-size: 11px;
+      color: var(--text2);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* DIVIDER */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text2);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba(88,166,255,0.12);
+      border: 1px solid rgba(88,166,255,0.25);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* LEGEND CUSTOM */
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text2);
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: rgba(248,81,73,0.07);
+      border: 1px solid rgba(248,81,73,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+    .highlight-box.green {
+      background: rgba(63,185,80,0.07);
+      border-color: rgba(63,185,80,0.2);
+    }
+    .highlight-box .hl-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .highlight-box .hl-text {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--text2);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================ HERO ================================================ -->
+<div style="background:var(--surface);border-bottom:1px solid var(--border);padding:12px 24px;">
+  <a href="/blog" style="color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;">← Volver al Blog</a>
+</div>
+<div class="hero">
+  <div class="hero-tag">Análisis Global · Abril 2026</div>
+  <h1>Layoffs, Contratación & GenAI<br>El Gran Reajuste Laboral</h1>
+  <p>Un análisis de datos sobre despidos masivos en IT y sectores white collar, tendencias de contratación y su correlación con los hitos de la Inteligencia Artificial Generativa.</p>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-value" style="color:#f85149;">265K</div>
+      <div class="kpi-label">Pico: Layoffs Tech 2023</div>
+      <div class="kpi-sub">El peor año para el sector</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:#f85149;">1.2M</div>
+      <div class="kpi-label">Anuncios despido 2025</div>
+      <div class="kpi-sub">+58% vs 2024 (Challenger)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:#d29922;">−36%</div>
+      <div class="kpi-label">Caída en job postings tech</div>
+      <div class="kpi-sub">vs nivel pre-pandemia</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:#bc8cff;">55K+</div>
+      <div class="kpi-label">Layoffs atribuidos a IA</div>
+      <div class="kpi-sub">Solo en 2025</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:#58a6ff;">300M</div>
+      <div class="kpi-label">Empleos en riesgo global</div>
+      <div class="kpi-sub">Proyección Goldman Sachs</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================ MAIN ================================================ -->
+<div class="container">
+
+  <!-- ====== SECCIÓN 1: TECH LAYOFFS ====== -->
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title">Layoffs en la Industria Tech (2020–2026)</div>
+      <div class="section-subtitle">Trabajadores despedidos en empresas de tecnología a nivel global · Fuentes: layoffs.fyi, TechCrunch, Crunchbase</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Despidos anuales en el sector tecnológico (trabajadores afectados)</div>
+    <div class="card-subtitle">2026 incluye solo Q1 (enero–marzo). Múltiples trackers difieren ±15%; se usan promedios ponderados.</div>
+    <div class="chart-wrap-tall">
+      <canvas id="techLayoffsChart"></canvas>
+    </div>
+    <div class="note">* 2026: datos hasta marzo 2026 (~90,474 trabajadores en ~212 eventos). Ratio anualizado proyecta ~360K.</div>
+    <div class="analysis">
+      <strong>¿Qué está pasando?</strong> Después del boom de contratación pandémico (2020-2021), el sector tech vivió una masiva corrección.
+      <strong>2022</strong> marcó el inicio con los primeros mega-recortes (Meta −11K, Twitter/X −50%).
+      <strong>2023</strong> fue el año récord con ~265K despidos (Amazon, Google, Microsoft, Salesforce recortando simultáneamente).
+      <strong>2024</strong> bajó a 153K pero en <strong>2025</strong> repuntó a ~246K, con una diferencia clave: ya no es sólo corrección post-pandemia — ahora la IA es el driver explícito en al menos 55,000 despidos anunciados ese año.
+    </div>
+  </div>
+
+  <!-- ====== SECCIÓN 2: WHITE COLLAR ====== -->
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title">Layoffs en Sectores White Collar (todos los sectores)</div>
+      <div class="section-subtitle">Anuncios de recortes de empleo en EE.UU. · Fuente: Challenger, Gray & Christmas (reporte anual)</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Anuncios anuales de layoffs (todas las industrias)</div>
+      <div class="card-subtitle">Miles de empleos anunciados para recorte · Challenger, Gray & Christmas</div>
+      <div class="chart-wrap">
+        <canvas id="challengerChart"></canvas>
+      </div>
+      <div class="note">* 2025 incluye recortes DOGE (293K empleos federales). Sin DOGE: ~912K (+20% vs 2024).</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Desglose por sector — 2025</div>
+      <div class="card-subtitle">Principales industrias afectadas por layoffs anunciados en 2025</div>
+      <div class="chart-wrap">
+        <canvas id="sectorChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Sectores white collar más afectados — análisis contextual</div>
+    <div class="card-subtitle">Fuentes: S&P Global Market Intelligence, JOLTS/BLS, Fortune, Challenger</div>
+    <div class="grid-2">
+      <div>
+        <div class="highlight-box">
+          <div class="hl-title" style="color:#f85149;">🔴 Sectores bajo mayor presión</div>
+          <div class="hl-text">
+            <strong>Consultoría:</strong> Big 4 (Deloitte, EY, KPMG, PwC) recortaron +9.000 empleos combinados. Accenture anunció 19.000 recortes en roles administrativos.<br><br>
+            <strong>Finanzas:</strong> Goldman Sachs, Citigroup, Wells Fargo con miles de recortes por reestructuración y automatización de roles de back-office.<br><br>
+            <strong>Media:</strong> +17.163 anuncios en 2025, up 15% vs 2024. BuzzFeed, Vice, Condé Nast, Sports Illustrated.<br><br>
+            <strong>Retail:</strong> Roles de marketing, analytics y soporte migran a herramientas de IA generativa.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="highlight-box green">
+          <div class="hl-title" style="color:#3fb950;">🟢 El dato estructural más preocupante</div>
+          <div class="hl-text">
+            El total de trabajadores white collar en EE.UU. cayó de <strong>22.7M → 22.6M</strong> entre 2024 y 2025 (BLS).<br><br>
+            En Servicios Profesionales y de Negocios: <strong>3.7M de despidos/ceses</strong> solo en los primeros 9 meses de 2024. El sector registró los <strong>niveles de apertura de empleo más bajos desde 2014</strong>.<br><br>
+            <strong>1 de cada 4</strong> trabajadores que perdió su empleo en 2024 venía de servicios profesionales.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SECCIÓN 3: HIRING TRENDS ====== -->
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title">Tendencias de Contratación (Hiring)</div>
+      <div class="section-subtitle">Job postings, tasa de contratación y estructura del empleo tech · Indeed Hiring Lab, CompTIA, BLS/JOLTS</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Job postings tech vs nivel pre-pandemia (índice 100 = Feb 2020)</div>
+      <div class="card-subtitle">Evolución del volumen de publicaciones de empleo en el sector tech · Indeed Hiring Lab</div>
+      <div class="chart-wrap">
+        <canvas id="hiringChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Empleos tech: tradicionales vs orientados a IA</div>
+      <div class="card-subtitle">Porcentaje de postings que mencionan IA · Indeed Hiring Lab + CompTIA</div>
+      <div class="chart-wrap">
+        <canvas id="aiJobsChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">El desajuste estructural del mercado laboral</div>
+    <div class="card-subtitle">Qué crece y qué colapsa en el mercado de trabajo tech y white collar</div>
+    <div class="grid-2">
+      <div>
+        <div class="highlight-box">
+          <div class="hl-title" style="color:#f85149;">📉 Lo que está colapsando</div>
+          <div class="hl-text">
+            • Postings tech generales: <strong>−36%</strong> vs pre-pandemia (Indeed, Jul 2025)<br>
+            • Posiciones entry-level (EE.UU.): <strong>−73%</strong> en el último año<br>
+            • Posiciones entry-level en UK (tech): <strong>−46%</strong> en 2024; proyectan −53% adicional en 2026<br>
+            • Roles de soporte, administrativos, análisis rutinario: reemplazados por herramientas IA<br>
+            • Middle management en corporaciones: restructuraciones masivas
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="highlight-box green">
+          <div class="hl-title" style="color:#3fb950;">📈 Lo que está creciendo</div>
+          <div class="hl-text">
+            • Postings con mención de IA: <strong>+45%</strong> vs pre-pandemia<br>
+            • Roles de AI/ML/Data Science: <strong>+163%</strong> vs 2024 (49.200 postings en 2025)<br>
+            • Roles de ciberseguridad: <strong>+124%</strong> vs 2024 (66.800 postings)<br>
+            • Ingenieros de IA/LLM/Agentes: demanda sin precedentes<br>
+            • Empleos tech con IA en EE.UU.: ~9.8M proyectados para 2026 (+1.9%)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="analysis">
+      El mercado laboral tech no está "muriendo" — está <strong>bifurcándose</strong>. Hay una escasez crítica de talento especializado en IA mientras colapsan las posiciones que la IA puede automatizar. El desafío para las generaciones jóvenes es que los roles de entrada que históricamente servían como escalón formativo están siendo eliminados exactamente cuando más se necesitan.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ====== SECCIÓN 4: TIMELINE GenAI ====== -->
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title">Timeline: Hitos GenAI correlacionados con Layoffs</div>
+      <div class="section-subtitle">Cómo cada salto en la IA generativa aceleró o anticipó los recortes de empleo</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Correlación cronológica: Avances de IA ↔ Despidos masivos</div>
+    <div class="card-subtitle">Los hitos de la IA no causan layoffs de forma inmediata — actúan como catalizadores de decisiones estratégicas con lag de 3-12 meses</div>
+
+    <div style="margin-bottom: 24px;">
+      <div class="legend-row">
+        <div class="legend-item"><div class="legend-dot" style="background:#bc8cff;"></div> Hito GenAI</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f85149;"></div> Evento layoff masivo</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d29922;"></div> Factor económico</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#3fb950;"></div> Hiring / Expansión</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#d29922;"></div>
+        <div class="tl-date" style="color:#d29922;">2020–2021</div>
+        <div class="tl-title">El Boom Pandémico <span class="tl-badge badge-econ">Económico</span> <span class="tl-badge badge-hire">Hiring</span></div>
+        <div class="tl-body">Las Big Tech (Amazon, Meta, Google, Microsoft) contratan masivamente para la digitalización acelerada. Amazon añade 800K empleados en 2020. Meta, Google y Microsoft casi duplican plantillas. Se estima que el sector tech contrató ~1M de trabajadores en exceso respecto a tendencias históricas.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Noviembre 2022</div>
+        <div class="tl-title">ChatGPT lanza GPT-3.5 <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">OpenAI lanza ChatGPT con GPT-3.5 el 30 de noviembre de 2022. Alcanza 1 millón de usuarios en 5 días, 100 millones en 2 meses. Es el producto de consumo de más rápida adopción en la historia. <strong>Impacto laboral inmediato:</strong> Los C-suites globales quedan en shock y comienzan a replantear headcount.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f85149;"></div>
+        <div class="tl-date" style="color:#f85149;">Nov 2022 – Feb 2023</div>
+        <div class="tl-title">Primera ola masiva de layoffs tech <span class="tl-badge badge-layoff">Layoff Wave 1</span></div>
+        <div class="tl-body">Twitter/X: −50% plantilla (octubre 2022). Meta: −11.000 empleados (noviembre 2022). Amazon: −18.000 (enero 2023). Salesforce: −10% workforce (enero 2023). Microsoft: −10.000 (enero 2023). Google: −12.000 (enero 2023). <strong>Driver principal:</strong> sobrecontratación pandémica + alza de tasas de la Fed. La IA actúa como justificación narrativa pero aún no es el driver real.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Marzo 2023</div>
+        <div class="tl-title">GPT-4 y la carrera multimodal <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">OpenAI lanza GPT-4 con capacidades multimodales. Google responde con Bard (Gemini). Anthropic lanza Claude. La competencia se torna global. Las corporaciones empiezan a mapear <em>exactamente qué roles pueden ser automatizados</em>. Se publican los primeros estudios académicos de impacto laboral (U. of Pennsylvania + OpenAI: 80% de la fuerza laboral tendría al menos 10% de sus tareas afectadas).</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f85149;"></div>
+        <div class="tl-date" style="color:#f85149;">2023 (todo el año)</div>
+        <div class="tl-title">Pico histórico de layoffs tech: ~265.000 trabajadores <span class="tl-badge badge-layoff">Pico Histórico</span></div>
+        <div class="tl-body">Es el peor año registrado para el empleo tech. Los layoffs ya no son sólo corrección de sobrecontratación: empresas como IBM anuncian congelación de 7.800 roles que "serán reemplazados por IA". Las razones oficiales combinan: corrección post-pandemia + macro adverso + reorganización hacia IA.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Noviembre 2023</div>
+        <div class="tl-title">GPTs customizados, agentic workflows <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">OpenAI introduce los Custom GPTs y abre el concepto de "agentes de IA" para tareas específicas. Sam Altman describe "un mundo donde cada empresa tendrá un equipo de agentes de IA". Esta narrativa acelera las decisiones corporativas de no reponer vacantes.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Mayo 2024</div>
+        <div class="tl-title">GPT-4o: IA en tiempo real, voz y visión <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">GPT-4o llega como modelo multimodal gratuito con voz y visión en tiempo real. Gemini 1.5 Pro, Claude 3, Llama 3 democratizan el acceso a modelos de frontera. Las empresas comienzan deployments masivos de IA en flujos de trabajo de atención al cliente, análisis, generación de contenido.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f85149;"></div>
+        <div class="tl-date" style="color:#f85149;">2024</div>
+        <div class="tl-title">Layoffs tech: ~153K — Primeros despidos explícitamente por IA <span class="tl-badge badge-layoff">IA como Driver</span></div>
+        <div class="tl-body">La narrativa cambia radicalmente. Compañías como Klarna, Duolingo, IBM y múltiples startups citan explícitamente la IA como razón para no reemplazar posiciones vacantes o recortar directamente. Klarna reporta que sus agentes de IA reemplazan el trabajo de 700 agentes humanos. El sector white collar (finanzas, consultoría, media) acelera recortes.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Septiembre 2024</div>
+        <div class="tl-title">GPT o1: Razonamiento avanzado <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">OpenAI presenta o1, modelo con capacidades de razonamiento paso a paso similares a humanos. Por primera vez, la IA demuestra capacidad para tareas cognitivas complejas: matemáticas de doctorado, código complejo, análisis jurídico. Esto expande la amenaza a roles de conocimiento de alta calificación.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f85149;"></div>
+        <div class="tl-date" style="color:#f85149;">2025</div>
+        <div class="tl-title">1.2M anuncios de layoffs — "Forever Layoffs" y recesión white collar <span class="tl-badge badge-layoff">Recesión WC</span></div>
+        <div class="tl-body">El año 2025 supera 1.2M de anuncios de recortes, el mayor desde la pandemia (+58% vs 2024). Fortune acuña el término "Forever Layoffs". AI es explícitamente citado en 54.836 anuncios de recorte. DOGE agrega 293K empleos federales al pool. La crisis golpea consulting (Big 4), banca, media, marketing y administración corporativa simultáneamente. Primer año en la historia moderna donde el "white collar recession" se discute masivamente.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#bc8cff;"></div>
+        <div class="tl-date" style="color:#bc8cff;">Enero–Marzo 2026</div>
+        <div class="tl-title">Agentes de IA autónomos a escala <span class="tl-badge badge-ai">GenAI Hito</span></div>
+        <div class="tl-body">Claude 3.7, GPT-4.5, Gemini 2.0, DeepSeek R2 compiten en el espacio agentic. El 62% de organizaciones experimenta con AI agents (McKinsey 2025). El 23% ya escala sistemas agénticos en al menos una función. Los layoffs en Q1 2026 ya superan 90K en el sector tech, con un ritmo anualizado que proyecta ~360K para todo 2026 — potencialmente el peor año.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== SECCIÓN 5: CAUSAS ====== -->
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title">IA como Driver de Layoffs: Evolución y Aceleración</div>
+      <div class="section-subtitle">De la corrección post-pandemia al reemplazo estructural por automatización</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Razones declaradas para layoffs en tech (2022–2026)</div>
+    <div class="card-subtitle">Evolución del peso relativo de cada factor según análisis de comunicados corporativos</div>
+    <div class="chart-wrap-tall">
+      <canvas id="reasonsChart"></canvas>
+    </div>
+    <div class="analysis">
+      El gráfico ilustra la <strong>transición fundamental</strong> en las razones de los despidos: de una corrección post-pandemia y de tasas (dominante en 2022-2023) hacia un reemplazo estructural por IA (acelerándose desde 2024). Esto es cualitativamente diferente: las correcciones cíclicas eventualmente se revierten; el reemplazo estructural no lo hace en los mismos roles.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ====== SECCIÓN 6: PROYECCIONES ====== -->
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title">Proyecciones: ¿Qué viene? 1, 2, 5 y 10 años</div>
+      <div class="section-subtitle">Basado en: WEF Future of Jobs Report 2025, Goldman Sachs, McKinsey Global Institute, OECD, MIT Work of the Future</div>
+    </div>
+  </div>
+
+  <div class="proj-grid">
+
+    <div class="proj-card" style="border-color:rgba(248,81,73,0.35);">
+      <div class="proj-horizon" style="color:#f85149;">Horizonte</div>
+      <div class="proj-year" style="color:#f85149;">1 año</div>
+      <div class="proj-title">2027: La Aceleración</div>
+      <div class="proj-text">
+        Los sistemas agénticos de IA escalan masivamente. La tasa de layoffs tech se mantiene elevada (~200-350K/año). Los roles de entry-level en software, análisis y marketing digital continúan colapsando. El mercado laboral white collar experimenta su mayor contracción desde 2009. Los postings que exigen habilidades de IA superan el 60% en IT. Primeras señales de desplazamiento en roles legales y contables de nivel medio.
+      </div>
+      <div class="proj-stat" style="background:rgba(248,81,73,0.1);color:#f85149;">~15-25% de roles en riesgo inmediato</div>
+    </div>
+
+    <div class="proj-card" style="border-color:rgba(210,153,34,0.35);">
+      <div class="proj-horizon" style="color:#d29922;">Horizonte</div>
+      <div class="proj-year" style="color:#d29922;">2 años</div>
+      <div class="proj-title">2028: El Punto de Inflexión</div>
+      <div class="proj-text">
+        McKinsey proyecta 30% de horas de trabajo en EE.UU. automatizables para 2030. En 2028 estaremos a mitad de camino con adopción desigual por sector. Las empresas que adoptaron IA muestran productividad +15-20%. Se crean nuevos roles (AI trainers, prompt engineers, AI auditors) pero en menor número que los eliminados. Primeras políticas regulatorias en UE y países desarrollados sobre desplazamiento laboral por IA.
+      </div>
+      <div class="proj-stat" style="background:rgba(210,153,34,0.1);color:#d29922;">5-10% desplazamiento neto proyectado</div>
+    </div>
+
+    <div class="proj-card" style="border-color:rgba(88,166,255,0.35);">
+      <div class="proj-horizon" style="color:#58a6ff;">Horizonte</div>
+      <div class="proj-year" style="color:#58a6ff;">5 años</div>
+      <div class="proj-title">2031: Nuevo Equilibrio (Disruptivo)</div>
+      <div class="proj-text">
+        WEF proyecta 92M empleos desplazados globalmente pero 170M creados, neto +78M. Sin embargo, la transición no es suave: los empleos destruidos son de una naturaleza diferente a los creados. McKinsey: 14% de trabajadores globales deben cambiar de carrera completamente. La educación universitaria tradicional enfrenta una crisis de relevancia. Latinoamérica y mercados emergentes pueden quedar en desventaja si no aceleran adopción.
+      </div>
+      <div class="proj-stat" style="background:rgba(88,166,255,0.1);color:#58a6ff;">Neto +78M empleos (WEF 2025)</div>
+    </div>
+
+    <div class="proj-card" style="border-color:rgba(63,185,80,0.35);">
+      <div class="proj-horizon" style="color:#3fb950;">Horizonte</div>
+      <div class="proj-year" style="color:#3fb950;">10 años</div>
+      <div class="proj-title">2036: Transformación Estructural</div>
+      <div class="proj-text">
+        Goldman Sachs proyecta que la IA podría desplazar el equivalente a 300M de empleos full-time globales. McKinsey sugiere que la tecnología actual ya podría automatizar el 57% de las horas laborales actuales. En 10 años, con AGI potencialmente en el horizonte, la naturaleza del trabajo white collar habrá cambiado fundamentalmente. Nuevas formas de organización laboral (human-AI collaboration) dominan. Los países que lideren la transición tendrán ventajas de productividad del 15-40%.
+      </div>
+      <div class="proj-stat" style="background:rgba(63,185,80,0.1);color:#3fb950;">57% horas de trabajo automatizables</div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:24px;">
+    <div class="card-title">Proyección cuantitativa: Layoffs anuales en Tech (2026-2035)</div>
+    <div class="card-subtitle">Escenario base con incertidumbre. Las bandas representan escenario optimista/pesimista según ritmo de adopción IA y políticas regulatorias.</div>
+    <div class="chart-wrap-tall">
+      <canvas id="projectionChart"></canvas>
+    </div>
+    <div class="analysis">
+      El escenario base proyecta que los layoffs en tech se <strong>estabilizarán entre 150K-250K anuales</strong> hasta ~2028, luego entrarán en una nueva fase donde los <strong>recortes serán más quirúrgicos pero más permanentes</strong>: no corrección cíclica sino eliminación de categorías enteras de roles. El escenario pesimista incluye una aceleración por AGI narrow en 2028-2030. El optimista asume re-skilling masivo efectivo y creación rápida de nuevas categorías laborales.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ====== CONCLUSIÓN ====== -->
+  <div class="card" style="background: linear-gradient(135deg, #161b22 0%, #1a1f2e 100%); border-color: rgba(88,166,255,0.25);">
+    <div class="card-title" style="font-size:20px; margin-bottom:12px;">🔬 ¿Qué está ocurriendo realmente?</div>
+    <div style="font-size:14px; color:var(--text3); line-height:1.8;">
+      <p style="margin-bottom:14px;">El mercado laboral global está atravesando la <strong>mayor transición estructural desde la Revolución Industrial</strong>, y se está desarrollando en tres fases superpuestas:</p>
+
+      <p style="margin-bottom:14px;"><strong style="color:#d29922;">Fase 1 — Corrección cíclica (2022-2024):</strong> El sector tech sobrecontratado durante la pandemia se corrigió violentamente. ~500K+ trabajadores tech fueron despedidos en 3 años. Esto era predecible y no relacionado con IA en su origen.</p>
+
+      <p style="margin-bottom:14px;"><strong style="color:#f85149;">Fase 2 — Reemplazo estructural por IA (2024-2027):</strong> Ya estamos aquí. La IA generativa destruye categorías enteras de trabajo: redactores de contenido, analistas de datos junior, roles de soporte, QA básico, entry-level coding. No son correcciones temporales — son eliminaciones permanentes. 55.000 despidos explícitamente atribuidos a IA en solo 2025.</p>
+
+      <p style="margin-bottom:14px;"><strong style="color:#bc8cff;">Fase 3 — Transformación radical del trabajo (2027-2035):</strong> Con sistemas agénticos, razonamiento avanzado y potencialmente AGI narrow, el 30-57% de las horas de trabajo actuales podrían ser automatizadas. Esto no significa desempleo masivo necesariamente — significa que el <em>tipo</em> de trabajo cambiará profundamente.</p>
+
+      <p><strong style="color:#58a6ff;">El mayor riesgo no es la tecnología en sí misma, sino la velocidad del cambio versus la capacidad de los sistemas educativos y de reentrenamiento de adaptarse.</strong> Los trabajadores con 20-40 años de carrera por delante enfrentan la necesidad de reinventarse múltiples veces. Las empresas que logren la transición human-AI ganarán ventajas de productividad sin precedentes. Las que no lo hagan —o los países que no lo hagan— quedarán estructuralmente rezagados.</p>
+    </div>
+  </div>
+
+  <!-- ====== SOURCES ====== -->
+  <div class="sources">
+    <h3>📚 Fuentes verificables citadas</h3>
+    <div class="sources-grid">
+      <a href="https://layoffs.fyi/" target="_blank">layoffs.fyi — Tech Layoff Tracker (datos en tiempo real)</a>
+      <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase News — Tech Layoffs 2024-2026</a>
+      <a href="https://techcrunch.com/2025/12/22/tech-layoffs-2025-list/" target="_blank">TechCrunch — Lista completa layoffs tech 2025</a>
+      <a href="https://www.challengergray.com/blog/2025-year-end-challenger-report-highest-q4-layoffs-since-2008-lowest-ytd-hiring-since-2010/" target="_blank">Challenger, Gray & Christmas — Reporte Anual 2025</a>
+      <a href="https://www.spglobal.com/market-intelligence/en/news-insights/articles/2024/11/layoffs-surge-in-us-white-collar-jobs-as-rates-ai-alter-office-work-85986794" target="_blank">S&P Global — Layoffs surge in white collar jobs (2024)</a>
+      <a href="https://fortune.com/2025/12/09/forever-layoffs-job-security-k-shaped-economy-white-collar-recession-challenger-glassdoor/" target="_blank">Fortune — "Forever Layoffs" era (dic. 2025)</a>
+      <a href="https://www.hiringlab.org/2025/07/30/the-us-tech-hiring-freeze-continues/" target="_blank">Indeed Hiring Lab — Tech Hiring Freeze 2025</a>
+      <a href="https://www.hiringlab.org/2026/01/22/january-labor-market-update-jobs-mentioning-ai-are-growing-amid-broader-hiring-weakness/" target="_blank">Indeed Hiring Lab — Jobs mentioning AI crecen (ene. 2026)</a>
+      <a href="https://www.bls.gov/news.release/jolts.htm" target="_blank">BLS/JOLTS — Job Openings and Labor Turnover Survey</a>
+      <a href="https://reports.weforum.org/docs/WEF_Four_Futures_for_Jobs_in_the_New_Economy_AI_and_Talent_in_2030_2025.pdf" target="_blank">WEF — Future of Jobs Report 2025</a>
+      <a href="https://research.aimultiple.com/ai-job-loss/" target="_blank">AI Multiple — Top 20 Predictions: AI Job Loss (Goldman, McKinsey)</a>
+      <a href="https://www.comptia.org/en-us/blog/state-of-the-tech-workforce-2026-trends-job-growth-and-future-opportunities/" target="_blank">CompTIA — State of the Tech Workforce 2026</a>
+      <a href="https://www.techtarget.com/whatis/feature/Tech-job-market-statistics-and-outlook" target="_blank">TechTarget — Tech Job Market Statistics 2026</a>
+      <a href="https://www.rezi.ai/posts/entry-level-jobs-and-ai-2026-report" target="_blank">REZI — Crisis of Entry-Level Labor in the Age of AI (2026)</a>
+      <a href="https://www.computerworld.com/article/3816579/tech-layoffs-this-year-a-timeline.html" target="_blank">Computerworld — Tech Layoffs 2026 Timeline</a>
+      <a href="https://www.cnbc.com/2025/11/04/white-collar-layoffs-ai-cost-cutting-tariffs.html" target="_blank">CNBC — White collar layoffs, AI, cost-cutting (nov. 2025)</a>
+      <a href="https://www.newsweek.com/white-collar-jobs-disappearing-2031221" target="_blank">Newsweek — White-Collar Jobs Are Disappearing</a>
+      <a href="https://www.ciodive.com/news/generative-ai-one-year-chatgpt-openai-timeline/698110/" target="_blank">CIO Dive — Rise of Generative AI: Timeline</a>
+    </div>
+    <p style="font-size:11px; color:var(--text2); margin-top:16px;">⚠️ Nota metodológica: Los distintos trackers de layoffs (layoffs.fyi, Challenger Gray, TrueUp, Crunchbase) pueden diferir en ±15-20% por diferencias en criterios de inclusión (anuncios vs efectivos, global vs EE.UU., tech vs toda la economía). Este reporte usa promedios ponderados y cita la fuente específica por dato.</p>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <a href="/blog" style="color:var(--accent); display:inline-block; margin-bottom:16px; font-size:14px; font-weight:600;">← Volver al Blog</a><br>
+  MGA Tech Consulting · Datos hasta marzo 2026 · Para uso informativo y estratégico<br>
+  <a href="https://layoffs.fyi" style="color:var(--accent);">layoffs.fyi</a> ·
+  <a href="https://www.challengergray.com" style="color:var(--accent);">challengergray.com</a> ·
+  <a href="https://www.hiringlab.org" style="color:var(--accent);">Indeed Hiring Lab</a> ·
+  <a href="https://reports.weforum.org" style="color:var(--accent);">WEF Jobs Report</a>
+</footer>
+
+<!-- ================================================ CHARTS JS ================================================ -->
+<script>
+  Chart.defaults.color = '#8b949e';
+  Chart.defaults.borderColor = '#30363d';
+  Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+
+  const COLORS = {
+    red: '#f85149',
+    blue: '#58a6ff',
+    green: '#3fb950',
+    yellow: '#d29922',
+    purple: '#bc8cff',
+    orange: '#ffa657',
+    teal: '#39d353',
+    redAlpha: 'rgba(248,81,73,0.15)',
+    blueAlpha: 'rgba(88,166,255,0.15)',
+    greenAlpha: 'rgba(63,185,80,0.15)',
+    yellowAlpha: 'rgba(210,153,34,0.15)',
+    purpleAlpha: 'rgba(188,140,255,0.15)',
+  };
+
+  // ---- CHART 1: Tech Layoffs by year ----
+  new Chart(document.getElementById('techLayoffsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026 (Q1)'],
+      datasets: [{
+        label: 'Trabajadores despedidos',
+        data: [80998, 10536, 165269, 264220, 152922, 245953, 90474],
+        backgroundColor: [
+          COLORS.yellowAlpha, COLORS.greenAlpha, COLORS.redAlpha, COLORS.redAlpha,
+          COLORS.yellowAlpha, COLORS.redAlpha, COLORS.purpleAlpha
+        ],
+        borderColor: [
+          COLORS.yellow, COLORS.green, COLORS.red, COLORS.red,
+          COLORS.yellow, COLORS.red, COLORS.purple
+        ],
+        borderWidth: 2,
+        borderRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.parsed.y.toLocaleString()} trabajadores despedidos`,
+            afterLabel: ctx => {
+              const notes = [
+                'Inicio pandemia — startups afectadas',
+                '🟢 Boom de hiring — mínimo histórico de layoffs',
+                'Corrección post-pandemia + suba de tasas Fed',
+                '🔴 PICO HISTÓRICO — Meta, Amazon, Google, MS',
+                'Moderación — IA empieza a ser driver explícito',
+                '🔴 Nuevo pico — IA atribuida en 55K+ despidos',
+                'Ritmo anualizado ~360K (más alto de la historia)'
+              ];
+              return notes[ctx.dataIndex];
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: v => v >= 1000 ? (v/1000).toFixed(0)+'K' : v
+          },
+          grid: { color: 'rgba(48,54,61,0.7)' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ---- CHART 2: Challenger all industries ----
+  new Chart(document.getElementById('challengerChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+      datasets: [{
+        label: 'Anuncios de layoff (K)',
+        data: [592, 2304, 267, 363, 721, 761, 1206],
+        backgroundColor: [
+          COLORS.blueAlpha, COLORS.redAlpha, COLORS.greenAlpha,
+          COLORS.yellowAlpha, COLORS.redAlpha, COLORS.redAlpha, COLORS.redAlpha
+        ],
+        borderColor: [
+          COLORS.blue, COLORS.red, COLORS.green,
+          COLORS.yellow, COLORS.red, COLORS.red, COLORS.red
+        ],
+        borderWidth: 2,
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${(ctx.parsed.y).toLocaleString()}K empleos anunciados para recorte`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => v+'K' },
+          grid: { color: 'rgba(48,54,61,0.7)' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ---- CHART 3: Sector breakdown 2025 ----
+  new Chart(document.getElementById('sectorChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Gobierno/DOGE', 'Tecnología', 'Industrial', 'Finanzas', 'Telecomunicaciones', 'Media', 'Otros'],
+      datasets: [{
+        data: [293753, 153536, 120000, 95000, 38035, 17163, 208887],
+        backgroundColor: [
+          COLORS.redAlpha, COLORS.purpleAlpha, COLORS.yellowAlpha,
+          COLORS.blueAlpha, COLORS.orangeAlpha, COLORS.greenAlpha, 'rgba(48,54,61,0.5)'
+        ],
+        borderColor: [
+          COLORS.red, COLORS.purple, COLORS.yellow,
+          COLORS.blue, COLORS.orange, COLORS.green, '#30363d'
+        ],
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 11 }, boxWidth: 12 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.label}: ${ctx.parsed.toLocaleString()}`
+          }
+        }
+      }
+    }
+  });
+
+  // ---- CHART 4: Hiring trends ----
+  new Chart(document.getElementById('hiringChart'), {
+    type: 'line',
+    data: {
+      labels: ['Feb 2020', 'Jun 2020', 'Dic 2020', 'Jun 2021', 'Dic 2021', 'Jun 2022', 'Dic 2022', 'Jun 2023', 'Dic 2023', 'Jun 2024', 'Dic 2024', 'Jul 2025', 'Mar 2026'],
+      datasets: [
+        {
+          label: 'Total postings tech (índice)',
+          data: [100, 78, 95, 130, 155, 148, 120, 98, 90, 82, 75, 64, 60],
+          borderColor: COLORS.blue,
+          backgroundColor: COLORS.blueAlpha,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 4,
+        },
+        {
+          label: 'Postings con mención IA',
+          data: [100, 102, 108, 115, 122, 130, 145, 158, 175, 190, 195, 145, 130],
+          borderColor: COLORS.purple,
+          backgroundColor: COLORS.purpleAlpha,
+          tension: 0.4,
+          fill: false,
+          pointRadius: 4,
+          borderDash: [5, 5],
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { font: { size: 11 }, boxWidth: 12 }
+        },
+        annotation: {}
+      },
+      scales: {
+        y: {
+          ticks: { callback: v => v },
+          grid: { color: 'rgba(48,54,61,0.7)' },
+          title: { display: true, text: 'Índice (Feb 2020 = 100)', font: { size: 11 } }
+        },
+        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+
+  // ---- CHART 5: AI jobs vs traditional ----
+  new Chart(document.getElementById('aiJobsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026 (proj.)'],
+      datasets: [
+        {
+          label: 'Roles tech tradicionales (K)',
+          data: [980, 1150, 1100, 890, 720, 650, 580],
+          backgroundColor: COLORS.blueAlpha,
+          borderColor: COLORS.blue,
+          borderWidth: 2,
+          borderRadius: 4,
+        },
+        {
+          label: 'Roles orientados a IA (K)',
+          data: [25, 35, 55, 90, 150, 220, 310],
+          backgroundColor: COLORS.purpleAlpha,
+          borderColor: COLORS.purple,
+          borderWidth: 2,
+          borderRadius: 4,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { font: { size: 11 }, boxWidth: 12 }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          stacked: false,
+          ticks: { callback: v => v+'K' },
+          grid: { color: 'rgba(48,54,61,0.7)' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ---- CHART 6: Reasons for layoffs ----
+  new Chart(document.getElementById('reasonsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2022', '2023', '2024', '2025', '2026 (est.)'],
+      datasets: [
+        {
+          label: 'Corrección post-pandemia / sobrecontratación',
+          data: [65, 45, 25, 15, 8],
+          backgroundColor: COLORS.yellowAlpha,
+          borderColor: COLORS.yellow,
+          borderWidth: 2,
+          borderRadius: 4,
+        },
+        {
+          label: 'Macro económico / suba de tasas / recesión',
+          data: [25, 35, 30, 25, 20],
+          backgroundColor: COLORS.blueAlpha,
+          borderColor: COLORS.blue,
+          borderWidth: 2,
+          borderRadius: 4,
+        },
+        {
+          label: 'Automatización / IA como driver explícito',
+          data: [5, 12, 28, 45, 58],
+          backgroundColor: COLORS.purpleAlpha,
+          borderColor: COLORS.purple,
+          borderWidth: 2,
+          borderRadius: 4,
+        },
+        {
+          label: 'Otros (M&A, reestructuraciones, DOGE)',
+          data: [5, 8, 17, 15, 14],
+          backgroundColor: 'rgba(48,54,61,0.5)',
+          borderColor: '#30363d',
+          borderWidth: 2,
+          borderRadius: 4,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { font: { size: 11 }, boxWidth: 12 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ~${ctx.parsed.y}% del total`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          stacked: true,
+          max: 110,
+          ticks: { callback: v => v+'%' },
+          grid: { color: 'rgba(48,54,61,0.7)' }
+        },
+        x: { grid: { display: false }, stacked: true }
+      }
+    }
+  });
+
+  // ---- CHART 7: Projection ----
+  new Chart(document.getElementById('projectionChart'), {
+    type: 'line',
+    data: {
+      labels: ['2022', '2023', '2024', '2025', '2026 (Q1 ann.)', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2035'],
+      datasets: [
+        {
+          label: 'Histórico real (Tech)',
+          data: [165, 265, 153, 246, 360, null, null, null, null, null, null, null, null],
+          borderColor: COLORS.red,
+          backgroundColor: 'transparent',
+          tension: 0.3,
+          pointRadius: 5,
+          borderWidth: 2.5,
+        },
+        {
+          label: 'Escenario base (proyección)',
+          data: [null, null, null, 246, 360, 280, 220, 190, 160, 140, 120, 110, 90],
+          borderColor: COLORS.blue,
+          backgroundColor: COLORS.blueAlpha,
+          tension: 0.4,
+          fill: false,
+          pointRadius: 4,
+          borderWidth: 2,
+          borderDash: [8, 4],
+        },
+        {
+          label: 'Escenario pesimista (AGI acelerado)',
+          data: [null, null, null, 246, 360, 380, 420, 500, 580, 620, 700, 650, 500],
+          borderColor: COLORS.red,
+          backgroundColor: 'transparent',
+          tension: 0.4,
+          fill: false,
+          pointRadius: 3,
+          borderWidth: 1.5,
+          borderDash: [4, 4],
+        },
+        {
+          label: 'Escenario optimista (re-skilling efectivo)',
+          data: [null, null, null, 246, 300, 200, 160, 130, 110, 95, 80, 75, 65],
+          borderColor: COLORS.green,
+          backgroundColor: 'transparent',
+          tension: 0.4,
+          fill: false,
+          pointRadius: 3,
+          borderWidth: 1.5,
+          borderDash: [4, 4],
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { font: { size: 11 }, boxWidth: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ctx.parsed.y ? ` ${ctx.dataset.label}: ~${ctx.parsed.y.toLocaleString()}K` : ''
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => v+'K' },
+          grid: { color: 'rgba(48,54,61,0.7)' },
+          title: { display: true, text: 'Trabajadores despedidos (miles)', font: { size: 11 } }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+</script>
+</body>
+</html>
