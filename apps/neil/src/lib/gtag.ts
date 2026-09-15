@@ -80,3 +80,69 @@ export const trackScrollDepth = (percent: number) => sendEvent('scroll_depth', {
 export const trackWhatsAppClick = (type: 'sales' | 'support') => sendEvent('whatsapp_click', { contact_type: type });
 export const trackAppError = (component: string, operation: string, errorCode: string, recoverable: boolean) => sendEvent('app_error', { component, operation, error_code: errorCode, recoverable });
 export const trackErrorRecovery = (component: string) => sendEvent('error_recovery', { component });
+
+// ─────────────────────────────────────────────────────────────
+// Generic interaction layer + attention/wait/health layer
+//
+// Mirrors apps/web/src/lib/gtag.ts (see docs/runbooks/analytics.md). These
+// power InteractionTracker and PerformanceTracker so every clickable element
+// and every wait on this site is measured, not just the hand-instrumented
+// funnels above.
+// ─────────────────────────────────────────────────────────────
+export interface UiTarget {
+  ui_element: string;
+  ui_kind: string;
+  ui_surface: string;
+  site_section?: string;
+  ui_index?: number;
+  [key: string]: unknown;
+}
+
+/** Single-site app: section is constant, kept as a function for API parity with apps/web. */
+export function currentSection(): string {
+  return 'neil';
+}
+
+export const events = {
+  uiClick: (params: UiTarget & { link_type?: string; link_domain?: string; link_path?: string }) =>
+    sendEvent('ui_click', params),
+
+  uiToggle: (params: UiTarget & { ui_state: string }) => sendEvent('ui_toggle', params),
+
+  uiFocus: (params: UiTarget & { field_type: string }) => sendEvent('ui_focus', params),
+
+  uiCopy: (params: UiTarget) => sendEvent('ui_copy', params),
+
+  uiPrint: (site_section: string) => sendEvent('ui_print', { site_section }),
+
+  /** Keyboard shortcuts. Only known combinations are emitted, never raw typing. */
+  keyboardShortcut: (shortcut: string, site_section: string) =>
+    sendEvent('ui_action', { ui_kind: 'keyboard', ui_surface: 'global', ui_element: shortcut, site_section }),
+
+  /** Tab visibility and background time: measures real attention, not dwell time. */
+  pageVisibility: (visibility_state: 'visible' | 'hidden', visible_seconds_band: string, hidden_count: number) =>
+    sendEvent('page_visibility', { visibility_state, visible_seconds_band, hidden_count }),
+
+  /** Aggregate long-task cost per pageview instead of one event per task. */
+  mainThreadBlocking: (long_task_count: number, blocking_time_band: string) =>
+    sendEvent('main_thread_blocking', { long_task_count, blocking_time_band }),
+
+  /** Core Web Vitals and navigation timing, banded by rating. */
+  webVitals: (metric_name: string, metric_value: number, metric_rating: 'good' | 'needs_improvement' | 'poor') =>
+    sendEvent('web_vitals', { metric_name, metric_value, metric_rating }),
+
+  pageLoadTiming: (ready_state: string, dom_ready_band: string, load_band: string) =>
+    sendEvent('page_load_timing', { ready_state, dom_ready_band, load_band }),
+
+  /** Async data the page is waiting for (Supabase reads). */
+  dataWait: (source: string, outcome: 'success' | 'error' | 'timeout', wait_ms_band: string, attempt: number) =>
+    sendEvent('data_wait', { source, outcome, wait_ms_band, attempt, site_section: currentSection() }),
+
+  networkStatus: (network_state: 'online' | 'offline') => sendEvent('network_status', { network_state }),
+
+  scriptError: (error_name: string, error_source: 'window' | 'promise') =>
+    sendEvent('app_error', { component: 'runtime', operation: error_source, error_code: error_name, recoverable: false }),
+
+  resourceError: (resource_type: string, element_tag: string) =>
+    sendEvent('app_error', { component: 'resource', operation: element_tag, error_code: `${resource_type}_load_failed`, recoverable: true }),
+};

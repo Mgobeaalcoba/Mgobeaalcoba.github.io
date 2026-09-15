@@ -4,6 +4,8 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { NeilDataProvider } from '@/contexts/NeilDataContext';
 import { DataErrorBoundary } from '@/components/DataErrorBoundary';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
+import InteractionTracker from '@/components/InteractionTracker';
+import PerformanceTracker from '@/components/PerformanceTracker';
 import ConsentBanner from '@/components/ConsentBanner';
 import './globals.css';
 
@@ -68,6 +70,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <NeilDataProvider>
             <LanguageProvider>
               <AnalyticsTracker />
+              <InteractionTracker />
+              <PerformanceTracker />
               {children}
               <ConsentBanner />
             </LanguageProvider>

@@ -5,6 +5,8 @@ import ContentRepository from '@/services/contentService';
 import { EpDataProvider } from '@/contexts/EpDataContext';
 import { DataErrorBoundary } from '@/components/DataErrorBoundary';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
+import InteractionTracker from '@/components/InteractionTracker';
+import PerformanceTracker from '@/components/PerformanceTracker';
 import ConsentBanner from '@/components/ConsentBanner';
 
 // GA property compartido con mgobeaalcoba.github.io — mismo panel, tráfico separado por page_location
@@ -64,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-black text-white antialiased">
         <DataErrorBoundary>
-          <EpDataProvider><AnalyticsTracker />{children}<ConsentBanner /></EpDataProvider>
+          <EpDataProvider><AnalyticsTracker /><InteractionTracker /><PerformanceTracker />{children}<ConsentBanner /></EpDataProvider>
         </DataErrorBoundary>
       </body>
     </html>
