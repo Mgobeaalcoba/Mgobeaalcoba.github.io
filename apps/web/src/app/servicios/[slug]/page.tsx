@@ -5,8 +5,7 @@ import Footer from '@/components/shared/Footer';
 import JsonLd from '@/components/shared/JsonLd';
 import OfferDetailClient from '@/components/commerce/OfferDetailClient';
 import { getOffer, OFFERS } from '@/lib/offers';
-
-const SITE_URL = 'https://www.mgatc.com';
+import { absoluteUrl, buildLocalizedMetadata } from '@/lib/localizedMetadata';
 
 export function generateStaticParams() { return OFFERS.map(({ slug }) => ({ slug })); }
 
@@ -16,14 +15,14 @@ export async function generateMetadata({ params }: OfferPageProps): Promise<Meta
   const { slug } = await params;
   const offer = getOffer(slug);
   if (!offer) return {};
-  const pageUrl = `${SITE_URL}/servicios/${offer.slug}/`;
-  const enPageUrl = `${SITE_URL}/en/servicios/${offer.slug}/`;
-  return {
+  return buildLocalizedMetadata({
+    path: `/servicios/${offer.slug}/`,
+    locale: 'es',
     title: offer.name.es,
     description: offer.description.es,
-    alternates: { canonical: pageUrl, languages: { 'es-AR': pageUrl, en: enPageUrl, 'x-default': pageUrl } },
-    openGraph: { locale: 'es_AR', title: `${offer.name.es} | MGA Tech Consulting`, description: offer.promise.es, url: pageUrl },
-  };
+    openGraphTitle: `${offer.name.es} | MGA Tech Consulting`,
+    openGraphDescription: offer.promise.es,
+  });
 }
 
 export default async function OfferPage({ params }: OfferPageProps) {
@@ -33,7 +32,7 @@ export default async function OfferPage({ params }: OfferPageProps) {
   const schema = {
     '@context': 'https://schema.org', '@type': 'Service', name: offer.name.es, description: offer.description.es,
     provider: { '@type': 'Person', name: 'Mariano Gobea Alcoba' }, areaServed: 'Worldwide',
-    offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/servicios/${offer.slug}/` },
+    offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: absoluteUrl(`/servicios/${offer.slug}/`) },
   };
 
   return (

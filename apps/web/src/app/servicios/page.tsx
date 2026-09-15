@@ -5,25 +5,15 @@ import ServicesPageClient from '@/components/commerce/ServicesPageClient';
 import JsonLd from '@/components/shared/JsonLd';
 import { OFFERS } from '@/lib/offers';
 import { SERVICES_FAQ } from '@/lib/servicesCopy';
+import { absoluteUrl, buildLocalizedMetadata } from '@/lib/localizedMetadata';
 
-const SITE_URL = 'https://www.mgatc.com';
-const PAGE_URL = `${SITE_URL}/servicios/`;
-const EN_PAGE_URL = `${SITE_URL}/en/servicios/`;
-
-export const metadata: Metadata = {
+export const metadata: Metadata = buildLocalizedMetadata({
+  path: '/servicios/',
+  locale: 'es',
   title: 'Servicios a demanda | Automatización, Data e IA',
   description: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos. Automatización, Data Engineering e IA aplicada.',
-  alternates: {
-    canonical: PAGE_URL,
-    languages: { 'es-AR': PAGE_URL, en: EN_PAGE_URL, 'x-default': PAGE_URL },
-  },
-  openGraph: {
-    locale: 'es_AR',
-    url: PAGE_URL,
-    title: 'Servicios a demanda | Automatización, Data e IA',
-    description: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos.',
-  },
-};
+  openGraphDescription: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos.',
+});
 
 const catalogSchema = {
   '@context': 'https://schema.org',
@@ -31,7 +21,7 @@ const catalogSchema = {
   name: 'Servicios a demanda de MGA Tech Consulting',
   itemListElement: OFFERS.map((offer, index) => ({
     '@type': 'ListItem', position: index + 1,
-    item: { '@type': 'Service', name: offer.name.es, description: offer.description.es, url: `${SITE_URL}/servicios/${offer.slug}/`, offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
+    item: { '@type': 'Service', name: offer.name.es, description: offer.description.es, url: absoluteUrl(`/servicios/${offer.slug}/`), offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
   })),
 };
 

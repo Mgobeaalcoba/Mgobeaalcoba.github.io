@@ -2,15 +2,16 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import ThanksPageClient from '@/components/commerce/ThanksPageClient';
-
-const SITE_URL = 'https://www.mgatc.com';
-const PAGE_URL = `${SITE_URL}/servicios/gracias/`;
-const EN_PAGE_URL = `${SITE_URL}/en/servicios/gracias/`;
+import { buildLocalizedMetadata } from '@/lib/localizedMetadata';
 
 export const metadata: Metadata = {
-  title: 'Gracias por tu compra',
+  ...buildLocalizedMetadata({
+    path: '/servicios/gracias/',
+    locale: 'es',
+    title: 'Gracias por tu compra',
+    description: 'Estado de la operación y próximos pasos después del pago.',
+  }),
   robots: { index: false, follow: false },
-  alternates: { canonical: PAGE_URL, languages: { 'es-AR': PAGE_URL, en: EN_PAGE_URL } },
 };
 
 export default function ThanksPage() {

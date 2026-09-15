@@ -17,6 +17,23 @@ npm run build
 
 ## Idiomas
 
-Las rutas `/en/servicios/...` son la versión en inglés de los servicios a demanda: su HTML estático, metadata, JSON-LD y `hreflang` son ingleses, así que se indexan por separado. El idioma de la URL manda sobre la preferencia guardada. El resto del sitio sigue con el toggle de idioma en runtime (`LanguageContext`), sin rutas por idioma.
+El locale por defecto (es) usa las rutas sin prefijo; el inglés vive bajo `/en/`:
+
+- `/` y `/en/` — landing de consultoría
+- `/servicios/`, `/servicios/[slug]/`, `/servicios/gracias/` y sus pares bajo `/en/...`
+
+Las páginas localizadas son documentos reales: copia, `metadata`, JSON-LD, canonical y `hreflang` se resuelven en build, así que se indexan por separado. El idioma de la URL manda sobre la preferencia guardada (que igual se persiste para el resto del sitio).
+
+Piezas del mecanismo:
+
+- `src/lib/i18n-routes.ts` — registro de rutas con par en inglés (`LOCALIZED_ROUTE_PATTERNS`); es el único lugar donde se da de alta una ruta.
+- `src/lib/localizedMetadata.ts` — canonical, `hreflang` y OpenGraph a partir del path sin locale.
+- `src/lib/site.ts` — origen canónico único.
+- `src/app/en/layout.tsx` — fuerza el idioma de la ruta.
+- `scripts/localize-export.mjs` — `postbuild` que declara `lang="en"` en el HTML exportado.
+
+Para agregar una página localizada: sumar el patrón al registro, crear `app/en/<ruta>/page.tsx` con `buildLocalizedMetadata`, reusar el client component y agregar el par al `sitemap.ts`. Detalle y consecuencias en `../../docs/decisions/0003-localized-routes.md`.
+
+Quedan sin ruta en inglés, a propósito: los artículos del blog (el markdown es sólo español), las herramientas financieras argentinas y la política de privacidad.
 
 Ver `AGENTS.md` para invariantes locales y `../../docs/architecture/system.md` para el flujo de deploy.

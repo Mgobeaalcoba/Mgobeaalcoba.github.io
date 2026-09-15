@@ -50,7 +50,7 @@ export default function Footer() {
             <h4 className="text-gray-200 font-semibold mb-3">Navegación</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Soluciones
                 </Link>
               </li>
@@ -60,17 +60,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/portfolio/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Portfolio / CV
                 </Link>
               </li>
               <li>
-                <Link href="/blog/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/blog/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/recursos/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/recursos/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   {t('nav_recursos')}
                 </Link>
               </li>
