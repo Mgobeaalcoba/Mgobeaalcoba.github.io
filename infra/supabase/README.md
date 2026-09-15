@@ -12,6 +12,8 @@ Scripts SQL para el schema y datos de Supabase. Todos los archivos aquí están 
 | `004_migrate_ai_models_apr2026.sql` | Actualización de modelos de IA a Abr 2026 (GPT-4.1, Claude Sonnet 4.6, Gemini 2.5, Grok 3) |
 | `012_update_frontier_ai_models_aug2026.sql` | Modelos frontier y precios API estándar verificados al 7 Ago 2026 |
 | `013_harden_assistant_data_access.sql` | Activa RLS y restringe a servidor `assistant_logs`/`knowledge`; fija funciones y mueve `vector` fuera de `public` |
+| `014_add_educacionit_claude_code_instructor_role.sql` | Agrega el rol de instructor del curso "Automatización con Claude y Claude Code" en EducacionIT (Ago 2026) bajo el empleador existente |
+| `015_reorder_educacionit_roles.sql` | Invierte el `sort_order` de los dos roles de EducacionIT para que el curso más reciente aparezca arriba |
 
 ## Cómo ejecutar
 
