@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { events } from "@/lib/gtag";
 import { getOffer, type OfferSlug } from "@/lib/offers";
+import { useLanguage } from "@/contexts/LanguageContext";
 import OnboardingCTA from "./OnboardingCTA";
 
 type CheckoutStatus = "approved" | "pending" | "rejected" | "unknown";
@@ -19,6 +20,7 @@ function parseOffer(value: string | null): OfferSlug | "unknown" {
 }
 
 export default function CheckoutReturnStatus() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<CheckoutStatus>("unknown");
   const [ready, setReady] = useState(false);
 
@@ -36,13 +38,13 @@ export default function CheckoutReturnStatus() {
     }
   }, []);
 
-  if (!ready) return <div className="signal-checkout-status" aria-live="polite">Verificando el estado informado…</div>;
+  if (!ready) return <div className="signal-checkout-status" aria-live="polite">{t('checkout_verifying')}</div>;
 
   const copy = {
-    approved: "Mercado Pago informó que el pago fue aprobado. La acreditación definitiva se valida del lado del servidor.",
-    pending: "El pago figura pendiente. Esperá la confirmación de Mercado Pago antes de considerarlo acreditado.",
-    rejected: "El pago no fue aprobado. Podés volver a servicios para intentar nuevamente o contactarme.",
-    unknown: "No recibimos un estado verificable en esta vuelta. Si ya pagaste, completá el onboarding con el comprobante para revisarlo.",
+    approved: t('checkout_approved'),
+    pending: t('checkout_pending'),
+    rejected: t('checkout_rejected'),
+    unknown: t('checkout_unknown'),
   }[status];
 
   return (

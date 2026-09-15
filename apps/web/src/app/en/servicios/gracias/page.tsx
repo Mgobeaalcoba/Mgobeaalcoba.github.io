@@ -4,16 +4,16 @@ import Footer from '@/components/shared/Footer';
 import ThanksPageClient from '@/components/commerce/ThanksPageClient';
 
 const SITE_URL = 'https://www.mgatc.com';
-const PAGE_URL = `${SITE_URL}/servicios/gracias/`;
-const EN_PAGE_URL = `${SITE_URL}/en/servicios/gracias/`;
+const PAGE_URL = `${SITE_URL}/en/servicios/gracias/`;
+const ES_PAGE_URL = `${SITE_URL}/servicios/gracias/`;
 
 export const metadata: Metadata = {
-  title: 'Gracias por tu compra',
+  title: 'Thank you for your purchase',
   robots: { index: false, follow: false },
-  alternates: { canonical: PAGE_URL, languages: { 'es-AR': PAGE_URL, en: EN_PAGE_URL } },
+  alternates: { canonical: PAGE_URL, languages: { 'es-AR': ES_PAGE_URL, en: PAGE_URL } },
 };
 
-export default function ThanksPage() {
+export default function EnglishThanksPage() {
   return (
     <main id="main-content" className="signal-thanks-page">
       <Navbar />

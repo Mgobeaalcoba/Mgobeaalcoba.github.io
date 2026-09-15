@@ -7,31 +7,31 @@ import { OFFERS } from '@/lib/offers';
 import { SERVICES_FAQ } from '@/lib/servicesCopy';
 
 const SITE_URL = 'https://www.mgatc.com';
-const PAGE_URL = `${SITE_URL}/servicios/`;
-const EN_PAGE_URL = `${SITE_URL}/en/servicios/`;
+const PAGE_URL = `${SITE_URL}/en/servicios/`;
+const ES_PAGE_URL = `${SITE_URL}/servicios/`;
 
 export const metadata: Metadata = {
-  title: 'Servicios a demanda | Automatización, Data e IA',
-  description: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos. Automatización, Data Engineering e IA aplicada.',
+  title: 'On-demand services | Automation, Data and AI',
+  description: 'Diagnostics, mentoring and audits with a defined scope, price and delivery. Automation, Data Engineering and applied AI for growing teams.',
   alternates: {
     canonical: PAGE_URL,
-    languages: { 'es-AR': PAGE_URL, en: EN_PAGE_URL, 'x-default': PAGE_URL },
+    languages: { 'es-AR': ES_PAGE_URL, en: PAGE_URL, 'x-default': ES_PAGE_URL },
   },
   openGraph: {
-    locale: 'es_AR',
+    locale: 'en_US',
     url: PAGE_URL,
-    title: 'Servicios a demanda | Automatización, Data e IA',
-    description: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos.',
+    title: 'On-demand services | Automation, Data and AI',
+    description: 'Diagnostics, mentoring and audits with a defined scope, price and delivery.',
   },
 };
 
 const catalogSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Servicios a demanda de MGA Tech Consulting',
+  name: 'MGA Tech Consulting on-demand services',
   itemListElement: OFFERS.map((offer, index) => ({
     '@type': 'ListItem', position: index + 1,
-    item: { '@type': 'Service', name: offer.name.es, description: offer.description.es, url: `${SITE_URL}/servicios/${offer.slug}/`, offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
+    item: { '@type': 'Service', name: offer.name.en, description: offer.description.en, url: `${SITE_URL}/en/servicios/${offer.slug}/`, offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
   })),
 };
 
@@ -40,12 +40,12 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: SERVICES_FAQ.map(({ question, answer }) => ({
     '@type': 'Question',
-    name: question.es,
-    acceptedAnswer: { '@type': 'Answer', text: answer.es },
+    name: question.en,
+    acceptedAnswer: { '@type': 'Answer', text: answer.en },
   })),
 };
 
-export default function ServicesPage() {
+export default function EnglishServicesPage() {
   return (
     <main id="main-content" className="signal-services-page">
       <JsonLd data={catalogSchema} />

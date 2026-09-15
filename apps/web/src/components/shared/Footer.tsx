@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath } from '@/lib/i18n-routes';
 import { useTheme } from '@/contexts/ThemeContext';
 import { events } from '@/lib/gtag';
 import { CONSENT_SETTINGS_EVENT } from './ConsentBanner';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const { theme } = useTheme();
   const pathname = usePathname();
   const isDark = theme === 'dark';
@@ -54,7 +55,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/servicios/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/servicios/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Servicios a demanda
                 </Link>
               </li>

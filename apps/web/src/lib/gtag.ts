@@ -1,4 +1,6 @@
 // Rebuild trigger: removing [skip ci] functionality from workflow
+import { LOCALIZED_PREFIX } from '@/lib/i18n-routes';
+
 export const GA_ID = 'G-DG0SLT5RY3';
 export const CONSENT_STORAGE_KEY = 'mga_consent_v1';
 export type ConsentChoice = 'essential' | 'analytics' | 'all';
@@ -41,7 +43,13 @@ function safeReferrer(url: string): string {
   }
 }
 
-function getPageContext(pathname: string): { site_section: string; page_type: string } {
+function getPageContext(rawPathname: string): { site_section: string; page_type: string } {
+  // Localized routes report the same section and page type as their default
+  // locale counterpart, so GA4 dimensions stay comparable across languages.
+  const pathname = rawPathname.startsWith(`${LOCALIZED_PREFIX}/`)
+    ? rawPathname.slice(LOCALIZED_PREFIX.length)
+    : rawPathname;
+
   if (pathname.startsWith('/blog/special/')) {
     return { site_section: 'blog', page_type: pathname.includes('/methodology') ? 'methodology' : 'special_report' };
   }

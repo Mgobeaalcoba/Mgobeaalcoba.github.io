@@ -16,24 +16,24 @@ export async function generateMetadata({ params }: OfferPageProps): Promise<Meta
   const { slug } = await params;
   const offer = getOffer(slug);
   if (!offer) return {};
-  const pageUrl = `${SITE_URL}/servicios/${offer.slug}/`;
-  const enPageUrl = `${SITE_URL}/en/servicios/${offer.slug}/`;
+  const pageUrl = `${SITE_URL}/en/servicios/${offer.slug}/`;
+  const esPageUrl = `${SITE_URL}/servicios/${offer.slug}/`;
   return {
-    title: offer.name.es,
-    description: offer.description.es,
-    alternates: { canonical: pageUrl, languages: { 'es-AR': pageUrl, en: enPageUrl, 'x-default': pageUrl } },
-    openGraph: { locale: 'es_AR', title: `${offer.name.es} | MGA Tech Consulting`, description: offer.promise.es, url: pageUrl },
+    title: offer.name.en,
+    description: offer.description.en,
+    alternates: { canonical: pageUrl, languages: { 'es-AR': esPageUrl, en: pageUrl, 'x-default': esPageUrl } },
+    openGraph: { locale: 'en_US', title: `${offer.name.en} | MGA Tech Consulting`, description: offer.promise.en, url: pageUrl },
   };
 }
 
-export default async function OfferPage({ params }: OfferPageProps) {
+export default async function EnglishOfferPage({ params }: OfferPageProps) {
   const { slug } = await params;
   const offer = getOffer(slug);
   if (!offer) notFound();
   const schema = {
-    '@context': 'https://schema.org', '@type': 'Service', name: offer.name.es, description: offer.description.es,
+    '@context': 'https://schema.org', '@type': 'Service', name: offer.name.en, description: offer.description.en,
     provider: { '@type': 'Person', name: 'Mariano Gobea Alcoba' }, areaServed: 'Worldwide',
-    offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/servicios/${offer.slug}/` },
+    offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/en/servicios/${offer.slug}/` },
   };
 
   return (

@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath } from '@/lib/i18n-routes';
 import { openContactModal } from './ContactModal';
 import { events } from '@/lib/gtag';
 
@@ -108,7 +109,7 @@ export default function CommandPalette() {
       labelEs: 'Ver servicios y precios',
       labelEn: 'View services and pricing',
       icon: <ShoppingBag className="w-4 h-4 text-cyan-400" />,
-      action: () => navigateTo('/servicios/'),
+      action: () => navigateTo(localizePath('/servicios/', lang)),
     },
     {
       id: 'nav-portfolio',
