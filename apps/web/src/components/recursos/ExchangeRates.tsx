@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { RefreshCw, TrendingUp, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { events } from '@/lib/gtag';
 
 interface RateEntry {
   casa: string;
@@ -116,9 +117,12 @@ function DollarHistoryModal({
       const res = await fetch(`https://api.argentinadatos.com/v1/cotizaciones/dolares/${casa}`);
       if (!res.ok) throw new Error();
       const raw: HistoryPoint[] = await res.json();
-      setAllData(Array.isArray(raw) ? raw : []);
+      const normalized = Array.isArray(raw) ? raw : [];
+      setAllData(normalized);
+      events.toolResult('rates', normalized.length ? 'success' : 'empty', 'history');
     } catch {
       setError(true);
+      events.toolError('rates', 'history_load_failed', true);
     } finally {
       setLoading(false);
     }
@@ -269,10 +273,13 @@ export default function ExchangeRates() {
       const res = await fetch('https://dolarapi.com/v1/dolares');
       if (!res.ok) throw new Error();
       const data: RateEntry[] = await res.json();
-      setRates(Array.isArray(data) ? data : []);
+      const normalized = Array.isArray(data) ? data : [];
+      setRates(normalized);
       setLastUpdated(new Date().toLocaleTimeString('es-AR'));
+      events.toolResult('rates', normalized.length ? 'success' : 'empty', 'current');
     } catch {
       setError(true);
+      events.toolError('rates', 'current_load_failed', true);
     } finally {
       setLoading(false);
     }

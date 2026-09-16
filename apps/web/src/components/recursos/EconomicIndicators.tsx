@@ -92,10 +92,13 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
       else if (range === '1y') cutoff.setFullYear(now.getFullYear() - 1);
       else if (range === '5y') cutoff.setFullYear(now.getFullYear() - 5);
 
-      setHistory(range === 'max' ? all : all.filter((d) => new Date(d.fecha) >= cutoff));
+      const filtered = range === 'max' ? all : all.filter((d) => new Date(d.fecha) >= cutoff);
+      setHistory(filtered);
+      events.toolResult('indicators', filtered.length ? 'success' : 'empty', 'history');
     } catch {
       setHistory([]);
       setHasError(true);
+      events.toolError('indicators', 'history_load_failed', true);
     } finally {
       setLoading(false);
     }
@@ -106,6 +109,9 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
   const firstEntry = history[0];
   const lastEntry = history[history.length - 1];
   const absoluteChange = firstEntry && lastEntry ? lastEntry.valor - firstEntry.valor : null;
+  const percentageChange = absoluteChange != null && firstEntry.valor !== 0
+    ? (absoluteChange / firstEntry.valor) * 100
+    : null;
   const formatDate = (date: string) => new Intl.DateTimeFormat(lang === 'es' ? 'es-AR' : 'en-US', {
     month: 'short', year: 'numeric', timeZone: 'UTC',
   }).format(new Date(date));
@@ -158,6 +164,9 @@ function HistoryModal({ indicator, onClose }: { indicator: Indicator; onClose: (
                 <p className="text-xs text-gray-500">{lang === 'es' ? 'Variación' : 'Change'}</p>
                 <p className={`font-bold ${absoluteChange != null && absoluteChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                   {absoluteChange != null ? `${absoluteChange >= 0 ? '+' : ''}${absoluteChange.toFixed(2)}` : '—'}
+                </p>
+                <p className={`text-xs font-semibold ${percentageChange != null && percentageChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  {percentageChange != null ? `${percentageChange >= 0 ? '+' : ''}${percentageChange.toFixed(2)}%` : '—'}
                 </p>
               </div>
               <div className="bg-white/5 rounded-xl p-3">
@@ -217,8 +226,11 @@ export default function EconomicIndicators() {
 
       setValues(newVals);
       setLastUpdated(new Date().toLocaleTimeString('es-AR'));
+      const liveCount = Object.keys(newVals).length;
+      events.toolResult('indicators', liveCount ? 'success' : 'fallback', liveCount >= 4 ? 'complete' : 'partial');
     } catch {
       // use static fallbacks
+      events.toolError('indicators', 'current_load_failed', true);
     } finally {
       setLoading(false);
     }

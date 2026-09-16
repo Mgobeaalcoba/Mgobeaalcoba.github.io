@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Send, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
@@ -46,6 +46,8 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
   const { lang } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [started, setStarted] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -54,10 +56,24 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
     problem: '',
   });
 
+  useEffect(() => {
+    if (!isOpen) return;
+    events.proposalModalOpen();
+    events.formView('proposal', 'consulting');
+  }, [isOpen]);
+
+  const markStarted = () => {
+    if (started) return;
+    setStarted(true);
+    events.formStart('proposal', 'consulting');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.industry || !form.problem || loading) return;
 
+    events.formSubmitAttempt('proposal', 'consulting');
+    setError(false);
     setLoading(true);
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -72,7 +88,6 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
           source: 'cv-site-proposal',
           page: typeof window !== 'undefined' ? window.location.pathname : '/consulting',
           timestamp: new Date().toISOString(),
-          userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
           language: lang,
         }),
         signal: AbortSignal.timeout(10000),
@@ -80,16 +95,19 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
       if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
       events.leadDelivery('success', 'consulting', 'proposal');
       events.leadFormSent('consulting', 'proposal');
+      setSubmitted(true);
     } catch {
       events.leadDelivery('error', 'consulting', 'proposal');
+      setError(true);
     } finally {
       setLoading(false);
-      setSubmitted(true);
     }
   };
 
   const handleClose = () => {
     setSubmitted(false);
+    setStarted(false);
+    setError(false);
     setForm({ name: '', email: '', company: '', industry: '', problem: '' });
     onClose();
   };
@@ -120,7 +138,14 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  onSubmit={handleSubmit}
+                  onInvalid={(event) => {
+                    const field = (event.target as HTMLInputElement).name || 'unknown';
+                    events.formValidationError('proposal', field, 'invalid', 'consulting');
+                  }}
+                  className="space-y-4"
+                >
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs text-gray-400 mb-1">
@@ -129,6 +154,9 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                       <input
                         required
                         type="text"
+                        name="name"
+                        maxLength={120}
+                        onFocus={markStarted}
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder={lang === 'es' ? 'Juan García' : 'John Smith'}
@@ -140,6 +168,9 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                       <input
                         required
                         type="email"
+                        name="email"
+                        maxLength={254}
+                        onFocus={markStarted}
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="juan@empresa.com"
@@ -154,6 +185,9 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                     </label>
                     <input
                       type="text"
+                      name="company"
+                      maxLength={160}
+                      onFocus={markStarted}
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
                       placeholder={lang === 'es' ? 'Mi Empresa S.A.' : 'My Company Inc.'}
@@ -167,6 +201,8 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                     </label>
                     <select
                       required
+                      name="industry"
+                      onFocus={markStarted}
                       value={form.industry}
                       onChange={(e) => setForm({ ...form, industry: e.target.value })}
                       className="w-full glass px-3 py-2 rounded-xl text-gray-200 border border-white/10 focus:border-green-500 focus:outline-none text-sm bg-gray-800"
@@ -185,6 +221,9 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                     </label>
                     <textarea
                       required
+                      name="problem"
+                      maxLength={5000}
+                      onFocus={markStarted}
                       value={form.problem}
                       onChange={(e) => setForm({ ...form, problem: e.target.value })}
                       rows={4}
@@ -207,6 +246,13 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                       ? (lang === 'es' ? 'Enviando...' : 'Sending...')
                       : (lang === 'es' ? 'Solicitar Automatización Gratis' : 'Request Free Automation')}
                   </button>
+                  {error && (
+                    <p role="alert" className="text-sm text-red-300">
+                      {lang === 'es'
+                        ? 'No pudimos enviar la solicitud. Intentá nuevamente en unos minutos.'
+                        : 'We could not send your request. Please try again in a few minutes.'}
+                    </p>
+                  )}
                 </form>
               </>
             ) : (

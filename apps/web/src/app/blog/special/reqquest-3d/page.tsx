@@ -5,6 +5,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import ReqQuestContent from './ReqQuestContent';
+import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
 
 const PAGE_URL = 'https://www.mgatc.com/blog/special/reqquest-3d/';
 
@@ -68,6 +69,7 @@ export default function ReqQuestPage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={articleSchema} />
+      <ContentEngagementTracker contentType="special_report" contentId="reqquest_3d" />
       <ScrollTracker />
       <Navbar />
       <ReqQuestContent />

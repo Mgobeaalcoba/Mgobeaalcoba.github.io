@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, MessageSquare, Send, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -16,6 +16,11 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [started, setStarted] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (isInView) events.formView('contact_portfolio', 'cv');
+  }, [isInView]);
 
   const handleFirstFocus = () => {
     if (!started) {
@@ -27,6 +32,8 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
+    events.formSubmitAttempt('contact_portfolio', 'cv');
+    setError(false);
     setLoading(true);
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -40,7 +47,6 @@ export default function Contact() {
           form_type: 'contact_portfolio',
           page: typeof window !== 'undefined' ? window.location.pathname : '/',
           timestamp: new Date().toISOString(),
-          userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
           language: typeof document !== 'undefined' ? document.documentElement.lang : 'es',
         }),
         signal: AbortSignal.timeout(10000),
@@ -48,11 +54,12 @@ export default function Contact() {
       if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
       events.leadDelivery('success', 'cv', 'contact_portfolio');
       events.leadFormSent('cv', 'contact_portfolio');
+      setSent(true);
     } catch {
       events.leadDelivery('error', 'cv', 'contact_portfolio');
+      setError(true);
     } finally {
       setLoading(false);
-      setSent(true);
     }
   };
 
@@ -136,11 +143,20 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                onSubmit={handleSubmit}
+                onInvalid={(event) => {
+                  const field = (event.target as HTMLInputElement).name || 'unknown';
+                  events.formValidationError('contact_portfolio', field, 'invalid', 'cv');
+                }}
+                className="space-y-4"
+              >
                 <div>
                   <label className="block text-xs text-gray-400 mb-1.5">{t('contact_name')}</label>
                   <input
                     type="text"
+                    name="name"
+                    maxLength={120}
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     onFocus={handleFirstFocus}
@@ -153,6 +169,8 @@ export default function Contact() {
                   <label className="block text-xs text-gray-400 mb-1.5">{t('contact_email')}</label>
                   <input
                     type="email"
+                    name="email"
+                    maxLength={254}
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     onFocus={handleFirstFocus}
@@ -164,6 +182,8 @@ export default function Contact() {
                 <div>
                   <label className="block text-xs text-gray-400 mb-1.5">{t('contact_message')}</label>
                   <textarea
+                    name="message"
+                    maxLength={5000}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     onFocus={handleFirstFocus}
@@ -181,6 +201,13 @@ export default function Contact() {
                   {loading ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
                   {t('contact_send')}
                 </button>
+                {error && (
+                  <p role="alert" className="text-sm text-red-300">
+                    {lang === 'es'
+                      ? 'No pudimos enviar el mensaje. Revisá tu conexión e intentá nuevamente.'
+                      : 'We could not send your message. Check your connection and try again.'}
+                  </p>
+                )}
               </form>
             )}
           </motion.div>

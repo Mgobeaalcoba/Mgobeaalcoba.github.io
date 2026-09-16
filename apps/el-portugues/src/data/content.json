@@ -302,7 +302,7 @@
         { "name": "Gmail API", "role": "E-mail automático al cliente" },
         { "name": "WhatsApp Business", "role": "Notificación al equipo" },
         { "name": "Google Sheets / CRM", "role": "Registro del lead" },
-        { "name": "GA4", "role": "Tracking del evento lead_form_sent" }
+        { "name": "GA4", "role": "Tracking del funnel form_view → generate_lead" }
       ],
       "benefits": [
         "Tiempo de respuesta < 2 minutos vs. horas en el proceso actual",
@@ -333,7 +333,7 @@
         { "name": "WhatsApp Business", "role": "Alerta urgente al área comercial" },
         { "name": "Google Sheets", "role": "Tarifario y registro de oportunidades" },
         { "name": "Slack / Teams", "role": "Canal de notificación interna" },
-        { "name": "GA4", "role": "Tracking del evento lead_form_sent" }
+        { "name": "GA4", "role": "Tracking del funnel form_view → generate_lead" }
       ],
       "benefits": [
         "El cliente recibe una pre-respuesta inmediata, mejorando la percepción de servicio",
@@ -366,7 +366,7 @@
         "Next.js 14 estático: carga instantánea, sin servidor, costo cero de hosting",
         "Estética 'Deep Dark Tech' alineada con empresas logísticas líderes globales",
         "Formulario conectado a pipeline de automatización n8n desde el día uno",
-        "GA4 con eventos custom: lead_form_sent, service_view, scroll_depth",
+        "GA4 con funnels consistentes: form_view, generate_lead, service_view y scroll_depth",
         "Toda la data en un content.json tipado, listo para migrar a CMS o base de datos",
         "Workflows de automatización por departamento listos para activar",
         "Lighthouse score > 90 en Performance, SEO y Accessibility",

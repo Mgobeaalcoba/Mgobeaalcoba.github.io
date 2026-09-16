@@ -7,6 +7,7 @@ import { ArrowUpRight, Clock, Play, Youtube } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
+import TrackedYouTubePlayer from './TrackedYouTubePlayer';
 
 export default function VideoSection() {
   const { lang } = useLanguage();
@@ -29,7 +30,7 @@ export default function VideoSection() {
           <div className="signal-video-stage">
             <AnimatePresence mode="wait">
               <motion.div key={main.id} className="signal-video-feature" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .22 }}>
-                <div className="signal-video-feature__media">{playingId === main.id ? <iframe src={`https://www.youtube-nocookie.com/embed/${main.youtubeId}?autoplay=1&playsinline=1&rel=0`} title={lang === 'es' ? main.titleEs : main.titleEn} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /> : <button type="button" onClick={() => play(main)} aria-label={lang === 'es' ? `Reproducir ${main.titleEs}` : `Play ${main.titleEn}`}><img src={`https://img.youtube.com/vi/${main.youtubeId}/maxresdefault.jpg`} alt="" onError={(event) => { event.currentTarget.src = `https://img.youtube.com/vi/${main.youtubeId}/hqdefault.jpg`; }} /><span><Play size={22} fill="currentColor" /></span><small><Clock size={11} />{main.duration}</small></button>}</div>
+                <div className="signal-video-feature__media">{playingId === main.id ? <TrackedYouTubePlayer videoId={main.youtubeId} title={lang === 'es' ? main.titleEs : main.titleEn} source="featured_video" /> : <button type="button" onClick={() => play(main)} aria-label={lang === 'es' ? `Reproducir ${main.titleEs}` : `Play ${main.titleEn}`}><img src={`https://img.youtube.com/vi/${main.youtubeId}/maxresdefault.jpg`} alt="" onError={(event) => { event.currentTarget.src = `https://img.youtube.com/vi/${main.youtubeId}/hqdefault.jpg`; }} /><span><Play size={22} fill="currentColor" /></span><small><Clock size={11} />{main.duration}</small></button>}</div>
                 <div className="signal-video-feature__copy"><span>{main.channel} / {new Date(main.date).getFullYear()}</span><h3>{lang === 'es' ? main.titleEs : main.titleEn}</h3><p>{lang === 'es' ? main.descriptionEs : main.descriptionEn}</p><button type="button" onClick={() => play(main)}>{lang === 'es' ? 'Reproducir masterclass' : 'Play masterclass'} <Play size={15} /></button></div>
               </motion.div>
             </AnimatePresence>

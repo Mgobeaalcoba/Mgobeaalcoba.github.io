@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath } from '@/lib/i18n-routes';
 import { useTheme } from '@/contexts/ThemeContext';
 import { events } from '@/lib/gtag';
 import { CONSENT_SETTINGS_EVENT } from './ConsentBanner';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const { theme } = useTheme();
   const pathname = usePathname();
   const isDark = theme === 'dark';
@@ -49,27 +50,27 @@ export default function Footer() {
             <h4 className="text-gray-200 font-semibold mb-3">Navegación</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Soluciones
                 </Link>
               </li>
               <li>
-                <Link href="/servicios/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/servicios/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Servicios a demanda
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/portfolio/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Portfolio / CV
                 </Link>
               </li>
               <li>
-                <Link href="/blog/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/blog/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/recursos/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                <Link href={localizePath('/recursos/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   {t('nav_recursos')}
                 </Link>
               </li>

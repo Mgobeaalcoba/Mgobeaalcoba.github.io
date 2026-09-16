@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2 } from "lucide-react";
+import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2, Home } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
 import TokenCalculator from "@/components/recursos/TokenCalculator";
@@ -11,6 +11,7 @@ import ExchangeRates from "@/components/recursos/ExchangeRates";
 import EconomicIndicators from "@/components/recursos/EconomicIndicators";
 import HolidaysArgentina from "@/components/recursos/HolidaysArgentina";
 import FAQRecursos from "@/components/recursos/FAQRecursos";
+import MortgageUvaCalculator from "@/components/recursos/MortgageUvaCalculator";
 import ROICalculator from "@/components/showcase/ROICalculator";
 import ArchVisualizer from "@/components/showcase/ArchVisualizer";
 import AgentDashboard from "@/components/showcase/AgentDashboard";
@@ -18,6 +19,7 @@ import { events } from "@/lib/gtag";
 
 type TabId =
   | "calculator"
+  | "mortgages"
   | "roi"
   | "arch"
   | "tokens"
@@ -52,6 +54,12 @@ const TAB_CATEGORIES: TabCategory[] = [
         id: "calculator",
         icon: <Calculator size={16} />,
         label: { es: "Ganancias", en: "Income Tax" },
+        wide: true,
+      },
+      {
+        id: "mortgages",
+        icon: <Home size={16} />,
+        label: { es: "Hipotecarios UVA", en: "UVA Mortgages" },
         wide: true,
       },
       {
@@ -132,12 +140,15 @@ export default function RecursosClient() {
   const [activeTab, setActiveTab] = useState<TabId>("calculator");
   const [activeCategory, setActiveCategory] = useState<CategoryId>("finance");
   const [isMounted, setIsMounted] = useState(false);
+  const viewSource = useRef<'initial' | 'tab' | 'direct'>('initial');
+  const startedTools = useRef(new Set<TabId>());
 
   // Sync hash on mount and when tab changes
   useEffect(() => {
     setIsMounted(true);
     const hash = window.location.hash.substring(1) as TabId;
     if (ALL_TAB_IDS.includes(hash)) {
+      viewSource.current = 'direct';
       setActiveTab(hash);
       const categoryForTab = TAB_CATEGORIES.find((cat) =>
         cat.tabs.some((tab) => tab.id === hash)
@@ -151,6 +162,8 @@ export default function RecursosClient() {
   useEffect(() => {
     if (isMounted) {
       history.replaceState(null, "", `#${activeTab}`);
+      events.toolView(activeTab, viewSource.current);
+      viewSource.current = 'tab';
     }
   }, [activeTab, isMounted]);
 
@@ -160,6 +173,8 @@ export default function RecursosClient() {
   const isWide = currentTabItem?.wide || false;
 
   const handleTabChange = (tabId: TabId) => {
+    if (tabId === activeTab) return;
+    viewSource.current = 'tab';
     setActiveTab(tabId);
     const categoryForTab = TAB_CATEGORIES.find((cat) =>
       cat.tabs.some((tab) => tab.id === tabId)
@@ -168,6 +183,12 @@ export default function RecursosClient() {
       setActiveCategory(categoryForTab.id);
       events.toolSelect(tabId, categoryForTab.id);
     }
+  };
+
+  const handleToolInteraction = () => {
+    if (startedTools.current.has(activeTab)) return;
+    startedTools.current.add(activeTab);
+    events.toolStart(activeTab);
   };
 
   if (!isMounted) return null; // Avoid hydration mismatch by waiting for mount
@@ -213,8 +234,17 @@ export default function RecursosClient() {
 
       <div className="signal-tool-stage">
         <div className="signal-tool-stage__bar"><div><span>{TAB_CATEGORIES.find((group) => group.id === activeCategory)?.label[lang]}</span><strong>{currentTabItem?.label[lang]}</strong></div><span className="signal-tool-status"><i />{lang === "es" ? "Disponible" : "Available"}</span></div>
-        <motion.div key={activeTab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.18 }} className={isWide ? "" : "max-w-2xl"}>
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.18 }}
+          className={isWide ? "" : "max-w-2xl"}
+          onPointerDownCapture={handleToolInteraction}
+          onKeyDownCapture={handleToolInteraction}
+        >
           {activeTab === "calculator" && <TaxCalculator />}
+          {activeTab === "mortgages" && <MortgageUvaCalculator />}
           {activeTab === "roi" && <ROICalculator />}
           {activeTab === "arch" && <ArchVisualizer />}
           {activeTab === "agent-dash" && <AgentDashboard />}

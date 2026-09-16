@@ -12,6 +12,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchTaxData, fetchAiModels, fetchPlazoFijoRates } from '@/lib/queries/calculatorQueries';
 import type { TaxParams, TaxScenario, TaxTab, AiModel } from '@/lib/queries/calculatorQueries';
+import { events } from '@/lib/gtag';
 
 export type { TaxParams, TaxScenario, TaxTab, AiModel };
 
@@ -64,7 +65,7 @@ export function RecursosDataProvider({ children }: { children: React.ReactNode }
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[RecursosData] fetch failed:', err);
+          events.appError('recursos_data', 'load', 'data_load_failed', true, 'recursos');
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

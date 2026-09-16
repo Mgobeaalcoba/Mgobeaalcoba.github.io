@@ -10,6 +10,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchEpConfig, fetchEpHistoryTimeline } from '@/lib/queries';
 import type { SiteContent, EpTimelineEntry } from '@/types/content';
+import { trackAppError, events } from '@/lib/gtag';
+import { durationBand } from '@/components/PerformanceTracker';
 import localContent from '@/data/content.json';
 
 interface EpData {
@@ -34,6 +36,7 @@ export function EpDataProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let cancelled = false;
     async function load() {
+      const startedAt = Date.now();
       try {
         const [cfg, timeline] = await Promise.all([
           fetchEpConfig(),
@@ -41,6 +44,7 @@ export function EpDataProvider({ children }: { children: React.ReactNode }) {
         ]);
 
         if (!cancelled) {
+          events.dataWait('ep_content', 'success', durationBand(Date.now() - startedAt), 1);
           const merged = cfg
             ? ({ ...INITIAL.content, ...cfg } as SiteContent)
             : INITIAL.content;
@@ -54,7 +58,8 @@ export function EpDataProvider({ children }: { children: React.ReactNode }) {
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[EP] context fetch failed:', err);
+          events.dataWait('ep_content', 'error', durationBand(Date.now() - startedAt), 1);
+          trackAppError('ep_data', 'load', 'data_load_failed', true);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

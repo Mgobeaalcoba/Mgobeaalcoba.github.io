@@ -4,6 +4,7 @@ import { Blocks, Newspaper, ShoppingBag, UserRound, Wrench } from 'lucide-react'
 import { usePathname } from 'next/navigation';
 import Link from './TransitionLink';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath, splitLocale } from '@/lib/i18n-routes';
 import { events } from '@/lib/gtag';
 
 const ITEMS = [
@@ -17,14 +18,15 @@ const ITEMS = [
 export default function MobileAppNav() {
   const pathname = usePathname();
   const { lang } = useLanguage();
+  const basePathname = splitLocale(pathname).pathname;
   return (
     <nav className="signal-mobile-tabs" aria-label={lang === 'es' ? 'Navegación principal mobile' : 'Mobile primary navigation'}>
       {ITEMS.map((item) => {
-        const active = item.match(pathname);
+        const active = item.match(basePathname);
         const Icon = item.icon;
         return (
           <Link
-            href={item.href}
+            href={localizePath(item.href, lang)}
             key={item.href}
             className={active ? 'is-active' : ''}
             aria-current={active ? 'page' : undefined}
