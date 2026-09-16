@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { trackAppError, trackErrorRecovery } from '@/lib/gtag';
 
 interface Props {
   children: React.ReactNode;
@@ -22,8 +23,8 @@ export class DataErrorBoundary extends React.Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('[DataErrorBoundary]', error, info.componentStack);
+  componentDidCatch() {
+    trackAppError('data_error_boundary', 'render', 'render_error', true);
   }
 
   render() {
@@ -35,7 +36,7 @@ export class DataErrorBoundary extends React.Component<Props, State> {
               <p className="text-lg font-medium text-white">Error al cargar el sitio</p>
               <p className="text-sm">Intentá recargar la página.</p>
               <button
-                onClick={() => this.setState({ hasError: false, error: null })}
+                onClick={() => { trackErrorRecovery('data_error_boundary'); this.setState({ hasError: false, error: null }); }}
                 className="mt-4 px-4 py-2 rounded bg-blue-600 text-white text-sm hover:bg-blue-500 transition"
               >
                 Reintentar

@@ -7,6 +7,7 @@ import { Command, Globe2, Menu, Moon, Search, Sun, X } from 'lucide-react';
 import Link from './TransitionLink';
 import { useTheme, type Theme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath, splitLocale } from '@/lib/i18n-routes';
 import { events } from '@/lib/gtag';
 
 const LINKS = [
@@ -46,16 +47,23 @@ export default function Navbar() {
 
   useEffect(() => setMenuOpen(false), [pathname]);
 
+  const basePathname = splitLocale(pathname).pathname;
+
   const isActive = (href: string) => {
     if (href.startsWith('/#')) return false;
-    if (href === '/') return pathname === '/';
-    return pathname.startsWith(href.replace(/\/$/, ''));
+    if (href === '/') return basePathname === '/';
+    return basePathname.startsWith(href.replace(/\/$/, ''));
   };
 
   const switchLanguage = () => {
     const next = lang === 'es' ? 'en' : 'es';
     events.languageSwitch(lang, next);
     setLang(next);
+
+    // Routes with a localized counterpart are separate documents, so the switch
+    // is a real navigation instead of a client-side re-render.
+    const target = localizePath(pathname, next);
+    if (target !== pathname) window.location.assign(target);
   };
 
   const mobileTitle = Object.entries(MOBILE_TITLES).find(([route]) => route === '/' ? pathname === '/' : pathname.startsWith(route))?.[1]?.[lang] ?? 'MGA';
@@ -73,7 +81,7 @@ export default function Navbar() {
           {LINKS.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={localizePath(link.href, lang)}
               onClick={() => events.navClick(link.href, link[lang])}
               className={isActive(link.href) ? 'is-active' : ''}
             >
@@ -114,7 +122,7 @@ export default function Navbar() {
       {menuOpen && (
         <div id="mobile-navigation" className="signal-mobile-menu">
           {LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className={isActive(link.href) ? 'is-active' : ''}>
+            <Link key={link.href} href={localizePath(link.href, lang)} className={isActive(link.href) ? 'is-active' : ''}>
               <span>{link[lang]}</span>
               <span aria-hidden="true">↗</span>
             </Link>

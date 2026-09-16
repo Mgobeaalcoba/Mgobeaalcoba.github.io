@@ -5,6 +5,7 @@ import ScrollTracker from '@/components/shared/ScrollTracker';
 import JsonLd from '@/components/shared/JsonLd';
 import FloatingCTA from '@/components/shared/FloatingCTA';
 import FunnelReportContent from './FunnelReportContent';
+import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
 
 const REPORT_URL = 'https://www.mgatc.com/blog/special/funnel-hipotecario-bna/';
 
@@ -97,6 +98,7 @@ export default function FunnelHipotecarioBNAPage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={articleSchema} />
+      <ContentEngagementTracker contentType="special_report" contentId="funnel_hipotecario_bna" />
       <ScrollTracker />
       <Navbar />
       <FunnelReportContent />

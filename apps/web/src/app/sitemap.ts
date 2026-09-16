@@ -4,8 +4,7 @@ export const dynamic = 'force-static';
 import fs from 'fs';
 import path from 'path';
 import { OFFERS } from '@/lib/offers';
-
-const SITE_URL = 'https://www.mgatc.com';
+import { SITE_URL } from '@/lib/site';
 
 function getBlogSlugs(): string[] {
   try {
@@ -26,18 +25,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
+      alternates: { languages: { es: SITE_URL, en: `${SITE_URL}/en/` } },
+    },
+    // English home: same consulting landing with English metadata and JSON-LD.
+    {
+      url: `${SITE_URL}/en/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+      alternates: { languages: { es: SITE_URL, en: `${SITE_URL}/en/` } },
     },
     {
       url: `${SITE_URL}/servicios/`,
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: { languages: { es: `${SITE_URL}/servicios/`, en: `${SITE_URL}/en/servicios/` } },
     },
     ...OFFERS.map((offer) => ({
       url: `${SITE_URL}/servicios/${offer.slug}/`,
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'monthly' as const,
       priority: 0.85,
+      alternates: { languages: { es: `${SITE_URL}/servicios/${offer.slug}/`, en: `${SITE_URL}/en/servicios/${offer.slug}/` } },
+    })),
+    // English counterparts of the on-demand services pages.
+    {
+      url: `${SITE_URL}/en/servicios/`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+      alternates: { languages: { es: `${SITE_URL}/servicios/`, en: `${SITE_URL}/en/servicios/` } },
+    },
+    ...OFFERS.map((offer) => ({
+      url: `${SITE_URL}/en/servicios/${offer.slug}/`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+      alternates: { languages: { es: `${SITE_URL}/servicios/${offer.slug}/`, en: `${SITE_URL}/en/servicios/${offer.slug}/` } },
     })),
     {
       url: `${SITE_URL}/portfolio/`,

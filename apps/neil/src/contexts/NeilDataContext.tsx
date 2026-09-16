@@ -10,6 +10,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchNeilProducts } from '@/lib/queries';
 import type { NeilConfig, NeilProductCategory, NeilTranslations } from '@/lib/queries';
+import { trackAppError, events } from '@/lib/gtag';
+import { durationBand } from '@/components/PerformanceTracker';
 import esTranslations from '@/data/translations/es.json';
 import enTranslations from '@/data/translations/en.json';
 import itTranslations from '@/data/translations/it.json';
@@ -54,6 +56,7 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let cancelled = false;
     async function load() {
+      const startedAt = Date.now();
       try {
         // Only fetch products from Supabase. Config and translations come from
         // local JSON files which have the correct camelCase structure with proper
@@ -62,6 +65,7 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
         // expectations built on the camelCase content.json format.
         const products = await fetchNeilProducts();
         if (!cancelled) {
+          events.dataWait('neil_products', 'success', durationBand(Date.now() - startedAt), 1);
           setData((prev) => ({
             ...prev,
             products,
@@ -71,7 +75,8 @@ export function NeilDataProvider({ children }: { children: React.ReactNode }) {
         }
       } catch (err) {
         if (!cancelled) {
-          console.error('[NeilData] fetch failed:', err);
+          events.dataWait('neil_products', 'error', durationBand(Date.now() - startedAt), 1);
+          trackAppError('neil_data', 'load', 'data_load_failed', true);
           setData((prev) => ({ ...prev, loading: false, error: err as Error }));
         }
       }

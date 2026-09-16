@@ -11,7 +11,7 @@ export default function AnalyticsTracker() {
     let attempts = 0;
     let timer: number | undefined;
     const track = () => {
-      if (window.gtag) {
+      if (window.gtag && window.mgaAnalyticsReady) {
         pageview(`${pathname}${window.location.search}`);
         return;
       }

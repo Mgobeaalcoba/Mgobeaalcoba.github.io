@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Mail, X, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { events } from '@/lib/gtag';
@@ -13,12 +13,20 @@ export default function NewsletterBanner() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [closed, setClosed] = useState(false);
+  const [started, setStarted] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    events.formView('newsletter', 'sitewide');
+  }, []);
 
   if (closed) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || loading) return;
+    events.formSubmitAttempt('newsletter', 'sitewide');
+    setError(false);
     setLoading(true);
     const page = window.location.pathname;
     try {
@@ -31,7 +39,6 @@ export default function NewsletterBanner() {
           source: 'cv-site-newsletter',
           page,
           timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent,
           language: document.documentElement.lang || 'es',
         }),
         signal: AbortSignal.timeout(10000),
@@ -39,11 +46,12 @@ export default function NewsletterBanner() {
       if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
       events.leadDelivery('success', page, 'newsletter');
       events.newsletterSubscribe(page);
+      setSubmitted(true);
     } catch {
       events.leadDelivery('error', page, 'newsletter');
+      setError(true);
     } finally {
       setLoading(false);
-      setSubmitted(true);
     }
   };
 
@@ -71,12 +79,24 @@ export default function NewsletterBanner() {
           {submitted ? (
             <p className="text-sky-400 font-medium">¡Gracias! Te enviaremos el próximo número 🎉</p>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 flex-1 max-w-md w-full">
+            <form
+              onSubmit={handleSubmit}
+              onInvalid={() => events.formValidationError('newsletter', 'email', 'invalid', 'sitewide')}
+              className="flex flex-col sm:flex-row gap-2 flex-1 max-w-md w-full"
+            >
               <input
                 type="email"
+                maxLength={254}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                onFocus={() => events.newsletterFormFocus(typeof window !== 'undefined' ? window.location.pathname : '/')}
+                onFocus={() => {
+                  if (!started) {
+                    setStarted(true);
+                    const page = typeof window !== 'undefined' ? window.location.pathname : '/';
+                    events.formStart('newsletter', 'sitewide');
+                    events.newsletterFormFocus(page);
+                  }
+                }}
                 placeholder={t('newsletter_placeholder')}
                 className="flex-1 glass px-4 py-2 rounded-lg text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-sky-500 border border-white/10"
                 required
@@ -90,6 +110,11 @@ export default function NewsletterBanner() {
                 {loading && <Loader2 size={14} className="animate-spin" />}
                 {t('newsletter_btn')}
               </button>
+              {error && (
+                <p role="alert" className="self-center text-sm text-red-300 sm:basis-full">
+                  No pudimos registrar tu email. Intentá nuevamente.
+                </p>
+              )}
             </form>
           )}
         </div>

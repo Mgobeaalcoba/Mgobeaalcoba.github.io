@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MessageCircle, Phone, Mail, MapPin, Store, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNeilData } from '@/contexts/NeilDataContext';
 import AutomationBadge from './AutomationBadge';
 import { sendContactForm, sendQuoteRequest } from '@/services/webhookService';
-import { trackLeadFormSent, trackContactAttempted, trackQuoteRequested, trackWhatsAppClick, trackCtaClick } from '@/lib/gtag';
+import { trackLeadFormSent, trackContactAttempted, trackQuoteRequested, trackWhatsAppClick, trackCtaClick, trackFormView, trackFormStart, trackFormValidationError, trackLeadDelivery } from '@/lib/gtag';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -18,9 +18,18 @@ export default function Contact() {
   const automations = config?.automations;
   const [selectedType, setSelectedType] = useState('consulta');
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [started, setStarted] = useState(false);
   const [form, setForm] = useState({
     name: '', email: '', phone: '', country: '', vehicle: '', product: '', message: '', type: 'consulta',
   });
+
+  useEffect(() => { trackFormView(selectedType); }, [selectedType]);
+
+  const markStarted = () => {
+    if (started) return;
+    setStarted(true);
+    trackFormStart(selectedType);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -40,11 +49,13 @@ export default function Contact() {
 
     if (ok) {
       setStatus('success');
+      trackLeadDelivery('success', selectedType);
       trackLeadFormSent(selectedType, lang);
       if (isQuote) trackQuoteRequested(form.product, lang);
       setForm({ name: '', email: '', phone: '', country: '', vehicle: '', product: '', message: '', type: 'consulta' });
     } else {
       setStatus('error');
+      trackLeadDelivery('error', selectedType);
     }
   };
 
@@ -91,7 +102,7 @@ export default function Contact() {
                 {((t as any)?.contact?.formTypes ?? []).map((ft: {id: string; value: string; label: string; icon?: string}) => (
                   <button
                     key={ft.id}
-                    onClick={() => { setSelectedType(ft.id); setStatus('idle'); }}
+                    onClick={() => { setSelectedType(ft.id); setStatus('idle'); setStarted(false); }}
                     className={`py-2.5 px-3 rounded-xl text-sm font-medium transition-all ${
                       selectedType === ft.id
                         ? 'bg-cyan-accent text-navy-950'
@@ -109,12 +120,12 @@ export default function Contact() {
                   <p className="text-white font-semibold text-lg text-center">{t.contact.success}</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} onInvalid={(event) => trackFormValidationError(selectedType, (event.target as HTMLInputElement).name || 'unknown')} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.name}</label>
                       <input
-                        name="name" required value={form.name} onChange={handleChange}
+                        name="name" required maxLength={120} value={form.name} onChange={handleChange} onFocus={markStarted}
                         placeholder={t.contact.placeholders.name}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                       />
@@ -122,7 +133,7 @@ export default function Contact() {
                     <div>
                       <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.email}</label>
                       <input
-                        name="email" type="email" required value={form.email} onChange={handleChange}
+                        name="email" type="email" required maxLength={254} value={form.email} onChange={handleChange} onFocus={markStarted}
                         placeholder={t.contact.placeholders.email}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                       />
@@ -133,7 +144,7 @@ export default function Contact() {
                     <div>
                       <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.phone}</label>
                       <input
-                        name="phone" value={form.phone} onChange={handleChange}
+                        name="phone" maxLength={40} value={form.phone} onChange={handleChange} onFocus={markStarted}
                         placeholder={t.contact.placeholders.phone}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                       />
@@ -141,7 +152,7 @@ export default function Contact() {
                     <div>
                       <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.country}</label>
                       <input
-                        name="country" value={form.country} onChange={handleChange}
+                        name="country" maxLength={100} value={form.country} onChange={handleChange} onFocus={markStarted}
                         placeholder={t.contact.placeholders.country}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                       />
@@ -153,7 +164,7 @@ export default function Contact() {
                       <div>
                         <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.vehicle}</label>
                         <input
-                          name="vehicle" value={form.vehicle} onChange={handleChange}
+                          name="vehicle" maxLength={160} value={form.vehicle} onChange={handleChange} onFocus={markStarted}
                           placeholder={t.contact.placeholders.vehicle}
                           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                         />
@@ -161,7 +172,7 @@ export default function Contact() {
                       <div>
                         <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.product}</label>
                         <input
-                          name="product" value={form.product} onChange={handleChange}
+                          name="product" maxLength={160} value={form.product} onChange={handleChange} onFocus={markStarted}
                           placeholder={t.contact.placeholders.product}
                           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors"
                         />
@@ -172,7 +183,7 @@ export default function Contact() {
                   <div>
                     <label className="text-slate-400 text-xs font-medium mb-1 block">{t.contact.fields.message}</label>
                     <textarea
-                      name="message" required value={form.message} onChange={handleChange}
+                      name="message" required maxLength={5000} value={form.message} onChange={handleChange} onFocus={markStarted}
                       placeholder={t.contact.placeholders.message}
                       rows={4}
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-accent/40 transition-colors resize-none"

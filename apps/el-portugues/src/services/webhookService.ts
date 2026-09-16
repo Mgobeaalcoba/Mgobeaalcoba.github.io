@@ -14,14 +14,22 @@ export interface WebhookResponse {
 
 const CONTACT_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_CONTACT_WEBHOOK ?? '';
 const QUOTE_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_QUOTE_WEBHOOK ?? '';
+const ALLOWED_WEBHOOK_ORIGIN = 'https://mgobeaalcoba.app.n8n.cloud';
+
+const allowedWebhookUrl = (value: string): string | null => {
+  try {
+    const url = new URL(value);
+    return url.origin === ALLOWED_WEBHOOK_ORIGIN && url.pathname.startsWith('/webhook/') && !url.search && !url.hash
+      ? url.toString()
+      : null;
+  } catch { return null; }
+};
 
 const sendToWebhook = async (url: string, data: ContactFormData): Promise<WebhookResponse> => {
-  if (!url) {
-    console.warn('Webhook URL not configured. Set NEXT_PUBLIC_N8N_CONTACT_WEBHOOK in .env.local');
-    return { success: false, message: 'Webhook URL not configured' };
-  }
+  const endpoint = allowedWebhookUrl(url);
+  if (!endpoint) throw new Error('webhook_not_configured');
 
-  const response = await fetch(url, {
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -29,6 +37,7 @@ const sendToWebhook = async (url: string, data: ContactFormData): Promise<Webhoo
       source: 'elportugues-landing',
       timestamp: new Date().toISOString(),
     }),
+    signal: AbortSignal.timeout(10_000),
   });
 
   if (!response.ok) {

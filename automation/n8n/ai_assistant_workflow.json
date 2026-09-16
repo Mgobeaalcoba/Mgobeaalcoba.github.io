@@ -317,19 +317,8 @@
       "parameters": {
         "method": "POST",
         "url": "={{ $vars.NEXT_PUBLIC_SUPABASE_URL }}/rest/v1/rpc/match_knowledge",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "apikey",
-              "value": "={{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
-            },
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
-            }
-          ]
-        },
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "supabaseApi",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"query_embedding\": {{ JSON.stringify($json.body) }},\n  \"match_threshold\": 0.5,\n  \"match_count\": 3\n}",
@@ -342,7 +331,13 @@
       "position": [
         -1600,
         1008
-      ]
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "[CREDENTIAL_ID_SUPABASE]",
+          "name": "Supabase account"
+        }
+      }
     },
     {
       "parameters": {
@@ -517,4 +512,3 @@
     "instanceId": "[INSTANCE_ID]"
   }
 }
-

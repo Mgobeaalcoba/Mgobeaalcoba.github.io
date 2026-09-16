@@ -78,6 +78,41 @@ const translations: Record<string, Record<Language, string>> = {
   floating_cta_consulting: { es: 'Contactame', en: 'Contact me' },
   floating_cta_blog: { es: 'Contactame', en: 'Contact me' },
   floating_cta_recursos: { es: 'Contactame', en: 'Contact me' },
+
+  // Services & commerce. Service copy itself lives bilingual in lib/offers.ts;
+  // these keys only cover reusable UI labels.
+  services_eyebrow: { es: 'MGA / Servicios a demanda', en: 'MGA / On-demand services' },
+  services_grid_eyebrow: { es: 'Servicios a demanda', en: 'On-demand services' },
+  services_grid_title: { es: 'Comprá claridad antes de comprar complejidad.', en: 'Buy clarity before you buy complexity.' },
+  services_grid_sub: { es: 'Alcance, precio y entrega definidos. Si después avanzamos con una implementación, descontamos el diagnóstico correspondiente.', en: 'Scope, price and delivery defined upfront. If we later move into an implementation, we credit the diagnostic fee.' },
+  services_best_first_step: { es: 'Mejor primer paso', en: 'Best first step' },
+  services_single_payment: { es: 'pago único', en: 'one-time payment' },
+  services_see_detail: { es: 'Ver detalle', en: 'View details' },
+  services_see_service: { es: 'Ver servicio', en: 'View service' },
+  services_back_home: { es: 'Volver al inicio', en: 'Back to home' },
+  services_back_services: { es: 'Volver a servicios', en: 'Back to services' },
+  services_article_cta: { es: 'Convertí la lectura en una decisión', en: 'Turn this reading into a decision' },
+  services_detail_eyebrow: { es: 'Servicio a demanda', en: 'On-demand service' },
+  services_detail_outcome: { es: 'Resultado', en: 'Outcome' },
+  services_detail_for_you: { es: 'Es para vos si…', en: 'This is for you if…' },
+  services_detail_you_get: { es: 'Qué recibís', en: 'What you get' },
+  services_detail_guarantee: { es: 'Si avanzamos con una implementación, descontamos el diagnóstico aplicable.', en: 'If we move on to an implementation, the applicable diagnostic fee is credited.' },
+  services_detail_final_eyebrow: { es: '¿Listo para empezar?', en: 'Ready to start?' },
+  services_detail_final_title: { es: 'Reservá ahora y trabajamos directamente sobre tu caso.', en: 'Book now and we work directly on your case.' },
+  checkout_buy_now: { es: 'Comprar ahora', en: 'Buy now' },
+  checkout_reserve: { es: 'Reservar servicio', en: 'Book service' },
+  checkout_request: { es: 'Quiero reservar {offer} (USD {price}). ¿Cómo continúo con el pago?', en: 'I want to book {offer} (USD {price}). How do I continue with the payment?' },
+  checkout_verifying: { es: 'Verificando el estado informado…', en: 'Checking the reported status…' },
+  checkout_approved: { es: 'Mercado Pago informó que el pago fue aprobado. La acreditación definitiva se valida del lado del servidor.', en: 'Mercado Pago reported the payment as approved. Final settlement is validated server-side.' },
+  checkout_pending: { es: 'El pago figura pendiente. Esperá la confirmación de Mercado Pago antes de considerarlo acreditado.', en: 'The payment is still pending. Wait for Mercado Pago confirmation before considering it settled.' },
+  checkout_rejected: { es: 'El pago no fue aprobado. Podés volver a servicios para intentar nuevamente o contactarme.', en: 'The payment was not approved. You can return to services to try again or get in touch.' },
+  checkout_unknown: { es: 'No recibimos un estado verificable en esta vuelta. Si ya pagaste, completá el onboarding con el comprobante para revisarlo.', en: 'We did not receive a verifiable status on this return. If you already paid, complete the onboarding with your receipt so we can review it.' },
+  onboarding_cta: { es: 'Completar onboarding', en: 'Complete onboarding' },
+  onboarding_request: { es: 'Ya realicé el pago y quiero coordinar mi servicio.', en: 'I have already paid and I want to schedule my service.' },
+  thanks_eyebrow: { es: 'Retorno de Mercado Pago / Próximo paso', en: 'Mercado Pago return / Next step' },
+  thanks_step_1: { es: 'Compartís el contexto mínimo', en: 'You share the minimum context' },
+  thanks_step_2: { es: 'Coordinamos la agenda', en: 'We schedule the session' },
+  thanks_step_3: { es: 'Recibís la entrega acordada', en: 'You receive the agreed deliverable' },
 };
 
 const LanguageContext = createContext<LanguageContextValue>({
@@ -86,16 +121,37 @@ const LanguageContext = createContext<LanguageContextValue>({
   t: (key) => key,
 });
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>('es');
+export function LanguageProvider({
+  children,
+  initialLang = 'es',
+  authoritative = false,
+}: {
+  children: React.ReactNode;
+  /** Language rendered on the server and before the stored preference is read. */
+  initialLang?: Language;
+  /**
+   * Makes the route's language win over the stored preference. Used by the
+   * localized /en routes so a crawler and a first visit always get the language
+   * the URL promises. The preference is persisted so the rest of the site follows.
+   */
+  authoritative?: boolean;
+}) {
+  const [lang, setLangState] = useState<Language>(initialLang);
 
   useEffect(() => {
+    if (authoritative) {
+      setLangState(initialLang);
+      localStorage.setItem('language', initialLang);
+      document.documentElement.lang = initialLang;
+      return;
+    }
+
     const saved = localStorage.getItem('language') as Language | null;
     if (saved === 'en' || saved === 'es') {
       setLangState(saved);
       document.documentElement.lang = saved;
     }
-  }, []);
+  }, [authoritative, initialLang]);
 
   function setLang(l: Language) {
     setLangState(l);

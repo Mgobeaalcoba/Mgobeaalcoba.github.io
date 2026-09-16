@@ -4,8 +4,11 @@ import Link from '@/components/shared/TransitionLink';
 import { ArrowRight } from 'lucide-react';
 import { events } from '@/lib/gtag';
 import { getOffer } from '@/lib/offers';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePath } from '@/lib/i18n-routes';
 
 export default function ArticleServiceCTA({ category }: { category: string }) {
+  const { lang, t } = useLanguage();
   const normalized = category.toLowerCase();
   const slug = normalized.includes('career') || normalized.includes('lider') || normalized.includes('educ')
     ? 'mentoria-uno-a-uno'
@@ -16,10 +19,10 @@ export default function ArticleServiceCTA({ category }: { category: string }) {
 
   return (
     <aside className="signal-article-service">
-      <span>Convertí la lectura en una decisión</span>
-      <h2>{offer.name}</h2>
-      <p>{offer.promise}</p>
-      <div><strong>USD {offer.priceUsd}</strong><Link href={`/servicios/${offer.slug}/`} onClick={() => events.selectItem(offer.slug, offer.name, offer.priceUsd)}>Ver servicio<ArrowRight size={16} /></Link></div>
+      <span>{t('services_article_cta')}</span>
+      <h2>{offer.name[lang]}</h2>
+      <p>{offer.promise[lang]}</p>
+      <div><strong>USD {offer.priceUsd}</strong><Link href={localizePath(`/servicios/${offer.slug}/`, lang)} onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd)}>{t('services_see_service')}<ArrowRight size={16} /></Link></div>
     </aside>
   );
 }
