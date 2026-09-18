@@ -14,6 +14,9 @@ Scripts SQL para el schema y datos de Supabase. Todos los archivos aquí están 
 | `013_harden_assistant_data_access.sql` | Activa RLS y restringe a servidor `assistant_logs`/`knowledge`; fija funciones y mueve `vector` fuera de `public` |
 | `014_add_educacionit_claude_code_instructor_role.sql` | Agrega el rol de instructor del curso "Automatización con Claude y Claude Code" en EducacionIT (Ago 2026) bajo el empleador existente |
 | `015_reorder_educacionit_roles.sql` | Invierte el `sort_order` de los dos roles de EducacionIT para que el curso más reciente aparezca arriba |
+| `016_add_henry_ai_automation_referente_masterclass.sql` | Agrega a la videoteca la masterclass de Henry "Cómo convertirte en el referente de IA de tu empresa" (`video-11`, Sep 2026) |
+| `017_credit_mariano_on_henry_ai_automation_masterclass.sql` | Corrige la descripción de `video-11`: la masterclass fue co-conducida por Milagros Savino y Mariano Gobea |
+| `018_document_manually_loaded_videos_7_to_10.sql` | Versiona `video-7` a `video-10` (cargados a mano en producción) y reconcilia el `sort_order` de `video-1` a `video-6`; no-op en producción |
 
 ## Cómo ejecutar
 
