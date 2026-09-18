@@ -5,12 +5,14 @@ import { dirname, resolve } from 'node:path';
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const durableEntries = new Set([
+  '.claude',
   '.github',
   '.gitignore',
   '.nvmrc',
   '.prettierignore',
   '.prettierrc',
   'AGENTS.md',
+  'CLAUDE.md',
   'README.md',
   'apps',
   'automation',
