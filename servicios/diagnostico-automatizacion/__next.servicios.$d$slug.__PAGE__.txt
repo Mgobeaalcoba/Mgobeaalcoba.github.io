@@ -1,0 +1,49 @@
+1:"$Sreact.fragment"
+2:I[78208,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+3:I[38682,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+4:I[21686,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+5:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"MetadataBoundary"]
+9:X
+26:X
+26:C
+0:{"buildId":"skvYmLKwRTqTcx3EV8Gic","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"signal-offer-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Service\",\"name\":\"Diagnóstico de Automatización\",\"description\":\"Analizamos un proceso real, cuantificamos su costo operativo y definimos un MVP con alcance, arquitectura y retorno esperado.\",\"provider\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"areaServed\":\"Worldwide\",\"offers\":{\"@type\":\"Offer\",\"price\":99,\"priceCurrency\":\"USD\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://www.mgatc.com/servicios/diagnostico-automatizacion/\"}}"}}],["$","$L2",null,{}],["$","$L3",null,{"offer":{"slug":"diagnostico-automatizacion","name":{"es":"Diagnóstico de Automatización","en":"Automation Diagnostic"},"shortName":{"es":"Diagnóstico","en":"Diagnostic"},"category":{"es":"Automatización","en":"Automation"},"priceUsd":99,"duration":{"es":"75 minutos","en":"75 minutes"},"delivery":{"es":"Informe en 48 h","en":"Report in 48 h"},"promise":{"es":"Encontrá el proceso correcto para automatizar antes de invertir en desarrollo.","en":"Find the right process to automate before you invest in development."},"description":{"es":"Analizamos un proceso real, cuantificamos su costo operativo y definimos un MVP con alcance, arquitectura y retorno esperado.","en":"We analyze a real process, quantify its operating cost and define an MVP with scope, architecture and expected return."},"audience":{"es":["PyMEs con tareas manuales repetitivas","Equipos que evalúan n8n, IA o integraciones","Líderes que necesitan priorizar una primera automatización"],"en":["SMBs with repetitive manual tasks","Teams evaluating n8n, AI or integrations","Leaders who need to prioritize a first automation"]},"includes":{"es":["Sesión de relevamiento de 75 minutos","Mapa del proceso y sus puntos de fricción","Estimación de ahorro y retorno","Arquitectura recomendada","Roadmap priorizado y presupuesto orientativo"],"en":["75-minute discovery session","Process map and friction points","Savings and return estimate","Recommended architecture","Prioritized roadmap and indicative budget"]},"outcome":{"es":["Una oportunidad concreta y priorizada","Un alcance listo para implementar","El precio se descuenta de una implementación posterior"],"en":["A concrete, prioritized opportunity","A scope ready to implement","The fee is credited toward a later implementation"]},"paymentUrl":"https://mpago.la/1YpijTK","featured":true}}],["$","$L4",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/07ndvgdpgwh0j.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/3bauibhysn874.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$La",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Diagnóstico de Automatización | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"Analizamos un proceso real, cuantificamos su costo operativo y definimos un MVP con alcance, arquitectura y retorno esperado."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],"$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22"]}]}]}],null]}],"isPartial":"$@23","staleTime":"$9","varyParams":null},{"rsc":"$L24","isPartial":"$@25","staleTime":"$9","varyParams":"$26"},{"rsc":"$L27","isPartial":"$@28","staleTime":"$9","varyParams":"$26"}],"isUpgradeableISRFallback":false,"a":"$@29","rootVaryParams":null,"needsRuntimeRequest":"$@2a"}
+2b:I[27201,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"IconMark"]
+2c:I[39756,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"default"]
+2d:I[37457,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"default"]
+7:null
+c:["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}]
+d:["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}]
+e:["$","meta","8",{"name":"robots","content":"index, follow"}]
+f:["$","meta","9",{"name":"googlebot","content":"index, follow"}]
+10:["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/servicios/diagnostico-automatizacion/"}]
+11:["$","link","11",{"rel":"alternate","hrefLang":"es-AR","href":"https://www.mgatc.com/servicios/diagnostico-automatizacion/"}]
+12:["$","link","12",{"rel":"alternate","hrefLang":"en","href":"https://www.mgatc.com/en/servicios/diagnostico-automatizacion/"}]
+13:["$","link","13",{"rel":"alternate","hrefLang":"x-default","href":"https://www.mgatc.com/servicios/diagnostico-automatizacion/"}]
+14:["$","meta","14",{"name":"mobile-web-app-capable","content":"yes"}]
+15:["$","meta","15",{"name":"apple-mobile-web-app-title","content":"MGA"}]
+16:["$","meta","16",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]
+17:["$","meta","17",{"property":"og:title","content":"Diagnóstico de Automatización | MGA Tech Consulting"}]
+18:["$","meta","18",{"property":"og:description","content":"Encontrá el proceso correcto para automatizar antes de invertir en desarrollo."}]
+19:["$","meta","19",{"property":"og:url","content":"https://www.mgatc.com/servicios/diagnostico-automatizacion/"}]
+1a:["$","meta","20",{"property":"og:locale","content":"es_AR"}]
+1b:["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}]
+1c:["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}]
+1d:["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}]
+1e:["$","meta","24",{"name":"twitter:title","content":"Diagnóstico de Automatización | MGA Tech Consulting"}]
+1f:["$","meta","25",{"name":"twitter:description","content":"Encontrá el proceso correcto para automatizar antes de invertir en desarrollo."}]
+20:["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}]
+21:["$","link","27",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}]
+22:["$","$L2b","28",{}]
+24:["$","$1","c",{"children":[null,["$","$L2c",null,{"parallelRouterKey":"children","template":["$","$L2d",null,{}]}]]}]
+27:["$","$1","c",{"children":[null,["$","$L2c",null,{"parallelRouterKey":"children","template":["$","$L2d",null,{}]}]]}]
+2a:true
+9:300
+9:C
+29:0
+23:"$undefined"
+25:"$undefined"
+28:"$undefined"
+8:"$undefined"

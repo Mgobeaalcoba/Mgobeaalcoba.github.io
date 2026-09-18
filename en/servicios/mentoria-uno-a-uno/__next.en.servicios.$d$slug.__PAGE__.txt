@@ -1,0 +1,51 @@
+1:"$Sreact.fragment"
+2:I[78208,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+3:I[38682,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+4:I[21686,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js","/_next/static/chunks/07ndvgdpgwh0j.js","/_next/static/chunks/3bauibhysn874.js"],"default"]
+5:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"MetadataBoundary"]
+9:X
+25:X
+25:C
+0:{"buildId":"skvYmLKwRTqTcx3EV8Gic","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"signal-offer-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Service\",\"name\":\"1:1 Tech Mentoring\",\"description\":\"A session focused on your challenge: architecture, Data Engineering, AI, interviews, portfolio, leadership or a career transition.\",\"provider\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\"},\"areaServed\":\"Worldwide\",\"offers\":{\"@type\":\"Offer\",\"price\":80,\"priceCurrency\":\"USD\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/\"}}"}}],["$","$L2",null,{}],["$","$L3",null,{"offer":{"slug":"mentoria-uno-a-uno","name":{"es":"Mentoría Tech 1:1","en":"1:1 Tech Mentoring"},"shortName":{"es":"Mentoría 1:1","en":"1:1 Mentoring"},"category":{"es":"Carrera & liderazgo","en":"Career & leadership"},"priceUsd":80,"duration":{"es":"60 minutos","en":"60 minutes"},"delivery":{"es":"Plan inmediato","en":"Immediate action plan"},"promise":{"es":"Destrabá una decisión técnica o profesional con una mirada senior y práctica.","en":"Unblock a technical or career decision with a senior, practical perspective."},"description":{"es":"Una sesión enfocada en tu desafío: arquitectura, Data Engineering, IA, entrevistas, portfolio, liderazgo o transición profesional.","en":"A session focused on your challenge: architecture, Data Engineering, AI, interviews, portfolio, leadership or a career transition."},"audience":{"es":["Profesionales de Data, Analytics e IA","Personas que preparan entrevistas o promociones","Tech Leads ante una decisión de arquitectura"],"en":["Data, Analytics and AI professionals","People preparing for interviews or promotions","Tech Leads facing an architecture decision"]},"includes":{"es":["Formulario previo para usar mejor la sesión","Sesión individual de 60 minutos","Revisión de material o arquitectura","Plan de acción concreto","Resumen y recursos recomendados"],"en":["Pre-session form to make the most of our time","60-minute one-on-one session","Review of your material or architecture","Concrete action plan","Summary and recommended resources"]},"outcome":{"es":["Decisión y próximos pasos claros","Feedback basado en experiencia real","Sin suscripción ni compromiso posterior"],"en":["A clear decision and next steps","Feedback grounded in real experience","No subscription or further commitment"]},"paymentUrl":"https://mpago.la/2bbynxo"}}],["$","$L4",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/07ndvgdpgwh0j.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/3bauibhysn874.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$La",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"1:1 Tech Mentoring | Mariano Gobea Alcoba"}],["$","meta","1",{"name":"description","content":"A session focused on your challenge: architecture, Data Engineering, AI, interviews, portfolio, leadership or a career transition."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"Mariano Gobea Alcoba"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,technical leader,mercadolibre,mariano gobea alcoba,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],"$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21"]}]}]}],null]}],"isPartial":"$@22","staleTime":"$9","varyParams":null},{"rsc":"$L23","isPartial":"$@24","staleTime":"$9","varyParams":"$25"},{"rsc":"$L26","isPartial":"$@27","staleTime":"$9","varyParams":"$25"},{"rsc":"$L28","isPartial":"$@29","staleTime":"$9","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@2a","rootVaryParams":null,"needsRuntimeRequest":"$@2b"}
+2c:I[27201,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"IconMark"]
+2d:I[39756,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"default"]
+2e:I[37457,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"default"]
+2f:I[89190,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2n-pmowst_c31.js","/_next/static/chunks/34dqbhvj0c_7-.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3d71d_igzy68l.js"],"LanguageProvider"]
+7:null
+c:["$","meta","7",{"name":"creator","content":"Mariano Gobea Alcoba"}]
+d:["$","meta","8",{"name":"robots","content":"index, follow"}]
+e:["$","meta","9",{"name":"googlebot","content":"index, follow"}]
+f:["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/"}]
+10:["$","link","11",{"rel":"alternate","hrefLang":"es-AR","href":"https://www.mgatc.com/servicios/mentoria-uno-a-uno/"}]
+11:["$","link","12",{"rel":"alternate","hrefLang":"en","href":"https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/"}]
+12:["$","link","13",{"rel":"alternate","hrefLang":"x-default","href":"https://www.mgatc.com/servicios/mentoria-uno-a-uno/"}]
+13:["$","meta","14",{"name":"mobile-web-app-capable","content":"yes"}]
+14:["$","meta","15",{"name":"apple-mobile-web-app-title","content":"MGA"}]
+15:["$","meta","16",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]
+16:["$","meta","17",{"property":"og:title","content":"1:1 Tech Mentoring | MGA Tech Consulting"}]
+17:["$","meta","18",{"property":"og:description","content":"Unblock a technical or career decision with a senior, practical perspective."}]
+18:["$","meta","19",{"property":"og:url","content":"https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/"}]
+19:["$","meta","20",{"property":"og:locale","content":"en_US"}]
+1a:["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}]
+1b:["$","meta","22",{"name":"twitter:site","content":"@MGobeaAlcoba"}]
+1c:["$","meta","23",{"name":"twitter:creator","content":"@MGobeaAlcoba"}]
+1d:["$","meta","24",{"name":"twitter:title","content":"1:1 Tech Mentoring | MGA Tech Consulting"}]
+1e:["$","meta","25",{"name":"twitter:description","content":"Unblock a technical or career decision with a senior, practical perspective."}]
+1f:["$","meta","26",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}]
+20:["$","link","27",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}]
+21:["$","$L2c","28",{}]
+23:["$","$1","c",{"children":[null,["$","$L2d",null,{"parallelRouterKey":"children","template":["$","$L2e",null,{}]}]]}]
+26:["$","$1","c",{"children":[null,["$","$L2d",null,{"parallelRouterKey":"children","template":["$","$L2e",null,{}]}]]}]
+28:["$","$1","c",{"children":[null,["$","$L2f",null,{"initialLang":"en","authoritative":true,"children":["$","$L2d",null,{"parallelRouterKey":"children","template":["$","$L2e",null,{}]}]}]]}]
+2b:true
+9:300
+9:C
+2a:0
+22:"$undefined"
+24:"$undefined"
+27:"$undefined"
+29:"$undefined"
+8:"$undefined"
