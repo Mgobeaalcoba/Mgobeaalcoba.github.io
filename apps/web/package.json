@@ -17,7 +17,7 @@
     "chart.js": "^4.5.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
-    "framer-motion": "^12.34.3",
+    "framer-motion": "^13.3.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.3.1",
     "jspdf": "^4.2.1",
