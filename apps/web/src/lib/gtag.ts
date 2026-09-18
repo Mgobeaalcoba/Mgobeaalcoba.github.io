@@ -7,6 +7,21 @@ export type ConsentChoice = 'essential' | 'analytics' | 'all';
 
 type AnalyticsPrimitive = string | number | boolean;
 type AnalyticsValue = AnalyticsPrimitive | AnalyticsPrimitive[] | Record<string, unknown>[];
+
+/**
+ * Shape emitted by the generic interaction layer.
+ * The index signature lets callers attach extra enumerated parameters (a
+ * source, a state, a close method) without widening every event signature.
+ */
+export interface UiTarget {
+  ui_element: string;
+  ui_kind: string;
+  ui_surface: string;
+  site_section?: string;
+  ui_index?: number;
+  [key: string]: unknown;
+}
+
 let previousPageLocation = '';
 
 declare global {
@@ -43,6 +58,12 @@ function safeReferrer(url: string): string {
   }
 }
 
+/** Site section of the current pathname, using the same mapping as page_view. */
+export function currentSection(): string {
+  if (typeof window === 'undefined') return 'cv';
+  return getPageContext(window.location.pathname).site_section;
+}
+
 function getPageContext(rawPathname: string): { site_section: string; page_type: string } {
   // Localized routes report the same section and page type as their default
   // locale counterpart, so GA4 dimensions stay comparable across languages.
@@ -68,9 +89,24 @@ function getPageContext(rawPathname: string): { site_section: string; page_type:
   return { site_section: 'cv', page_type: pathname === '/' ? 'home' : 'page' };
 }
 
+/**
+ * Last line of defence before a value reaches GA4. The instrumentation never
+ * sends free text or input values on purpose; this catches accidental leaks
+ * (an email or a formatted phone number that slipped into a label).
+ * Bare digit runs are left alone so legitimate ids keep working.
+ */
+const EMAIL_PATTERN = /[^@\s]+@[^@\s]+\.[^@\s]+/;
+const FORMATTED_PHONE_PATTERN = /^\+?\d[\d\s().-]{6,}$/;
+
+function redactIfPersonal(text: string): string {
+  if (EMAIL_PATTERN.test(text)) return 'redacted';
+  if (FORMATTED_PHONE_PATTERN.test(text)) return 'redacted';
+  return text;
+}
+
 function sanitizeValue(value: unknown): AnalyticsValue | undefined {
   if (typeof value === 'string') {
-    const normalized = value.trim();
+    const normalized = redactIfPersonal(value.trim());
     return normalized ? normalized.slice(0, 100) : undefined;
   }
   if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
@@ -526,4 +562,105 @@ export const events = {
   
   agentDashboardCtaClicked: (cta_type: string) =>
     keyEvent('agent_dashboard_cta_click', { cta_type, site_section: 'recursos' }),
+
+  // ─────────────────────────────────────────────────────────────
+  // Generic interaction layer
+  //
+  // These cover every interactive element on every page, including the ones
+  // nobody instrumented by hand. The tracker derives `ui_element` from a
+  // `data-analytics` attribute when present and from a deterministic fallback
+  // otherwise. It never reads element text or input values.
+  // ─────────────────────────────────────────────────────────────
+  uiClick: (params: UiTarget & { link_type?: string; link_domain?: string; link_path?: string }) =>
+    event('ui_click', params),
+
+  uiToggle: (params: UiTarget & { ui_state: string }) =>
+    event('ui_toggle', params),
+
+  uiFocus: (params: UiTarget & { field_type: string }) =>
+    event('ui_focus', params),
+
+  uiView: (params: UiTarget & { ui_state?: string; ui_index?: number; source?: string }) =>
+    event('ui_view', params),
+
+  uiCopy: (params: UiTarget) => event('ui_copy', params),
+
+  uiPrint: (site_section: string) => event('ui_print', { site_section }),
+
+  uiHover: (params: UiTarget) => event('ui_hover', params),
+
+  /** Interactive terminal in the portfolio. The typed text is never sent. */
+  terminalCommand: (command: string, is_known_command: boolean, argument_count: number) =>
+    event('terminal_command', { command_id: command, is_known_command, argument_count, site_section: 'portfolio' }),
+
+  /** Accordions, disclosures and expandable panels. */
+  accordionToggle: (params: { component: string; item_id: string; ui_state: 'expanded' | 'collapsed'; site_section: string; ui_index?: number }) =>
+    event('ui_toggle', { ui_kind: 'accordion', ui_surface: params.component, ui_element: params.item_id, ui_state: params.ui_state, ui_index: params.ui_index, site_section: params.site_section }),
+
+  /** Header menus (desktop dropdown and mobile drawer). */
+  menuToggle: (menu: string, ui_state: 'open' | 'closed', site_section?: string) =>
+    event('ui_toggle', { ui_kind: 'menu', ui_surface: 'navbar', ui_element: menu, ui_state, site_section }),
+
+  themeSwitch: (from_theme: string, to_theme: string) =>
+    event('ui_toggle', { ui_kind: 'theme', ui_surface: 'navbar', ui_element: 'theme_toggle', ui_state: to_theme, from_theme, site_section: 'global' }),
+
+  /** Command palette (⌘K) lifecycle. */
+  commandPaletteOpen: (trigger: 'keyboard' | 'button', result_count: number) =>
+    event('ui_view', { ui_kind: 'command_palette', ui_surface: 'global', ui_element: 'command_palette', ui_state: 'open', trigger, result_count, site_section: 'global' }),
+
+  commandPaletteClose: (close_method: 'escape' | 'backdrop' | 'navigation' | 'selection') =>
+    event('ui_toggle', { ui_kind: 'command_palette', ui_surface: 'global', ui_element: 'command_palette', ui_state: 'closed', close_method, site_section: 'global' }),
+
+  commandPaletteSearch: (query_length_band: string, result_count: number) =>
+    event('ui_action', { ui_kind: 'command_palette', ui_surface: 'global', ui_element: 'command_palette_search', query_length_band, result_count, site_section: 'global' }),
+
+  commandPaletteExecute: (command_id: string, result_count: number) =>
+    event('ui_action', { ui_kind: 'command_palette', ui_surface: 'global', ui_element: 'command_palette_result', command_id, result_count, site_section: 'global' }),
+
+  /** Keyboard shortcuts. Only known combinations are emitted, never raw typing. */
+  keyboardShortcut: (shortcut: string, site_section: string) =>
+    event('ui_action', { ui_kind: 'keyboard', ui_surface: 'global', ui_element: shortcut, site_section }),
+
+  // ─────────────────────────────────────────────────────────────
+  // Attention, waits and technical health
+  // ─────────────────────────────────────────────────────────────
+  /** Tab visibility and background time: measures real attention, not dwell time. */
+  pageVisibility: (visibility_state: 'visible' | 'hidden', visible_seconds_band: string, hidden_count: number) =>
+    event('page_visibility', { visibility_state, visible_seconds_band, hidden_count }),
+
+  /** Aggregate long-task cost per pageview instead of one event per task. */
+  mainThreadBlocking: (long_task_count: number, blocking_time_band: string) =>
+    event('main_thread_blocking', { long_task_count, blocking_time_band }),
+
+  /** Core Web Vitals and navigation timing, banded by rating. */
+  webVitals: (metric_name: string, metric_value: number, metric_rating: 'good' | 'needs_improvement' | 'poor') =>
+    event('web_vitals', { metric_name, metric_value, metric_rating }),
+
+  pageLoadTiming: (ready_state: string, dom_ready_band: string, load_band: string) =>
+    event('page_load_timing', { ready_state, dom_ready_band, load_band }),
+
+  /** Async data the page is waiting for (Supabase reads, calculators, RSS). */
+  dataWait: (source: string, outcome: 'success' | 'error' | 'timeout', wait_ms_band: string, attempt: number) =>
+    event('data_wait', { source, outcome, wait_ms_band, attempt, site_section: currentSection() }),
+
+  networkStatus: (network_state: 'online' | 'offline') =>
+    event('network_status', { network_state }),
+
+  scriptError: (error_name: string, error_source: 'window' | 'promise', page_path_free: string) =>
+    event('app_error', { component: 'runtime', operation: error_source, error_code: error_name, recoverable: false, site_section: page_path_free }),
+
+  resourceError: (resource_type: string, element_tag: string) =>
+    event('app_error', { component: 'resource', operation: element_tag, error_code: `${resource_type}_load_failed`, recoverable: true }),
+
+  serviceWorkerLifecycle: (step: string, status: 'success' | 'error') =>
+    event('pwa_service_worker', { step, status }),
+
+  offlineView: () => event('ui_view', { ui_kind: 'page', ui_surface: 'system', ui_element: 'offline_page', ui_state: 'view', site_section: 'system' }),
+
+  notFound: (requested_path: string, referrer_type: 'internal' | 'external' | 'direct') =>
+    event('page_not_found', { requested_path, referrer_type, site_section: 'system' }),
+
+  /** Salary simulator: personal amounts are only ever sent as bands. */
+  salarySimulatorAction: (action: 'input' | 'simulate' | 'reset' | 'preset', target_net_band: string, has_result: boolean) =>
+    event('tool_action', { tool_id: 'salary_simulator', action, target_net_band, has_result, site_section: 'recursos' }),
 };

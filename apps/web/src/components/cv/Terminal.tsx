@@ -5,6 +5,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { ChevronDown, TerminalSquare } from 'lucide-react';
 import { getCareerExperienceYears } from '@/lib/experience';
+import { events } from '@/lib/gtag';
+
+const KNOWN_TERMINAL_COMMANDS = new Set([
+  'help', 'about', 'experience', 'education', 'projects', 'contact', 'neofetch', 'matrix', 'clear', 'gui',
+]);
 
 interface HistoryEntry {
   type: 'input' | 'output';
@@ -143,6 +148,10 @@ export default function Terminal() {
   function processCommand(cmd: string): string {
     const parts = cmd.trim().split(/\s+/);
     const command = parts[0].toLowerCase();
+
+    // Only the command id is reported. Whatever the visitor typed is never sent.
+    const isKnown = KNOWN_TERMINAL_COMMANDS.has(command);
+    events.terminalCommand(isKnown ? command : 'unknown', isKnown, Math.max(0, parts.length - 1));
 
     switch (command) {
       case 'help':

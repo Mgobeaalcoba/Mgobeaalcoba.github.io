@@ -26,8 +26,12 @@ export default function ServicesPageClient() {
       <section className="signal-service-faq">
         <div><span className="signal-eyebrow">{SERVICES_FAQ_LABEL[lang]}</span><h2>{SERVICES_FAQ_TITLE[lang]}</h2></div>
         <div>
-          {SERVICES_FAQ.map((item) => (
-            <details key={item.question.es}>
+          {SERVICES_FAQ.map((item, index) => (
+            <details
+              key={item.question.es}
+              data-analytics={`services_faq_${index + 1}`}
+              data-analytics-surface="services_faq"
+            >
               <summary>{item.question[lang]}</summary>
               <p>{item.answer[lang]}</p>
             </details>

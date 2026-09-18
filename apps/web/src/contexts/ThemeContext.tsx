@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
+import { events } from '@/lib/gtag';
 
 export type Theme = 'dark' | 'light';
 
@@ -51,6 +52,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }
 
   function setTheme(t: Theme) {
+    // Only user-driven changes are reported; the initial hydration sets state
+    // directly and stays out of the reports.
+    if (t !== theme) events.themeSwitch(theme, t);
     setThemeState(t);
     localStorage.setItem('theme', t);
     applyTheme(t);

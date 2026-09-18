@@ -27,7 +27,14 @@ export default function CheckoutButton({ offer, compact = false }: { offer: Offe
   };
 
   return (
-    <button type="button" className={compact ? 'signal-offer-button signal-offer-button--compact' : 'signal-offer-button'} onClick={handleClick}>
+    <button
+      type="button"
+      data-analytics={`checkout_${offer.slug}`}
+      data-analytics-kind="cta"
+      data-analytics-surface="offer_grid"
+      className={compact ? 'signal-offer-button signal-offer-button--compact' : 'signal-offer-button'}
+      onClick={handleClick}
+    >
       {isAllowedPaymentUrl(offer.paymentUrl) ? <><span>{t('checkout_buy_now')}</span><ArrowRight size={17} /></> : <><span>{t('checkout_reserve')}</span><CalendarCheck size={17} /></>}
     </button>
   );

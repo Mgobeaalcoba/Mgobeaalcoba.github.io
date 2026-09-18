@@ -36,4 +36,14 @@ Para agregar una página localizada: sumar el patrón al registro, crear `app/en
 
 Quedan sin ruta en inglés, a propósito: los artículos del blog (el markdown es sólo español), las herramientas financieras argentinas y la política de privacidad.
 
+## Analítica
+
+Tres capas en `src/`:
+
+- `lib/gtag.ts` — catálogo de eventos semánticos y contexto común de la propiedad GA4.
+- `components/shared/InteractionTracker.tsx` — capa genérica delegada: mide cualquier elemento interactivo. Los ids legibles salen de `data-analytics`, `data-analytics-kind`, `data-analytics-surface` e `data-analytics-index`.
+- `components/shared/PerformanceTracker.tsx` — Web Vitals, long tasks, visibilidad, red y errores.
+
+Antes de sumar un evento nuevo, revisar el diccionario y el contrato en [docs/runbooks/analytics.md](../../docs/runbooks/analytics.md): evita duplicar lo que la capa genérica ya cubre y respeta el presupuesto de dimensiones de GA4.
+
 Ver `AGENTS.md` para invariantes locales y `../../docs/architecture/system.md` para el flujo de deploy.

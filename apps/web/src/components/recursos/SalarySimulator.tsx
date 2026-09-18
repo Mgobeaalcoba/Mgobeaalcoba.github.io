@@ -2,6 +2,24 @@
 
 import { useState } from 'react';
 import { Briefcase, Info } from 'lucide-react';
+import { events } from '@/lib/gtag';
+
+/**
+ * Personal salary amounts never leave the browser: only the band is reported.
+ * Bands follow the local salary distribution, not exact figures.
+ */
+function salaryBand(value: number): string {
+  if (!Number.isFinite(value) || value <= 0) return 'invalid';
+  if (value < 500000) return 'under_500k';
+  if (value < 1000000) return '500k_1m';
+  if (value < 2000000) return '1m_2m';
+  if (value < 4000000) return '2m_4m';
+  return 'over_4m';
+}
+
+function parseAmount(raw: string): number {
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.'));
+}
 
 // Newton-Raphson iteration to find gross salary from desired net
 function grossFromNet(targetNet: number, maxIterations = 50): number {
@@ -56,9 +74,13 @@ export default function SalarySimulator() {
   const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
   const handleSimulate = () => {
-    const net = parseFloat(targetNet.replace(/\./g, '').replace(',', '.'));
-    if (isNaN(net) || net <= 0) return;
+    const net = parseAmount(targetNet);
+    if (isNaN(net) || net <= 0) {
+      events.toolError('salary_simulator', 'invalid_target_net', true);
+      return;
+    }
 
+    events.toolStart('salary_simulator');
     const gross = grossFromNet(net);
     const aportes = gross * 0.17;
 
@@ -91,6 +113,10 @@ export default function SalarySimulator() {
       rangeLow: gross * 0.95,
       rangeHigh: gross * 1.05,
     });
+
+    const band = salaryBand(net);
+    events.toolResult('salary_simulator', 'success', band);
+    events.salarySimulatorAction('simulate', band, true);
   };
 
   return (
@@ -113,14 +139,17 @@ export default function SalarySimulator() {
           <label className="block text-xs text-gray-400 mb-1.5">Neto deseado mensual (ARS)</label>
           <input
             type="text"
+            data-analytics="salary_target_net"
             value={targetNet}
             onChange={(e) => setTargetNet(e.target.value)}
+            onBlur={() => events.salarySimulatorAction('input', salaryBand(parseAmount(targetNet)), Boolean(result))}
             placeholder="Ej: 1.500.000"
             className="w-full glass px-4 py-3 rounded-xl text-gray-200 border border-white/10 focus:border-purple-500 focus:outline-none text-lg font-mono"
           />
         </div>
         <button
           onClick={handleSimulate}
+          data-analytics="salary_simulate"
           className="w-full py-3 bg-purple-500 hover:bg-purple-400 text-white rounded-xl font-semibold transition-all"
         >
           Calcular Bruto Necesario

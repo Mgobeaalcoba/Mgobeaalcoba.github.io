@@ -31,7 +31,13 @@ export default function OfferGrid({ heading = true }: { heading?: boolean }) {
             <ul>{offer.includes[lang].slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul>
             <div className="signal-offer-card__actions">
               <CheckoutButton offer={offer} compact />
-              <Link href={localizePath(`/servicios/${offer.slug}/`, lang)} onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd)}>{t('services_see_detail')}</Link>
+              <Link
+                href={localizePath(`/servicios/${offer.slug}/`, lang)}
+                data-analytics={`offer_detail_${offer.slug}`}
+                data-analytics-kind="cta"
+                data-analytics-surface="offer_grid"
+                onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd)}
+              >{t('services_see_detail')}</Link>
             </div>
           </article>
         ))}

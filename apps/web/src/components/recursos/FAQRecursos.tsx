@@ -86,6 +86,9 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
     >
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        data-analytics={`faq_${index + 1}`}
+        data-analytics-surface="recursos_faq"
         className="w-full flex items-center justify-between px-5 py-4 text-left group"
       >
         <span className="font-medium text-sm text-gray-200 group-hover:text-sky-400 transition-colors pr-4">
