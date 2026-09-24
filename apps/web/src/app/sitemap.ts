@@ -49,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
       alternates: { languages: { es: `${SITE_URL}/servicios/${offer.slug}/`, en: `${SITE_URL}/en/servicios/${offer.slug}/` } },
     })),
+    // Client work case studies (Unicorn Academy stays out while it is in progress).
+    {
+      url: `${SITE_URL}/trabajos/henry/`,
+      lastModified: new Date('2026-09-24'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     // English counterparts of the on-demand services pages.
     {
       url: `${SITE_URL}/en/servicios/`,

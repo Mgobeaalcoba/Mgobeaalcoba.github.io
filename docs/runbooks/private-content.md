@@ -6,7 +6,14 @@ Ocultar HTML con CSS, JavaScript, una clave embebida o un hash en el navegador n
 
 ## Estado implementado
 
-`/racing-propuesta/` publica únicamente una pantalla genérica sin datos de la propuesta. La versión anterior es recuperable desde el historial Git, pero no debe volver a copiarse dentro de `public/`.
+Cuando el entregable no es público, la tarjeta del trabajo apunta a una pantalla de acceso en `public/` que no contiene ningún dato del documento: sólo indica de qué se trata y cómo pedir acceso.
+
+- `/racing-propuesta/` — propuesta de Racing Club. La versión anterior es recuperable desde el historial Git, pero no debe volver a copiarse dentro de `public/`. Se publica con `noindex,nofollow,noarchive`.
+
+Los trabajos de Henry y Unicorn Academy no usan pantalla de acceso: tienen una página de caso en `/trabajos/<cliente>/` que resume el trabajo sin datos confidenciales (precios, horas, condiciones comerciales, casos internos ni material del cliente).
+
+- `/trabajos/henry/` — rediseño de la carrera de AI Automation. Enlaza a la masterclass en `/blog/videos/?v=VRezpIcvG4U`.
+- `/trabajos/unicorn-academy/` — marcado como WIP y `noindex`, sin detalles del rediseño hasta que el trabajo esté entregado.
 
 ## Activación segura
 

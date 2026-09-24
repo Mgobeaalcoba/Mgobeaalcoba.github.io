@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -40,6 +41,33 @@ const CLIENT_SITES = [
     url: 'https://www.mgatc.com/elportugues-site/',
     thumbnail: '/elportugues-site/logo.png',
   },
+  {
+    id: 'henry',
+    name: 'Henry',
+    kind: { es: 'Diseño curricular · AI Automation', en: 'Curriculum design · AI Automation' },
+    description: {
+      es: 'Rediseño de la carrera de AI Automation: de herramientas a habilidades. Pasa de 7 a 15 semanas, con un módulo nuevo de producción, un contrato de uso de IA por módulo y proyecto final con defensa ante panel.',
+      en: 'Redesign of the AI Automation career, from tools to skills. It grows from 7 to 15 weeks, with a new production module, an AI use agreement per module and a capstone defended before a panel.',
+    },
+    result: { es: 'Ver el caso', en: 'View case study' },
+    url: '/trabajos/henry/',
+    thumbnail: '/logos/henry.svg',
+    brand: { background: '#000000', accent: '#ffff01' },
+  },
+  {
+    id: 'unicorn',
+    name: 'Unicorn Academy',
+    kind: { es: 'Colaboración académica', en: 'Academic collaboration' },
+    status: 'WIP',
+    description: {
+      es: 'Trabajo en curso junto a una academia online de datos e IA. El caso completo se publica cuando esté entregado.',
+      en: 'Ongoing work with an online data and AI academy. The full case study will be published once delivered.',
+    },
+    result: { es: 'Ver estado', en: 'View status' },
+    url: '/trabajos/unicorn-academy/',
+    thumbnail: '/logos/unicorn-academy.svg',
+    brand: { background: 'linear-gradient(135deg, #563c77, #7c3aed)', accent: '#c4b5fd' },
+  },
 ];
 
 export default function ClientPortfolio() {
@@ -60,26 +88,33 @@ export default function ClientPortfolio() {
       </div>
 
       <div className="signal-client-grid">
-        {CLIENT_SITES.map((site) => (
-          <a
-            key={site.id}
-            className="signal-client-card"
-            href={site.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${site.result[lang]}: ${site.name}`}
-          >
-            <div className={`signal-client-card__media signal-client-card__media--${site.id}`}>
-              <img src={site.thumbnail} alt="" />
-              <span>{site.kind[lang]}</span>
-            </div>
-            <div className="signal-client-card__body">
-              <div><h3>{site.name}</h3><ArrowUpRight size={20} /></div>
-              <p>{site.description[lang]}</p>
-              <strong>{site.result[lang]}</strong>
-            </div>
-          </a>
-        ))}
+        {CLIENT_SITES.map((site) => {
+          const isExternal = site.url.startsWith('http');
+          const brand = 'brand' in site ? site.brand : undefined;
+          return (
+            <a
+              key={site.id}
+              className="signal-client-card"
+              href={site.url}
+              {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              aria-label={`${site.result[lang]}: ${site.name}`}
+            >
+              <div
+                className={`signal-client-card__media signal-client-card__media--${site.id}${brand ? ' signal-client-card__media--brand' : ''}`}
+                style={brand ? ({ background: brand.background, '--brand-accent': brand.accent } as CSSProperties) : undefined}
+              >
+                <img src={site.thumbnail} alt="" />
+                {'status' in site && site.status && <em className="signal-client-card__status">{site.status}</em>}
+                <span>{site.kind[lang]}</span>
+              </div>
+              <div className="signal-client-card__body">
+                <div><h3>{site.name}</h3><ArrowUpRight size={20} /></div>
+                <p>{site.description[lang]}</p>
+                <strong>{site.result[lang]}</strong>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
