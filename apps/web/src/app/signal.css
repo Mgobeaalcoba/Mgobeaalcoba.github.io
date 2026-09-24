@@ -1594,7 +1594,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .signal-work-page { min-height: 100vh; background: var(--signal-bg); color: var(--signal-text); }
 .signal-work-hero { max-width: 1180px; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(320px,.75fr); gap: clamp(40px,5vw,68px); margin: 0 auto; padding: 145px 28px 80px; }
 .signal-work-hero > div { min-width: 0; }
-.signal-work-hero__brand { display: inline-flex; align-items: center; margin: 30px 0 26px; padding: 16px 22px; border-radius: 14px; background: var(--work-brand-bg); border-top: 3px solid var(--work-accent); }
+.signal-work-hero__brand { display: flex; width: fit-content; align-items: center; margin: 30px 0 26px; padding: 16px 22px; border-radius: 14px; background: var(--work-brand-bg); border-top: 3px solid var(--work-accent); }
 .signal-work-hero__brand img { height: 26px; width: auto; }
 .signal-work-hero__brand--unicorn img { height: 34px; }
 .signal-work-hero h1 { max-width: 760px; margin-top: 22px; font-size: clamp(3.6rem,6vw,5.4rem); line-height: .92; letter-spacing: -.06em; text-wrap: balance; }
@@ -1606,7 +1606,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .signal-work-hero aside p { display: flex; gap: 9px; border-top: 1px solid var(--signal-line); color: var(--signal-muted); padding: 14px 0; font-size: 13px; }
 .signal-work-hero aside p svg { flex: 0 0 auto; color: var(--signal-cyan); }
 .signal-work-hero__mark { width: 72px; height: 72px; margin: 28px 0 22px; border-radius: 16px; }
-.signal-work-wip { display: inline-flex; align-items: center; gap: 8px; margin-right: 14px; padding: 7px 12px; border: 1px dashed var(--work-accent); border-radius: 999px; color: var(--work-accent); font: 700 11px/1 var(--signal-mono); letter-spacing: .12em; text-transform: uppercase; }
+.signal-work-wip { display: flex; width: fit-content; align-items: center; gap: 8px; margin-bottom: 22px; padding: 7px 12px; border: 1px dashed var(--work-accent); border-radius: 999px; color: var(--work-accent); font: 700 11px/1 var(--signal-mono); letter-spacing: .12em; text-transform: uppercase; }
 html.light-mode .signal-work-wip { color: var(--work-brand-bg); border-color: var(--work-brand-bg); }
 .signal-work-facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 40px; border: 1px solid var(--signal-line); border-radius: 16px; overflow: hidden; }
 .signal-work-facts div { padding: 18px 20px; }
