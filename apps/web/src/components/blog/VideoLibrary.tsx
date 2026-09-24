@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Play, Search } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -14,6 +14,14 @@ export default function VideoLibrary() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
   const [selectedVideo, setSelectedVideo] = useState<(typeof videos)[number] | null>(null);
+  // `?v=<youtubeId>` deep-links a video (e.g. from a case study) and opens it on arrival.
+  const [linkedVideoId, setLinkedVideoId] = useState<string | null>(null);
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get('v');
+    if (id && /^[\w-]{11}$/.test(id)) setLinkedVideoId(id);
+  }, []);
+  const linkedVideo = linkedVideoId ? videos.find((video) => video.youtubeId === linkedVideoId) : undefined;
+  const modalTitle = (video?: (typeof videos)[number]) => (video ? (lang === 'es' ? video.titleEs : video.titleEn) : '');
   const categories = useMemo(() => ['all', ...Array.from(new Set(videos.map((video) => video.category))).filter(Boolean)], [videos]);
   const filtered = useMemo(() => videos.filter((video) => {
     const matchesCategory = category === 'all' || video.category === category;
@@ -29,7 +37,7 @@ export default function VideoLibrary() {
         {loading ? <div className="signal-video-loading" /> : <div className="signal-video-library__grid">{filtered.map((video, index) => <button type="button" key={video.id} onClick={() => { events.youtubeVideoClick(lang === 'es' ? video.titleEs : video.titleEn, video.youtubeId); setSelectedVideo(video); }}><div className="signal-video-library__thumb"><img src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} alt="" onError={(event) => { event.currentTarget.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`; }} /><span><Play size={18} fill="currentColor" /></span><small><Clock size={10} />{video.duration}</small></div><div className="signal-video-library__copy"><span>{String(index + 1).padStart(2, '0')} / {video.category}</span><h2>{lang === 'es' ? video.titleEs : video.titleEn}</h2><p>{lang === 'es' ? video.descriptionEs : video.descriptionEn}</p><strong>{lang === 'es' ? 'Reproducir video' : 'Play video'}<Play size={14} /></strong></div></button>)}</div>}
         {!loading && !filtered.length && <p className="signal-empty-state">{lang === 'es' ? 'No encontramos videos con ese criterio.' : 'No videos match that criteria.'}</p>}
       </section>
-      <EmbeddedVideoModal videoId={selectedVideo?.youtubeId ?? null} title={selectedVideo ? (lang === 'es' ? selectedVideo.titleEs : selectedVideo.titleEn) : ''} onClose={() => { if (selectedVideo) events.uiLayerClose('video', 'button_or_backdrop', 'blog'); setSelectedVideo(null); }} />
+      <EmbeddedVideoModal videoId={selectedVideo?.youtubeId ?? linkedVideoId} title={modalTitle(selectedVideo ?? linkedVideo)} onClose={() => { if (selectedVideo || linkedVideoId) events.uiLayerClose('video', 'button_or_backdrop', 'blog'); setSelectedVideo(null); setLinkedVideoId(null); }} />
     </>
   );
 }

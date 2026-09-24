@@ -8,6 +8,7 @@ const durableEntries = new Set([
   '.claude',
   '.github',
   '.gitignore',
+  '.npmrc',
   '.nvmrc',
   '.prettierignore',
   '.prettierrc',
