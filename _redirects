@@ -1,0 +1,8 @@
+# Redirects for Cloudflare Pages
+# Syntax: /old-path /new-path STATUS_CODE
+
+# Consulting moved to root /
+/consulting     /   301
+/consulting/    /   301
+/consulting.html    /   301
+/consulting/index.html  /   301
