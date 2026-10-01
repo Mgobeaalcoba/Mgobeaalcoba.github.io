@@ -16,6 +16,8 @@ export interface UserIdentity {
 
 const ASSISTANT_LEAD_WEBHOOK = 'https://mgobeaalcoba.app.n8n.cloud/webhook/contacto-webhook';
 const ASSISTANT_PROXY_ORIGIN = 'https://mgobeaalcoba.app.n8n.cloud';
+// The n8n agent workflow takes ~55-75s to answer; n8n Cloud (Cloudflare) cuts requests at 100s.
+const ASSISTANT_REQUEST_TIMEOUT_MS = 90_000;
 
 function getAssistantProxyUrl(): string | null {
     const configured = process.env.NEXT_PUBLIC_AI_WEBHOOK_URL?.trim();
@@ -208,7 +210,7 @@ export function useAIAssistant() {
                     source_page: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
                     user_info: user,
                 }),
-                signal: AbortSignal.timeout(20_000),
+                signal: AbortSignal.timeout(ASSISTANT_REQUEST_TIMEOUT_MS),
             });
 
             if (!res.ok) throw new Error('assistant_proxy_error');
