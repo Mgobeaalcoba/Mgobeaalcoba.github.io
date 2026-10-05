@@ -90,6 +90,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/recursos/ia-router/`,
+      lastModified: new Date('2026-10-05'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${SITE_URL}/privacidad/`,
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'yearly',
