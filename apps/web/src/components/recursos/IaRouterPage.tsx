@@ -17,6 +17,11 @@ export const IAR_FAQ = [
       'No. Cada tarea se ejecuta en el CLI oficial que ya tenés logueado. El router solo lee páginas públicas de Arena y, si activás la clave gratuita, consulta la API de Artificial Analysis. El log local no guarda tus prompts.',
   },
   {
+    question: '¿Lo instalo con Homebrew o con pip?',
+    answer:
+      'Si usás macOS con Homebrew, la opción A (brew install Mgobeaalcoba/tap/ia-router) es la más simple. En cualquier otro caso, pipx install ia-router. Los dos instalan el mismo programa y se actualizan y desinstalan de forma independiente.',
+  },
+  {
     question: '¿Qué modelos soporta?',
     answer:
       'Los tres CLIs oficiales: claude (Claude Code), codex (OpenAI Codex) y agy (Antigravity, de Google). Alcanza con tener uno instalado, aunque reparte mejor con varios. Se pueden agregar otros editando un archivo de configuración.',
@@ -264,22 +269,52 @@ export default function IaRouterPage() {
       <section className="signal-iar-section signal-iar-split" id="instalar" aria-labelledby="iar-install">
         <div>
           <span className="signal-eyebrow">Instalar</span>
-          <h2 id="iar-install">Tres pasos, cinco minutos.</h2>
-          <p>Necesitás Python 3.9 o superior y al menos uno de los CLIs oficiales instalado y logueado (claude, codex o agy). Probado en macOS.</p>
+          <h2 id="iar-install">Dos formas de instalarlo. Elegí una.</h2>
+          <p>
+            Funciona en macOS (probado) y Linux, con Python 3.9 o superior. Necesitás además al menos uno de los CLIs oficiales instalado y logueado (claude,
+            codex o agy): el router no los instala por vos.
+          </p>
+          <ul className="signal-iar-list">
+            <li>
+              <Gauge size={16} aria-hidden="true" /> <span><b>Opción A · Homebrew:</b> la más simple en macOS; instala Python si hace falta.</span>
+            </li>
+            <li>
+              <Gauge size={16} aria-hidden="true" /> <span><b>Opción B · pip o pipx:</b> para cualquier sistema con Python. pipx lo instala aislado.</span>
+            </li>
+          </ul>
         </div>
         <ol className="signal-iar-install">
           <li>
             <strong>1 · Instalá</strong>
+            <p className="signal-iar-opt">
+              <b>Opción A · Homebrew</b>
+            </p>
             <CopyCommand command="brew install Mgobeaalcoba/tap/ia-router" label="Homebrew" />
-            <CopyCommand command="pipx install ia-router" label="pip" />
+            <p className="signal-iar-opt">
+              <b>Opción B · pipx (o pip)</b>
+            </p>
+            <CopyCommand command="pipx install ia-router" label="pipx" />
+            <CopyCommand command="python3 -m pip install --user ia-router" label="pip" />
+            <p>
+              ¿No tenés pipx? <code>brew install pipx &amp;&amp; pipx ensurepath</code> en macOS, o <code>python3 -m pip install --user pipx</code> en otros sistemas.
+            </p>
           </li>
           <li>
-            <strong>2 · Abrilo</strong>
+            <strong>2 · Verificá</strong>
+            <CopyCommand command="ia-router --version" />
+            <CopyCommand command="ia-router doctor" />
+            <p>
+              <code>doctor</code> muestra qué CLIs tenés instalados y qué modelo usa cada uno, sin gastar cuota. Si dice <code>command not found</code>, ejecutá{' '}
+              <code>pipx ensurepath</code> y abrí una terminal nueva.
+            </p>
+          </li>
+          <li>
+            <strong>3 · Abrilo</strong>
             <CopyCommand command="ia-router" />
             <p>La primera vez te pregunta antes de gastar algo: detecta qué modelo usa cada CLI y, si las métricas son viejas, ofrece actualizarlas.</p>
           </li>
           <li>
-            <strong>3 · (Opcional) Sumá velocidad y costo</strong>
+            <strong>4 · (Opcional) Sumá velocidad y costo</strong>
             <p>
               Creá una clave gratuita en{' '}
               <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">
@@ -289,6 +324,17 @@ export default function IaRouterPage() {
             </p>
             <CopyCommand command="mkdir -p ~/.ia-router && echo 'ARTIFICIAL_ANALYSIS_API_KEY=tu_clave' > ~/.ia-router/.env" />
             <CopyCommand command="ia-router metrics refresh" />
+          </li>
+          <li>
+            <strong>Actualizar y desinstalar</strong>
+            <p>
+              Homebrew: <code>brew upgrade ia-router</code> · <code>brew uninstall ia-router</code>
+              <br />
+              pipx: <code>pipx upgrade ia-router</code> · <code>pipx uninstall ia-router</code>
+              <br />
+              pip: <code>python3 -m pip install -U ia-router</code> · <code>python3 -m pip uninstall ia-router</code>
+            </p>
+            <p>Desinstalar no borra tus datos (<code>~/.ia-router</code>).</p>
           </li>
         </ol>
       </section>

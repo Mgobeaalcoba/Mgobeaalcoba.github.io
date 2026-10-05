@@ -1841,3 +1841,5 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-tools-hero__new i { color: var(--signal-cyan); font-style: normal; }
 .signal-tools-hero__new:hover { border-color: var(--signal-cyan); color: var(--signal-text); }
 @media (max-width: 640px) { .signal-tools-hero__new { align-items: flex-start; border-radius: 18px; } }
+.signal-iar-install p.signal-iar-opt { margin: 14px 0 2px; color: var(--signal-text); font-size: 13px; }
+.signal-iar-install p.signal-iar-opt b { font-weight: 650; }
