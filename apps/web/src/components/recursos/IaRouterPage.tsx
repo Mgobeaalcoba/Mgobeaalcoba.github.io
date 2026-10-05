@@ -271,7 +271,7 @@ export default function IaRouterPage() {
           <span className="signal-eyebrow">Instalar</span>
           <h2 id="iar-install">Dos formas de instalarlo. Elegí una.</h2>
           <p>
-            Funciona en macOS (probado) y Linux, con Python 3.9 o superior. Necesitás además al menos uno de los CLIs oficiales instalado y logueado (claude,
+            Probado en macOS; no tiene dependencias de sistema, así que debería funcionar también en Linux. Requiere Python 3.9 o superior. Necesitás además al menos uno de los CLIs oficiales instalado y logueado (claude,
             codex o agy): el router no los instala por vos.
           </p>
           <ul className="signal-iar-list">

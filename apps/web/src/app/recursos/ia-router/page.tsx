@@ -34,7 +34,7 @@ const softwareSchema = {
   '@type': 'SoftwareApplication',
   name: 'ia-router',
   applicationCategory: 'DeveloperApplication',
-  operatingSystem: 'macOS, Linux',
+  operatingSystem: 'macOS',
   url: PAGE_URL,
   license: 'https://www.apache.org/licenses/LICENSE-2.0',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
