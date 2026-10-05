@@ -77,7 +77,7 @@ const TRUST = [
   ['Datos con fuente', 'Arena (CC BY 4.0) y Artificial Analysis, con atribución y fecha en cada pantalla.'],
   ['Sin dependencias', 'Solo la librería estándar de Python (3.9 o superior). Instalación liviana.'],
   ['Funciona sin red', 'Trae la última foto de Arena incluida; actualizar es opcional y visible.'],
-  ['Open source', 'Apache-2.0: lo usás y lo modificás, conservando la atribución al autor.'],
+  ['Open source', 'Código público en GitHub bajo Apache-2.0: lo usás y lo modificás, conservando la atribución al autor.'],
 ];
 
 function Shot({ file, alt, w, h, caption, priority = false }: { file: string; alt: string; w: number; h: number; caption: string; priority?: boolean }) {
@@ -126,7 +126,10 @@ export default function IaRouterPage() {
           <CopyCommand command="brew install Mgobeaalcoba/tap/ia-router" label="Homebrew" />
           <CopyCommand command="pipx install ia-router" label="pip" />
           <p>
-            <ShieldCheck size={15} aria-hidden="true" /> Python 3.9+ · Apache-2.0 · sin dependencias
+            <ShieldCheck size={15} aria-hidden="true" /> Python 3.9+ · Apache-2.0 · sin dependencias ·{' '}
+            <a href="https://github.com/Mgobeaalcoba/ia-suscription-router" target="_blank" rel="noopener noreferrer" data-analytics="iar_source_link">
+              código en GitHub
+            </a>
           </p>
         </aside>
       </header>

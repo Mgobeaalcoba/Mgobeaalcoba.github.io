@@ -37,6 +37,7 @@ const softwareSchema = {
   operatingSystem: 'macOS',
   url: PAGE_URL,
   license: 'https://www.apache.org/licenses/LICENSE-2.0',
+  codeRepository: 'https://github.com/Mgobeaalcoba/ia-suscription-router',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   author: { '@type': 'Person', name: 'Mgobeaalcoba', url: 'https://github.com/Mgobeaalcoba' },
   description:
