@@ -340,6 +340,36 @@ export default function IaRouterPage() {
             <p>Desinstalar no borra tus datos (<code>~/.ia-router</code>).</p>
           </li>
         </ol>
+
+        <div className="signal-iar-links" aria-label="Dónde encontrar ia-router">
+          <strong>Dónde encontrarlo</strong>
+          <ul>
+            <li>
+              <a href="https://pypi.org/project/ia-router/" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_pypi">PyPI</a>
+              <span>pipx install ia-router</span>
+            </li>
+            <li>
+              <a href="https://github.com/Mgobeaalcoba/homebrew-tap" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_homebrew">Tap de Homebrew</a>
+              <span>brew install Mgobeaalcoba/tap/ia-router</span>
+            </li>
+            <li>
+              <a href="https://github.com/Mgobeaalcoba/ia-suscription-router" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_source">Código en GitHub</a>
+              <span>Apache-2.0</span>
+            </li>
+            <li>
+              <a href="https://github.com/Mgobeaalcoba/ia-suscription-router/blob/main/docs/USO.md" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_docs">Guía de uso</a>
+              <span>paso a paso, con salidas reales</span>
+            </li>
+            <li>
+              <a href="https://github.com/Mgobeaalcoba/ia-suscription-router/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_changelog">Cambios</a>
+              <span>qué trae cada versión</span>
+            </li>
+            <li>
+              <a href="https://github.com/Mgobeaalcoba/ia-suscription-router/issues" target="_blank" rel="noopener noreferrer" data-analytics="iar_link_issues">Problemas e ideas</a>
+              <span>issues en GitHub</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section className="signal-iar-section" aria-labelledby="iar-limits">

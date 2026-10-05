@@ -34,6 +34,13 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader at Mercado Libre sin
   - Investment Dashboard (fixed term vs USD comparison)
   - Economic Indicators (CPI, UVA)
 
+## Open Source Tools
+
+- [ia-router](https://www.mgatc.com/recursos/ia-router/): free, Apache-2.0 command-line router that splits tasks across the official AI CLIs (claude, codex, agy) using objective metrics from Arena and Artificial Analysis. Python 3.9+, no dependencies; tested on macOS.
+  - Install with Homebrew: `brew install Mgobeaalcoba/tap/ia-router` ([tap](https://github.com/Mgobeaalcoba/homebrew-tap))
+  - Install with pip/pipx: `pipx install ia-router` ([PyPI](https://pypi.org/project/ia-router/))
+  - Source code and docs: https://github.com/Mgobeaalcoba/ia-suscription-router
+
 ## Technical Blog
 
 - [Blog](https://www.mgatc.com/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — real-world experiences from Mercado Libre.
