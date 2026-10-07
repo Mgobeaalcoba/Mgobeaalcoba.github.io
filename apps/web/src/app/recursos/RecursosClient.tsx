@@ -201,9 +201,9 @@ export default function RecursosClient() {
         <h1>{lang === "es" ? <>Herramientas para<br /><em>decidir mejor.</em></> : <>Tools to help you<br /><em>decide better.</em></>}</h1>
         <p>{lang === "es" ? "Calculadoras y laboratorios interactivos para modelar decisiones financieras, de automatización y de arquitectura." : "Interactive calculators and labs for modeling financial, automation and architecture decisions."}</p>
       </div>
-      <Link className="signal-tools-hero__new" href="/recursos/ia-router/" data-analytics="recursos_ia_router_link">
+      <Link className="signal-tools-hero__new" href={lang === "es" ? "/recursos/ia-router/" : "/en/recursos/ia-router/"} data-analytics="recursos_ia_router_link">
         <b>{lang === "es" ? "Nuevo" : "New"}</b>
-        <span>{lang === "es" ? "ia-router: ruteá tus suscripciones de IA con métricas objetivas" : "ia-router: route your AI subscriptions with objective metrics (page in Spanish)"}</span>
+        <span>{lang === "es" ? "ia-router: ruteá tus suscripciones de IA con métricas objetivas" : "ia-router: route your AI subscriptions with objective metrics"}</span>
         <i aria-hidden="true">→</i>
       </Link>
     </section>

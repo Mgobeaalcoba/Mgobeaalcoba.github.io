@@ -64,6 +64,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
       alternates: { languages: { es: `${SITE_URL}/servicios/`, en: `${SITE_URL}/en/servicios/` } },
     },
+    // English counterpart of the ia-router page.
+    {
+      url: `${SITE_URL}/en/recursos/ia-router/`,
+      lastModified: new Date('2026-10-07'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { es: `${SITE_URL}/recursos/ia-router/`, en: `${SITE_URL}/en/recursos/ia-router/` } },
+    },
     ...OFFERS.map((offer) => ({
       url: `${SITE_URL}/en/servicios/${offer.slug}/`,
       lastModified: new Date('2026-08-05'),
@@ -91,9 +99,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/recursos/ia-router/`,
-      lastModified: new Date('2026-10-05'),
+      lastModified: new Date('2026-10-07'),
       changeFrequency: 'monthly',
       priority: 0.7,
+      alternates: { languages: { es: `${SITE_URL}/recursos/ia-router/`, en: `${SITE_URL}/en/recursos/ia-router/` } },
     },
     {
       url: `${SITE_URL}/privacidad/`,

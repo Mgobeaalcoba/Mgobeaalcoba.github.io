@@ -20,6 +20,7 @@ export const LOCALIZED_ROUTE_PATTERNS: RegExp[] = [
   /^\/servicios\/$/,
   /^\/servicios\/[^/]+\/$/,
   /^\/servicios\/gracias\/$/,
+  /^\/recursos\/ia-router\/$/,
 ];
 
 function withTrailingSlash(pathname: string): string {

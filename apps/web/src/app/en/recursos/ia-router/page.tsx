@@ -6,18 +6,18 @@ import JsonLd from '@/components/shared/JsonLd';
 import IaRouterPage from '@/components/recursos/IaRouterPage';
 import { iaRouterMetadata, iaRouterSchemas } from '@/lib/iaRouterSeo';
 
-export const metadata: Metadata = iaRouterMetadata('es');
+export const metadata: Metadata = iaRouterMetadata('en');
 
-const schemas = iaRouterSchemas('es');
+const schemas = iaRouterSchemas('en');
 
-export default function IaRouterRoute() {
+export default function EnglishIaRouterRoute() {
   return (
     <main id="main-content" className="min-h-screen signal-tools-page signal-iar-page">
       <JsonLd data={schemas.software} />
       <JsonLd data={schemas.faq} />
       <ScrollTracker />
       <Navbar />
-      <IaRouterPage lang="es" />
+      <IaRouterPage lang="en" />
       <Footer />
     </main>
   );
