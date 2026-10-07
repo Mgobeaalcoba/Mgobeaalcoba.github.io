@@ -423,6 +423,22 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
         </ol>
       </section>
 
+      <section className="signal-iar-wide" aria-label={t('Conectores en la terminal', 'Connectors in the terminal')}>
+        <Shot
+          file="ia-router-connectors.png"
+          alt={t(
+            'Terminal registrando dos servidores MCP oficiales (filesystem y memory), probándolos con connectors test y listándolos (la interfaz del programa está en inglés)',
+            'Terminal registering two official MCP servers (filesystem and memory), testing them with connectors test and listing them',
+          )}
+          w={2000}
+          h={1008}
+          caption={t(
+            'Salida real: se registran dos servidores MCP oficiales, se prueban sin gastar cuota y se listan. Cualquier modelo los usa a través del mismo proxy.',
+            'Real output: two official MCP servers are registered, tested without spending quota and listed. Any model uses them through the same proxy.',
+          )}
+        />
+      </section>
+
       <section className="signal-iar-section" aria-labelledby="iar-trust">
         <div className="signal-iar-section__head">
           <span className="signal-eyebrow">{t('Sin sorpresas', 'No surprises')}</span>
