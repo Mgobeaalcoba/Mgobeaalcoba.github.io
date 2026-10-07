@@ -14,7 +14,7 @@ const COPY = {
     ogTitle: 'ia-router — tus suscripciones de IA, ruteadas con datos',
     ogDescription: 'Cada tarea al modelo que mejor rinde, según métricas objetivas. Open source.',
     imageAlt: 'Encabezado de ia-router en la terminal',
-    schemaDescription: 'Router que reparte tareas entre los CLIs oficiales de IA (Claude, Codex, Antigravity) con métricas objetivas de Arena y Artificial Analysis.',
+    schemaDescription: 'Router que reparte tareas entre los CLIs oficiales de IA (Claude, Codex, Antigravity) con métricas objetivas de Arena y Artificial Analysis, y conecta tus apps (Gmail, Calendar…) por MCP.',
     keywords: [
       'ia-router',
       'router de modelos de IA',
@@ -23,6 +23,7 @@ const COPY = {
       'elegir modelo de IA por tarea',
       'cli inteligencia artificial',
       'ahorrar cuota suscripciones IA',
+      'conectores MCP gmail calendar',
     ],
   },
   en: {
@@ -32,7 +33,7 @@ const COPY = {
     ogTitle: 'ia-router — your AI subscriptions, routed with data',
     ogDescription: 'Each task goes to the model that performs best, based on objective metrics. Open source.',
     imageAlt: 'The ia-router header in the terminal',
-    schemaDescription: 'Router that splits tasks across the official AI CLIs (Claude, Codex, Antigravity) using objective metrics from Arena and Artificial Analysis.',
+    schemaDescription: 'Router that splits tasks across the official AI CLIs (Claude, Codex, Antigravity) using objective metrics from Arena and Artificial Analysis, and connects your apps (Gmail, Calendar…) through MCP.',
     keywords: [
       'ia-router',
       'AI model router',
@@ -41,6 +42,7 @@ const COPY = {
       'choose an AI model per task',
       'AI command line tool',
       'save AI subscription quota',
+      'MCP connectors gmail calendar',
     ],
   },
 } as const;

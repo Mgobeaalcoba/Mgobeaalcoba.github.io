@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Gauge, GitBranch, Layers, Paperclip, PlugZap, Scale, ShieldCheck, Sparkles, Wallet } from 'lucide-react';
+import { ArrowRight, Gauge, GitBranch, Layers, Paperclip, Plug, PlugZap, Scale, ShieldCheck, Sparkles, Wallet } from 'lucide-react';
 import ContextBackLink from '@/components/shared/ContextBackLink';
 import CopyCommand from '@/components/recursos/CopyCommand';
 import { localizePath } from '@/lib/i18n-routes';
@@ -54,6 +54,13 @@ const FAQ: { question: Pair; answer: Pair }[] = [
     },
   },
   {
+    question: { es: '¿Qué son los conectores y es seguro darle acceso a mi mail?', en: 'What are connectors, and is it safe to give it access to my email?' },
+    answer: {
+      es: 'Los conectores son servidores MCP (Gmail, Calendar, Slack, GitHub…) que el router le da a cualquier modelo. Cada servidor hace su propio login: el router nunca toca tus tokens. Por defecto pueden leer y escribir, así que un modelo podría enviar un mail si se lo pedís; podés ocultar herramientas con listas allow/deny o apagarlos con /connectors off. Cada llamada queda en un log local sin argumentos ni resultados.',
+      en: 'Connectors are MCP servers (Gmail, Calendar, Slack, GitHub…) that the router hands to any model. Each server does its own login: the router never touches your tokens. By default they can read and write, so a model could send an email if you ask it to; you can hide tools with allow/deny lists or turn them off with /connectors off. Every call is recorded in a local log without arguments or results.',
+    },
+  },
+  {
     question: { es: '¿Está en inglés o en español?', en: 'Is it in English or Spanish?' },
     answer: {
       es: 'La interfaz y la documentación del programa están en inglés. El clasificador de tareas entiende tareas escritas en inglés y en español.',
@@ -98,6 +105,14 @@ const USE_CASES: { icon: React.ReactNode; title: Pair; text: Pair }[] = [
     text: {
       es: 'Para contexto largo mira métricas específicas (razonamiento sobre contexto largo y consultas largas de Arena), no el promedio general.',
       en: 'For long context it looks at specific metrics (long-context reasoning and Arena long queries), not the overall average.',
+    },
+  },
+  {
+    icon: <Plug size={20} aria-hidden="true" />,
+    title: { es: 'Conectar tus apps (Gmail, Calendar…)', en: 'Connecting your apps (Gmail, Calendar…)' },
+    text: {
+      es: 'Registrás servidores MCP una vez y cualquier modelo los usa: resumir los mails del día, agendar un bloque en el calendario, consultar tu CRM.',
+      en: 'You register MCP servers once and any model uses them: summarize today’s emails, book a block on your calendar, query your CRM.',
     },
   },
   {
@@ -192,6 +207,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             <a href="#como-funciona">{t('Cómo funciona', 'How it works')}</a>
             <a href="#casos">{t('Casos de uso', 'Use cases')}</a>
             <a href="#prioridades">{t('Prioridades', 'Priorities')}</a>
+            <a href="#conectores">{t('Conectores', 'Connectors')}</a>
             <a href="#instalar">{t('Instalar', 'Install')}</a>
             <a href="#faq">{t('Preguntas', 'Questions')}</a>
           </nav>
@@ -353,6 +369,58 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           h={678}
           caption={t('El selector de prioridades: flechas y Enter.', 'The priorities selector: arrows and Enter.')}
         />
+      </section>
+
+      <section className="signal-iar-section signal-iar-split" id="conectores" aria-labelledby="iar-connectors">
+        <div>
+          <span className="signal-eyebrow">{t('Nuevo en 0.4 · Conectores', 'New in 0.4 · Connectors')}</span>
+          <h2 id="iar-connectors">{t('Que cualquier modelo use tus otras apps.', 'Let any model use your other apps.')}</h2>
+          <p>
+            {t(
+              'Registrás servidores MCP una sola vez (Gmail, Calendar, Drive, Slack, GitHub, tu CRM…) y el router se los da a claude, codex y agy a través de un único proxy. Un solo lugar para permisos, auditoría y credenciales, con el modelo que sea.',
+              'You register MCP servers once (Gmail, Calendar, Drive, Slack, GitHub, your CRM…) and the router hands them to claude, codex and agy through a single proxy. One place for permissions, audit and credentials, with whichever model.',
+            )}
+          </p>
+          <ul className="signal-iar-list">
+            <li>
+              <ShieldCheck size={16} aria-hidden="true" />{' '}
+              {t('El router nunca toca tokens OAuth: cada servidor MCP hace su propio login. Las claves pueden ser referencias ${NOMBRE} a tu entorno.', 'The router never touches OAuth tokens: each MCP server does its own login. Keys can be ${NAME} references to your environment.')}
+            </li>
+            <li>
+              <Scale size={16} aria-hidden="true" />{' '}
+              {t('Pueden leer y escribir: ocultá herramientas con listas allow/deny o apagalos con /connectors off.', 'They can read and write: hide tools with allow/deny lists or turn them off with /connectors off.')}
+            </li>
+            <li>
+              <Gauge size={16} aria-hidden="true" />{' '}
+              {t('Cada llamada queda en un log local, sin argumentos ni resultados.', 'Every call is recorded in a local log, without arguments or results.')}
+            </li>
+          </ul>
+        </div>
+        <ol className="signal-iar-install">
+          <li>
+            <strong>{t('1 · Registrá un servidor', '1 · Register a server')}</strong>
+            <CopyCommand lang={lang} command="ia-router connectors add files -- npx -y @modelcontextprotocol/server-filesystem ~/Documents" />
+            <p>{t('Usá el servidor MCP de la app que quieras; su documentación explica cómo iniciar sesión.', 'Use the MCP server of the app you want; its documentation explains how to log in.')}</p>
+          </li>
+          <li>
+            <strong>{t('2 · Probalo sin gastar cuota', '2 · Test it without spending quota')}</strong>
+            <CopyCommand lang={lang} command="ia-router connectors test" />
+          </li>
+          <li>
+            <strong>{t('3 · Usalo desde el chat', '3 · Use it from the chat')}</strong>
+            <CopyCommand lang={lang} command="ia-router" />
+            <p>
+              {t(
+                <>
+                  Con conectores registrados, cada tarea los usa; <code>/connectors off</code> los apaga. Para <code>agy</code>, una vez: <code>ia-router connectors install agy</code>.
+                </>,
+                <>
+                  With connectors registered, every task uses them; <code>/connectors off</code> turns them off. For <code>agy</code>, once: <code>ia-router connectors install agy</code>.
+                </>,
+              )}
+            </p>
+          </li>
+        </ol>
       </section>
 
       <section className="signal-iar-section" aria-labelledby="iar-trust">
