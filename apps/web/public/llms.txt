@@ -39,6 +39,7 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader at Mercado Libre sin
 - [ia-router](https://www.mgatc.com/en/recursos/ia-router/) ([Spanish](https://www.mgatc.com/recursos/ia-router/)): free, Apache-2.0 command-line router that splits tasks across the official AI CLIs (claude, codex, agy) using objective metrics from Arena and Artificial Analysis. Python 3.9+, no dependencies; tested on macOS.
   - Install with Homebrew: `brew install Mgobeaalcoba/tap/ia-router` ([tap](https://github.com/Mgobeaalcoba/homebrew-tap))
   - Install with pip/pipx: `pipx install ia-router` ([PyPI](https://pypi.org/project/ia-router/))
+  - First-run onboarding (v0.5): the chat checks which official CLIs are installed and logged in and gives the exact step for each missing one; repeat with `/setup` or `ia-router setup`
   - Connectors (v0.4): register MCP servers (Gmail, Calendar, Slack, GitHub…) once and any model uses them through one proxy; `ia-router connectors add NAME -- COMMAND`
   - Source code and docs (English): https://github.com/Mgobeaalcoba/ia-suscription-router
   - The program's interface and documentation are in English; it classifies tasks written in English or Spanish.

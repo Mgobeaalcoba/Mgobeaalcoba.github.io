@@ -54,6 +54,13 @@ const FAQ: { question: Pair; answer: Pair }[] = [
     },
   },
   {
+    question: { es: '¿Qué pasa si no tengo instalados los tres CLIs?', en: 'What if I do not have all three CLIs installed?' },
+    answer: {
+      es: 'Funciona con uno solo, aunque todo irá a ese modelo. La primera vez que abrís el chat, si falta algún CLI o no iniciaste sesión, te muestra una tabla y el paso exacto para cada uno (instalar e iniciar sesión). Podés repetirlo cuando quieras con /setup o con ia-router setup, y opcionalmente verificar las sesiones (una consulta mínima por CLI, siempre preguntando antes). El router no instala nada ni inicia sesión por vos.',
+      en: 'It works with just one, although everything will go to that model. The first time you open the chat, if a CLI is missing or you are not logged in, it shows a table and the exact step for each one (install and log in). You can repeat it any time with /setup or ia-router setup, and optionally check the logins (one minimal query per CLI, always asking first). The router installs nothing and never logs in for you.',
+    },
+  },
+  {
     question: { es: '¿Qué son los conectores y es seguro darle acceso a mi mail?', en: 'What are connectors, and is it safe to give it access to my email?' },
     answer: {
       es: 'Los conectores son servidores MCP (Gmail, Calendar, Slack, GitHub…) que el router le da a cualquier modelo. Cada servidor hace su propio login: el router nunca toca tus tokens. Por defecto pueden leer y escribir, así que un modelo podría enviar un mail si se lo pedís; podés ocultar herramientas con listas allow/deny o apagarlos con /connectors off. Cada llamada queda en un log local sin argumentos ni resultados.',
@@ -531,8 +538,8 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             <CopyCommand lang={lang} command="ia-router" />
             <p>
               {t(
-                'La primera vez te pregunta antes de gastar algo: detecta qué modelo usa cada CLI y, si las métricas son viejas, ofrece actualizarlas.',
-                'The first time it asks before spending anything: it detects which model each CLI uses and, if the metrics are old, offers to update them.',
+                'La primera vez revisa qué CLIs tenés instalados y te da el paso exacto para los que falten; después, antes de gastar algo, detecta qué modelo usa cada uno y, si las métricas son viejas, ofrece actualizarlas.',
+                'The first time it checks which CLIs you have installed and gives you the exact step for any that are missing; then, before spending anything, it detects which model each one uses and, if the metrics are old, offers to update them.',
               )}
             </p>
           </li>
