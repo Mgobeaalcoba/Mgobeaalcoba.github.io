@@ -605,6 +605,22 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
         </div>
       </section>
 
+      <section className="signal-iar-wide" aria-label={t('La primera apertura', 'The first open')}>
+        <Shot
+          file="ia-router-onboarding.png"
+          alt={t(
+            'Terminal con la primera apertura en una máquina que solo tiene claude: la tabla de CLIs y el paso exacto para instalar codex y antigravity (la interfaz del programa está en inglés)',
+            'Terminal showing the first open on a machine that only has claude: the table of CLIs and the exact step to install codex and antigravity',
+          )}
+          w={2000}
+          h={1050}
+          caption={t(
+            'Salida real de la primera apertura con solo claude instalado: te dice qué falta y cómo resolverlo, sin instalar nada por vos. Repetilo con /setup.',
+            'Real output of the first open with only claude installed: it tells you what is missing and how to fix it, without installing anything for you. Repeat it with /setup.',
+          )}
+        />
+      </section>
+
       <section className="signal-iar-section" aria-labelledby="iar-limits">
         <div className="signal-iar-section__head">
           <span className="signal-eyebrow">{t('Con honestidad', 'In all honesty')}</span>
