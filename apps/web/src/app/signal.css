@@ -2030,3 +2030,7 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
   .signal-pd-kpi { padding: 18px; }
   .signal-pd-seg button { padding: 9px 11px; }
 }
+
+/* ia-router page: a full-width figure that follows a section no longer touches its last block (e.g. the "Where to find it" box) */
+.signal-iar-section + .signal-iar-wide { margin-top: 80px; }
+.signal-iar-links { margin-bottom: 8px; }
