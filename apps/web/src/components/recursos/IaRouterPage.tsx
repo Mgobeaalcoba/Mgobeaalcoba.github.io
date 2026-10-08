@@ -61,6 +61,13 @@ const FAQ: { question: Pair; answer: Pair }[] = [
     },
   },
   {
+    question: { es: '¿Hay una interfaz gráfica o solo terminal?', en: 'Is there a graphical interface, or only the terminal?' },
+    answer: {
+      es: 'Las dos. Con ia-router ui se abre una pestaña del navegador con la misma identidad que la terminal: chat con respuestas en vivo, adjuntos, comparar modelos, vista previa del ruteo, puntajes, prioridades, métricas, uso y un administrador de conectores. Todo lo que hace el CLI se puede hacer ahí y al revés. Corre solo en tu máquina (127.0.0.1) y cada pedido necesita un token aleatorio; no hay nada que instalar ni dependencias nuevas.',
+      en: 'Both. ia-router ui opens a browser tab with the same identity as the terminal: chat with live answers, attachments, compare models, a routing preview, scores, priorities, metrics, usage and a connector manager. Everything the CLI does can be done there and the other way round. It runs only on your machine (127.0.0.1) and every request needs a random token; there is nothing to install and no new dependencies.',
+    },
+  },
+  {
     question: { es: '¿Qué son los conectores y es seguro darle acceso a mi mail?', en: 'What are connectors, and is it safe to give it access to my email?' },
     answer: {
       es: 'Los conectores son servidores MCP (Gmail, Calendar, Slack, GitHub…) que el router le da a cualquier modelo. Cada servidor hace su propio login: el router nunca toca tus tokens. Por defecto pueden leer y escribir, así que un modelo podría enviar un mail si se lo pedís; podés ocultar herramientas con listas allow/deny o apagarlos con /connectors off. Cada llamada queda en un log local sin argumentos ni resultados.',
@@ -690,6 +697,73 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           h={470}
           caption={t('Modo script: entrada por pipe y salida --json (modelo, tokens, costo estimado, ruteo), lista para shell, cron o CI.', 'Script mode: piped input and --json output (model, tokens, estimated cost, routing), ready for shell, cron or CI.')}
         />
+      </section>
+
+      <section className="signal-iar-section" aria-labelledby="iar-ui">
+        <div className="signal-iar-section__head">
+          <span className="signal-eyebrow">{t('Nuevo · en el navegador', 'New · in the browser')}</span>
+          <h2 id="iar-ui">{t('La misma herramienta, también sin terminal.', 'The same tool, without the terminal too.')}</h2>
+          <p>
+            {t(
+              'ia-router ui abre una pestaña local con la misma identidad que el CLI. Una regla: lo que se puede hacer en uno se puede hacer en el otro. Escucha solo en 127.0.0.1 y cada pedido necesita un token aleatorio.',
+              'ia-router ui opens a local tab with the same identity as the CLI. One rule: whatever you can do in one you can do in the other. It listens on 127.0.0.1 only and every request needs a random token.',
+            )}
+          </p>
+        </div>
+        <Shot
+          file="ia-router-ui-chat.png"
+          alt={t(
+            'Interfaz web de ia-router con una respuesta real de antigravity: modelo, tokens, tiempo, costo estimado y el detalle de por qué se eligió ese modelo',
+            'ia-router web interface with a real answer from antigravity: model, tokens, time, estimated cost and why that model was picked',
+          )}
+          w={2000}
+          h={1281}
+          caption={t('Una respuesta real en el navegador, con el modelo, los tokens, el costo estimado y "Why this model".', 'A real answer in the browser, with the model, tokens, estimated cost and "Why this model".')}
+        />
+        <div className="signal-iar-pair">
+          <Shot
+            file="ia-router-ui-compare.png"
+            alt={t('Interfaz web con Compare: la misma pregunta respondida por antigravity y codex, lado a lado', 'Web interface with Compare: the same question answered by antigravity and codex, side by side')}
+            w={2000}
+            h={1281}
+            caption={t('Compare: una tarea, dos modelos, lado a lado. Gasta cuota en cada uno.', 'Compare: one task, two models, side by side. It spends quota on each.')}
+          />
+          <Shot
+            file="ia-router-ui-routing.png"
+            alt={t('Interfaz web con la vista previa del ruteo: el ranking de modelos para la tarea escrita, sin gastar cuota', 'Web interface with the routing preview: the ranking of models for the task you wrote, spending no quota')}
+            w={2000}
+            h={1281}
+            caption={t('Preview routing: qué modelo elegiría el router y por qué, antes de gastar nada.', 'Preview routing: which model the router would pick and why, before spending anything.')}
+          />
+          <Shot
+            file="ia-router-ui-connectors.png"
+            alt={t('Administrador de conectores: el servidor memory real agregado desde una plantilla y probado, con sus nueve herramientas', 'Connector manager: the real memory server added from a template and tested, with its nine tools')}
+            w={2000}
+            h={1281}
+            caption={t('Conectores desde la página: plantilla, comando libre o URL; probar sin gastar cuota.', 'Connectors from the page: a template, a free command or a URL; test without spending quota.')}
+          />
+          <Shot
+            file="ia-router-ui-confirm.png"
+            alt={t('Administrador de conectores pidiendo confirmar el comando exacto antes de guardarlo', 'Connector manager asking you to confirm the exact command before saving it')}
+            w={2000}
+            h={1281}
+            caption={t('Un comando libre se muestra y se confirma antes de guardarlo. Nunca pasa por una shell y los secretos no vuelven a la página.', 'A free command is shown and confirmed before it is saved. It never goes through a shell and secrets never come back to the page.')}
+          />
+          <Shot
+            file="ia-router-ui-settings.png"
+            alt={t('Ajustes: estado de los CLIs, uso en tokens e historial por modelo', 'Settings: the state of the CLIs, token usage and history per model')}
+            w={2000}
+            h={1281}
+            caption={t('Ajustes: estado de los CLIs, comprobar sesiones, uso e historial por modelo.', 'Settings: the state of the CLIs, login check, usage and history per model.')}
+          />
+          <Shot
+            file="ia-router-ui-scores.png"
+            alt={t('Ajustes con los puntajes por modelo para la categoría coding y de dónde sale cada número', 'Settings with the score per model for the coding category and where each number comes from')}
+            w={2000}
+            h={1281}
+            caption={t('Puntajes por categoría, con el detalle de cada número (Arena, y velocidad y costo si tenés la clave).', 'Scores per category, with the source of every number (Arena, and speed and cost if you have the key).')}
+          />
+        </div>
       </section>
 
       <section className="signal-iar-section" aria-labelledby="iar-limits">
