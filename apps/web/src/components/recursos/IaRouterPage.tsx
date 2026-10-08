@@ -26,10 +26,17 @@ const FAQ: { question: Pair; answer: Pair }[] = [
     },
   },
   {
+    question: { es: '¿En qué sistemas operativos funciona?', en: 'Which operating systems does it run on?' },
+    answer: {
+      es: 'En macOS y Linux, y en Windows a través de WSL 2 (el Linux que trae Windows). En Windows se instala una vez WSL con wsl --install -d Ubuntu y, dentro de Ubuntu, se siguen los pasos de Linux; los CLIs oficiales (claude, codex, agy) también se instalan dentro de WSL. Abajo están los pasos de cada sistema.',
+      en: 'On macOS and Linux, and on Windows through WSL 2 (the Linux that ships with Windows). On Windows you install WSL once with wsl --install -d Ubuntu and, inside Ubuntu, follow the Linux steps; the official CLIs (claude, codex, agy) are installed inside WSL as well. The steps for each system are below.',
+    },
+  },
+  {
     question: { es: '¿Lo instalo con Homebrew o con pip?', en: 'Should I install it with Homebrew or pip?' },
     answer: {
-      es: 'Si usás macOS con Homebrew, la opción A (brew install Mgobeaalcoba/tap/ia-router) es la más simple. En cualquier otro caso, pipx install ia-router. Los dos instalan el mismo programa y se actualizan y desinstalan de forma independiente.',
-      en: 'If you use macOS with Homebrew, option A (brew install Mgobeaalcoba/tap/ia-router) is the simplest. In any other case, pipx install ia-router. Both install the same program and are updated and uninstalled independently.',
+      es: 'Si usás macOS con Homebrew, brew install Mgobeaalcoba/tap/ia-router es lo más simple. En Linux y en Windows (WSL), pipx install ia-router. Los dos instalan el mismo programa y se actualizan y desinstalan de forma independiente.',
+      en: 'If you use macOS with Homebrew, brew install Mgobeaalcoba/tap/ia-router is the simplest. On Linux and on Windows (WSL), pipx install ia-router. Both install the same program and are updated and uninstalled independently.',
     },
   },
   {
@@ -513,38 +520,30 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
       <section className="signal-iar-section signal-iar-split" id="instalar" aria-labelledby="iar-install">
         <div>
           <span className="signal-eyebrow">{t('Instalar', 'Install')}</span>
-          <h2 id="iar-install">{t('Dos formas de instalarlo. Elegí una.', 'Two ways to install it. Pick one.')}</h2>
+          <h2 id="iar-install">{t('Mac, Linux y Windows. Elegí tu sistema.', 'Mac, Linux and Windows. Pick your system.')}</h2>
           <p>
             {t(
-              'Probado en macOS; no tiene dependencias de sistema, así que debería funcionar también en Linux. Requiere Python 3.9 o superior. Necesitás además al menos uno de los CLIs oficiales instalado y logueado (claude, codex o agy): el router no los instala por vos.',
-              'Tested on macOS; it has no system dependencies, so it should also work on Linux. It requires Python 3.9 or higher. You also need at least one of the official CLIs installed and logged in (claude, codex or agy): the router does not install them for you.',
+              'Disponible para macOS, Linux y Windows (con WSL 2). Requiere Python 3.9 o superior y no tiene otras dependencias. Necesitás además al menos uno de los CLIs oficiales instalado y logueado (claude, codex o agy): el router no los instala por vos.',
+              'Available for macOS, Linux and Windows (with WSL 2). It requires Python 3.9 or higher and has no other dependencies. You also need at least one of the official CLIs installed and logged in (claude, codex or agy): the router does not install them for you.',
             )}
           </p>
           <ul className="signal-iar-list">
             <li>
               <Gauge size={16} aria-hidden="true" />{' '}
               <span>
-                {t(
-                  <>
-                    <b>Opción A · Homebrew:</b> la más simple en macOS; instala Python si hace falta.
-                  </>,
-                  <>
-                    <b>Option A · Homebrew:</b> the simplest on macOS; it installs Python if needed.
-                  </>,
-                )}
+                {t(<><b>macOS:</b> Homebrew o pipx.</>, <><b>macOS:</b> Homebrew or pipx.</>)}
               </span>
             </li>
             <li>
               <Gauge size={16} aria-hidden="true" />{' '}
               <span>
-                {t(
-                  <>
-                    <b>Opción B · pip o pipx:</b> para cualquier sistema con Python. pipx lo instala aislado.
-                  </>,
-                  <>
-                    <b>Option B · pip or pipx:</b> for any system with Python. pipx installs it isolated.
-                  </>,
-                )}
+                {t(<><b>Linux:</b> pipx, con el gestor de paquetes de tu distribución.</>, <><b>Linux:</b> pipx, with your distribution&apos;s package manager.</>)}
+              </span>
+            </li>
+            <li>
+              <Gauge size={16} aria-hidden="true" />{' '}
+              <span>
+                {t(<><b>Windows:</b> instalás WSL 2 una vez y seguís los pasos de Linux dentro de Ubuntu.</>, <><b>Windows:</b> install WSL 2 once and follow the Linux steps inside Ubuntu.</>)}
               </span>
             </li>
           </ul>
@@ -553,18 +552,36 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           <li>
             <strong>{t('1 · Instalá', '1 · Install')}</strong>
             <p className="signal-iar-opt">
-              <b>{t('Opción A · Homebrew', 'Option A · Homebrew')}</b>
+              <b>macOS</b>
             </p>
             <CopyCommand lang={lang} command="brew install Mgobeaalcoba/tap/ia-router" label="Homebrew" />
-            <p className="signal-iar-opt">
-              <b>{t('Opción B · pipx (o pip)', 'Option B · pipx (or pip)')}</b>
-            </p>
-            <CopyCommand lang={lang} command="pipx install ia-router" label="pipx" />
-            <CopyCommand lang={lang} command="python3 -m pip install --user ia-router" label="pip" />
             <p>
-              {t('¿No tenés pipx? ', 'Do not have pipx? ')}
-              <code>brew install pipx &amp;&amp; pipx ensurepath</code> {t('en macOS, o', 'on macOS, or')} <code>python3 -m pip install --user pipx</code>{' '}
-              {t('en otros sistemas.', 'on other systems.')}
+              {t('O con pipx: ', 'Or with pipx: ')}
+              <code>brew install pipx &amp;&amp; pipx ensurepath</code> {t('y luego', 'and then')} <code>pipx install ia-router</code>.
+            </p>
+            <p className="signal-iar-opt">
+              <b>Linux</b>
+            </p>
+            <CopyCommand lang={lang} command="sudo apt update && sudo apt install -y pipx curl && pipx ensurepath" label="Debian / Ubuntu" />
+            <CopyCommand lang={lang} command="sudo dnf install -y pipx curl && pipx ensurepath" label="Fedora" />
+            <CopyCommand lang={lang} command="pipx install ia-router" label="pipx" />
+            <p>
+              {t('En otra distribución: ', 'On another distribution: ')}
+              <code>python3 -m pip install --user pipx &amp;&amp; python3 -m pipx ensurepath</code>. {t('Abrí una terminal nueva después de ensurepath.', 'Open a new terminal after ensurepath.')}
+            </p>
+            <p className="signal-iar-opt">
+              <b>{t('Windows (WSL 2)', 'Windows (WSL 2)')}</b>
+            </p>
+            <CopyCommand lang={lang} command="wsl --install -d Ubuntu" label="PowerShell (admin)" />
+            <p>
+              {t(
+                <>
+                  Reiniciá, abrí <b>Ubuntu</b> desde el menú Inicio, creá tu usuario y seguí los pasos de Linux de arriba dentro de esa ventana. Instalá y logueá <code>claude</code>, <code>codex</code> o <code>agy</code> también dentro de WSL. Para la interfaz web usá <code>ia-router ui --no-open</code> y abrí la dirección que imprime en tu navegador de Windows.
+                </>,
+                <>
+                  Restart, open <b>Ubuntu</b> from the Start menu, create your user and follow the Linux steps above inside that window. Install and log in to <code>claude</code>, <code>codex</code> or <code>agy</code> inside WSL as well. For the web interface use <code>ia-router ui --no-open</code> and open the address it prints in your Windows browser.
+                </>,
+              )}
             </p>
           </li>
           <li>

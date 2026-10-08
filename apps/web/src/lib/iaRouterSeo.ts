@@ -68,7 +68,7 @@ export function iaRouterSchemas(lang: Language) {
       '@type': 'SoftwareApplication',
       name: 'ia-router',
       applicationCategory: 'DeveloperApplication',
-      operatingSystem: 'macOS',
+      operatingSystem: 'macOS, Linux, Windows (WSL 2)',
       url,
       inLanguage: lang,
       license: 'https://www.apache.org/licenses/LICENSE-2.0',

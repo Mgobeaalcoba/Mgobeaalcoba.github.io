@@ -40,6 +40,7 @@ jobs:
 
       - name: Build CV site (static export)
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # lets the PyPI stats script read stargazers and commit activity
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm run build --workspace=cv
