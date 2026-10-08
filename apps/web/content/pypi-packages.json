@@ -1,0 +1,10 @@
+{
+  "owner": "Mgobeaalcoba",
+  "packages": [
+    { "name": "ia-router", "repo": "Mgobeaalcoba/ia-suscription-router", "homebrew": "Mgobeaalcoba/tap/ia-router" },
+    { "name": "n8n-flow-manager", "repo": "Mgobeaalcoba/n8n-flow-manager" },
+    { "name": "kaggle-downloader-package", "repo": "Mgobeaalcoba/kaggle_downloader_package" },
+    { "name": "argendolar", "repo": "Mgobeaalcoba/argendolar" },
+    { "name": "missing-mga", "repo": "Mgobeaalcoba/missing_mga" }
+  ]
+}

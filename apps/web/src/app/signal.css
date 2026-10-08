@@ -1851,3 +1851,82 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-iar-links a { color: var(--signal-text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .signal-iar-links span { color: var(--signal-muted); font-size: 13px; overflow-wrap: anywhere; }
 @media (max-width: 720px) { .signal-iar-links ul { grid-template-columns: 1fr; } }
+
+
+/* ia-router page: breathing room. Text no longer touches the headings, the images or the next block. */
+.signal-iar-section__head > p { margin-top: 24px; max-width: 640px; color: var(--signal-muted); font-size: 18px; line-height: 1.65; }
+.signal-iar-section__head + * { margin-top: 48px; }
+.signal-iar-shot + .signal-iar-shot, .signal-iar-pair + .signal-iar-shot, .signal-iar-shot + .signal-iar-pair, .signal-iar-pair + .signal-iar-pair { margin-top: 48px; }
+.signal-iar-shot figcaption { margin-top: 18px; max-width: 74ch; color: var(--signal-muted); font-size: 14px; line-height: 1.6; }
+.signal-iar-pair > .signal-iar-shot { margin-top: 0; }
+.signal-iar-pair--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 32px; }
+.signal-iar-note { margin-top: 18px; line-height: 1.5; }
+.signal-iar-note + .signal-iar-note { margin-top: 12px; }
+.signal-iar-hero aside > p { margin-top: 20px; align-items: flex-start; line-height: 1.5; }
+.signal-iar-hero aside > p > span { min-width: 0; }
+.signal-iar-hero aside > p a { color: var(--signal-cyan); text-decoration: underline; text-underline-offset: 3px; }
+.signal-iar-wide + .signal-iar-section { padding-top: 104px; }
+@media (max-width: 900px) {
+  .signal-iar-pair--grid { grid-template-columns: 1fr; gap: 40px; }
+  .signal-iar-section__head > p { font-size: 16px; }
+}
+
+/* PyPI stats dashboard (/recursos/pypi-stats/) */
+.signal-pypi-hero { max-width: 1180px; margin: 0 auto; padding: 150px 28px 20px; }
+.signal-pypi-hero h1 { margin-top: 22px; max-width: 900px; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: .95; letter-spacing: -.055em; text-wrap: balance; }
+.signal-pypi-hero h1 em { color: var(--signal-cyan); font-style: normal; }
+.signal-pypi-hero > p { margin-top: 28px; max-width: 680px; color: var(--signal-muted); font-size: 18px; line-height: 1.65; }
+.signal-pypi-section { max-width: 1180px; margin: 0 auto; padding: 64px 28px 0; }
+.signal-pypi-head { max-width: 760px; margin-bottom: 36px; }
+.signal-pypi-head h2 { margin-top: 20px; font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1; letter-spacing: -.05em; text-wrap: balance; }
+.signal-pypi-head p { margin-top: 18px; color: var(--signal-muted); font-size: 16px; line-height: 1.6; }
+.signal-pypi-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.signal-pypi-card { display: flex; flex-direction: column; gap: 14px; border: 1px solid var(--signal-line); border-radius: 18px; background: var(--signal-surface); padding: 24px; }
+.signal-pypi-card span { color: var(--signal-muted); font: 600 11px/1 var(--signal-mono); letter-spacing: .1em; text-transform: uppercase; }
+.signal-pypi-card strong { color: var(--signal-text); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.signal-pypi-fine { margin-top: 18px; max-width: 760px; color: var(--signal-subtle); font-size: 13px; line-height: 1.6; }
+.signal-pypi-panel { border: 1px solid var(--signal-line); border-radius: 20px; background: var(--signal-surface); padding: 26px 26px 22px; }
+.signal-pypi-chart { display: block; width: 100%; height: auto; }
+.signal-pypi-grid { stroke: var(--signal-line); stroke-width: 1; }
+.signal-pypi-axis { fill: var(--signal-subtle); font: 500 11px var(--signal-mono); }
+.signal-pypi-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--signal-line); color: var(--signal-muted); font-size: 13px; }
+.signal-pypi-legend li { display: inline-flex; align-items: center; gap: 8px; }
+.signal-pypi-legend i { width: 10px; height: 10px; border-radius: 3px; }
+.signal-pypi-grid-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.signal-pypi-pkg { display: flex; flex-direction: column; gap: 18px; border: 1px solid var(--signal-line); border-radius: 20px; background: var(--signal-surface); padding: 28px; min-width: 0; }
+.signal-pypi-pkg__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.signal-pypi-pkg h3 { font-size: 22px; letter-spacing: -.025em; }
+.signal-pypi-pkg h3 a { color: var(--signal-text); text-decoration: underline; text-decoration-color: var(--signal-line-strong); text-underline-offset: 4px; }
+.signal-pypi-pkg h3 a:hover { text-decoration-color: var(--signal-cyan); }
+.signal-pypi-badge { border: 1px solid rgba(34, 211, 238, .35); border-radius: 999px; color: var(--signal-cyan); padding: 4px 10px; font: 600 11px/1 var(--signal-mono); }
+.signal-pypi-pkg__summary { margin: 0; color: var(--signal-muted); font-size: 14px; line-height: 1.6; }
+.signal-pypi-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 16px 0; border-top: 1px solid var(--signal-line); border-bottom: 1px solid var(--signal-line); }
+.signal-pypi-nums dt { color: var(--signal-subtle); font: 600 10px/1 var(--signal-mono); letter-spacing: .1em; text-transform: uppercase; }
+.signal-pypi-nums dd { margin: 8px 0 0; color: var(--signal-text); font-size: 24px; font-weight: 650; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.signal-pypi-spark { display: block; width: 100%; height: 44px; }
+.signal-pypi-nodata { color: var(--signal-subtle); font-size: 13px; }
+.signal-pypi-pkg__meta { display: flex; flex-direction: column; gap: 8px; margin: 0; color: var(--signal-muted); font-size: 13px; line-height: 1.55; }
+.signal-pypi-pkg__meta a { color: var(--signal-cyan); text-decoration: underline; text-underline-offset: 3px; }
+.signal-pypi-pkg__meta code { color: var(--signal-cyan); font-family: var(--signal-mono); font-size: 12px; overflow-wrap: anywhere; }
+.signal-pypi-stale { color: #fbbf24; }
+.signal-pypi-notes { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 44px; margin: 0; padding: 0; }
+.signal-pypi-notes li { border-top: 1px solid var(--signal-line); padding: 22px 0; color: var(--signal-muted); font-size: 15px; line-height: 1.65; }
+.signal-pypi-notes b { color: var(--signal-text); font-weight: 650; }
+.signal-pypi-source { padding-bottom: 96px; color: var(--signal-muted); font-size: 14px; line-height: 1.7; }
+.signal-pypi-source p + p { margin-top: 12px; }
+.signal-pypi-source a { color: var(--signal-cyan); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  .signal-pypi-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .signal-pypi-grid-cards, .signal-pypi-notes { grid-template-columns: 1fr; gap: 20px; }
+  .signal-pypi-notes { gap: 0; }
+  .signal-pypi-hero { padding-top: 120px; }
+}
+@media (max-width: 560px) {
+  .signal-pypi-hero, .signal-pypi-section { padding-left: 20px; padding-right: 20px; }
+  .signal-pypi-panel { padding: 18px 14px; }
+  .signal-pypi-pkg { padding: 22px; }
+}
+.signal-iar-shot > a { display: block; border-radius: 16px; cursor: zoom-in; }
+.signal-iar-shot > a:focus-visible { outline: 2px solid var(--signal-cyan); outline-offset: 4px; }
+.signal-pypi-chartwrap { overflow-x: auto; }
+@media (max-width: 700px) { .signal-pypi-chart { min-width: 680px; } }

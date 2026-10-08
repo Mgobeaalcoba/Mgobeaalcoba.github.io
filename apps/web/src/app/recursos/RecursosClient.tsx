@@ -206,6 +206,11 @@ export default function RecursosClient() {
         <span>{lang === "es" ? "ia-router: ruteá tus suscripciones de IA con métricas objetivas" : "ia-router: route your AI subscriptions with objective metrics"}</span>
         <i aria-hidden="true">→</i>
       </Link>
+      <Link className="signal-tools-hero__new" href={lang === "es" ? "/recursos/pypi-stats/" : "/en/recursos/pypi-stats/"} data-analytics="recursos_pypi_stats_link">
+        <b>{lang === "es" ? "Datos" : "Data"}</b>
+        <span>{lang === "es" ? "Mis paquetes de PyPI en números: descargas y evolución" : "My PyPI packages in numbers: downloads and trends"}</span>
+        <i aria-hidden="true">→</i>
+      </Link>
     </section>
 
     <section className="signal-tools-workspace">

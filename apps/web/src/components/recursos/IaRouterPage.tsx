@@ -206,11 +206,18 @@ const TRUST: [Pair, Pair][] = [
   ],
 ];
 
-function Shot({ file, alt, w, h, caption, priority = false }: { file: string; alt: string; w: number; h: number; caption: string; priority?: boolean }) {
+function Shot({ file, alt, w, h, caption, priority = false, zoom = false }: { file: string; alt: string; w: number; h: number; caption: string; priority?: boolean; zoom?: boolean }) {
+  const image = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={`${IMG}/${file}`} alt={alt} width={w} height={h} loading={priority ? 'eager' : 'lazy'} decoding="async" />
+  );
   return (
     <figure className="signal-iar-shot">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${IMG}/${file}`} alt={alt} width={w} height={h} loading={priority ? 'eager' : 'lazy'} decoding="async" />
+      {zoom ? (
+        <a href={`${IMG}/${file}`} target="_blank" rel="noopener noreferrer" aria-label={`${alt} (${caption})`} title="Open full size">
+          {image}
+        </a>
+      ) : image}
       <figcaption>{caption}</figcaption>
     </figure>
   );
@@ -264,10 +271,13 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           <CopyCommand lang={lang} command="brew install Mgobeaalcoba/tap/ia-router" label="Homebrew" />
           <CopyCommand lang={lang} command="pipx install ia-router" label="pip" />
           <p>
-            <ShieldCheck size={15} aria-hidden="true" /> {t('Python 3.9+ · Apache-2.0 · sin dependencias · ', 'Python 3.9+ · Apache-2.0 · no dependencies · ')}
-            <a href={REPO} target="_blank" rel="noopener noreferrer" data-analytics="iar_source_link">
-              {t('código en GitHub', 'code on GitHub')}
-            </a>
+            <ShieldCheck size={15} aria-hidden="true" />
+            <span>
+              {t('Python 3.9+ · Apache-2.0 · sin dependencias · ', 'Python 3.9+ · Apache-2.0 · no dependencies · ')}
+              <a href={REPO} target="_blank" rel="noopener noreferrer" data-analytics="iar_source_link">
+                {t('código en GitHub', 'code on GitHub')}
+              </a>
+            </span>
           </p>
         </aside>
       </header>
@@ -711,6 +721,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           </p>
         </div>
         <Shot
+          zoom
           file="ia-router-ui-chat.png"
           alt={t(
             'Interfaz web de ia-router con una respuesta real de antigravity: modelo, tokens, tiempo, costo estimado y el detalle de por qué se eligió ese modelo',
@@ -720,8 +731,9 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           h={1281}
           caption={t('Una respuesta real en el navegador, con el modelo, los tokens, el costo estimado y "Why this model".', 'A real answer in the browser, with the model, tokens, estimated cost and "Why this model".')}
         />
-        <div className="signal-iar-pair">
+        <div className="signal-iar-pair signal-iar-pair--grid">
           <Shot
+          zoom
             file="ia-router-ui-compare.png"
             alt={t('Interfaz web con Compare: la misma pregunta respondida por antigravity y codex, lado a lado', 'Web interface with Compare: the same question answered by antigravity and codex, side by side')}
             w={2000}
@@ -729,6 +741,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             caption={t('Compare: una tarea, dos modelos, lado a lado. Gasta cuota en cada uno.', 'Compare: one task, two models, side by side. It spends quota on each.')}
           />
           <Shot
+          zoom
             file="ia-router-ui-routing.png"
             alt={t('Interfaz web con la vista previa del ruteo: el ranking de modelos para la tarea escrita, sin gastar cuota', 'Web interface with the routing preview: the ranking of models for the task you wrote, spending no quota')}
             w={2000}
@@ -736,6 +749,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             caption={t('Preview routing: qué modelo elegiría el router y por qué, antes de gastar nada.', 'Preview routing: which model the router would pick and why, before spending anything.')}
           />
           <Shot
+          zoom
             file="ia-router-ui-connectors.png"
             alt={t('Administrador de conectores: el servidor memory real agregado desde una plantilla y probado, con sus nueve herramientas', 'Connector manager: the real memory server added from a template and tested, with its nine tools')}
             w={2000}
@@ -743,6 +757,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             caption={t('Conectores desde la página: plantilla, comando libre o URL; probar sin gastar cuota.', 'Connectors from the page: a template, a free command or a URL; test without spending quota.')}
           />
           <Shot
+          zoom
             file="ia-router-ui-confirm.png"
             alt={t('Administrador de conectores pidiendo confirmar el comando exacto antes de guardarlo', 'Connector manager asking you to confirm the exact command before saving it')}
             w={2000}
@@ -750,6 +765,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             caption={t('Un comando libre se muestra y se confirma antes de guardarlo. Nunca pasa por una shell y los secretos no vuelven a la página.', 'A free command is shown and confirmed before it is saved. It never goes through a shell and secrets never come back to the page.')}
           />
           <Shot
+          zoom
             file="ia-router-ui-settings.png"
             alt={t('Ajustes: estado de los CLIs, uso en tokens e historial por modelo', 'Settings: the state of the CLIs, token usage and history per model')}
             w={2000}
@@ -757,6 +773,7 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
             caption={t('Ajustes: estado de los CLIs, comprobar sesiones, uso e historial por modelo.', 'Settings: the state of the CLIs, login check, usage and history per model.')}
           />
           <Shot
+          zoom
             file="ia-router-ui-scores.png"
             alt={t('Ajustes con los puntajes por modelo para la categoría coding y de dónde sale cada número', 'Settings with the score per model for the coding category and where each number comes from')}
             w={2000}

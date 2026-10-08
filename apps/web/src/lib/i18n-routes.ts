@@ -21,6 +21,7 @@ export const LOCALIZED_ROUTE_PATTERNS: RegExp[] = [
   /^\/servicios\/[^/]+\/$/,
   /^\/servicios\/gracias\/$/,
   /^\/recursos\/ia-router\/$/,
+  /^\/recursos\/pypi-stats\/$/,
 ];
 
 function withTrailingSlash(pathname: string): string {

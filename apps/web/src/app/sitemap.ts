@@ -72,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       alternates: { languages: { es: `${SITE_URL}/recursos/ia-router/`, en: `${SITE_URL}/en/recursos/ia-router/` } },
     },
+    {
+      url: `${SITE_URL}/en/recursos/pypi-stats/`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.5,
+      alternates: { languages: { es: `${SITE_URL}/recursos/pypi-stats/`, en: `${SITE_URL}/en/recursos/pypi-stats/` } },
+    },
     ...OFFERS.map((offer) => ({
       url: `${SITE_URL}/en/servicios/${offer.slug}/`,
       lastModified: new Date('2026-08-05'),
@@ -103,6 +110,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
       alternates: { languages: { es: `${SITE_URL}/recursos/ia-router/`, en: `${SITE_URL}/en/recursos/ia-router/` } },
+    },
+    {
+      url: `${SITE_URL}/recursos/pypi-stats/`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.5,
+      alternates: { languages: { es: `${SITE_URL}/recursos/pypi-stats/`, en: `${SITE_URL}/en/recursos/pypi-stats/` } },
     },
     {
       url: `${SITE_URL}/privacidad/`,

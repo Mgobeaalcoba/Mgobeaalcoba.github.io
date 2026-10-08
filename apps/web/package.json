@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node ../../scripts/sync-mortgage-data.mjs",
+    "prebuild": "node ../../scripts/sync-mortgage-data.mjs && node ../../scripts/sync-pypi-stats.mjs",
     "build": "next build",
     "postbuild": "node scripts/localize-export.mjs",
     "start": "next start",

@@ -12,6 +12,8 @@ on:
       - "package*.json"
       - "scripts/build-deploy.sh"
       - ".github/workflows/deploy.yml"
+  schedule:
+    - cron: "17 9 * * *" # daily: refreshes the PyPI numbers on /recursos/pypi-stats/ (the build fetches them)
   workflow_dispatch: # allow manual trigger from GitHub UI or n8n automation
 
 permissions:
