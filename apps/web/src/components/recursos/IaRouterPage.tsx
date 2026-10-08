@@ -653,6 +653,45 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
         />
       </section>
 
+      <section className="signal-iar-section" aria-labelledby="iar-more">
+        <div className="signal-iar-section__head">
+          <span className="signal-eyebrow">{t('Nuevo en 0.6', 'New in 0.6')}</span>
+          <h2 id="iar-more">{t('Para scripts, para comparar y para cuidar tu cuota.', 'For scripts, for comparing and for watching your quota.')}</h2>
+        </div>
+        <div className="signal-iar-pair">
+          <Shot
+            file="ia-router-compare.png"
+            alt={t(
+              'Terminal con ask --compare: la misma tarea corrida en claude y en codex, cada respuesta con su modelo, tokens, tiempo y costo estimado (la interfaz del programa está en inglés)',
+              'Terminal with ask --compare: the same task run on claude and on codex, each answer with its model, tokens, time and estimated cost',
+            )}
+            w={2000}
+            h={636}
+            caption={t('ask --compare: una tarea, dos modelos, con tiempo y costo. Siempre explícito: gasta cuota en cada uno.', 'ask --compare: one task, two models, with time and cost. Always explicit: it spends quota on each.')}
+          />
+          <Shot
+            file="ia-router-usage.png"
+            alt={t(
+              'Terminal con ia-router usage: tokens de las últimas 5 horas, 24 horas y 7 días por modelo, y el costo estimado (la interfaz del programa está en inglés)',
+              'Terminal with ia-router usage: tokens over the last 5 hours, 24 hours and 7 days per model, and the estimated cost',
+            )}
+            w={2000}
+            h={760}
+            caption={t('ia-router usage: tokens y costo estimado por modelo. El límite se aprende de tu historial; sin un rate limit registrado no hay referencia.', 'ia-router usage: tokens and estimated cost per model. The limit is learned from your history; without a recorded rate limit there is no reference.')}
+          />
+        </div>
+        <Shot
+          file="ia-router-scripts.png"
+          alt={t(
+            'Terminal con una entrada por pipe y la salida JSON de ask --json filtrada con jq (la interfaz del programa está en inglés)',
+            'Terminal with a piped input and the JSON output of ask --json filtered with jq',
+          )}
+          w={2000}
+          h={470}
+          caption={t('Modo script: entrada por pipe y salida --json (modelo, tokens, costo estimado, ruteo), lista para shell, cron o CI.', 'Script mode: piped input and --json output (model, tokens, estimated cost, routing), ready for shell, cron or CI.')}
+        />
+      </section>
+
       <section className="signal-iar-section" aria-labelledby="iar-limits">
         <div className="signal-iar-section__head">
           <span className="signal-eyebrow">{t('Con honestidad', 'In all honesty')}</span>
