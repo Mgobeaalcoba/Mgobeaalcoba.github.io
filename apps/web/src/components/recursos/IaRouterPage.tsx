@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Gauge, GitBranch, Layers, Paperclip, Plug, PlugZap, Scale, ShieldCheck, Sparkles, Wallet } from 'lucide-react';
+import { ArrowRight, Gauge, GitBranch, History, Layers, Paperclip, Plug, PlugZap, Scale, SplitSquareHorizontal, Terminal, ShieldCheck, Sparkles, Wallet } from 'lucide-react';
 import ContextBackLink from '@/components/shared/ContextBackLink';
 import CopyCommand from '@/components/recursos/CopyCommand';
 import { localizePath } from '@/lib/i18n-routes';
@@ -21,8 +21,8 @@ const FAQ: { question: Pair; answer: Pair }[] = [
   {
     question: { es: '¿Mis prompts pasan por algún servidor tuyo?', en: 'Do my prompts go through any of your servers?' },
     answer: {
-      es: 'No. Cada tarea se ejecuta en el CLI oficial que ya tenés logueado. El router solo lee páginas públicas de Arena y, si activás la clave gratuita, consulta la API de Artificial Analysis. El log local no guarda tus prompts.',
-      en: 'No. Each task runs in the official CLI you are already logged into. The router only reads public Arena pages and, if you turn on the free key, queries the Artificial Analysis API. The local log does not store your prompts.',
+      es: 'No. Cada tarea se ejecuta en el CLI oficial que ya tenés logueado. El router solo lee páginas públicas de Arena y, si activás la clave gratuita, consulta la API de Artificial Analysis. El log de uso no guarda tus prompts; las conversaciones guardadas para retomarlas sí, pero solo en tu máquina, con permisos solo para vos, y podés apagarlas o borrarlas.',
+      en: 'No. Each task runs in the official CLI you are already logged into. The router only reads public Arena pages and, if you turn on the free key, queries the Artificial Analysis API. The usage log does not store your prompts; the saved conversations you can resume do, but only on your machine, readable just by you, and you can turn them off or delete them.',
     },
   },
   {
@@ -120,6 +120,38 @@ const USE_CASES: { icon: React.ReactNode; title: Pair; text: Pair }[] = [
     text: {
       es: 'Registrás servidores MCP una vez y cualquier modelo los usa: resumir los mails del día, agendar un bloque en el calendario, consultar tu CRM.',
       en: 'You register MCP servers once and any model uses them: summarize today’s emails, book a block on your calendar, query your CRM.',
+    },
+  },
+  {
+    icon: <Terminal size={20} aria-hidden="true" />,
+    title: { es: 'Scripts y pipes', en: 'Scripts and pipes' },
+    text: {
+      es: 'cat error.log | ia-router ask "¿qué falla?" --json: entrada por pipe y una salida JSON con el modelo, los tokens y el costo estimado, lista para shell, cron o CI.',
+      en: 'cat error.log | ia-router ask "what is wrong?" --json: piped input and a JSON result with the model, tokens and estimated cost, ready for shell, cron or CI.',
+    },
+  },
+  {
+    icon: <SplitSquareHorizontal size={20} aria-hidden="true" />,
+    title: { es: 'Comparar dos modelos', en: 'Comparing two models' },
+    text: {
+      es: 'ask --compare corre la misma tarea en dos modelos y muestra ambas respuestas con tiempo y costo. Siempre explícito, porque gasta cuota en cada uno.',
+      en: 'ask --compare runs the same task on two models and shows both answers with time and cost. Always explicit, because it spends quota on each.',
+    },
+  },
+  {
+    icon: <Gauge size={20} aria-hidden="true" />,
+    title: { es: 'Medir tu cuota', en: 'Watching your quota' },
+    text: {
+      es: 'ia-router usage muestra tokens y costo estimado por modelo y qué tan cerca estás del límite que ya alcanzaste. No inventa límites: los aprende de tu propio historial.',
+      en: 'ia-router usage shows tokens and estimated cost per model and how close you are to the limit you already hit. It invents no limits: it learns them from your own history.',
+    },
+  },
+  {
+    icon: <History size={20} aria-hidden="true" />,
+    title: { es: 'Retomar conversaciones', en: 'Resuming conversations' },
+    text: {
+      es: 'ia-router --continue retoma la última conversación. Se guardan solo en tu máquina y podés apagarlo o borrarlas.',
+      en: 'ia-router --continue resumes the last conversation. They are stored only on your machine and you can turn it off or delete them.',
     },
   },
   {
@@ -384,8 +416,8 @@ export default function IaRouterPage({ lang }: { lang: Language }) {
           <h2 id="iar-connectors">{t('Que cualquier modelo use tus otras apps.', 'Let any model use your other apps.')}</h2>
           <p>
             {t(
-              'Registrás servidores MCP una sola vez (Gmail, Calendar, Drive, Slack, GitHub, tu CRM…) y el router se los da a claude, codex y agy a través de un único proxy. Un solo lugar para permisos, auditoría y credenciales, con el modelo que sea.',
-              'You register MCP servers once (Gmail, Calendar, Drive, Slack, GitHub, your CRM…) and the router hands them to claude, codex and agy through a single proxy. One place for permissions, audit and credentials, with whichever model.',
+              'Registrás servidores MCP una sola vez (Gmail, Calendar, Drive, Slack, GitHub, tu CRM…) y el router se los da a claude, codex y agy a través de un único proxy, y cada tarea recibe solo los conectores que necesita. Un solo lugar para permisos, auditoría y credenciales, con el modelo que sea.',
+              'You register MCP servers once (Gmail, Calendar, Drive, Slack, GitHub, your CRM…) and the router hands them to claude, codex and agy through a single proxy, and each task gets only the connectors it needs. One place for permissions, audit and credentials, with whichever model.',
             )}
           </p>
           <ul className="signal-iar-list">
