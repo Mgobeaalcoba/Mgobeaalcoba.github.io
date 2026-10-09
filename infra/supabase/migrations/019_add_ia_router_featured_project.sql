@@ -10,6 +10,7 @@
 --   * sort_order 0 is the first card, so every existing project moves down by one.
 --   * Idempotent: it does nothing if a project with that link already exists, so re-running it
 --     does not shift the order again or duplicate the card.
+--   * Titles stay under ~58 characters: the card clamps the title to three lines.
 --   * Rollback: DELETE FROM project_tags WHERE project_id = (SELECT id FROM projects WHERE link = '<link>');
 --               DELETE FROM projects WHERE link = '<link>'; UPDATE projects SET sort_order = sort_order - 1;
 -- =============================================================
@@ -30,8 +31,8 @@ BEGIN
   INSERT INTO projects (id, title_es, title_en, description_es, description_en, link, sort_order)
   VALUES (
     new_id,
-    '[Python-AI Router] ia-router: tus suscripciones de IA, ruteadas con datos',
-    '[Python-AI Router] ia-router: your AI subscriptions, routed with data',
+    '[Python-AI Router] ia-router: suscripciones de IA ruteadas',
+    '[Python-AI Router] ia-router: AI subscriptions, routed',
     'CLI y panel web open source (Apache-2.0) que reparte cada tarea entre Claude, Codex y Antigravity según métricas objetivas de Arena y Artificial Analysis. Incluye conectores MCP (Gmail, Calendar…), comparación de modelos, medidor de cuota y sesiones guardadas. Publicado en PyPI y Homebrew, sin dependencias.',
     'Open-source (Apache-2.0) CLI and web panel that splits each task across Claude, Codex and Antigravity using objective metrics from Arena and Artificial Analysis. Includes MCP connectors (Gmail, Calendar…), model comparison, a quota meter and saved sessions. Published on PyPI and Homebrew, with no dependencies.',
     repo_link,
