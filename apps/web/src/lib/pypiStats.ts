@@ -23,6 +23,7 @@ export type Github = {
 export type ClickpyBase = { all: Pivot; nomirror: Pivot };
 export type Clickpy = {
   through: string;
+  partial?: string | null;    // ClickPy's last day when it is still incomplete
   total: Pivot;               // series: all (mirrors included) and nomirror
   country: ClickpyBase;
   version: ClickpyBase;
@@ -125,8 +126,9 @@ export function dailyMap(pkg: Pkg, segment: Segment): Map<string, number> {
   return map;
 }
 
-/** First and last date the segment's source has for these packages (pypistats and ClickPy do not end on the same day). */
-export function segmentRange(packages: Pkg[], segment: Segment): { first: string; latest: string } {
+/** First and last COMPLETE date the segment's source has for these packages (pypistats and ClickPy do not end on the same day). `partial` is ClickPy's still-incomplete last day, left out of every figure. */
+export function segmentRange(packages: Pkg[], segment: Segment): { first: string; latest: string; partial: string | null } {
+  let partial: string | null = null;
   let first = '9999-12-31';
   let latest = '';
   for (const pkg of packages) {
@@ -134,11 +136,17 @@ export function segmentRange(packages: Pkg[], segment: Segment): { first: string
       ? (segment.kind === 'all' ? pkg.history.map((point) => point.date) : (segment.kind === 'os' ? pkg.system : pkg.python)?.dates ?? [])
       : pkg.clickpy?.total.dates ?? [];
     if (dates.length) {
+      let end = dates[dates.length - 1];
+      const open = pkg.clickpy?.partial;
+      if (open && end === open && !(segment.kind === 'all' || segment.kind === 'os' || segment.kind === 'py')) {
+        partial = open;
+        end = dates.length > 1 ? dates[dates.length - 2] : end;
+      }
       if (dates[0] < first) first = dates[0];
-      if (dates[dates.length - 1] > latest) latest = dates[dates.length - 1];
+      if (end > latest) latest = end;
     }
   }
-  return { first, latest };
+  return { first, latest, partial };
 }
 
 export const sumOver = (map: Map<string, number>, from: string, to: string) => {

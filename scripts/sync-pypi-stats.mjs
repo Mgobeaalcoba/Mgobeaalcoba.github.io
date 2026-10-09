@@ -106,6 +106,24 @@ function topKeys(rows, keyField, count) {
   return [...totals.entries()].filter(([, total]) => total > 0).sort((a, b) => b[1] - a[1]).slice(0, count).map(([key]) => key);
 }
 
+/** ClickPy loads each day in pieces: its last day is often a fraction of a full one. Compare it with the same weekday a week earlier across ALL of PyPI (a single package is too noisy) and report the date if it is clearly incomplete. */
+let partialDay;
+async function clickpyPartialDay() {
+  if (partialDay !== undefined) return partialDay;
+  partialDay = null;
+  try {
+    const rows = await clickpy('SELECT date, sum(count) AS n FROM pypi.pypi_downloads_per_day WHERE date >= today() - 9 GROUP BY date ORDER BY date');
+    const byDate = new Map(rows.map((row) => [row.date, num(row.n)]));
+    const dates = [...byDate.keys()].sort();
+    const last = dates[dates.length - 1];
+    const weekBefore = new Date(Date.parse(`${last}T00:00:00Z`) - 7 * 86400000).toISOString().slice(0, 10);
+    if (last && byDate.get(weekBefore) && byDate.get(last) < 0.8 * byDate.get(weekBefore)) partialDay = last;
+  } catch (error) {
+    console.warn(`  partial-day check skipped: ${error.message}`);
+  }
+  return partialDay;
+}
+
 async function fetchClickpy(name) {
   if (!/^[a-z0-9][a-z0-9._-]*$/.test(name)) throw new Error('BAD_PACKAGE_NAME');
   const table = 'pypi.pypi_downloads_per_day_by_version_by_installer_by_type_by_country';
@@ -118,7 +136,8 @@ async function fetchClickpy(name) {
   const dates = Array.from(new Set(total.map((row) => row.date))).sort();
   if (!dates.length) return null;
   const both = (rows, keyField, keys) => ({ all: pivotRows(rows, keyField, 'all_', keys, dates), nomirror: pivotRows(rows, keyField, 'nomirror', keys, dates) });
-  const out = { through: dates[dates.length - 1], total: { dates, series: { all: dates.map((date) => num(total.find((row) => row.date === date)?.all_)), nomirror: dates.map((date) => num(total.find((row) => row.date === date)?.nomirror)) } } };
+  const partial = await clickpyPartialDay();
+  const out = { through: dates[dates.length - 1], partial: partial && partial === dates[dates.length - 1] ? partial : null, total: { dates, series: { all: dates.map((date) => num(total.find((row) => row.date === date)?.all_)), nomirror: dates.map((date) => num(total.find((row) => row.date === date)?.nomirror)) } } };
 
   const dimensions = [['country', 30], ['version', 10], ['type', 6]];
   for (const [label, count] of dimensions) {

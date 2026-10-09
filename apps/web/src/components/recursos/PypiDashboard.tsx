@@ -269,11 +269,11 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
   const segment = useMemo<Segment>(() => (isClickpy(state.segment) ? ({ ...state.segment, hide: state.hide } as Segment) : state.segment), [state.segment, state.hide]);
   const bounds = useMemo(() => {
     const range = segmentRange(selected, segment);
-    return range.latest ? range : { first, latest };
+    return range.latest ? range : { first, latest, partial: null };
   }, [selected, segment, first, latest]);
   const freshBounds = useMemo(() => {
     const range = segmentRange(selected, { kind: 'raw' });
-    return range.latest ? range : { first, latest };
+    return range.latest ? range : { first, latest, partial: null };
   }, [selected, first, latest]);
   const windowIn = useCallback((limits: { first: string; latest: string }) => {
     if (state.range === 'custom' && state.from && state.to) return { from: state.from < limits.first ? limits.first : state.from, to: state.to > limits.latest ? limits.latest : state.to };
@@ -599,6 +599,7 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
       </div>
       <p className="signal-pd-context" aria-live="polite">
         {t('Mostrando', 'Showing')} <b>{segmentLabel}</b> · {selected.map((pkg) => pkg.name).join(', ')} · {longDate.format(new Date(`${windowRange.from}T00:00:00Z`))} → {longDate.format(new Date(`${windowRange.to}T00:00:00Z`))}
+        {(isClickpy(segment) ? bounds.partial : freshBounds.partial) ? <> · <span className="signal-pd-hint">{(() => { const day = (isClickpy(segment) ? bounds.partial : freshBounds.partial) as string; const text = longDate.format(new Date(`${day}T00:00:00Z`)); return t(`${text} está incompleto en ClickPy y se excluye`, `${text} is still incomplete in ClickPy and is left out`); })()}</span></> : null}
         {freshBounds.latest > bounds.latest ? <> · <span className="signal-pd-hint">{t(`ClickPy llega hasta el ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`, `ClickPy goes up to ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`)}</span></> : null}
       </p>
 
