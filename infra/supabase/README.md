@@ -17,6 +17,7 @@ Scripts SQL para el schema y datos de Supabase. Todos los archivos aquí están 
 | `016_add_henry_ai_automation_referente_masterclass.sql` | Agrega a la videoteca la masterclass de Henry "Cómo convertirte en el referente de IA de tu empresa" (`video-11`, Sep 2026) |
 | `017_credit_mariano_on_henry_ai_automation_masterclass.sql` | Corrige la descripción de `video-11`: la masterclass fue co-conducida por Milagros Savino y Mariano Gobea |
 | `018_document_manually_loaded_videos_7_to_10.sql` | Versiona `video-7` a `video-10` (cargados a mano en producción) y reconcilia el `sort_order` de `video-1` a `video-6`; no-op en producción |
+| `019_add_ia_router_featured_project.sql` | Agrega ia-router como primer proyecto destacado de "03 / Trabajo" en `/portfolio` (`sort_order` 0; los demás bajan un lugar); idempotente |
 
 ## Cómo ejecutar
 
