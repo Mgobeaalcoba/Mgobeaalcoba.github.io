@@ -2034,3 +2034,9 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 /* ia-router page: a full-width figure that follows a section no longer touches its last block (e.g. the "Where to find it" box) */
 .signal-iar-section + .signal-iar-wide { margin-top: 80px; }
 .signal-iar-links { margin-bottom: 8px; }
+
+/* Project cards: a project with its own page gets a second link next to "view repository" */
+.signal-project-card__links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: auto; }
+.signal-project-card__links .signal-project-card__link { margin-top: 0; align-self: auto; }
+.signal-project-card__link--primary { border: 1px solid rgba(34, 211, 238, .4); border-radius: 999px; padding: 8px 14px; background: rgba(34, 211, 238, .07); }
+.signal-project-card__link--primary:hover { background: rgba(34, 211, 238, .14); }

@@ -1,14 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import { events } from '@/lib/gtag';
 import { useFilter } from '@/contexts/FilterContext';
+import { localizePath } from '@/lib/i18n-routes';
 
 const INITIAL_SHOW = 6;
+
+/**
+ * Projects that have a page of their own on this site. The card keeps its repository link (the `link` column) and adds a link to the page,
+ * so a visitor can read the detail without leaving. The key is the project's `link`; the path is locale-free (localizePath adds /en).
+ */
+const DETAIL_PAGES: Record<string, string> = {
+  'https://github.com/Mgobeaalcoba/ia-suscription-router': '/recursos/ia-router/',
+};
 
 const FILTERS = [
   { id: 'all', es: 'Todos', en: 'All', terms: [] },
@@ -129,9 +139,16 @@ export default function Projects() {
               </div>
               <div className="signal-project-card__aside">
                 <p>{project.description[lang]}</p>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={() => events.projectView(project.title[lang])} className="signal-project-card__link">
-                  <Github size={13} />{t('view_repo')}<ArrowUpRight size={14} />
-                </a>
+                <div className="signal-project-card__links">
+                  {DETAIL_PAGES[project.link] && (
+                    <Link href={localizePath(DETAIL_PAGES[project.link], lang)} className="signal-project-card__link signal-project-card__link--primary" data-analytics="project_detail_page" onClick={() => events.projectView(project.title[lang])}>
+                      {lang === 'es' ? 'Ver detalle y cómo instalarlo' : 'See details and how to install'}<ArrowUpRight size={14} />
+                    </Link>
+                  )}
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={() => events.projectView(project.title[lang])} className="signal-project-card__link">
+                    <Github size={13} />{t('view_repo')}<ArrowUpRight size={14} />
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
