@@ -16,6 +16,14 @@ function loadStats(): Stats {
   }
 }
 
+function loadMap() {
+  try {
+    return JSON.parse(readFileSync(path.join(process.cwd(), 'content/world-map.json'), 'utf8')) as { width: number; height: number; countries: Record<string, { d: string; cx: number; cy: number; a: number }> };
+  } catch {
+    return { width: 1000, height: 444, countries: {} };
+  }
+}
+
 /**
  * Interactive dashboard of the Python packages published on PyPI (data: pypistats.org, pypi.org and GitHub, refreshed before each build).
  * The server renders the page and reads the data; the dashboard itself is a client component (filters, parameters and charts).
@@ -44,7 +52,7 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
       </header>
 
       <section className="signal-pypi-section signal-pypi-dash" aria-label={t('Panel de métricas', 'Metrics dashboard')}>
-        {stats.packages.length ? <PypiDashboard stats={stats} lang={lang} /> : <p className="signal-pypi-fine">{t('Todavía no hay datos para mostrar.', 'There is no data to show yet.')}</p>}
+        {stats.packages.length ? <PypiDashboard stats={stats} lang={lang} worldMap={loadMap()} /> : <p className="signal-pypi-fine">{t('Todavía no hay datos para mostrar.', 'There is no data to show yet.')}</p>}
       </section>
 
       <section className="signal-pypi-section" aria-labelledby="pypi-notes">
@@ -57,14 +65,15 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
           <li><b>{t('Homebrew no publica estadísticas de taps propios.', 'Homebrew does not publish statistics for custom taps.')}</b> {t('La fórmula de ia-router baja el código fuente desde PyPI, así que esas instalaciones aparecen acá mezcladas con otras descargas y no se pueden separar.', 'The ia-router formula downloads the source from PyPI, so those installs show up here mixed with other downloads and cannot be told apart.')}</li>
           <li><b>{t('El sistema operativo suele ser “desconocido”.', 'The operating system is often “unknown”.')}</b> {t('Solo algunos clientes (sobre todo pip) informan su sistema y su versión de Python. El resto cae en “Desconocido”, por eso los porcentajes por sistema se calculan sobre los que sí informan.', 'Only some clients (mostly pip) report their system and Python version. The rest fall under “Unknown”, which is why the per-system percentages are computed over the ones that do report.')}</li>
           <li><b>{t('Un paquete nuevo arranca con un pico.', 'A new package starts with a spike.')}</b> {t('Los primeros días suelen incluir escaneos automáticos y pruebas propias; la tendencia dice más que un día suelto.', 'The first days usually include automated scans and my own tests; the trend says more than a single day.')}</li>
-          <li><b>{t('Los datos tienen retraso y límite.', 'The data lags and has a limit.')}</b> {t('pypistats.org publica con aproximadamente un día de demora y guarda unos 180 días. PyPI no publica descargas por versión del paquete ni por país en una API abierta.', 'pypistats.org publishes with roughly a day of delay and keeps about 180 days. PyPI does not publish downloads per package version or per country in an open API.')}</li>
+          <li><b>{t('“Hoy” todavía no existe.', '“Today” does not exist yet.')}</b> {t('Las fuentes públicas publican con uno o dos días de retraso: pypistats.org y ClickPy llegan hasta ayer o anteayer, según la hora. El día en curso solo se obtiene consultando BigQuery con credenciales propias.', 'Public sources publish with a delay of one or two days: pypistats.org and ClickPy reach yesterday or the day before, depending on the hour. The current day is only available by querying BigQuery with your own credentials.')}</li>
+          <li><b>{t('Dos fuentes, dos definiciones.', 'Two sources, two definitions.')}</b> {t('pypistats cuenta las descargas sin espejos con su propio filtro; ClickPy (la misma materia prima) muestra todas y permite sacar los instaladores que son espejos. Los números no coinciden y es normal.', 'pypistats counts downloads without mirrors with its own filter; ClickPy (the same raw data) shows all of them and lets you remove the installers that are mirrors. The numbers do not match, and that is expected.')}</li>
         </ul>
       </section>
 
       <section className="signal-pypi-section signal-pypi-source" aria-label={t('Fuentes', 'Sources')}>
         <p>
           {t('Fuentes: ', 'Sources: ')}
-          <a href="https://pypistats.org/" target="_blank" rel="noopener noreferrer">pypistats.org</a>, <a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPI</a> {t('y', 'and')} <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          <a href="https://pypistats.org/" target="_blank" rel="noopener noreferrer">pypistats.org</a>, <a href="https://clickpy.clickhouse.com/" target="_blank" rel="noopener noreferrer">ClickPy</a>, <a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPI</a> {t('y', 'and')} <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub</a>.
           {stats.generatedAt ? <> {t('Actualizado el ', 'Updated on ')}{dateFmt.format(new Date(stats.generatedAt))}.</> : null}
           {stale ? <> {t('Algún paquete usa datos de la última actualización exitosa.', 'Some package uses data from the last successful refresh.')}</> : null}
         </p>

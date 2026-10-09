@@ -18,6 +18,10 @@ const CONFIG_PATH = path.join(ROOT, 'apps/web/content/pypi-packages.json');
 const OUTPUT_PATH = path.join(ROOT, 'apps/web/public/data/pypi-stats.json');
 
 const ALLOWED = ['https://pypistats.org/api/packages/', 'https://pypi.org/pypi/', 'https://api.github.com/repos/'];
+// ClickPy (ClickHouse's public playground over PyPI's download data): read-only SQL, no key. It runs about a day ahead of pypistats.org and adds
+// country, package version, file type and installer. It counts every download, mirrors included; the installers below are the mirrors.
+const CLICKPY = 'https://sql-clickhouse.clickhouse.com/?user=demo&default_format=JSON';
+const MIRROR_INSTALLERS = ['bandersnatch', 'Artifactory', 'devpi', 'Nexus', 'z3c.pypimirror', 'pep381client'];
 const PAUSE_MS = 1200;
 const HISTORY_DAYS = 180;
 
@@ -73,6 +77,62 @@ async function optional(label, work) {
   }
 }
 
+/** Runs a read-only query on ClickPy and returns its rows. */
+async function clickpy(sql) {
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const response = await fetch(CLICKPY, { method: 'POST', body: sql, redirect: 'error', signal: AbortSignal.timeout(40_000) });
+    if (response.ok) return (await response.json()).data || [];
+    if (attempt < 3 && response.status >= 500) await sleep(3_000);
+    else throw new Error(`CLICKPY_${response.status}`);
+  }
+  throw new Error('CLICKPY_UNREACHABLE');
+}
+
+/** Rows [{date, key, ...bases}] -> {dates, series: {key: values}} for one base, keeping only the `keys` given. */
+function pivotRows(rows, keyField, base, keys, dates) {
+  const index = new Map(dates.map((date, position) => [date, position]));
+  const series = Object.fromEntries(keys.map((key) => [key, new Array(dates.length).fill(0)]));
+  for (const row of rows) {
+    const key = String(row[keyField] ?? '');
+    const position = index.get(row.date);
+    if (position !== undefined && series[key]) series[key][position] += num(row[base]);
+  }
+  return { dates, series };
+}
+
+function topKeys(rows, keyField, count) {
+  const totals = new Map();
+  for (const row of rows) totals.set(String(row[keyField] ?? ''), (totals.get(String(row[keyField] ?? '')) || 0) + num(row.all_));
+  return [...totals.entries()].filter(([, total]) => total > 0).sort((a, b) => b[1] - a[1]).slice(0, count).map(([key]) => key);
+}
+
+async function fetchClickpy(name) {
+  if (!/^[a-z0-9][a-z0-9._-]*$/.test(name)) throw new Error('BAD_PACKAGE_NAME');
+  const table = 'pypi.pypi_downloads_per_day_by_version_by_installer_by_type_by_country';
+  const mirrors = MIRROR_INSTALLERS.map((installer) => `'${installer}'`).join(',');
+  const since = `date >= today() - ${HISTORY_DAYS - 1}`;
+  const sums = `sum(count) AS all_, sumIf(count, installer NOT IN (${mirrors})) AS nomirror`;
+  const query = (field) => clickpy(`SELECT date, ${field ? `${field} AS k,` : ''} ${sums} FROM ${table} WHERE project = '${name}' AND ${since} GROUP BY date${field ? ', k' : ''} ORDER BY date`);
+
+  const total = await query('');
+  const dates = Array.from(new Set(total.map((row) => row.date))).sort();
+  if (!dates.length) return null;
+  const both = (rows, keyField, keys) => ({ all: pivotRows(rows, keyField, 'all_', keys, dates), nomirror: pivotRows(rows, keyField, 'nomirror', keys, dates) });
+  const out = { through: dates[dates.length - 1], total: { dates, series: { all: dates.map((date) => num(total.find((row) => row.date === date)?.all_)), nomirror: dates.map((date) => num(total.find((row) => row.date === date)?.nomirror)) } } };
+
+  const dimensions = [['country', 30], ['version', 10], ['type', 6]];
+  for (const [label, count] of dimensions) {
+    await sleep(PAUSE_MS);
+    const field = label === 'country' ? 'country_code' : label;
+    const rows = (await query(field)).map((row) => ({ ...row, k: String(row.k ?? '') }));
+    out[label] = both(rows, 'k', topKeys(rows.map((row) => ({ ...row, all_: row.all_ })), 'k', count));
+  }
+  await sleep(PAUSE_MS);
+  const installerRows = (await query('installer')).map((row) => ({ ...row, k: String(row.k ?? '') }));
+  out.installer = pivotRows(installerRows, 'k', 'all_', topKeys(installerRows, 'k', 10), dates);
+  return out;
+}
+
 async function fetchPackage(entry) {
   const name = entry.name;
   const out = { name, repo: entry.repo || null, homebrew: entry.homebrew || null };
@@ -107,6 +167,9 @@ async function fetchPackage(entry) {
   await sleep(PAUSE_MS);
   const python = await optional('python versions', async () => (await getJson(`https://pypistats.org/api/packages/${name}/python_minor`)).data || []);
   out.python = python ? pivot(python) : null;
+
+  await sleep(PAUSE_MS);
+  out.clickpy = await optional('ClickPy (country, versions, installers, fresher days)', () => fetchClickpy(name));
 
   if (entry.repo) {
     await sleep(PAUSE_MS);
@@ -160,7 +223,9 @@ async function main() {
 
   for (const entry of config.packages) {
     try {
-      packages.push({ ...(await fetchPackage(entry)), stale: false });
+      const fetched = await fetchPackage(entry);
+      if (!fetched.clickpy && before.get(entry.name)?.clickpy) fetched.clickpy = before.get(entry.name).clickpy;   // keep what we had rather than lose the map
+      packages.push({ ...fetched, stale: false });
       fresh += 1;
     } catch (error) {
       console.warn(`pypi-stats: ${entry.name} could not be refreshed (${error.message}); keeping the previous values`);
@@ -175,7 +240,7 @@ async function main() {
     return;
   }
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), owner: config.owner, packages }, null, 2)}\n`);
+  await writeFile(OUTPUT_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), owner: config.owner, packages })}\n`);
   console.log(`pypi-stats: ${fresh}/${config.packages.length} packages refreshed`);
 }
 

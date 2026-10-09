@@ -19,6 +19,16 @@ export type Github = {
   starHistory?: string[];
   commits?: { week: string; total: number }[];
 };
+/** Everything ClickPy returns for one package: a day fresher than pypistats, and with country, version, file type and installer. */
+export type ClickpyBase = { all: Pivot; nomirror: Pivot };
+export type Clickpy = {
+  through: string;
+  total: Pivot;               // series: all (mirrors included) and nomirror
+  country: ClickpyBase;
+  version: ClickpyBase;
+  type: ClickpyBase;
+  installer: Pivot;
+};
 export type Pkg = {
   name: string;
   repo: string | null;
@@ -33,12 +43,19 @@ export type Pkg = {
   system?: Pivot | null;
   python?: Pivot | null;
   github?: Github | null;
+  clickpy?: Clickpy | null;
   stale?: boolean;
 };
 export type Stats = { generatedAt: string; owner: string; packages: Pkg[] };
 
 /** What the main series is made of: every download, or only the ones from one operating system or one Python version. */
-export type Segment = { kind: 'all' } | { kind: 'os'; value: string } | { kind: 'py'; value: string };
+export type Segment =
+  | { kind: 'all' }                                                 // pypistats: downloads counted without mirrors
+  | { kind: 'os'; value: string }                                   // pypistats
+  | { kind: 'py'; value: string }                                   // pypistats
+  | { kind: 'raw'; hide?: boolean }                                 // ClickPy: every download, a day fresher
+  | { kind: 'cc' | 'ver' | 'type' | 'inst'; value: string; hide?: boolean };  // ClickPy: by country, package version, file type or installer
+export const isClickpy = (segment: Segment) => segment.kind !== 'all' && segment.kind !== 'os' && segment.kind !== 'py';
 export type Granularity = 'day' | 'week' | 'month';
 
 // ---------- dates ----------
@@ -85,14 +102,43 @@ export function earliestDate(packages: Pkg[]): string {
 /** Downloads per date of one package for the chosen segment. Dates without data are simply absent. */
 export function dailyMap(pkg: Pkg, segment: Segment): Map<string, number> {
   const map = new Map<string, number>();
+  const fill = (dates: string[] | undefined, values: number[] | undefined) => {
+    if (dates && values) dates.forEach((date, index) => map.set(date, values[index] ?? 0));
+  };
   if (segment.kind === 'all') {
     pkg.history.forEach((point) => map.set(point.date, point.downloads));
     return map;
   }
-  const pivot = segment.kind === 'os' ? pkg.system : pkg.python;
-  const values = pivot?.series[segment.value];
-  if (pivot && values) pivot.dates.forEach((date, index) => map.set(date, values[index] ?? 0));
+  if (segment.kind === 'os' || segment.kind === 'py') {
+    const pivot = segment.kind === 'os' ? pkg.system : pkg.python;
+    fill(pivot?.dates, pivot?.series[segment.value]);
+    return map;
+  }
+  const click = pkg.clickpy;
+  if (!click) return map;
+  const base = segment.hide ? 'nomirror' : 'all';
+  if (segment.kind === 'raw') fill(click.total.dates, click.total.series[base]);
+  else if (segment.kind === 'cc') fill(click.country[base].dates, click.country[base].series[segment.value]);
+  else if (segment.kind === 'ver') fill(click.version[base].dates, click.version[base].series[segment.value]);
+  else if (segment.kind === 'type') fill(click.type[base].dates, click.type[base].series[segment.value]);
+  else fill(click.installer.dates, click.installer.series[segment.value]);
   return map;
+}
+
+/** First and last date the segment's source has for these packages (pypistats and ClickPy do not end on the same day). */
+export function segmentRange(packages: Pkg[], segment: Segment): { first: string; latest: string } {
+  let first = '9999-12-31';
+  let latest = '';
+  for (const pkg of packages) {
+    const dates = segment.kind === 'all' || segment.kind === 'os' || segment.kind === 'py'
+      ? (segment.kind === 'all' ? pkg.history.map((point) => point.date) : (segment.kind === 'os' ? pkg.system : pkg.python)?.dates ?? [])
+      : pkg.clickpy?.total.dates ?? [];
+    if (dates.length) {
+      if (dates[0] < first) first = dates[0];
+      if (dates[dates.length - 1] > latest) latest = dates[dates.length - 1];
+    }
+  }
+  return { first, latest };
 }
 
 export const sumOver = (map: Map<string, number>, from: string, to: string) => {
@@ -262,6 +308,31 @@ export function mirrorShare(pkg: Pkg, window: Window): { clean: number; withMirr
   const withMirrors = sumOver(map, window.from, window.to);
   return { clean, withMirrors, share: withMirrors ? Math.max(0, (withMirrors - clean) / withMirrors) : null };
 }
+
+// ---------- ClickPy dimensions: country, version, file type, installer ----------
+
+export type Dimension = 'country' | 'version' | 'type' | 'installer';
+
+/** Downloads per category (country code, version, file type or installer) summed over the window and the packages. */
+export function clickTotals(packages: Pkg[], dimension: Dimension, window: Window, hide: boolean): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const pkg of packages) {
+    const click = pkg.clickpy;
+    if (!click) continue;
+    const pivot = dimension === 'installer' ? click.installer : click[dimension][hide ? 'nomirror' : 'all'];
+    for (const [key, values] of Object.entries(pivot.series)) {
+      let sum = 0;
+      pivot.dates.forEach((date, index) => {
+        if (date >= window.from && date <= window.to) sum += values[index] ?? 0;
+      });
+      out[key] = (out[key] ?? 0) + sum;
+    }
+  }
+  return out;
+}
+
+export const typeLabel = (key: string) => (key === 'bdist_wheel' ? 'Wheel' : key === 'sdist' ? 'Source (sdist)' : key || 'Unknown');
+export const installerLabel = (key: string) => (key === '' ? 'Unknown / pip-compatible' : key === 'Browser' ? 'Browser (direct)' : key === 'bandersnatch' ? 'bandersnatch (mirror)' : key === 'Nexus' ? 'Nexus (mirror)' : key === 'devpi' ? 'devpi (mirror)' : key === 'Artifactory' ? 'Artifactory (mirror)' : key);
 
 // ---------- releases ----------
 

@@ -26,6 +26,11 @@ import {
   addDays,
   breakdown,
   buildSeries,
+  clickTotals,
+  installerLabel,
+  isClickpy,
+  segmentRange,
+  typeLabel,
   calendarCells,
   cumulative,
   dailyMap,
@@ -50,6 +55,7 @@ import {
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, Filler, Legend, LinearScale, LineElement, LogarithmicScale, PointElement, Tooltip);
 
+type WorldMapData = { width: number; height: number; countries: Record<string, { d: string; cx: number; cy: number; a: number }> };
 type Mode = 'bars' | 'lines' | 'cumulative' | 'share' | 'index';
 type RangeKey = '7' | '30' | '90' | '180' | 'custom';
 type SortKey = 'name' | 'total' | 'delta' | 'perDay' | 'stars';
@@ -64,13 +70,14 @@ type State = {
   ma: boolean;
   log: boolean;
   releases: boolean;
+  hide: boolean;               // ClickPy-based views: leave out the mirror installers (bandersnatch, Nexus, devpi, Artifactory)
 };
 
 const PALETTE = ['#22d3ee', '#a78bfa', '#fbbf24', '#34d399', '#f472b6', '#60a5fa', '#fb923c', '#94a3b8'];
 const OS_COLORS: Record<string, string> = { Linux: '#fbbf24', Darwin: '#a78bfa', Windows: '#60a5fa', other: '#94a3b8', null: '#475569' };
 const MODES: Mode[] = ['bars', 'lines', 'cumulative', 'share', 'index'];
 
-const DEFAULTS: State = { pkgs: null, range: '90', from: '', to: '', gran: 'day', mode: 'bars', segment: { kind: 'all' }, ma: false, log: false, releases: true };
+const DEFAULTS: State = { pkgs: null, range: '90', from: '', to: '', gran: 'day', mode: 'bars', segment: { kind: 'all' }, ma: false, log: false, releases: true, hide: true };
 
 // ---------- chart plugin: dashed vertical lines where a release happened ----------
 
@@ -133,11 +140,11 @@ function useTheme(): Theme {
 // ---------- small helpers ----------
 
 const pct = (value: number, digits = 0) => `${(value * 100).toFixed(digits)}%`;
-const segmentKey = (segment: Segment) => (segment.kind === 'all' ? 'all' : `${segment.kind}:${segment.value}`);
+const segmentKey = (segment: Segment) => (segment.kind === 'all' ? 'all' : segment.kind === 'raw' ? 'raw' : `${segment.kind}:${segment.value}`);
 const parseSegment = (raw: string | null): Segment => {
-  if (raw?.startsWith('os:')) return { kind: 'os', value: raw.slice(3) };
-  if (raw?.startsWith('py:')) return { kind: 'py', value: raw.slice(3) };
-  return { kind: 'all' };
+  if (raw === 'raw') return { kind: 'raw' };
+  const match = raw?.match(/^(os|py|cc|ver|type|inst):(.*)$/);
+  return match ? ({ kind: match[1], value: match[2] } as Segment) : { kind: 'all' };
 };
 
 function readUrl(first: string, latest: string): Partial<State> {
@@ -158,6 +165,7 @@ function readUrl(first: string, latest: string): Partial<State> {
   if (params.has('ma')) out.ma = params.get('ma') === '1';
   if (params.has('log')) out.log = params.get('log') === '1';
   if (params.has('rel')) out.releases = params.get('rel') !== '0';
+  if (params.has('hide')) out.hide = params.get('hide') !== '0';
   return out;
 }
 
@@ -175,13 +183,46 @@ function writeUrl(state: State, all: string[]) {
   if (state.ma) params.set('ma', '1');
   if (state.log) params.set('log', '1');
   if (!state.releases) params.set('rel', '0');
+  if (!state.hide && isClickpy(state.segment)) params.set('hide', '0');
   const query = params.toString();
   window.history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`);
 }
 
+// ---------- world map (choropleth drawn from the committed SVG paths; no map library, nothing fetched) ----------
+
+function WorldMap({ map, totals, active, onPick, nameOf, fmt, label }: { map: WorldMapData; totals: Record<string, number>; active: string; onPick: (code: string) => void; nameOf: (code: string) => string; fmt: Intl.NumberFormat; label: string }) {
+  const [hover, setHover] = useState<{ code: string; x: number; y: number } | null>(null);
+  const max = Math.max(1, ...Object.values(totals));
+  const sum = Object.values(totals).reduce((total, value) => total + value, 0);
+  const shade = (value: number) => (value > 0 ? `rgba(34,211,238,${(0.22 + 0.78 * Math.sqrt(value / max)).toFixed(2)})` : undefined);
+  const track = (code: string) => (event: React.MouseEvent) => {
+    const box = (event.currentTarget as Element).closest('.signal-pd-map')?.getBoundingClientRect();
+    if (box) setHover({ code, x: event.clientX - box.left, y: event.clientY - box.top });
+  };
+  const entries = Object.entries(map.countries);
+  return (
+    <div className="signal-pd-map" onMouseLeave={() => setHover(null)}>
+      <svg viewBox={`0 0 ${map.width} ${map.height}`} role="img" aria-label={label}>
+        {entries.map(([code, country]) => (country.d ? (
+          <path key={code} d={country.d} className={`signal-pd-map__country${active === code ? ' is-active' : ''}`} style={{ fill: shade(totals[code] ?? 0) }} onMouseMove={track(code)} onClick={() => onPick(code)} />
+        ) : null))}
+        {entries.filter(([code, country]) => country.a < 8 && (totals[code] ?? 0) > 0).map(([code, country]) => (
+          <circle key={`m-${code}`} cx={country.cx} cy={country.cy} r={3 + 5 * Math.sqrt((totals[code] ?? 0) / max)} className={`signal-pd-map__dot${active === code ? ' is-active' : ''}`} onMouseMove={track(code)} onClick={() => onPick(code)} />
+        ))}
+      </svg>
+      {hover ? (
+        <div className="signal-pd-map__tip" style={{ left: hover.x + 14, top: hover.y + 14 }}>
+          <b>{nameOf(hover.code)}</b>
+          <span>{fmt.format(totals[hover.code] ?? 0)}{sum ? ` · ${((totals[hover.code] ?? 0) / sum * 100).toFixed(1)}%` : ''}</span>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 // ---------- the dashboard ----------
 
-export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Language }) {
+export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats; lang: Language; worldMap: WorldMapData }) {
   const t = <T,>(es: T, en: T): T => (lang === 'es' ? es : en);
   const locale = lang === 'es' ? 'es-AR' : 'en-US';
   const theme = useTheme();
@@ -209,22 +250,63 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
   const shortDate = useMemo(() => new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }), [locale]);
   const longDate = useMemo(() => new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }), [locale]);
   const monthDate = useMemo(() => new Intl.DateTimeFormat(locale, { month: 'short', year: 'numeric', timeZone: 'UTC' }), [locale]);
+  const regionNames = useMemo(() => {
+    try {
+      return new Intl.DisplayNames([locale], { type: 'region' });
+    } catch {
+      return null;
+    }
+  }, [locale]);
+  // Country names come from the browser's own ICU data, which differs from the build machine's: they are shown only after the first client render
+  // (before that the code is shown), so the markup hydrates exactly as the server rendered it.
+  const countryName = useCallback((code: string) => (code ? (ready && regionNames ? regionNames.of(code) ?? code : code) : t('Desconocido', 'Unknown')), [ready, regionNames, lang]); // eslint-disable-line react-hooks/exhaustive-deps
   const dateLabel = useCallback((date: string) => shortDate.format(new Date(`${date}T00:00:00Z`)), [shortDate]);
   const bucketLabel = useCallback((key: string) => (state.gran === 'month' ? monthDate.format(new Date(`${key}T00:00:00Z`)) : state.gran === 'week' ? `${dateLabel(key)} →` : dateLabel(key)), [state.gran, monthDate, dateLabel]);
 
   // --- selection and window ---
   const selected: Pkg[] = useMemo(() => all.filter((pkg) => !state.pkgs || state.pkgs.includes(pkg.name)), [all, state.pkgs]);
-  const windowRange = useMemo(() => {
-    if (state.range === 'custom' && state.from && state.to) return { from: state.from, to: state.to };
+  // The segment decides the source (pypistats or ClickPy), and each source ends on its own day: the window ends where the segment's data does.
+  const segment = useMemo<Segment>(() => (isClickpy(state.segment) ? ({ ...state.segment, hide: state.hide } as Segment) : state.segment), [state.segment, state.hide]);
+  const bounds = useMemo(() => {
+    const range = segmentRange(selected, segment);
+    return range.latest ? range : { first, latest };
+  }, [selected, segment, first, latest]);
+  const freshBounds = useMemo(() => {
+    const range = segmentRange(selected, { kind: 'raw' });
+    return range.latest ? range : { first, latest };
+  }, [selected, first, latest]);
+  const windowIn = useCallback((limits: { first: string; latest: string }) => {
+    if (state.range === 'custom' && state.from && state.to) return { from: state.from < limits.first ? limits.first : state.from, to: state.to > limits.latest ? limits.latest : state.to };
     const days = Number(state.range === 'custom' ? 90 : state.range);
-    const from = addDays(latest, -(days - 1));
-    return { from: from < first ? first : from, to: latest };
-  }, [state.range, state.from, state.to, latest, first]);
-  const segmentLabel = state.segment.kind === 'all' ? t('Todas las descargas', 'All downloads') : state.segment.kind === 'os' ? `${t('Sistema', 'OS')}: ${osLabel(state.segment.value)}` : `Python ${pyLabel(state.segment.value)}`;
+    const from = addDays(limits.latest, -(days - 1));
+    return { from: from < limits.first ? limits.first : from, to: limits.latest };
+  }, [state.range, state.from, state.to]);
+  const windowRange = useMemo(() => windowIn(bounds), [windowIn, bounds]);
+  const freshWindow = useMemo(() => windowIn(freshBounds), [windowIn, freshBounds]);
+  const segmentLabel = state.segment.kind === 'all' ? t('Descargas contadas (sin espejos)', 'Counted downloads (no mirrors)')
+    : state.segment.kind === 'os' ? `${t('Sistema', 'OS')}: ${osLabel(state.segment.value)}`
+    : state.segment.kind === 'py' ? `Python ${pyLabel(state.segment.value)}`
+    : state.segment.kind === 'raw' ? t('Todas las descargas (ClickPy)', 'All downloads (ClickPy)')
+    : state.segment.kind === 'cc' ? `${t('País', 'Country')}: ${countryName(state.segment.value)}`
+    : state.segment.kind === 'ver' ? `${t('Versión', 'Version')} ${state.segment.value}`
+    : state.segment.kind === 'type' ? `${t('Tipo', 'File type')}: ${typeLabel(state.segment.value)}`
+    : `${t('Instalador', 'Installer')}: ${installerLabel(state.segment.value)}`;
 
-  const k = useMemo(() => kpis(selected, state.segment, windowRange, first), [selected, state.segment, windowRange, first]);
-  const series = useMemo(() => buildSeries(selected, state.segment, windowRange.from, windowRange.to, state.gran), [selected, state.segment, windowRange, state.gran]);
-  const totalsByPkg = useMemo(() => selected.map((pkg) => ({ pkg, total: sumOver(dailyMap(pkg, state.segment), windowRange.from, windowRange.to) })), [selected, state.segment, windowRange]);
+  const k = useMemo(() => kpis(selected, segment, windowRange, bounds.first), [selected, segment, windowRange, bounds.first]);
+  const series = useMemo(() => buildSeries(selected, segment, windowRange.from, windowRange.to, state.gran), [selected, segment, windowRange, state.gran]);
+  const totalsByPkg = useMemo(() => selected.map((pkg) => ({ pkg, total: sumOver(dailyMap(pkg, segment), windowRange.from, windowRange.to) })), [selected, segment, windowRange]);
+
+  // ClickPy views (country, file type, installer, version) always use the fresher source and its own window.
+  const geo = useMemo(() => clickTotals(selected, 'country', freshWindow, state.hide), [selected, freshWindow, state.hide]);
+  const typeTotals = useMemo(() => clickTotals(selected, 'type', freshWindow, state.hide), [selected, freshWindow, state.hide]);
+  const installerTotals = useMemo(() => clickTotals(selected, 'installer', freshWindow, false), [selected, freshWindow]);
+  const versionTotals = useMemo(() => (selected.length === 1 ? clickTotals(selected, 'version', freshWindow, state.hide) : {}), [selected, freshWindow, state.hide]);
+  const geoRanked = Object.entries(geo).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]);
+  const geoSum = geoRanked.reduce((total, [, value]) => total + value, 0);
+  const typeSum = Object.values(typeTotals).reduce((total, value) => total + value, 0);
+  const installerRanked = Object.entries(installerTotals).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const versionRanked = Object.entries(versionTotals).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const hasClickpy = selected.some((pkg) => pkg.clickpy);
 
   const toggle = (name: string) => {
     const current = state.pkgs ?? all.map((pkg) => pkg.name);
@@ -334,11 +416,11 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
   const grandTotal = totalsByPkg.reduce((sum, row) => sum + row.total, 0);
 
   // --- weekday pattern and heatmap ---
-  const weekdays = useMemo(() => weekdayTotals(selected, state.segment, windowRange), [selected, state.segment, windowRange]);
+  const weekdays = useMemo(() => weekdayTotals(selected, segment, windowRange), [selected, segment, windowRange]);
   const weekdayNames = t(['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'], ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
   const weekdaySum = weekdays.reduce((sum, value) => sum + value, 0);
   const weekendShare = weekdaySum ? (weekdays[5] + weekdays[6]) / weekdaySum : 0;
-  const heat = useMemo(() => calendarCells(selected, state.segment, windowRange), [selected, state.segment, windowRange]);
+  const heat = useMemo(() => calendarCells(selected, segment, windowRange), [selected, segment, windowRange]);
   const heatMax = Math.max(1, ...heat.flat().map((cell) => cell.value));
 
   // --- who installs: OS and Python ---
@@ -375,7 +457,7 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
     const data = selected
       .filter((pkg) => pkg.name.includes(query.trim().toLowerCase()))
       .map((pkg) => {
-        const map = dailyMap(pkg, state.segment);
+        const map = dailyMap(pkg, segment);
         const total = sumOver(map, windowRange.from, windowRange.to);
         const before = sumOver(map, prev.from, prev.to);
         const days = dateRange(windowRange.from, windowRange.to).length;
@@ -387,7 +469,7 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
       const bv = value(b);
       return (av < bv ? -1 : av > bv ? 1 : 0) * sort.dir;
     });
-  }, [selected, query, windowRange, state.segment, sort]);
+  }, [selected, query, windowRange, segment, sort]);
 
   // --- insights ---
   const insights = useMemo(() => {
@@ -412,11 +494,13 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
       const withM = mirrored.reduce((sum, row) => sum + row.withMirrors, 0);
       if (withM > 0) list.push(t(`Con los espejos de PyPI incluidos serían ${fmt.format(withM)} descargas; ${pct((withM - clean) / withM)} son réplicas y no se cuentan acá.`, `With PyPI mirrors included it would be ${fmt.format(withM)} downloads; ${pct((withM - clean) / withM)} are replicas and are not counted here.`));
     }
+    if (hasClickpy && geoSum > 0 && geoRanked[0]) list.push(t(`${countryName(geoRanked[0][0])} es el primer país de origen (${pct(geoRanked[0][1] / geoSum)} de las descargas) y hay ${geoRanked.length} países en total.`, `${countryName(geoRanked[0][0])} is the top source country (${pct(geoRanked[0][1] / geoSum)} of downloads), out of ${geoRanked.length} countries.`));
+    if (hasClickpy && typeSum > 0) list.push(t(`${pct((typeTotals.sdist ?? 0) / typeSum)} de las descargas son del código fuente (sdist) y ${pct((typeTotals.bdist_wheel ?? 0) / typeSum)} del formato wheel.`, `${pct((typeTotals.sdist ?? 0) / typeSum)} of downloads are the source (sdist) and ${pct((typeTotals.bdist_wheel ?? 0) / typeSum)} the wheel format.`));
     const recent = impacts.find((row) => row.covered && row.before + row.after > 0);
     if (recent) list.push(t(`${recent.pkg} v${recent.version} (${dateLabel(recent.date)}): ${fmt.format(recent.after)} descargas en los 7 días siguientes contra ${fmt.format(recent.before)} en los 7 anteriores.`, `${recent.pkg} v${recent.version} (${dateLabel(recent.date)}): ${fmt.format(recent.after)} downloads in the next 7 days against ${fmt.format(recent.before)} in the previous 7.`));
     return list;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [k, totalsByPkg, grandTotal, weekdaySum, weekendShare, osSum, osTotals, knownOs, mirrors, impacts, lang]);
+  }, [k, totalsByPkg, grandTotal, weekdaySum, weekendShare, osSum, osTotals, knownOs, mirrors, impacts, geoRanked, geoSum, typeTotals, typeSum, hasClickpy, lang]);
 
   const exportCsv = () => {
     const header = [t('Período', 'Period'), ...selected.map((pkg) => pkg.name), 'Total'];
@@ -434,6 +518,11 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
   const modeNames: Record<Mode, string> = { bars: t('Barras apiladas', 'Stacked bars'), lines: t('Líneas', 'Lines'), cumulative: t('Acumulado', 'Cumulative'), share: t('Participación %', 'Share %'), index: t('Índice (pico = 100)', 'Index (peak = 100)') };
   const rangeNames: Record<RangeKey, string> = { '7': t('7 días', '7 days'), '30': t('30 días', '30 days'), '90': t('90 días', '90 days'), '180': t('180 días', '180 days'), custom: t('Personalizado', 'Custom') };
   const hasFilter = state.pkgs !== null || state.segment.kind !== 'all';
+  // The select always lists the segment in use, even when the packages or period chosen leave it without data.
+  const knownSegments = new Set(['all', 'raw',
+    ...Object.keys(osTotals).filter((key) => osTotals[key] > 0).map((key) => `os:${key}`), ...Object.keys(pyTotals).filter((key) => pyTotals[key] > 0).map((key) => `py:${key}`),
+    ...geoRanked.slice(0, 15).map(([code]) => `cc:${code}`), ...Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map((key) => `type:${key}`),
+    ...installerRanked.map(([key]) => `inst:${key}`), ...versionRanked.map(([key]) => `ver:${key}`)]);
 
   return (
     <div className="signal-pd">
@@ -483,14 +572,25 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
         <div className="signal-pd-ctl">
           <span className="signal-pd-ctl__label">{t('Segmento', 'Segment')}</span>
           <select value={segmentKey(state.segment)} onChange={(event) => patch({ segment: parseSegment(event.target.value) })} aria-label={t('Segmento', 'Segment')}>
-            <option value="all">{t('Todas las descargas', 'All downloads')}</option>
-            <optgroup label={t('Por sistema operativo', 'By operating system')}>
-              {Object.keys(osTotals).filter((key) => osTotals[key] > 0).map((key) => <option key={key} value={`os:${key}`}>{osLabel(key)}</option>)}
+            <optgroup label={t('Descargas contadas · pypistats (sin espejos)', 'Counted downloads · pypistats (no mirrors)')}>
+              <option value="all">{t('Todas las contadas', 'All counted')}</option>
+              {Object.keys(osTotals).filter((key) => osTotals[key] > 0).map((key) => <option key={`os-${key}`} value={`os:${key}`}>{t('Sistema', 'OS')}: {osLabel(key)}</option>)}
+              {Object.keys(pyTotals).filter((key) => pyTotals[key] > 0).map((key) => <option key={`py-${key}`} value={`py:${key}`}>Python {pyLabel(key)}</option>)}
             </optgroup>
-            <optgroup label={t('Por versión de Python', 'By Python version')}>
-              {Object.keys(pyTotals).filter((key) => pyTotals[key] > 0).map((key) => <option key={key} value={`py:${key}`}>Python {pyLabel(key)}</option>)}
-            </optgroup>
+            {hasClickpy ? (
+              <optgroup label={t('Todas las descargas · ClickPy (más reciente)', 'All downloads · ClickPy (most recent)')}>
+                <option value="raw">{t('Todas (con espejos opcionales)', 'All (mirrors optional)')}</option>
+                {geoRanked.slice(0, 15).map(([code]) => <option key={`cc-${code}`} value={`cc:${code}`}>{t('País', 'Country')}: {countryName(code)}</option>)}
+                {Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map((key) => <option key={`type-${key}`} value={`type:${key}`}>{t('Tipo', 'Type')}: {typeLabel(key)}</option>)}
+                {installerRanked.map(([key]) => <option key={`inst-${key}`} value={`inst:${key}`}>{t('Instalador', 'Installer')}: {installerLabel(key)}</option>)}
+                {versionRanked.map(([key]) => <option key={`ver-${key}`} value={`ver:${key}`}>{t('Versión', 'Version')} {key}</option>)}
+              </optgroup>
+            ) : null}
+            {knownSegments.has(segmentKey(state.segment)) ? null : <option value={segmentKey(state.segment)}>{segmentLabel}</option>}
           </select>
+          <label className="signal-pd-check" title={t('Aplica a las vistas de ClickPy: mapa, país, tipo, versión y “todas (ClickPy)”.', 'Applies to the ClickPy views: map, country, type, version and “all (ClickPy)”.')}>
+            <input type="checkbox" checked={state.hide} onChange={(event) => patch({ hide: event.target.checked })} />{t('Ocultar espejos (bandersnatch, Nexus…)', 'Hide mirrors (bandersnatch, Nexus…)')}
+          </label>
         </div>
         <div className="signal-pd-ctl signal-pd-ctl--actions">
           <button type="button" className="signal-pd-btn" onClick={reset} disabled={!hasFilter && state.range === DEFAULTS.range && state.gran === 'day' && state.mode === 'bars'}>{t('Restablecer', 'Reset')}</button>
@@ -499,6 +599,7 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
       </div>
       <p className="signal-pd-context" aria-live="polite">
         {t('Mostrando', 'Showing')} <b>{segmentLabel}</b> · {selected.map((pkg) => pkg.name).join(', ')} · {longDate.format(new Date(`${windowRange.from}T00:00:00Z`))} → {longDate.format(new Date(`${windowRange.to}T00:00:00Z`))}
+        {freshBounds.latest > bounds.latest ? <> · <span className="signal-pd-hint">{t(`ClickPy llega hasta el ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`, `ClickPy goes up to ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`)}</span></> : null}
       </p>
 
       {/* ---------- insights ---------- */}
@@ -575,7 +676,7 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
             </thead>
             <tbody>
               {rows.map(({ pkg, total, delta, perDay, stars }) => {
-                const map = dailyMap(pkg, state.segment);
+                const map = dailyMap(pkg, segment);
                 const days = dateRange(windowRange.from, windowRange.to).slice(-30);
                 const values = days.map((day) => map.get(day) ?? 0);
                 const peak = Math.max(1, ...values);
@@ -648,6 +749,77 @@ export default function PypiDashboard({ stats, lang }: { stats: Stats; lang: Lan
             <p className="signal-pd-note">{t('Clic en una barra: filtra la tendencia por esa versión.', 'Click a bar: filters the trend by that version.')}</p>
           </div>
         </div>
+      </section>
+
+      {/* ---------- Q4b: where from ---------- */}
+      <section className="signal-pd-block" aria-labelledby="pd-geo">
+        <h3 id="pd-geo" className="signal-pd-q">{t('¿Desde qué países se descarga?', 'Which countries are the downloads from?')}</h3>
+        {hasClickpy && geoSum > 0 ? (
+          <div className="signal-pd-two signal-pd-two--wide-left">
+            <div className="signal-pd-panel">
+              <h4>{t('Mapa de descargas', 'Download map')} · {dateLabel(freshWindow.from)} → {dateLabel(freshWindow.to)}</h4>
+              <WorldMap map={worldMap} totals={geo} active={state.segment.kind === 'cc' ? state.segment.value : ''} onPick={(code) => patch({ segment: { kind: 'cc', value: code } })} nameOf={countryName} fmt={fmt} label={t('Mapa mundial de descargas por país', 'World map of downloads by country')} />
+              <div className="signal-pd-maplegend" aria-hidden="true"><span>0</span><i /><span>{fmt.format(Math.max(...Object.values(geo)))}</span></div>
+              <p className="signal-pd-note">{t('Hacé clic en un país para filtrar la tendencia por él. Los países muy chicos (Singapur, Mónaco…) se marcan con un punto. Incluye CI, bots y réplicas que no son espejos declarados: mirá cuántas descargas vienen de un solo país antes de sacar conclusiones.', 'Click a country to filter the trend by it. Very small countries (Singapore, Monaco…) are marked with a dot. It includes CI, bots and replicas that are not declared mirrors: check how much comes from a single country before drawing conclusions.')}</p>
+            </div>
+            <div className="signal-pd-panel">
+              <h4>{t('Principales países', 'Top countries')}</h4>
+              <ol className="signal-pd-rank">
+                {geoRanked.slice(0, 12).map(([code, value]) => (
+                  <li key={code}>
+                    <button type="button" onClick={() => patch({ segment: { kind: 'cc', value: code } })} title={t('Filtrar la tendencia por este país', 'Filter the trend by this country')}>
+                      <span className="signal-pd-rank__name">{countryName(code)}</span>
+                      <span className="signal-pd-rank__bar"><i style={{ width: `${(value / geoRanked[0][1]) * 100}%` }} /></span>
+                      <span className="signal-pd-rank__num">{fmt.format(value)} <small>{pct(value / geoSum, 1)}</small></span>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+              <p className="signal-pd-note">{geoRanked.length} {t('países en el período', 'countries in the period')}.{geoRanked[0] ? ` ${t('El primero concentra', 'The first accounts for')} ${pct(geoRanked[0][1] / geoSum)}.` : ''}</p>
+            </div>
+          </div>
+        ) : <p className="signal-pd-empty">{t('Todavía no hay datos por país para los paquetes elegidos.', 'There is no per-country data yet for the selected packages.')}</p>}
+      </section>
+
+      {/* ---------- Q4c: how they are installed ---------- */}
+      <section className="signal-pd-block" aria-labelledby="pd-how">
+        <h3 id="pd-how" className="signal-pd-q">{t('¿Cómo se instala? Formato, instalador y versión', 'How is it installed? Format, installer and version')}</h3>
+        {hasClickpy && typeSum > 0 ? (
+          <div className="signal-pd-three">
+            <div className="signal-pd-panel">
+              <h4>{t('Formato del archivo', 'File format')}</h4>
+              <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Wheel contra código fuente', 'Wheel versus source')}>
+                <Doughnut
+                  data={{ labels: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map(typeLabel), datasets: [{ data: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map((key) => typeTotals[key]), backgroundColor: ['#22d3ee', '#fbbf24', '#a78bfa', '#94a3b8'], borderColor: theme.surface, borderWidth: 2 }] }}
+                  options={baseOptions<'doughnut'>({ cutout: '60%', interaction: { mode: 'nearest', intersect: true }, plugins: { legend: { display: true, position: 'bottom', labels: { color: theme.text, boxWidth: 10, boxHeight: 10, usePointStyle: true } }, tooltip: { backgroundColor: theme.surface, titleColor: theme.text, bodyColor: theme.text, borderColor: theme.grid, borderWidth: 1, callbacks: { label: (item: { label: string; parsed: number }) => `${item.label}: ${fmt.format(item.parsed)} (${typeSum ? pct(item.parsed / typeSum, 1) : '0%'})` } } }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'type', value: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0)[element.index] } }); } })}
+                />
+              </div>
+              <p className="signal-pd-note">{t('Homebrew instala desde el código fuente, así que parte del segmento “Source” puede ser Homebrew; también lo son CI y herramientas de compilación. No se puede separar.', 'Homebrew installs from source, so part of the “Source” segment may be Homebrew; so are CI and build tools. They cannot be told apart.')}</p>
+            </div>
+            <div className="signal-pd-panel">
+              <h4>{t('Instalador', 'Installer')}</h4>
+              <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por instalador', 'Downloads by installer')}>
+                <Bar
+                  data={{ labels: installerRanked.map(([key]) => installerLabel(key)), datasets: [{ data: installerRanked.map(([, value]) => value), backgroundColor: installerRanked.map(([key]) => (['bandersnatch', 'Nexus', 'devpi', 'Artifactory'].includes(key) ? '#475569' : '#22d3ee')), borderRadius: 4 }] }}
+                  options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ beginAtZero: true }), y: axisBase({ grid: { display: false } }) }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'inst', value: installerRanked[element.index][0] } }); } })}
+                />
+              </div>
+              <p className="signal-pd-note">{t('Gris = espejos. “Unknown” son clientes que no se identifican. Solo una parte son instalaciones con pip.', 'Gray = mirrors. “Unknown” are clients that do not identify themselves. Only part of it is pip installs.')}</p>
+            </div>
+            <div className="signal-pd-panel">
+              <h4>{t('Versión del paquete', 'Package version')}</h4>
+              {selected.length === 1 && versionRanked.length ? (
+                <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por versión', 'Downloads by version')}>
+                  <Bar
+                    data={{ labels: versionRanked.map(([key]) => `v${key}`), datasets: [{ data: versionRanked.map(([, value]) => value), backgroundColor: '#a78bfa', borderRadius: 4 }] }}
+                    options={baseOptions<'bar'>({ scales: { x: axisBase({ grid: { display: false } }), y: axisBase({ beginAtZero: true }) }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'ver', value: versionRanked[element.index][0] } }); } })}
+                  />
+                </div>
+              ) : <p className="signal-pd-empty">{t('Elegí un solo paquete (doble clic en su nombre arriba) para ver qué versiones se descargan.', 'Pick a single package (double-click its name above) to see which versions are downloaded.')}</p>}
+              <p className="signal-pd-note">{t('Cada versión publicada sigue descargándose: las anteriores no desaparecen.', 'Every published version keeps being downloaded: older ones do not go away.')}</p>
+            </div>
+          </div>
+        ) : <p className="signal-pd-empty">{t('Todavía no hay datos de ClickPy para los paquetes elegidos.', 'There is no ClickPy data yet for the selected packages.')}</p>}
       </section>
 
       {/* ---------- Q5: releases ---------- */}

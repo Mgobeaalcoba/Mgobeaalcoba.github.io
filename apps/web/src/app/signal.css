@@ -2040,3 +2040,27 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-project-card__links .signal-project-card__link { margin-top: 0; align-self: auto; }
 .signal-project-card__link--primary { border: 1px solid rgba(34, 211, 238, .4); border-radius: 999px; padding: 8px 14px; background: rgba(34, 211, 238, .07); }
 .signal-project-card__link--primary:hover { background: rgba(34, 211, 238, .14); }
+
+/* PyPI dashboard: world map, country ranking and the three-panel row */
+.signal-pd-two--wide-left { grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr); }
+.signal-pd-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.signal-pd-hint { color: var(--signal-cyan); }
+.signal-pd-map { position: relative; }
+.signal-pd-map svg { display: block; width: 100%; height: auto; }
+.signal-pd-map__country { fill: var(--signal-line); stroke: var(--signal-surface); stroke-width: .5; cursor: pointer; transition: opacity 120ms; }
+.signal-pd-map__country:hover { opacity: .72; stroke: var(--signal-text); stroke-width: .8; }
+.signal-pd-map__country.is-active, .signal-pd-map__dot.is-active { stroke: var(--signal-text); stroke-width: 1.4; }
+.signal-pd-map__dot { fill: rgba(34, 211, 238, .85); stroke: var(--signal-surface); stroke-width: .8; cursor: pointer; }
+.signal-pd-map__tip { position: absolute; z-index: 5; pointer-events: none; display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--signal-line-strong); border-radius: 10px; background: var(--signal-surface); padding: 8px 12px; box-shadow: var(--signal-shadow); font-size: 12px; color: var(--signal-muted); white-space: nowrap; }
+.signal-pd-map__tip b { color: var(--signal-text); font-size: 13px; }
+.signal-pd-maplegend { display: flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--signal-subtle); font: 500 11px var(--signal-mono); }
+.signal-pd-maplegend i { flex: 0 0 180px; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(34, 211, 238, .22), rgba(34, 211, 238, 1)); }
+.signal-pd-rank { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.signal-pd-rank button { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(60px, 1.2fr) auto; align-items: center; gap: 12px; width: 100%; background: none; border: 0; border-radius: 8px; padding: 7px 8px; color: var(--signal-muted); font-size: 13px; text-align: left; cursor: pointer; }
+.signal-pd-rank button:hover { background: rgba(34, 211, 238, .07); color: var(--signal-text); }
+.signal-pd-rank__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.signal-pd-rank__bar { height: 6px; border-radius: 99px; background: var(--signal-line); overflow: hidden; }
+.signal-pd-rank__bar i { display: block; height: 100%; border-radius: 99px; background: var(--signal-cyan); }
+.signal-pd-rank__num { color: var(--signal-text); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.signal-pd-rank__num small { color: var(--signal-subtle); font-size: 11px; margin-left: 4px; }
+@media (max-width: 1000px) { .signal-pd-two--wide-left, .signal-pd-three { grid-template-columns: 1fr; } }
