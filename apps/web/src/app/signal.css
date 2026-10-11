@@ -1935,10 +1935,14 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-pypi-fine { margin-top: 18px; max-width: 760px; color: var(--signal-subtle); font-size: 13px; line-height: 1.6; }
 .signal-pypi-dash { max-width: 1240px; }
 .signal-pd { display: flex; flex-direction: column; gap: 56px; }
-.signal-pd-controls { position: sticky; top: 72px; z-index: 20; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, max-content)); gap: 18px 28px; align-items: end; border: 1px solid var(--signal-line); border-radius: 18px; background: color-mix(in srgb, var(--signal-surface) 94%, transparent); backdrop-filter: blur(10px); padding: 18px 20px; box-shadow: var(--signal-shadow); }
+.signal-pd-controls { position: sticky; top: 72px; z-index: 20; display: grid; grid-template-columns: minmax(310px, 1.3fr) minmax(180px, .8fr) minmax(280px, 1.3fr) auto; gap: 20px; align-items: start; border: 1px solid var(--signal-line); border-radius: 18px; background: color-mix(in srgb, var(--signal-surface) 94%, transparent); backdrop-filter: blur(10px); padding: 20px; box-shadow: var(--signal-shadow); }
 .signal-pd-ctl { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
 .signal-pd-ctl:first-child { grid-column: 1 / -1; }
-.signal-pd-ctl--actions { flex-direction: row; gap: 10px; align-items: flex-end; }
+.signal-pd-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.signal-pd-controls > .signal-pd-ctl > .signal-pd-seg, .signal-pd-controls select, .signal-pd-actions .signal-pd-btn { min-height: 42px; }
+.signal-pd-controls .signal-pd-seg { width: 100%; }
+.signal-pd-controls .signal-pd-seg button { flex: 1 0 auto; padding-inline: 10px; white-space: nowrap; }
+.signal-pd-controls select { width: 100%; min-width: 0; }
 .signal-pd-ctl__label { color: var(--signal-subtle); font: 600 10px/1 var(--signal-mono); letter-spacing: .12em; text-transform: uppercase; }
 .signal-pd-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .signal-pd-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--signal-line-strong); border-radius: 999px; background: transparent; color: var(--signal-muted); padding: 7px 14px; font: 600 12px/1 var(--signal-mono); cursor: pointer; transition: border-color 140ms, color 140ms, background 140ms; }
@@ -1947,7 +1951,7 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-pd-chip.is-on i { opacity: 1; }
 .signal-pd-chip:hover { border-color: var(--signal-cyan); }
 .signal-pd-link { background: none; border: 0; color: var(--signal-cyan); font: 600 12px var(--signal-mono); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 6px; }
-.signal-pd-seg { display: inline-flex; flex-wrap: nowrap; max-width: 100%; overflow-x: auto; border: 1px solid var(--signal-line-strong); border-radius: 12px; overflow: hidden; }
+.signal-pd-seg { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--signal-line-strong); border-radius: 12px; overflow: hidden; }
 .signal-pd-seg button { background: transparent; border: 0; border-right: 1px solid var(--signal-line); color: var(--signal-muted); padding: 9px 14px; font: 600 12px/1 var(--signal-display); cursor: pointer; }
 .signal-pd-seg button:last-child { border-right: 0; }
 .signal-pd-seg button.is-on { background: rgba(34, 211, 238, .14); color: var(--signal-cyan); }
@@ -1957,11 +1961,11 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-pd input[type='date'], .signal-pd input[type='search'], .signal-pd select { border: 1px solid var(--signal-line-strong); border-radius: 10px; background: var(--signal-bg); color: var(--signal-text); padding: 9px 12px; font: 500 13px var(--signal-mono); color-scheme: dark; }
 html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[type='search'], html.light-mode .signal-pd select { color-scheme: light; }
 .signal-pd select { min-width: 210px; max-width: 100%; }
-.signal-pd-btn { border: 1px solid var(--signal-line-strong); border-radius: 10px; background: transparent; color: var(--signal-text); padding: 10px 16px; font: 600 12px/1 var(--signal-display); cursor: pointer; }
+.signal-pd-btn { border: 1px solid var(--signal-line-strong); border-radius: 10px; background: transparent; color: var(--signal-text); padding: 10px 16px; font: 600 12px/1 var(--signal-display); white-space: nowrap; cursor: pointer; }
 .signal-pd-btn:hover:not(:disabled) { border-color: var(--signal-cyan); color: var(--signal-cyan); }
 .signal-pd-btn:disabled { opacity: .4; cursor: default; }
 .signal-pd button:focus-visible, .signal-pd input:focus-visible, .signal-pd select:focus-visible { outline: 2px solid var(--signal-cyan); outline-offset: 2px; }
-.signal-pd-context { margin-top: -30px; color: var(--signal-muted); font-size: 13px; line-height: 1.6; }
+.signal-pd-context { grid-column: 1 / -1; margin: 0; border-top: 1px solid var(--signal-line); padding-top: 14px; color: var(--signal-muted); font-size: 12px; line-height: 1.6; }
 .signal-pd-context b { color: var(--signal-text); }
 .signal-pd-block { display: flex; flex-direction: column; gap: 24px; }
 .signal-pd-q { font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.15; letter-spacing: -.035em; color: var(--signal-text); max-width: 760px; text-wrap: balance; }
@@ -2016,12 +2020,14 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-heat__grid { display: grid; grid-template-rows: repeat(7, 18px); grid-auto-flow: column; gap: 4px; min-width: max-content; }
 .signal-pd-heat__cell { display: block; width: 18px; height: 18px; border-radius: 4px; background: var(--signal-line); }
 .signal-pd-heat__cell.is-out { background: transparent; }
+@media (max-width: 1200px) {
+  .signal-pd-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); position: static; }
+}
 @media (max-width: 1000px) {
   .signal-pd-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .signal-pd-two, .signal-pd-two--wide-right, .signal-pd-insights { grid-template-columns: 1fr; }
-  .signal-pd-controls { position: static; }
-  .signal-pd-context { margin-top: -34px; }
 }
+@media (max-width: 640px) { .signal-pd-controls { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 560px) {
   .signal-pd { gap: 44px; }
   .signal-pd-controls { padding: 16px; }

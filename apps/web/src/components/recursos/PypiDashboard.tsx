@@ -565,7 +565,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
         </div>
         <div className="signal-pd-ctl">
           <span className="signal-pd-ctl__label">{t('Agrupar por', 'Group by')}</span>
-          <div className="signal-pd-seg" role="group">
+          <div className="signal-pd-seg" role="group" aria-label={t('Agrupar por', 'Group by')}>
             {(['day', 'week', 'month'] as Granularity[]).map((gran) => (
               <button key={gran} type="button" className={state.gran === gran ? 'is-on' : ''} aria-pressed={state.gran === gran} onClick={() => patch({ gran, ma: gran === 'day' ? state.ma : false })}>
                 {gran === 'day' ? t('Día', 'Day') : gran === 'week' ? t('Semana', 'Week') : t('Mes', 'Month')}
@@ -597,25 +597,19 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
           </label>
         </div>
         <div className="signal-pd-ctl signal-pd-ctl--actions">
-          <button type="button" className="signal-pd-btn" onClick={reset} disabled={!hasFilter && state.range === DEFAULTS.range && state.gran === 'day' && state.mode === 'bars'}>{t('Restablecer', 'Reset')}</button>
-          <button type="button" className="signal-pd-btn" onClick={exportCsv}>{t('Exportar CSV', 'Export CSV')}</button>
+          <span className="signal-pd-ctl__label">{t('Acciones', 'Actions')}</span>
+          <div className="signal-pd-actions">
+            <button type="button" className="signal-pd-btn" onClick={reset} disabled={!hasFilter && state.range === DEFAULTS.range && state.gran === 'day' && state.mode === 'bars'}>{t('Restablecer', 'Reset')}</button>
+            <button type="button" className="signal-pd-btn" onClick={exportCsv}>{t('Exportar CSV', 'Export CSV')}</button>
+          </div>
         </div>
+        <p className="signal-pd-context" aria-live="polite">
+          <span>{t('Período visible', 'Visible period')}: <b>{longDate.format(new Date(`${windowRange.from}T00:00:00Z`))} → {longDate.format(new Date(`${windowRange.to}T00:00:00Z`))}</b> · UTC</span>
+          {(isClickpy(segment) ? bounds.partial : freshBounds.partial) ? <> · <span className="signal-pd-hint">{(() => { const day = (isClickpy(segment) ? bounds.partial : freshBounds.partial) as string; const text = longDate.format(new Date(`${day}T00:00:00Z`)); return t(`${text}: datos provisionales de ClickPy; pueden aumentar`, `${text}: provisional ClickPy data; counts may increase`); })()}</span></> : null}
+          {selected.some((pkg) => segmentRange([pkg], segment, target).latest < target) ? <> · <span className="signal-pd-hint" role="status">{t(`La fuente todavía no cubre ayer (${target}) para todos los paquetes.`, `The source does not yet cover yesterday (${target}) for every package.`)}</span></> : null}
+          {freshBounds.latest > bounds.latest ? <> · <span className="signal-pd-hint">{t(`ClickPy llega hasta el ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`, `ClickPy goes up to ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`)}</span></> : null}
+        </p>
       </div>
-      <p className="signal-pd-context" aria-live="polite">
-        {t('Objetivo diario (ayer, UTC)', 'Daily target (yesterday, UTC)')}: <b>{target}</b> ·
-        {t('Mostrando', 'Showing')} <b>{segmentLabel}</b> · {selected.map((pkg) => pkg.name).join(', ')} · {longDate.format(new Date(`${windowRange.from}T00:00:00Z`))} → {longDate.format(new Date(`${windowRange.to}T00:00:00Z`))}
-        {(isClickpy(segment) ? bounds.partial : freshBounds.partial) ? <> · <span className="signal-pd-hint">{(() => { const day = (isClickpy(segment) ? bounds.partial : freshBounds.partial) as string; const text = longDate.format(new Date(`${day}T00:00:00Z`)); return t(`${text}: datos provisionales de ClickPy; pueden aumentar`, `${text}: provisional ClickPy data; counts may increase`); })()}</span></> : null}
-        {selected.some((pkg) => segmentRange([pkg], segment, target).latest < target) ? <> · <span className="signal-pd-hint" role="status">{t('La fuente todavía no cubre ayer para todos los paquetes; no se inventan descargas para los días faltantes.', 'The source does not yet cover yesterday for every package; missing days are not reported as downloads.')}</span></> : null}
-        {freshBounds.latest > bounds.latest ? <> · <span className="signal-pd-hint">{t(`ClickPy llega hasta el ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`, `ClickPy goes up to ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`)}</span></> : null}
-      </p>
-
-      {/* ---------- insights ---------- */}
-      <section className="signal-pd-block" aria-labelledby="pd-insights">
-        <h3 id="pd-insights" className="signal-pd-q">{t('Lo que dicen los datos', 'What the data says')}</h3>
-        <ul className="signal-pd-insights">
-          {insights.map((text) => <li key={text}>{text}</li>)}
-        </ul>
-      </section>
 
       {/* ---------- Q1: how many, growing? ---------- */}
       <section className="signal-pd-block" aria-labelledby="pd-q1">
@@ -918,6 +912,13 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
           </table>
           <p className="signal-pd-note">{t('Las estrellas son el total histórico del repositorio, no del período; la última columna las compara con las descargas del período elegido solo como referencia.', 'Stars are the repository’s all-time total, not the period’s; the last column compares them with the selected period’s downloads only as a reference.')} <span className="signal-pd-short">{compact.format(grandTotal)} {t('descargas en el período', 'downloads in the period')}</span></p>
         </div>
+      </section>
+      {/* ---------- insights ---------- */}
+      <section className="signal-pd-block" aria-labelledby="pd-insights">
+        <h3 id="pd-insights" className="signal-pd-q">{t('Lo que dicen los datos', 'What the data says')}</h3>
+        <ul className="signal-pd-insights">
+          {insights.map((text) => <li key={text}>{text}</li>)}
+        </ul>
       </section>
     </div>
   );
