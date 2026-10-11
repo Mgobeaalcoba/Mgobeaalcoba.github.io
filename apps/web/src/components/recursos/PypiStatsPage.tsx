@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import Link from 'next/link';
 import ContextBackLink from '@/components/shared/ContextBackLink';
-import PypiDashboard from '@/components/recursos/PypiDashboard';
+import PypiStatsLive from '@/components/recursos/PypiStatsLive';
 import { localizePath } from '@/lib/i18n-routes';
 import type { Language } from '@/contexts/LanguageContext';
 import type { Stats } from '@/lib/pypiStats';
@@ -31,8 +31,6 @@ function loadMap() {
 export default function PypiStatsPage({ lang }: { lang: Language }) {
   const t = <T,>(es: T, en: T): T => (lang === 'es' ? es : en);
   const stats = loadStats();
-  const dateFmt = new Intl.DateTimeFormat(lang === 'es' ? 'es-AR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-  const stale = stats.packages.some((pkg) => pkg.stale);
 
   return (
     <>
@@ -52,7 +50,7 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
       </header>
 
       <section className="signal-pypi-section signal-pypi-dash" aria-label={t('Panel de métricas', 'Metrics dashboard')}>
-        {stats.packages.length ? <PypiDashboard stats={stats} lang={lang} worldMap={loadMap()} /> : <p className="signal-pypi-fine">{t('Todavía no hay datos para mostrar.', 'There is no data to show yet.')}</p>}
+        {stats.packages.length ? <PypiStatsLive initial={stats} lang={lang} worldMap={loadMap()} /> : <p className="signal-pypi-fine">{t('Todavía no hay datos para mostrar.', 'There is no data to show yet.')}</p>}
       </section>
 
       <section className="signal-pypi-section" aria-labelledby="pypi-notes">
@@ -74,8 +72,6 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
         <p>
           {t('Fuentes: ', 'Sources: ')}
           <a href="https://pypistats.org/" target="_blank" rel="noopener noreferrer">pypistats.org</a>, <a href="https://clickpy.clickhouse.com/" target="_blank" rel="noopener noreferrer">ClickPy</a>, <a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPI</a> {t('y', 'and')} <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub</a>.
-          {stats.generatedAt ? <> {t('Actualizado el ', 'Updated on ')}{dateFmt.format(new Date(stats.generatedAt))}.</> : null}
-          {stale ? <> {t('Algún paquete usa datos de la última actualización exitosa.', 'Some package uses data from the last successful refresh.')}</> : null}
         </p>
         <p>
           <Link href={localizePath('/recursos/ia-router/', lang)}>{t('Conocé ia-router, el paquete más reciente →', 'Meet ia-router, the newest package →')}</Link>

@@ -17,13 +17,17 @@ const ROOT = path.resolve(SCRIPT_DIR, '..');
 const CONFIG_PATH = path.join(ROOT, 'apps/web/content/pypi-packages.json');
 const OUTPUT_PATH = path.join(ROOT, 'apps/web/public/data/pypi-stats.json');
 
-const ALLOWED = ['https://pypistats.org/api/packages/', 'https://pypi.org/pypi/', 'https://api.github.com/repos/'];
+const PUBLISHED_SNAPSHOT = 'https://raw.githubusercontent.com/Mgobeaalcoba/Mgobeaalcoba.github.io/gh-pages/data/pypi-stats.json';
+const ALLOWED = ['https://pypistats.org/api/packages/', 'https://pypi.org/pypi/', 'https://api.github.com/repos/', PUBLISHED_SNAPSHOT];
 // ClickPy (ClickHouse's public playground over PyPI's download data): read-only SQL, no key. It runs about a day ahead of pypistats.org and adds
 // country, package version, file type and installer. It counts every download, mirrors included; the installers below are the mirrors.
 const CLICKPY = 'https://sql-clickhouse.clickhouse.com/?user=demo&default_format=JSON';
 const MIRROR_INSTALLERS = ['bandersnatch', 'Artifactory', 'devpi', 'Nexus', 'z3c.pypimirror', 'pep381client'];
 const PAUSE_MS = 1200;
 const HISTORY_DAYS = 180;
+// One UTC cutoff for the entire refresh, including runs that cross midnight.
+export const targetDate = (now = new Date()) => new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - 86_400_000).toISOString().slice(0, 10);
+const TARGET_DATE = targetDate();
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -112,7 +116,7 @@ async function clickpyPartialDay() {
   if (partialDay !== undefined) return partialDay;
   partialDay = null;
   try {
-    const rows = await clickpy('SELECT date, sum(count) AS n FROM pypi.pypi_downloads_per_day WHERE date >= today() - 9 GROUP BY date ORDER BY date');
+    const rows = await clickpy(`SELECT date, sum(count) AS n FROM pypi.pypi_downloads_per_day WHERE date BETWEEN toDate('${TARGET_DATE}') - 8 AND toDate('${TARGET_DATE}') GROUP BY date ORDER BY date`);
     const byDate = new Map(rows.map((row) => [row.date, num(row.n)]));
     const dates = [...byDate.keys()].sort();
     const last = dates[dates.length - 1];
@@ -124,11 +128,11 @@ async function clickpyPartialDay() {
   return partialDay;
 }
 
-async function fetchClickpy(name) {
+async function fetchClickpy(name, pause = sleep) {
   if (!/^[a-z0-9][a-z0-9._-]*$/.test(name)) throw new Error('BAD_PACKAGE_NAME');
   const table = 'pypi.pypi_downloads_per_day_by_version_by_installer_by_type_by_country';
   const mirrors = MIRROR_INSTALLERS.map((installer) => `'${installer}'`).join(',');
-  const since = `date >= today() - ${HISTORY_DAYS - 1}`;
+  const since = `date BETWEEN toDate('${TARGET_DATE}') - ${HISTORY_DAYS - 1} AND toDate('${TARGET_DATE}')`;
   const sums = `sum(count) AS all_, sumIf(count, installer NOT IN (${mirrors})) AS nomirror`;
   const query = (field) => clickpy(`SELECT date, ${field ? `${field} AS k,` : ''} ${sums} FROM ${table} WHERE project = '${name}' AND ${since} GROUP BY date${field ? ', k' : ''} ORDER BY date`);
 
@@ -136,27 +140,28 @@ async function fetchClickpy(name) {
   const dates = Array.from(new Set(total.map((row) => row.date))).sort();
   if (!dates.length) return null;
   const both = (rows, keyField, keys) => ({ all: pivotRows(rows, keyField, 'all_', keys, dates), nomirror: pivotRows(rows, keyField, 'nomirror', keys, dates) });
+  await pause(PAUSE_MS);
   const partial = await clickpyPartialDay();
   const out = { through: dates[dates.length - 1], partial: partial && partial === dates[dates.length - 1] ? partial : null, total: { dates, series: { all: dates.map((date) => num(total.find((row) => row.date === date)?.all_)), nomirror: dates.map((date) => num(total.find((row) => row.date === date)?.nomirror)) } } };
 
   const dimensions = [['country', 30], ['version', 10], ['type', 6]];
   for (const [label, count] of dimensions) {
-    await sleep(PAUSE_MS);
+    await pause(PAUSE_MS);
     const field = label === 'country' ? 'country_code' : label;
     const rows = (await query(field)).map((row) => ({ ...row, k: String(row.k ?? '') }));
     out[label] = both(rows, 'k', topKeys(rows.map((row) => ({ ...row, all_: row.all_ })), 'k', count));
   }
-  await sleep(PAUSE_MS);
+  await pause(PAUSE_MS);
   const installerRows = (await query('installer')).map((row) => ({ ...row, k: String(row.k ?? '') }));
   out.installer = pivotRows(installerRows, 'k', 'all_', topKeys(installerRows, 'k', 10), dates);
   return out;
 }
 
-async function fetchPackage(entry) {
+export async function fetchPackage(entry, previous = {}, pause = sleep) {
   const name = entry.name;
   const out = { name, repo: entry.repo || null, homebrew: entry.homebrew || null };
 
-  const pypi = await getJson(`https://pypi.org/pypi/${name}/json`);
+  const pypi = await optional('PyPI metadata', () => getJson(`https://pypi.org/pypi/${name}/json`)) || {};
   const info = pypi.info || {};
   const files = Array.isArray(pypi.urls) ? pypi.urls : [];
   const uploaded = files.map((file) => file.upload_time_iso_8601).filter(Boolean).sort().pop() || null;
@@ -166,42 +171,47 @@ async function fetchPackage(entry) {
     .sort((a, b) => a.date.localeCompare(b.date));
   Object.assign(out, { version: text(info.version, 40), summary: text(info.summary, 240), requiresPython: text(info.requires_python, 40), releasedAt: uploaded,
     releases });
-  await sleep(PAUSE_MS);
+  if (!pypi.info) for (const key of ['version', 'summary', 'requiresPython', 'releasedAt', 'releases']) out[key] = previous[key];
+  await pause(PAUSE_MS);
 
-  const recent = (await getJson(`https://pypistats.org/api/packages/${name}/recent`)).data || {};
-  out.recent = { day: num(recent.last_day), week: num(recent.last_week), month: num(recent.last_month) };
-  await sleep(PAUSE_MS);
+  const recent = await optional('recent downloads', async () => (await getJson(`https://pypistats.org/api/packages/${name}/recent`)).data || {});
+  out.recent = recent ? { day: num(recent.last_day), week: num(recent.last_week), month: num(recent.last_month) } : previous.recent || { day: 0, week: 0, month: 0 };
+  await pause(PAUSE_MS);
 
-  const overall = (await getJson(`https://pypistats.org/api/packages/${name}/overall?mirrors=false`)).data || [];
-  out.history = overall.filter((row) => row.category === 'without_mirrors').map((row) => ({ date: text(row.date, 10), downloads: num(row.downloads) }))
-    .sort((a, b) => a.date.localeCompare(b.date)).slice(-HISTORY_DAYS);
+  const overall = await optional('counted downloads', async () => (await getJson(`https://pypistats.org/api/packages/${name}/overall?mirrors=false`)).data || []);
+  out.history = overall ? overall.filter((row) => row.category === 'without_mirrors' && row.date <= TARGET_DATE).map((row) => ({ date: text(row.date, 10), downloads: num(row.downloads) }))
+    .sort((a, b) => a.date.localeCompare(b.date)).slice(-HISTORY_DAYS) : previous.history || [];
+  out.stale = !overall;
 
-  await sleep(PAUSE_MS);
+  await pause(PAUSE_MS);
   const withMirrors = await optional('downloads with mirrors', async () => (await getJson(`https://pypistats.org/api/packages/${name}/overall?mirrors=true`)).data || []);
-  out.withMirrors = (withMirrors || []).filter((row) => row.category === 'with_mirrors').map((row) => ({ date: text(row.date, 10), downloads: num(row.downloads) }))
-    .sort((a, b) => a.date.localeCompare(b.date)).slice(-HISTORY_DAYS);
-  await sleep(PAUSE_MS);
+  out.withMirrors = withMirrors ? withMirrors.filter((row) => row.category === 'with_mirrors' && row.date <= TARGET_DATE).map((row) => ({ date: text(row.date, 10), downloads: num(row.downloads) }))
+    .sort((a, b) => a.date.localeCompare(b.date)).slice(-HISTORY_DAYS) : previous.withMirrors || [];
+  await pause(PAUSE_MS);
   const system = await optional('operating systems', async () => (await getJson(`https://pypistats.org/api/packages/${name}/system`)).data || []);
-  out.system = system ? pivot(system.filter((row) => row.category !== 'null' || true)) : null;
-  await sleep(PAUSE_MS);
+  out.system = system ? pivot(system.filter((row) => row.date <= TARGET_DATE)) : previous.system || null;
+  await pause(PAUSE_MS);
   const python = await optional('python versions', async () => (await getJson(`https://pypistats.org/api/packages/${name}/python_minor`)).data || []);
-  out.python = python ? pivot(python) : null;
+  out.python = python ? pivot(python.filter((row) => row.date <= TARGET_DATE)) : previous.python || null;
 
-  await sleep(PAUSE_MS);
-  out.clickpy = await optional('ClickPy (country, versions, installers, fresher days)', () => fetchClickpy(name));
+  await pause(PAUSE_MS);
+  const clickpy = await optional('ClickPy (country, versions, installers, fresher days)', () => fetchClickpy(name, pause));
+  const keepClickpy = !clickpy || previous.clickpy?.through > clickpy.through;
+  out.clickpy = keepClickpy ? previous.clickpy || null : clickpy;
+  out.clickpyStale = keepClickpy;
 
   if (entry.repo) {
-    await sleep(PAUSE_MS);
+    await pause(PAUSE_MS);
     out.github = await optional('GitHub repository', async () => {
       const repo = await getJson(`https://api.github.com/repos/${entry.repo}`);
       const github = { stars: num(repo.stargazers_count), forks: num(repo.forks_count), openIssues: num(repo.open_issues_count), url: text(repo.html_url, 200),
         createdAt: text(repo.created_at, 10), pushedAt: text(repo.pushed_at, 10), language: text(repo.language, 30), license: text(repo.license?.spdx_id, 30) };
-      await sleep(PAUSE_MS);
+      await pause(PAUSE_MS);
       github.starHistory = (await optional('stargazers (GitHub needs a token for this one: set GITHUB_TOKEN)', async () => {
         const stars = await getJson(`https://api.github.com/repos/${entry.repo}/stargazers?per_page=100`, 3, { Accept: 'application/vnd.github.star+json' });
         return stars.map((star) => text(star.starred_at, 10)).filter(Boolean).sort();
       })) || [];
-      await sleep(PAUSE_MS);
+      await pause(PAUSE_MS);
       github.commits = (await optional('commits', async () => {
         // The statistics endpoint is computed lazily (202 on the first call); listing the commits of the last year is immediate and enough to count per week.
         const since = new Date(Date.now() - 365 * 86_400_000).toISOString();
@@ -211,7 +221,7 @@ async function fetchPackage(entry) {
           if (!Array.isArray(batch)) break;
           dates.push(...batch.map((commit) => text(commit.commit?.author?.date, 10)).filter(Boolean));
           if (batch.length < 100) break;
-          await sleep(PAUSE_MS);
+          await pause(PAUSE_MS);
         }
         const weeks = new Map();
         for (const date of dates) {
@@ -236,16 +246,19 @@ async function main() {
   } catch {
     // first run: nothing to fall back on
   }
+  // A scheduled build may have fresher data than main's committed fallback.
+  const published = await optional('published daily snapshot', () => getJson(PUBLISHED_SNAPSHOT));
+  if (published?.owner === config.owner && Array.isArray(published.packages) && published.generatedAt > (previous.generatedAt || '')) previous = published;
+  await sleep(PAUSE_MS);
   const before = new Map((previous.packages || []).map((pkg) => [pkg.name, pkg]));
   const packages = [];
   let fresh = 0;
 
   for (const entry of config.packages) {
     try {
-      const fetched = await fetchPackage(entry);
-      if (!fetched.clickpy && before.get(entry.name)?.clickpy) fetched.clickpy = before.get(entry.name).clickpy;   // keep what we had rather than lose the map
-      packages.push({ ...fetched, stale: false });
-      fresh += 1;
+      const fetched = await fetchPackage(entry, before.get(entry.name));
+      packages.push(fetched);
+      if (!fetched.stale || !fetched.clickpyStale) fresh += 1;
     } catch (error) {
       console.warn(`pypi-stats: ${entry.name} could not be refreshed (${error.message}); keeping the previous values`);
       const old = before.get(entry.name);
@@ -259,10 +272,15 @@ async function main() {
     return;
   }
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), owner: config.owner, packages })}\n`);
+  await writeFile(OUTPUT_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), targetDate: TARGET_DATE, owner: config.owner, packages })}\n`);
+  const behind = packages.filter((pkg) => !pkg.clickpy || pkg.clickpy.through < TARGET_DATE).map((pkg) => pkg.name);
+  if (behind.length) console.warn(`pypi-stats: target ${TARGET_DATE} not yet available for ${behind.join(', ')}`);
   console.log(`pypi-stats: ${fresh}/${config.packages.length} packages refreshed`);
 }
 
-main().catch((error) => {
-  console.warn(`pypi-stats: skipped (${error.message})`);
-});
+// Importing helpers for offline regression tests must not start a refresh.
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.warn(`pypi-stats: skipped (${error.message})`);
+  });
+}

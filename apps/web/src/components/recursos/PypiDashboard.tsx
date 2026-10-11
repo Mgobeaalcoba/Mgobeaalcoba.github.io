@@ -51,6 +51,7 @@ import {
   totalsOf,
   weekdayTotals,
   weekStart,
+  yesterday,
 } from '@/lib/pypiStats';
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, Filler, Legend, LinearScale, LineElement, LogarithmicScale, PointElement, Tooltip);
@@ -77,7 +78,7 @@ const PALETTE = ['#22d3ee', '#a78bfa', '#fbbf24', '#34d399', '#f472b6', '#60a5fa
 const OS_COLORS: Record<string, string> = { Linux: '#fbbf24', Darwin: '#a78bfa', Windows: '#60a5fa', other: '#94a3b8', null: '#475569' };
 const MODES: Mode[] = ['bars', 'lines', 'cumulative', 'share', 'index'];
 
-const DEFAULTS: State = { pkgs: null, range: '90', from: '', to: '', gran: 'day', mode: 'bars', segment: { kind: 'all' }, ma: false, log: false, releases: true, hide: true };
+const DEFAULTS: State = { pkgs: null, range: '90', from: '', to: '', gran: 'day', mode: 'bars', segment: { kind: 'raw' }, ma: false, log: false, releases: true, hide: true };
 
 // ---------- chart plugin: dashed vertical lines where a release happened ----------
 
@@ -179,7 +180,7 @@ function writeUrl(state: State, all: string[]) {
   }
   if (state.gran !== DEFAULTS.gran) params.set('gran', state.gran);
   if (state.mode !== DEFAULTS.mode) params.set('mode', state.mode);
-  if (state.segment.kind !== 'all') params.set('seg', segmentKey(state.segment));
+  if (state.segment.kind !== DEFAULTS.segment.kind) params.set('seg', segmentKey(state.segment));
   if (state.ma) params.set('ma', '1');
   if (state.log) params.set('log', '1');
   if (!state.releases) params.set('rel', '0');
@@ -222,13 +223,16 @@ function WorldMap({ map, totals, active, onPick, nameOf, fmt, label }: { map: Wo
 
 // ---------- the dashboard ----------
 
-export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats; lang: Language; worldMap: WorldMapData }) {
+export default function PypiDashboard({ stats, lang, worldMap, target }: { stats: Stats; lang: Language; worldMap: WorldMapData; target: string }) {
   const t = <T,>(es: T, en: T): T => (lang === 'es' ? es : en);
   const locale = lang === 'es' ? 'es-AR' : 'en-US';
   const theme = useTheme();
   const all = useMemo(() => [...stats.packages].sort((a, b) => b.recent.month - a.recent.month), [stats.packages]);
   const colorOf = useMemo(() => new Map(all.map((pkg, index) => [pkg.name, PALETTE[index % PALETTE.length]])), [all]);
-  const latest = useMemo(() => latestDate(all), [all]);
+  const latest = useMemo(() => {
+    const date = [latestDate(all), segmentRange(all, { kind: 'raw' }, target).latest].sort().pop() || '';
+    return date > target ? target : date;
+  }, [all, target]);
   const first = useMemo(() => earliestDate(all), [all]);
 
   const [state, setState] = useState<State>(DEFAULTS);
@@ -238,9 +242,9 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
   const patch = useCallback((change: Partial<State>) => setState((current) => ({ ...current, ...change })), []);
 
   useEffect(() => {
-    setState((current) => ({ ...current, ...readUrl(first, latest) }));
+    setState((current) => ({ ...current, ...readUrl(first, yesterday()) }));
     setReady(true);
-  }, [first, latest]);
+  }, []); // Read shared filters once; background refreshes must preserve the user's selection.
   useEffect(() => {
     if (ready) writeUrl(state, all.map((pkg) => pkg.name));
   }, [state, ready, all]);
@@ -268,13 +272,13 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
   // The segment decides the source (pypistats or ClickPy), and each source ends on its own day: the window ends where the segment's data does.
   const segment = useMemo<Segment>(() => (isClickpy(state.segment) ? ({ ...state.segment, hide: state.hide } as Segment) : state.segment), [state.segment, state.hide]);
   const bounds = useMemo(() => {
-    const range = segmentRange(selected, segment);
+    const range = segmentRange(selected, segment, target);
     return range.latest ? range : { first, latest, partial: null };
-  }, [selected, segment, first, latest]);
+  }, [selected, segment, first, latest, target]);
   const freshBounds = useMemo(() => {
-    const range = segmentRange(selected, { kind: 'raw' });
+    const range = segmentRange(selected, { kind: 'raw' }, target);
     return range.latest ? range : { first, latest, partial: null };
-  }, [selected, first, latest]);
+  }, [selected, first, latest, target]);
   const windowIn = useCallback((limits: { first: string; latest: string }) => {
     if (state.range === 'custom' && state.from && state.to) return { from: state.from < limits.first ? limits.first : state.from, to: state.to > limits.latest ? limits.latest : state.to };
     const days = Number(state.range === 'custom' ? 90 : state.range);
@@ -517,7 +521,7 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
   const arrow = (key: SortKey) => (sort.key === key ? (sort.dir === 1 ? ' ▲' : ' ▼') : '');
   const modeNames: Record<Mode, string> = { bars: t('Barras apiladas', 'Stacked bars'), lines: t('Líneas', 'Lines'), cumulative: t('Acumulado', 'Cumulative'), share: t('Participación %', 'Share %'), index: t('Índice (pico = 100)', 'Index (peak = 100)') };
   const rangeNames: Record<RangeKey, string> = { '7': t('7 días', '7 days'), '30': t('30 días', '30 days'), '90': t('90 días', '90 days'), '180': t('180 días', '180 days'), custom: t('Personalizado', 'Custom') };
-  const hasFilter = state.pkgs !== null || state.segment.kind !== 'all';
+  const hasFilter = state.pkgs !== null || state.segment.kind !== DEFAULTS.segment.kind;
   // The select always lists the segment in use, even when the packages or period chosen leave it without data.
   const knownSegments = new Set(['all', 'raw',
     ...Object.keys(osTotals).filter((key) => osTotals[key] > 0).map((key) => `os:${key}`), ...Object.keys(pyTotals).filter((key) => pyTotals[key] > 0).map((key) => `py:${key}`),
@@ -598,8 +602,10 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
         </div>
       </div>
       <p className="signal-pd-context" aria-live="polite">
+        {t('Objetivo diario (ayer, UTC)', 'Daily target (yesterday, UTC)')}: <b>{target}</b> ·
         {t('Mostrando', 'Showing')} <b>{segmentLabel}</b> · {selected.map((pkg) => pkg.name).join(', ')} · {longDate.format(new Date(`${windowRange.from}T00:00:00Z`))} → {longDate.format(new Date(`${windowRange.to}T00:00:00Z`))}
-        {(isClickpy(segment) ? bounds.partial : freshBounds.partial) ? <> · <span className="signal-pd-hint">{(() => { const day = (isClickpy(segment) ? bounds.partial : freshBounds.partial) as string; const text = longDate.format(new Date(`${day}T00:00:00Z`)); return t(`${text} está incompleto en ClickPy y se excluye`, `${text} is still incomplete in ClickPy and is left out`); })()}</span></> : null}
+        {(isClickpy(segment) ? bounds.partial : freshBounds.partial) ? <> · <span className="signal-pd-hint">{(() => { const day = (isClickpy(segment) ? bounds.partial : freshBounds.partial) as string; const text = longDate.format(new Date(`${day}T00:00:00Z`)); return t(`${text}: datos provisionales de ClickPy; pueden aumentar`, `${text}: provisional ClickPy data; counts may increase`); })()}</span></> : null}
+        {selected.some((pkg) => segmentRange([pkg], segment, target).latest < target) ? <> · <span className="signal-pd-hint" role="status">{t('La fuente todavía no cubre ayer para todos los paquetes; no se inventan descargas para los días faltantes.', 'The source does not yet cover yesterday for every package; missing days are not reported as downloads.')}</span></> : null}
         {freshBounds.latest > bounds.latest ? <> · <span className="signal-pd-hint">{t(`ClickPy llega hasta el ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`, `ClickPy goes up to ${longDate.format(new Date(`${freshBounds.latest}T00:00:00Z`))}`)}</span></> : null}
       </p>
 
@@ -862,7 +868,7 @@ export default function PypiDashboard({ stats, lang, worldMap }: { stats: Stats;
               options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ stacked: true, beginAtZero: true }), y: axisBase({ stacked: true, grid: { display: false } }) }, plugins: { legend: { display: true, position: 'bottom', labels: { color: theme.text, boxWidth: 10, boxHeight: 10, usePointStyle: true } }, tooltip: { backgroundColor: theme.surface, titleColor: theme.text, bodyColor: theme.text, borderColor: theme.grid, borderWidth: 1 } } })}
             />
           </div>
-          <p className="signal-pd-note">{t('Aun sin espejos, las descargas incluyen CI, bots y reinstalaciones: no son usuarios únicos. Los números de “Participación” y “Tendencia” usan solo las descargas contadas.', 'Even without mirrors, downloads include CI, bots and reinstalls: they are not unique users. The “Share” and “Trend” numbers use only the counted downloads.')}</p>
+          <p className="signal-pd-note">{t('Aun sin espejos, las descargas incluyen CI, bots y reinstalaciones: no son usuarios únicos. Los números de “Participación” y “Tendencia” usan el segmento seleccionado arriba.', 'Even without mirrors, downloads include CI, bots and reinstalls: they are not unique users. The “Share” and “Trend” numbers use the segment selected above.')}</p>
         </div>
       </section>
 

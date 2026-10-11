@@ -46,8 +46,9 @@ export type Pkg = {
   github?: Github | null;
   clickpy?: Clickpy | null;
   stale?: boolean;
+  clickpyStale?: boolean;
 };
-export type Stats = { generatedAt: string; owner: string; packages: Pkg[] };
+export type Stats = { generatedAt: string; targetDate?: string; owner: string; packages: Pkg[] };
 
 /** What the main series is made of: every download, or only the ones from one operating system or one Python version. */
 export type Segment =
@@ -65,6 +66,7 @@ const DAY = 86_400_000;
 export const toTime = (date: string) => Date.parse(`${date}T00:00:00Z`);
 export const fromTime = (time: number) => new Date(time).toISOString().slice(0, 10);
 export const addDays = (date: string, days: number) => fromTime(toTime(date) + days * DAY);
+export const yesterday = (now = new Date()) => addDays(now.toISOString().slice(0, 10), -1);
 export const daysBetween = (from: string, to: string) => Math.round((toTime(to) - toTime(from)) / DAY);
 
 /** Every date from `from` to `to`, both included. */
@@ -126,8 +128,8 @@ export function dailyMap(pkg: Pkg, segment: Segment): Map<string, number> {
   return map;
 }
 
-/** First and last COMPLETE date the segment's source has for these packages (pypistats and ClickPy do not end on the same day). `partial` is ClickPy's still-incomplete last day, left out of every figure. */
-export function segmentRange(packages: Pkg[], segment: Segment): { first: string; latest: string; partial: string | null } {
+/** Available dates through the UTC target. Partial ClickPy days stay visible and are labelled as provisional. */
+export function segmentRange(packages: Pkg[], segment: Segment, target = yesterday()): { first: string; latest: string; partial: string | null } {
   let partial: string | null = null;
   let first = '9999-12-31';
   let latest = '';
@@ -135,14 +137,14 @@ export function segmentRange(packages: Pkg[], segment: Segment): { first: string
     const dates = segment.kind === 'all' || segment.kind === 'os' || segment.kind === 'py'
       ? (segment.kind === 'all' ? pkg.history.map((point) => point.date) : (segment.kind === 'os' ? pkg.system : pkg.python)?.dates ?? [])
       : pkg.clickpy?.total.dates ?? [];
-    if (dates.length) {
-      let end = dates[dates.length - 1];
+    const available = dates.filter((date) => date <= target);
+    if (available.length) {
+      const end = available[available.length - 1];
       const open = pkg.clickpy?.partial;
       if (open && end === open && !(segment.kind === 'all' || segment.kind === 'os' || segment.kind === 'py')) {
         partial = open;
-        end = dates.length > 1 ? dates[dates.length - 2] : end;
       }
-      if (dates[0] < first) first = dates[0];
+      if (available[0] < first) first = available[0];
       if (end > latest) latest = end;
     }
   }
