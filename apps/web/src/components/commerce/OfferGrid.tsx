@@ -26,7 +26,11 @@ export default function OfferGrid({ heading = true }: { heading?: boolean }) {
             <div className="signal-offer-card__top"><span>0{index + 1} / {offer.category[lang]}</span>{offer.featured && <strong>{t('services_best_first_step')}</strong>}</div>
             <h3>{offer.name[lang]}</h3>
             <p>{offer.promise[lang]}</p>
-            <div className="signal-offer-card__price"><strong>USD {offer.priceUsd}</strong><span>{t('services_single_payment')}</span></div>
+            <div className="signal-offer-card__price">
+              {offer.priceUsd != null
+                ? <><strong>USD {offer.priceUsd}</strong><span>{t('services_single_payment')}</span></>
+                : <><strong>{offer.pricingNote?.[lang] ?? t('services_custom_quote')}</strong><span>{t('services_quote_note')}</span></>}
+            </div>
             <div className="signal-offer-card__meta"><span>{offer.duration[lang]}</span><span>{offer.delivery[lang]}</span></div>
             <ul>{offer.includes[lang].slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul>
             <div className="signal-offer-card__actions">
@@ -36,7 +40,7 @@ export default function OfferGrid({ heading = true }: { heading?: boolean }) {
                 data-analytics={`offer_detail_${offer.slug}`}
                 data-analytics-kind="cta"
                 data-analytics-surface="offer_grid"
-                onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd)}
+                onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd ?? 0)}
               >{t('services_see_detail')}</Link>
             </div>
           </article>

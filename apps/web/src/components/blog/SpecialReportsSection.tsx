@@ -123,6 +123,34 @@ const REPORTS: ReportCard[] = [
       { value: '∞', labelEs: 'Feedback inmediato', labelEn: 'Instant feedback', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: Zap },
     ],
   },
+  {
+    href: '/blog/special/agentificacion',
+    badge: 'Special Report',
+    badgeColor: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400',
+    dateLine: { es: 'Octubre 2026 · Data-Driven', en: 'October 2026 · Data-Driven' },
+    title: {
+      es: 'Agentificación: Cómo Preparar tu Código para Agentes de IA',
+      en: 'Agentification: Getting Your Codebase Ready for AI Agents',
+    },
+    description: {
+      es: 'Qué dice la evidencia 2025–2026 sobre contexto, verificación y seguridad de agentes, y el caso piloto real: 31 repositorios y directorios agentificados en una jornada, con gráficos y fuentes verificables.',
+      en: 'What 2025–2026 evidence says about agent context, verification and security, plus the real pilot: 31 repositories and directories agentified in one day, with charts and verifiable sources.',
+    },
+    cta: { es: 'Ver informe completo', en: 'View full report' },
+    accentColor: 'text-emerald-400 group-hover:text-emerald-300',
+    borderColor: 'border-emerald-500/30',
+    bgClass: 'special-report-bg',
+    kpis: [
+      { value: '31', labelEs: 'Repos y directorios en el piloto', labelEn: 'Repos & directories in the pilot', color: 'text-sky-400', bgColor: 'bg-sky-500/10 border-sky-500/20', icon: BarChart3 },
+      { value: '23', labelEs: 'Con el kit de agentificación', labelEn: 'With the agentification kit', color: 'text-purple-400', bgColor: 'bg-purple-500/10 border-purple-500/20', icon: Bot },
+      { value: '19', labelEs: 'Hooks de escaneo de secretos', labelEn: 'Secret-scanning hooks', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: Zap },
+      { value: '−28,6%', labelEs: 'Wall-clock con AGENTS.md (estudio pareado)', labelEn: 'Wall-clock with AGENTS.md (paired study)', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: TrendingDown },
+    ],
+    sources: {
+      es: 'Fuentes: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
+      en: 'Sources: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
+    },
+  },
 ];
 
 export default function SpecialReportsSection() {

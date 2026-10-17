@@ -1,6 +1,6 @@
 import type { Bilingual } from '@/types/content';
 
-export type OfferSlug = 'diagnostico-automatizacion' | 'mentoria-uno-a-uno' | 'auditoria-data-ia';
+export type OfferSlug = 'diagnostico-automatizacion' | 'mentoria-uno-a-uno' | 'auditoria-data-ia' | 'agentificacion';
 
 export interface BilingualList {
   es: string[];
@@ -12,7 +12,9 @@ export type Offer = {
   name: Bilingual;
   shortName: Bilingual;
   category: Bilingual;
-  priceUsd: number;
+  priceUsd?: number;
+  pricingNote?: Bilingual;
+  customQuote?: boolean;
   duration: Bilingual;
   delivery: Bilingual;
   promise: Bilingual;
@@ -24,13 +26,13 @@ export type Offer = {
   featured?: boolean;
 };
 
-const defaultPaymentUrls: Record<OfferSlug, string> = {
+const defaultPaymentUrls: Partial<Record<OfferSlug, string>> = {
   'diagnostico-automatizacion': 'https://mpago.la/1YpijTK',
   'mentoria-uno-a-uno': 'https://mpago.la/2bbynxo',
   'auditoria-data-ia': 'https://mpago.la/2ce7o3i',
 };
 
-const paymentUrls: Record<OfferSlug, string> = {
+const paymentUrls: Partial<Record<OfferSlug, string>> = {
   'diagnostico-automatizacion': process.env.NEXT_PUBLIC_MP_DIAGNOSTICO_URL || defaultPaymentUrls['diagnostico-automatizacion'],
   'mentoria-uno-a-uno': process.env.NEXT_PUBLIC_MP_MENTORIA_URL || defaultPaymentUrls['mentoria-uno-a-uno'],
   'auditoria-data-ia': process.env.NEXT_PUBLIC_MP_AUDITORIA_URL || defaultPaymentUrls['auditoria-data-ia'],
@@ -127,6 +129,36 @@ export const OFFERS: Offer[] = [
       en: ['Quick wins for the next 30 days', 'A 90-day roadmap', 'Clear criteria to invest in or drop initiatives'],
     },
     paymentUrl: paymentUrls['auditoria-data-ia'],
+  },
+  {
+    slug: 'agentificacion',
+    name: { es: 'Agentificación de Repositorios & Apps', en: 'Repository & App Agentification' },
+    shortName: { es: 'Agentificación', en: 'Agentification' },
+    category: { es: 'IA aplicada', en: 'Applied AI' },
+    pricingNote: { es: 'A medida', en: 'Custom' },
+    customQuote: true,
+    duration: { es: 'Según alcance', en: 'Scope-based' },
+    delivery: { es: 'Kit aplicado + runbook', en: 'Applied kit + runbook' },
+    promise: {
+      es: 'Prepará tus repositorios y aplicaciones para trabajar con múltiples agentes de IA sin perder contexto.',
+      en: 'Get your repositories and apps ready to work with multiple AI agents without losing context.',
+    },
+    description: {
+      es: 'Relevamos tu ecosistema y aplicamos el kit de agentificación: punto de entrada para agentes, memoria de continuidad, puentes multi-agente y guardas de seguridad, con verificación posterior.',
+      en: 'We assess your ecosystem and apply the agentification kit: agent entrypoint, continuity memory, multi-agent bridges and security guardrails, with post-verification.',
+    },
+    audience: {
+      es: ['Equipos que ya usan agentes de IA sobre su código', 'Empresas con varios repositorios y contexto disperso', 'Líderes que quieren estandarizar cómo trabajan sus agentes'],
+      en: ['Teams already using AI agents on their code', 'Companies with multiple repositories and scattered context', 'Leaders who want to standardize how their agents work'],
+    },
+    includes: {
+      es: ['Relevamiento del ecosistema de repositorios y aplicaciones', 'AGENTS.md canónico por repo (mapa corto, no enciclopedia)', 'Puentes multi-agente: Claude, Codex, Gemini y Copilot', 'Memoria de continuidad: estado, registro y decisiones', 'Escaneo de secretos y hook de verificación pre-commit', 'Informe de resultados y runbook de operación'],
+      en: ['Assessment of your repositories and applications ecosystem', 'Canonical AGENTS.md per repo (short map, not an encyclopedia)', 'Multi-agent bridges: Claude, Codex, Gemini and Copilot', 'Continuity memory: status, log and decisions', 'Secret scanning and pre-commit verification hook', 'Results report and operating runbook'],
+    },
+    outcome: {
+      es: ['Cualquier agente retoma el trabajo sin perder contexto', 'Menos retrabajo y menos fricción entre agentes', 'Guardas de seguridad activas desde el primer commit'],
+      en: ['Any agent resumes work without losing context', 'Less rework and less friction between agents', 'Security guardrails active from the first commit'],
+    },
   },
 ];
 

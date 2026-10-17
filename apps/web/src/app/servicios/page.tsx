@@ -21,7 +21,7 @@ const catalogSchema = {
   name: 'Servicios a demanda de MGA Tech Consulting',
   itemListElement: OFFERS.map((offer, index) => ({
     '@type': 'ListItem', position: index + 1,
-    item: { '@type': 'Service', name: offer.name.es, description: offer.description.es, url: absoluteUrl(`/servicios/${offer.slug}/`), offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
+    item: { '@type': 'Service', name: offer.name.es, description: offer.description.es, url: absoluteUrl(`/servicios/${offer.slug}/`), ...(offer.priceUsd != null ? { offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } } : {}) },
   })),
 };
 

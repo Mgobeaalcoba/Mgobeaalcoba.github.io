@@ -21,7 +21,7 @@ const catalogSchema = {
   name: 'MGA Tech Consulting on-demand services',
   itemListElement: OFFERS.map((offer, index) => ({
     '@type': 'ListItem', position: index + 1,
-    item: { '@type': 'Service', name: offer.name.en, description: offer.description.en, url: absoluteUrl(`/servicios/${offer.slug}/`, 'en'), offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
+    item: { '@type': 'Service', name: offer.name.en, description: offer.description.en, url: absoluteUrl(`/servicios/${offer.slug}/`, 'en'), ...(offer.priceUsd != null ? { offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } } : {}) },
   })),
 };
 

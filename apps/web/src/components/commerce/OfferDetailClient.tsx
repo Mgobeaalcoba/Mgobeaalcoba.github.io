@@ -19,11 +19,12 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
           <h1>{offer.name[lang]}</h1>
           <p>{offer.promise[lang]}</p>
           <div className="signal-offer-price">
-            <strong>USD {offer.priceUsd}</strong>
-            <span>{t('services_single_payment')} · {offer.duration[lang]} · {offer.delivery[lang]}</span>
+            {offer.priceUsd != null
+              ? <><strong>USD {offer.priceUsd}</strong><span>{t('services_single_payment')} · {offer.duration[lang]} · {offer.delivery[lang]}</span></>
+              : <><strong>{offer.pricingNote?.[lang] ?? t('services_custom_quote')}</strong><span>{offer.duration[lang]} · {offer.delivery[lang]}</span></>}
           </div>
           <CheckoutButton offer={offer} />
-          <small><ShieldCheck size={15} /> {t('services_detail_guarantee')}</small>
+          {offer.priceUsd != null && <small><ShieldCheck size={15} /> {t('services_detail_guarantee')}</small>}
         </div>
         <aside>
           <span>{t('services_detail_outcome')}</span>
@@ -34,7 +35,9 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
       <section className="signal-offer-detail">
         <div>
           <span className="signal-eyebrow">{lang === 'es' ? 'Para quién es' : 'Who it is for'}</span>
-          <h2>{lang === 'es' ? 'Una inversión pequeña para tomar una decisión grande.' : 'A small investment to make a big decision.'}</h2>
+          <h2>{offer.priceUsd != null
+            ? (lang === 'es' ? 'Una inversión pequeña para tomar una decisión grande.' : 'A small investment to make a big decision.')
+            : (lang === 'es' ? 'Código listo para que la IA trabaje con contexto, no a ciegas.' : 'A codebase ready for AI to work with context, not blind.')}</h2>
         </div>
         <div className="signal-offer-detail__lists">
           <article>
@@ -49,7 +52,7 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
       </section>
       <section className="signal-offer-final">
         <span>{t('services_detail_final_eyebrow')}</span>
-        <h2>{t('services_detail_final_title')}</h2>
+        <h2>{offer.priceUsd != null ? t('services_detail_final_title') : (lang === 'es' ? 'Contame tu ecosistema y definimos el alcance juntos.' : 'Tell me about your ecosystem and we define the scope together.')}</h2>
         <CheckoutButton offer={offer} />
       </section>
     </>

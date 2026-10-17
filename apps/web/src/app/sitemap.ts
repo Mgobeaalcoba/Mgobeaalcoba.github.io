@@ -154,6 +154,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    {
+      url: `${SITE_URL}/blog/special/agentificacion/`,
+      lastModified: new Date('2026-10-17'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({

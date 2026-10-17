@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, CalendarCheck } from 'lucide-react';
+import { ArrowRight, CalendarCheck, MessageSquare } from 'lucide-react';
 import { events } from '@/lib/gtag';
 import { isAllowedPaymentUrl, type Offer } from '@/lib/offers';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,20 +9,25 @@ import { openContactModal } from '@/components/shared/ContactModal';
 export default function CheckoutButton({ offer, compact = false }: { offer: Offer; compact?: boolean }) {
   const { lang, t } = useLanguage();
   const offerName = offer.name[lang];
+  const price = offer.priceUsd;
+  const isCustom = offer.customQuote === true || price == null;
+  const canPay = !isCustom && isAllowedPaymentUrl(offer.paymentUrl);
 
   const handleClick = () => {
-    events.viewItem(offer.slug, offerName, offer.priceUsd);
+    events.viewItem(offer.slug, offerName, price ?? 0);
 
-    if (isAllowedPaymentUrl(offer.paymentUrl)) {
-      events.beginCheckout(offer.slug, offerName, offer.priceUsd, 'mercado_pago');
+    if (!isCustom && isAllowedPaymentUrl(offer.paymentUrl)) {
+      events.beginCheckout(offer.slug, offerName, price ?? 0, 'mercado_pago');
       window.location.assign(offer.paymentUrl);
       return;
     }
 
-    events.checkoutUnavailable(offer.slug);
+    if (!isCustom) events.checkoutUnavailable(offer.slug);
     openContactModal(
       `service_${offer.slug}`,
-      t('checkout_request').replace('{offer}', offerName).replace('{price}', String(offer.priceUsd)),
+      isCustom
+        ? t('checkout_contact_request').replace('{offer}', offerName)
+        : t('checkout_request').replace('{offer}', offerName).replace('{price}', String(price)),
     );
   };
 
@@ -35,7 +40,11 @@ export default function CheckoutButton({ offer, compact = false }: { offer: Offe
       className={compact ? 'signal-offer-button signal-offer-button--compact' : 'signal-offer-button'}
       onClick={handleClick}
     >
-      {isAllowedPaymentUrl(offer.paymentUrl) ? <><span>{t('checkout_buy_now')}</span><ArrowRight size={17} /></> : <><span>{t('checkout_reserve')}</span><CalendarCheck size={17} /></>}
+      {canPay
+        ? <><span>{t('checkout_buy_now')}</span><ArrowRight size={17} /></>
+        : isCustom
+          ? <><span>{t('checkout_contact')}</span><MessageSquare size={17} /></>
+          : <><span>{t('checkout_reserve')}</span><CalendarCheck size={17} /></>}
     </button>
   );
 }

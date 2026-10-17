@@ -22,7 +22,7 @@ export default function ArticleServiceCTA({ category }: { category: string }) {
       <span>{t('services_article_cta')}</span>
       <h2>{offer.name[lang]}</h2>
       <p>{offer.promise[lang]}</p>
-      <div><strong>USD {offer.priceUsd}</strong><Link href={localizePath(`/servicios/${offer.slug}/`, lang)} onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd)}>{t('services_see_service')}<ArrowRight size={16} /></Link></div>
+      <div><strong>USD {offer.priceUsd}</strong><Link href={localizePath(`/servicios/${offer.slug}/`, lang)} onClick={() => events.selectItem(offer.slug, offer.name[lang], offer.priceUsd ?? 0)}>{t('services_see_service')}<ArrowRight size={16} /></Link></div>
     </aside>
   );
 }
