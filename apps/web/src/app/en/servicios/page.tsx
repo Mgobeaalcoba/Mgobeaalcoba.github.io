@@ -11,8 +11,8 @@ export const metadata: Metadata = buildLocalizedMetadata({
   path: '/servicios/',
   locale: 'en',
   title: 'On-demand services | Automation, Data and AI',
-  description: 'Diagnostics, mentoring and audits with a defined scope, price and delivery. Automation, Data Engineering and applied AI for growing teams.',
-  openGraphDescription: 'Diagnostics, mentoring and audits with a defined scope, price and delivery.',
+  description: 'Diagnostics, mentoring, audits, agentification and custom AI agents with a defined scope and delivery. Automation, Data Engineering and applied AI for growing teams.',
+  openGraphDescription: 'Diagnostics, mentoring, audits and applied AI services with a defined scope and delivery.',
 });
 
 const catalogSchema = {

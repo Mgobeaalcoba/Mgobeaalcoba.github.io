@@ -15,8 +15,8 @@ export const SERVICES_HERO: { title: Bilingual; emphasis: Bilingual; subtitle: B
   title: { es: 'Resultados concretos.', en: 'Concrete results.' },
   emphasis: { es: 'Sin proyectos abiertos.', en: 'No open-ended projects.' },
   subtitle: {
-    es: 'Elegí un punto de partida con alcance, precio y entrega conocidos. Sin llamadas comerciales obligatorias antes de entender qué comprás.',
-    en: 'Pick a starting point with a known scope, price and delivery. No mandatory sales calls before you understand what you are buying.',
+    es: 'Elegí un punto de partida con alcance y entrega definidos: precio directo cuando aplica, o presupuesto a medida tras el relevamiento. Sin llamadas comerciales obligatorias antes de entender qué comprás.',
+    en: 'Pick a starting point with a defined scope and delivery: direct pricing where it applies, or a custom quote after discovery. No mandatory sales calls before you understand what you are buying.',
   },
 };
 
@@ -35,8 +35,8 @@ export const SERVICES_FAQ: BilingualFaqItem[] = [
   {
     question: { es: '¿Los precios son finales?', en: 'Are these prices final?' },
     answer: {
-      es: 'Son precios de referencia en USD para el alcance publicado. El cobro se realiza en el medio y moneda indicados por el checkout.',
-      en: 'They are reference prices in USD for the published scope. Payment is charged in the method and currency shown at checkout.',
+      es: 'Son precios de referencia en USD para el alcance publicado. Los servicios a medida (agentificación y agentes de IA) se cotizan por escrito según alcance. El cobro se realiza en el medio y moneda indicados al contratar.',
+      en: 'They are reference prices in USD for the published scope. Custom services (agentification and AI agents) are quoted in writing based on scope. Payment is charged in the method and currency shown when you hire.',
     },
   },
   {

@@ -11,8 +11,8 @@ export const metadata: Metadata = buildLocalizedMetadata({
   path: '/servicios/',
   locale: 'es',
   title: 'Servicios a demanda | Automatización, Data e IA',
-  description: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos. Automatización, Data Engineering e IA aplicada.',
-  openGraphDescription: 'Diagnósticos, mentorías y auditorías con alcance, precio y entrega definidos.',
+  description: 'Diagnósticos, mentorías, auditorías, agentificación y agentes de IA a medida con alcance y entrega definidos. Automatización, Data Engineering e IA aplicada.',
+  openGraphDescription: 'Diagnósticos, mentorías, auditorías y servicios de IA aplicada con alcance y entrega definidos.',
 });
 
 const catalogSchema = {

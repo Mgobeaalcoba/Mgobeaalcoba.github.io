@@ -1,6 +1,6 @@
 import type { Bilingual } from '@/types/content';
 
-export type OfferSlug = 'diagnostico-automatizacion' | 'mentoria-uno-a-uno' | 'auditoria-data-ia' | 'agentificacion';
+export type OfferSlug = 'diagnostico-automatizacion' | 'mentoria-uno-a-uno' | 'auditoria-data-ia' | 'agentificacion' | 'agentes-a-medida';
 
 export interface BilingualList {
   es: string[];
@@ -158,6 +158,36 @@ export const OFFERS: Offer[] = [
     outcome: {
       es: ['Cualquier agente retoma el trabajo sin perder contexto', 'Menos retrabajo y menos fricción entre agentes', 'Guardas de seguridad activas desde el primer commit'],
       en: ['Any agent resumes work without losing context', 'Less rework and less friction between agents', 'Security guardrails active from the first commit'],
+    },
+  },
+  {
+    slug: 'agentes-a-medida',
+    name: { es: 'Agentes de IA a medida', en: 'Custom AI Agents' },
+    shortName: { es: 'Agentes IA', en: 'AI Agents' },
+    category: { es: 'IA aplicada', en: 'Applied AI' },
+    pricingNote: { es: 'A medida', en: 'Custom' },
+    customQuote: true,
+    duration: { es: 'Según alcance', en: 'Scope-based' },
+    delivery: { es: 'Agente en producción + runbook', en: 'Agent in production + runbook' },
+    promise: {
+      es: 'Resolvé problemas de negocio con agentes de IA que trabajan sobre tus sistemas reales.',
+      en: 'Solve business problems with AI agents that work on your real systems.',
+    },
+    description: {
+      es: 'Diseñamos y construimos agentes para problemas concretos de negocio: flujos en n8n cuando la integración estándar alcanza, y desarrollo con frameworks de agentes cuando el caso requiere control fino, memoria propia o herramientas a medida.',
+      en: 'We design and build agents for concrete business problems: n8n flows when standard integration is enough, and framework-based development when the case requires fine-grained control, custom memory or bespoke tools.',
+    },
+    audience: {
+      es: ['Equipos con procesos manuales que ya no escalan', 'Empresas que quieren IA aplicada más allá de un chatbot', 'Organizaciones que ya usan n8n y necesitan agentes con criterio y control'],
+      en: ['Teams with manual processes that no longer scale', 'Companies that want applied AI beyond a chatbot', 'Organizations already on n8n that need agents with judgment and control'],
+    },
+    includes: {
+      es: ['Relevamiento del proceso y definición del caso de uso', 'Diseño de la solución: n8n o framework según el problema', 'Construcción e integración con tus sistemas (CRM, mails, bases, APIs)', 'Memoria, contexto y criterios de decisión del agente', 'Guardas y aprobaciones humanas donde corresponde', 'Medición de resultados y runbook de operación'],
+      en: ['Process assessment and use-case definition', 'Solution design: n8n or framework depending on the problem', 'Build and integration with your systems (CRM, email, databases, APIs)', 'Agent memory, context and decision criteria', 'Guardrails and human approvals where appropriate', 'Results measurement and operating runbook'],
+    },
+    outcome: {
+      es: ['Menos trabajo manual en el proceso elegido', 'Un agente medible trabajando en producción, no un prototipo', 'Criterios claros para escalar a nuevos casos'],
+      en: ['Less manual work in the chosen process', 'A measurable agent running in production, not a prototype', 'Clear criteria to scale to new use cases'],
     },
   },
 ];
