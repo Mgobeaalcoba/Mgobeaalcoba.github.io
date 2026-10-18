@@ -42,33 +42,34 @@ interface ReportCard {
   sources?: { es: string; en: string };
 }
 
+// Newest first: the most recent report always goes on top (chronological descending).
 const REPORTS: ReportCard[] = [
   {
-    href: '/blog/special/layoffs-genai',
+    href: '/blog/special/agentificacion',
     badge: 'Special Report',
-    badgeColor: 'bg-amber-500/15 border-amber-500/30 text-amber-400',
-    dateLine: { es: 'Abril 2026 · Data-Driven', en: 'April 2026 · Data-Driven' },
+    badgeColor: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400',
+    dateLine: { es: 'Octubre 2026 · Data-Driven', en: 'October 2026 · Data-Driven' },
     title: {
-      es: 'Layoffs, Contratación & GenAI: El Gran Reajuste Laboral',
-      en: 'Layoffs, Hiring & GenAI: The Great Labor Reset',
+      es: 'Agentificación: Cómo Preparar tu Código para Agentes de IA',
+      en: 'Agentification: Getting Your Codebase Ready for AI Agents',
     },
     description: {
-      es: 'Análisis 100% data-driven sobre despidos masivos en IT y sectores white collar, tendencias de contratación y su correlación con los hitos de la IA Generativa.',
-      en: '100% data-driven analysis of massive IT and white collar layoffs, hiring trends, and their correlation with Generative AI milestones.',
+      es: 'Qué dice la evidencia 2025–2026 sobre contexto, verificación y seguridad de agentes, y el caso piloto real: 31 repositorios y directorios agentificados en una jornada, con gráficos y fuentes verificables.',
+      en: 'What 2025–2026 evidence says about agent context, verification and security, plus the real pilot: 31 repositories and directories agentified in one day, with charts and verifiable sources.',
     },
     cta: { es: 'Ver informe completo', en: 'View full report' },
-    accentColor: 'text-amber-400 group-hover:text-amber-300',
-    borderColor: 'border-amber-500/30',
+    accentColor: 'text-emerald-400 group-hover:text-emerald-300',
+    borderColor: 'border-emerald-500/30',
     bgClass: 'special-report-bg',
     kpis: [
-      { value: '265K', labelEs: 'Pico layoffs tech 2023', labelEn: 'Peak tech layoffs 2023', color: 'text-red-400', bgColor: 'bg-red-500/10 border-red-500/20', icon: TrendingDown },
-      { value: '1.2M', labelEs: 'Anuncios despido 2025', labelEn: 'Layoff announcements 2025', color: 'text-red-400', bgColor: 'bg-red-500/10 border-red-500/20', icon: AlertTriangle },
-      { value: '55K+', labelEs: 'Layoffs atribuidos a IA', labelEn: 'Layoffs attributed to AI', color: 'text-purple-400', bgColor: 'bg-purple-500/10 border-purple-500/20', icon: Bot },
-      { value: '+163%', labelEs: 'Roles AI/ML vs 2024', labelEn: 'AI/ML roles vs 2024', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: TrendingUp },
+      { value: '31', labelEs: 'Repos y directorios en el piloto', labelEn: 'Repos & directories in the pilot', color: 'text-sky-400', bgColor: 'bg-sky-500/10 border-sky-500/20', icon: BarChart3 },
+      { value: '23', labelEs: 'Con el kit de agentificación', labelEn: 'With the agentification kit', color: 'text-purple-400', bgColor: 'bg-purple-500/10 border-purple-500/20', icon: Bot },
+      { value: '19', labelEs: 'Hooks de escaneo de secretos', labelEn: 'Secret-scanning hooks', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: Zap },
+      { value: '−28,6%', labelEs: 'Wall-clock con AGENTS.md (estudio pareado)', labelEn: 'Wall-clock with AGENTS.md (paired study)', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: TrendingDown },
     ],
     sources: {
-      es: 'Fuentes: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
-      en: 'Sources: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
+      es: 'Fuentes: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
+      en: 'Sources: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
     },
   },
   {
@@ -100,6 +101,34 @@ const REPORTS: ReportCard[] = [
     },
   },
   {
+    href: '/blog/special/layoffs-genai',
+    badge: 'Special Report',
+    badgeColor: 'bg-amber-500/15 border-amber-500/30 text-amber-400',
+    dateLine: { es: 'Abril 2026 · Data-Driven', en: 'April 2026 · Data-Driven' },
+    title: {
+      es: 'Layoffs, Contratación & GenAI: El Gran Reajuste Laboral',
+      en: 'Layoffs, Hiring & GenAI: The Great Labor Reset',
+    },
+    description: {
+      es: 'Análisis 100% data-driven sobre despidos masivos en IT y sectores white collar, tendencias de contratación y su correlación con los hitos de la IA Generativa.',
+      en: '100% data-driven analysis of massive IT and white collar layoffs, hiring trends, and their correlation with Generative AI milestones.',
+    },
+    cta: { es: 'Ver informe completo', en: 'View full report' },
+    accentColor: 'text-amber-400 group-hover:text-amber-300',
+    borderColor: 'border-amber-500/30',
+    bgClass: 'special-report-bg',
+    kpis: [
+      { value: '265K', labelEs: 'Pico layoffs tech 2023', labelEn: 'Peak tech layoffs 2023', color: 'text-red-400', bgColor: 'bg-red-500/10 border-red-500/20', icon: TrendingDown },
+      { value: '1.2M', labelEs: 'Anuncios despido 2025', labelEn: 'Layoff announcements 2025', color: 'text-red-400', bgColor: 'bg-red-500/10 border-red-500/20', icon: AlertTriangle },
+      { value: '55K+', labelEs: 'Layoffs atribuidos a IA', labelEn: 'Layoffs attributed to AI', color: 'text-purple-400', bgColor: 'bg-purple-500/10 border-purple-500/20', icon: Bot },
+      { value: '+163%', labelEs: 'Roles AI/ML vs 2024', labelEn: 'AI/ML roles vs 2024', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: TrendingUp },
+    ],
+    sources: {
+      es: 'Fuentes: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
+      en: 'Sources: layoffs.fyi · Challenger, Gray & Christmas · Indeed Hiring Lab · WEF · Goldman Sachs · McKinsey',
+    },
+  },
+  {
     href: '/blog/special/reqquest-3d',
     badge: 'Special Report',
     badgeColor: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400',
@@ -122,34 +151,6 @@ const REPORTS: ReportCard[] = [
       { value: 'IA', labelEs: 'Asistida por IA generativa', labelEn: 'Generative AI-assisted', color: 'text-sky-400', bgColor: 'bg-sky-500/10 border-sky-500/20', icon: Brain },
       { value: '∞', labelEs: 'Feedback inmediato', labelEn: 'Instant feedback', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: Zap },
     ],
-  },
-  {
-    href: '/blog/special/agentificacion',
-    badge: 'Special Report',
-    badgeColor: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400',
-    dateLine: { es: 'Octubre 2026 · Data-Driven', en: 'October 2026 · Data-Driven' },
-    title: {
-      es: 'Agentificación: Cómo Preparar tu Código para Agentes de IA',
-      en: 'Agentification: Getting Your Codebase Ready for AI Agents',
-    },
-    description: {
-      es: 'Qué dice la evidencia 2025–2026 sobre contexto, verificación y seguridad de agentes, y el caso piloto real: 31 repositorios y directorios agentificados en una jornada, con gráficos y fuentes verificables.',
-      en: 'What 2025–2026 evidence says about agent context, verification and security, plus the real pilot: 31 repositories and directories agentified in one day, with charts and verifiable sources.',
-    },
-    cta: { es: 'Ver informe completo', en: 'View full report' },
-    accentColor: 'text-emerald-400 group-hover:text-emerald-300',
-    borderColor: 'border-emerald-500/30',
-    bgClass: 'special-report-bg',
-    kpis: [
-      { value: '31', labelEs: 'Repos y directorios en el piloto', labelEn: 'Repos & directories in the pilot', color: 'text-sky-400', bgColor: 'bg-sky-500/10 border-sky-500/20', icon: BarChart3 },
-      { value: '23', labelEs: 'Con el kit de agentificación', labelEn: 'With the agentification kit', color: 'text-purple-400', bgColor: 'bg-purple-500/10 border-purple-500/20', icon: Bot },
-      { value: '19', labelEs: 'Hooks de escaneo de secretos', labelEn: 'Secret-scanning hooks', color: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20', icon: Zap },
-      { value: '−28,6%', labelEs: 'Wall-clock con AGENTS.md (estudio pareado)', labelEn: 'Wall-clock with AGENTS.md (paired study)', color: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20', icon: TrendingDown },
-    ],
-    sources: {
-      es: 'Fuentes: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
-      en: 'Sources: arXiv (2025–2026) · agents.md · Anthropic · METR · DORA · Thoughtworks · OWASP · GitHub',
-    },
   },
 ];
 
