@@ -37,7 +37,7 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
           <span className="signal-eyebrow">{lang === 'es' ? 'Para quién es' : 'Who it is for'}</span>
           <h2>{offer.priceUsd != null
             ? (lang === 'es' ? 'Una inversión pequeña para tomar una decisión grande.' : 'A small investment to make a big decision.')
-            : (lang === 'es' ? 'Código listo para que la IA trabaje con contexto, no a ciegas.' : 'A codebase ready for AI to work with context, not blind.')}</h2>
+            : (offer.detailHeading?.[lang] ?? (lang === 'es' ? 'Un alcance claro antes de construir.' : 'A clear scope before we build.'))}</h2>
         </div>
         <div className="signal-offer-detail__lists">
           <article>
@@ -52,7 +52,7 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
       </section>
       <section className="signal-offer-final">
         <span>{t('services_detail_final_eyebrow')}</span>
-        <h2>{offer.priceUsd != null ? t('services_detail_final_title') : (lang === 'es' ? 'Contame tu ecosistema y definimos el alcance juntos.' : 'Tell me about your ecosystem and we define the scope together.')}</h2>
+        <h2>{offer.priceUsd != null ? t('services_detail_final_title') : (offer.finalHeading?.[lang] ?? (lang === 'es' ? 'Contame tu caso y definimos el alcance juntos.' : 'Tell me about your case and we define the scope together.'))}</h2>
         <CheckoutButton offer={offer} />
       </section>
     </>

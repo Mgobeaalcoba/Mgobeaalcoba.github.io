@@ -17,6 +17,8 @@ export type Offer = {
   customQuote?: boolean;
   duration: Bilingual;
   delivery: Bilingual;
+  detailHeading?: Bilingual;
+  finalHeading?: Bilingual;
   promise: Bilingual;
   description: Bilingual;
   audience: BilingualList;
@@ -139,6 +141,14 @@ export const OFFERS: Offer[] = [
     customQuote: true,
     duration: { es: 'Según alcance', en: 'Scope-based' },
     delivery: { es: 'Kit aplicado + runbook', en: 'Applied kit + runbook' },
+    detailHeading: {
+      es: 'Código listo para que la IA trabaje con contexto, no a ciegas.',
+      en: 'A codebase ready for AI to work with context, not blind.',
+    },
+    finalHeading: {
+      es: 'Contame tu ecosistema y definimos el alcance juntos.',
+      en: 'Tell me about your ecosystem and we define the scope together.',
+    },
     promise: {
       es: 'Prepará tus repositorios y aplicaciones para trabajar con múltiples agentes de IA sin perder contexto.',
       en: 'Get your repositories and apps ready to work with multiple AI agents without losing context.',
@@ -169,6 +179,14 @@ export const OFFERS: Offer[] = [
     customQuote: true,
     duration: { es: 'Según alcance', en: 'Scope-based' },
     delivery: { es: 'Agente en producción + runbook', en: 'Agent in production + runbook' },
+    detailHeading: {
+      es: 'Agentes que resuelven un problema del negocio, no demos.',
+      en: 'Agents that solve a business problem, not demos.',
+    },
+    finalHeading: {
+      es: 'Contame qué proceso querés resolver y evaluamos si un agente es la respuesta.',
+      en: 'Tell me which process you want to solve and we will assess whether an agent is the answer.',
+    },
     promise: {
       es: 'Resolvé problemas de negocio con agentes de IA que trabajan sobre tus sistemas reales.',
       en: 'Solve business problems with AI agents that work on your real systems.',
