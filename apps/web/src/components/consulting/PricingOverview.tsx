@@ -112,8 +112,8 @@ export default function PricingOverview() {
             source="consulting_pricing"
             prefillMessage={
               lang === 'es'
-                ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
-                : 'Hi Mariano, I would like a custom quote for my project.'
+                ? 'Hola equipo de MGA, quisiera una cotización personalizada para mi proyecto.'
+                : 'Hi MGA team, I would like a custom quote for my project.'
             }
             className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-3 rounded-xl transition-all"
           >

@@ -25,7 +25,7 @@ export default function ConsultingContact() {
 
         <p className="text-gray-400 max-w-xl mx-auto mb-10">
           {lang === 'es'
-            ? 'Contame qué necesitás y te respondo en menos de 24hs. Primera charla 100% gratuita.'
+            ? 'Contanos qué necesitás y te respondemos en menos de 24hs. Primera charla 100% gratuita.'
             : 'Tell me what you need and I\'ll get back to you within 24h. First chat 100% free.'}
         </p>
 
@@ -38,7 +38,7 @@ export default function ConsultingContact() {
             {lang === 'es' ? 'Enviame un mensaje' : 'Send me a message'}
           </ContactButton>
           <a
-            href="https://wa.me/5491127475569?text=Hola%20Mariano%2C%20me%20interesa%20la%20consultor%C3%ADa"
+            href="https://wa.me/5491127475569?text=Hola%20equipo%20de%20MGA%2C%20me%20interesa%20la%20consultor%C3%ADa"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => events.whatsappClick('consulting')}
@@ -50,7 +50,7 @@ export default function ConsultingContact() {
         </div>
 
         <p className="text-gray-600 text-sm mt-6">
-          mariano@mgatc.com · +54 9 11 27475569
+          hola@mgatc.com · +54 9 11 27475569
         </p>
       </motion.div>
     </section>

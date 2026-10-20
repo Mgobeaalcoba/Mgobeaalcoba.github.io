@@ -263,12 +263,12 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                 </h3>
                 <p className="text-gray-400 text-sm mb-6">
                   {lang === 'es'
-                    ? 'Mariano revisará tu propuesta y se pondrá en contacto dentro de las próximas 24 horas.'
-                    : 'Mariano will review your proposal and get in touch within the next 24 hours.'}
+                    ? 'Nuestro equipo revisará tu propuesta y se pondrá en contacto dentro de las próximas 24 horas.'
+                    : 'Our team will review your proposal and get in touch within the next 24 hours.'}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   <a
-                    href="https://wa.me/5491127475569?text=Hola%20Mariano!%20Acabo%20de%20enviar%20mi%20solicitud%20de%20automatizaci%C3%B3n%20gratis"
+                    href="https://wa.me/5491127475569?text=Hola%20equipo%20de%20MGA!%20Acabo%20de%20enviar%20mi%20solicitud%20de%20automatizaci%C3%B3n%20gratis"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold py-3 rounded-xl transition-all text-sm"
@@ -277,7 +277,7 @@ export default function ProposalModal({ isOpen, onClose }: ProposalModalProps) {
                     WhatsApp
                   </a>
                   <a
-                    href="mailto:mariano@mgatc.com"
+                    href="mailto:hola@mgatc.com"
                     className="flex items-center justify-center gap-2 glass border border-white/20 text-gray-300 hover:text-white font-semibold py-3 rounded-xl transition-all text-sm"
                   >
                     <Mail size={16} />

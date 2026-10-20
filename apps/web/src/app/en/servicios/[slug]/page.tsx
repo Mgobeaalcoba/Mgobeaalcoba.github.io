@@ -31,7 +31,7 @@ export default async function EnglishOfferPage({ params }: OfferPageProps) {
   if (!offer) notFound();
   const schema = {
     '@context': 'https://schema.org', '@type': 'Service', name: offer.name.en, description: offer.description.en,
-    provider: { '@type': 'Person', name: 'Mariano Gobea Alcoba' }, areaServed: 'Worldwide',
+    provider: { '@type': 'Organization', name: 'MGA Tech Consulting', url: 'https://www.mgatc.com' }, areaServed: 'Worldwide',
     ...(offer.priceUsd != null ? { offers: { '@type': 'Offer', price: offer.priceUsd, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: absoluteUrl(`/servicios/${offer.slug}/`, 'en') } } : {}),
   };
 

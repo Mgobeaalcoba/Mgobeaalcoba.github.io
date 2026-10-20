@@ -14,8 +14,8 @@ type Testimonial = {
 const TESTIMONIALS: Testimonial[] = [
   {
     quote: {
-      es: 'Mariano transformó completamente nuestra forma de trabajar. Automatizó la conciliación bancaria y los informes mensuales que nos tomaban 2 días. Ahora tardamos 15 minutos.',
-      en: 'Mariano completely transformed the way we work. He automated bank reconciliation and monthly reports that used to take us 2 days. Now we do it in 15 minutes.',
+      es: 'MGA Tech Consulting transformó completamente nuestra forma de trabajar. Automatizó la conciliación bancaria y los informes mensuales que nos tomaban 2 días. Ahora tardamos 15 minutos.',
+      en: 'MGA Tech Consulting completely transformed the way we work. They automated bank reconciliation and monthly reports that used to take us 2 days. Now we do it in 15 minutes.',
     },
     author: 'Laura González',
     role: { es: 'Dueña, Consultora Contable', en: 'Owner, Accounting Consultancy' },
@@ -24,7 +24,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     quote: {
       es: 'El dashboard que implementó nos permite ver en tiempo real qué productos rotan, dónde perdemos margen y cuándo reponer stock. El ROI fue evidente en el primer mes.',
-      en: 'The dashboard he implemented lets us see in real time which products are moving, where we lose margin, and when to restock. The ROI was evident in the first month.',
+      en: 'The dashboard they implemented lets us see in real time which products are moving, where we lose margin, and when to restock. The ROI was evident in the first month.',
     },
     author: 'Roberto Martínez',
     role: { es: 'CEO, Distribuidora (120 empleados)', en: 'CEO, Distributor (120 employees)' },
@@ -48,7 +48,7 @@ export default function Testimonials() {
         viewport={{ once: true }}
       >
         <h2 className="section-title text-center mb-12">
-          {lang === 'es' ? 'Lo que dicen mis clientes' : 'What My Clients Say'}
+          {lang === 'es' ? 'Lo que dicen nuestros clientes' : 'What Our Clients Say'}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {TESTIMONIALS.map((t, i) => (

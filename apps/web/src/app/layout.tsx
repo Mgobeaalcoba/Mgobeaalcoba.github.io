@@ -15,66 +15,40 @@ import { getCareerExperienceYears } from "@/lib/experience";
 const GA_ID = "G-DG0SLT5RY3";
 const SITE_URL = "https://www.mgatc.com";
 
-const personSchema = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Mariano Gobea Alcoba",
-  jobTitle: "Data & Analytics Technical Leader",
-  description:
-    `Data & Analytics Technical Leader con más de ${getCareerExperienceYears()} años de experiencia en Mercado Libre desde mayo de 2019. Experto en BigQuery, Python, Machine Learning, IA y Business Intelligence. Consultor de automatización para PyMEs en Argentina.`,
+  "@type": "Organization",
+  name: "MGA Tech Consulting",
   url: SITE_URL,
-  image: `${SITE_URL}/images/profile.png`,
-  email: "mgobeaalcoba@gmail.com",
-  sameAs: [
-    "https://linkedin.com/in/mgobeaalcoba",
-    "https://github.com/Mgobeaalcoba",
-    "https://twitter.com/MGobeaAlcoba",
-  ],
-  worksFor: {
-    "@type": "Organization",
-    name: "Mercado Libre",
-    url: "https://mercadolibre.com",
+  sameAs: ["https://www.linkedin.com/company/mga-tech-consulting"],
+  logo: `${SITE_URL}/images/favicon-192.png`,
+  description:
+    `Consultoría tecnológica en automatización, IA aplicada y Business Intelligence para PyMEs. Más de ${getCareerExperienceYears()} años de experiencia en datos a escala.`,
+  areaServed: { "@type": "Country", name: "Argentina" },
+  founder: {
+    "@type": "Person",
+    name: "Mariano Gobea Alcoba",
+    url: `${SITE_URL}/portfolio/`,
   },
   knowsAbout: [
-    "Data Engineering",
-    "BigQuery",
-    "Python",
-    "Machine Learning",
-    "Business Intelligence",
-    "GenAI",
-    "LLMs",
-    "Apache Airflow",
-    "dbt",
-    "Apache Kafka",
     "automatización de procesos",
+    "inteligencia artificial aplicada",
+    "Business Intelligence",
+    "Data Engineering",
     "consultoría tecnológica",
   ],
-  hasOccupation: {
-    "@type": "Occupation",
-    name: "Data & Analytics Technical Leader",
-    occupationLocation: {
-      "@type": "Country",
-      name: "Argentina",
-    },
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Buenos Aires",
-    addressCountry: "AR",
-  },
-  nationality: "Argentine",
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Mariano Gobea Alcoba",
+  name: "MGA Tech Consulting",
   url: SITE_URL,
   description:
-    "Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.",
-  author: {
-    "@type": "Person",
-    name: "Mariano Gobea Alcoba",
+    "Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras.",
+  publisher: {
+    "@type": "Organization",
+    name: "MGA Tech Consulting",
   },
   inLanguage: ["es", "en"],
 };
@@ -84,16 +58,13 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "MGA" },
   title: {
-    default: "Mariano Gobea Alcoba | Data & Analytics Technical Leader",
-    template: "%s | Mariano Gobea Alcoba",
+    default: "MGA Tech Consulting | Automatización, IA & Datos para PyMEs",
+    template: "%s | MGA Tech Consulting",
   },
   description:
-    `Data & Analytics Technical Leader en Mercado Libre. Portfolio, consultoría tecnológica, blog técnico y recursos financieros. ${getCareerExperienceYears()}+ años de experiencia en IA, Data Engineering y Business Intelligence.`,
+    `Consultoría tecnológica en automatización, IA aplicada y Business Intelligence. Blog técnico, recursos financieros y más de ${getCareerExperienceYears()} años de experiencia en datos a escala.`,
   keywords: [
     "data analytics",
-    "technical leader",
-    "mercadolibre",
-    "mariano gobea alcoba",
     "consultoría tecnológica",
     "automatización",
     "business intelligence",
@@ -102,8 +73,8 @@ export const metadata: Metadata = {
     "data engineer",
     "buenos aires",
   ],
-  authors: [{ name: "Mariano Gobea Alcoba", url: SITE_URL }],
-  creator: "Mariano Gobea Alcoba",
+  authors: [{ name: "MGA Tech Consulting", url: SITE_URL }],
+  creator: "MGA Tech Consulting",
   alternates: {
     canonical: SITE_URL,
   },
@@ -111,10 +82,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     url: "https://www.mgatc.com",
-    siteName: "Mariano Gobea Alcoba",
-    title: "Mariano Gobea Alcoba | Data & Analytics Technical Leader",
+    siteName: "MGA Tech Consulting",
+    title: "MGA Tech Consulting | Automatización, IA & Datos para PyMEs",
     description:
-      "Portfolio interactivo, consultoría IA/BI para PyMEs, blog técnico y herramientas financieras.",
+      "Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras.",
     images: [
       {
         url: "https://www.mgatc.com/og.png",
@@ -126,8 +97,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@MGobeaAlcoba",
-    creator: "@MGobeaAlcoba",
     images: ["https://www.mgatc.com/og.png"],
   },
   icons: {
@@ -177,7 +146,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#111827" />
         <meta name="geo.region" content="AR-C" />
         <meta name="geo.placename" content="Buenos Aires" />
-        <JsonLd data={personSchema} />
+        <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <script
           dangerouslySetInnerHTML={{

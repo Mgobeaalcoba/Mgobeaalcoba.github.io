@@ -58,11 +58,10 @@ export function getConsultingSchema(locale: Language) {
     name: SITE_NAME,
     url: absoluteUrl('/', locale),
     description: COPY.description[locale],
-    provider: {
+    founder: {
       '@type': 'Person',
       name: SITE_AUTHOR,
-      url: absoluteUrl('/', locale),
-      jobTitle: 'Data & Analytics Technical Leader',
+      url: absoluteUrl('/portfolio/', locale),
     },
     areaServed: {
       '@type': 'Country',

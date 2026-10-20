@@ -25,7 +25,7 @@ const CONTENT = {
       ['2 sem', 'Para poner el primer flujo en producción'],
     ],
     trust: [
-      [getCareerExperienceLabel('es'), 'Liderando Data & Analytics en Mercado Libre'],
+      [getCareerExperienceLabel('es'), 'Liderando Data & Analytics a escala'],
       ['15+ proyectos', 'Implementaciones y productos entregados'],
       ['Docencia tech', 'Henry, UADE y formación de equipos'],
     ],
@@ -74,7 +74,7 @@ const CONTENT = {
     primary: 'Request a diagnosis', secondary: 'View real cases',
     risk: 'Diagnosis from USD 99. Deducted if we move forward with implementation.',
     proof: [['−80%', 'Potential operational cost reduction'], ['×3', 'Target average ROI per implementation'], ['2 wks', 'To put the first workflow in production']],
-    trust: [[getCareerExperienceLabel('en'), 'Leading Data & Analytics at Mercado Libre'], ['15+ projects', 'Implementations and products delivered'], ['Tech teaching', 'Henry, UADE and team enablement']],
+    trust: [[getCareerExperienceLabel('en'), 'Leading Data & Analytics at scale'], ['15+ projects', 'Implementations and products delivered'], ['Tech teaching', 'Henry, UADE and team enablement']],
     problemEyebrow: 'Where we create impact', problemTitle: 'Technology matters when it changes how the business works.', problemLead: 'We start from the operational bottleneck and design the smallest solution that creates a verifiable result.',
     problems: [['01', 'Manual operations', 'Processes that depend on copying, chasing, remembering and correcting become auditable workflows that run on their own.'], ['02', 'Decisions without data', 'We unify scattered signals into clear metrics, actionable dashboards and alerts that arrive before the problem.'], ['03', 'Support that cannot scale', 'Agents and assistants that solve, classify and route without losing context or human control.']],
     capabilitiesEyebrow: 'Capabilities', capabilitiesTitle: 'Three systems. One goal: execute better.', capabilitiesLead: 'Every project combines product, automation and knowledge transfer so the solution keeps creating value after delivery.',

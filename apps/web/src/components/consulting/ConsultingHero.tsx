@@ -164,18 +164,18 @@ export default function ConsultingHero({
     { value: "$0", label: { es: "1ª automatización", en: "1st automation" } },
     {
       value: `${getCareerExperienceYears()}+`,
-      label: { es: "Años MercadoLibre", en: "Years at MercadoLibre" },
+      label: { es: "Años de experiencia", en: "Years of experience" },
     },
   ];
 
   const TRUST_BADGES = [
     {
       icon: Building2,
-      text: { es: `${getCareerExperienceYears()}+ años MercadoLibre`, en: `${getCareerExperienceYears()}+ years at MercadoLibre` },
+      text: { es: `${getCareerExperienceYears()}+ años liderando datos a escala`, en: `${getCareerExperienceYears()}+ years leading data at scale` },
     },
     {
       icon: GraduationCap,
-      text: { es: "Docente Henry & UADE", en: "Teacher at Henry & UADE" },
+      text: { es: "Formación tech: Henry & UADE", en: "Tech training: Henry & UADE" },
     },
     {
       icon: Trophy,

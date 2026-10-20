@@ -114,8 +114,8 @@ export default function CommandPalette() {
     {
       id: 'nav-portfolio',
       category: 'navigation',
-      labelEs: 'Ir a Portfolio / CV Profesional',
-      labelEn: 'Go to Portfolio / Professional CV',
+      labelEs: 'Ir al perfil del fundador (Portfolio / CV)',
+      labelEn: "Go to the founder's profile (Portfolio / CV)",
       icon: <User className="w-4 h-4 text-indigo-400" />,
       action: () => navigateTo('/portfolio/'),
     },
@@ -159,8 +159,8 @@ export default function CommandPalette() {
     {
       id: 'action-assistant',
       category: 'actions',
-      labelEs: 'Chatear con el Asistente IA de Mariano',
-      labelEn: "Chat with Mariano's AI Assistant",
+      labelEs: 'Chatear con el Asistente IA de MGA',
+      labelEn: "Chat with the MGA AI Assistant",
       icon: <Bot className="w-4 h-4 text-purple-400" />,
       action: () => {
         setIsOpen(false);

@@ -13,7 +13,6 @@ import { events } from '@/lib/gtag';
 const LINKS = [
   { href: '/', es: 'Soluciones', en: 'Solutions' },
   { href: '/servicios/', es: 'Servicios', en: 'Services' },
-  { href: '/portfolio/', es: 'Mariano', en: 'Mariano' },
   { href: '/blog/', es: 'Blog', en: 'Blog' },
   { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
 ];
@@ -25,7 +24,7 @@ const THEME_ICONS: Record<Theme, React.ReactNode> = {
 
 const MOBILE_TITLES: Record<string, { es: string; en: string }> = {
   '/': { es: 'Inicio', en: 'Home' },
-  '/portfolio': { es: 'Mariano', en: 'Mariano' },
+  '/portfolio': { es: 'Fundador', en: 'Founder' },
   '/blog': { es: 'Blog', en: 'Blog' },
   '/recursos': { es: 'Herramientas', en: 'Tools' },
   '/servicios': { es: 'Servicios', en: 'Services' },

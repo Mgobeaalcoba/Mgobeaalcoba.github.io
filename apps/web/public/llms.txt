@@ -1,10 +1,10 @@
-# Mariano Gobea Alcoba
+# MGA Tech Consulting
 
-> Data & Analytics Technical Leader at Mercado Libre | AI & BI Consulting for SMBs | Buenos Aires, Argentina
+> AI, Automation & BI Consulting for SMBs | Buenos Aires, Argentina
 
 ## About
 
-Mariano Gobea Alcoba is a Data & Analytics Technical Leader at Mercado Libre since May 2019, Latin America's leading e-commerce and fintech platform. He specializes in Data Engineering, Business Intelligence, Machine Learning, and applied AI to solve real-world business challenges. He leads high-performance technical teams and consults for small and medium businesses (SMBs/PyMEs) in Argentina, helping them automate processes and leverage data to grow.
+MGA Tech Consulting is a technology consultancy specialized in process automation, applied AI and Business Intelligence for small and medium businesses (SMBs/PyMEs) in Argentina. The firm is led by its founder, Mariano Gobea Alcoba, a Data & Analytics Technical Leader (profile: https://www.mgatc.com/portfolio/). Its expertise covers Data Engineering, Business Intelligence, Machine Learning and applied AI to solve real-world business challenges, helping companies automate processes and leverage data to grow.
 
 ## Expertise
 
@@ -78,10 +78,9 @@ Mariano Gobea Alcoba is a Data & Analytics Technical Leader at Mercado Libre sin
 ## Contact & Social
 
 - Website: https://www.mgatc.com
-- LinkedIn: https://linkedin.com/in/mgobeaalcoba
+- LinkedIn: https://www.linkedin.com/company/mga-tech-consulting
 - GitHub: https://github.com/Mgobeaalcoba
-- Twitter/X: https://twitter.com/MGobeaAlcoba
-- Email: mgobeaalcoba@gmail.com
+- Email: hola@mgatc.com
 - Location: Buenos Aires, Argentina
 - Direct contact (WhatsApp or email): Contact form available on every page via the floating CTA
 

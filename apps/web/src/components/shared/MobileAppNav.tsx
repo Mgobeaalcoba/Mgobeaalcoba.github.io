@@ -1,6 +1,6 @@
 'use client';
 
-import { Blocks, Newspaper, ShoppingBag, UserRound, Wrench } from 'lucide-react';
+import { Blocks, Newspaper, ShoppingBag, Wrench } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from './TransitionLink';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -10,7 +10,6 @@ import { events } from '@/lib/gtag';
 const ITEMS = [
   { href: '/', icon: Blocks, es: 'Soluciones', en: 'Solutions', match: (path: string) => path === '/' },
   { href: '/servicios/', icon: ShoppingBag, es: 'Servicios', en: 'Services', match: (path: string) => path.startsWith('/servicios') },
-  { href: '/portfolio/', icon: UserRound, es: 'Mariano', en: 'Mariano', match: (path: string) => path.startsWith('/portfolio') },
   { href: '/blog/', icon: Newspaper, es: 'Blog', en: 'Blog', match: (path: string) => path.startsWith('/blog') },
   { href: '/recursos/', icon: Wrench, es: 'Herramientas', en: 'Tools', match: (path: string) => path.startsWith('/recursos') },
 ] as const;

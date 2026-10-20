@@ -222,7 +222,7 @@ export function AIAssistant() {
           >
             <MessageSquareText size={16} />
             <span>
-              {lang === "en" ? "Contact Mariano" : "Contactar a Mariano"}
+              {lang === "en" ? "Contact our team" : "Contactar al equipo"}
             </span>
           </button>
         )}
@@ -261,8 +261,8 @@ export function AIAssistant() {
                   </h3>
                   <p className="text-blue-100 text-xs">
                     {lang === "en"
-                      ? "Mariano's AI Assistant"
-                      : "Asistente IA de Mariano"}
+                      ? "MGA AI Assistant"
+                      : "Asistente IA de MGA"}
                   </p>
                 </div>
               </div>

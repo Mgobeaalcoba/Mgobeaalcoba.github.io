@@ -17,6 +17,10 @@ export default function Footer() {
   const isDark = theme === 'dark';
   const isPortfolioPage = pathname.startsWith('/portfolio');
   const isConsultingPage = !isPortfolioPage;
+  const linkedinUrl = isPortfolioPage
+    ? 'https://www.linkedin.com/in/mariano-gobea-alcoba/'
+    : 'https://www.linkedin.com/company/mga-tech-consulting';
+  const contactEmail = isPortfolioPage ? 'mariano@mgatc.com' : 'hola@mgatc.com';
 
   const logoSrc = isConsultingPage
     ? (isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png')
@@ -28,7 +32,7 @@ export default function Footer() {
   return (
     <footer className="glass border-t border-white/10 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Brand with logo */}
           <div className="md:col-span-1">
             <Link href={logoHref} className="block mb-4">
@@ -60,11 +64,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/portfolio/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  Portfolio / CV
-                </Link>
-              </li>
-              <li>
                 <Link href={localizePath('/blog/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Blog
                 </Link>
@@ -77,20 +76,39 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Founder (portfolio stays public, low prominence) */}
+          <div>
+            <h4 className="text-gray-200 font-semibold mb-3">{lang === 'es' ? 'Fundador' : 'Founder'}</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href={localizePath('/portfolio/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
+                  {lang === 'es' ? 'Perfil del fundador' : "Founder's profile"}
+                </Link>
+              </li>
+              <li>
+                <Link href={localizePath('/portfolio/', lang)} className="text-gray-500 hover:text-sky-400 transition-colors text-xs">
+                  Portfolio / CV
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Social Links */}
           <div>
             <h4 className="text-gray-200 font-semibold mb-3">Contacto</h4>
             <div className="flex flex-col gap-2">
               <a
-                href="https://www.linkedin.com/in/mariano-gobea-alcoba/"
+                href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => events.outboundClick('https://www.linkedin.com/in/mariano-gobea-alcoba/', 'LinkedIn')}
+                onClick={() => events.outboundClick(linkedinUrl, 'LinkedIn')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Linkedin size={14} />
                 LinkedIn
               </a>
+              {isPortfolioPage && (
+                <>
               <a
                 href="https://github.com/Mgobeaalcoba"
                 target="_blank"
@@ -101,6 +119,9 @@ export default function Footer() {
                 <Github size={14} />
                 GitHub
               </a>
+                </>
+              )}
+              {isPortfolioPage && (
               <a
                 href="https://twitter.com/MGobeaAlcoba"
                 target="_blank"
@@ -111,13 +132,14 @@ export default function Footer() {
                 <Twitter size={14} />
                 Twitter/X
               </a>
+              )}
               <a
-                href="mailto:mariano@mgatc.com"
-                onClick={() => events.outboundClick('mailto:mariano@mgatc.com', 'Email')}
+                href={`mailto:${contactEmail}`}
+                onClick={() => events.outboundClick(`mailto:${contactEmail}`, 'Email')}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
                 <Mail size={14} />
-                mariano@mgatc.com
+                {contactEmail}
               </a>
             </div>
           </div>
@@ -129,7 +151,7 @@ export default function Footer() {
               <span>Next.js 14 · TypeScript</span>
               <span>Tailwind CSS · Framer Motion</span>
               <span>Cloudflare Pages · GA4</span>
-              <span className="mt-2 text-gray-600">© 2026 Mariano Gobea Alcoba</span>
+              <span className="mt-2 text-gray-600">© 2026 MGA Tech Consulting</span>
             </div>
           </div>
         </div>
@@ -140,7 +162,9 @@ export default function Footer() {
             {t('footer_design')} <Heart size={14} className="text-red-400" /> {t('footer_location')} · 2026
           </p>
           <div className="flex items-center gap-3 text-xs text-gray-600">
-            <a
+            {isPortfolioPage && (
+                <>
+              <a
               href="https://github.com/Mgobeaalcoba"
               target="_blank"
               rel="noopener noreferrer"
@@ -149,7 +173,8 @@ export default function Footer() {
             >
               GitHub
             </a>
-            <span>·</span>
+            <span>·</span></>
+)}
             <Link href="/privacidad/" className="hover:text-sky-400 transition-colors">
               Privacidad
             </Link>
@@ -163,18 +188,18 @@ export default function Footer() {
             </button>
             <span>·</span>
             <a
-              href="https://www.linkedin.com/in/mariano-gobea-alcoba/"
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => events.outboundClick('https://www.linkedin.com/in/mariano-gobea-alcoba/', 'LinkedIn')}
+              onClick={() => events.outboundClick(linkedinUrl, 'LinkedIn')}
               className="hover:text-sky-400 transition-colors"
             >
               LinkedIn
             </a>
             <span>·</span>
             <a
-              href="mailto:mariano@mgatc.com"
-              onClick={() => events.outboundClick('mailto:mariano@mgatc.com', 'Email')}
+              href={`mailto:${contactEmail}`}
+              onClick={() => events.outboundClick(`mailto:${contactEmail}`, 'Email')}
               className="hover:text-sky-400 transition-colors"
             >
               Email

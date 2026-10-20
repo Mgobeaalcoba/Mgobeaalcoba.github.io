@@ -134,7 +134,7 @@ add_textbox(slide, Inches(1.5), Inches(3.5), Inches(10), Inches(0.5),
             "Mariano Gobea Alcoba  |  Data & Analytics Technical Leader  |  Buenos Aires, Argentina",
             font_size=16, color=GRAY_LIGHT, alignment=PP_ALIGN.CENTER)
 add_textbox(slide, Inches(1.5), Inches(4.1), Inches(10), Inches(0.5),
-            "www.mgatc.com  •  mariano@mgatc.com  •  2026",
+            "www.mgatc.com  •  hola@mgatc.com  •  2026",
             font_size=14, color=GRAY_MID, alignment=PP_ALIGN.CENTER)
 
 add_rect(slide, Inches(3.5), Inches(4.9), Inches(6.3), Inches(1.8), BG_CARD)
@@ -1045,7 +1045,7 @@ add_bullet_list(slide, Inches(2.5), Inches(3.6), Inches(8.3), Inches(2.5),
                 summary_items, font_size=15, color=GRAY_LIGHT, spacing=Pt(6))
 
 add_textbox(slide, Inches(1.5), Inches(6.3), Inches(10), Inches(0.5),
-            "www.mgatc.com  •  mariano@mgatc.com  •  Buenos Aires, Argentina",
+            "www.mgatc.com  •  hola@mgatc.com  •  Buenos Aires, Argentina",
             font_size=16, color=GRAY_MID, bold=True, alignment=PP_ALIGN.CENTER)
 
 # ========================================

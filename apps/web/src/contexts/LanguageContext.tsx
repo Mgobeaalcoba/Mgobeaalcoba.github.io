@@ -75,9 +75,9 @@ const translations: Record<string, Record<Language, string>> = {
   contact_email: { es: 'Email', en: 'Email' },
   contact_message: { es: 'Mensaje', en: 'Message' },
   floating_cta_cv: { es: 'Contactame', en: 'Contact me' },
-  floating_cta_consulting: { es: 'Contactame', en: 'Contact me' },
-  floating_cta_blog: { es: 'Contactame', en: 'Contact me' },
-  floating_cta_recursos: { es: 'Contactame', en: 'Contact me' },
+  floating_cta_consulting: { es: 'Contactanos', en: 'Contact us' },
+  floating_cta_blog: { es: 'Contactanos', en: 'Contact us' },
+  floating_cta_recursos: { es: 'Contactanos', en: 'Contact us' },
 
   // Services & commerce. Service copy itself lives bilingual in lib/offers.ts;
   // these keys only cover reusable UI labels.
@@ -109,7 +109,7 @@ const translations: Record<string, Record<Language, string>> = {
   checkout_verifying: { es: 'Verificando el estado informado…', en: 'Checking the reported status…' },
   checkout_approved: { es: 'Mercado Pago informó que el pago fue aprobado. La acreditación definitiva se valida del lado del servidor.', en: 'Mercado Pago reported the payment as approved. Final settlement is validated server-side.' },
   checkout_pending: { es: 'El pago figura pendiente. Esperá la confirmación de Mercado Pago antes de considerarlo acreditado.', en: 'The payment is still pending. Wait for Mercado Pago confirmation before considering it settled.' },
-  checkout_rejected: { es: 'El pago no fue aprobado. Podés volver a servicios para intentar nuevamente o contactarme.', en: 'The payment was not approved. You can return to services to try again or get in touch.' },
+  checkout_rejected: { es: 'El pago no fue aprobado. Podés volver a servicios para intentar nuevamente o contactarnos.', en: 'The payment was not approved. You can return to services to try again or get in touch.' },
   checkout_unknown: { es: 'No recibimos un estado verificable en esta vuelta. Si ya pagaste, completá el onboarding con el comprobante para revisarlo.', en: 'We did not receive a verifiable status on this return. If you already paid, complete the onboarding with your receipt so we can review it.' },
   onboarding_cta: { es: 'Completar onboarding', en: 'Complete onboarding' },
   onboarding_request: { es: 'Ya realicé el pago y quiero coordinar mi servicio.', en: 'I have already paid and I want to schedule my service.' },

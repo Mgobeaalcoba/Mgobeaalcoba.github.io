@@ -1,17 +1,15 @@
 /* TEAM */
-Developer & Designer: Mariano Gobea Alcoba
-Role: Founder, MGA Tech Consulting / Data & Analytics Technical Leader, MercadoLibre
-Contact: mariano [at] mgatc.com
-Personal email: gobeamariano [at] gmail.com
-LinkedIn: https://www.linkedin.com/in/mariano-gobea-alcoba/
-GitHub: https://github.com/Mgobeaalcoba
+MGA Tech Consulting
+Founder profile: https://www.mgatc.com/portfolio/
+Contact: hola [at] mgatc.com
+LinkedIn: https://www.linkedin.com/company/mga-tech-consulting
 Location: Buenos Aires, Argentina
 
 /* SITE */
 Primary site: https://www.mgatc.com
 Legacy redirect: https://mgobeaalcoba.github.io → www.mgatc.com
 Repository: https://github.com/Mgobeaalcoba/Mgobeaalcoba.github.io
-Professional email: mariano@mgatc.com
+Professional email: hola@mgatc.com
 
 /* WHAT IS THIS */
 Monorepo containing the full digital presence of MGA Tech Consulting:
@@ -106,7 +104,7 @@ Doctype: HTML5
 Services: Process Automation, Business Intelligence, AI Implementation,
           Tech Mentoring, Team Courses, Tech Recruiting, Digital Transformation
 Consulting: https://www.mgatc.com
-Email: mariano@mgatc.com
+Email: hola@mgatc.com
 WhatsApp: https://wa.me/5491127475569
 PayPal: https://paypal.me/marianogobea
 Response Time: Within 24 hours

@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import Image from 'next/image';
 import { Gift } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getCareerExperienceYears } from '@/lib/experience';
@@ -12,7 +11,7 @@ interface AboutConsultingProps {
 }
 
 const METRICS = [
-  { value: `${getCareerExperienceYears()}+`, label: { es: 'Años en MercadoLibre', en: 'Years at MercadoLibre' } },
+  { value: `${getCareerExperienceYears()}+`, label: { es: 'Años de experiencia en datos a escala', en: 'Years of experience in data at scale' } },
   { value: '$500K+', label: { es: 'Procesados', en: 'Processed' } },
   { value: '80%', label: { es: 'Reducción de costos', en: 'Cost reduction' } },
   { value: '15+', label: { es: 'Proyectos exitosos', en: 'Successful projects' } },
@@ -59,27 +58,14 @@ export default function AboutConsulting({ onOpenProposal }: AboutConsultingProps
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left: Photo + Metrics */}
           <div className="text-center md:text-left">
-            <div className="relative inline-block mb-6">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-sky-500/30 mx-auto md:mx-0">
-                <Image
-                  src="/images/profile.png"
-                  alt="Mariano Gobea Alcoba"
-                  width={128}
-                  height={128}
-                  className="object-cover w-full h-full"
-                  unoptimized
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 bg-sky-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                MercadoLibre
-              </div>
+            <div className="relative inline-block mb-2">
             </div>
 
             <h2 className="text-2xl md:text-3xl font-bold text-gray-100 mb-2">
-              Mariano Gobea Alcoba
+              MGA Tech Consulting
             </h2>
             <p className="text-sky-400 font-medium mb-4">
-              {lang === 'es' ? 'Data & Analytics Technical Leader' : 'Data & Analytics Technical Leader'}
+              {lang === 'es' ? 'Datos, IA & Automatización' : 'Data, AI & Automation'}
             </p>
 
             {/* Animated Metrics */}
@@ -107,23 +93,23 @@ export default function AboutConsulting({ onOpenProposal }: AboutConsultingProps
           <div>
             <p className="text-gray-300 leading-relaxed mb-4">
               {lang === 'es'
-                ? `Con ${getCareerExperienceYears()}+ años de experiencia en MercadoLibre como Technical Leader de Data & Analytics, pasé de ingeniero a líder de equipos de datos a escala. Fui docente en Henry Bootcamp y la Universidad UADE, formando a la próxima generación de profesionales tech.`
-                : `With ${getCareerExperienceYears()}+ years of experience at MercadoLibre as Data & Analytics Technical Leader, I went from engineer to data team leader at scale. I was a teacher at Henry Bootcamp and UADE University, training the next generation of tech professionals.`}
+                ? `Somos un equipo especializado en datos, IA y automatización, con más de ${getCareerExperienceYears()} años de experiencia liderando equipos de datos a escala en empresas de tecnología y formando a la próxima generación de profesionales en bootcamps y universidades.`
+                : `We are a team specialized in data, AI and automation, with more than ${getCareerExperienceYears()} years of experience leading data teams at scale in technology companies and training the next generation of professionals in bootcamps and universities.`}
             </p>
             <p className="text-gray-300 leading-relaxed mb-6">
               {lang === 'es'
-                ? 'Hoy aplico ese expertise para ayudar a PyMEs y profesionales a transformar sus operaciones con tecnología de clase mundial, accesible y con ROI comprobado. Cada proyecto comienza con un diagnóstico gratuito para entender exactamente qué necesita tu negocio.'
-                : 'Today I apply that expertise to help SMBs and professionals transform their operations with world-class technology, accessible and with proven ROI. Each project starts with a free diagnosis to understand exactly what your business needs.'}
+                ? 'Aplicamos esa experiencia para ayudar a PyMEs y profesionales a transformar sus operaciones con tecnología de clase mundial, accesible y con ROI comprobado. Cada proyecto comienza con un diagnóstico gratuito para entender exactamente qué necesita tu negocio.'
+                : 'We apply that experience to help SMBs and professionals transform their operations with world-class technology, accessible and with proven ROI. Each project starts with a free diagnosis to understand exactly what your business needs.'}
             </p>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="glass rounded-xl p-4">
-                <p className="text-sm font-semibold text-sky-400 mb-1">🎓 Educación</p>
-                <p className="text-xs text-gray-400">UBA / UAI / UADE</p>
+                <p className="text-sm font-semibold text-sky-400 mb-1">🎓 {lang === 'es' ? 'Formación' : 'Training'}</p>
+                <p className="text-xs text-gray-400">{lang === 'es' ? 'Ingeniería, datos e IA' : 'Engineering, data and AI'}</p>
               </div>
               <div className="glass rounded-xl p-4">
-                <p className="text-sm font-semibold text-purple-400 mb-1">🏢 Experiencia</p>
-                <p className="text-xs text-gray-400">MercadoLibre, Henry, UADE</p>
+                <p className="text-sm font-semibold text-purple-400 mb-1">🏢 {lang === 'es' ? 'Trayectoria' : 'Background'}</p>
+                <p className="text-xs text-gray-400">{lang === 'es' ? 'Tecnología a escala y educación' : 'Technology at scale and education'}</p>
               </div>
               <div className="glass rounded-xl p-4">
                 <p className="text-sm font-semibold text-green-400 mb-1">🛠 Stack</p>

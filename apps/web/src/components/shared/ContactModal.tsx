@@ -8,7 +8,7 @@ import { events } from "@/lib/gtag";
 
 export const CONTACT_MODAL_EVENT = "open-contact-modal";
 
-const CONTACT_EMAIL = "mariano@mgatc.com";
+const CONTACT_EMAIL = "hola@mgatc.com";
 const CONTACT_PHONE_E164 = "5491127475569"; // wa.me format (no +)
 const CONTACT_PHONE_DISPLAY = "+54 9 11 2747 5569";
 
@@ -144,8 +144,8 @@ export default function ContactModal() {
     events.contactChannelSelect("whatsapp", source);
     await postToWebhook("whatsapp");
     const greeting = form.name.trim()
-      ? `Hola Mariano, soy ${form.name.trim()}.`
-      : "Hola Mariano,";
+      ? `Hola equipo de MGA, soy ${form.name.trim()}.`
+      : "Hola equipo de MGA,";
     const text = encodeURIComponent(`${greeting} ${form.message.trim()}`);
     const url = `https://wa.me/${CONTACT_PHONE_E164}?text=${text}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -214,10 +214,10 @@ export default function ContactModal() {
             <header className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 px-5 py-4">
               <div>
                 <h3 className="text-lg font-bold text-gray-100">
-                  {t("Contactame", "Contact me")}
+                  {t("Contactanos", "Contact us")}
                 </h3>
                 <p className="hidden text-xs text-gray-400 sm:block">
-                  {t("Elegí el canal y te respondo en menos de 24hs.", "Choose a channel and I'll reply within 24h.")}
+                  {t("Elegí el canal y te respondemos en menos de 24hs.", "Choose a channel and we'll reply within 24h.")}
                 </p>
               </div>
               <button
@@ -235,12 +235,12 @@ export default function ContactModal() {
               <div className="flex flex-col items-center justify-center text-center py-8 gap-3">
                 <div className="text-5xl">✅</div>
                 <p className="text-gray-100 font-semibold text-lg">
-                  {t("¡Gracias por contactarme!", "Thanks for reaching out!")}
+                  {t("¡Gracias por contactarnos!", "Thanks for reaching out!")}
                 </p>
                 <p className="text-gray-400 text-sm max-w-xs">
                   {t(
-                    "Abrí tu app para enviar el mensaje. Te respondo en menos de 24hs.",
-                    "Your app should open to send the message. I'll reply within 24h."
+                    "Abrí tu app para enviar el mensaje. Te respondemos en menos de 24hs.",
+                    "Your app should open to send the message. We'll reply within 24h."
                   )}
                 </p>
                 <button
@@ -350,7 +350,7 @@ export default function ContactModal() {
 
                 <div className="hidden sm:block mt-4 pt-4 border-t border-white/10">
                   <p className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-2">
-                    {t("O contactame directo", "Or reach me directly")}
+                    {t("O contactanos directo", "Or reach us directly")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2 text-xs text-gray-400">
                     <a

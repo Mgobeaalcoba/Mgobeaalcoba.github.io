@@ -72,7 +72,7 @@ const SERVICES: Service[] = [
     title: { es: 'Mentorías Tech Personalizadas', en: 'Personalized Tech Mentoring' },
     desc: { es: 'Destranque su carrera tech con mentoría personalizada. Sesiones prácticas enfocadas en sus desafíos reales.', en: 'Unblock your tech career with personalized mentoring. Practical sessions focused on your real challenges.' },
     items: { es: ['SQL complejo, arquitectura de pipelines, dashboards', 'Transición junior → senior, entrevistas, negociación salarial', 'Proyectos de portfolio impactantes', 'Decisiones de arquitectura: RAG, LLMs, ML, BI stack', 'Mindset de liderazgo: IC a Tech Lead'], en: ['Complex SQL, pipeline architecture, dashboards', 'Junior → senior transition, interviews, salary negotiation', 'Impactful portfolio projects', 'Architecture decisions: RAG, LLMs, ML, BI stack', 'Leadership mindset: IC to Tech Lead'] },
-    benefits: { es: [`${getCareerExperienceYears()}+ años MercadoLibre como referencia real`, 'Sesiones prácticas 1-a-1, no teóricas', 'Feedback personalizado y seguimiento continuo', 'Primera sesión sin riesgo: devolvemos si no aporta valor'], en: [`${getCareerExperienceYears()}+ years at MercadoLibre as real reference`, 'Practical 1-on-1 sessions, not theoretical', 'Personalized feedback and continuous follow-up', 'First session risk-free: refund if no value'] },
+    benefits: { es: [`${getCareerExperienceYears()}+ años liderando equipos de datos como referencia real`, 'Sesiones prácticas 1-a-1, no teóricas', 'Feedback personalizado y seguimiento continuo', 'Primera sesión sin riesgo: devolvemos si no aporta valor'], en: [`${getCareerExperienceYears()}+ years leading data teams as real reference`, 'Practical 1-on-1 sessions, not theoretical', 'Personalized feedback and continuous follow-up', 'First session risk-free: refund if no value'] },
     successCase: { es: 'Juan, Data Analyst con 2 años de experiencia, pasó a Sr Data Engineer en 8 meses. Resultado: 45% aumento salarial + oferta remote internacional.', en: 'Juan, a Data Analyst with 2 years of experience, became a Sr Data Engineer in 8 months. Result: 45% salary increase + international remote offer.' },
     cta: { es: 'Agendar Primera Sesión', en: 'Schedule First Session' },
   },
@@ -242,8 +242,8 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
             source={`consulting_service_${service.id}`}
             prefillMessage={
               lang === 'es'
-                ? `Hola Mariano, me interesa el servicio: ${service.title.es}.`
-                : `Hi Mariano, I'm interested in the service: ${service.title.en}.`
+                ? `Hola equipo de MGA, me interesa el servicio: ${service.title.es}.`
+                : `Hi MGA team, I'm interested in the service: ${service.title.en}.`
             }
             className="mt-5 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-semibold transition-all text-sm"
           >
@@ -315,8 +315,8 @@ function PackModal({ pack, onClose }: { pack: Pack; onClose: () => void }) {
             source={`consulting_pack_${pack.id}`}
             prefillMessage={
               lang === 'es'
-                ? `Hola Mariano, me interesa el pack "${pack.name.es}" y quiero un diagnóstico.`
-                : `Hi Mariano, I'm interested in the "${pack.name.en}" pack and would like a diagnosis.`
+                ? `Hola equipo de MGA, me interesa el pack "${pack.name.es}" y quiero un diagnóstico.`
+                : `Hi MGA team, I'm interested in the "${pack.name.en}" pack and would like a diagnosis.`
             }
             className="mt-2 flex items-center justify-center gap-2 w-full py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-xl font-medium transition-all text-sm"
           >
@@ -455,8 +455,8 @@ export default function Services() {
               source="consulting_custom_quote"
               prefillMessage={
                 lang === 'es'
-                  ? 'Hola Mariano, quisiera una cotización personalizada para mi proyecto.'
-                  : 'Hi Mariano, I would like a custom quote for my project.'
+                  ? 'Hola equipo de MGA, quisiera una cotización personalizada para mi proyecto.'
+                  : 'Hi MGA team, I would like a custom quote for my project.'
               }
               className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-6 py-2 rounded-full text-sm transition-all"
             >

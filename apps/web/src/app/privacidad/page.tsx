@@ -39,7 +39,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="signal-privacy__contact">
-        Consultas sobre privacidad: <a href="mailto:mariano@mgatc.com">mariano@mgatc.com</a>
+        Consultas sobre privacidad: <a href="mailto:hola@mgatc.com">hola@mgatc.com</a>
       </p>
       <Link href="/" className="signal-privacy__back">← Volver al inicio</Link>
     </main>
