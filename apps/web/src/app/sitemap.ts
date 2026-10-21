@@ -42,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: { languages: { es: `${SITE_URL}/servicios/`, en: `${SITE_URL}/en/servicios/` } },
     },
+    {
+      url: `${SITE_URL}/como-trabajamos/`,
+      lastModified: new Date('2026-10-20'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     ...OFFERS.map((offer) => ({
       url: `${SITE_URL}/servicios/${offer.slug}/`,
       lastModified: new Date('2026-08-05'),

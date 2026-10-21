@@ -58,6 +58,17 @@ export function getConsultingSchema(locale: Language) {
     name: SITE_NAME,
     url: absoluteUrl('/', locale),
     description: COPY.description[locale],
+    '@id': `${absoluteUrl('/', 'es')}#professional-service`,
+    email: 'hola@mgatc.com',
+    sameAs: ['https://www.linkedin.com/company/mga-tech-consulting'],
+    parentOrganization: { '@type': 'Organization', name: SITE_NAME, url: absoluteUrl('/', 'es') },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'hola@mgatc.com',
+      availableLanguage: ['es', 'en'],
+    },
+    knowsAbout: ['automatización de procesos', 'agentes de IA', 'Business Intelligence', 'Data Engineering'],
     founder: {
       '@type': 'Person',
       name: SITE_AUTHOR,
@@ -67,7 +78,7 @@ export function getConsultingSchema(locale: Language) {
       '@type': 'Country',
       name: 'Argentina',
     },
-    priceRange: 'USD 300 – USD 2500',
+    priceRange: 'USD 80+',
     inLanguage: COPY.inLanguage[locale],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

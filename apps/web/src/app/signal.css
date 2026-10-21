@@ -2070,3 +2070,9 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-rank__num { color: var(--signal-text); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 .signal-pd-rank__num small { color: var(--signal-subtle); font-size: 11px; margin-left: 4px; }
 @media (max-width: 1000px) { .signal-pd-two--wide-left, .signal-pd-three { grid-template-columns: 1fr; } }
+
+.signal-offer-faq { max-width: 880px; margin: 0 auto; padding: 48px 16px; }
+.signal-offer-faq h2 { margin-bottom: 20px; }
+.signal-offer-faq details { border-top: 1px solid rgba(148,163,184,.25); padding: 14px 0; }
+.signal-offer-faq summary { cursor: pointer; font-weight: 600; }
+.signal-offer-faq p { margin-top: 10px; opacity: .85; line-height: 1.6; }

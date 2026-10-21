@@ -52,7 +52,7 @@ export default function OfferDetailClient({ offer }: { offer: Offer }) {
       </section>
       <section className="signal-offer-final">
         <span>{t('services_detail_final_eyebrow')}</span>
-        <h2>{offer.priceUsd != null ? t('services_detail_final_title') : (offer.finalHeading?.[lang] ?? (lang === 'es' ? 'Contame tu caso y definimos el alcance juntos.' : 'Tell me about your case and we define the scope together.'))}</h2>
+        <h2>{offer.priceUsd != null ? t('services_detail_final_title') : (offer.finalHeading?.[lang] ?? (lang === 'es' ? 'Contanos tu caso y definimos el alcance juntos.' : 'Tell us about your case and we define the scope together.'))}</h2>
         <CheckoutButton offer={offer} />
       </section>
     </>

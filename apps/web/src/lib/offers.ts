@@ -146,8 +146,8 @@ export const OFFERS: Offer[] = [
       en: 'A codebase ready for AI to work with context, not blind.',
     },
     finalHeading: {
-      es: 'Contame tu ecosistema y definimos el alcance juntos.',
-      en: 'Tell me about your ecosystem and we define the scope together.',
+      es: 'Contanos tu ecosistema y definimos el alcance juntos.',
+      en: 'Tell us about your ecosystem and we define the scope together.',
     },
     promise: {
       es: 'Prepará tus repositorios y aplicaciones para trabajar con múltiples agentes de IA sin perder contexto.',
@@ -184,8 +184,8 @@ export const OFFERS: Offer[] = [
       en: 'Agents that solve a business problem, not demos.',
     },
     finalHeading: {
-      es: 'Contame qué proceso querés resolver y evaluamos si un agente es la respuesta.',
-      en: 'Tell me which process you want to solve and we will assess whether an agent is the answer.',
+      es: 'Contanos qué proceso querés resolver y evaluamos si un agente es la respuesta.',
+      en: 'Tell us which process you want to solve and we will assess whether an agent is the answer.',
     },
     promise: {
       es: 'Resolvé problemas de negocio con agentes de IA que trabajan sobre tus sistemas reales.',

@@ -64,6 +64,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/como-trabajamos/" className="text-gray-400 hover:text-sky-400 transition-colors">
+                  {lang === 'es' ? 'Cómo trabajamos' : 'How we work'}
+                </Link>
+              </li>
+              <li>
                 <Link href={localizePath('/blog/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
                   Blog
                 </Link>
@@ -81,13 +86,13 @@ export default function Footer() {
             <h4 className="text-gray-200 font-semibold mb-3">{lang === 'es' ? 'Fundador' : 'Founder'}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href={localizePath('/portfolio/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  {lang === 'es' ? 'Perfil del fundador' : "Founder's profile"}
-                </Link>
-              </li>
-              <li>
-                <Link href={localizePath('/portfolio/', lang)} className="text-gray-500 hover:text-sky-400 transition-colors text-xs">
-                  Portfolio / CV
+                <Link
+                  href={localizePath('/portfolio/', lang)}
+                  data-analytics="footer_founder_profile"
+                  onClick={() => events.navClick('/portfolio/', 'Fundador')}
+                  className="text-gray-400 hover:text-sky-400 transition-colors"
+                >
+                  {lang === 'es' ? 'Perfil y portfolio' : 'Profile & portfolio'}
                 </Link>
               </li>
             </ul>

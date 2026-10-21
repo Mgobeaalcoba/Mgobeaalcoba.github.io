@@ -24,6 +24,16 @@ const organizationSchema = {
   logo: `${SITE_URL}/images/favicon-192.png`,
   description:
     `Consultoría tecnológica en automatización, IA aplicada y Business Intelligence para PyMEs. Más de ${getCareerExperienceYears()} años de experiencia en datos a escala.`,
+  "@id": `${SITE_URL}/#organization`,
+  email: "hola@mgatc.com",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "hola@mgatc.com",
+    availableLanguage: ["es", "en"],
+    areaServed: ["AR", "LATAM"],
+  },
+  address: { "@type": "PostalAddress", addressLocality: "Buenos Aires", addressCountry: "AR" },
   areaServed: { "@type": "Country", name: "Argentina" },
   founder: {
     "@type": "Person",

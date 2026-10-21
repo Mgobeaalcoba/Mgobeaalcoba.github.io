@@ -16,14 +16,14 @@ MGA Tech Consulting is a technology consultancy specialized in process automatio
 
 ## Services (Consulting)
 
-- [Tech Consulting Page](https://www.mgatc.com/consulting/): AI automation, BI dashboards, process optimization, tech mentoring for SMBs
-  - Process Automation (n8n, Python, AI) — reduce operational costs up to 80%
-  - Applied AI: chatbots, virtual assistants, custom ML models
-  - Business Intelligence: real-time dashboards and data pipelines
-  - Tech Mentoring: individual sessions for data professionals and tech leads
-  - Intensive Team Courses: hands-on training on Data Engineering and AI
-  - Tech Recruiting: specialized technical talent sourcing
-  - First automation 100% free (diagnostic offer)
+- [Services overview](https://www.mgatc.com/servicios/) ([English](https://www.mgatc.com/en/servicios/)): fixed-scope offers with public pricing, plus custom projects quoted to scope.
+  - [Automation Diagnostic](https://www.mgatc.com/en/servicios/diagnostico-automatizacion/): USD 99, 75-minute session, written report in 48 h with prioritized automation opportunities.
+  - [1:1 Tech Mentoring](https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/): USD 80, 60-minute session, immediate action plan.
+  - [Data & AI Audit](https://www.mgatc.com/en/servicios/auditoria-data-ia/): USD 249, 90-minute session, report in 5 days.
+  - [Repository & App Agentification](https://www.mgatc.com/en/servicios/agentificacion/): custom quote, applied kit and runbook so AI agents can work safely on your codebase or app.
+  - [Custom AI Agents](https://www.mgatc.com/en/servicios/agentes-a-medida/): custom quote, agent in production plus runbook.
+- [Tech Consulting landing](https://www.mgatc.com/consulting/): process automation (n8n, Python, AI), applied AI, BI dashboards and data pipelines for SMBs.
+- [How we work](https://www.mgatc.com/como-trabajamos/): the 4-step process (free diagnosis, custom proposal, agile implementation, continuous support).
 
 ## Financial Tools (Argentina)
 
@@ -49,11 +49,11 @@ MGA Tech Consulting is a technology consultancy specialized in process automatio
 
 ## Technical Blog
 
-- [Blog](https://www.mgatc.com/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — real-world experiences from Mercado Libre.
+- [Blog](https://www.mgatc.com/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — practical, real-world experience.
 
 ### Recent Articles
 
-- How to optimize BigQuery queries at scale (Mercado Libre experience)
+- How to optimize BigQuery queries at scale (at scale)
 - Automating income tax calculations with Python in Argentina
 - Common errors in data pipelines and how to fix them
 - IT salary negotiation in Argentina 2026

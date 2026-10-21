@@ -159,11 +159,50 @@ function numericBand(value: number, limits: [number, number], labels: [string, s
   return labels[2];
 }
 
+const AI_SOURCES: Array<[string, string]> = [
+  ['chatgpt.com', 'chatgpt'],
+  ['chat.openai.com', 'chatgpt'],
+  ['openai.com', 'chatgpt'],
+  ['perplexity.ai', 'perplexity'],
+  ['gemini.google.com', 'gemini'],
+  ['bard.google.com', 'gemini'],
+  ['copilot.microsoft.com', 'copilot'],
+  ['claude.ai', 'claude'],
+  ['you.com', 'you'],
+  ['phind.com', 'phind'],
+  ['kagi.com', 'kagi'],
+  ['meta.ai', 'meta_ai'],
+  ['grok.com', 'grok'],
+  ['chat.deepseek.com', 'deepseek'],
+  ['chat.mistral.ai', 'mistral'],
+];
+
+function matchAiSource(host: string): string | undefined {
+  const h = host.toLowerCase().replace(/^www\./, '');
+  return AI_SOURCES.find(([domain]) => h === domain || h.endsWith(`.${domain}`))?.[1];
+}
+
+/** Returns a generic AI assistant name when the visit comes from one; never a URL. */
+function detectAiSource(): string | undefined {
+  try {
+    const utm = new URLSearchParams(window.location.search).get('utm_source');
+    if (utm) {
+      const fromUtm = matchAiSource(utm.includes('.') ? utm : `${utm}.com`);
+      if (fromUtm) return fromUtm;
+    }
+    if (document.referrer) return matchAiSource(new URL(document.referrer).hostname);
+  } catch {
+    /* ignore malformed referrer */
+  }
+  return undefined;
+}
+
 export function pageview(url: string) {
   if (typeof window !== 'undefined' && window.gtag) {
     const path = safePath(url);
     const location = safeLocation(path);
     const referrer = previousPageLocation || safeReferrer(document.referrer);
+    const aiSource = previousPageLocation ? undefined : detectAiSource();
     window.gtag('event', 'page_view', {
       page_path: path,
       page_location: location,
@@ -172,6 +211,7 @@ export function pageview(url: string) {
       user_lang: getUserLang(),
       app_display_mode: getDisplayMode(),
       ...getPageContext(path),
+      ...(aiSource ? { ai_source: aiSource } : {}),
       send_to: GA_ID,
     });
     previousPageLocation = location;
