@@ -208,7 +208,7 @@ export default function RecursosClient() {
       </Link>
       <Link className="signal-tools-hero__new" href={lang === "es" ? "/recursos/pypi-stats/" : "/en/recursos/pypi-stats/"} data-analytics="recursos_pypi_stats_link">
         <b>{lang === "es" ? "Datos" : "Data"}</b>
-        <span>{lang === "es" ? "Mis paquetes de PyPI en números: descargas y evolución" : "My PyPI packages in numbers: downloads and trends"}</span>
+        <span>{lang === "es" ? "Paquetes de PyPI de MGA en números: descargas y evolución" : "MGA PyPI packages in numbers: downloads and trends"}</span>
         <i aria-hidden="true">→</i>
       </Link>
     </section>
