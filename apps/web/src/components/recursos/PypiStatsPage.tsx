@@ -38,13 +38,13 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
         <ContextBackLink href={localizePath('/recursos/', lang)} label={t('Volver a recursos', 'Back to resources')} />
         <span className="signal-eyebrow">{t('Recursos · datos abiertos', 'Resources · open data')}</span>
         <h1>
-          {t('Mis paquetes de PyPI, ', 'My PyPI packages, ')}
+          {t('Paquetes de PyPI de MGA, ', 'MGA PyPI packages, ')}
           <em>{t('en números.', 'in numbers.')}</em>
         </h1>
         <p>
           {t(
-            'Un panel interactivo con las descargas, la versión y la actividad de GitHub de lo que publico en PyPI. Filtrá por paquete, período, sistema operativo o versión de Python y respondé preguntas concretas. Los datos son públicos y se actualizan todos los días.',
-            'An interactive dashboard with the downloads, version and GitHub activity of what I publish on PyPI. Filter by package, period, operating system or Python version and answer concrete questions. The data is public and refreshed every day.',
+            'Un panel interactivo con las descargas, la versión y la actividad de GitHub de lo que publicamos en PyPI. Filtrá por paquete, período, sistema operativo o versión de Python y respondé preguntas concretas. Los datos son públicos y se actualizan todos los días.',
+            'An interactive dashboard with the downloads, version and GitHub activity of what we publish on PyPI. Filter by package, period, operating system or Python version and answer concrete questions. The data is public and refreshed every day.',
           )}
         </p>
       </header>
@@ -62,7 +62,7 @@ export default function PypiStatsPage({ lang }: { lang: Language }) {
           <li><b>{t('Son descargas, no usuarios.', 'They are downloads, not users.')}</b> {t('Una persona que reinstala, un CI que corre en cada commit o un bot cuentan como descargas. Se excluyen los espejos, pero no el resto.', 'Someone who reinstalls, a CI that runs on every commit or a bot all count as downloads. Mirrors are excluded, the rest is not.')}</li>
           <li><b>{t('Homebrew no publica estadísticas de taps propios.', 'Homebrew does not publish statistics for custom taps.')}</b> {t('La fórmula de ia-router baja el código fuente desde PyPI, así que esas instalaciones aparecen acá mezcladas con otras descargas y no se pueden separar.', 'The ia-router formula downloads the source from PyPI, so those installs show up here mixed with other downloads and cannot be told apart.')}</li>
           <li><b>{t('El sistema operativo suele ser “desconocido”.', 'The operating system is often “unknown”.')}</b> {t('Solo algunos clientes (sobre todo pip) informan su sistema y su versión de Python. El resto cae en “Desconocido”, por eso los porcentajes por sistema se calculan sobre los que sí informan.', 'Only some clients (mostly pip) report their system and Python version. The rest fall under “Unknown”, which is why the per-system percentages are computed over the ones that do report.')}</li>
-          <li><b>{t('Un paquete nuevo arranca con un pico.', 'A new package starts with a spike.')}</b> {t('Los primeros días suelen incluir escaneos automáticos y pruebas propias; la tendencia dice más que un día suelto.', 'The first days usually include automated scans and my own tests; the trend says more than a single day.')}</li>
+          <li><b>{t('Un paquete nuevo arranca con un pico.', 'A new package starts with a spike.')}</b> {t('Los primeros días suelen incluir escaneos automáticos y pruebas internas; la tendencia dice más que un día suelto.', 'The first days usually include automated scans and our own tests; the trend says more than a single day.')}</li>
           <li><b>{t('“Hoy” todavía no existe.', '“Today” does not exist yet.')}</b> {t('Las fuentes públicas publican con uno o dos días de retraso: pypistats.org y ClickPy llegan hasta ayer o anteayer, según la hora. El día en curso solo se obtiene consultando BigQuery con credenciales propias.', 'Public sources publish with a delay of one or two days: pypistats.org and ClickPy reach yesterday or the day before, depending on the hour. The current day is only available by querying BigQuery with your own credentials.')}</li>
           <li><b>{t('Dos fuentes, dos definiciones.', 'Two sources, two definitions.')}</b> {t('pypistats cuenta las descargas sin espejos con su propio filtro; ClickPy (la misma materia prima) muestra todas y permite sacar los instaladores que son espejos. Los números no coinciden y es normal.', 'pypistats counts downloads without mirrors with its own filter; ClickPy (the same raw data) shows all of them and lets you remove the installers that are mirrors. The numbers do not match, and that is expected.')}</li>
         </ul>

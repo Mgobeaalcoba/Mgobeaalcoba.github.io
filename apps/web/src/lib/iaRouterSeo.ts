@@ -74,7 +74,7 @@ export function iaRouterSchemas(lang: Language) {
       license: 'https://www.apache.org/licenses/LICENSE-2.0',
       codeRepository: 'https://github.com/Mgobeaalcoba/ia-suscription-router',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      author: { '@type': 'Person', name: 'Mgobeaalcoba', url: 'https://github.com/Mgobeaalcoba' },
+      author: { '@type': 'Organization', name: 'MGA Tech Consulting', url: 'https://www.mgatc.com' },
       description: c.schemaDescription,
       image: IMAGE,
     },
