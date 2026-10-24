@@ -1,0 +1,135 @@
+1:"$Sreact.fragment"
+3:I[28675,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+4:I[40464,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+5:I[78208,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+6:I[22016,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],""]
+2:T474,{"@context":"https://schema.org","@type":"Article","headline":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje","description":"El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependen...","url":"https://www.mgatc.com/blog/achieving-ai-style-reasoning-without-an-llm/","datePublished":"2026-10-22","dateModified":"2026-10-22","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/achieving-ai-style-reasoning-without-an-llm/"},"keywords":"","articleSection":"Tecnología aplicada","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}13:X
+18:X
+18:C
+0:{"buildId":"4PzTz4Vg9xYd5uhFFGoaR","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","$L3",null,{"contentType":"article","contentId":"achieving-ai-style-reasoning-without-an-llm","title":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}],["$","$L4",null,{"site_section":"blog"}],["$","$L5",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L6",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Tecnología aplicada"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependen..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"22 de octubre de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":["$L7","$L8","$undefined"]}],"5 min read"]}],"$L9"]}],"$La"]}],"$Lb","$Lc","$Ld"]}],"$Le"]}],["$Lf","$L10"],"$L11"]}],"isPartial":"$@12","staleTime":"$13","varyParams":null},{"rsc":"$L14","isPartial":"$@15","staleTime":"$13","varyParams":null},{"rsc":"$L16","isPartial":"$@17","staleTime":"$13","varyParams":"$18"},{"rsc":"$L19","isPartial":"$@1a","staleTime":"$13","varyParams":"$18"}],"isUpgradeableISRFallback":false,"a":"$@1b","rootVaryParams":null,"needsRuntimeRequest":"$@1c"}
+1d:I[66158,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+1f:I[6265,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+20:I[21686,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js","/_next/static/chunks/0_nyiwnf8y3fi.js","/_next/static/chunks/32e-f31jee2b0.js"],"default"]
+21:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"OutletBoundary"]
+22:"$Sreact.suspense"
+24:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"ViewportBoundary"]
+25:I[97367,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"MetadataBoundary"]
+26:I[27201,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"IconMark"]
+27:I[39756,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"default"]
+28:I[37457,["/_next/static/chunks/0y_jci0fl1b_m.js","/_next/static/chunks/2bam4ou0auavn.js","/_next/static/chunks/25ler4wtgwimy.js","/_next/static/chunks/1nis09eyzgrs1.js","/_next/static/chunks/2030fzhmn_8gq.js","/_next/static/chunks/3jbkry7jilll8.js"],"default"]
+7:["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}]
+8:["$","path","mmk7yg",{"d":"M12 6v6l4 2"}]
+9:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+a:["$","$L1d",null,{"slug":"achieving-ai-style-reasoning-without-an-llm","title":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}]
+1e:T1d68,<h2>Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje</h2>
+<p>El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependencia de estas estructuras presenta desafíos críticos en entornos de producción: alucinaciones incontrolables, consumo prohibitivo de cómputo y falta de trazabilidad lógica. El concepto de "razonamiento sin LLM" propone una arquitectura alternativa que desplaza la carga de la inferencia de la probabilidad estadística a la lógica de grafos, la búsqueda heurística y la validación formal.</p>
+<p>En este artículo, desglosaremos cómo construir sistemas capaces de exhibir capacidades de razonamiento similares a las de un agente basado en LLM, utilizando motores de reglas, árboles de búsqueda de Monte Carlo (MCTS) y arquitecturas basadas en estados.</p>
+<h2>Fundamentos del Razonamiento No Probabilístico</h2>
+<p>El razonamiento, en su acepción computacional, es la capacidad de transitar de un estado inicial a uno final a través de una secuencia de transformaciones validadas por un conjunto de axiomas o reglas. A diferencia de un LLM, que predice la siguiente ficha (token) más probable, un sistema de razonamiento determinista opera sobre un espacio de estados definido.</p>
+<p>Para replicar el "razonamiento" sin recurrir a redes neuronales, debemos formalizar tres componentes:</p>
+<ol>
+<li><strong>Representación del Estado:</strong> Una ontología estructurada (Grafo o Base de Conocimiento).</li>
+<li><strong>Motores de Transición:</strong> Funciones que aplican reglas lógicas sobre el estado.</li>
+<li><strong>Mecanismo de Selección de Caminos:</strong> Algoritmos (A*, MCTS, Dijkstra) para navegar el árbol de decisiones.</li>
+</ol>
+<h2>Implementación de una Arquitectura Basada en Grafos de Estados</h2>
+<p>Considere un sistema que requiere razonar sobre dependencias logísticas complejas. En lugar de solicitar a un LLM que infiera la ruta, implementamos un motor de búsqueda sobre un grafo dirigido.</p>
+<h3>Definición del Espacio de Estados</h3>
+<p>Utilizaremos una estructura de datos de grafo donde los nodos representan estados del sistema y las aristas representan acciones atómicas.</p>
+<pre><code class="language-python">import networkx as nx
+
+class StateGraph:
+    def __init__(self):
+        self.graph = nx.DiGraph()
+
+    def add_transition(self, u, v, cost, action_metadata):
+        self.graph.add_edge(u, v, weight=cost, action=action_metadata)
+
+    def get_reasoning_path(self, start_node, target_node):
+        # Implementación de A* para búsqueda heurística
+        return nx.astar_path(self.graph, start_node, target_node, heuristic=None)
+</code></pre>
+<p>La clave aquí es que el razonamiento no es una probabilidad, sino una ruta óptima calculada mediante un algoritmo de costo-mínimo. La "inteligencia" reside en la definición de la heurística y la precisión de la ontología del grafo.</p>
+<h2>Integración de Búsqueda de Árbol de Monte Carlo (MCTS)</h2>
+<p>El MCTS es fundamental para simular razonamiento en entornos donde el espacio de estados es demasiado grande para una búsqueda exhaustiva (como el juego de Go o la planificación de procesos industriales complejos). A diferencia de los LLM, que intentan predecir el siguiente paso basándose en entrenamiento previo, el MCTS explora el árbol de decisiones mediante simulaciones aleatorias (rollouts) y retropropagación de valores.</p>
+<h3>Algoritmo de Selección en el Árbol</h3>
+<pre><code class="language-python">import math
+
+class MCTSNode:
+    def __init__(self, state, parent=None):
+        self.state = state
+        self.parent = parent
+        self.children = []
+        self.visits = 0
+        self.value = 0.0
+
+    def uct_select(self, exploration_constant=1.41):
+        # Upper Confidence Bound applied to Trees (UCT)
+        return max(self.children, key=lambda c: (c.value / c.visits) + 
+                   exploration_constant * math.sqrt(math.log(self.visits) / c.visits))
+</code></pre>
+<p>Este enfoque permite que el sistema "razone" sobre los resultados futuros de una serie de acciones sin necesidad de una red neuronal pre-entrenada que evalúe la calidad de la decisión. La evaluación se deriva del éxito del rollout.</p>
+<h2>Desafíos en la Escalabilidad y Mantenimiento</h2>
+<p>El principal obstáculo de los sistemas basados en lógica frente a los LLM es la "explosión combinatoria" y la rigidez. Mientras que un LLM maneja entradas no estructuradas con relativa gracia, un sistema de razonamiento determinista requiere datos limpios.</p>
+<p>Para solventar esto, la arquitectura debe evolucionar hacia una <strong>arquitectura híbrida (Neuro-Simbólica)</strong> donde la parte no estructurada (parseo de lenguaje natural) es manejada por un parser pequeño y eficiente, y la parte de toma de decisiones es manejada por el motor simbólico.</p>
+<h3>Consideraciones Críticas:</h3>
+<ol>
+<li><strong>Manejo de la Incertidumbre:</strong> En ausencia de probabilidades bayesianas, la incertidumbre debe ser modelada mediante lógica difusa o rangos de intervalos en los pesos de las aristas del grafo.</li>
+<li><strong>Representación del Conocimiento:</strong> La utilización de RDF (Resource Description Framework) y OWL (Web Ontology Language) es obligatoria para garantizar la interoperabilidad de las reglas de negocio.</li>
+<li><strong>Verificabilidad:</strong> A diferencia de los LLM, cada paso del razonamiento determinista es auditable. Si el sistema toma una decisión errónea, la trazabilidad permite identificar exactamente qué regla o nodo del grafo fue el causante del error.</li>
+</ol>
+<h2>Comparativa Técnica: LLM vs. Sistemas Basados en Reglas</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Característica</th>
+<th align="left">LLM (Probabilístico)</th>
+<th align="left">Razonamiento Determinista</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Explicabilidad</strong></td>
+<td align="left">Nula (Caja negra)</td>
+<td align="left">Total (Trazabilidad)</td>
+</tr>
+<tr>
+<td align="left"><strong>Consistencia</strong></td>
+<td align="left">Baja (Alucinaciones)</td>
+<td align="left">Alta (Basada en axiomas)</td>
+</tr>
+<tr>
+<td align="left"><strong>Cómputo</strong></td>
+<td align="left">GPU intensivo</td>
+<td align="left">CPU/RAM (eficiente)</td>
+</tr>
+<tr>
+<td align="left"><strong>Adaptabilidad</strong></td>
+<td align="left">Alta (Aprendizaje en contexto)</td>
+<td align="left">Baja (Requiere re-programación)</td>
+</tr>
+</tbody>
+</table>
+<h2>Conclusión</h2>
+<p>El uso de LLM para tareas de razonamiento crítico es, a menudo, una estrategia ineficiente y de alto riesgo para la ingeniería de software a nivel de escala. La transición hacia arquitecturas basadas en grafos de estados y algoritmos de búsqueda optimizados ofrece una vía para construir sistemas robustos, rápidos y totalmente auditables.</p>
+<p>La ingeniería de datos del futuro no consistirá simplemente en alimentar modelos con más tokens, sino en la construcción de ontologías más precisas y motores de inferencia que puedan operar bajo leyes lógicas verificables.</p>
+<p>Si su organización requiere optimizar sistemas complejos mediante arquitecturas de razonamiento avanzado y diseño de infraestructura de datos de alto rendimiento, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a> para consultar nuestros servicios de consultoría especializada.</p>
+b:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+c:["$","$L1f",null,{"category":"Tecnología aplicada"}]
+d:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L6",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L6",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+e:["$","$L20",null,{}]
+f:["$","script","script-0",{"src":"/_next/static/chunks/0_nyiwnf8y3fi.js","async":true}]
+10:["$","script","script-1",{"src":"/_next/static/chunks/32e-f31jee2b0.js","async":true}]
+11:["$","$L21",null,{"children":["$","$22",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+14:["$","$1","h",{"children":[null,["$","$L24",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","div",null,{"hidden":true,"children":["$","$L25",null,{"children":["$","$22",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependen..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/achieving-ai-style-reasoning-without-an-llm/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}],["$","meta","15",{"property":"og:description","content":"El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependen..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/achieving-ai-style-reasoning-without-an-llm/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-10-22"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"Arquitecturas de Razonamiento Determinista: Más allá de los Grandes Modelos de Lenguaje"}],["$","meta","26",{"name":"twitter:description","content":"El paradigma actual de la inteligencia artificial está dominado por los modelos probabilísticos basados en la arquitectura Transformer. Sin embargo, la dependen..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L26","29",{}]]}]}]}],null]}]
+16:["$","$1","c",{"children":[null,["$","$L27",null,{"parallelRouterKey":"children","template":["$","$L28",null,{}]}]]}]
+19:["$","$1","c",{"children":[null,["$","$L27",null,{"parallelRouterKey":"children","template":["$","$L28",null,{}]}]]}]
+1c:true
+23:null
+13:300
+13:C
+1b:0
+15:"$undefined"
+17:"$undefined"
+1a:"$undefined"
+12:"$undefined"
