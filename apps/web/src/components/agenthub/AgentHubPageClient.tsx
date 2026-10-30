@@ -1,20 +1,23 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import ContextBackLink from '@/components/shared/ContextBackLink';
 import SlidingTabs from '@/components/ui/SlidingTabs';
 import { useLanguage } from '@/contexts/LanguageContext';
 import {
   AGENTHUB_AGENT_ID,
   AGENTHUB_BUILD,
-  AGENTHUB_CASE,
   AGENTHUB_FAQ,
+  AGENTHUB_FINAL,
+  AGENTHUB_FLOW,
   AGENTHUB_HERO,
   AGENTHUB_MOCK,
-  AGENTHUB_OBSERVE,
+  AGENTHUB_MORE_TABS,
   AGENTHUB_SIGNUP_URL,
   AGENTHUB_STATUS,
-  AGENTHUB_TABS,
+  AGENTHUB_STEPS,
+  AGENTHUB_STEPS_TITLE,
   AGENTHUB_URL,
 } from '@/lib/agenthubCopy';
 
@@ -31,7 +34,7 @@ function openWidget(): boolean {
 
 export default function AgentHubPageClient() {
   const { lang, t } = useLanguage();
-  const [tab, setTab] = useState<string>(AGENTHUB_TABS[0].id);
+  const [more, setMore] = useState<string>(AGENTHUB_MORE_TABS[0].id);
   const [state, setState] = useState<WidgetState>('idle');
   const poll = useRef<number | undefined>(undefined);
 
@@ -66,8 +69,24 @@ export default function AgentHubPageClient() {
   }, []);
 
   const openCurrent = () => window.dispatchEvent(new CustomEvent('open-ai-assistant'));
+  const moreTabs = AGENTHUB_MORE_TABS.map((item) => ({ id: item.id, label: item.label[lang] }));
+  const status = state === 'idle' ? null : AGENTHUB_STATUS[state][lang];
 
-  const tabs = AGENTHUB_TABS.map((item) => ({ id: item.id, label: item.label[lang] }));
+  const liveButton = (surface: string) => (
+    <button
+      type="button"
+      className="signal-cta-live"
+      onClick={tryLive}
+      data-analytics="agenthub_try_live"
+      data-analytics-surface={surface}
+    >
+      <Sparkles aria-hidden="true" size={26} />
+      <span>
+        <strong>{AGENTHUB_HERO.cta[lang]}</strong>
+        <small>{AGENTHUB_HERO.ctaSub[lang]}</small>
+      </span>
+    </button>
+  );
 
   return (
     <div className="signal-agenthub">
@@ -81,37 +100,18 @@ export default function AgentHubPageClient() {
         </h1>
         <p>{AGENTHUB_HERO.subtitle[lang]}</p>
         <div className="signal-agenthub__actions">
-          <button
-            type="button"
-            className="signal-button signal-button--primary"
-            onClick={tryLive}
-            data-analytics="agenthub_try_live"
-            data-analytics-surface="agenthub"
-          >
-            {AGENTHUB_HERO.tryLive[lang]}
-          </button>
-          <button
-            type="button"
-            className="signal-button signal-button--secondary"
-            onClick={openCurrent}
-            data-analytics="agenthub_try_current"
-            data-analytics-surface="agenthub"
-          >
-            {AGENTHUB_HERO.tryCurrent[lang]}
-          </button>
-          <a
-            className="signal-button signal-button--secondary"
-            href={AGENTHUB_SIGNUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-analytics="agenthub_signup"
-            data-analytics-surface="agenthub"
-          >
-            {AGENTHUB_HERO.signup[lang]}
-          </a>
+          {liveButton('agenthub_hero')}
+          <div className="signal-agenthub__links">
+            <button type="button" className="signal-link-button" onClick={openCurrent} data-analytics="agenthub_try_current" data-analytics-surface="agenthub">
+              {AGENTHUB_HERO.tryCurrent[lang]}
+            </button>
+            <a className="signal-link-button" href={AGENTHUB_SIGNUP_URL} target="_blank" rel="noopener noreferrer" data-analytics="agenthub_signup" data-analytics-surface="agenthub">
+              {AGENTHUB_HERO.signup[lang]}
+            </a>
+          </div>
         </div>
         <p className="signal-agenthub__status" role="status" aria-live="polite">
-          {state === 'idle' ? AGENTHUB_HERO.poc[lang] : AGENTHUB_STATUS[state][lang]}
+          {status ?? AGENTHUB_HERO.poc[lang]}
         </p>
       </header>
 
@@ -141,32 +141,74 @@ export default function AgentHubPageClient() {
         </figure>
       </section>
 
+      <section className="signal-agenthub__flow" aria-label={AGENTHUB_FLOW.title[lang]}>
+        <h2>{AGENTHUB_FLOW.title[lang]}</h2>
+        <ol>
+          {AGENTHUB_FLOW.nodes.map((node) => (
+            <li key={node.es}>{node[lang]}</li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="signal-agenthub__story">
+        <div className="signal-agenthub__story-head">
+          <span className="signal-eyebrow">{AGENTHUB_STEPS_TITLE.eyebrow[lang]}</span>
+          <h2>{AGENTHUB_STEPS_TITLE.title[lang]}</h2>
+        </div>
+        <ol className="signal-timeline">
+          {AGENTHUB_STEPS.map((step, index) => (
+            <li key={step.tab.es} className="signal-step">
+              <span className="signal-step__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div className="signal-step__card">
+                <span className="signal-tag">{step.tab[lang]}</span>
+                <h3>{step.title[lang]}</h3>
+                <p className="signal-step__story">{step.story[lang]}</p>
+                <dl className="signal-step__config">
+                  {step.config.map((row) => (
+                    <div key={row.label.es}>
+                      <dt>{row.label[lang]}</dt>
+                      <dd>{row.value[lang]}</dd>
+                    </div>
+                  ))}
+                </dl>
+                {step.chips ? (
+                  <ul className="signal-step__chips">
+                    {step.chips.map((chip) => (
+                      <li key={chip.es}>{chip[lang]}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {step.code ? <pre className="signal-step__code"><code>{step.code}</code></pre> : null}
+                <div className="signal-step__try">
+                  <span>{AGENTHUB_STEPS_TITLE.tryPrompt[lang]}:</span>
+                  <q>{step.prompt[lang]}</q>
+                  <button type="button" className="signal-link-button" onClick={tryLive} data-analytics={`agenthub_step_${index + 1}`} data-analytics-surface="agenthub_story">
+                    {AGENTHUB_STEPS_TITLE.tryIt[lang]} →
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="signal-agenthub__final" aria-labelledby="agenthub-final">
+        <h2 id="agenthub-final">{AGENTHUB_FINAL.title[lang]}</h2>
+        <p>{AGENTHUB_FINAL.text[lang]}</p>
+        {liveButton('agenthub_final')}
+        <p className="signal-agenthub__status" role="status" aria-live="polite">{status}</p>
+      </section>
+
       <section className="signal-agenthub__tabs">
-        <SlidingTabs tabs={tabs} value={tab} onChange={setTab} label={AGENTHUB_HERO.eyebrow[lang]} idPrefix="agenthub" />
+        <SlidingTabs tabs={moreTabs} value={more} onChange={setMore} label={AGENTHUB_HERO.eyebrow[lang]} idPrefix="agenthub" />
         <div
-          key={tab}
+          key={more}
           className="signal-agenthub__panel signal-page-enter"
           role="tabpanel"
-          id={`agenthub-panel-${tab}`}
-          aria-labelledby={`agenthub-${tab}`}
+          id={`agenthub-panel-${more}`}
+          aria-labelledby={`agenthub-${more}`}
         >
-          {tab === 'case' && (
-            <>
-              <h2>{AGENTHUB_CASE.title[lang]}</h2>
-              <ul className="signal-agenthub__list">
-                {AGENTHUB_CASE.points.map((point) => (
-                  <li key={point.es}>{point[lang]}</li>
-                ))}
-              </ul>
-              <h3>{AGENTHUB_CASE.tryTitle[lang]}</h3>
-              <ul className="signal-agenthub__prompts">
-                {AGENTHUB_CASE.prompts.map((prompt) => (
-                  <li key={prompt.es}>{prompt[lang]}</li>
-                ))}
-              </ul>
-            </>
-          )}
-          {tab === 'build' && (
+          {more === 'build' ? (
             <>
               <h2>{AGENTHUB_BUILD.title[lang]}</h2>
               <div className="signal-agenthub__table" role="table">
@@ -182,32 +224,16 @@ export default function AgentHubPageClient() {
                 ))}
               </div>
             </>
+          ) : (
+            <div className="signal-agenthub__faq">
+              {AGENTHUB_FAQ.map((item, index) => (
+                <details key={item.q.es} data-analytics={`agenthub_faq_${index + 1}`} data-analytics-surface="agenthub_faq">
+                  <summary>{item.q[lang]}</summary>
+                  <p>{item.a[lang]}</p>
+                </details>
+              ))}
+            </div>
           )}
-          {tab === 'observe' && (
-            <>
-              <h2>{AGENTHUB_OBSERVE.title[lang]}</h2>
-              <ul className="signal-agenthub__list">
-                {AGENTHUB_OBSERVE.points.map((point) => (
-                  <li key={point.es}>{point[lang]}</li>
-                ))}
-              </ul>
-            </>
-          )}
-        </div>
-      </section>
-
-      <section className="signal-service-faq">
-        <div>
-          <span className="signal-eyebrow">FAQ</span>
-          <h2>{lang === 'es' ? 'Antes de probar' : 'Before you try it'}</h2>
-        </div>
-        <div>
-          {AGENTHUB_FAQ.map((item, index) => (
-            <details key={item.q.es} data-analytics={`agenthub_faq_${index + 1}`} data-analytics-surface="agenthub_faq">
-              <summary>{item.q[lang]}</summary>
-              <p>{item.a[lang]}</p>
-            </details>
-          ))}
         </div>
       </section>
     </div>
