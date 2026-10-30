@@ -15,6 +15,7 @@ const LINKS = [
   { href: '/servicios/', es: 'Servicios', en: 'Services' },
   { href: '/blog/', es: 'Blog', en: 'Blog' },
   { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
+  { href: '/agenthub/', es: 'AgentHub', en: 'AgentHub' },
 ];
 
 const THEME_ICONS: Record<Theme, React.ReactNode> = {

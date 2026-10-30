@@ -78,6 +78,11 @@ export default function Footer() {
                   {t('nav_recursos')}
                 </Link>
               </li>
+              <li>
+                <Link href={localizePath('/agenthub/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
+                  MGA AgentHub
+                </Link>
+              </li>
             </ul>
           </div>
 

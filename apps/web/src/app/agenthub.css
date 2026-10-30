@@ -1,0 +1,97 @@
+/* Patrones de interfaz de MGA AgentHub (agents.mgatc.com) llevados al sitio: barra de progreso de ruta,
+   transición de página, esqueletos de carga, pestañas deslizantes y maqueta de producto.
+   Usan los tokens --signal-* que ya comparten ambos proyectos. Todo el movimiento respeta
+   prefers-reduced-motion. */
+
+/* Barra de progreso al navegar */
+.signal-route-progress {
+  position: fixed; inset: 0 0 auto 0; z-index: 2147483000; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg, var(--signal-cyan), var(--signal-blue));
+  transform: scaleX(0); transform-origin: left; opacity: 0;
+}
+.signal-route-progress.is-running { opacity: 1; transform: scaleX(.82); transition: transform 8s cubic-bezier(.1,.6,.2,1); }
+.signal-route-progress.is-done { opacity: 0; transform: scaleX(1); transition: transform .2s ease-out, opacity .35s ease .2s; }
+
+/* Transición de página */
+@keyframes signal-page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.signal-page-enter { animation: signal-page-in .38s cubic-bezier(.2,.7,.2,1) both; }
+/* Las páginas completas solo aparecen con opacidad: un transform en el contenedor movería la navegación fija. */
+@keyframes signal-fade-in { from { opacity: 0; } to { opacity: 1; } }
+.signal-services-page { animation: signal-fade-in .3s ease-out both; }
+
+/* Esqueletos de carga */
+@keyframes signal-skeleton { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.signal-skeleton {
+  border-radius: 10px; min-height: 64px;
+  background: linear-gradient(90deg, var(--signal-surface) 25%, var(--signal-surface-raised) 50%, var(--signal-surface) 75%);
+  background-size: 200% 100%; animation: signal-skeleton 1.6s linear infinite;
+}
+
+/* Pestañas con indicador deslizante */
+.signal-sliding-tabs {
+  position: relative; display: inline-flex; max-width: 100%; overflow-x: auto; gap: 4px; padding: 4px;
+  border: 1px solid var(--signal-line); border-radius: 999px; background: var(--signal-surface-soft);
+}
+.signal-sliding-tabs > button {
+  position: relative; z-index: 1; border: 0; background: transparent; color: var(--signal-muted); cursor: pointer;
+  padding: 10px 18px; border-radius: 999px; font: 600 13px/1 var(--font-mono); letter-spacing: .02em; white-space: nowrap;
+  transition: color .2s ease;
+}
+.signal-sliding-tabs > button:hover { color: var(--signal-text); }
+.signal-sliding-tabs > button[aria-selected="true"] { color: var(--signal-bg); }
+.signal-sliding-tabs > button:focus-visible { outline: 2px solid var(--signal-cyan); outline-offset: 2px; }
+.signal-sliding-tabs__bar {
+  position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; border-radius: 999px; background: var(--signal-cyan);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), width .3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Maqueta del producto */
+.signal-mock { margin: 0; border: 1px solid var(--signal-line-strong); border-radius: 16px; overflow: hidden; background: var(--signal-surface); box-shadow: var(--signal-shadow); }
+.signal-mock__bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--signal-line); background: var(--signal-surface-raised); font: 600 12px/1 var(--font-mono); color: var(--signal-muted); }
+.signal-mock__dots { display: inline-flex; gap: 6px; }
+.signal-mock__dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--signal-line-strong); }
+.signal-mock__title { flex: 1; }
+.signal-mock__live { color: var(--signal-lime); text-transform: uppercase; letter-spacing: .1em; font-size: 10px; }
+.signal-mock__live::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--signal-lime); }
+.signal-mock__body { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 230px; }
+.signal-mock__side { list-style: none; margin: 0; padding: 16px; border-right: 1px solid var(--signal-line); display: grid; gap: 4px; align-content: start; font-size: 13px; color: var(--signal-muted); }
+.signal-mock__side li { padding: 8px 10px; border-radius: 8px; }
+.signal-mock__side li.is-active { background: color-mix(in srgb, var(--signal-cyan) 14%, transparent); color: var(--signal-text); }
+.signal-mock__chat { padding: 18px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.signal-mock__msg { max-width: 82%; margin: 0; padding: 10px 14px; border-radius: 14px; background: var(--signal-surface-raised); color: var(--signal-text); line-height: 1.45; }
+.signal-mock__msg--user { align-self: flex-end; background: var(--signal-cyan); color: #041014; }
+.signal-mock__steps { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.signal-tag { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--signal-line-strong); font: 600 11px/1 var(--font-mono); color: var(--signal-muted); }
+.signal-tag--ok { border-color: color-mix(in srgb, var(--signal-lime) 45%, transparent); color: var(--signal-lime); }
+
+/* Página de AgentHub */
+.signal-agenthub__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.signal-agenthub__status { margin-top: 18px; color: var(--signal-muted); font-size: 13px; max-width: 640px; }
+.signal-agenthub__mock-wrap, .signal-agenthub__tabs { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+.signal-agenthub__tabs { margin-top: 64px; margin-bottom: 40px; }
+.signal-agenthub__panel { margin-top: 28px; padding: 28px; border: 1px solid var(--signal-line); border-radius: 16px; background: var(--signal-surface); }
+.signal-agenthub__panel h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -.03em; line-height: 1.05; }
+.signal-agenthub__panel h3 { margin-top: 28px; font: 600 11px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--signal-cyan); }
+.signal-agenthub__list, .signal-agenthub__prompts { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; color: var(--signal-muted); line-height: 1.55; }
+.signal-agenthub__list li::before { content: '↳'; margin-right: 10px; color: var(--signal-cyan); }
+.signal-agenthub__prompts li { padding: 12px 14px; border: 1px dashed var(--signal-line-strong); border-radius: 10px; color: var(--signal-text); font-size: 14px; }
+.signal-agenthub__table { margin-top: 20px; border: 1px solid var(--signal-line); border-radius: 12px; overflow: hidden; }
+.signal-agenthub__row { display: grid; grid-template-columns: 1fr 1fr; }
+.signal-agenthub__row + .signal-agenthub__row { border-top: 1px solid var(--signal-line); }
+.signal-agenthub__row > span { padding: 14px 16px; font-size: 14px; line-height: 1.45; color: var(--signal-muted); }
+.signal-agenthub__row > span + span { border-left: 1px solid var(--signal-line); color: var(--signal-text); }
+.signal-agenthub__row--head > span { background: var(--signal-surface-raised); font: 600 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--signal-cyan); }
+
+@media (max-width: 720px) {
+  .signal-mock__body { grid-template-columns: 1fr; }
+  .signal-mock__side { grid-template-columns: repeat(2, minmax(0, 1fr)); border-right: 0; border-bottom: 1px solid var(--signal-line); }
+  .signal-agenthub__mock-wrap, .signal-agenthub__tabs { padding: 0 16px; }
+  .signal-agenthub__row { grid-template-columns: 1fr; }
+  .signal-agenthub__row > span + span { border-left: 0; border-top: 1px dashed var(--signal-line); }
+  .signal-agenthub__row--head > span + span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-page-enter, .signal-services-page, .signal-skeleton { animation: none; }
+  .signal-route-progress, .signal-sliding-tabs__bar { transition: none; }
+}
