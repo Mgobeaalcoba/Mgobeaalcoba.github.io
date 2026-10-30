@@ -27,6 +27,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       alternates: { languages: { es: SITE_URL, en: `${SITE_URL}/en/` } },
     },
+    {
+      url: `${SITE_URL}/agenthub/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { es: `${SITE_URL}/agenthub/`, en: `${SITE_URL}/en/agenthub/` } },
+    },
+    {
+      url: `${SITE_URL}/en/agenthub/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+      alternates: { languages: { es: `${SITE_URL}/agenthub/`, en: `${SITE_URL}/en/agenthub/` } },
+    },
     // English home: same consulting landing with English metadata and JSON-LD.
     {
       url: `${SITE_URL}/en/`,

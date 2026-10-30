@@ -14,6 +14,7 @@ const durableEntries = new Set([
   '.prettierrc',
   'AGENTS.md',
   'CLAUDE.md',
+  'GEMINI.md',
   'README.md',
   'apps',
   'automation',
