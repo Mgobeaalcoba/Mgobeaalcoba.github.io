@@ -14,6 +14,9 @@ import { getCareerExperienceYears } from "@/lib/experience";
 
 const GA_ID = "G-DG0SLT5RY3";
 const SITE_URL = "https://www.mgatc.com";
+// MGA AgentHub: el widget solo se carga si hay un agente configurado (ver .env.example).
+const AGENTHUB_AGENT_ID = process.env.NEXT_PUBLIC_AGENTHUB_AGENT_ID?.trim();
+const AGENTHUB_URL = (process.env.NEXT_PUBLIC_AGENTHUB_URL?.trim() || "https://agents.mgatc.com").replace(/\/$/, "");
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -178,6 +181,16 @@ export default function RootLayout({
             </LanguageProvider>
           </ThemeProvider>
         </DataErrorBoundary>
+        {AGENTHUB_AGENT_ID && (
+          <Script
+            id="agenthub-widget"
+            src={`${AGENTHUB_URL}/widget/agent.js`}
+            strategy="lazyOnload"
+            data-agent={AGENTHUB_AGENT_ID}
+            data-brand="MGA AgentHub"
+            data-brand-url={`${SITE_URL}?utm_source=widget&utm_medium=referral&utm_campaign=aaas_plugin`}
+          />
+        )}
         {/* GA4 */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
