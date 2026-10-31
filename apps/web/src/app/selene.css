@@ -1,0 +1,85 @@
+/*
+ * Estilo "Selene": lienzo casi negro, azul Tierra como único acento, Michroma ancha y espaciada
+ * en titulares y marca, lecturas en mono y esquinas tipo HUD. Se carga última y solo cambia
+ * presentación. Michroma es mucho más ancha que Geist: los tamaños se reducen a propósito.
+ */
+.signal-hero h1,
+.signal-editorial-hero h1,
+.signal-portfolio-hero h1 {
+  font-family: var(--signal-heading) !important;
+  font-weight: 400 !important;
+  font-size: clamp(1.9rem, 5vw, 4.25rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.signal-section__heading h2,
+.signal-process__intro h2,
+.signal-final-cta h2,
+.signal-chapter-heading h2,
+.signal-projects-v2 .signal-chapter-heading h2,
+.signal-overlay__header h2 {
+  font-family: var(--signal-heading) !important;
+  font-weight: 400 !important;
+  font-size: clamp(1.4rem, 3.2vw, 2.9rem) !important;
+  line-height: 1.14 !important;
+  letter-spacing: 0.03em !important;
+  overflow-wrap: anywhere;
+}
+.signal-brand__descriptor {
+  font-family: var(--signal-heading);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.signal-eyebrow {
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+.signal-button,
+.signal-offer-button {
+  font-family: var(--signal-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* Esquinas HUD en las tarjetas. */
+.signal-card {
+  --bracket: var(--signal-line-strong);
+  border-radius: 6px;
+  background-image:
+    linear-gradient(var(--bracket), var(--bracket)), linear-gradient(var(--bracket), var(--bracket)),
+    linear-gradient(var(--bracket), var(--bracket)), linear-gradient(var(--bracket), var(--bracket)),
+    linear-gradient(var(--bracket), var(--bracket)), linear-gradient(var(--bracket), var(--bracket)),
+    linear-gradient(var(--bracket), var(--bracket)), linear-gradient(var(--bracket), var(--bracket));
+  background-position: top left, top left, top right, top right, bottom left, bottom left,
+    bottom right, bottom right;
+  background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px, 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+  background-repeat: no-repeat;
+}
+.signal-card:hover {
+  --bracket: var(--signal-cyan);
+}
+::selection {
+  background: var(--signal-cyan);
+  color: #05070c;
+}
+
+@media (max-width: 640px) {
+  .signal-hero h1,
+  .signal-editorial-hero h1,
+  .signal-portfolio-hero h1 {
+    font-size: clamp(1.4rem, 7.5vw, 2rem) !important;
+    letter-spacing: 0.04em !important;
+  }
+  .signal-section__heading h2,
+  .signal-process__intro h2,
+  .signal-final-cta h2,
+  .signal-chapter-heading h2 {
+    font-size: 1.35rem !important;
+  }
+}

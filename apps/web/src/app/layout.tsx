@@ -12,6 +12,7 @@ import Script from "next/script";
 import "./globals.css";
 import "./signal.css";
 import "./agenthub.css";
+import "./selene.css";
 import { getCareerExperienceYears } from "@/lib/experience";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -152,7 +153,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Michroma&family=Manrope:wght@300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="#111827" />

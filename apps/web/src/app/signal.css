@@ -1,25 +1,27 @@
 /* MGA Signal — 2026 design system */
 :root {
-  --signal-bg: #070b12;
-  --signal-surface: #0d1420;
+  --signal-bg: #05070c;
+  --signal-surface: #0b0f18;
   --signal-surface-raised: #131d2b;
   --signal-surface-soft: rgba(19, 29, 43, 0.72);
-  --signal-text: #f4f7fb;
+  --signal-text: #eef0f4;
   --signal-muted: #9aa8ba;
   --signal-subtle: #68778b;
   --signal-line: rgba(148, 163, 184, 0.16);
   --signal-line-strong: rgba(148, 163, 184, 0.28);
-  --signal-cyan: #22d3ee;
+  --signal-cyan: #6fb6ff;
   --signal-blue: #5271ff;
   --signal-lime: #a3e635;
   --signal-amber: #fbbf24;
   --signal-coral: #fb7185;
   --signal-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.18);
-  --signal-display: "Geist", Inter, sans-serif;
-  --signal-mono: "Geist Mono", "JetBrains Mono", monospace;
+  --signal-display: "Manrope", -apple-system, sans-serif;
+  --signal-heading: "Michroma", "Eurostile", "Arial Black", sans-serif;
+  --signal-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 
 html.light-mode {
+  --signal-cyan: #2a7bd0;
   --signal-bg: #f6f8fc;
   --signal-surface: #ffffff;
   --signal-surface-raised: #eef2f8;
@@ -51,10 +53,10 @@ body::before {
   z-index: -1;
   background:
     radial-gradient(circle at 78% -10%, rgba(82, 113, 255, 0.12), transparent 34rem),
-    radial-gradient(circle at 12% 24%, rgba(34, 211, 238, 0.06), transparent 28rem);
+    radial-gradient(circle at 12% 24%, rgba(111, 182, 255, 0.06), transparent 28rem);
 }
 
-::selection { background: rgba(34, 211, 238, 0.24); color: var(--signal-text); }
+::selection { background: rgba(111, 182, 255, 0.24); color: var(--signal-text); }
 
 :focus-visible {
   outline: 2px solid var(--signal-cyan) !important;
@@ -433,7 +435,7 @@ body::before {
 .signal-client-card:hover .signal-client-card__media--brand img { opacity: 1; }
 .signal-client-card__media--brand::before { content: ''; position: absolute; z-index: 1; left: 0; top: 0; width: 100%; height: 4px; background: var(--brand-accent); }
 .signal-client-card__media--brand::after { background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55)); }
-.signal-client-card__status { position: absolute; z-index: 1; top: 16px; right: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--brand-accent, rgba(34, 211, 238, .45)); border-radius: 999px; background: rgba(4, 8, 15, .72); color: var(--brand-accent, #a5f3fc) !important; font-weight: 700; font-family: var(--signal-mono); font-size: 10px; font-style: normal; letter-spacing: .08em; text-transform: uppercase; }
+.signal-client-card__status { position: absolute; z-index: 1; top: 16px; right: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--brand-accent, rgba(111, 182, 255, .45)); border-radius: 999px; background: rgba(4, 8, 15, .72); color: var(--brand-accent, #a5f3fc) !important; font-weight: 700; font-family: var(--signal-mono); font-size: 10px; font-style: normal; letter-spacing: .08em; text-transform: uppercase; }
 .signal-client-card__status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: signal-wip-pulse 1.8s ease-in-out infinite; }
 @keyframes signal-wip-pulse { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { .signal-client-card__status::before { animation: none; } }
@@ -1794,7 +1796,7 @@ html.light-mode .signal-work-wip { color: var(--work-brand-bg); border-color: va
 
 .signal-iar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 44px; }
 .signal-iar-case { display: flex; flex-direction: column; }
-.signal-iar-case__icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(34, 211, 238, .35); border-radius: 12px; color: var(--signal-cyan); background: rgba(34, 211, 238, .06); }
+.signal-iar-case__icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(111, 182, 255, .35); border-radius: 12px; color: var(--signal-cyan); background: rgba(111, 182, 255, .06); }
 .signal-iar-case h3 { margin: 28px 0 10px !important; font-size: 20px !important; }
 
 .signal-iar-list { list-style: none; display: grid; gap: 12px; margin: 28px 0 0; padding: 0; }
@@ -1898,7 +1900,7 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-pypi-pkg h3 { font-size: 22px; letter-spacing: -.025em; }
 .signal-pypi-pkg h3 a { color: var(--signal-text); text-decoration: underline; text-decoration-color: var(--signal-line-strong); text-underline-offset: 4px; }
 .signal-pypi-pkg h3 a:hover { text-decoration-color: var(--signal-cyan); }
-.signal-pypi-badge { border: 1px solid rgba(34, 211, 238, .35); border-radius: 999px; color: var(--signal-cyan); padding: 4px 10px; font: 600 11px/1 var(--signal-mono); }
+.signal-pypi-badge { border: 1px solid rgba(111, 182, 255, .35); border-radius: 999px; color: var(--signal-cyan); padding: 4px 10px; font: 600 11px/1 var(--signal-mono); }
 .signal-pypi-pkg__summary { margin: 0; color: var(--signal-muted); font-size: 14px; line-height: 1.6; }
 .signal-pypi-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 16px 0; border-top: 1px solid var(--signal-line); border-bottom: 1px solid var(--signal-line); }
 .signal-pypi-nums dt { color: var(--signal-subtle); font: 600 10px/1 var(--signal-mono); letter-spacing: .1em; text-transform: uppercase; }
@@ -1947,14 +1949,14 @@ html.light-mode .signal-iar-code { background: var(--signal-surface-raised); }
 .signal-pd-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .signal-pd-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--signal-line-strong); border-radius: 999px; background: transparent; color: var(--signal-muted); padding: 7px 14px; font: 600 12px/1 var(--signal-mono); cursor: pointer; transition: border-color 140ms, color 140ms, background 140ms; }
 .signal-pd-chip i { width: 9px; height: 9px; border-radius: 50%; opacity: .35; }
-.signal-pd-chip.is-on { border-color: var(--signal-cyan); color: var(--signal-text); background: rgba(34, 211, 238, .08); }
+.signal-pd-chip.is-on { border-color: var(--signal-cyan); color: var(--signal-text); background: rgba(111, 182, 255, .08); }
 .signal-pd-chip.is-on i { opacity: 1; }
 .signal-pd-chip:hover { border-color: var(--signal-cyan); }
 .signal-pd-link { background: none; border: 0; color: var(--signal-cyan); font: 600 12px var(--signal-mono); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 6px; }
 .signal-pd-seg { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--signal-line-strong); border-radius: 12px; overflow: hidden; }
 .signal-pd-seg button { background: transparent; border: 0; border-right: 1px solid var(--signal-line); color: var(--signal-muted); padding: 9px 14px; font: 600 12px/1 var(--signal-display); cursor: pointer; }
 .signal-pd-seg button:last-child { border-right: 0; }
-.signal-pd-seg button.is-on { background: rgba(34, 211, 238, .14); color: var(--signal-cyan); }
+.signal-pd-seg button.is-on { background: rgba(111, 182, 255, .14); color: var(--signal-cyan); }
 .signal-pd-seg button:hover:not(.is-on) { color: var(--signal-text); }
 .signal-pd-dates { display: flex; gap: 12px; flex-wrap: wrap; }
 .signal-pd-dates label { display: flex; flex-direction: column; gap: 6px; color: var(--signal-subtle); font-size: 11px; }
@@ -1982,7 +1984,7 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-panel h4 { margin: 0 0 18px; color: var(--signal-text); font-size: 15px; letter-spacing: -.01em; }
 .signal-pd-panel__bar { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; margin-bottom: 22px; }
 .signal-pd-check { display: inline-flex; align-items: center; gap: 9px; color: var(--signal-muted); font-size: 13px; cursor: pointer; }
-.signal-pd-check input { accent-color: #22d3ee; width: 16px; height: 16px; }
+.signal-pd-check input { accent-color: #6fb6ff; width: 16px; height: 16px; }
 .signal-pd-check.is-disabled { opacity: .4; cursor: default; }
 .signal-pd-chart { position: relative; width: 100%; }
 .signal-pd-chart--main { height: 420px; }
@@ -2006,7 +2008,7 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-table td.num { color: var(--signal-text); text-align: right; padding-right: 22px; }
 .signal-pd-table th:not(:first-child):not(.txt) { text-align: right; padding-right: 22px; }
 .signal-pd-table th.txt, .signal-pd-table td.txt { text-align: left; padding-right: 22px; }
-.signal-pd-table tr.is-solo td { background: rgba(34, 211, 238, .05); }
+.signal-pd-table tr.is-solo td { background: rgba(111, 182, 255, .05); }
 .signal-pd-table tr.is-partial td { opacity: .6; }
 .signal-pd-table a { color: var(--signal-cyan); text-decoration: underline; text-underline-offset: 3px; }
 .signal-pd-name { display: inline-flex; align-items: center; gap: 9px; background: none; border: 0; color: var(--signal-text); font: 650 14px var(--signal-display); cursor: pointer; padding: 0; text-align: left; }
@@ -2044,8 +2046,8 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 /* Project cards: a project with its own page gets a second link next to "view repository" */
 .signal-project-card__links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: auto; }
 .signal-project-card__links .signal-project-card__link { margin-top: 0; align-self: auto; }
-.signal-project-card__link--primary { border: 1px solid rgba(34, 211, 238, .4); border-radius: 999px; padding: 8px 14px; background: rgba(34, 211, 238, .07); }
-.signal-project-card__link--primary:hover { background: rgba(34, 211, 238, .14); }
+.signal-project-card__link--primary { border: 1px solid rgba(111, 182, 255, .4); border-radius: 999px; padding: 8px 14px; background: rgba(111, 182, 255, .07); }
+.signal-project-card__link--primary:hover { background: rgba(111, 182, 255, .14); }
 
 /* PyPI dashboard: world map, country ranking and the three-panel row */
 .signal-pd-two--wide-left { grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr); }
@@ -2056,14 +2058,14 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-map__country { fill: var(--signal-line); stroke: var(--signal-surface); stroke-width: .5; cursor: pointer; transition: opacity 120ms; }
 .signal-pd-map__country:hover { opacity: .72; stroke: var(--signal-text); stroke-width: .8; }
 .signal-pd-map__country.is-active, .signal-pd-map__dot.is-active { stroke: var(--signal-text); stroke-width: 1.4; }
-.signal-pd-map__dot { fill: rgba(34, 211, 238, .85); stroke: var(--signal-surface); stroke-width: .8; cursor: pointer; }
+.signal-pd-map__dot { fill: rgba(111, 182, 255, .85); stroke: var(--signal-surface); stroke-width: .8; cursor: pointer; }
 .signal-pd-map__tip { position: absolute; z-index: 5; pointer-events: none; display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--signal-line-strong); border-radius: 10px; background: var(--signal-surface); padding: 8px 12px; box-shadow: var(--signal-shadow); font-size: 12px; color: var(--signal-muted); white-space: nowrap; }
 .signal-pd-map__tip b { color: var(--signal-text); font-size: 13px; }
 .signal-pd-maplegend { display: flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--signal-subtle); font: 500 11px var(--signal-mono); }
-.signal-pd-maplegend i { flex: 0 0 180px; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(34, 211, 238, .22), rgba(34, 211, 238, 1)); }
+.signal-pd-maplegend i { flex: 0 0 180px; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(111, 182, 255, .22), rgba(111, 182, 255, 1)); }
 .signal-pd-rank { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .signal-pd-rank button { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(60px, 1.2fr) auto; align-items: center; gap: 12px; width: 100%; background: none; border: 0; border-radius: 8px; padding: 7px 8px; color: var(--signal-muted); font-size: 13px; text-align: left; cursor: pointer; }
-.signal-pd-rank button:hover { background: rgba(34, 211, 238, .07); color: var(--signal-text); }
+.signal-pd-rank button:hover { background: rgba(111, 182, 255, .07); color: var(--signal-text); }
 .signal-pd-rank__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .signal-pd-rank__bar { height: 6px; border-radius: 99px; background: var(--signal-line); overflow: hidden; }
 .signal-pd-rank__bar i { display: block; height: 100%; border-radius: 99px; background: var(--signal-cyan); }
