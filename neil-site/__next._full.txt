@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+2:"/neil-site/_next/static/chunks/18ofbjgk16kf_.js"
+3:"/neil-site/_next/static/chunks/3nwjwb18o4vy1.js"
+4:I[79520,["$2","$3"],""]
+5:"DataErrorBoundary"
+6:I[11730,["$2","$3"],"$5"]
+7:"NeilDataProvider"
+8:I[60856,["$2","$3"],"$7"]
+9:"LanguageProvider"
+a:I[63766,["$2","$3"],"$9"]
+b:I[66721,["$2","$3"],"default"]
+c:I[89471,["$2","$3"],"default"]
+d:I[52044,["$2","$3"],"default"]
+e:I[39756,["$2","$3"],"default"]
+f:I[37457,["$2","$3"],"default"]
+10:I[69295,["$2","$3"],"default"]
+12:"/neil-site/_next/static/chunks/212j4jgz-_vgo.js"
+13:"/neil-site/_next/static/chunks/44ysnh193-wpo.js"
+14:I[1295,["$2","$3","$12","$13"],"default"]
+15:I[33823,["$2","$3","$12","$13"],"default"]
+16:I[54607,["$2","$3","$12","$13"],"default"]
+17:I[60529,["$2","$3","$12","$13"],"default"]
+18:I[67198,["$2","$3","$12","$13"],"default"]
+19:I[55437,["$2","$3","$12","$13"],"default"]
+1a:I[44585,["$2","$3","$12","$13"],"default"]
+1b:I[86076,["$2","$3","$12","$13"],"default"]
+1c:I[67526,["$2","$3","$12","$13"],"default"]
+1d:I[53178,["$2","$3","$12","$13"],"default"]
+1e:I[20162,["$2","$3","$12","$13"],"default"]
+20:"ViewportBoundary"
+21:I[97367,["$2","$3"],"$20"]
+23:"MetadataBoundary"
+24:I[97367,["$2","$3"],"$23"]
+25:"$Sreact.suspense"
+27:I[68027,["$2","$3"],"default",1]
+:HL["/neil-site/_next/static/chunks/0g_9ph6noza5e.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap","style"]
+11:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-navy-950 overflow-x-hidden","children":[["$","$L14",null,{}],["$","$L15",null,{}],["$","$L16",null,{}],["$","$L17",null,{}],["$","$L18",null,{}],["$","$L19",null,{}],["$","$L1a",null,{}],["$","$L1b",null,{}],["$","$L1c",null,{}],["$","$L1d",null,{}],["$","$L1e",null,{}]]}],[["$","script","script-0",{"src":"/neil-site/_next/static/chunks/212j4jgz-_vgo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/neil-site/_next/static/chunks/44ysnh193-wpo.js","async":true,"nonce":"$undefined"}]],"$L1f"]}],"p":false,"v":null}}]]
+0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/neil-site/_next/static/chunks/0g_9ph6noza5e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/neil-site/_next/static/chunks/18ofbjgk16kf_.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/neil-site/_next/static/chunks/3nwjwb18o4vy1.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,h=window.location.hash;window.location.replace('https://www.mgatc.com'+p+s+h);})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"theme-color","content":"#0B1120"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var a=c==='analytics'||c==='all'?'granted':'denied',d=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:a,ad_storage:d,ad_user_data:d,ad_personalization:d,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],["$","body",null,{"children":[["$","$L4",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L4",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'neil',\n              client_name: 'Neil Climatizadores',\n            });\n            window.mgaAnalyticsReady = true;\n          "}],["$","$L6",null,{"children":["$","$L8",null,{"children":["$","$La",null,{"children":[["$","$Lb",null,{}],["$","$Lc",null,{}],["$","$Ld",null,{}],["$","$Le",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lf",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L10",null,{}]]}]}]}]]}]]}]]}],"p":false,"v":null},"c":"$Q11"},"h":{"r":["$","$1","h",{"children":[null,["$","$L21",null,{"children":"$L22"}],["$","$L24",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$25",null,{"name":"Next.Metadata","children":"$L26"}]}],null]}],null]}],"p":false,"v":null}},"m":"$undefined","G":["$27",[["$","link","0",{"rel":"stylesheet","href":"/neil-site/_next/static/chunks/0g_9ph6noza5e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"q6tlr4Sw0bXK_vVuh2I8D"}
+28:I[97367,["$2","$3"],"OutletBoundary"]
+1f:["$","$L28",null,{"children":["$","$25",null,{"name":"Next.MetadataOutlet","children":"$@29"}]}]
+22:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2a:I[27201,["$2","$3"],"IconMark"]
+26:[["$","title","0",{"children":"Neil Climatizadores | Innovación y Confort para Cada Vehículo"}],["$","meta","1",{"name":"description","content":"Especialistas en climatización evaporativa, aires acondicionados y calderas para motorhomes, camiones y vehículos especiales. Tecnología patentada (AR-031005B1). Presencia en Argentina y toda Europa."}],["$","meta","2",{"name":"keywords","content":"climatizador,evaporativo,motorhome,camion,aire acondicionado,caldera,pre-enfriado,neil,vehiculo,12v,24v,climatiseur,klimaanlage,climatizzatore,caravane"}],["$","meta","3",{"property":"og:title","content":"Neil Climatizadores | Tecnología que te acompaña"}],["$","meta","4",{"property":"og:description","content":"Climatizadores evaporativos con patente exclusiva para motorhomes y camiones. Presencia en Argentina y Europa."}],["$","meta","5",{"property":"og:url","content":"https://neil.com.ar/"}],["$","meta","6",{"property":"og:site_name","content":"Neil Climatizadores"}],["$","meta","7",{"property":"og:image","content":"https://mgobeaalcoba.github.io/neil-site/images/logo-neil.png"}],["$","meta","8",{"property":"og:image:width","content":"879"}],["$","meta","9",{"property":"og:image:height","content":"638"}],["$","meta","10",{"property":"og:type","content":"website"}],["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","12",{"name":"twitter:title","content":"Neil Climatizadores | Tecnología que te acompaña"}],["$","meta","13",{"name":"twitter:description","content":"Climatizadores evaporativos con patente exclusiva para motorhomes y camiones. Presencia en Argentina y Europa."}],["$","meta","14",{"name":"twitter:image","content":"https://mgobeaalcoba.github.io/neil-site/images/logo-neil.png"}],["$","meta","15",{"name":"twitter:image:width","content":"879"}],["$","meta","16",{"name":"twitter:image:height","content":"638"}],["$","link","17",{"rel":"icon","href":"/neil-site/favicon.png"}],["$","link","18",{"rel":"apple-touch-icon","href":"/neil-site/favicon.png"}],["$","$L2a","19",{}]]
+29:null

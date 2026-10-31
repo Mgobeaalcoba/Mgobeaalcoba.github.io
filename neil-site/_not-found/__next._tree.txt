@@ -1,0 +1,5 @@
+:HL["/neil-site/_next/static/chunks/0g_9ph6noza5e.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"q6tlr4Sw0bXK_vVuh2I8D","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

@@ -1,0 +1,37 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/1zg-kc-gus_vt.js"
+4:"/_next/static/chunks/3pnxqhkfh0a2r.js"
+5:"/_next/static/chunks/2r-5xb41v2ymm.js"
+6:"/_next/static/chunks/401l4x3xwesgw.js"
+7:"/_next/static/chunks/38djnbvehhs-x.js"
+8:I[39756,["$3","$4","$5","$6","$7"],"default"]
+9:I[37457,["$3","$4","$5","$6","$7"],"default"]
+10:"/_next/static/chunks/0eh637jni0usl.js"
+11:"/_next/static/chunks/3-qy0dfoeuqeb.js"
+12:I[40464,["$3","$4","$5","$6","$7","$10","$11"],"default"]
+13:I[78208,["$3","$4","$5","$6","$7","$10","$11"],"default"]
+14:I[68921,["$3","$4","$5","$6","$7","$10","$11"],"default"]
+15:I[21686,["$3","$4","$5","$6","$7","$10","$11"],"default"]
+16:I[97367,["$3","$4","$5","$6","$7"],"OutletBoundary"]
+17:"$Sreact.suspense"
+1a:"ViewportBoundary"
+1b:I[97367,["$3","$4","$5","$6","$7"],"$1a"]
+1c:"MetadataBoundary"
+1d:I[97367,["$3","$4","$5","$6","$7"],"$1c"]
+1e:I[27201,["$3","$4","$5","$6","$7"],"IconMark"]
+b:X
+b:C
+c:X
+f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-work-page","children":[["$","$L12",null,{}],["$","$L13",null,{}],["$","$L14",null,{}],["$","$L15",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/0eh637jni0usl.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/3-qy0dfoeuqeb.js","async":true}]],["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]]}],"p":"$@19","v":null,"s":"$c"}}]]
+d:[["children",{"s":"henry","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@e","v":"$b","s":"$c"},"c":"$Qf"}]]
+1:[["children",{"s":"trabajos","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@a","v":"$b","s":"$c"},"c":"$Qd"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L1b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","$L1d",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Henry · Rediseño de la carrera de AI Automation | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"Cómo rediseñamos la carrera de AI Automation de Henry: de herramientas a habilidades, con un módulo de producción, un contrato de uso de IA por módulo y proyecto final con defensa."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/trabajos/henry/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"MGA Tech Consulting | Automatización, IA & Datos para PyMEs"}],["$","meta","15",{"property":"og:description","content":"Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/"}],["$","meta","17",{"property":"og:site_name","content":"MGA Tech Consulting"}],["$","meta","18",{"property":"og:locale","content":"es_AR"}],["$","meta","19",{"property":"og:image","content":"https://www.mgatc.com/og.png"}],["$","meta","20",{"property":"og:image:width","content":"1200"}],["$","meta","21",{"property":"og:image:height","content":"630"}],["$","meta","22",{"property":"og:image:alt","content":"MGA Tech Consulting — Sistemas medibles para operar mejor"}],["$","meta","23",{"property":"og:type","content":"website"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"MGA Tech Consulting | Automatización, IA & Datos para PyMEs"}],["$","meta","26",{"name":"twitter:description","content":"Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L1e","29",{}]]}]}],null]}],null]}],"p":"$@1f","v":null,"s":"$c"}},"a":"$@20","u":"$@21","b":"bkrmlU5UIrIdWqtdsRT5h"}
+18:null
+21:true
+c:300
+c:C
+20:0
+e:"$undefined"
+a:"$undefined"
+1f:"$undefined"
+19:"$undefined"

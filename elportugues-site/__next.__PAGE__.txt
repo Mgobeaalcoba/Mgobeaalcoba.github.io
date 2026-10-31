@@ -1,0 +1,51 @@
+1:"$Sreact.fragment"
+2:"/elportugues-site/_next/static/chunks/0y9bod6rpmgw7.js"
+3:"/elportugues-site/_next/static/chunks/1fk6m6erwqp97.js"
+4:I[79520,["$2","$3"],""]
+5:"DataErrorBoundary"
+6:I[48398,["$2","$3"],"$5"]
+7:I[92944,["$2","$3"],"EpDataProvider"]
+8:I[89983,["$2","$3"],"default"]
+9:I[30944,["$2","$3"],"default"]
+a:I[82440,["$2","$3"],"default"]
+b:I[39756,["$2","$3"],"default"]
+c:I[37457,["$2","$3"],"default"]
+d:I[81196,["$2","$3"],"default"]
+11:"/elportugues-site/_next/static/chunks/0266km8qgfye_.js"
+12:I[81240,["$2","$3","$11"],"default"]
+13:I[97367,["$2","$3"],"OutletBoundary"]
+14:"$Sreact.suspense"
+17:"ViewportBoundary"
+18:I[97367,["$2","$3"],"$17"]
+19:"MetadataBoundary"
+1a:I[97367,["$2","$3"],"$19"]
+:HL["/elportugues-site/_next/static/chunks/0u2xuc3veefn9.css","style"]
+f:X
+10:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L12",null,{}],[["$","script","script-0",{"src":"/elportugues-site/_next/static/chunks/0266km8qgfye_.js","async":true}]],["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]]}],"p":"$@16","v":null,"s":"$f"}}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/elportugues-site/_next/static/chunks/0u2xuc3veefn9.css","precedence":"next"}],["$","script","script-0",{"src":"/elportugues-site/_next/static/chunks/0y9bod6rpmgw7.js","async":true}],["$","script","script-1",{"src":"/elportugues-site/_next/static/chunks/1fk6m6erwqp97.js","async":true}]],["$","html",null,{"lang":"es","className":"scroll-smooth","children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,h=window.location.hash;window.location.replace('https://www.mgatc.com'+p+s+h);})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var a=c==='analytics'||c==='all'?'granted':'denied',d=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:a,ad_storage:d,ad_user_data:d,ad_personalization:d,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}],["$","$L4",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L4",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'elportugues',\n              client_name: 'El Portugues SA'\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}],["$","body",null,{"className":"bg-black text-white antialiased","children":["$","$L6",null,{"children":["$","$L7",null,{"children":[["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","$Ld",null,{}]]}]}]}]]}]]}],"p":"$@e","v":null,"s":"$f"},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1a",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"El Portugués S.A. | Logística y Distribución"}],["$","meta","1",{"name":"description","content":"Transporte El Portugués Logística y Distribución S.A. — Más de 80 años de experiencia en logística, distribución y almacenamiento. Certificados ISO 9001:2015."}],["$","meta","2",{"name":"keywords","content":"logística, distribución, almacenamiento, transporte, AMBA, Argentina, ISO 9001"}],["$","meta","3",{"property":"og:title","content":"El Portugués S.A. | Logística y Distribución"}],["$","meta","4",{"property":"og:description","content":"Transporte El Portugués Logística y Distribución S.A. — Más de 80 años de experiencia en logística, distribución y almacenamiento. Certificados ISO 9001:2015."}],"$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25","$L26","$L27","$L28","$L29","$L2a","$L2b"]}]}],null]}],null]}],"p":"$@2c","v":null,"s":"$f"}},"a":"$@2d","u":"$@2e","b":"rK6LcL7xe0Uv_5E7yjt5V"}
+2f:I[27201,["$2","$3"],"IconMark"]
+15:null
+1b:["$","meta","5",{"property":"og:locale","content":"es_AR"}]
+1c:["$","meta","6",{"property":"og:image","content":"https://elportuguessa.com.ar/wp-content/uploads/2024/07/EP-Home-1-scaled.jpg"}]
+1d:["$","meta","7",{"property":"og:image:width","content":"1200"}]
+1e:["$","meta","8",{"property":"og:image:height","content":"630"}]
+1f:["$","meta","9",{"property":"og:image:alt","content":"El Portugués S.A."}]
+20:["$","meta","10",{"property":"og:type","content":"website"}]
+21:["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}]
+22:["$","meta","12",{"name":"twitter:title","content":"El Portugués S.A. | Logística y Distribución"}]
+23:["$","meta","13",{"name":"twitter:description","content":"Transporte El Portugués Logística y Distribución S.A. — Más de 80 años de experiencia en logística, distribución y almacenamiento. Certificados ISO 9001:2015."}]
+24:["$","meta","14",{"name":"twitter:image","content":"https://elportuguessa.com.ar/wp-content/uploads/2024/07/EP-Home-1-scaled.jpg"}]
+25:["$","meta","15",{"name":"twitter:image:alt","content":"El Portugués S.A."}]
+26:["$","meta","16",{"name":"twitter:image:width","content":"1200"}]
+27:["$","meta","17",{"name":"twitter:image:height","content":"630"}]
+28:["$","link","18",{"rel":"shortcut icon","href":"/elportugues-site/favicon.png"}]
+29:["$","link","19",{"rel":"icon","href":"/elportugues-site/favicon.png"}]
+2a:["$","link","20",{"rel":"apple-touch-icon","href":"/elportugues-site/favicon.png"}]
+2b:["$","$L2f","21",{}]
+f:300
+2e:true
+f:C
+2d:0
+e:"$undefined"
+2c:"$undefined"
+16:"$undefined"

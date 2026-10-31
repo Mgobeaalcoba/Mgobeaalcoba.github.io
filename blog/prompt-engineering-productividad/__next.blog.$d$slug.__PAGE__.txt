@@ -1,0 +1,182 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/1zg-kc-gus_vt.js"
+4:"/_next/static/chunks/3pnxqhkfh0a2r.js"
+5:"/_next/static/chunks/2r-5xb41v2ymm.js"
+6:"/_next/static/chunks/401l4x3xwesgw.js"
+7:"/_next/static/chunks/38djnbvehhs-x.js"
+8:I[39756,["$3","$4","$5","$6","$7"],"default"]
+9:I[37457,["$3","$4","$5","$6","$7"],"default"]
+11:"/_next/static/chunks/0r9aj2qdsrqo-.js"
+12:"/_next/static/chunks/3-qy0dfoeuqeb.js"
+13:I[28675,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+14:I[40464,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+15:I[78208,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+16:I[22016,["$3","$4","$5","$6","$7","$11","$12"],""]
+23:"ViewportBoundary"
+24:I[97367,["$3","$4","$5","$6","$7"],"$23"]
+25:"MetadataBoundary"
+26:I[97367,["$3","$4","$5","$6","$7"],"$25"]
+27:"$Sreact.suspense"
+28:I[27201,["$3","$4","$5","$6","$7"],"IconMark"]
+b:X
+b:C
+c:X
+10:T421,{"@context":"https://schema.org","@type":"Article","headline":"Por qué importa el prompting","description":"El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Ac...","url":"https://www.mgatc.com/blog/prompt-engineering-productividad/","datePublished":"2025-10-26","dateModified":"2025-10-26","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/prompt-engineering-productividad/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","$L13",null,{"contentType":"article","contentId":"prompt-engineering-productividad","title":"Por qué importa el prompting"}],["$","$L14",null,{"site_section":"blog"}],["$","$L15",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L16",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Por qué importa el prompting"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Ac..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"26 de octubre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":["$L17","$L18","$undefined"]}],"4 min read"]}],"$L19"]}],"$L1a"]}],"$L1b","$L1c","$L1d"]}],"$L1e"]}],["$L1f","$L20"],"$L21"]}],"p":"$@22","v":null,"s":"$c"}}]]
+d:[["children",{"s":{"n":"slug","t":"d","k":"prompt-engineering-productividad","s":["special","videos"]},"h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@e","v":"$b","s":"$c"},"c":"$Qf"}]]
+1:[["children",{"s":"blog","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@a","v":"$b","s":"$c"},"c":"$Qd"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L24",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","$L26",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$27",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Por qué importa el prompting | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Ac..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/prompt-engineering-productividad/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Por qué importa el prompting"}],["$","meta","15",{"property":"og:description","content":"El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Ac..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/prompt-engineering-productividad/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Por qué importa el prompting"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2025-10-26"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"Por qué importa el prompting"}],["$","meta","26",{"name":"twitter:description","content":"El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Ac..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L28","29",{}]]}]}],null]}],null]}],"p":"$@29","v":null,"s":"$c"}},"a":"$@2a","u":"$@2b","b":"bkrmlU5UIrIdWqtdsRT5h"}
+2c:I[66158,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+2e:I[6265,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+2f:I[21686,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+30:I[97367,["$3","$4","$5","$6","$7"],"OutletBoundary"]
+17:["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}]
+18:["$","path","mmk7yg",{"d":"M12 6v6l4 2"}]
+19:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+1a:["$","$L2c",null,{"slug":"prompt-engineering-productividad","title":"Por qué importa el prompting"}]
+2d:T133f,<p>El prompt engineering no es una habilidad mística — es un conjunto de técnicas concretas que mejoran dramáticamente la calidad de las respuestas de los LLMs. Acá las que más impacto tienen en mi flujo de trabajo.</p>
+<h2>Por qué importa el prompting</h2>
+<p>Con el mismo modelo (GPT-4o, Claude 3.5), un prompt bien construido puede:</p>
+<ul>
+<li>Reducir alucinaciones en 60-70%</li>
+<li>Mejorar la consistencia del formato de salida</li>
+<li>Obtener respuestas más específicas y accionables</li>
+<li>Reducir el número de iteraciones para llegar al resultado</li>
+</ul>
+<h2>Técnica 1: Asignación de rol con contexto específico</h2>
+<pre><code>❌ Malo:
+"Revisá este código Python."
+
+✅ Bueno:
+"Sos un Python senior engineer especializado en data pipelines y performance. 
+Tenés 10 años de experiencia en sistemas de alta escala. Tu tarea es revisar 
+el siguiente código e identificar:
+1. Problemas de performance (memoria, CPU, I/O)
+2. Posibles excepciones no manejadas
+3. Antipatrones específicos de Python
+4. Sugerencias con el fix concreto, no teoría general.
+
+Código:
+[código acá]"
+</code></pre>
+<h2>Técnica 2: Few-shot examples</h2>
+<p>Los ejemplos son más poderosos que las instrucciones:</p>
+<pre><code>Clasificá el siguiente ticket de soporte en una categoría.
+
+Categorías disponibles: BILLING, TECHNICAL, ACCOUNT, DELIVERY, OTHER
+
+Ejemplos:
+Input: "No me llega el paquete, ya pasaron 5 días"
+Output: DELIVERY
+
+Input: "Me cobró dos veces el mismo pedido"
+Output: BILLING
+
+Input: "No puedo iniciar sesión con mi cuenta"
+Output: ACCOUNT
+
+Input: "La app se cierra cuando intento agregar al carrito"
+Output: TECHNICAL
+
+Ahora clasificá este:
+Input: "Quiero cambiar mi contraseña porque la olvidé"
+Output:
+</code></pre>
+<h2>Técnica 3: Chain of Thought (CoT)</h2>
+<p>Para tareas de razonamiento, pedirle al modelo que piense paso a paso:</p>
+<pre><code>Analizá si esta campaña de email marketing fue exitosa. 
+Pensá paso a paso antes de dar tu conclusión.
+
+Datos:
+- Enviados: 50,000 emails
+- Abiertos: 8,500 (17% open rate)
+- Clicks: 1,200 (14.1% CTR)
+- Conversiones: 48 (4% conversion rate)
+- Revenue generado: $14,400
+- Costo de la campaña: $2,800
+
+Mostrá tu razonamiento antes de la conclusión final.
+</code></pre>
+<p>Esto produce análisis más profundos y con menos errores que pedir directamente "¿fue exitosa?".</p>
+<h2>Técnica 4: Restricciones explícitas</h2>
+<pre><code>Escribí un email para rechazar la propuesta de un proveedor.
+
+RESTRICCIONES (obligatorio cumplir todas):
+- Máximo 150 palabras
+- Tono profesional pero cálido, no frío
+- No mencionar el motivo específico del rechazo
+- Dejar la puerta abierta para futuras colaboraciones
+- En español neutro, no Argentina
+- Primer párrafo: agradecimiento
+- Segundo párrafo: decisión
+- Tercer párrafo: futuro
+</code></pre>
+<h2>Técnica 5: Formato de salida explícito</h2>
+<pre><code>Generá un análisis competitivo de las siguientes 3 empresas.
+
+FORMATO DE SALIDA REQUERIDO:
+## [Nombre Empresa]
+**Fortalezas**: [lista con bullets]
+**Debilidades**: [lista con bullets]
+**Oportunidad para nosotros**: [1-2 oraciones]
+**Score competitivo**: [número del 1 al 10]
+
+No uses otro formato. No agregues introducción ni conclusión.
+</code></pre>
+<h2>Técnica 6: Iteración con feedback</h2>
+<p>En lugar de escribir el prompt perfecto de entrada, usar un ciclo de mejora:</p>
+<pre><code>Paso 1: "Resumí este documento en 3 bullets"
+Paso 2: "El tercer bullet está incompleto. Expandilo con más detalle sobre X"
+Paso 3: "Ahora reescribí los 3 bullets en formato ejecutivo, más concreto"
+</code></pre>
+<h2>Técnica 7: Delimiter para separar instrucciones de datos</h2>
+<pre><code>Clasificá el texto delimitado por triple comillas según el sentimiento.
+
+Respuesta: solo "POSITIVO", "NEGATIVO" o "NEUTRO". Sin explicación.
+
+"""
+El producto llegó antes de lo esperado y la calidad superó mis expectativas. 
+Definitivamente volvería a comprar.
+"""
+</code></pre>
+<p>Los delimitadores (```, ----, ===) previenen que el modelo confunda las instrucciones con el contenido.</p>
+<h2>Template para tareas de código</h2>
+<pre><code>CONTEXTO: [Describe el sistema/proyecto en 2-3 líneas]
+
+TAREA: [Qué exactamente necesitás que haga]
+
+CONSTRAINS:
+- [Restricción técnica 1]
+- [Restricción técnica 2]
+
+CÓDIGO EXISTENTE:
+```python
+[código acá]
+</code></pre>
+<p>SALIDA ESPERADA: [Describe el output exacto que esperás]</p>
+<p>NOTA IMPORTANTE: [Cualquier context que el modelo no debe ignorar]</p>
+<pre><code>
+## Herramientas para iterar prompts
+
+- **PromptFlow** (Azure): Testing sistemático de prompts
+- **LangSmith**: Trazabilidad de chains de LangChain
+- **Promptfoo**: Open source, CI/CD para prompts
+- **Weights &#x26; Biases Prompts**: Para ML workflows
+
+El prompt engineering es una habilidad que mejora con práctica. La clave: iterar rápido, medir el output, y documentar qué funciona.
+</code></pre>
+1b:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$2d"}}]
+1c:["$","$L2e",null,{"category":"Data & Analytics"}]
+1d:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L16",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L16",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+1e:["$","$L2f",null,{}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/0r9aj2qdsrqo-.js","async":true}]
+20:["$","script","script-1",{"src":"/_next/static/chunks/3-qy0dfoeuqeb.js","async":true}]
+21:["$","$L30",null,{"children":["$","$27",null,{"name":"Next.MetadataOutlet","children":"$@31"}]}]
+2b:true
+c:300
+31:null
+c:C
+2a:0
+e:"$undefined"
+a:"$undefined"
+29:"$undefined"
+22:"$undefined"

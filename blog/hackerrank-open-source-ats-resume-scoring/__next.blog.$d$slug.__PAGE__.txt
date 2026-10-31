@@ -1,0 +1,125 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/1zg-kc-gus_vt.js"
+4:"/_next/static/chunks/3pnxqhkfh0a2r.js"
+5:"/_next/static/chunks/2r-5xb41v2ymm.js"
+6:"/_next/static/chunks/401l4x3xwesgw.js"
+7:"/_next/static/chunks/38djnbvehhs-x.js"
+8:I[39756,["$3","$4","$5","$6","$7"],"default"]
+9:I[37457,["$3","$4","$5","$6","$7"],"default"]
+11:"/_next/static/chunks/0r9aj2qdsrqo-.js"
+12:"/_next/static/chunks/3-qy0dfoeuqeb.js"
+13:I[28675,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+14:I[40464,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+15:I[78208,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+16:I[22016,["$3","$4","$5","$6","$7","$11","$12"],""]
+26:"ViewportBoundary"
+27:I[97367,["$3","$4","$5","$6","$7"],"$26"]
+28:"MetadataBoundary"
+29:I[97367,["$3","$4","$5","$6","$7"],"$28"]
+2a:"$Sreact.suspense"
+2b:I[27201,["$3","$4","$5","$6","$7"],"IconMark"]
+b:X
+b:C
+c:X
+10:T49a,{"@context":"https://schema.org","@type":"Article","headline":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica","description":"La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatizació...","url":"https://www.mgatc.com/blog/hackerrank-open-source-ats-resume-scoring/","datePublished":"2026-06-29","dateModified":"2026-06-29","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/hackerrank-open-source-ats-resume-scoring/"},"keywords":"","articleSection":"Automatización & IA","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","$L13",null,{"contentType":"article","contentId":"hackerrank-open-source-ats-resume-scoring","title":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}],["$","$L14",null,{"site_section":"blog"}],["$","$L15",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L16",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Automatización & IA"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatizació..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":["$L17","$L18","$L19","$L1a","$undefined"]}],"29 de junio de 2026"]}],"$L1b","$L1c"]}],"$L1d"]}],"$L1e","$L1f","$L20"]}],"$L21"]}],["$L22","$L23"],"$L24"]}],"p":"$@25","v":null,"s":"$c"}}]]
+d:[["children",{"s":{"n":"slug","t":"d","k":"hackerrank-open-source-ats-resume-scoring","s":["special","videos"]},"h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@e","v":"$b","s":"$c"},"c":"$Qf"}]]
+1:[["children",{"s":"blog","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@a","v":"$b","s":"$c"},"c":"$Qd"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L27",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","$L29",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$2a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatizació..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/hackerrank-open-source-ats-resume-scoring/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}],["$","meta","15",{"property":"og:description","content":"La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatizació..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/hackerrank-open-source-ats-resume-scoring/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-06-29"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}],["$","meta","26",{"name":"twitter:description","content":"La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatizació..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L2b","29",{}]]}]}],null]}],null]}],"p":"$@2c","v":null,"s":"$c"}},"a":"$@2d","u":"$@2e","b":"bkrmlU5UIrIdWqtdsRT5h"}
+2f:I[66158,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+31:I[6265,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+32:I[21686,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+33:I[97367,["$3","$4","$5","$6","$7"],"OutletBoundary"]
+17:["$","path","1cmpym",{"d":"M8 2v4"}]
+18:["$","path","4m81vk",{"d":"M16 2v4"}]
+19:["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}]
+1a:["$","path","8toen8",{"d":"M3 10h18"}]
+1b:["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"6 min read"]}]
+1c:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+1d:["$","$L2f",null,{"slug":"hackerrank-open-source-ats-resume-scoring","title":"La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica"}]
+30:T227b,<h2>La Inestabilidad Determinista: Análisis de los Sistemas de Filtrado de Candidatos (ATS) y el Riesgo de la Opacidad Algorítmica</h2>
+<p>La reciente apertura del código del Applicant Tracking System (ATS) de HackerRank ha detonado una discusión crítica en la ingeniería de datos y la automatización de procesos de contratación. El hecho de que un mismo resume —el documento fundamental para la evaluación de talento técnico— arroje puntuaciones variables (90, 74, 88) al ser procesado por el mismo motor en instancias diferentes, no es solo un error técnico; es un síntoma de una arquitectura de datos subyacente que carece de determinismo.</p>
+<p>Como ingenieros de datos, sabemos que cualquier pipeline que no garantice la idempotencia y la consistencia ante entradas idénticas es fundamentalmente defectuoso. Analizar este fenómeno requiere desglosar cómo los ATS modernos procesan la información no estructurada y por qué la varianza en los modelos de lenguaje (LLMs) o en las heurísticas de parsing introduce un ruido inaceptable en los flujos de trabajo de reclutamiento.</p>
+<h2>La Arquitectura del Error: Parsing y Normalización</h2>
+<p>Un sistema de puntuación de currículums opera bajo un pipeline de procesamiento de lenguaje natural (NLP) que suele incluir las siguientes fases:</p>
+<ol>
+<li><strong>Ingestión y extracción de texto:</strong> Conversión de formatos propietarios (PDF, DOCX) a texto plano mediante librerías como <code>pdfminer</code> o <code>Tika</code>.</li>
+<li><strong>Segmentación y etiquetado (Parsing):</strong> Identificación de entidades (habilidades, experiencia, educación).</li>
+<li><strong>Embeddings y similitud semántica:</strong> Vectorización del contenido y comparación contra un vector objetivo (el perfil de la vacante).</li>
+<li><strong>Ranking:</strong> Aplicación de un umbral o algoritmo de ordenamiento.</li>
+</ol>
+<p>El problema de la varianza en los resultados de HackerRank, observado por la comunidad, sugiere una falla en la capa de persistencia o en la inferencia de modelos que no han sido fijados (pinned) en cuanto a temperatura, semilla (seed) o versión del modelo.</p>
+<h3>El problema de la Temperatura en los Modelos de Inferencia</h3>
+<p>Si el sistema utiliza un LLM para realizar la extracción o el scoring, la variable <code>temperature</code> controla el grado de aleatoriedad. En tareas de extracción de datos, una temperatura distinta a 0 es una irresponsabilidad técnica.</p>
+<pre><code class="language-python"># Ejemplo de configuración de inferencia no determinista (lo que no debe hacerse)
+response = client.chat.completions.create(
+    model="gpt-4-turbo",
+    messages=[{"role": "user", "content": resume_text}],
+    temperature=0.7 # Esto introduce la varianza observada
+)
+</code></pre>
+<p>Para asegurar que un sistema de selección sea auditable y reproducible, la configuración debe ser estrictamente determinista:</p>
+<pre><code class="language-python"># Configuración determinista necesaria para sistemas de selección
+response = client.chat.completions.create(
+    model="gpt-4-turbo",
+    messages=[{"role": "user", "content": resume_text}],
+    temperature=0,
+    seed=42 # Fijar la semilla asegura consistencia en la generación
+)
+</code></pre>
+<h2>Sesgo en el Parsing: El Problema de la Estructura No Estructurada</h2>
+<p>El análisis del ATS de HackerRank revela que la heterogeneidad de los formatos de entrada es el principal enemigo del determinismo. Un currículum en formato de tabla compleja puede ser parseado correctamente en una ejecución y ser interpretado como un bloque de texto incoherente en otra, dependiendo de la librería de extracción utilizada o del orden de los tokens durante la tokenización.</p>
+<h3>Estrategias de Mitigación: Normalización vía Schemas</h3>
+<p>Para evitar la varianza, el enfoque debe moverse de "parseo de texto libre" a "parseo orientado a esquemas" (Schema-driven parsing). Utilizando herramientas como Pydantic para validar la salida del parser, podemos forzar al sistema a rechazar extracciones que no cumplan con una estructura de datos estricta.</p>
+<pre><code class="language-python">from pydantic import BaseModel, Field
+from typing import List
+
+class CandidateProfile(BaseModel):
+    years_of_experience: int
+    tech_stack: List[str]
+    education_level: str
+
+# Forzar al modelo a retornar un JSON validado contra el esquema
+# Si el parsing es inconsistente, la validación fallará, 
+# evitando puntuaciones aleatorias.
+</code></pre>
+<h2>La Falacia de la Automatización: Auditoría y Repetibilidad</h2>
+<p>La discusión en los foros técnicos subraya un punto ciego: la falta de observabilidad. Si un sistema entrega una puntuación de 88 y luego una de 74 para el mismo input, el sistema no está "aprendiendo"; está sufriendo de <em>model drift</em> o de una configuración de inferencia inestable.</p>
+<p>Desde una perspectiva de Staff Engineering, un sistema de puntuación de resumes debe seguir estos principios de diseño:</p>
+<ol>
+<li><strong>Inmutabilidad de la entrada:</strong> El archivo original debe ser convertido a un formato intermedio estandarizado (JSON o XML) antes de cualquier paso de scoring.</li>
+<li><strong>Versioning de Modelos:</strong> El scoring no debe ocurrir sobre "el modelo más reciente", sino sobre un modelo congelado (frozen) con una versión específica.</li>
+<li><strong>Trazabilidad:</strong> Cada puntuación debe estar asociada a un hash del resume, un hash del modelo y los parámetros de inferencia utilizados.</li>
+</ol>
+<h2>La Paradoja de HackerRank y el Riesgo Sistémico</h2>
+<p>La apertura del ATS de HackerRank es un ejercicio de transparencia encomiable, pero también expone que, incluso en empresas de tecnología de alto nivel, la implementación de pipelines de IA para decisiones de carrera sigue siendo experimental. La aleatoriedad (90 -> 74 -> 88) es una prueba contundente de que los modelos no están siendo tratados como software determinista, sino como oráculos probabilísticos que no tienen lugar en la toma de decisiones críticas de contratación sin una capa humana de verificación.</p>
+<p>La comunidad técnica debe presionar por estándares de "IA explicable" (XAI). No es suficiente con que el sistema diga que un candidato es "bueno"; el sistema debe ser capaz de justificar por qué una habilidad específica contribuyó al score, manteniendo la misma justificación en cada ejecución.</p>
+<h2>Consideraciones sobre el Futuro de los Sistemas ATS</h2>
+<p>Los ingenieros de datos deben enfocarse en construir sistemas que traten el resume no como una imagen, sino como un grafo de conocimiento. Al extraer habilidades, proyectos y educación como nodos conectados, eliminamos la dependencia del formato del documento.</p>
+<h3>Arquitectura Propuesta:</h3>
+<ul>
+<li><strong>Ingestor:</strong> Pipeline de OCR robusto (tesseract + vision transformers) para estandarizar a texto.</li>
+<li><strong>Extractor:</strong> LLM especializado (fine-tuned) para extracción de entidades, operando con <code>temperature=0</code>.</li>
+<li><strong>Scoring Engine:</strong> Algoritmo de comparación vectorial (Cosine Similarity) con vectores pre-calculados, no generativos.</li>
+<li><strong>Audit Log:</strong> Base de datos relacional que almacena el input y el output de cada paso.</li>
+</ul>
+<p>Esta estructura elimina la variabilidad. Si el resultado cambia, sabemos exactamente en qué parte del pipeline se originó el cambio: en el OCR, en el parser o en el embedding, no en la "alucinación" de un modelo mal configurado.</p>
+<h2>Conclusión</h2>
+<p>El caos observado en los puntajes de los resumes analizados por el ATS abierto de HackerRank es una lección sobre los peligros de implementar sistemas de IA sin una base sólida de ingeniería de software determinista. La automatización sin reproducibilidad es, simplemente, ruido aleatorio.</p>
+<p>Como ingenieros, nuestra responsabilidad no es solo implementar tecnología de vanguardia, sino garantizar que esta sea predecible, auditable y, sobre todo, equitativa. Un sistema que puntúa diferente a la misma persona en intervalos de segundos no solo es tecnológicamente inmaduro; es injusto. La estandarización de los pipelines, el uso estricto de parámetros de inferencia y la validación de esquemas son el único camino hacia una automatización seria en la industria.</p>
+<p>Si su organización está buscando optimizar sus pipelines de datos, implementar sistemas de IA con criterios de determinismo y reproducibilidad, o transformar sus procesos de evaluación de talento mediante ingeniería avanzada, estamos aquí para asistirle. Visite <a href="https://www.mgatc.com">https://www.mgatc.com</a> para conocer más sobre nuestros servicios de consultoría especializada en Data Engineering y AI.</p>
+1e:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$30"}}]
+1f:["$","$L31",null,{"category":"Automatización & IA"}]
+20:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L16",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L16",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+21:["$","$L32",null,{}]
+22:["$","script","script-0",{"src":"/_next/static/chunks/0r9aj2qdsrqo-.js","async":true}]
+23:["$","script","script-1",{"src":"/_next/static/chunks/3-qy0dfoeuqeb.js","async":true}]
+24:["$","$L33",null,{"children":["$","$2a",null,{"name":"Next.MetadataOutlet","children":"$@34"}]}]
+2e:true
+c:300
+34:null
+c:C
+2d:0
+e:"$undefined"
+a:"$undefined"
+2c:"$undefined"
+25:"$undefined"

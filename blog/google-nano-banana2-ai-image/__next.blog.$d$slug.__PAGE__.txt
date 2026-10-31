@@ -1,0 +1,96 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/1zg-kc-gus_vt.js"
+4:"/_next/static/chunks/3pnxqhkfh0a2r.js"
+5:"/_next/static/chunks/2r-5xb41v2ymm.js"
+6:"/_next/static/chunks/401l4x3xwesgw.js"
+7:"/_next/static/chunks/38djnbvehhs-x.js"
+8:I[39756,["$3","$4","$5","$6","$7"],"default"]
+9:I[37457,["$3","$4","$5","$6","$7"],"default"]
+11:"/_next/static/chunks/0r9aj2qdsrqo-.js"
+12:"/_next/static/chunks/3-qy0dfoeuqeb.js"
+13:I[28675,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+14:I[40464,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+15:I[78208,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+16:I[22016,["$3","$4","$5","$6","$7","$11","$12"],""]
+23:"ViewportBoundary"
+24:I[97367,["$3","$4","$5","$6","$7"],"$23"]
+25:"MetadataBoundary"
+26:I[97367,["$3","$4","$5","$6","$7"],"$25"]
+27:"$Sreact.suspense"
+28:I[27201,["$3","$4","$5","$6","$7"],"IconMark"]
+b:X
+b:C
+c:X
+10:T417,{"@context":"https://schema.org","@type":"Article","headline":"¿Qué es Nano Banana 2?","description":"La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que cream...","url":"https://www.mgatc.com/blog/google-nano-banana2-ai-image/","datePublished":"2026-02-26","dateModified":"2026-02-26","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/logo.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/google-nano-banana2-ai-image/"},"keywords":"","articleSection":"Tecnología aplicada","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","$L13",null,{"contentType":"article","contentId":"google-nano-banana2-ai-image","title":"¿Qué es Nano Banana 2?"}],["$","$L14",null,{"site_section":"blog"}],["$","$L15",null,{}],["$","article",null,{"className":"signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20","children":[["$","$L16",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Tecnología aplicada"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"¿Qué es Nano Banana 2?"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que cream..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"26 de febrero de 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":["$L17","$L18","$undefined"]}],"3 min read"]}],"$L19"]}],"$L1a"]}],"$L1b","$L1c","$L1d"]}],"$L1e"]}],["$L1f","$L20"],"$L21"]}],"p":"$@22","v":null,"s":"$c"}}]]
+d:[["children",{"s":{"n":"slug","t":"d","k":"google-nano-banana2-ai-image","s":["special","videos"]},"h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@e","v":"$b","s":"$c"},"c":"$Qf"}]]
+1:[["children",{"s":"blog","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@a","v":"$b","s":"$c"},"c":"$Qd"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L24",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#070b12","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f7fb","media":"(prefers-color-scheme: light)"}]]}],["$","$L26",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$27",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"¿Qué es Nano Banana 2? | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que cream..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/google-nano-banana2-ai-image/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"¿Qué es Nano Banana 2?"}],["$","meta","15",{"property":"og:description","content":"La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que cream..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/google-nano-banana2-ai-image/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/images/logo.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"¿Qué es Nano Banana 2?"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-02-26"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"¿Qué es Nano Banana 2?"}],["$","meta","26",{"name":"twitter:description","content":"La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que cream..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L28","29",{}]]}]}],null]}],null]}],"p":"$@29","v":null,"s":"$c"}},"a":"$@2a","u":"$@2b","b":"bkrmlU5UIrIdWqtdsRT5h"}
+2c:I[66158,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+2e:I[6265,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+2f:I[21686,["$3","$4","$5","$6","$7","$11","$12"],"default"]
+30:I[97367,["$3","$4","$5","$6","$7"],"OutletBoundary"]
+17:["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}]
+18:["$","path","mmk7yg",{"d":"M12 6v6l4 2"}]
+19:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+1a:["$","$L2c",null,{"slug":"google-nano-banana2-ai-image","title":"¿Qué es Nano Banana 2?"}]
+2d:T1163,<p>La generación de imágenes mediante inteligencia artificial ha experimentado un crecimiento exponencial en los últimos años, transformando la manera en que creamos contenido visual. Google, pionero en innovación tecnológica, ha presentado recientemente Nano Banana 2, su nueva versión mejorada de un modelo de generación de imágenes por IA que destaca por su eficiencia y resultados de alta calidad.</p>
+<h2>¿Qué es Nano Banana 2?</h2>
+<p>Nano Banana 2 es el sucesor de Nano Banana, un modelo desarrollado por Google que se enfoca en la generación de imágenes a partir de texto de forma rápida y precisa. Este nuevo modelo introduce mejoras en arquitectura y optimización, que permiten generar imágenes más coherentes, detalladas y con un menor consumo de recursos computacionales.</p>
+<h3>Características principales</h3>
+<ul>
+<li><strong>Eficiencia Mejorada:</strong> Utiliza optimizaciones avanzadas para reducir el tiempo de inferencia sin sacrificar calidad.</li>
+<li><strong>Calidad Visual Superior:</strong> Genera imágenes con detalles más nítidos y colores más naturales.</li>
+<li><strong>Modelo Compacto:</strong> Requiere menos memoria y poder de cómputo, facilitando su integración en diferentes plataformas.</li>
+<li><strong>Versatilidad:</strong> Puede adaptarse a múltiples estilos y contextos de generación visual.</li>
+</ul>
+<h2>Tecnologías y metodologías detrás de Nano Banana 2</h2>
+<p>El modelo aprovecha técnicas avanzadas de aprendizaje profundo, incluyendo transformers optimizados y mecanismos de atención mejorados para capturar detalles finos en las imágenes generadas.</p>
+<p>Además, se implementaron técnicas de pruning y cuantización que permiten mantener un tamaño reducido del modelo sin perder rendimiento, y un entrenamiento con datasets diversificados para ampliar la capacidad creativa del sistema.</p>
+<h2>Aplicaciones para desarrolladores y profesionales de datos</h2>
+<p>Nano Banana 2 es especialmente útil para:</p>
+<ul>
+<li><strong>Creación de contenido digital:</strong> Generar imágenes únicas para marketing, diseño gráfico y publicidad.</li>
+<li><strong>Prototipado rápido:</strong> Visualización rápida de conceptos e ideas sin necesidad de dibujos manuales.</li>
+<li><strong>Herramientas creativas:</strong> Integración en aplicaciones para potenciar la creatividad del usuario final.</li>
+<li><strong>Investigación en IA:</strong> Base para experimentos en generación visual y transferencia de estilo.</li>
+</ul>
+<h3>Ejemplo práctico con Nano Banana 2</h3>
+<p>Un equipo de desarrolladores puede integrar Nano Banana 2 mediante API para generar imágenes basadas en descripciones textuales en su aplicación de e-commerce, mejorando la experiencia del usuario con imágenes dinámicas y personalizadas.</p>
+<pre><code class="language-python"># Ejemplo ilustrativo de integración (pseudo-código)
+import nano_banana2_api
+
+# Definir descripción para la imagen
+descripcion = "Una bicicleta futurista en un paisaje urbano nocturno"
+
+# Generar imagen
+imagen = nano_banana2_api.generar_imagen(descripcion)
+
+# Guardar o mostrar imagen
+imagen.guardar('bicicleta_futurista.png')
+</code></pre>
+<h2>Consideraciones para la implementación</h2>
+<ul>
+<li><strong>Optimización de recursos:</strong> Ajustar los parámetros de generación para equilibrar calidad y velocidad.</li>
+<li><strong>Seguridad y ética:</strong> Revisar el contenido generado para evitar sesgos y respetar derechos de autor.</li>
+<li><strong>Actualizaciones y mantenimiento:</strong> Mantener el modelo actualizado conforme Google lance nuevas versiones.</li>
+</ul>
+<h2>Futuro de la generación de imágenes AI con modelos compactos</h2>
+<p>Nano Banana 2 representa una tendencia clara hacia modelos de IA que no solo son potentes, sino también accesibles para un mayor número de usuarios y desarrolladores, gracias a su diseño eficiente y versátil.</p>
+<p>La evolución hacia modelos más pequeños y rápidos no solo democratiza la generación visual, sino que abre puertas a innovaciones en tiempo real en aplicaciones móviles, dispositivos IoT y entornos con recursos limitados.</p>
+<p>Si deseas llevar estas tecnologías a tu proyecto o empresa y necesitas asesoría especializada en inteligencia artificial y soluciones de generación visual, visita <a href="https://www.mgatc.com">https://www.mgatc.com</a> y conecta con expertos que te apoyarán en tu camino tecnológico.</p>
+1b:["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$2d"}}]
+1c:["$","$L2e",null,{"category":"Tecnología aplicada"}]
+1d:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L16",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L16",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+1e:["$","$L2f",null,{}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/0r9aj2qdsrqo-.js","async":true}]
+20:["$","script","script-1",{"src":"/_next/static/chunks/3-qy0dfoeuqeb.js","async":true}]
+21:["$","$L30",null,{"children":["$","$27",null,{"name":"Next.MetadataOutlet","children":"$@31"}]}]
+2b:true
+c:300
+31:null
+c:C
+2a:0
+e:"$undefined"
+a:"$undefined"
+29:"$undefined"
+22:"$undefined"

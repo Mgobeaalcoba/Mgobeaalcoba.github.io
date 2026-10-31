@@ -1,0 +1,9 @@
+:HL["/_next/static/chunks/3c_4cjb6lnkz1.css","style"]
+:HL["/_next/static/chunks/2e6p8vsufdsxp.css","style"]
+:HL["/_next/static/chunks/125xce8odnpmv.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Michroma&family=Manrope:wght@300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
+:HL["/images/ia-router/ia-router-header.png","image"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":"ia-router","h":96,"c":"$Q3"}]]
+1:[["children",{"s":"recursos","h":64,"c":"$Q2"}]]
+0:{"b":"bkrmlU5UIrIdWqtdsRT5h","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
