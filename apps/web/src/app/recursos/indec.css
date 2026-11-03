@@ -669,6 +669,18 @@ html.light-mode .indec-page--blue {
   gap: 24px;
   margin-bottom: 22px;
 }
+.signal-tool-stage .signal-argentina-lab--panel {
+  max-width: none;
+  padding: 8px 0 12px;
+  margin: 0;
+}
+.signal-argentina-lab--panel .signal-argentina-lab__head {
+  display: block;
+}
+.signal-argentina-lab--panel .signal-argentina-lab__head > p {
+  max-width: none;
+  margin-top: 16px;
+}
 .signal-argentina-lab h2 {
   margin: 10px 0 0;
   color: var(--signal-text);

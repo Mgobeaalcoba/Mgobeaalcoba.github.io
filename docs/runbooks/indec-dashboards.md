@@ -2,7 +2,7 @@
 
 ## Páginas y componentes
 
-Las rutas `/recursos/poder-adquisitivo/`, `/recursos/actividad-argentina/` y `/recursos/comercio-exterior/` son exports estáticos independientes de `apps/web`. Los accesos se ubican en una sección «Argentina en datos» antes del laboratorio de Recursos. Son herramientas argentinas en español, sin rutas localizadas en inglés, igual que las calculadoras financieras existentes.
+Las rutas `/recursos/poder-adquisitivo/`, `/recursos/actividad-argentina/` y `/recursos/comercio-exterior/` son exports estáticos independientes de `apps/web`. El botón «Argentina en datos», después de Indicadores en el menú lateral de Recursos, muestra los tres accesos en el panel derecho del laboratorio. También está disponible en la navegación móvil. El enlace `/recursos/#argentina-en-datos` abre directamente ese panel. Son herramientas argentinas en español, sin rutas localizadas en inglés, igual que las calculadoras financieras existentes.
 
 Los componentes están en `apps/web/src/components/recursos/indec/`, las fórmulas puras en `src/lib/indec/math.ts` y los estilos aislados en `src/app/recursos/indec.css`. Usan los tokens Signal de la home, temas claro/oscuro y Chart.js con `react-chartjs-2`. Cada dashboard tiene controles, KPIs, gráficos, tabla accesible paginada, CSV de la selección e informe descriptivo descargable en texto.
 
@@ -67,3 +67,5 @@ Verificaciones de entrega:
 - El token configurado no aparece en los 1.189 archivos revisados del export público y las fuentes/datos nuevos.
 
 Revisión de riesgo (`review-pr`): sin cambios en legacy, sin secretos en fuente, contenido y fórmulas revisados, sin cambios propios en migraciones, builds y controles estáticos verificados con el motor alternativo documentado. Los cambios preexistentes de Supabase y agentes quedan fuera del commit de esta tarea. La publicación sigue el proceso habitual de GitHub Actions; esta sesión prepara el cambio local.
+
+Registro 2026-11-03 · Codex · ajuste de navegación solicitado: «Argentina en datos» se incorpora como opción de Financieros, después de Indicadores. Sus tres tarjetas se renderizan sólo en el panel derecho cuando la opción está activa; se elimina el bloque superior independiente. Se conserva el acceso directo por hash, el regreso desde cada dashboard y la navegación móvil. Verificado en navegador a 1280 y 390 px, con cambio de herramienta y apertura/regreso de una página independiente. `NEXT_BUILD_ENGINE=webpack npm run check` pasó con Node 20; ESLint no informa errores (conserva la advertencia previa sobre el efecto de hidratación del componente). Se preservaron los cambios ajenos y se restauraron los snapshots no relacionados que actualizó el prebuild.

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2, Home } from "lucide-react";
+import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2, Home, Globe2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
 import TokenCalculator from "@/components/recursos/TokenCalculator";
@@ -29,6 +29,7 @@ type TabId =
   | "agent-dash"
   | "rates"
   | "indicators"
+  | "argentina-en-datos"
   | "holidays"
   | "faq";
 
@@ -80,6 +81,12 @@ const TAB_CATEGORIES: TabCategory[] = [
         id: "indicators",
         icon: <Activity size={16} />,
         label: { es: "Indicadores", en: "Economic Indicators" },
+        wide: true,
+      },
+      {
+        id: "argentina-en-datos",
+        icon: <Globe2 size={16} />,
+        label: { es: "Argentina en datos", en: "Argentina in data" },
         wide: true,
       },
     ],
@@ -168,7 +175,6 @@ export default function RecursosClient() {
       if (dataAnchor.current) {
         dataAnchor.current = false;
         requestAnimationFrame(() => document.getElementById('argentina-en-datos')?.scrollIntoView());
-        return;
       }
       history.replaceState(null, "", `#${activeTab}`);
       events.toolView(activeTab, viewSource.current);
@@ -221,11 +227,6 @@ export default function RecursosClient() {
       </Link>
     </section>
 
-    <section className="signal-argentina-lab" id="argentina-en-datos" aria-labelledby="argentina-data-title">
-      <div className="signal-argentina-lab__head"><div><span className="signal-eyebrow">MGA / Data & Analytics</span><h2 id="argentina-data-title">{lang === 'es' ? 'Argentina, con datos.' : 'Argentina, through data.'}</h2></div><p>{lang === 'es' ? 'Tres dashboards independientes con datos del INDEC. Explorá, compará y descargá un informe de tu selección.' : 'Three independent INDEC dashboards in Spanish. Explore, compare and download a report for your selection.'}</p></div>
-      <div className="signal-argentina-lab__cards">{DASHBOARDS.map(d => <Link key={d.slug} href={`/recursos/${d.slug}/`} className="signal-argentina-card" data-analytics={`recursos_indec_${d.slug.replaceAll('-', '_')}`}><span className="signal-argentina-card__meta"><b>LAB {d.number}</b>{d.tag}</span><h3>{d.title}</h3><p>{d.description}</p><span>{lang === 'es' ? 'Explorar dashboard' : 'Explore dashboard'}<i aria-hidden="true">↗</i></span></Link>)}</div>
-    </section>
-
     <section className="signal-tools-workspace">
       <div className="signal-tool-mobile-dock" aria-label={lang === "es" ? "Explorar herramientas" : "Explore tools"}>
         <div className="signal-tool-mobile-categories">
@@ -267,6 +268,10 @@ export default function RecursosClient() {
           onPointerDownCapture={handleToolInteraction}
           onKeyDownCapture={handleToolInteraction}
         >
+          {activeTab === "argentina-en-datos" && <section className="signal-argentina-lab signal-argentina-lab--panel" id="argentina-en-datos" aria-labelledby="argentina-data-title">
+            <div className="signal-argentina-lab__head"><div><span className="signal-eyebrow">MGA / Data & Analytics</span><h2 id="argentina-data-title">{lang === 'es' ? 'Argentina, con datos.' : 'Argentina, through data.'}</h2></div><p>{lang === 'es' ? 'Tres dashboards independientes con datos del INDEC. Explorá, compará y descargá un informe de tu selección.' : 'Three independent INDEC dashboards in Spanish. Explore, compare and download a report for your selection.'}</p></div>
+            <div className="signal-argentina-lab__cards">{DASHBOARDS.map(d => <Link key={d.slug} href={`/recursos/${d.slug}/`} className="signal-argentina-card" data-analytics={`recursos_indec_${d.slug.replaceAll('-', '_')}`}><span className="signal-argentina-card__meta"><b>LAB {d.number}</b>{d.tag}</span><h3>{d.title}</h3><p>{d.description}</p><span>{lang === 'es' ? 'Explorar dashboard' : 'Explore dashboard'}<i aria-hidden="true">↗</i></span></Link>)}</div>
+          </section>}
           {activeTab === "calculator" && <TaxCalculator />}
           {activeTab === "mortgages" && <MortgageUvaCalculator />}
           {activeTab === "roi" && <ROICalculator />}
