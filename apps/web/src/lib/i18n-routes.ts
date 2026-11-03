@@ -20,6 +20,7 @@ export const LOCALIZED_ROUTE_PATTERNS: RegExp[] = [
   /^\/servicios\/$/,
   /^\/servicios\/[^/]+\/$/,
   /^\/servicios\/gracias\/$/,
+  /^\/agenthub\/$/,
   /^\/recursos\/ia-router\/$/,
   /^\/recursos\/pypi-stats\/$/,
 ];

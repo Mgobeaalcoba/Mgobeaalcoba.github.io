@@ -1,6 +1,6 @@
 'use client';
 
-import { Blocks, Newspaper, ShoppingBag, Wrench } from 'lucide-react';
+import { Blocks, Bot, Newspaper, ShoppingBag, Wrench } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from './TransitionLink';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -12,6 +12,7 @@ const ITEMS = [
   { href: '/servicios/', icon: ShoppingBag, es: 'Servicios', en: 'Services', match: (path: string) => path.startsWith('/servicios') },
   { href: '/blog/', icon: Newspaper, es: 'Blog', en: 'Blog', match: (path: string) => path.startsWith('/blog') },
   { href: '/recursos/', icon: Wrench, es: 'Herramientas', en: 'Tools', match: (path: string) => path.startsWith('/recursos') },
+  { href: '/agenthub/', icon: Bot, es: 'AgentHub', en: 'AgentHub', match: (path: string) => path.startsWith('/agenthub') },
 ] as const;
 
 export default function MobileAppNav() {
