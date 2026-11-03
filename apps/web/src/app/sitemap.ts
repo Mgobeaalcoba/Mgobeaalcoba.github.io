@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { OFFERS } from '@/lib/offers';
 import { SITE_URL } from '@/lib/site';
+import { DASHBOARDS } from '@/lib/indec/types';
 
 function getBlogSlugs(): string[] {
   try {
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogSlugs = getBlogSlugs();
 
   const staticRoutes: MetadataRoute.Sitemap = [
+    ...DASHBOARDS.map(d => ({ url: `${SITE_URL}/recursos/${d.slug}/`, changeFrequency: 'daily' as const, priority: 0.7 })),
     {
       url: SITE_URL,
       lastModified: new Date(),

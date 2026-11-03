@@ -13,7 +13,13 @@ npm run build
 - Artículos: `content/posts/`
 - Assets desplegados en el root: `public/`
 - Configuración local: copiar `.env.example` a `.env.local`
-- `npm run build` ejecuta `prebuild` (sincroniza datos hipotecarios) y `postbuild` (declara `lang="en"` en el HTML exportado de `/en/...`)
+- `npm run build` ejecuta `prebuild` (sincroniza datos hipotecarios, PyPI e INDEC) y `postbuild` (declara `lang="en"` en el HTML exportado de `/en/...`)
+
+## Argentina en datos
+
+Tres páginas independientes enlazadas desde Recursos: `/recursos/poder-adquisitivo/`, `/recursos/actividad-argentina/` y `/recursos/comercio-exterior/`. Comparten estilos Signal y componentes Chart.js, con filtros, tablas, CSV e informes que se recalculan en el navegador.
+
+Los snapshots oficiales viven en `public/data/indec/`. Para actualizarlos, configurar `INDEC_API_TOKEN` en `.env.local` y ejecutar `node scripts/sync-indec-data.mjs --force` desde el root. En GitHub Actions, usar el secreto de repositorio del mismo nombre. El token se usa sólo en la sincronización; no se envía al navegador. Sin token o ante un error de la fuente, se conserva el snapshot disponible. Detalle de cobertura, fórmulas y mantenimiento en [el runbook](../../docs/runbooks/indec-dashboards.md).
 
 ## Idiomas
 

@@ -14,6 +14,7 @@ const durableEntries = new Set([
   '.prettierrc',
   'AGENTS.md',
   'CLAUDE.md',
+  'GEMINI.md',
   'README.md',
   'apps',
   'automation',
@@ -29,6 +30,8 @@ const durableEntries = new Set([
 
 const localOnlyEntries = new Set([
   '.git',
+  '.agents',
+  '.codex',
   '.work',
   '_site',
   'node_modules',

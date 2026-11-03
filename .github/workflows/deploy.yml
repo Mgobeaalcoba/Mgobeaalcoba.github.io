@@ -42,11 +42,22 @@ jobs:
       - name: Install CV dependencies
         run: npm ci
 
+      - name: Restore last valid INDEC snapshots
+        uses: actions/cache@v4
+        with:
+          path: apps/web/public/data/indec/
+          key: indec-snapshots-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indec-snapshots-v1-
+
       - name: Check PyPI freshness regressions (offline)
         run: node --test scripts/tests/pypi-stats.test.mjs
 
+      - name: Check INDEC calculations and snapshots (offline)
+        run: node --test scripts/tests/indec.test.mjs
+
       - name: Build CV site (static export)
         env:
+          INDEC_API_TOKEN: ${{ secrets.INDEC_API_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # lets the PyPI stats script read stargazers and commit activity
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}

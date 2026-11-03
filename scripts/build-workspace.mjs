@@ -9,6 +9,7 @@ const workspaces = {
 const requestedWorkspace = process.argv[2];
 const workspace = workspaces[requestedWorkspace];
 const npmCliPath = process.env.npm_execpath;
+const buildFlags = process.env.NEXT_BUILD_ENGINE === 'webpack' ? ['--', '--webpack'] : [];
 
 if (!workspace) {
   console.error(`Unknown workspace: ${requestedWorkspace ?? '(missing)'}`);
@@ -28,7 +29,7 @@ if (workspace.needsPublicPlaceholders) {
 
 const child = spawn(
   process.execPath,
-  [npmCliPath, 'run', 'build', `--workspace=${workspace.name}`],
+  [npmCliPath, 'run', 'build', `--workspace=${workspace.name}`, ...buildFlags],
   { env, shell: false, stdio: 'inherit' }
 );
 
