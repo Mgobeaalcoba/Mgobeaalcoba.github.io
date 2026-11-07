@@ -232,18 +232,11 @@ html.light-mode .gradient-text {
 }
 
 /* -- Text color overrides for light mode -- */
-html.light-mode h1,
-html.light-mode h2,
-html.light-mode h3,
-html.light-mode h4,
-html.light-mode h5 {
+html.light-mode :is(h1, h2, h3, h4, h5):not(:where(.mga-home *, .mga-nav *, .mga-footer *)) {
   color: #111827;
 }
 
-html.light-mode p,
-html.light-mode span,
-html.light-mode li,
-html.light-mode label {
+html.light-mode :is(p, span, li, label):not(:where(.mga-home *, .mga-nav *, .mga-footer *)) {
   color: #374151;
 }
 

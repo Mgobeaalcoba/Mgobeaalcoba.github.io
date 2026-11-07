@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, MessageSquare, Mail, Loader2, Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -30,6 +30,7 @@ export default function ContactModal() {
   const [sending, setSending] = useState<Channel | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [started, setStarted] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const reset = useCallback(() => {
     setForm({ name: "", email: "", message: "" });
@@ -38,14 +39,20 @@ export default function ContactModal() {
     setStarted(false);
   }, []);
 
-  const close = useCallback((method = "button") => {
-    events.uiLayerClose("contact", method, source);
-    setOpen(false);
-    setTimeout(reset, 300);
-    if (typeof window !== "undefined" && window.history.state?.mgaLayer === "contact") {
-      window.history.back();
-    }
-  }, [reset, source]);
+  const close = useCallback(
+    (method = "button") => {
+      events.uiLayerClose("contact", method, source);
+      setOpen(false);
+      setTimeout(reset, 300);
+      if (
+        typeof window !== "undefined" &&
+        window.history.state?.mgaLayer === "contact"
+      ) {
+        window.history.back();
+      }
+    },
+    [reset, source]
+  );
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -87,14 +94,47 @@ export default function ContactModal() {
   useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
+    const previousFocus =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
     document.body.style.overflow = "hidden";
+    const frame = window.requestAnimationFrame(() =>
+      dialogRef.current?.querySelector<HTMLInputElement>("input")?.focus()
+    );
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close("escape");
+      if (e.key === "Tab") {
+        const items = Array.from(
+          dialogRef.current?.querySelectorAll<HTMLElement>(
+            "a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"
+          ) ?? []
+        ).filter((item) => item.getClientRects().length > 0);
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!first || !last) {
+          e.preventDefault();
+          return;
+        }
+        if (
+          !dialogRef.current?.contains(document.activeElement) ||
+          (e.shiftKey && document.activeElement === first)
+        ) {
+          e.preventDefault();
+          (e.shiftKey ? last : first).focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previousOverflow;
+      window.cancelAnimationFrame(frame);
       window.removeEventListener("keydown", onKey);
+      if (previousFocus?.isConnected)
+        previousFocus.focus({ preventScroll: true });
     };
   }, [open, close]);
 
@@ -110,8 +150,7 @@ export default function ContactModal() {
           channel,
           source,
           form_type: "contact_modal",
-          page:
-            typeof window !== "undefined" ? window.location.pathname : "/",
+          page: typeof window !== "undefined" ? window.location.pathname : "/",
           timestamp: new Date().toISOString(),
           language:
             typeof document !== "undefined"
@@ -136,7 +175,12 @@ export default function ContactModal() {
   const openWhatsApp = async () => {
     if (sending) return;
     if (!form.message.trim()) {
-      events.formValidationError("contact_modal", "message", "required", source);
+      events.formValidationError(
+        "contact_modal",
+        "message",
+        "required",
+        source
+      );
       return;
     }
     setSending("whatsapp");
@@ -156,7 +200,12 @@ export default function ContactModal() {
   const openEmail = async () => {
     if (sending) return;
     if (!form.message.trim()) {
-      events.formValidationError("contact_modal", "message", "required", source);
+      events.formValidationError(
+        "contact_modal",
+        "message",
+        "required",
+        source
+      );
       return;
     }
     setSending("email");
@@ -164,12 +213,12 @@ export default function ContactModal() {
     events.contactChannelSelect("email", source);
     await postToWebhook("email");
     const subject = encodeURIComponent(
-      lang === "es"
-        ? "Contacto desde mgatc.com"
-        : "Contact from mgatc.com"
+      lang === "es" ? "Contacto desde mgatc.com" : "Contact from mgatc.com"
     );
     const bodyLines = [
-      form.name.trim() ? `${lang === "es" ? "Nombre" : "Name"}: ${form.name.trim()}` : null,
+      form.name.trim()
+        ? `${lang === "es" ? "Nombre" : "Name"}: ${form.name.trim()}`
+        : null,
       form.email.trim() ? `Email: ${form.email.trim()}` : null,
       "",
       form.message.trim(),
@@ -201,6 +250,7 @@ export default function ContactModal() {
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
           <motion.div
+            ref={dialogRef}
             initial={{ scale: 0.92, opacity: 0, y: 10 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 10 }}
@@ -214,10 +264,13 @@ export default function ContactModal() {
             <header className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 px-5 py-4">
               <div>
                 <h3 className="text-lg font-bold text-gray-100">
-                  {t("Contactanos", "Contact us")}
+                  {t("Contanos tu idea.", "Tell us your idea.")}
                 </h3>
                 <p className="hidden text-xs text-gray-400 sm:block">
-                  {t("Elegí el canal y te respondemos en menos de 24hs.", "Choose a channel and we'll reply within 24h.")}
+                  {t(
+                    "Compartí el contexto y elegí cómo seguimos la conversación.",
+                    "Share some context and choose how we continue the conversation."
+                  )}
                 </p>
               </div>
               <button
@@ -230,156 +283,181 @@ export default function ContactModal() {
             </header>
 
             <div className="min-h-0 overflow-y-auto overscroll-contain px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center text-center py-8 gap-3">
-                <div className="text-5xl">✅</div>
-                <p className="text-gray-100 font-semibold text-lg">
-                  {t("¡Gracias por contactarnos!", "Thanks for reaching out!")}
-                </p>
-                <p className="text-gray-400 text-sm max-w-xs">
-                  {t(
-                    "Abrí tu app para enviar el mensaje. Te respondemos en menos de 24hs.",
-                    "Your app should open to send the message. We'll reply within 24h."
-                  )}
-                </p>
-                <button
-                  onClick={() => close("button")}
-                  className="mt-2 px-5 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-medium text-sm transition-colors"
-                >
-                  {t("Cerrar", "Close")}
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
-                  <div>
-                    <label className="block text-xs text-gray-400 mb-1.5">
-                      {t("Tu nombre", "Your name")}{" "}
-                      <span className="text-gray-600">
-                        ({t("opcional", "optional")})
-                      </span>
-                    </label>
-                    <input
-                      type="text"
-                      maxLength={120}
-                      onFocus={markStarted}
-                      value={form.name}
-                      onChange={(e) =>
-                        setForm({ ...form, name: e.target.value })
-                      }
-                      placeholder={t("Ej: Juan Pérez", "e.g. John Doe")}
-                      disabled={!!sending}
-                      className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs text-gray-400 mb-1.5">
-                      {t("Tu email", "Your email")}{" "}
-                      <span className="text-gray-600">
-                        ({t("para responder", "to reply")})
-                      </span>
-                    </label>
-                    <input
-                      type="email"
-                      maxLength={254}
-                      onFocus={markStarted}
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm({ ...form, email: e.target.value })
-                      }
-                      placeholder={t("Ej: juan@ejemplo.com", "e.g. john@example.com")}
-                      disabled={!!sending}
-                      className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label className="block text-xs text-gray-400 mb-1.5">
-                      {t("Mensaje", "Message")} <span className="text-red-400">*</span>
-                    </label>
-                    <textarea
-                      maxLength={5000}
-                      onFocus={markStarted}
-                      value={form.message}
-                      onChange={(e) =>
-                        setForm({ ...form, message: e.target.value })
-                      }
-                      rows={2}
-                      placeholder={t(
-                        "Contame brevemente qué necesitás o sobre qué querés charlar...",
-                        "Briefly tell me what you need or what you'd like to chat about..."
-                      )}
-                      disabled={!!sending}
-                      className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors resize-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3">
-                  <button
-                    type="button"
-                    onClick={openWhatsApp}
-                    disabled={!messageValid || !!sending}
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-green-500 hover:bg-green-400 text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {sending === "whatsapp" ? (
-                      <Loader2 size={16} className="animate-spin" />
-                    ) : (
-                      <MessageSquare size={16} />
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center text-center py-8 gap-3">
+                  <div className="text-5xl">✅</div>
+                  <p className="text-gray-100 font-semibold text-lg">
+                    {t(
+                      "¡Gracias por contactarnos!",
+                      "Thanks for reaching out!"
                     )}
-                    <span className="hidden sm:inline">{t("Enviar por WhatsApp", "Send via WhatsApp")}</span>
-                    <span className="sm:hidden">WhatsApp</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={openEmail}
-                    disabled={!messageValid || !!sending}
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {sending === "email" ? (
-                      <Loader2 size={16} className="animate-spin" />
-                    ) : (
-                      <Mail size={16} />
-                    )}
-                    <span className="hidden sm:inline">{t("Enviar por Email", "Send via Email")}</span>
-                    <span className="sm:hidden">Email</span>
-                  </button>
-                </div>
-
-                <div className="hidden sm:block mt-4 pt-4 border-t border-white/10">
-                  <p className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-2">
-                    {t("O contactanos directo", "Or reach us directly")}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-2 text-xs text-gray-400">
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}`}
-                      className="flex items-center gap-2 hover:text-sky-400 transition-colors"
-                    >
-                      <Mail size={14} />
-                      {CONTACT_EMAIL}
-                    </a>
-                    <span className="hidden sm:inline text-gray-700">·</span>
-                    <a
-                      href={`tel:+${CONTACT_PHONE_E164}`}
-                      className="flex items-center gap-2 hover:text-green-400 transition-colors"
-                    >
-                      <Phone size={14} />
-                      {CONTACT_PHONE_DISPLAY}
-                    </a>
-                  </div>
+                  <p className="text-gray-400 text-sm max-w-xs">
+                    {t(
+                      "Abrí tu app para completar el envío y seguir la conversación.",
+                      "Open your app to complete sending and continue the conversation."
+                    )}
+                  </p>
+                  <button
+                    onClick={() => close("button")}
+                    className="mt-2 px-5 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-medium text-sm transition-colors"
+                  >
+                    {t("Cerrar", "Close")}
+                  </button>
                 </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
+                    <div>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-xs text-gray-400 mb-1.5"
+                      >
+                        {t("Tu nombre", "Your name")}{" "}
+                        <span className="text-gray-600">
+                          ({t("opcional", "optional")})
+                        </span>
+                      </label>
+                      <input
+                        id="contact-name"
+                        autoComplete="name"
+                        type="text"
+                        maxLength={120}
+                        onFocus={markStarted}
+                        value={form.name}
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
+                        placeholder={t("Ej: Juan Pérez", "e.g. John Doe")}
+                        disabled={!!sending}
+                        className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
+                      />
+                    </div>
 
-                <div className="hidden sm:flex items-center gap-1 mt-3 text-[11px] text-gray-600">
-                  <Send size={11} />
-                  {t(
-                    "Tu mensaje se registra para hacer seguimiento.",
-                    "Your message is logged so I can follow up."
-                  )}
-                </div>
-              </>
-            )}
+                    <div>
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-xs text-gray-400 mb-1.5"
+                      >
+                        {t("Tu email", "Your email")}{" "}
+                        <span className="text-gray-600">
+                          ({t("para responder", "to reply")})
+                        </span>
+                      </label>
+                      <input
+                        id="contact-email"
+                        autoComplete="email"
+                        type="email"
+                        maxLength={254}
+                        onFocus={markStarted}
+                        value={form.email}
+                        onChange={(e) =>
+                          setForm({ ...form, email: e.target.value })
+                        }
+                        placeholder={t(
+                          "Ej: juan@ejemplo.com",
+                          "e.g. john@example.com"
+                        )}
+                        disabled={!!sending}
+                        className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label
+                        htmlFor="contact-message"
+                        className="block text-xs text-gray-400 mb-1.5"
+                      >
+                        {t("Mensaje", "Message")}{" "}
+                        <span className="text-red-400">*</span>
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        required
+                        maxLength={5000}
+                        onFocus={markStarted}
+                        value={form.message}
+                        onChange={(e) =>
+                          setForm({ ...form, message: e.target.value })
+                        }
+                        rows={2}
+                        placeholder={t(
+                          "Contame brevemente qué necesitás o sobre qué querés charlar...",
+                          "Briefly tell me what you need or what you'd like to chat about..."
+                        )}
+                        disabled={!!sending}
+                        className="w-full glass px-4 py-2.5 rounded-lg text-sm text-gray-200 border border-white/10 focus:border-sky-500 focus:outline-none transition-colors resize-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3">
+                    <button
+                      type="button"
+                      onClick={openWhatsApp}
+                      disabled={!messageValid || !!sending}
+                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-green-500 hover:bg-green-400 text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {sending === "whatsapp" ? (
+                        <Loader2 size={16} className="animate-spin" />
+                      ) : (
+                        <MessageSquare size={16} />
+                      )}
+                      <span className="hidden sm:inline">
+                        {t("Enviar por WhatsApp", "Send via WhatsApp")}
+                      </span>
+                      <span className="sm:hidden">WhatsApp</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={openEmail}
+                      disabled={!messageValid || !!sending}
+                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {sending === "email" ? (
+                        <Loader2 size={16} className="animate-spin" />
+                      ) : (
+                        <Mail size={16} />
+                      )}
+                      <span className="hidden sm:inline">
+                        {t("Enviar por Email", "Send via Email")}
+                      </span>
+                      <span className="sm:hidden">Email</span>
+                    </button>
+                  </div>
+
+                  <div className="hidden sm:block mt-4 pt-4 border-t border-white/10">
+                    <p className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold mb-2">
+                      {t("O contactanos directo", "Or reach us directly")}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2 text-xs text-gray-400">
+                      <a
+                        href={`mailto:${CONTACT_EMAIL}`}
+                        className="flex items-center gap-2 hover:text-sky-400 transition-colors"
+                      >
+                        <Mail size={14} />
+                        {CONTACT_EMAIL}
+                      </a>
+                      <span className="hidden sm:inline text-gray-700">·</span>
+                      <a
+                        href={`tel:+${CONTACT_PHONE_E164}`}
+                        className="flex items-center gap-2 hover:text-green-400 transition-colors"
+                      >
+                        <Phone size={14} />
+                        {CONTACT_PHONE_DISPLAY}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 mt-3 text-[11px] text-gray-600">
+                    <Send size={11} />
+                    {t(
+                      "Tu mensaje se registra para hacer seguimiento.",
+                      "Your message is logged so I can follow up."
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </motion.div>

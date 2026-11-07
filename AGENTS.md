@@ -33,3 +33,8 @@ This repository contains three statically exported Next.js applications. Treat t
 - Database schema: add an ordered migration under `infra/supabase/migrations/`; never rewrite an applied migration.
 - n8n workflows: keep exports and referenced assets under `automation/n8n/`; scrub credentials before commit.
 - Durable knowledge: update `docs/`. Historical artifacts belong under `docs/archive/`.
+
+## Continuity
+
+- Read `docs/STATE.md` for the current snapshot and `docs/LOG.md` for session history; decisions live under `docs/decisions/`.
+- At handoff, update the snapshot and append a log entry. Run `python3 scripts/scan_secrets.py` before committing; install the optional staged-content hook with `sh scripts/install_hooks.sh`.

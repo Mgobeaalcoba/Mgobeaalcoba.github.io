@@ -15,6 +15,12 @@ npm run build
 - Configuración local: copiar `.env.example` a `.env.local`
 - `npm run build` ejecuta `prebuild` (sincroniza datos hipotecarios, PyPI e INDEC) y `postbuild` (declara `lang="en"` en el HTML exportado de `/en/...`)
 
+## Identidad MGA Studio
+
+La portada presenta agentes de IA, automatizaciones, software y datos con una identidad editorial sobre la paleta Signal. `src/app/studio.css` define la capa visual, `src/lib/studioContent.ts` concentra capacidades, método y FAQ, y la navegación compartida agrupa blog, herramientas, AgentHub y catálogo bajo Explorar. El menú superior reemplaza la barra móvil inferior.
+
+Los ejemplos de flujos son ilustrativos y no ejecutan integraciones. Los precios y pagos siguen en `/servicios/`. Para regenerar íconos, portada social e imagen optimizada de Neil: `node scripts/generate-studio-assets.mjs` desde el root. Ver [benchmark](../../docs/product/reports/Rebranding%20de%20consultor%C3%ADa%20MGA.md) y [decisión de diseño](../../docs/decisions/0004-studio-rebrand.md).
+
 ## Argentina en datos
 
 Tres páginas independientes enlazadas desde Recursos: `/recursos/poder-adquisitivo/`, `/recursos/actividad-argentina/` y `/recursos/comercio-exterior/`. Comparten estilos Signal y componentes Chart.js, con filtros, tablas, CSV e informes que se recalculan en el navegador.

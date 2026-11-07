@@ -1,134 +1,286 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { Command, Globe2, Menu, Moon, Search, Sun, X } from 'lucide-react';
-import Link from './TransitionLink';
-import { useTheme, type Theme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { localizePath, splitLocale } from '@/lib/i18n-routes';
-import { events } from '@/lib/gtag';
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Menu,
+  Moon,
+  Search,
+  Sun,
+  X,
+} from "lucide-react";
+import Link from "next/link";
+import Brand from "./Brand";
+import { openContactModal } from "./ContactModal";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizePath, splitLocale } from "@/lib/i18n-routes";
+import { events } from "@/lib/gtag";
 
-const LINKS = [
-  { href: '/', es: 'Soluciones', en: 'Solutions' },
-  { href: '/servicios/', es: 'Servicios', en: 'Services' },
-  { href: '/blog/', es: 'Blog', en: 'Blog' },
-  { href: '/recursos/', es: 'Herramientas', en: 'Tools' },
-  { href: '/agenthub/', es: 'AgentHub', en: 'AgentHub' },
+const EXPLORE = [
+  {
+    href: "/blog/",
+    es: "Ideas y artículos",
+    en: "Ideas & articles",
+    detail: {
+      es: "Lo que aprendemos al construir",
+      en: "What we learn by building",
+    },
+  },
+  {
+    href: "/recursos/",
+    es: "Herramientas abiertas",
+    en: "Open tools",
+    detail: {
+      es: "Datos y recursos para usar",
+      en: "Data and resources you can use",
+    },
+  },
+  {
+    href: "/agenthub/",
+    es: "AgentHub",
+    en: "AgentHub",
+    detail: {
+      es: "Agentes y flujos para explorar",
+      en: "Explore agents and workflows",
+    },
+  },
+  {
+    href: "/servicios/",
+    es: "Servicios a demanda",
+    en: "On-demand services",
+    detail: {
+      es: "Diagnósticos, auditorías y mentorías",
+      en: "Diagnostics, audits and mentoring",
+    },
+  },
 ];
-
-const THEME_ICONS: Record<Theme, React.ReactNode> = {
-  dark: <Moon size={17} />,
-  light: <Sun size={17} />,
-};
-
-const MOBILE_TITLES: Record<string, { es: string; en: string }> = {
-  '/': { es: 'Inicio', en: 'Home' },
-  '/portfolio': { es: 'Fundador', en: 'Founder' },
-  '/blog': { es: 'Blog', en: 'Blog' },
-  '/recursos': { es: 'Herramientas', en: 'Tools' },
-  '/servicios': { es: 'Servicios', en: 'Services' },
-};
 
 export default function Navbar() {
   const pathname = usePathname();
+  return <StudioNavbar key={pathname} pathname={pathname} />;
+}
+
+function StudioNavbar({ pathname }: { pathname: string }) {
   const { theme, cycleTheme } = useTheme();
   const { lang, setLang } = useLanguage();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  const exploreRef = useRef<HTMLDivElement>(null);
+  const exploreButton = useRef<HTMLButtonElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const home = localizePath("/", lang);
+  const es = lang === "es";
+  const basePath = splitLocale(pathname).pathname;
+  const closeMenus = () => {
+    setMenuOpen(false);
+    setExploreOpen(false);
+  };
+  const links = [
+    { href: `${home}#servicios`, label: es ? "Servicios" : "Services" },
+    { href: `${home}#proyectos`, label: es ? "Proyectos" : "Work" },
+    { href: `${home}#estudio`, label: es ? "Estudio" : "Studio" },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 18);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const outside = (event: PointerEvent) => {
+      if (!exploreRef.current?.contains(event.target as Node))
+        setExploreOpen(false);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (exploreOpen) {
+        setExploreOpen(false);
+        exploreButton.current?.focus();
+      } else if (menuOpen) {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", outside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, [exploreOpen, menuOpen]);
 
-  useEffect(() => setMenuOpen(false), [pathname]);
-
-  const basePathname = splitLocale(pathname).pathname;
-
-  const isActive = (href: string) => {
-    if (href.startsWith('/#')) return false;
-    if (href === '/') return basePathname === '/';
-    return basePathname.startsWith(href.replace(/\/$/, ''));
+  const contact = () => {
+    closeMenus();
+    events.contactClick("studio_navigation");
+    openContactModal(
+      "studio_navigation",
+      es
+        ? "Quiero conversar sobre un proyecto para mi negocio."
+        : "I would like to discuss a project for my business."
+    );
   };
 
-  const switchLanguage = () => {
-    const next = lang === 'es' ? 'en' : 'es';
+  const switchLanguage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const next = es ? "en" : "es";
     events.languageSwitch(lang, next);
-    setLang(next);
-
-    // Routes with a localized counterpart are separate documents, so the switch
-    // is a real navigation instead of a client-side re-render.
     const target = localizePath(pathname, next);
-    if (target !== pathname) window.location.assign(target);
+    closeMenus();
+    if (target === pathname) {
+      event.preventDefault();
+      setLang(next);
+    } else {
+      // Keep the link's destination stable until the native document navigation.
+      // A synchronous context update would render the inverse language URL here.
+      localStorage.setItem("language", next);
+      event.currentTarget.href = `${target}${window.location.search}${window.location.hash}`;
+    }
   };
-
-  const mobileTitle = Object.entries(MOBILE_TITLES).find(([route]) => route === '/' ? pathname === '/' : pathname.startsWith(route))?.[1]?.[lang] ?? 'MGA';
 
   return (
-    <nav className={`signal-nav ${scrolled ? 'signal-nav--scrolled' : ''}`} aria-label="Navegación principal">
-      <div className="signal-nav__inner">
-        <Link href="/" className="signal-brand" aria-label="MGA Tech Consulting — Inicio">
-          <Image src={theme === 'light' ? '/images/consulting-logo-light.png' : '/images/consulting-logo-dark.png'} alt="MGA Tech Consulting" width={176} height={74} priority />
-          <span className="signal-brand__descriptor">Systems for growth</span>
+    <header className="mga-nav">
+      <nav
+        className="mga-nav__inner"
+        aria-label={es ? "Navegación principal" : "Main navigation"}
+      >
+        <Link
+          href={home}
+          className="mga-nav__brand"
+          aria-label="MGA Tech Consulting — Home"
+          onClick={closeMenus}
+        >
+          <Brand />
         </Link>
-        <strong className="signal-mobile-page-title">{mobileTitle}</strong>
-
-        <div className="signal-nav__links">
-          {LINKS.map((link) => (
+        <div className="mga-nav__links">
+          {links.map(({ href, label }) => (
             <Link
-              key={link.href}
-              href={localizePath(link.href, lang)}
-              onClick={() => events.navClick(link.href, link[lang])}
-              className={isActive(link.href) ? 'is-active' : ''}
+              key={href}
+              href={href}
+              onClick={() => {
+                closeMenus();
+                events.navClick(href, label);
+              }}
             >
-              {link[lang]}
+              {label}
             </Link>
           ))}
+          <div className="mga-nav__explore" ref={exploreRef}>
+            <button
+              ref={exploreButton}
+              onClick={() => setExploreOpen(!exploreOpen)}
+              aria-expanded={exploreOpen}
+              aria-controls="mga-explore"
+            >
+              {es ? "Explorar" : "Explore"}
+              <ChevronDown size={13} />
+            </button>
+            {exploreOpen && (
+              <div id="mga-explore" className="mga-nav__dropdown">
+                {EXPLORE.map((item) => (
+                  <Link
+                    href={localizePath(item.href, lang)}
+                    key={item.href}
+                    onClick={closeMenus}
+                    aria-current={
+                      basePath.startsWith(item.href) ? "page" : undefined
+                    }
+                  >
+                    <span>
+                      {item[lang]}
+                      <ArrowUpRight size={16} />
+                    </span>
+                    <small>{item.detail[lang]}</small>
+                  </Link>
+                ))}
+                <button
+                  onClick={() => {
+                    closeMenus();
+                    window.dispatchEvent(
+                      new CustomEvent("toggle-command-palette")
+                    );
+                  }}
+                >
+                  <Search size={15} />
+                  {es ? "Buscar en el sitio" : "Search the site"}
+                  <kbd>⌘ K</kbd>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-
-        <div className="signal-nav__actions">
-          <button
-            className="signal-icon-button signal-search-button"
-            onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-            aria-label={lang === 'es' ? 'Abrir búsqueda rápida' : 'Open quick search'}
+        <div className="mga-nav__actions">
+          <a
+            className="mga-nav__utility"
+            href={localizePath(pathname, es ? "en" : "es")}
+            onClick={switchLanguage}
+            aria-label={es ? "Cambiar a inglés" : "Switch to Spanish"}
           >
-            <Search size={16} />
-            <span>{lang === 'es' ? 'Buscar' : 'Search'}</span>
-            <kbd><Command size={10} />K</kbd>
+            {lang.toUpperCase()}
+          </a>
+          <button
+            className="mga-nav__utility"
+            onClick={cycleTheme}
+            aria-label={
+              es
+                ? `Activar tema ${theme === "dark" ? "claro" : "oscuro"}`
+                : `Switch to ${theme === "dark" ? "light" : "dark"} theme`
+            }
+          >
+            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
           </button>
-          <button className="signal-icon-button" onClick={switchLanguage} aria-label={lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}>
-            <Globe2 size={16} />
-            <span>{lang.toUpperCase()}</span>
-          </button>
-          <button className="signal-icon-button signal-theme-button" onClick={cycleTheme} aria-label={`${lang === 'es' ? 'Cambiar tema' : 'Change theme'}: ${theme}`}>
-            {THEME_ICONS[theme]}
+          <button className="mga-nav__cta" onClick={contact}>
+            {es ? "Hablemos" : "Let’s talk"}
+            <ArrowUpRight size={17} />
           </button>
           <button
-            className="signal-icon-button signal-menu-button"
-            onClick={() => setMenuOpen((value) => !value)}
+            ref={menuButton}
+            className="mga-nav__menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-controls="mga-mobile-menu"
+            aria-label={
+              es
+                ? menuOpen
+                  ? "Cerrar menú"
+                  : "Abrir menú"
+                : menuOpen
+                  ? "Close menu"
+                  : "Open menu"
+            }
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X /> : <Menu />}
           </button>
         </div>
-      </div>
-
+      </nav>
       {menuOpen && (
-        <div id="mobile-navigation" className="signal-mobile-menu">
-          {LINKS.map((link) => (
-            <Link key={link.href} href={localizePath(link.href, lang)} className={isActive(link.href) ? 'is-active' : ''}>
-              <span>{link[lang]}</span>
-              <span aria-hidden="true">↗</span>
+        <nav
+          id="mga-mobile-menu"
+          className="mga-nav__mobile"
+          aria-label={es ? "Navegación móvil" : "Mobile navigation"}
+        >
+          {links.map(({ href, label }, index) => (
+            <Link key={href} href={href} onClick={closeMenus}>
+              <small>0{index + 1}</small>
+              {label}
+              <ArrowUpRight size={24} />
             </Link>
           ))}
-        </div>
+          <div className="mga-nav__mobile-explore">
+            <span>{es ? "Explorar" : "Explore"}</span>
+            {EXPLORE.map((item) => (
+              <Link
+                href={localizePath(item.href, lang)}
+                onClick={closeMenus}
+                key={item.href}
+              >
+                {item[lang]}
+                <ArrowUpRight size={15} />
+              </Link>
+            ))}
+          </div>
+          <button className="mga-button mga-button--lime" onClick={contact}>
+            {es ? "Contanos tu proyecto" : "Tell us about your project"}
+            <ArrowUpRight size={18} />
+          </button>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 }

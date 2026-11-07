@@ -12,7 +12,7 @@ import Script from "next/script";
 import "./globals.css";
 import "./signal.css";
 import "./agenthub.css";
-import "./selene.css";
+import "./studio.css";
 import { getCareerExperienceYears } from "@/lib/experience";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -25,8 +25,7 @@ const organizationSchema = {
   url: SITE_URL,
   sameAs: ["https://www.linkedin.com/company/mga-tech-consulting"],
   logo: `${SITE_URL}/images/favicon-192.png`,
-  description:
-    `Consultoría tecnológica en automatización, IA aplicada y Business Intelligence para PyMEs. Más de ${getCareerExperienceYears()} años de experiencia en datos a escala.`,
+  description: `Estudio de tecnología aplicada: agentes de IA, automatización, software y datos. Más de ${getCareerExperienceYears()} años de experiencia en Data & Analytics.`,
   "@id": `${SITE_URL}/#organization`,
   email: "hola@mgatc.com",
   contactPoint: {
@@ -36,7 +35,11 @@ const organizationSchema = {
     availableLanguage: ["es", "en"],
     areaServed: ["AR", "LATAM"],
   },
-  address: { "@type": "PostalAddress", addressLocality: "Buenos Aires", addressCountry: "AR" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Buenos Aires",
+    addressCountry: "AR",
+  },
   areaServed: { "@type": "Country", name: "Argentina" },
   founder: {
     "@type": "Person",
@@ -58,7 +61,7 @@ const websiteSchema = {
   name: "MGA Tech Consulting",
   url: SITE_URL,
   description:
-    "Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras.",
+    "Agentes de IA, automatización, software y datos. Proyectos, ideas y herramientas abiertas.",
   publisher: {
     "@type": "Organization",
     name: "MGA Tech Consulting",
@@ -69,13 +72,16 @@ const websiteSchema = {
 export const metadata: Metadata = {
   applicationName: "MGA Tech Consulting",
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "MGA" },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "MGA",
+  },
   title: {
-    default: "MGA Tech Consulting | Automatización, IA & Datos para PyMEs",
+    default: "MGA Tech Consulting | Agentes de IA, automatización y software",
     template: "%s | MGA Tech Consulting",
   },
-  description:
-    `Consultoría tecnológica en automatización, IA aplicada y Business Intelligence. Blog técnico, recursos financieros y más de ${getCareerExperienceYears()} años de experiencia en datos a escala.`,
+  description: `Agentes de IA, automatizaciones, software y datos para tu negocio. Proyectos, ideas y herramientas abiertas con más de ${getCareerExperienceYears()} años de experiencia en Data & Analytics.`,
   keywords: [
     "data analytics",
     "consultoría tecnológica",
@@ -96,15 +102,15 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://www.mgatc.com",
     siteName: "MGA Tech Consulting",
-    title: "MGA Tech Consulting | Automatización, IA & Datos para PyMEs",
+    title: "MGA Tech Consulting | Agentes de IA, automatización y software",
     description:
-      "Consultoría IA/BI y automatización para PyMEs, blog técnico y herramientas financieras.",
+      "Agentes de IA, automatización, software y datos. Proyectos, ideas y herramientas abiertas.",
     images: [
       {
         url: "https://www.mgatc.com/og.png",
         width: 1200,
         height: 630,
-        alt: "MGA Tech Consulting — Sistemas medibles para operar mejor",
+        alt: "MGA Tech Consulting — Menos tareas. Más posibilidades.",
       },
     ],
   },
@@ -138,7 +144,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* Domain redirect — raw <script> in <head> so it fires before any React code */}
         <script
@@ -153,7 +159,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Michroma&family=Manrope:wght@300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="#111827" />
@@ -168,7 +174,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <a href="#main-content" className="skip-link">Saltar al contenido</a>
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido
+        </a>
         <DataErrorBoundary>
           <ThemeProvider>
             <LanguageProvider>
