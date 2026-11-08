@@ -76,10 +76,10 @@ function LineChart({ data, color }: { data: HistoryPoint[]; color: string }) {
       {/* Grid lines */}
       {[0, 0.25, 0.5, 0.75, 1].map((frac) => (
         <line key={frac} x1="0" x2={w} y1={h * (1 - frac)} y2={h * (1 - frac)}
-          stroke="#374151" strokeWidth="0.5" strokeDasharray="4 4" />
+          stroke="var(--signal-chart-grid)" strokeWidth="0.5" strokeDasharray="4 4" />
       ))}
       {/* Compra (dashed) */}
-      <polyline points={compraPts} fill="none" stroke="#6b7280" strokeWidth="1.5" strokeDasharray="5 3" />
+      <polyline points={compraPts} fill="none" stroke="var(--signal-muted)" strokeWidth="1.5" strokeDasharray="5 3" />
       {/* Venta (solid) */}
       <polyline points={ventaPts} fill="none" stroke={color} strokeWidth="2" />
       {/* Last point dot */}
@@ -138,16 +138,16 @@ function DollarHistoryModal({
     : null;
 
   const colorHex: Record<string, string> = {
-    'text-sky-400':    '#38bdf8',
-    'text-green-400':  '#4ade80',
+    'text-sky-400':    'var(--chart-1)',
+    'text-green-400':  'var(--chart-7)',
     'text-yellow-400': '#facc15',
-    'text-purple-400': '#c084fc',
-    'text-teal-400':   '#2dd4bf',
-    'text-orange-400': '#fb923c',
-    'text-pink-400':   '#f472b6',
-    'text-indigo-400': '#818cf8',
+    'text-purple-400': 'var(--chart-4)',
+    'text-teal-400':   'var(--chart-11)',
+    'text-orange-400': 'var(--chart-9)',
+    'text-pink-400':   'var(--chart-12)',
+    'text-indigo-400': 'var(--chart-13)',
   };
-  const lineColor = colorHex[config.color] ?? '#38bdf8';
+  const lineColor = colorHex[config.color] ?? 'var(--chart-1)';
 
   return (
     <motion.div

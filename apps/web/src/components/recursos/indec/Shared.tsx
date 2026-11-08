@@ -22,7 +22,7 @@ import {
   type ChartOptions,
 } from "chart.js";
 import { Bar, Line, Doughnut } from "react-chartjs-2";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useStudioChartTheme } from "@/hooks/useStudioChartTheme";
 import { monthLabel, number, shiftMonth, toCsv } from "@/lib/indec/math";
 import type { Provenance } from "@/lib/indec/types";
 
@@ -37,23 +37,7 @@ ChartJS.register(
   Legend,
   Filler
 );
-export const COLORS = [
-  "#22d3ee",
-  "#a3e635",
-  "#a78bfa",
-  "#fbbf24",
-  "#fb7185",
-  "#60a5fa",
-  "#34d399",
-  "#fb923c",
-  "#e879f9",
-  "#94a3b8",
-  "#2dd4bf",
-  "#f472b6",
-  "#818cf8",
-  "#bef264",
-  "#fdba74",
-];
+export const COLORS = Array.from({ length: 15 }, (_, index) => `var(--chart-${index + 1})`);
 
 export function download(
   name: string,
@@ -262,30 +246,14 @@ export function Plot({
   horizontal?: boolean;
   tall?: boolean;
 }) {
-  const { theme } = useTheme();
   const ref = useRef<ChartJS<"line"> | null>(null);
-  const text = theme === "light" ? "#536176" : "#9aa8ba";
-  const grid =
-    theme === "light" ? "rgba(15,23,42,.09)" : "rgba(148,163,184,.10)";
-  const lightColors = [
-    "#087e92",
-    "#557c0f",
-    "#7754bd",
-    "#a26900",
-    "#bd3458",
-    "#2868ac",
-    "#17835a",
-    "#ad5010",
-    "#a934af",
-    "#607085",
-    "#098275",
-    "#bd337d",
-    "#5358bd",
-    "#618213",
-    "#a45c21",
-  ];
-  const colorOf = (color: string) =>
-    theme === "light" ? (lightColors[COLORS.indexOf(color)] ?? color) : color;
+  const palette = useStudioChartTheme();
+  const text = palette.muted;
+  const grid = palette.grid;
+  const colorOf = (color: string) => {
+    const index = COLORS.indexOf(color);
+    return index >= 0 ? palette.colors[index % palette.colors.length] : color;
+  };
   const datasets = series.map((s, i) => ({
     label: s.label,
     data: s.data,
@@ -318,6 +286,7 @@ export function Plot({
         },
       },
       tooltip: {
+        backgroundColor: palette.surface, titleColor: palette.text, bodyColor: palette.text, borderColor: palette.grid, borderWidth: 1,
         callbacks: {
           label: (c) =>
             `${c.dataset.label}: ${number(horizontal ? c.parsed.x : c.parsed.y, 2)}${unit ? ` ${unit}` : ""}`,

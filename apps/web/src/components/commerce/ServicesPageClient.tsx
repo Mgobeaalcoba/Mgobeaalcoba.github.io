@@ -1,6 +1,7 @@
 'use client';
 
-import ContextBackLink from '@/components/shared/ContextBackLink';
+import StudioPageIntro from '@/components/shared/StudioPageIntro';
+import { OFFERS } from '@/lib/offers';
 import OfferGrid from '@/components/commerce/OfferGrid';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_FAQ, SERVICES_FAQ_LABEL, SERVICES_FAQ_TITLE, SERVICES_HERO, SERVICES_STEPS, SERVICES_STEPS_LABEL } from '@/lib/servicesCopy';
@@ -10,12 +11,7 @@ export default function ServicesPageClient() {
 
   return (
     <>
-      <header className="signal-services-hero">
-        <ContextBackLink href="/" label={t('services_back_home')} />
-        <span className="signal-eyebrow">{t('services_eyebrow')}</span>
-        <h1>{SERVICES_HERO.title[lang]}<br /><em>{SERVICES_HERO.emphasis[lang]}</em></h1>
-        <p>{SERVICES_HERO.subtitle[lang]}</p>
-      </header>
+      <StudioPageIntro eyebrow={t('services_eyebrow')} title={<>{SERVICES_HERO.title[lang]}<br /><em>{SERVICES_HERO.emphasis[lang]}</em></>} description={SERVICES_HERO.subtitle[lang]} aside={<div className="mga-page-count"><strong>{OFFERS.length}</strong><span>{lang === 'es' ? 'puntos de partida, con alcance definido' : 'starting points with a defined scope'}</span><a href="#servicios" className="mga-text-link">{lang === 'es' ? 'Explorar servicios ↓' : 'Explore services ↓'}</a></div>} />
       <OfferGrid heading={false} />
       <section className="signal-service-guarantee">
         <span>{SERVICES_STEPS_LABEL[lang]}</span>

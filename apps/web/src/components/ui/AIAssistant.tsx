@@ -2,11 +2,20 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, User, MessageSquareText, Mic, MicOff } from "lucide-react";
+import {
+  X,
+  Send,
+  ArrowUpRight,
+  MessageSquareText,
+  Mic,
+  MicOff,
+} from "lucide-react";
 import { useAIAssistant } from "@/hooks/useAIAssistant";
 import { events } from "@/lib/gtag";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { openContactModal } from "@/components/shared/ContactModal";
+import Link from "next/link";
+import Brand from "@/components/shared/Brand";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -27,7 +36,10 @@ export function AIAssistant() {
   const [formError, setFormError] = useState("");
   const [isIdentifying, setIsIdentifying] = useState(false);
   const [identityFormStarted, setIdentityFormStarted] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesViewportRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const [isListening, setIsListening] = useState(false);
   const [hasSpeechSupport, setHasSpeechSupport] = useState(false);
@@ -36,7 +48,8 @@ export function AIAssistant() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const SpeechRecognition =
-        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        (window as any).SpeechRecognition ||
+        (window as any).webkitSpeechRecognition;
       if (SpeechRecognition) {
         setHasSpeechSupport(true);
         const rec = new SpeechRecognition();
@@ -51,7 +64,13 @@ export function AIAssistant() {
           setIsListening(false);
         };
         rec.onerror = () => {
-          events.appError("ai_assistant", "speech_recognition", "recognition_error", true, "cv");
+          events.appError(
+            "ai_assistant",
+            "speech_recognition",
+            "recognition_error",
+            true,
+            "cv"
+          );
           setIsListening(false);
         };
         rec.onresult = (event: any) => {
@@ -74,20 +93,27 @@ export function AIAssistant() {
       try {
         recognitionRef.current.start();
       } catch {
-        events.appError("ai_assistant", "speech_recognition_start", "start_error", true, "cv");
+        events.appError(
+          "ai_assistant",
+          "speech_recognition_start",
+          "start_error",
+          true,
+          "cv"
+        );
       }
     }
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const viewport = messagesViewportRef.current;
+    viewport?.scrollTo({ top: viewport.scrollHeight, behavior: "smooth" });
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && user) {
       scrollToBottom();
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, user]);
 
   useEffect(() => {
     if (!isOpen || user) return;
@@ -103,6 +129,10 @@ export function AIAssistant() {
 
   const openAssistant = useCallback(() => {
     if (isOpen) return;
+    openerRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
     if (window.history.state?.mgaLayer !== "assistant") {
       window.history.pushState(
         { ...window.history.state, mgaLayer: "assistant" },
@@ -113,13 +143,16 @@ export function AIAssistant() {
     setIsOpen(true);
   }, [isOpen, setIsOpen]);
 
-  const closeAssistant = useCallback((method = "button") => {
-    events.uiLayerClose("assistant", method, "assistant");
-    setIsOpen(false);
-    if (window.history.state?.mgaLayer === "assistant") {
-      window.history.back();
-    }
-  }, [setIsOpen]);
+  const closeAssistant = useCallback(
+    (method = "button") => {
+      events.uiLayerClose("assistant", method, "assistant");
+      setIsOpen(false);
+      if (window.history.state?.mgaLayer === "assistant") {
+        window.history.back();
+      }
+    },
+    [setIsOpen]
+  );
 
   useEffect(() => {
     if (!isOpen) return;
@@ -139,6 +172,37 @@ export function AIAssistant() {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, closeAssistant, setIsOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    panelRef.current
+      ?.querySelector<HTMLInputElement>("input:not(:disabled)")
+      ?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      recognitionRef.current?.stop();
+    };
+  }, [isOpen]);
+
+  const keepFocusInPanel = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const controls = Array.from(
+      panelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not(:disabled), input:not(:disabled), [tabindex="0"]'
+      ) ?? []
+    );
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  };
 
   // Global event listener to open assistant from other components
   useEffect(() => {
@@ -162,7 +226,12 @@ export function AIAssistant() {
     setFormError("");
 
     if (!formData.name.trim() || !formData.email.trim()) {
-      events.formValidationError("ai_assistant_identity", "required_fields", "required", "cv");
+      events.formValidationError(
+        "ai_assistant_identity",
+        "required_fields",
+        "required",
+        "cv"
+      );
       setFormError(
         lang === "en"
           ? "Please fill all fields"
@@ -173,7 +242,12 @@ export function AIAssistant() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      events.formValidationError("ai_assistant_identity", "email", "invalid", "cv");
+      events.formValidationError(
+        "ai_assistant_identity",
+        "email",
+        "invalid",
+        "cv"
+      );
       setFormError(
         lang === "en"
           ? "Please enter a valid email"
@@ -185,7 +259,10 @@ export function AIAssistant() {
     events.formSubmitAttempt("ai_assistant_identity", "cv");
     setIsIdentifying(true);
     try {
-      await identifyUser({ name: formData.name.trim(), email: formData.email.trim() });
+      await identifyUser({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+      });
     } catch {
       events.leadDelivery("error", "ai_assistant", "ai_assistant_identity");
       setFormError(
@@ -209,17 +286,14 @@ export function AIAssistant() {
     const cleanContent = content.replace(contactTagRegex, "").trim();
 
     return (
-      <div className="flex flex-col space-y-2">
-        <div className="text-sm prose dark:prose-invert prose-p:leading-relaxed prose-pre:bg-gray-800/50 prose-pre:text-gray-100 prose-pre:whitespace-pre-wrap break-words max-w-none">
+      <div className="mga-chat__content">
+        <div className="mga-chat__prose">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {cleanContent}
           </ReactMarkdown>
         </div>
         {hasContact && (
-          <button
-            onClick={handleOpenContact}
-            className="mt-2 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all"
-          >
+          <button onClick={handleOpenContact} className="mga-chat__contact">
             <MessageSquareText size={16} />
             <span>
               {lang === "en" ? "Contact our team" : "Contactar al equipo"}
@@ -232,309 +306,315 @@ export function AIAssistant() {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence
+        onExitComplete={() => {
+          if (
+            openerRef.current?.isConnected &&
+            openerRef.current.getClientRects().length
+          )
+            openerRef.current.focus();
+          else if (window.matchMedia("(max-width: 820px)").matches)
+            document
+              .querySelector<HTMLButtonElement>(
+                '.mga-mobile-bar button[aria-controls="mga-mobile-explore"]'
+              )
+              ?.focus();
+          else triggerRef.current?.focus();
+        }}
+      >
         {isOpen && (
           <motion.div
+            className="mga-chat-scrim"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="signal-assistant-scrim fixed inset-0 z-[75] bg-black/[0.03]"
             onClick={() => closeAssistant("outside")}
           >
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="signal-assistant-panel fixed bottom-20 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[calc(100dvh-6rem)] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col z-[80] overflow-hidden sm:right-5"
-            onClick={(event) => event.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shrink-0 flex items-center justify-between shadow-md">
-              <div className="flex items-center space-x-3">
-                <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm">
-                  <Bot className="text-white w-5 h-5" />
+            <motion.div
+              id="mga-assistant-dialog"
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="mga-chat-title"
+              className="mga-chat"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.18 }}
+              onClick={(event) => event.stopPropagation()}
+              onKeyDown={keepFocusInPanel}
+            >
+              <header className="mga-chat__header">
+                <div className="mga-chat__heading">
+                  <Brand compact />
+                  <span>
+                    {lang === "en" ? "AI assistant" : "Asistente de IA"}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-white font-medium text-sm">
-                    MGA Tech Assistant
-                  </h3>
-                  <p className="text-blue-100 text-xs">
-                    {lang === "en"
-                      ? "MGA AI Assistant"
-                      : "Asistente IA de MGA"}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => closeAssistant("button")}
-                className="text-white/80 hover:text-white p-1 rounded-md transition-colors hover:bg-white/10"
-                aria-label={lang === "en" ? "Close assistant" : "Cerrar asistente"}
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950/50 flex flex-col">
-              {!user ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex-1 flex flex-col justify-center py-4"
+                <h2 id="mga-chat-title" className="sr-only">
+                  {lang === "en" ? "MGA assistant" : "Asistente de MGA"}
+                </h2>
+                <button
+                  className="mga-chat__icon-button"
+                  type="button"
+                  onClick={() => closeAssistant("button")}
+                  aria-label={
+                    lang === "en" ? "Close assistant" : "Cerrar asistente"
+                  }
                 >
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <h4 className="text-gray-800 dark:text-gray-100 font-semibold mb-2 text-center">
-                      {lang === "en" ? "Welcome!" : "¡Bienvenido!"}
-                    </h4>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs mb-6 text-center leading-relaxed">
-                      {lang === "en"
-                        ? "Tell us who you are to start. Your details help us follow up on your inquiry."
-                        : "Contanos quién sos para comenzar. Tus datos nos permiten registrar y dar seguimiento a tu consulta."}
-                    </p>
+                  <X size={19} />
+                </button>
+              </header>
 
+              <div
+                ref={messagesViewportRef}
+                className={`mga-chat__body${!user ? " mga-chat__body--intro" : ""}`}
+              >
+                {!user ? (
+                  <div className="mga-chat__intro">
+                    <span className="mga-kicker">
+                      01 /{" "}
+                      {lang === "en"
+                        ? "Let's start here"
+                        : "Antes de conversar"}
+                    </span>
+                    <h3>
+                      {lang === "en"
+                        ? "Let's find your next step."
+                        : "Pensemos tu próximo paso."}
+                    </h3>
+                    <p>
+                      {lang === "en"
+                        ? "Questions about services, projects or technology? Tell us who you are so we can follow up on your inquiry."
+                        : "¿Tenés una consulta sobre servicios, proyectos o tecnología? Contanos quién sos para darle seguimiento."}
+                    </p>
                     <form
+                      className="mga-chat__identity-form"
                       onSubmit={handleIdentify}
                       onInvalid={(event) => {
-                        const field = (event.target as HTMLInputElement).name || "unknown";
-                        events.formValidationError("ai_assistant_identity", field, "invalid", "cv");
+                        const field =
+                          (event.target as HTMLInputElement).name || "unknown";
+                        events.formValidationError(
+                          "ai_assistant_identity",
+                          field,
+                          "invalid",
+                          "cv"
+                        );
                       }}
-                      className="space-y-4"
                     >
                       <div>
-                        <label className="block text-[10px] uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-1 ml-1">
-                          {lang === "en" ? "Full Name" : "Nombre Completo"}
+                        <label htmlFor="mga-chat-name">
+                          {lang === "en" ? "Your name" : "Tu nombre"}
                         </label>
                         <input
-                          type="text"
+                          id="mga-chat-name"
                           name="name"
+                          type="text"
+                          autoComplete="name"
                           required
                           maxLength={120}
+                          disabled={isIdentifying}
                           onFocus={markIdentityFormStarted}
                           value={formData.name}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              name: e.target.value,
+                          onChange={(event) =>
+                            setFormData((previous) => ({
+                              ...previous,
+                              name: event.target.value,
                             }))
                           }
                           placeholder={
-                            lang === "en" ? "John Doe" : "Tu nombre..."
+                            lang === "en"
+                              ? "First and last name"
+                              : "Nombre y apellido"
                           }
-                          className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm rounded-xl py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 transition-all"
                         />
                       </div>
-
                       <div>
-                        <label className="block text-[10px] uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-1 ml-1">
-                          {lang === "en"
-                            ? "Email Address"
-                            : "Correo Electrónico"}
+                        <label htmlFor="mga-chat-email">
+                          {lang === "en" ? "Your email" : "Tu email"}
                         </label>
                         <input
-                          type="email"
+                          id="mga-chat-email"
                           name="email"
+                          type="email"
+                          autoComplete="email"
                           required
                           maxLength={254}
+                          disabled={isIdentifying}
                           onFocus={markIdentityFormStarted}
                           value={formData.email}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              email: e.target.value,
+                          onChange={(event) =>
+                            setFormData((previous) => ({
+                              ...previous,
+                              email: event.target.value,
                             }))
                           }
-                          placeholder="email@example.com"
-                          className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm rounded-xl py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 transition-all"
+                          placeholder={
+                            lang === "en"
+                              ? "name@company.com"
+                              : "nombre@empresa.com"
+                          }
                         />
                       </div>
-
                       {formError && (
-                        <p className="text-[10px] text-red-500 text-center animate-pulse">
+                        <p className="mga-chat__error" role="alert">
                           {formError}
                         </p>
                       )}
-
                       <button
                         type="submit"
+                        className="mga-chat__primary"
                         disabled={isIdentifying}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-2 disabled:cursor-wait disabled:opacity-70"
                       >
                         {isIdentifying
-                          ? (lang === "en" ? "Registering..." : "Registrando...")
+                          ? lang === "en"
+                            ? "Starting…"
+                            : "Iniciando…"
                           : lang === "en"
-                          ? "Continue to the assistant"
-                          : "Ingresar al asistente"}
+                            ? "Start a conversation"
+                            : "Empezar a conversar"}
+                        <ArrowUpRight size={18} />
                       </button>
+                      <p className="mga-chat__privacy">
+                        {lang === "en"
+                          ? "Your details are used to register and follow up on this inquiry."
+                          : "Usamos tus datos para registrar y dar seguimiento a esta consulta."}{" "}
+                        <Link href="/privacidad/">
+                          {lang === "en" ? "Privacy" : "Privacidad"} ↗
+                        </Link>
+                      </p>
                     </form>
                   </div>
-                </motion.div>
-              ) : (
-                <>
-                  {messages.map((msg) => (
-                    <div
-                      key={msg.id}
-                      className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                    >
-                      <div
-                        className={`flex max-w-[85%] ${
-                          msg.role === "user" ? "flex-row-reverse" : "flex-row"
-                        }`}
-                      >
-                        <div
-                          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                            msg.role === "user"
-                              ? "ml-2 bg-gray-200 dark:bg-gray-800"
-                              : "mr-2 bg-gradient-to-br from-blue-500 to-indigo-600"
-                          }`}
-                        >
-                          {msg.role === "user" ? (
-                            <User
-                              size={14}
-                              className="text-gray-600 dark:text-gray-300"
-                            />
-                          ) : (
-                            <Bot size={14} className="text-white" />
-                          )}
-                        </div>
-                        <div
-                          className={`p-3 rounded-2xl ${
-                            msg.role === "user"
-                              ? "bg-blue-600 text-white rounded-tr-none"
-                              : "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none"
-                          }`}
-                        >
-                          {msg.role === "user" ? (
-                            <p className="text-sm">{msg.content}</p>
-                          ) : (
-                            renderMessageContent(msg.content)
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
-                  {isLoading && (
-                    <div className="flex justify-start">
-                      <div className="flex flex-row max-w-[85%]">
-                        <div className="shrink-0 w-8 h-8 mr-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                          <Bot size={14} className="text-white" />
-                        </div>
-                        <div className="p-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm rounded-tl-none flex space-x-1 items-center">
-                          <motion.div
-                            animate={{ y: [0, -5, 0] }}
-                            transition={{
-                              duration: 0.6,
-                              repeat: Infinity,
-                              delay: 0,
-                            }}
-                            className="w-2 h-2 bg-gray-400 rounded-full"
-                          />
-                          <motion.div
-                            animate={{ y: [0, -5, 0] }}
-                            transition={{
-                              duration: 0.6,
-                              repeat: Infinity,
-                              delay: 0.2,
-                            }}
-                            className="w-2 h-2 bg-gray-400 rounded-full"
-                          />
-                          <motion.div
-                            animate={{ y: [0, -5, 0] }}
-                            transition={{
-                              duration: 0.6,
-                              repeat: Infinity,
-                              delay: 0.4,
-                            }}
-                            className="w-2 h-2 bg-gray-400 rounded-full"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {error && (
-                    <div className="text-center mt-2">
-                      <p className="text-xs text-red-500">{error}</p>
-                    </div>
-                  )}
-                </>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input Area */}
-            <div
-              className={`p-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shrink-0 transition-opacity duration-300 ${!user ? "opacity-30 pointer-events-none grayscale" : "opacity-100"}`}
-            >
-              <form
-                onSubmit={handleSubmit}
-                className="flex items-center space-x-2"
-              >
-                {isListening ? (
-                  <div className="flex-1 bg-sky-50 dark:bg-sky-950/20 border border-sky-200 dark:border-sky-800/50 text-sm rounded-full py-2.5 px-4 flex items-center justify-between">
-                    <span className="text-sky-500 dark:text-sky-400 animate-pulse font-medium text-xs">
-                      {lang === "en" ? "Listening..." : "Escuchando..."}
-                    </span>
-                    <div className="voice-wave shrink-0">
-                      <div className="voice-bar" />
-                      <div className="voice-bar" />
-                      <div className="voice-bar" />
-                    </div>
-                  </div>
                 ) : (
-                  <input
-                    type="text"
-                    maxLength={4000}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder={
-                      lang === "en"
-                        ? "Message MGA Assistant..."
-                        : "Mensaje a MGA Assistant..."
-                    }
-                    className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm rounded-full py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                    disabled={isLoading}
-                  />
+                  <>
+                    {messages.map((message) => (
+                      <div
+                        key={message.id}
+                        className={`mga-chat__message${message.role === "user" ? " mga-chat__message--user" : ""}`}
+                      >
+                        <span className="mga-chat__message-label">
+                          {message.role === "user"
+                            ? lang === "en"
+                              ? "You"
+                              : "Vos"
+                            : "MGA"}
+                        </span>
+                        <div className="mga-chat__message-body">
+                          {message.role === "user" ? (
+                            <p>{message.content}</p>
+                          ) : (
+                            renderMessageContent(message.content)
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                    {isLoading && (
+                      <div className="mga-chat__loading" role="status">
+                        <span />
+                        <span />
+                        <span />
+                        <span className="sr-only">
+                          {lang === "en"
+                            ? "Preparing a reply"
+                            : "Preparando una respuesta"}
+                        </span>
+                      </div>
+                    )}
+                    {error && (
+                      <p className="mga-chat__error" role="alert">
+                        {error}
+                      </p>
+                    )}
+                  </>
                 )}
-                {hasSpeechSupport && (
-                  <button
-                    type="button"
-                    onClick={toggleListening}
-                    className={`p-2.5 rounded-full transition-all flex flex-col justify-center items-center ${
-                      isListening
-                        ? "bg-red-500 hover:bg-red-600 text-white animate-pulse"
-                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
-                    }`}
-                    title={lang === "en" ? "Voice Input" : "Entrada de voz"}
-                    aria-label={lang === "en" ? "Voice input" : "Entrada de voz"}
-                  >
-                    {isListening ? <MicOff size={16} /> : <Mic size={16} />}
-                  </button>
-                )}
-                <button
-                  type="submit"
-                  disabled={!inputValue.trim() || isLoading}
-                  className="p-2.5 rounded-full bg-blue-600 text-white disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors flex flex-col justify-center items-center"
-                  aria-label={lang === "en" ? "Send message" : "Enviar mensaje"}
-                >
-                  <Send size={16} className="-ml-0.5" />
-                </button>
-              </form>
-            </div>
-          </motion.div>
+              </div>
+
+              {user ? (
+                <div className="mga-chat__composer">
+                  <form onSubmit={handleSubmit}>
+                    {isListening ? (
+                      <div className="mga-chat__listening" role="status">
+                        {lang === "en" ? "Listening…" : "Escuchando…"}
+                        <span className="voice-wave">
+                          <span className="voice-bar" />
+                          <span className="voice-bar" />
+                          <span className="voice-bar" />
+                        </span>
+                      </div>
+                    ) : (
+                      <input
+                        type="text"
+                        maxLength={4000}
+                        value={inputValue}
+                        onChange={(event) => setInputValue(event.target.value)}
+                        aria-label={
+                          lang === "en" ? "Your message" : "Tu mensaje"
+                        }
+                        placeholder={
+                          lang === "en"
+                            ? "Write your question…"
+                            : "Escribí tu consulta…"
+                        }
+                        disabled={isLoading}
+                      />
+                    )}
+                    {hasSpeechSupport && (
+                      <button
+                        type="button"
+                        onClick={toggleListening}
+                        className={`mga-chat__icon-button${isListening ? " is-listening" : ""}`}
+                        aria-label={
+                          lang === "en" ? "Voice input" : "Entrada de voz"
+                        }
+                        aria-pressed={isListening}
+                      >
+                        {isListening ? <MicOff size={18} /> : <Mic size={18} />}
+                      </button>
+                    )}
+                    <button
+                      type="submit"
+                      className="mga-chat__send"
+                      disabled={!inputValue.trim() || isLoading}
+                      aria-label={
+                        lang === "en" ? "Send message" : "Enviar mensaje"
+                      }
+                    >
+                      <Send size={18} />
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                <div className="mga-chat__footer-note">
+                  MGA /{" "}
+                  {lang === "en"
+                    ? "Applied technology studio"
+                    : "Estudio de tecnología aplicada"}
+                </div>
+              )}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Compact assistant trigger — intentionally avoids covering page content. */}
       <button
+        ref={triggerRef}
         onClick={isOpen ? () => closeAssistant("trigger") : openAssistant}
         className={`signal-assistant-trigger ${isOpen ? "is-open" : ""}`}
-        aria-label={isOpen
-          ? (lang === "en" ? "Close MGA assistant" : "Cerrar asistente MGA")
-          : (lang === "en" ? "Open MGA assistant" : "Abrir asistente MGA")}
+        aria-expanded={isOpen}
+        aria-controls="mga-assistant-dialog"
+        aria-label={
+          isOpen
+            ? lang === "en"
+              ? "Close MGA assistant"
+              : "Cerrar asistente MGA"
+            : lang === "en"
+              ? "Open MGA assistant"
+              : "Abrir asistente MGA"
+        }
       >
-        <span className="signal-assistant-trigger__icon">{isOpen ? <X size={17} /> : <Bot size={17} />}</span>
+        <span className="signal-assistant-trigger__icon">
+          {isOpen ? <X size={17} /> : <MessageSquareText size={17} />}
+        </span>
         <span>{lang === "en" ? "Ask MGA" : "Preguntá a MGA"}</span>
       </button>
     </>

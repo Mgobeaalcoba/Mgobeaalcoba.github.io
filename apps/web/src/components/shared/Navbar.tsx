@@ -2,17 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import {
-  ArrowUpRight,
-  ChevronDown,
-  Menu,
-  Moon,
-  Search,
-  Sun,
-  X,
-} from "lucide-react";
+import { ArrowUpRight, ChevronDown, Moon, Search, Sun } from "lucide-react";
 import Link from "next/link";
 import Brand from "./Brand";
+import MobileNavigation from "./MobileNavigation";
 import { openContactModal } from "./ContactModal";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -66,16 +59,13 @@ export default function Navbar() {
 function StudioNavbar({ pathname }: { pathname: string }) {
   const { theme, cycleTheme } = useTheme();
   const { lang, setLang } = useLanguage();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const exploreRef = useRef<HTMLDivElement>(null);
   const exploreButton = useRef<HTMLButtonElement>(null);
-  const menuButton = useRef<HTMLButtonElement>(null);
   const home = localizePath("/", lang);
   const es = lang === "es";
   const basePath = splitLocale(pathname).pathname;
   const closeMenus = () => {
-    setMenuOpen(false);
     setExploreOpen(false);
   };
   const links = [
@@ -94,9 +84,6 @@ function StudioNavbar({ pathname }: { pathname: string }) {
       if (exploreOpen) {
         setExploreOpen(false);
         exploreButton.current?.focus();
-      } else if (menuOpen) {
-        setMenuOpen(false);
-        menuButton.current?.focus();
       }
     };
     document.addEventListener("pointerdown", outside);
@@ -105,7 +92,7 @@ function StudioNavbar({ pathname }: { pathname: string }) {
       document.removeEventListener("pointerdown", outside);
       document.removeEventListener("keydown", escape);
     };
-  }, [exploreOpen, menuOpen]);
+  }, [exploreOpen]);
 
   const contact = () => {
     closeMenus();
@@ -135,152 +122,105 @@ function StudioNavbar({ pathname }: { pathname: string }) {
   };
 
   return (
-    <header className="mga-nav">
-      <nav
-        className="mga-nav__inner"
-        aria-label={es ? "Navegación principal" : "Main navigation"}
-      >
-        <Link
-          href={home}
-          className="mga-nav__brand"
-          aria-label="MGA Tech Consulting — Home"
-          onClick={closeMenus}
-        >
-          <Brand />
-        </Link>
-        <div className="mga-nav__links">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => {
-                closeMenus();
-                events.navClick(href, label);
-              }}
-            >
-              {label}
-            </Link>
-          ))}
-          <div className="mga-nav__explore" ref={exploreRef}>
-            <button
-              ref={exploreButton}
-              onClick={() => setExploreOpen(!exploreOpen)}
-              aria-expanded={exploreOpen}
-              aria-controls="mga-explore"
-            >
-              {es ? "Explorar" : "Explore"}
-              <ChevronDown size={13} />
-            </button>
-            {exploreOpen && (
-              <div id="mga-explore" className="mga-nav__dropdown">
-                {EXPLORE.map((item) => (
-                  <Link
-                    href={localizePath(item.href, lang)}
-                    key={item.href}
-                    onClick={closeMenus}
-                    aria-current={
-                      basePath.startsWith(item.href) ? "page" : undefined
-                    }
-                  >
-                    <span>
-                      {item[lang]}
-                      <ArrowUpRight size={16} />
-                    </span>
-                    <small>{item.detail[lang]}</small>
-                  </Link>
-                ))}
-                <button
-                  onClick={() => {
-                    closeMenus();
-                    window.dispatchEvent(
-                      new CustomEvent("toggle-command-palette")
-                    );
-                  }}
-                >
-                  <Search size={15} />
-                  {es ? "Buscar en el sitio" : "Search the site"}
-                  <kbd>⌘ K</kbd>
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="mga-nav__actions">
-          <a
-            className="mga-nav__utility"
-            href={localizePath(pathname, es ? "en" : "es")}
-            onClick={switchLanguage}
-            aria-label={es ? "Cambiar a inglés" : "Switch to Spanish"}
-          >
-            {lang.toUpperCase()}
-          </a>
-          <button
-            className="mga-nav__utility"
-            onClick={cycleTheme}
-            aria-label={
-              es
-                ? `Activar tema ${theme === "dark" ? "claro" : "oscuro"}`
-                : `Switch to ${theme === "dark" ? "light" : "dark"} theme`
-            }
-          >
-            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
-          <button className="mga-nav__cta" onClick={contact}>
-            {es ? "Hablemos" : "Let’s talk"}
-            <ArrowUpRight size={17} />
-          </button>
-          <button
-            ref={menuButton}
-            className="mga-nav__menu-toggle"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-expanded={menuOpen}
-            aria-controls="mga-mobile-menu"
-            aria-label={
-              es
-                ? menuOpen
-                  ? "Cerrar menú"
-                  : "Abrir menú"
-                : menuOpen
-                  ? "Close menu"
-                  : "Open menu"
-            }
-          >
-            {menuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </nav>
-      {menuOpen && (
+    <>
+      <header className="mga-nav">
         <nav
-          id="mga-mobile-menu"
-          className="mga-nav__mobile"
-          aria-label={es ? "Navegación móvil" : "Mobile navigation"}
+          className="mga-nav__inner"
+          aria-label={es ? "Navegación principal" : "Main navigation"}
         >
-          {links.map(({ href, label }, index) => (
-            <Link key={href} href={href} onClick={closeMenus}>
-              <small>0{index + 1}</small>
-              {label}
-              <ArrowUpRight size={24} />
-            </Link>
-          ))}
-          <div className="mga-nav__mobile-explore">
-            <span>{es ? "Explorar" : "Explore"}</span>
-            {EXPLORE.map((item) => (
+          <Link
+            href={home}
+            className="mga-nav__brand"
+            aria-label="MGA Tech Consulting — Home"
+            onClick={closeMenus}
+          >
+            <Brand />
+          </Link>
+          <div className="mga-nav__links">
+            {links.map(({ href, label }) => (
               <Link
-                href={localizePath(item.href, lang)}
-                onClick={closeMenus}
-                key={item.href}
+                key={href}
+                href={href}
+                onClick={() => {
+                  closeMenus();
+                  events.navClick(href, label);
+                }}
               >
-                {item[lang]}
-                <ArrowUpRight size={15} />
+                {label}
               </Link>
             ))}
+            <div className="mga-nav__explore" ref={exploreRef}>
+              <button
+                ref={exploreButton}
+                onClick={() => setExploreOpen(!exploreOpen)}
+                aria-expanded={exploreOpen}
+                aria-controls="mga-explore"
+              >
+                {es ? "Explorar" : "Explore"}
+                <ChevronDown size={13} />
+              </button>
+              {exploreOpen && (
+                <div id="mga-explore" className="mga-nav__dropdown">
+                  {EXPLORE.map((item) => (
+                    <Link
+                      href={localizePath(item.href, lang)}
+                      key={item.href}
+                      onClick={closeMenus}
+                      aria-current={
+                        basePath.startsWith(item.href) ? "page" : undefined
+                      }
+                    >
+                      <span>
+                        {item[lang]}
+                        <ArrowUpRight size={16} />
+                      </span>
+                      <small>{item.detail[lang]}</small>
+                    </Link>
+                  ))}
+                  <button
+                    onClick={() => {
+                      closeMenus();
+                      window.dispatchEvent(
+                        new CustomEvent("toggle-command-palette")
+                      );
+                    }}
+                  >
+                    <Search size={15} />
+                    {es ? "Buscar en el sitio" : "Search the site"}
+                    <kbd>⌘ K</kbd>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-          <button className="mga-button mga-button--lime" onClick={contact}>
-            {es ? "Contanos tu proyecto" : "Tell us about your project"}
-            <ArrowUpRight size={18} />
-          </button>
+          <div className="mga-nav__actions">
+            <a
+              className="mga-nav__utility"
+              href={localizePath(pathname, es ? "en" : "es")}
+              onClick={switchLanguage}
+              aria-label={es ? "Cambiar a inglés" : "Switch to Spanish"}
+            >
+              {lang.toUpperCase()}
+            </a>
+            <button
+              className="mga-nav__utility"
+              onClick={cycleTheme}
+              aria-label={
+                es
+                  ? `Activar tema ${theme === "dark" ? "claro" : "oscuro"}`
+                  : `Switch to ${theme === "dark" ? "light" : "dark"} theme`
+              }
+            >
+              {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+            <button className="mga-nav__cta" onClick={contact}>
+              {es ? "Hablemos" : "Let’s talk"}
+              <ArrowUpRight size={17} />
+            </button>
+          </div>
         </nav>
-      )}
-    </header>
+      </header>
+      <MobileNavigation pathname={pathname} onContact={contact} />
+    </>
   );
 }

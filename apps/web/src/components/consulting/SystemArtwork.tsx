@@ -14,9 +14,9 @@ export default function SystemArtwork() {
         <g className="mga-art__layer mga-art__layer--bottom">
           <path
             d="m87 332 173 99 173-99v21L260 453 87 353v-21Z"
-            fill="#6a9b1c"
+            fill="color-mix(in srgb, var(--signal-lime) 65%, var(--signal-bg))"
           />
-          <path d="m87 332 173-100 173 100-173 99-173-99Z" fill="#a3e635" />
+          <path d="m87 332 173-100 173 100-173 99-173-99Z" fill="var(--signal-lime)" />
           <path
             d="m123 332 137-79 137 79-137 78-137-78Z"
             stroke="#05070c"
@@ -24,13 +24,13 @@ export default function SystemArtwork() {
           />
           <path d="m237 332 23-13 23 13-23 13-23-13Z" fill="#05070c" />
         </g>
-        <path d="M260 174v158" stroke="#6fb6ff" strokeDasharray="3 7" />
+        <path d="M260 174v158" stroke="var(--signal-cyan)" strokeDasharray="3 7" />
         <g className="mga-art__layer mga-art__layer--middle">
           <path
             d="m87 245 173 99 173-99v21L260 366 87 266v-21Z"
-            fill="#3376ad"
+            fill="color-mix(in srgb, var(--signal-cyan) 65%, var(--signal-bg))"
           />
-          <path d="m87 245 173-100 173 100-173 99L87 245Z" fill="#6fb6ff" />
+          <path d="m87 245 173-100 173 100-173 99L87 245Z" fill="var(--signal-cyan)" />
           <path
             d="m123 245 137-79 137 79-137 78-137-78Z"
             stroke="#05070c"
@@ -49,9 +49,9 @@ export default function SystemArtwork() {
         <g className="mga-art__layer mga-art__layer--top">
           <path
             d="m87 158 173 99 173-99v21L260 279 87 179v-21Z"
-            fill="#2c3b88"
+            fill="color-mix(in srgb, var(--signal-blue) 60%, var(--signal-bg))"
           />
-          <path d="m87 158 173-100 173 100-173 99L87 158Z" fill="#5271ff" />
+          <path d="m87 158 173-100 173 100-173 99L87 158Z" fill="var(--signal-blue)" />
           <path
             d="m123 158 137-79 137 79-137 78-137-78Z"
             stroke="white"
@@ -64,7 +64,7 @@ export default function SystemArtwork() {
           />
           <path d="m243 148 34 20m-34 0 34-20" stroke="white" strokeWidth="2" />
         </g>
-        <circle cx="451" cy="217" r="5" fill="#a3e635" />
+        <circle cx="451" cy="217" r="5" fill="var(--signal-lime)" />
         <circle cx="65" cy="443" r="3" className="mga-art__dot" />
         <path
           d="M433 159h38M433 246h38M433 333h38"

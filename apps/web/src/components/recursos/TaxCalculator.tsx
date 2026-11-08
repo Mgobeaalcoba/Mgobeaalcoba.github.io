@@ -454,27 +454,27 @@ function DoughnutChart({ netMonthly, aportes, tax }: {
   return (
     <div className="flex flex-col items-center">
       <svg viewBox="0 0 100 100" className="w-44 h-44">
-        <circle cx="50" cy="50" r={r} fill="none" stroke="#1f2937" strokeWidth="14" />
+        <circle cx="50" cy="50" r={r} fill="none" stroke="var(--signal-line-strong)" strokeWidth="14" />
         {netLen > 0.5 && (
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#22c55e" strokeWidth="14"
+          <circle cx="50" cy="50" r={r} fill="none" stroke="var(--signal-success)" strokeWidth="14"
             strokeDasharray={`${netLen} ${circ}`}
             strokeLinecap="butt"
             transform={`rotate(${netRot} 50 50)`} />
         )}
         {aportesLen > 0.5 && (
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#eab308" strokeWidth="14"
+          <circle cx="50" cy="50" r={r} fill="none" stroke="var(--signal-amber)" strokeWidth="14"
             strokeDasharray={`${aportesLen} ${circ}`}
             strokeLinecap="butt"
             transform={`rotate(${aportesRot} 50 50)`} />
         )}
         {taxLen > 0.5 && (
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#ef4444" strokeWidth="14"
+          <circle cx="50" cy="50" r={r} fill="none" stroke="var(--signal-coral)" strokeWidth="14"
             strokeDasharray={`${taxLen} ${circ}`}
             strokeLinecap="butt"
             transform={`rotate(${taxRot} 50 50)`} />
         )}
-        <text x="50" y="46" textAnchor="middle" fill="#e5e7eb" fontSize="7.5" fontWeight="600">Neto</text>
-        <text x="50" y="57" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">
+        <text x="50" y="46" textAnchor="middle" fill="var(--signal-text)" fontSize="7.5" fontWeight="600">Neto</text>
+        <text x="50" y="57" textAnchor="middle" fill="var(--signal-success)" fontSize="10" fontWeight="bold">
           {Math.round(netPct * 100)}%
         </text>
       </svg>

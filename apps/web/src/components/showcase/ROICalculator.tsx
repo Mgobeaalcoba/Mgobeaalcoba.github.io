@@ -369,7 +369,7 @@ export default function ROICalculator() {
                 {lang === "es"
                   ? `Al automatizar este proceso, su organización ahorrará aproximadamente `
                   : `By automating this process, your organization will save approximately `}
-                <span className="text-white font-black underline decoration-sky-500/50 underline-offset-4">
+                <span className="text-gray-100 font-black underline decoration-sky-500/50 underline-offset-4">
                   ${Math.round(results.annualSavings).toLocaleString()}
                 </span>
                 {lang === "es" ? ` cada año.` : ` every year.`}

@@ -10,7 +10,7 @@ export default function ConsultingTeaser() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8"

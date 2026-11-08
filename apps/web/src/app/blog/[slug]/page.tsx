@@ -1,16 +1,16 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import Navbar from '@/components/shared/Navbar';
-import Footer from '@/components/shared/Footer';
-import ScrollTracker from '@/components/shared/ScrollTracker';
-import JsonLd from '@/components/shared/JsonLd';
-import { getPostBySlug, getAllSlugs } from '@/lib/blog';
-import ArticleMobileActions from '@/components/blog/ArticleMobileActions';
-import ArticleServiceCTA from '@/components/commerce/ArticleServiceCTA';
-import ContentEngagementTracker from '@/components/shared/ContentEngagementTracker';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
+import ScrollTracker from "@/components/shared/ScrollTracker";
+import JsonLd from "@/components/shared/JsonLd";
+import { getPostBySlug, getAllSlugs } from "@/lib/blog";
+import ArticleMobileActions from "@/components/blog/ArticleMobileActions";
+import ArticleServiceCTA from "@/components/commerce/ArticleServiceCTA";
+import ContentEngagementTracker from "@/components/shared/ContentEngagementTracker";
 
-const SITE_URL = 'https://www.mgatc.com';
+const SITE_URL = "https://www.mgatc.com";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,10 +21,12 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  if (!post) return { title: 'Post not found' };
+  if (!post) return { title: "Post not found" };
 
   const postUrl = `${SITE_URL}/blog/${slug}/`;
 
@@ -37,13 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title.es,
       description: post.excerpt.es,
-      type: 'article',
+      type: "article",
       publishedTime: post.date,
       authors: [post.author],
       url: postUrl,
       images: [
         {
-          url: `${SITE_URL}/images/logo.png`,
+          url: `${SITE_URL}/og.png`,
           width: 1200,
           height: 630,
           alt: post.title.es,
@@ -63,7 +65,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         <Navbar />
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-300 mb-4">Post no encontrado</h1>
+            <h1 className="text-2xl font-bold text-gray-300 mb-4">
+              Post no encontrado
+            </h1>
             <Link href="/blog/" className="text-sky-400 hover:text-sky-300">
               ← Volver al blog
             </Link>
@@ -77,43 +81,43 @@ export default async function BlogPostPage({ params }: PageProps) {
   const postUrl = `${SITE_URL}/blog/${slug}/`;
 
   const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline: post.title.es,
     description: post.excerpt.es,
     url: postUrl,
     datePublished: post.date,
     dateModified: post.date,
-    inLanguage: 'es',
+    inLanguage: "es",
     author: {
-      '@type': 'Person',
-      name: 'Mariano Gobea Alcoba',
+      "@type": "Person",
+      name: "Mariano Gobea Alcoba",
       url: SITE_URL,
     },
     publisher: {
-      '@type': 'Person',
-      name: 'Mariano Gobea Alcoba',
+      "@type": "Person",
+      name: "Mariano Gobea Alcoba",
       url: SITE_URL,
       image: {
-        '@type': 'ImageObject',
+        "@type": "ImageObject",
         url: `${SITE_URL}/images/profile.png`,
       },
     },
     image: {
-      '@type': 'ImageObject',
-      url: `${SITE_URL}/images/logo.png`,
+      "@type": "ImageObject",
+      url: `${SITE_URL}/og.png`,
       width: 1200,
       height: 630,
     },
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': postUrl,
+      "@type": "WebPage",
+      "@id": postUrl,
     },
-    keywords: post.tags?.join(', ') ?? '',
+    keywords: post.tags?.join(", ") ?? "",
     articleSection: post.category,
     isPartOf: {
-      '@type': 'Blog',
-      name: 'Blog Técnico — Mariano Gobea Alcoba',
+      "@type": "Blog",
+      name: "Blog Técnico — Mariano Gobea Alcoba",
       url: `${SITE_URL}/blog/`,
     },
   };
@@ -121,11 +125,15 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <main id="main-content" className="min-h-screen signal-article-page">
       <JsonLd data={articleSchema} />
-      <ContentEngagementTracker contentType="article" contentId={slug} title={post.title.es} />
+      <ContentEngagementTracker
+        contentType="article"
+        contentId={slug}
+        title={post.title.es}
+      />
       <ScrollTracker site_section="blog" />
       <Navbar />
 
-      <article className="signal-article max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+      <article className="mga-article-shell mga-container">
         {/* Back link */}
         <Link
           href="/blog/"
@@ -136,7 +144,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </Link>
 
         {/* Header */}
-        <header className="mb-10">
+        <header className="mga-article-header mb-10">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium">
               {post.category}
@@ -152,13 +160,17 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.title.es}
           </h1>
 
-          <p className="text-gray-400 text-lg leading-relaxed mb-6">{post.excerpt.es}</p>
+          <p className="text-gray-400 text-lg leading-relaxed mb-6">
+            {post.excerpt.es}
+          </p>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
-              {new Date(post.date).toLocaleDateString('es-AR', {
-                year: 'numeric', month: 'long', day: 'numeric'
+              {new Date(post.date).toLocaleDateString("es-AR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })}
             </span>
             <span className="flex items-center gap-1.5">
@@ -167,7 +179,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             </span>
             <div className="flex gap-2 flex-wrap">
               {post.tags.map((tag) => (
-                <span key={tag} className="flex items-center gap-1 text-xs text-gray-400">
+                <span
+                  key={tag}
+                  className="flex items-center gap-1 text-xs text-gray-400"
+                >
                   <Tag size={10} />
                   {tag}
                 </span>
@@ -178,8 +193,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         </header>
 
         {/* Content */}
-        <div
-          className="prose prose-invert prose-sky max-w-none
+        <div className="mga-article-layout">
+          <aside className="mga-article-rail" aria-label="Sobre esta lectura">
+            <strong>{post.author}</strong>
+            <span>{post.readTime}</span>
+            <span>{post.category.replaceAll("-", " ")}</span>
+            <Link href="/blog/">Explorar otras ideas ↗</Link>
+            <Link href="/servicios/">Llevalo a tu proyecto ↗</Link>
+          </aside>
+          <div
+            className="prose prose-invert prose-sky max-w-none
             prose-headings:text-gray-100 prose-headings:font-bold
             prose-p:text-gray-300 prose-p:leading-relaxed
             prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline
@@ -193,15 +216,16 @@ export default async function BlogPostPage({ params }: PageProps) {
             prose-thead:bg-gray-800/60
             prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2
             prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-        />
-
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          />
+        </div>
         <ArticleServiceCTA category={post.category} />
 
         {/* Footer */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <p className="text-gray-400 text-sm mb-4">
-            Escrito por <span className="text-sky-400 font-medium">{post.author}</span>
+            Escrito por{" "}
+            <span className="text-sky-400 font-medium">{post.author}</span>
           </p>
           <div className="flex gap-4">
             <Link

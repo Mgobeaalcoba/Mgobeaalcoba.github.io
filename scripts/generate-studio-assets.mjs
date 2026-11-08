@@ -6,9 +6,9 @@ import pngToIco from "png-to-ico";
 // Authored brand assets, independent of the Next.js build output.
 const root = fileURLToPath(new URL("../apps/web", import.meta.url));
 const mark =
-  '<path d="m4 13 16-9 16 9-16 9L4 13Z" fill="#a3e635"/><path d="m4 21 16 9 16-9M4 29l16 9 16-9" stroke="#a3e635" stroke-width="3.5" stroke-linejoin="round" fill="none"/>';
+  '<path d="m4 13 16-9 16 9-16 9L4 13Z" fill="#aacb62"/><path d="m4 21 16 9 16-9M4 29l16 9 16-9" stroke="#aacb62" stroke-width="3.5" stroke-linejoin="round" fill="none"/>';
 const icon = Buffer.from(
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="104" fill="#05070c"/><g transform="translate(112 96) scale(7.2)">${mark}</g></svg>`
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="104" fill="#11161d"/><g transform="translate(112 96) scale(7.2)">${mark}</g></svg>`
 );
 await Promise.all(
   [
@@ -26,7 +26,7 @@ const faviconSizes = await Promise.all(
 );
 await writeFile(`${root}/public/favicon.ico`, await pngToIco(faviconSizes));
 const og = Buffer.from(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#05070c"/><g transform="translate(62 48) scale(1.2)">${mark}</g><text x="124" y="88" fill="#eef0f4" font-family="Arial, sans-serif" font-size="53" font-weight="700" letter-spacing="-4">mga.</text><text x="64" y="193" fill="#9aa8ba" font-family="Arial, sans-serif" font-size="17" letter-spacing="3">ESTUDIO DE TECNOLOGÍA APLICADA</text><text x="58" y="318" fill="#eef0f4" font-family="Arial, sans-serif" font-size="97" font-weight="600" letter-spacing="-6">Menos tareas.</text><text x="58" y="428" fill="#a3e635" font-family="Arial, sans-serif" font-size="97" font-weight="600" letter-spacing="-6">Más posibilidades.</text><path d="M64 504h1072" stroke="#283342"/><text x="64" y="555" fill="#9aa8ba" font-family="Arial, sans-serif" font-size="21">Agentes de IA · Automatización · Software · Datos</text><text x="1010" y="555" fill="#6fb6ff" font-family="Arial, sans-serif" font-size="21">mgatc.com ↗</text></svg>`
+  `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#11161d"/><g transform="translate(62 48) scale(1.2)">${mark}</g><text x="124" y="88" fill="#e4e9e6" font-family="Arial, sans-serif" font-size="53" font-weight="700" letter-spacing="-4">mga.</text><text x="64" y="193" fill="#a4b1b4" font-family="Arial, sans-serif" font-size="17" letter-spacing="3">ESTUDIO DE TECNOLOGÍA APLICADA</text><text x="58" y="318" fill="#e4e9e6" font-family="Arial, sans-serif" font-size="97" font-weight="600" letter-spacing="-6">Menos tareas.</text><text x="58" y="428" fill="#aacb62" font-family="Arial, sans-serif" font-size="97" font-weight="600" letter-spacing="-6">Más posibilidades.</text><path d="M64 504h1072" stroke="#34424d"/><text x="64" y="555" fill="#a4b1b4" font-family="Arial, sans-serif" font-size="21">Agentes de IA · Automatización · Software · Datos</text><text x="1010" y="555" fill="#7e96f2" font-family="Arial, sans-serif" font-size="21">mgatc.com ↗</text></svg>`
 );
 await sharp(og).png().toFile(`${root}/public/og.png`);
 await sharp(

@@ -237,19 +237,10 @@ export const AGENTHUB_FAQ = [
 ];
 
 export const AGENTHUB_MOCK = {
-  title: { es: 'Constructor y chat', en: 'Builder and chat' } as Copy,
-  live: { es: 'en vivo', en: 'live' } as Copy,
-  side: [
-    { es: 'Identidad', en: 'Identity' },
-    { es: 'Conocimiento · 29 artículos', en: 'Knowledge · 29 articles' },
-    { es: 'Herramientas · 1', en: 'Tools · 1' },
-    { es: 'Datos · 18 tablas', en: 'Data · 18 tables' },
-    { es: 'Publicar', en: 'Publish' },
-  ] as Copy[],
-  user: { es: '¿Cuánto cobro neto con 4.000.000 brutos?', en: 'What is my net pay on 4,000,000 gross?' } as Copy,
-  steps: [
-    { es: 'router → herramienta', en: 'router → tool' },
-    { es: 'calcular_ganancias', en: 'calcular_ganancias' },
-  ] as Copy[],
-  bot: { es: 'Neto mensual estimado: $3.280.178 (período ene-jun 2026).', en: 'Estimated monthly net: $3,280,178 (Jan-Jun 2026 period).' } as Copy,
+  title: { es: 'De una consulta al próximo paso.', en: 'From a question to the next step.' } as Copy,
+  label: { es: 'Ejemplo ilustrativo', en: 'Illustrative example' } as Copy,
+  user: { es: '¿Qué proceso de mi equipo conviene automatizar primero?', en: 'Which process should my team automate first?' } as Copy,
+  context: { es: 'Conocimiento del sitio', en: 'Site knowledge' } as Copy,
+  tools: { es: 'Herramientas disponibles', en: 'Available tools' } as Copy,
+  bot: { es: 'Contame qué tarea se repite, qué herramientas usás y dónde se demora tu equipo. Empecemos por ahí.', en: 'Tell me which task repeats, which tools you use and where your team gets held up. Let’s start there.' } as Copy,
 };

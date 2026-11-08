@@ -6,27 +6,7 @@
    CSS CUSTOM PROPERTIES — THEME SYSTEM
    ================================================================ */
 
-:root {
-  --bg: #111827;
-  --bg-card: rgba(31, 41, 55, 0.5);
-  --text: #d1d5db;
-  --text-secondary: #9ca3af;
-  --primary: #38bdf8;
-  --border: rgba(255, 255, 255, 0.1);
-  --scrollbar-thumb: #4b5563;
-  --scrollbar-track: #374151;
-}
-
-html.light-mode {
-  --bg: #f9fafb;
-  --bg-card: rgba(255, 255, 255, 0.7);
-  --text: #1f2937;
-  --text-secondary: #4b5563;
-  --primary: #0ea5e9;
-  --border: rgba(0, 0, 0, 0.1);
-  --scrollbar-thumb: #d1d5db;
-  --scrollbar-track: #e5e7eb;
-}
+/* Color roles and their legacy aliases are centralized in studio-theme.css. */
 
 /* ================================================================
    BASE STYLES
@@ -231,86 +211,7 @@ html.light-mode .gradient-text {
   background-clip: text;
 }
 
-/* -- Text color overrides for light mode -- */
-html.light-mode :is(h1, h2, h3, h4, h5):not(:where(.mga-home *, .mga-nav *, .mga-footer *)) {
-  color: #111827;
-}
-
-html.light-mode :is(p, span, li, label):not(:where(.mga-home *, .mga-nav *, .mga-footer *)) {
-  color: #374151;
-}
-
-/* Tailwind gray overrides */
-html.light-mode .text-gray-100 {
-  color: #111827 !important;
-}
-html.light-mode .text-gray-200 {
-  color: #1f2937 !important;
-}
-html.light-mode .text-gray-300 {
-  color: #374151 !important;
-}
-html.light-mode .text-gray-400 {
-  color: #4b5563 !important;
-}
-html.light-mode .text-gray-500 {
-  color: #6b7280 !important;
-}
-html.light-mode .text-gray-600 {
-  color: #374151 !important;
-}
-
-/* Sky/blue colors stay the same but can be slightly darker */
-html.light-mode .text-sky-400 {
-  color: #0284c7 !important;
-}
-html.light-mode .text-sky-500 {
-  color: #0369a1 !important;
-}
-
-/* White text becomes dark */
-html.light-mode .text-white {
-  color: #111827 !important;
-}
-
-/* Backgrounds */
-html.light-mode .bg-gray-800\/30 {
-  background: rgba(243, 244, 246, 0.8) !important;
-}
-html.light-mode .bg-gray-800\/50 {
-  background: rgba(229, 231, 235, 0.8) !important;
-}
-html.light-mode .bg-gray-800\/60 {
-  background: rgba(229, 231, 235, 0.9) !important;
-}
-html.light-mode .bg-gray-900 {
-  background: #f3f4f6 !important;
-}
-html.light-mode .bg-black\/40 {
-  background: rgba(0, 0, 0, 0.25) !important;
-}
-html.light-mode .bg-amber-900\/30 {
-  background: rgba(254, 243, 199, 0.8) !important;
-}
-html.light-mode .border-white\/10 {
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
-html.light-mode .border-white\/5 {
-  border-color: rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Inputs */
-html.light-mode input,
-html.light-mode textarea {
-  background: rgba(255, 255, 255, 0.9);
-  color: #111827;
-  border-color: rgba(0, 0, 0, 0.12);
-}
-
-html.light-mode input::placeholder,
-html.light-mode textarea::placeholder {
-  color: #9ca3af;
-}
+/* Theme-aware legacy utilities and form colors are centralized in studio-theme.css. */
 
 /* Grid background subtle in light mode */
 html.light-mode .grid-bg::before {

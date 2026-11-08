@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Agentes de IA, automatizaciones, software y datos. Ideas claras. Sistemas que funcionan.",
     start_url: "/",
     display: "standalone",
-    background_color: "#070b12",
-    theme_color: "#070b12",
+    background_color: "#11161d",
+    theme_color: "#11161d",
     orientation: "portrait-primary",
     categories: ["business", "productivity", "education"],
     icons: [

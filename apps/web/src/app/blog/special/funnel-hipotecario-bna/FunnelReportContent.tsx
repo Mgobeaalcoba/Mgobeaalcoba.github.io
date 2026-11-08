@@ -13,7 +13,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut } from '@/components/shared/StudioCharts';
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
@@ -23,16 +23,16 @@ const bi = (es: string, en: string): Bi => ({ es, en });
 const pick = (b: Bi, l: Language) => b[l];
 
 const C = {
-  blue: '#38bdf8', cyan: '#22d3ee', indigo: '#6366f1', purple: '#a78bfa',
-  green: '#22c55e', red: '#ef4444', orange: '#f59e0b', yellow: '#eab308',
-  blueA: 'rgba(56,189,248,0.15)', cyanA: 'rgba(34,211,238,0.15)',
-  indigoA: 'rgba(99,102,241,0.15)', purpleA: 'rgba(167,139,250,0.15)',
-  greenA: 'rgba(34,197,94,0.15)', redA: 'rgba(239,68,68,0.15)',
-  orangeA: 'rgba(245,158,11,0.15)', yellowA: 'rgba(234,179,8,0.15)',
+  blue: 'var(--chart-1)', cyan: 'var(--chart-2)', indigo: 'var(--chart-13)', purple: 'var(--chart-4)',
+  green: 'var(--chart-7)', red: 'var(--chart-6)', orange: 'var(--chart-9)', yellow: 'var(--chart-5)',
+  blueA: 'var(--chart-1-soft)', cyanA: 'var(--chart-2-soft)',
+  indigoA: 'var(--chart-13-soft)', purpleA: 'var(--chart-4-soft)',
+  greenA: 'var(--chart-7-soft)', redA: 'var(--chart-6-soft)',
+  orangeA: 'var(--chart-9-soft)', yellowA: 'var(--chart-5-soft)',
 };
 
-const GRID_COLOR = 'rgba(48,54,61,0.7)';
-const AXIS_COLOR = '#8b949e';
+const GRID_COLOR = 'var(--signal-chart-grid)';
+const AXIS_COLOR = 'var(--signal-muted)';
 const LEGEND_OPTS = { labels: { font: { size: 11 }, boxWidth: 12, color: AXIS_COLOR } };
 
 /* ================================================================
@@ -43,7 +43,7 @@ function Section({ num, title, subtitle, children }: { num: number; title: strin
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
+    <motion.div ref={ref} initial={false} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
       <div className="flex items-center gap-3 mb-6">
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/25 text-sm font-extrabold text-sky-400 shrink-0">{num}</div>
         <div>
@@ -116,7 +116,7 @@ const FUNNEL_STAGES: FunnelStage[] = [
   },
   {
     label: bi('Podrían acceder (empleo formal)', 'Could access (formal employment)'),
-    value: 1824000, display: '~1.824.000', widthPct: 82, color: '#7c3aed', type: 'estimado',
+    value: 1824000, display: '~1.824.000', widthPct: 82, color: 'var(--chart-4)', type: 'estimado',
     dropLabel: bi('43% informales excluidos', '43% informal workers excluded'), dropValue: '-1.376.000',
     details: {
       title: bi('Barrera: Informalidad Laboral (43%)', 'Barrier: Labor Informality (43%)'),
@@ -129,7 +129,7 @@ const FUNNEL_STAGES: FunnelStage[] = [
   },
   {
     label: bi('Con ingreso suficiente', 'With sufficient income'),
-    value: 550000, display: '~550.000', widthPct: 62, color: '#8b5cf6', type: 'estimado',
+    value: 550000, display: '~550.000', widthPct: 62, color: 'var(--chart-10)', type: 'estimado',
     dropLabel: bi('Ingreso < $2M/mes', 'Income < $2M/month'), dropValue: '-1.274.000',
     details: {
       title: bi('Barrera: Ingreso Insuficiente', 'Barrier: Insufficient Income'),
@@ -142,7 +142,7 @@ const FUNNEL_STAGES: FunnelStage[] = [
   },
   {
     label: bi('Interesados activos (consultan/simulan)', 'Active prospects (inquire/simulate)'),
-    value: 350000, display: '~350.000', widthPct: 50, color: '#a855f7', type: 'estimado',
+    value: 350000, display: '~350.000', widthPct: 50, color: 'var(--chart-12)', type: 'estimado',
     dropLabel: bi('No buscan activamente', 'Not actively searching'), dropValue: '-200.000',
     details: {
       title: bi('Interesados que Consultan Activamente', 'Actively Inquiring Prospects'),
@@ -168,7 +168,7 @@ const FUNNEL_STAGES: FunnelStage[] = [
   },
   {
     label: bi('Pre-aprobados (scoring + ingresos)', 'Pre-approved (scoring + income)'),
-    value: 65000, display: '~65.000', widthPct: 30, color: '#2563eb', type: 'estimado',
+    value: 65000, display: '~65.000', widthPct: 30, color: 'var(--chart-2)', type: 'estimado',
     dropLabel: bi('Score < 909 / ratio cuota-ingreso', 'Score < 909 / payment-to-income ratio'), dropValue: '-127.600',
     details: {
       title: bi('Barrera: Evaluación Crediticia', 'Barrier: Credit Assessment'),
@@ -235,8 +235,8 @@ function buildChartData(lang: Language) {
     ],
     datasets: [{
       data: [76, 4, 4, 3, 2, 11],
-      backgroundColor: [C.blueA, C.indigoA, C.redA, C.greenA, C.orangeA, 'rgba(48,54,61,0.5)'],
-      borderColor: [C.blue, C.indigo, C.red, C.green, C.orange, '#30363d'],
+      backgroundColor: [C.blueA, C.indigoA, C.redA, C.greenA, C.orangeA, 'var(--signal-chart-grid)'],
+      borderColor: [C.blue, C.indigo, C.red, C.green, C.orange, 'var(--signal-chart-grid)'],
       borderWidth: 2, hoverOffset: 8,
     }],
   };
@@ -252,7 +252,7 @@ function buildChartData(lang: Language) {
       {
         label: w('Escrituras totales (CABA)', 'Total deeds (CABA)'),
         data: [3645, 4293, 4747, 5471, 5762, 6200, 6651, 6370, 6998, 5250, 6100, 7646],
-        backgroundColor: 'rgba(99,102,241,0.12)', borderColor: 'rgba(99,102,241,0.4)', borderWidth: 1, borderRadius: 4,
+        backgroundColor: 'var(--chart-13-soft)', borderColor: 'var(--chart-13)', borderWidth: 1, borderRadius: 4,
       },
     ],
   };
@@ -338,9 +338,9 @@ function FunnelVisualization({ lang }: { lang: Language }) {
             <div className="flex-1 flex justify-center">
               <div
                 className="h-12 sm:h-14 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.02] group-hover:brightness-110 min-w-[100px]"
-                style={{ width: `${stage.widthPct}%`, background: `linear-gradient(135deg, ${stage.color}, ${stage.color}cc)` }}
+                style={{ width: `${stage.widthPct}%`, background: stage.color, color: 'var(--signal-on-primary)' }}
               >
-                <span className="text-xs sm:text-sm font-bold text-white drop-shadow-md px-2 text-center">
+                <span className="text-xs sm:text-sm font-bold px-2 text-center">
                   <span className="sm:hidden block text-[10px] leading-tight mb-0.5">{pick(stage.label, lang)}</span>
                   {stage.display}
                 </span>
@@ -416,9 +416,9 @@ export default function FunnelReportContent() {
             )}
           </p>
 
-          <div className="flex justify-center flex-wrap gap-4 max-w-5xl mx-auto">
+          <div className="mga-report-kpis">
             {KPIS.map((kpi, i) => (
-              <div key={i} className="glass rounded-xl px-5 py-4 min-w-[150px] text-center glow-border">
+              <div key={i} className="mga-report-kpi glass rounded-xl px-5 py-4 min-w-[150px] text-center glow-border">
                 <div className="text-3xl font-extrabold leading-none mb-1" style={{ color: kpi.color }}>{kpi.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide">{pick(kpi.label, lang)}</div>
                 <div className="text-[11px] text-gray-600 mt-1">{pick(kpi.sub, lang)}</div>
@@ -428,7 +428,7 @@ export default function FunnelReportContent() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="mga-report-body">
 
         {/* S1 — Full Funnel */}
         <Section num={1} title={t('Funnel Completo: Del Sueño a la Escritura', 'Full Funnel: From Dream to Deed')} subtitle={t('Hacé click en cada etapa para ver detalles · Fuentes: BCRA, BNA, INDEC, Colegio de Escribanos', 'Click each stage for details · Sources: BCRA, BNA, INDEC, Notary Association')}>

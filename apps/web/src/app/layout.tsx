@@ -13,6 +13,11 @@ import "./globals.css";
 import "./signal.css";
 import "./agenthub.css";
 import "./studio.css";
+import "./studio-theme.css";
+import "./studio-pages.css";
+import "./studio-assistant.css";
+import "./studio-projects.css";
+import "./studio-mobile.css";
 import { getCareerExperienceYears } from "@/lib/experience";
 
 const GA_ID = "G-DG0SLT5RY3";
@@ -133,8 +138,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#070b12" },
-    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#11161d" },
+    { media: "(prefers-color-scheme: light)", color: "#e9ece7" },
   ],
 };
 
@@ -152,6 +157,7 @@ export default function RootLayout({
             __html: `(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();`,
           }}
         />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var s=localStorage.getItem('theme');var l=s==='light'||(s!=='dark'&&s!=='terminal'&&window.matchMedia('(prefers-color-scheme: light)').matches);document.documentElement.classList.add(l?'light':'dark');if(l)document.documentElement.classList.add('light-mode')}catch(e){}})();` }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -162,7 +168,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <meta name="theme-color" content="#111827" />
+
         <meta name="geo.region" content="AR-C" />
         <meta name="geo.placename" content="Buenos Aires" />
         <JsonLd data={organizationSchema} />

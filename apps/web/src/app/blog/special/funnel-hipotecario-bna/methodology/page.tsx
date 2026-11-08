@@ -68,7 +68,7 @@ const schema = {
 
 export default function MethodologyPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen mga-report-page">
       <JsonLd data={schema} />
       <ContentEngagementTracker contentType="methodology" contentId="funnel_hipotecario_bna_methodology" />
       <ScrollTracker />

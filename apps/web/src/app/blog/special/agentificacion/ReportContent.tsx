@@ -16,7 +16,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar } from '@/components/shared/StudioCharts';
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
 ChartJS.register(
@@ -28,15 +28,15 @@ const bi = (es: string, en: string): Bi => ({ es, en });
 const pick = (b: Bi, l: Language) => b[l];
 
 const C = {
-  red: '#f85149', blue: '#58a6ff', green: '#3fb950', yellow: '#d29922',
-  purple: '#bc8cff', orange: '#ffa657',
-  redA: 'rgba(248,81,73,0.15)', blueA: 'rgba(88,166,255,0.15)',
-  greenA: 'rgba(63,185,80,0.15)', yellowA: 'rgba(210,153,34,0.15)',
-  purpleA: 'rgba(188,140,255,0.15)', orangeA: 'rgba(255,166,87,0.15)',
+  red: 'var(--chart-6)', blue: 'var(--chart-1)', green: 'var(--chart-7)', yellow: 'var(--chart-5)',
+  purple: 'var(--chart-4)', orange: 'var(--chart-9)',
+  redA: 'var(--chart-6-soft)', blueA: 'var(--chart-1-soft)',
+  greenA: 'var(--chart-7-soft)', yellowA: 'var(--chart-5-soft)',
+  purpleA: 'var(--chart-4-soft)', orangeA: 'var(--chart-9-soft)',
 };
 
-const GRID_COLOR = 'rgba(48,54,61,0.7)';
-const AXIS_COLOR = '#8b949e';
+const GRID_COLOR = 'var(--signal-chart-grid)';
+const AXIS_COLOR = 'var(--signal-muted)';
 
 const baseBarOpts = (yCallback: (v: number | string) => string) => ({
   responsive: true, maintainAspectRatio: false,
@@ -51,7 +51,7 @@ function Section({ num, title, subtitle, children }: { num: number; title: strin
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
+    <motion.div ref={ref} initial={false} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
       <div className="flex items-center gap-3 mb-6">
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-sm font-extrabold text-emerald-400 shrink-0">{num}</div>
         <div>
@@ -222,9 +222,9 @@ export default function ReportContent() {
             )}
           </p>
 
-          <div className="flex justify-center flex-wrap gap-4 max-w-5xl mx-auto">
+          <div className="mga-report-kpis">
             {KPIS.map((kpi, i) => (
-              <div key={i} className="glass rounded-xl px-6 py-4 min-w-[160px] max-w-[210px] text-center glow-border">
+              <div key={i} className="mga-report-kpi glass rounded-xl px-6 py-4 min-w-[160px] max-w-[210px] text-center glow-border">
                 <div className="text-3xl font-extrabold leading-none mb-1" style={{ color: kpi.color }}>{kpi.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide">{pick(kpi.label, lang)}</div>
                 <div className="text-[11px] text-gray-600 mt-1">{pick(kpi.sub, lang)}</div>
@@ -234,7 +234,7 @@ export default function ReportContent() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="mga-report-body">
         {/* S1 — Reality check */}
         <Section num={1} title={t('Qué promete la IA en el código y qué dice la evidencia', 'What AI promises for code and what the evidence says')} subtitle={t('Contexto, productividad y el espejismo de la velocidad · Fuentes: METR, DORA 2025, arXiv 2025–2026', 'Context, productivity and the speed illusion · Sources: METR, DORA 2025, arXiv 2025–2026')}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

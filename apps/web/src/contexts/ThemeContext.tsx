@@ -21,7 +21,6 @@ const THEMES: Theme[] = ['dark', 'light'];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
@@ -38,7 +37,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(preferred);
       applyTheme(preferred);
     }
-    setMounted(true);
   }, []);
 
   function applyTheme(t: Theme) {
@@ -49,6 +47,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       root.classList.add('light', 'light-mode');
     }
+    const color = getComputedStyle(root).getPropertyValue('--signal-bg').trim();
+    document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+      meta.setAttribute('content', color);
+    });
   }
 
   function setTheme(t: Theme) {
@@ -65,8 +67,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const next = THEMES[(idx + 1) % THEMES.length];
     setTheme(next);
   }
-
-  if (!mounted) return <div className="min-h-screen bg-[#070b12]">{children}</div>;
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, cycleTheme }}>

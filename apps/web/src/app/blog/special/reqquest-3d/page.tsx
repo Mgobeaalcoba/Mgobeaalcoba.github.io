@@ -67,7 +67,7 @@ const articleSchema = {
 
 export default function ReqQuestPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen mga-report-page">
       <JsonLd data={articleSchema} />
       <ContentEngagementTracker contentType="special_report" contentId="reqquest_3d" />
       <ScrollTracker />

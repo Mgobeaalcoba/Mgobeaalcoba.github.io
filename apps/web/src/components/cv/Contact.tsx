@@ -67,7 +67,7 @@ export default function Contact() {
     <section id="contact" data-section="contact" className="signal-portfolio-chapter signal-contact-v2">
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
@@ -89,7 +89,7 @@ export default function Contact() {
             ].map(({ icon, label, href }, i) => (
               <motion.div
                 key={label}
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.08 }}
                 className="signal-contact-channel"
@@ -111,7 +111,7 @@ export default function Contact() {
             ))}
 
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={false}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4 }}
             >
@@ -130,7 +130,7 @@ export default function Contact() {
 
           {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={false}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
             className="signal-contact-v2__form"
@@ -152,8 +152,9 @@ export default function Contact() {
                 className="space-y-4"
               >
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1.5">{t('contact_name')}</label>
+                  <label htmlFor="portfolio-name" className="block text-xs text-gray-400 mb-1.5">{t('contact_name')}</label>
                   <input
+                    id="portfolio-name"
                     type="text"
                     name="name"
                     maxLength={120}
@@ -166,8 +167,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1.5">{t('contact_email')}</label>
+                  <label htmlFor="portfolio-email" className="block text-xs text-gray-400 mb-1.5">{t('contact_email')}</label>
                   <input
+                    id="portfolio-email"
                     type="email"
                     name="email"
                     maxLength={254}
@@ -180,8 +182,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1.5">{t('contact_message')}</label>
+                  <label htmlFor="portfolio-message" className="block text-xs text-gray-400 mb-1.5">{t('contact_message')}</label>
                   <textarea
+                    id="portfolio-message"
                     name="message"
                     maxLength={5000}
                     value={form.message}

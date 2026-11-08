@@ -144,25 +144,25 @@ function LineChart({ data }: { data: ChartData }) {
             y1={toY(val)}
             x2={width - padding.right}
             y2={toY(val)}
-            stroke={val === 0 ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.07)'}
+            stroke={val === 0 ? 'var(--signal-line-strong)' : 'var(--signal-chart-grid)'}
             strokeDasharray={val === 0 ? undefined : '4'}
           />
-          <text x={padding.left - 5} y={toY(val)} textAnchor="end" fill="#9ca3af" fontSize="9" dominantBaseline="middle">
+          <text x={padding.left - 5} y={toY(val)} textAnchor="end" fill="var(--signal-muted)" fontSize="9" dominantBaseline="middle">
             {`${Math.abs(val) < 1e-10 ? (0).toFixed(decimals) : val.toFixed(decimals)}%`}
           </text>
         </g>
       ))}
 
       {/* Lines */}
-      <path d={buildPath(data.plazoFijo)} fill="none" stroke="#38bdf8" strokeWidth="2" />
-      <path d={buildPath(data.inflacion)} fill="none" stroke="#f87171" strokeWidth="2" />
-      <path d={buildPath(data.uvaMonthly)} fill="none" stroke="#c084fc" strokeWidth="2" />
+      <path d={buildPath(data.plazoFijo)} fill="none" stroke="var(--chart-1)" strokeWidth="2" />
+      <path d={buildPath(data.inflacion)} fill="none" stroke="var(--signal-coral)" strokeWidth="2" />
+      <path d={buildPath(data.uvaMonthly)} fill="none" stroke="var(--chart-4)" strokeWidth="2" />
 
       {/* X labels */}
       {data.labels.map((label, i) => {
         if (data.labels.length > 6 && i % 2 !== 0) return null;
         return (
-          <text key={i} x={toX(i)} y={height - 8} textAnchor="middle" fill="#6b7280" fontSize="9">
+          <text key={i} x={toX(i)} y={height - 8} textAnchor="middle" fill="var(--signal-muted)" fontSize="9">
             {label}
           </text>
         );

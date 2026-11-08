@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, ChevronDown, Share2, Home, Globe2 } from "lucide-react";
+import { Calculator, BarChart2, TrendingUp, Bot, Activity, Calendar, HelpCircle, Share2, Home, Globe2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TaxCalculator from "@/components/recursos/TaxCalculator";
 import TokenCalculator from "@/components/recursos/TokenCalculator";
@@ -11,6 +11,7 @@ import InvestmentDashboard from "@/components/recursos/InvestmentDashboard";
 import ExchangeRates from "@/components/recursos/ExchangeRates";
 import EconomicIndicators from "@/components/recursos/EconomicIndicators";
 import HolidaysArgentina from "@/components/recursos/HolidaysArgentina";
+import StudioPageIntro from "@/components/shared/StudioPageIntro";
 import FAQRecursos from "@/components/recursos/FAQRecursos";
 import MortgageUvaCalculator from "@/components/recursos/MortgageUvaCalculator";
 import ROICalculator from "@/components/showcase/ROICalculator";
@@ -209,53 +210,26 @@ export default function RecursosClient() {
   if (!isMounted) return null; // Avoid hydration mismatch by waiting for mount
 
   return <>
-    <section className="signal-tools-hero">
-      <span className="signal-eyebrow">MGA / Utility lab</span>
-      <div className="signal-tools-hero__grid">
-        <h1>{lang === "es" ? <>Herramientas para<br /><em>decidir mejor.</em></> : <>Tools to help you<br /><em>decide better.</em></>}</h1>
-        <p>{lang === "es" ? "Calculadoras y laboratorios interactivos para modelar decisiones financieras, de automatización y de arquitectura." : "Interactive calculators and labs for modeling financial, automation and architecture decisions."}</p>
-      </div>
-      <Link className="signal-tools-hero__new" href={lang === "es" ? "/recursos/ia-router/" : "/en/recursos/ia-router/"} data-analytics="recursos_ia_router_link">
-        <b>{lang === "es" ? "Nuevo" : "New"}</b>
-        <span>{lang === "es" ? "ia-router: ruteá tus suscripciones de IA con métricas objetivas" : "ia-router: route your AI subscriptions with objective metrics"}</span>
-        <i aria-hidden="true">→</i>
-      </Link>
-      <Link className="signal-tools-hero__new" href={lang === "es" ? "/recursos/pypi-stats/" : "/en/recursos/pypi-stats/"} data-analytics="recursos_pypi_stats_link">
-        <b>{lang === "es" ? "Datos" : "Data"}</b>
-        <span>{lang === "es" ? "Paquetes de PyPI de MGA en números: descargas y evolución" : "MGA PyPI packages in numbers: downloads and trends"}</span>
-        <i aria-hidden="true">→</i>
-      </Link>
-    </section>
+    <StudioPageIntro
+      eyebrow={lang === 'es' ? 'MGA / Herramientas abiertas' : 'MGA / Open tools'}
+      title={lang === 'es' ? <>Explorá, probá.<br /><em>Decidí con datos.</em></> : <>Explore. Experiment.<br /><em>Decide with data.</em></>}
+      description={lang === 'es' ? 'Un espacio para poner números a una idea, comparar escenarios y entender cómo funcionan las cosas. Elegí una herramienta y empezá a explorar.' : 'A place to put numbers behind an idea, compare scenarios and understand how things work. Choose a tool and start exploring.'}
+      aside={<div className="mga-page-count"><strong>{ALL_TAB_IDS.length}</strong><span>{lang === 'es' ? 'herramientas y laboratorios para usar' : 'tools and labs to use'}</span><a href="#herramientas" className="mga-text-link">{lang === 'es' ? 'Elegir una herramienta' : 'Choose a tool'}<Share2 size={15} /></a></div>}
+    />
+    <div className="mga-container mga-tool-spotlights">
+      <Link href={lang === 'es' ? '/recursos/ia-router/' : '/en/recursos/ia-router/'} data-analytics="recursos_ia_router_link"><b>ia-router</b><span>{lang === 'es' ? 'Ruteá tus suscripciones de IA con métricas objetivas.' : 'Route your AI subscriptions with objective metrics.'}</span><span aria-hidden="true">↗</span></Link>
+      <Link href={lang === 'es' ? '/recursos/pypi-stats/' : '/en/recursos/pypi-stats/'} data-analytics="recursos_pypi_stats_link"><b>PyPI</b><span>{lang === 'es' ? 'Descargas y evolución de nuestros paquetes abiertos.' : 'Downloads and trends for our open-source packages.'}</span><span aria-hidden="true">↗</span></Link>
+    </div>
 
     <section className="signal-tools-workspace">
-      <div className="signal-tool-mobile-dock" aria-label={lang === "es" ? "Explorar herramientas" : "Explore tools"}>
-        <div className="signal-tool-mobile-categories">
-          {TAB_CATEGORIES.map((group) => (
-            <button key={group.id} className={activeCategory === group.id ? "is-active" : ""} onClick={() => { setActiveCategory(group.id); handleTabChange(group.tabs[0].id); }}>
-              {group.label[lang]}
-            </button>
-          ))}
+      <nav id="herramientas" className="mga-tool-picker" aria-label={lang === 'es' ? 'Elegir herramienta' : 'Choose a tool'}>
+        <div className="mga-tool-picker__categories" role="group" aria-label={lang === 'es' ? 'Categorías de herramientas' : 'Tool categories'}>
+          {TAB_CATEGORIES.map(group => <button key={group.id} type="button" aria-pressed={activeCategory === group.id} onClick={() => handleTabChange(group.tabs[0].id)}>{group.label[lang]}</button>)}
         </div>
-        <div className="signal-tool-mobile-items">
-          {TAB_CATEGORIES.find((group) => group.id === activeCategory)?.tabs.map((tab) => (
-            <button key={tab.id} className={activeTab === tab.id ? "is-active" : ""} onClick={() => handleTabChange(tab.id)}>
-              <span>{tab.icon}</span><strong>{tab.label[lang]}</strong>
-            </button>
-          ))}
+        <div className="mga-tool-picker__items" role="group" aria-label={lang === 'es' ? 'Herramientas de la categoría' : 'Tools in this category'}>
+          {TAB_CATEGORIES.find(group => group.id === activeCategory)?.tabs.map(tab => <button type="button" key={tab.id} aria-pressed={activeTab === tab.id} onClick={() => handleTabChange(tab.id)}>{tab.icon}<span>{tab.label[lang]}</span></button>)}
         </div>
-      </div>
-      <div className="signal-tool-mobile-select">
-        <span>{currentTabItem?.icon}</span>
-        <select value={activeTab} onChange={(event) => handleTabChange(event.target.value as TabId)} aria-label={lang === "es" ? "Seleccionar herramienta" : "Select tool"}>
-          {TAB_CATEGORIES.map((group) => <optgroup key={group.id} label={group.label[lang]}>{group.tabs.map((tab) => <option key={tab.id} value={tab.id}>{tab.label[lang]}</option>)}</optgroup>)}
-        </select>
-        <ChevronDown size={17} />
-      </div>
-
-      <aside className="signal-tool-nav" aria-label={lang === "es" ? "Herramientas disponibles" : "Available tools"}>
-        <div className="signal-tool-nav__header"><strong>{lang === "es" ? "Laboratorio" : "Laboratory"}</strong><span>{TAB_CATEGORIES.reduce((total, group) => total + group.tabs.length, 0)} tools</span></div>
-        {TAB_CATEGORIES.map((group) => <div className="signal-tool-nav__group" key={group.id}><span>{group.label[lang]}</span>{group.tabs.map((tab) => <button key={tab.id} className={activeTab === tab.id ? 'is-active' : ''} onClick={() => handleTabChange(tab.id)}>{tab.icon}<span>{tab.label[lang]}</span></button>)}</div>)}
-      </aside>
+      </nav>
 
       <div className="signal-tool-stage">
         <div className="signal-tool-stage__bar"><div><span>{TAB_CATEGORIES.find((group) => group.id === activeCategory)?.label[lang]}</span><strong>{currentTabItem?.label[lang]}</strong></div><span className="signal-tool-status"><i />{lang === "es" ? "Disponible" : "Available"}</span></div>

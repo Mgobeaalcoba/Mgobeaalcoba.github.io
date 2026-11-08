@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ProjectDemos from "./ProjectDemos";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -144,41 +145,7 @@ export default function ClientPortfolio() {
           </div>
         </a>
       </div>
-      <div className="mga-work__more">
-        <a
-          href="https://www.mgatc.com/elportugues-site/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>El Portugués S.A.</span>
-          <small>
-            {es
-              ? "Producto digital · Logística"
-              : "Digital product · Logistics"}
-          </small>
-          <ArrowUpRight size={20} />
-        </a>
-        <a
-          href="https://www.mgatc.com/racing-propuesta/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Racing Club</span>
-          <small>
-            {es ? "Propuesta · Data & GenAI" : "Proposal · Data & GenAI"}
-          </small>
-          <ArrowUpRight size={20} />
-        </a>
-        <a href="/trabajos/unicorn-academy/">
-          <span>Unicorn Academy</span>
-          <small>
-            {es
-              ? "Colaboración académica · En curso"
-              : "Academic collaboration · In progress"}
-          </small>
-          <ArrowUpRight size={20} />
-        </a>
-      </div>
+      <ProjectDemos />
     </section>
   );
 }

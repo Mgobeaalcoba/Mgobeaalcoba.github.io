@@ -96,7 +96,7 @@ const articleSchema = {
 
 export default function FunnelHipotecarioBNAPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen mga-report-page">
       <JsonLd data={articleSchema} />
       <ContentEngagementTracker contentType="special_report" contentId="funnel_hipotecario_bna" />
       <ScrollTracker />

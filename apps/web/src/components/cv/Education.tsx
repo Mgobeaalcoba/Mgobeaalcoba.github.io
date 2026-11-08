@@ -16,7 +16,7 @@ export default function Education() {
 
   return (
     <section id="education" data-section="education" className="signal-portfolio-chapter signal-learning-v2">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
+      <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
         <div className="signal-chapter-heading signal-chapter-heading--action">
           <div><span className="signal-eyebrow">04 / {lang === 'es' ? 'Aprendizaje' : 'Learning'}</span><h2>{lang === 'es' ? 'Aprender es parte del sistema.' : 'Learning is part of the system.'}</h2></div>
           <button onClick={() => setShow3D(!show3D)} className="signal-inline-action"><Box size={15} />{show3D ? (lang === 'es' ? 'Vista editorial' : 'Editorial view') : (lang === 'es' ? 'Explorar timeline 3D' : 'Explore 3D timeline')}</button>

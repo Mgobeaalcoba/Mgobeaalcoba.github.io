@@ -163,16 +163,16 @@ export default function SpecialReportsSection() {
     <section id="research" className="signal-blog-research scroll-mt-24">
       <motion.div
         ref={sectionRef}
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">03 / Research desk</span><h2>{lang === 'es' ? 'Investigaciones.' : 'Research.'}</h2></div><p>{lang === 'es' ? 'Informes data-driven y experiencias interactivas para entender sistemas complejos.' : 'Data-driven reports and interactive experiences for understanding complex systems.'}</p></div>
+        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">02 / Research desk</span><h2>{lang === 'es' ? 'Investigaciones.' : 'Research.'}</h2></div><p>{lang === 'es' ? 'Informes data-driven y experiencias interactivas para entender sistemas complejos.' : 'Data-driven reports and interactive experiences for understanding complex systems.'}</p></div>
         <div className="signal-research-grid">
               {REPORTS.map((report, idx) => (
                 <motion.div
                   key={report.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: idx * 0.15 }}
                   className={idx === 0 ? 'signal-research-card-wrap--featured' : ''}

@@ -23,7 +23,7 @@ export default function About() {
 
   return (
     <section id="about" data-section="about" className="signal-portfolio-chapter signal-about-v2">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
+      <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
         <div className="signal-chapter-heading">
           <span className="signal-eyebrow">01 / {lang === 'es' ? 'Perfil' : 'Profile'}</span>
           <h2>{lang === 'es' ? 'Liderazgo técnico con mirada de producto.' : 'Technical leadership with a product mindset.'}</h2>

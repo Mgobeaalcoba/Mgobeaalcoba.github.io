@@ -5,10 +5,6 @@
   --signal-heading: var(--signal-display);
   --font-mono: var(--signal-mono);
   --signal-dim: var(--signal-muted);
-  --mga-accent-text: var(--signal-lime);
-}
-html.light-mode {
-  --mga-accent-text: #3852c9;
 }
 body::before {
   background: none;
@@ -134,7 +130,7 @@ button {
 .mga-brand > svg {
   width: 32px;
   height: 34px;
-  color: var(--signal-lime);
+  color: var(--signal-lime-text);
 }
 html.light-mode .mga-brand > svg {
   color: var(--signal-blue);
@@ -691,7 +687,7 @@ html.light-mode .mga-brand > svg {
   font-size: 10px;
 }
 .mga-work-card__visual--henry {
-  background: #5271ff;
+  background: #3d59c7;
 }
 .mga-henry-type {
   padding-top: 30px;
@@ -712,7 +708,7 @@ html.light-mode .mga-brand > svg {
   padding-left: 27%;
 }
 .mga-henry-dot {
-  color: var(--signal-lime);
+  color: #fff;
 }
 .mga-work-card__visual-bottom {
   position: absolute;
@@ -814,7 +810,6 @@ html.light-mode .mga-brand > svg {
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
-  filter: grayscale(1);
 }
 .mga-founder > div {
   display: grid;
@@ -1012,7 +1007,7 @@ html.light-mode .mga-brand > svg {
 }
 .mga-contact__heading button:hover {
   background: #05070c;
-  color: var(--signal-lime);
+  color: var(--signal-lime-text);
 }
 .mga-contact__heading button svg {
   width: 80px;
@@ -2002,7 +1997,7 @@ html.light-mode .mga-brand > svg {
 /* Fixed artwork surfaces retain contrast independently of the page theme. */
 .mga-work-card__visual--henry .mga-work-card__visual-top > span:last-child,
 .mga-work-card__visual--henry .mga-work-card__visual-bottom {
-  color: #05070c;
+  color: #fff;
   opacity: 1;
 }
 .mga-work-card__floating {

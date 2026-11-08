@@ -326,7 +326,7 @@ export default function ActivityDashboard({ data }: { data: ActivityData }) {
           {
             label: "EMAE desestacionalizado",
             data: selected.map((d) => valueAt(data.adjusted.points, d)),
-            color: "#a3e635",
+            color: "var(--chart-3)",
           },
         ]}
         unit="2004 = 100"

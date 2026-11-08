@@ -2,6 +2,7 @@
 
 - [Current state](STATE.md) and [session log](LOG.md): continuity across agents.
 - [MGA rebranding benchmark](product/reports/Rebranding%20de%20consultor%C3%ADa%20MGA.md): nine references, design observations and recommendations.
+- [Studio design system](product/studio-design-system.md): both palettes, implementation and complete route-family coverage.
 
 - [Architecture](architecture/system.md): system boundaries and deployment flow.
 - [Product](product/overview.md): applications and ownership.

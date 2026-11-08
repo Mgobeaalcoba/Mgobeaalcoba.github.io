@@ -40,7 +40,7 @@ export default function FloatingCTA({
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: 60, scale: 0.85 }}
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
-          className="fixed bottom-6 right-4 z-40"
+          className="signal-floating-contact fixed bottom-6 right-4 z-40"
         >
           <span className="absolute inset-0 rounded-2xl bg-sky-400/30 blur-md animate-pulse pointer-events-none" />
 
