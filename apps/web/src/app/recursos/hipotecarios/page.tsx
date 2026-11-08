@@ -1,48 +1,71 @@
-import type { Metadata } from 'next';
-import Navbar from '@/components/shared/Navbar';
-import Footer from '@/components/shared/Footer';
-import ScrollTracker from '@/components/shared/ScrollTracker';
-import JsonLd from '@/components/shared/JsonLd';
-import MortgageUvaCalculator from '@/components/recursos/MortgageUvaCalculator';
+import type { Metadata } from "next";
+import Link from "next/link";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
+import ScrollTracker from "@/components/shared/ScrollTracker";
+import JsonLd from "@/components/shared/JsonLd";
+import MortgageUvaCalculator from "@/components/recursos/MortgageUvaCalculator";
+import StudioPageIntro from "@/components/shared/StudioPageIntro";
 
-const PAGE_URL = 'https://www.mgatc.com/recursos/hipotecarios/';
+const PAGE_URL = "https://www.mgatc.com/recursos/hipotecarios/";
 
 export const metadata: Metadata = {
-  title: 'Comparador de Créditos Hipotecarios UVA | Cuota y Bancos',
-  description: 'Compará créditos hipotecarios UVA, calculá la primera cuota, el anticipo, la comisión inmobiliaria y los gastos de escritura con datos oficiales del BCRA.',
+  title: "Comparador de Créditos Hipotecarios UVA | Cuota y Bancos",
+  description:
+    "Compará créditos hipotecarios UVA, calculá la primera cuota, el anticipo, la comisión inmobiliaria y los gastos de escritura con datos oficiales del BCRA.",
   keywords: [
-    'comparador créditos hipotecarios UVA',
-    'calculadora primera cuota UVA',
-    'tasas hipotecarias bancos Argentina',
-    'simulador crédito hipotecario',
-    'gastos escrituración Argentina',
-    'comisión inmobiliaria comprador',
+    "comparador créditos hipotecarios UVA",
+    "calculadora primera cuota UVA",
+    "tasas hipotecarias bancos Argentina",
+    "simulador crédito hipotecario",
+    "gastos escrituración Argentina",
+    "comisión inmobiliaria comprador",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Comparador Hipotecario UVA — MGA',
-    description: 'Primera cuota, bancos compatibles y escenarios explícitos de cuota/ingreso.',
+    title: "Comparador Hipotecario UVA — MGA",
+    description:
+      "Primera cuota, bancos compatibles y escenarios explícitos de cuota/ingreso.",
     url: PAGE_URL,
   },
 };
 
 const mortgageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Comparador Hipotecario UVA',
-  applicationCategory: 'FinanceApplication',
-  operatingSystem: 'Web',
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Comparador Hipotecario UVA",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Web",
   url: PAGE_URL,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'ARS' },
-  description: 'Herramienta informativa para comparar líneas hipotecarias UVA, estimar la primera cuota y calcular los fondos iniciales de la operación.',
+  offers: { "@type": "Offer", price: "0", priceCurrency: "ARS" },
+  description:
+    "Herramienta informativa para comparar líneas hipotecarias UVA, estimar la primera cuota y calcular los fondos iniciales de la operación.",
 };
 
 export default function MortgagePage() {
   return (
-    <main id="main-content" className="min-h-screen signal-tools-page signal-mortgage-standalone">
+    <main
+      id="main-content"
+      className="min-h-screen signal-tools-page signal-mortgage-standalone"
+    >
       <JsonLd data={mortgageSchema} />
       <ScrollTracker />
       <Navbar />
+      <StudioPageIntro
+        eyebrow="MGA / Herramientas financieras"
+        title={
+          <>
+            Tu próximo hogar.
+            <br />
+            <em>Con los números claros.</em>
+          </>
+        }
+        description="Compará líneas hipotecarias UVA, estimá tu primera cuota y explorá los fondos iniciales y la evolución de la relación entre cuota e ingreso."
+      >
+        <Link className="mga-text-link" href="/recursos/">
+          ← Volver a herramientas
+        </Link>
+      </StudioPageIntro>
       <section>
         <MortgageUvaCalculator />
       </section>

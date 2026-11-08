@@ -1,0 +1,387 @@
+/* Shared semantic palette. SVG, canvas charts and legacy controls consume these tokens. */
+:root {
+  --signal-bg: #11161d;
+  --signal-surface: #19212b;
+  --signal-surface-raised: #24303c;
+  --signal-surface-soft: #19212bf2;
+  --signal-text: #e4e9e6;
+  --signal-muted: #a4b1b4;
+  --signal-subtle: #a4b1b4;
+  --signal-line: #34424d;
+  --signal-line-strong: #4d606d;
+  --signal-blue: #7e96f2;
+  --signal-cyan: #88b2c4;
+  --signal-lime: #aacb62;
+  --signal-lime-text: #aacb62;
+  --signal-amber: #d8bb76;
+  --signal-coral: #e4a1a4;
+  --signal-success: #8bc6aa;
+  --signal-primary: #7e96f2;
+  --signal-primary-hover: #98abf5;
+  --signal-on-primary: #11161d;
+  --signal-on-lime: #11161d;
+  --signal-blue-soft: color-mix(
+    in srgb,
+    var(--signal-blue) 8%,
+    var(--signal-surface)
+  );
+  --signal-success-soft: color-mix(
+    in srgb,
+    var(--signal-success) 8%,
+    var(--signal-surface)
+  );
+  --signal-amber-soft: color-mix(
+    in srgb,
+    var(--signal-amber) 8%,
+    var(--signal-surface)
+  );
+  --signal-coral-soft: color-mix(
+    in srgb,
+    var(--signal-coral) 8%,
+    var(--signal-surface)
+  );
+  --signal-purple-soft: color-mix(
+    in srgb,
+    var(--chart-4) 8%,
+    var(--signal-surface)
+  );
+  --signal-shadow: 0 12px 32px #0000001a;
+  --mga-accent-text: #aacb62;
+  --bg: var(--signal-bg);
+  --bg-card: var(--signal-surface);
+  --text: var(--signal-text);
+  --text-secondary: var(--signal-muted);
+  --primary: var(--signal-blue);
+  --border: var(--signal-line);
+  --scrollbar-thumb: #4d606d;
+  --scrollbar-track: #19212b;
+  --chart-1: #7e96f2;
+  --chart-2: #88b2c4;
+  --chart-3: #aacb62;
+  --chart-4: #b9a3db;
+  --chart-5: #d8bb76;
+  --chart-6: #e4a1a4;
+  --chart-7: #8bc6aa;
+  --chart-8: #b5bfc7;
+  --chart-9: #d3a57e;
+  --chart-10: #a8b8cf;
+  --chart-11: #91c7b7;
+  --chart-12: #d3a0be;
+  --chart-13: #b2b3df;
+  --chart-14: #c2c98b;
+  --chart-15: #c7b1a2;
+  --signal-chart-grid: #34424d88;
+}
+html.light-mode {
+  --signal-bg: #e9ece7;
+  --signal-surface: #f4f5f1;
+  --signal-surface-raised: #dfe4dc;
+  --signal-surface-soft: #f4f5f1f2;
+  --signal-text: #1b2523;
+  --signal-muted: #53615d;
+  --signal-subtle: #53615d;
+  --signal-line: #cdd5cf;
+  --signal-line-strong: #9eada4;
+  --signal-blue: #3652bb;
+  --signal-cyan: #296680;
+  --signal-lime: #9cbf4b;
+  --signal-lime-text: #486626;
+  --signal-amber: #755309;
+  --signal-coral: #903944;
+  --signal-success: #2d7153;
+  --signal-primary: #3d59c7;
+  --signal-primary-hover: #3048a9;
+  --signal-on-primary: #f4f5f1;
+  --signal-on-lime: #1b2523;
+  --signal-shadow: 0 12px 32px #1b252308;
+  --mga-accent-text: #3652bb;
+  --bg: var(--signal-bg);
+  --bg-card: var(--signal-surface);
+  --text: var(--signal-text);
+  --text-secondary: var(--signal-muted);
+  --primary: var(--signal-blue);
+  --border: var(--signal-line);
+  --scrollbar-thumb: #9eada4;
+  --scrollbar-track: #dfe4dc;
+  --chart-1: #3652bb;
+  --chart-2: #296680;
+  --chart-3: #486626;
+  --chart-4: #69438f;
+  --chart-5: #755309;
+  --chart-6: #903944;
+  --chart-7: #2b6d50;
+  --chart-8: #586561;
+  --chart-9: #80502a;
+  --chart-10: #4e637e;
+  --chart-11: #336c5c;
+  --chart-12: #885170;
+  --chart-13: #5c5f85;
+  --chart-14: #626429;
+  --chart-15: #745f50;
+  --signal-chart-grid: #cdd5cf99;
+}
+/* A shared bridge for existing Tailwind-based calculators, dialogs and reports. */
+html
+  body
+  :is(.text-gray-100, .text-gray-200, .text-slate-100, .text-slate-200) {
+  color: var(--signal-text) !important;
+}
+html
+  body
+  :is(
+    .text-gray-300,
+    .text-gray-400,
+    .text-gray-500,
+    .text-gray-600,
+    .text-slate-300,
+    .text-slate-400,
+    .text-slate-500,
+    .text-slate-600
+  ) {
+  color: var(--signal-muted) !important;
+}
+html
+  body
+  :is(
+    .text-sky-300,
+    .text-sky-400,
+    .text-sky-500,
+    .text-cyan-300,
+    .text-cyan-400,
+    .text-blue-400
+  ) {
+  color: var(--signal-blue) !important;
+}
+html
+  body
+  :is(.text-green-400, .text-emerald-400, .text-green-500, .text-emerald-500) {
+  color: var(--signal-success) !important;
+}
+html
+  body
+  :is(.text-yellow-300, .text-yellow-400, .text-amber-300, .text-amber-400) {
+  color: var(--signal-amber) !important;
+}
+html body :is(.text-red-300, .text-red-400, .text-red-500, .text-rose-400) {
+  color: var(--signal-coral) !important;
+}
+html
+  body
+  :is(
+    .bg-gray-900,
+    .bg-gray-800,
+    .bg-slate-900,
+    .bg-gray-800\/50,
+    .bg-gray-800\/60,
+    .bg-gray-800\/30,
+    .bg-gray-900\/50
+  ) {
+  background: var(--signal-surface) !important;
+}
+html body :is(.bg-sky-500, .bg-sky-600, .bg-blue-500, .bg-blue-600) {
+  background: var(--signal-primary) !important;
+  color: var(--signal-on-primary) !important;
+}
+html
+  body
+  :is(.bg-sky-500, .bg-sky-600, .bg-blue-500, .bg-blue-600)
+  :is(span, svg) {
+  color: inherit !important;
+}
+html
+  body
+  :is(
+    .border-white\/10,
+    .border-white\/20,
+    .border-gray-700,
+    .border-gray-800,
+    .border-gray-200
+  ) {
+  border-color: var(--signal-line) !important;
+}
+html body :is(.glass, .glow-border) {
+  background: var(--signal-surface) !important;
+  border-color: var(--signal-line) !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+}
+html
+  body
+  :is(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    textarea,
+    select
+  ) {
+  color: var(--signal-text);
+  background-color: var(--signal-surface);
+  border-color: var(--signal-line-strong);
+  border-radius: 5px;
+}
+html body :is(input, textarea)::placeholder {
+  color: var(--signal-muted);
+  opacity: 1;
+}
+html body input[type="range"] {
+  accent-color: var(--signal-blue);
+}
+html body input[type="checkbox"],
+html body input[type="radio"] {
+  accent-color: var(--signal-blue);
+}
+html body :is(input, textarea, select):focus-visible {
+  outline: 2px solid var(--signal-blue);
+  outline-offset: 3px;
+}
+::selection {
+  background: color-mix(in srgb, var(--signal-blue) 24%, transparent);
+  color: var(--signal-text);
+}
+html
+  body
+  :is(.text-purple-300, .text-purple-400, .text-violet-400, .text-indigo-400) {
+  color: var(--chart-4) !important;
+}
+html body :is(.bg-green-500, .bg-emerald-500) {
+  background-color: var(--signal-success);
+}
+html body :is(.bg-yellow-500, .bg-amber-500) {
+  background-color: var(--signal-amber);
+}
+html body :is(.bg-red-500, .bg-rose-500) {
+  background-color: var(--signal-coral);
+}
+
+/* Translucent report fills follow the same categorical colors in both themes. */
+:root {
+  --chart-1-soft: color-mix(in srgb, var(--chart-1) 15%, transparent);
+  --chart-2-soft: color-mix(in srgb, var(--chart-2) 15%, transparent);
+  --chart-3-soft: color-mix(in srgb, var(--chart-3) 15%, transparent);
+  --chart-4-soft: color-mix(in srgb, var(--chart-4) 15%, transparent);
+  --chart-5-soft: color-mix(in srgb, var(--chart-5) 15%, transparent);
+  --chart-6-soft: color-mix(in srgb, var(--chart-6) 15%, transparent);
+  --chart-7-soft: color-mix(in srgb, var(--chart-7) 15%, transparent);
+  --chart-8-soft: color-mix(in srgb, var(--chart-8) 15%, transparent);
+  --chart-9-soft: color-mix(in srgb, var(--chart-9) 15%, transparent);
+  --chart-10-soft: color-mix(in srgb, var(--chart-10) 15%, transparent);
+  --chart-11-soft: color-mix(in srgb, var(--chart-11) 15%, transparent);
+  --chart-12-soft: color-mix(in srgb, var(--chart-12) 15%, transparent);
+  --chart-13-soft: color-mix(in srgb, var(--chart-13) 15%, transparent);
+  --chart-14-soft: color-mix(in srgb, var(--chart-14) 15%, transparent);
+  --chart-15-soft: color-mix(in srgb, var(--chart-15) 15%, transparent);
+}
+
+/* Older tool state labels use the same readable ink roles as their charts. */
+html body :is(.text-sky-200, .text-blue-300, .text-blue-500) {
+  color: var(--signal-blue) !important;
+}
+html
+  body
+  :is(
+    .text-green-200,
+    .text-green-300,
+    .text-green-600,
+    .text-emerald-300,
+    .text-emerald-600
+  ) {
+  color: var(--signal-success) !important;
+}
+html body :is(.text-red-200, .text-rose-300) {
+  color: var(--signal-coral) !important;
+}
+html body .text-yellow-200 {
+  color: var(--signal-amber) !important;
+}
+html body .text-teal-400 {
+  color: var(--chart-11) !important;
+}
+html body .text-orange-400 {
+  color: var(--chart-9) !important;
+}
+html body :is(.text-pink-400, .text-fuchsia-400) {
+  color: var(--chart-12) !important;
+}
+
+/* Paired foreground/background roles for legacy tinted cards and state labels. */
+html
+  body
+  :is(
+    [class~="bg-blue-500/5"],
+    [class~="bg-cyan-500/10"],
+    [class~="bg-cyan-500/20"],
+    [class~="bg-sky-400/10"],
+    [class~="bg-sky-400/30"],
+    [class~="bg-sky-500/10"],
+    [class~="bg-sky-500/15"],
+    [class~="bg-sky-500/20"],
+    [class~="bg-sky-500/5"]
+  ) {
+  background-color: var(--signal-blue-soft) !important;
+}
+html
+  body
+  :is(
+    [class~="bg-emerald-500/10"],
+    [class~="bg-emerald-500/15"],
+    [class~="bg-emerald-500/20"],
+    [class~="bg-emerald-500/5"],
+    [class~="bg-green-400/10"],
+    [class~="bg-green-500/10"],
+    [class~="bg-green-500/20"],
+    [class~="bg-green-500/5"],
+    [class~="bg-teal-500/10"],
+    [class~="bg-teal-500/20"]
+  ) {
+  background-color: var(--signal-success-soft) !important;
+}
+html
+  body
+  :is(
+    [class~="bg-amber-500/10"],
+    [class~="bg-amber-500/15"],
+    [class~="bg-amber-500/20"],
+    [class~="bg-amber-500/5"],
+    [class~="bg-amber-500/8"],
+    [class~="bg-amber-900/30"],
+    [class~="bg-yellow-500/10"],
+    [class~="bg-yellow-500/15"],
+    [class~="bg-yellow-500/20"],
+    [class~="bg-yellow-900/10"],
+    [class~="bg-yellow-900/20"]
+  ) {
+  background-color: var(--signal-amber-soft) !important;
+}
+html
+  body
+  :is(
+    [class~="bg-red-500/10"],
+    [class~="bg-red-500/15"],
+    [class~="bg-red-500/20"],
+    [class~="bg-red-500/5"]
+  ) {
+  background-color: var(--signal-coral-soft) !important;
+}
+html
+  body
+  :is(
+    [class~="bg-indigo-500/10"],
+    [class~="bg-indigo-500/15"],
+    [class~="bg-indigo-500/20"],
+    [class~="bg-indigo-500/5"],
+    [class~="bg-purple-400/10"],
+    [class~="bg-purple-500/10"],
+    [class~="bg-purple-500/15"],
+    [class~="bg-purple-500/20"],
+    [class~="bg-purple-500/8"]
+  ) {
+  background-color: var(--signal-purple-soft) !important;
+}
+html body .bg-purple-500 {
+  background: var(--signal-primary) !important;
+  color: var(--signal-on-primary) !important;
+}
+html body .bg-purple-500 :is(span, svg) {
+  color: inherit !important;
+}
+html body .signal-tool-stage [class~="bg-white/5"] {
+  background-color: var(--signal-surface);
+}

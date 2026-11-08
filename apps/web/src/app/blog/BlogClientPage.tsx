@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, Search } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PostCard from '@/components/blog/PostCard';
+import StudioPageIntro from '@/components/shared/StudioPageIntro';
 import SpecialReportsSection from '@/components/blog/SpecialReportsSection';
 import VideoSection from '@/components/blog/VideoSection';
 import type { PostMeta } from '@/lib/blog';
@@ -60,28 +61,22 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
 
   return (
     <>
-      <section className="signal-editorial-hero">
-        <span className="signal-eyebrow">MGA / Insights &amp; field notes</span>
-        <div className="signal-editorial-hero__grid">
-          <h1>{lang === 'es' ? <>Ideas, análisis y<br /><em>mejores sistemas.</em></> : <>Ideas, analysis and<br /><em>better systems.</em></>}</h1>
-          <div>
-            <p>{lang === 'es' ? 'Análisis, aprendizajes y herramientas sobre Data Engineering, IA aplicada y automatización desde la práctica.' : 'Analysis, lessons and tools about Data Engineering, applied AI and automation from the field.'}</p>
-            <div className="signal-editorial-count"><strong>{posts.length}</strong><span>{lang === 'es' ? 'notas publicadas' : 'published notes'}</span></div>
-          </div>
-        </div>
-      </section>
+      <StudioPageIntro
+        eyebrow={lang === 'es' ? 'MGA / Ideas y artículos' : 'MGA / Ideas & articles'}
+        title={lang === 'es' ? <>Ideas para<br /><em>construir mejor.</em></> : <>Ideas for<br /><em>building better.</em></>}
+        description={lang === 'es' ? 'Lo que aprendemos entre datos, código y decisiones de negocio. Artículos, investigaciones y conversaciones desde la práctica.' : 'What we learn between data, code and business decisions. Articles, research and conversations from the field.'}
+        aside={<div className="mga-page-count"><strong>{posts.length}</strong><span>{lang === 'es' ? 'notas para explorar a tu ritmo' : 'notes to explore at your own pace'}</span><a className="mga-text-link" href="#posts">{lang === 'es' ? 'Explorar el archivo' : 'Explore the archive'}<ArrowDown size={16} /></a></div>}
+      />
 
-      <nav className="signal-blog-nav" aria-label={lang === 'es' ? 'Secciones del blog' : 'Blog sections'}>
-        <a href="#videos">{lang === 'es' ? 'Videos' : 'Videos'}</a>
+      <nav className="signal-blog-nav mga-section-nav" aria-label={lang === 'es' ? 'Secciones del blog' : 'Blog sections'}>
         <a href="#latest">{lang === 'es' ? 'Últimas notas' : 'Latest'}</a>
         <a href="#research">{lang === 'es' ? 'Investigaciones' : 'Research'}</a>
+        <a href="#videos">{lang === 'es' ? 'Videos' : 'Videos'}</a>
         <a href="#posts">{lang === 'es' ? 'Archivo' : 'Archive'}</a>
       </nav>
 
-      <VideoSection />
-
       <section id="latest" className="signal-blog-latest">
-        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">02 / {lang === 'es' ? 'Ahora' : 'Now'}</span><h2>{lang === 'es' ? 'Últimas notas.' : 'Latest notes.'}</h2></div><p>{lang === 'es' ? 'Ideas recientes sobre sistemas de datos, IA aplicada y decisiones técnicas.' : 'Recent ideas about data systems, applied AI and technical decisions.'}</p></div>
+        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">01 / {lang === 'es' ? 'Ahora' : 'Now'}</span><h2>{lang === 'es' ? 'Últimas notas.' : 'Latest notes.'}</h2></div><p>{lang === 'es' ? 'Ideas recientes sobre sistemas de datos, IA aplicada y decisiones técnicas.' : 'Recent ideas about data systems, applied AI and technical decisions.'}</p></div>
         {!!latest.length && (
           <div className="signal-latest-grid">
             <Link href={`/blog/${latest[0].slug}/`} className="signal-latest-feature" onClick={() => events.blogPostCardClick(latest[0].slug, latest[0].title[lang], latest[0].category)}>
@@ -97,6 +92,8 @@ export default function BlogClientPage({ posts, categories }: { posts: PostMeta[
       </section>
 
       <SpecialReportsSection />
+
+      <VideoSection />
 
       <section id="posts" className="signal-editorial-index">
         <div className="signal-editorial-index__top">

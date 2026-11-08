@@ -24,12 +24,12 @@ export default function VideoSection() {
 
   return (
     <section id="videos" data-section="videos" className="signal-blog-video">
-      <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}}>
-        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">01 / Watch &amp; learn</span><h2>{lang === 'es' ? 'Aprender en video.' : 'Learn on video.'}</h2></div><p>{lang === 'es' ? 'Masterclasses, demostraciones y conversaciones técnicas para pasar de la idea a la práctica.' : 'Masterclasses, demos and technical conversations to move from ideas to practice.'}</p></div>
+      <motion.div ref={ref} initial={false} animate={isInView ? { opacity: 1, y: 0 } : {}}>
+        <div className="signal-blog-section-heading"><div><span className="signal-eyebrow">03 / Watch &amp; learn</span><h2>{lang === 'es' ? 'Aprender en video.' : 'Learn on video.'}</h2></div><p>{lang === 'es' ? 'Masterclasses, demostraciones y conversaciones técnicas para pasar de la idea a la práctica.' : 'Masterclasses, demos and technical conversations to move from ideas to practice.'}</p></div>
         {loading ? <div className="signal-video-loading" /> : main && (
           <div className="signal-video-stage">
             <AnimatePresence mode="wait">
-              <motion.div key={main.id} className="signal-video-feature" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .22 }}>
+              <motion.div key={main.id} className="signal-video-feature" initial={false} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .22 }}>
                 <div className="signal-video-feature__media">{playingId === main.id ? <TrackedYouTubePlayer videoId={main.youtubeId} title={lang === 'es' ? main.titleEs : main.titleEn} source="featured_video" /> : <button type="button" onClick={() => play(main)} aria-label={lang === 'es' ? `Reproducir ${main.titleEs}` : `Play ${main.titleEn}`}><img src={`https://img.youtube.com/vi/${main.youtubeId}/maxresdefault.jpg`} alt="" onError={(event) => { event.currentTarget.src = `https://img.youtube.com/vi/${main.youtubeId}/hqdefault.jpg`; }} /><span><Play size={22} fill="currentColor" /></span><small><Clock size={11} />{main.duration}</small></button>}</div>
                 <div className="signal-video-feature__copy"><span>{main.channel} / {new Date(main.date).getFullYear()}</span><h3>{lang === 'es' ? main.titleEs : main.titleEn}</h3><p>{lang === 'es' ? main.descriptionEs : main.descriptionEn}</p><button type="button" onClick={() => play(main)}>{lang === 'es' ? 'Reproducir masterclass' : 'Play masterclass'} <Play size={15} /></button></div>
               </motion.div>

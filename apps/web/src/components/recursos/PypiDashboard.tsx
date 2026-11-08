@@ -1,5 +1,6 @@
 'use client';
 
+import { useStudioChartTheme } from '@/hooks/useStudioChartTheme';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ArcElement,
@@ -74,8 +75,7 @@ type State = {
   hide: boolean;               // ClickPy-based views: leave out the mirror installers (bandersnatch, Nexus, devpi, Artifactory)
 };
 
-const PALETTE = ['#22d3ee', '#a78bfa', '#fbbf24', '#34d399', '#f472b6', '#60a5fa', '#fb923c', '#94a3b8'];
-const OS_COLORS: Record<string, string> = { Linux: '#fbbf24', Darwin: '#a78bfa', Windows: '#60a5fa', other: '#94a3b8', null: '#475569' };
+const OS_COLOR_INDEX: Record<string, number> = { Linux: 4, Darwin: 3, Windows: 0, other: 7, null: 7 };
 const MODES: Mode[] = ['bars', 'lines', 'cumulative', 'share', 'index'];
 
 const DEFAULTS: State = { pkgs: null, range: '90', from: '', to: '', gran: 'day', mode: 'bars', segment: { kind: 'raw' }, ma: false, log: false, releases: true, hide: true };
@@ -112,31 +112,6 @@ const releasePlugin: Plugin = {
 };
 
 // ---------- theme: the charts follow the site's light and dark mode ----------
-
-type Theme = { text: string; muted: string; grid: string; surface: string };
-const DARK: Theme = { text: '#e6edf7', muted: '#94a3b8', grid: 'rgba(148,163,184,.16)', surface: '#0d1424' };
-
-function useTheme(): Theme {
-  const [theme, setTheme] = useState<Theme>(DARK);
-  useEffect(() => {
-    const read = () => {
-      const styles = getComputedStyle(document.documentElement);
-      const pick = (name: string, fallback: string) => styles.getPropertyValue(name).trim() || fallback;
-      const light = document.documentElement.classList.contains('light-mode');
-      setTheme({
-        text: pick('--signal-text', DARK.text),
-        muted: pick('--signal-muted', DARK.muted),
-        grid: light ? 'rgba(15,23,42,.12)' : DARK.grid,
-        surface: pick('--signal-surface', DARK.surface),
-      });
-    };
-    read();
-    const observer = new MutationObserver(read);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-  return theme;
-}
 
 // ---------- small helpers ----------
 
@@ -195,7 +170,7 @@ function WorldMap({ map, totals, active, onPick, nameOf, fmt, label }: { map: Wo
   const [hover, setHover] = useState<{ code: string; x: number; y: number } | null>(null);
   const max = Math.max(1, ...Object.values(totals));
   const sum = Object.values(totals).reduce((total, value) => total + value, 0);
-  const shade = (value: number) => (value > 0 ? `rgba(34,211,238,${(0.22 + 0.78 * Math.sqrt(value / max)).toFixed(2)})` : undefined);
+  const shade = (value: number) => (value > 0 ? `color-mix(in srgb, var(--signal-blue) ${Math.round(22 + 78 * Math.sqrt(value / max))}%, transparent)` : undefined);
   const track = (code: string) => (event: React.MouseEvent) => {
     const box = (event.currentTarget as Element).closest('.signal-pd-map')?.getBoundingClientRect();
     if (box) setHover({ code, x: event.clientX - box.left, y: event.clientY - box.top });
@@ -226,9 +201,9 @@ function WorldMap({ map, totals, active, onPick, nameOf, fmt, label }: { map: Wo
 export default function PypiDashboard({ stats, lang, worldMap, target }: { stats: Stats; lang: Language; worldMap: WorldMapData; target: string }) {
   const t = <T,>(es: T, en: T): T => (lang === 'es' ? es : en);
   const locale = lang === 'es' ? 'es-AR' : 'en-US';
-  const theme = useTheme();
+  const theme = useStudioChartTheme();
   const all = useMemo(() => [...stats.packages].sort((a, b) => b.recent.month - a.recent.month), [stats.packages]);
-  const colorOf = useMemo(() => new Map(all.map((pkg, index) => [pkg.name, PALETTE[index % PALETTE.length]])), [all]);
+  const colorOf = useMemo(() => new Map(all.map((pkg, index) => [pkg.name, theme.colors[index % theme.colors.length]])), [all, theme.colors]);
   const latest = useMemo(() => {
     const date = [latestDate(all), segmentRange(all, { kind: 'raw' }, target).latest].sort().pop() || '';
     return date > target ? target : date;
@@ -344,7 +319,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
   const main = useMemo(() => {
     const labels = series.labels.map(bucketLabel);
     const names = selected.map((pkg) => pkg.name);
-    const color = (name: string) => colorOf.get(name) ?? '#94a3b8';
+    const color = (name: string) => colorOf.get(name) ?? theme.colors[7];
     const windowSize = 7;
     let datasets: Record<string, unknown>[] = [];
     if (state.mode === 'bars') {
@@ -415,8 +390,8 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
   // --- share and ranking ---
   const sharePie = useMemo(() => ({
     labels: totalsByPkg.map(({ pkg }) => pkg.name),
-    datasets: [{ data: totalsByPkg.map(({ total }) => total), backgroundColor: totalsByPkg.map(({ pkg }) => colorOf.get(pkg.name) ?? '#94a3b8'), borderColor: theme.surface, borderWidth: 2 }],
-  }), [totalsByPkg, colorOf, theme.surface]);
+    datasets: [{ data: totalsByPkg.map(({ total }) => total), backgroundColor: totalsByPkg.map(({ pkg }) => colorOf.get(pkg.name) ?? theme.colors[7]), borderColor: theme.surface, borderWidth: 2 }],
+  }), [totalsByPkg, colorOf, theme.surface, theme.colors]);
   const grandTotal = totalsByPkg.reduce((sum, row) => sum + row.total, 0);
 
   // --- weekday pattern and heatmap ---
@@ -652,7 +627,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
             <h4>{t('Descargas por paquete', 'Downloads per package')}</h4>
             <div className="signal-pd-chart signal-pd-chart--pie" role="img" aria-label={t('Ranking de paquetes', 'Package ranking')}>
               <Bar
-                data={{ labels: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ pkg }) => pkg.name), datasets: [{ data: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ total }) => total), backgroundColor: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ pkg }) => colorOf.get(pkg.name) ?? '#94a3b8'), borderRadius: 4 }] }}
+                data={{ labels: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ pkg }) => pkg.name), datasets: [{ data: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ total }) => total), backgroundColor: [...totalsByPkg].sort((a, b) => b.total - a.total).map(({ pkg }) => colorOf.get(pkg.name) ?? theme.colors[7]), borderRadius: 4 }] }}
                 options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ beginAtZero: true }), y: axisBase({ grid: { display: false } }) } })}
               />
             </div>
@@ -706,7 +681,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
           <div className="signal-pd-panel">
             <h4>{t('Por día de la semana', 'By day of the week')}</h4>
             <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por día de la semana', 'Downloads by weekday')}>
-              <Bar data={{ labels: weekdayNames, datasets: [{ data: weekdays, backgroundColor: weekdays.map((_, index) => (index >= 5 ? '#fbbf24' : '#22d3ee')), borderRadius: 4 }] }} options={baseOptions<'bar'>({ scales: { x: axisBase({ grid: { display: false } }), y: axisBase({ beginAtZero: true }) } })} />
+              <Bar data={{ labels: weekdayNames, datasets: [{ data: weekdays, backgroundColor: weekdays.map((_, index) => (index >= 5 ? theme.colors[4] : theme.colors[1])), borderRadius: 4 }] }} options={baseOptions<'bar'>({ scales: { x: axisBase({ grid: { display: false } }), y: axisBase({ beginAtZero: true }) } })} />
             </div>
             <p className="signal-pd-note">{t('Fin de semana', 'Weekend')}: <b>{pct(weekendShare)}</b> · {t('Lunes a viernes', 'Monday to Friday')}: <b>{pct(weekdaySum ? 1 - weekendShare : 0)}</b></p>
           </div>
@@ -716,7 +691,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
               <div className="signal-pd-heat__days" aria-hidden="true">{weekdayNames.map((name, index) => <span key={name} style={{ gridRow: index + 1 }}>{index % 2 === 0 ? name : ''}</span>)}</div>
               <div className="signal-pd-heat__grid" style={{ gridTemplateColumns: `repeat(${heat.length}, 1fr)` }}>
                 {heat.map((week) => week.map((cell, row) => (
-                  <span key={cell.date} className={`signal-pd-heat__cell${cell.inRange ? '' : ' is-out'}`} style={{ gridRow: row + 1, background: cell.inRange && cell.value ? `rgba(34,211,238,${(0.18 + 0.82 * Math.sqrt(cell.value / heatMax)).toFixed(2)})` : undefined }} title={`${longDate.format(new Date(`${cell.date}T00:00:00Z`))}: ${fmt.format(cell.value)}`} />
+                  <span key={cell.date} className={`signal-pd-heat__cell${cell.inRange ? '' : ' is-out'}`} style={{ gridRow: row + 1, background: cell.inRange && cell.value ? `color-mix(in srgb, ${theme.colors[1]} ${Math.round(18 + 82 * Math.sqrt(cell.value / heatMax))}%, transparent)` : undefined }} title={`${longDate.format(new Date(`${cell.date}T00:00:00Z`))}: ${fmt.format(cell.value)}`} />
                 )))}
               </div>
             </div>
@@ -733,7 +708,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
             <h4>{t('Sistema operativo, por paquete', 'Operating system, by package')}</h4>
             <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Sistema operativo por paquete', 'Operating system by package')}>
               <Bar
-                data={{ labels: perPkgOs.map(({ pkg }) => pkg.name), datasets: osCategories.map((category) => ({ label: osLabel(category), data: perPkgOs.map(({ data }) => { const sum = Object.values(data).reduce((a, b) => a + b, 0); return sum ? ((data[category] ?? 0) / sum) * 100 : 0; }), backgroundColor: OS_COLORS[category] ?? '#94a3b8', stack: 's' })) }}
+                data={{ labels: perPkgOs.map(({ pkg }) => pkg.name), datasets: osCategories.map((category) => ({ label: osLabel(category), data: perPkgOs.map(({ data }) => { const sum = Object.values(data).reduce((a, b) => a + b, 0); return sum ? ((data[category] ?? 0) / sum) * 100 : 0; }), backgroundColor: theme.colors[OS_COLOR_INDEX[category] ?? 7], stack: 's' })) }}
                 options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ stacked: true, max: 100, ticks: { color: theme.muted, callback: (value: number | string) => `${value}%` } }), y: axisBase({ stacked: true, grid: { display: false } }) }, plugins: { legend: { display: true, position: 'bottom', labels: { color: theme.text, boxWidth: 10, boxHeight: 10, usePointStyle: true } }, tooltip: { backgroundColor: theme.surface, titleColor: theme.text, bodyColor: theme.text, borderColor: theme.grid, borderWidth: 1, callbacks: { label: (item: { dataset: { label?: string }; parsed: { x: number } }) => `${item.dataset.label}: ${item.parsed.x.toFixed(0)}%` } } }, onClick: (_event: unknown, elements: { datasetIndex: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'os', value: osCategories[element.datasetIndex] } }); } })}
               />
             </div>
@@ -743,7 +718,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
             <h4>{t('Versión de Python', 'Python version')}</h4>
             <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por versión de Python', 'Downloads by Python version')}>
               <Bar
-                data={{ labels: pyList.map(([key]) => pyLabel(key)), datasets: [{ data: pyList.map(([, value]) => value), backgroundColor: pyList.map(([key]) => (key === 'null' ? '#475569' : '#a78bfa')), borderRadius: 4 }] }}
+                data={{ labels: pyList.map(([key]) => pyLabel(key)), datasets: [{ data: pyList.map(([, value]) => value), backgroundColor: pyList.map(([key]) => (key === 'null' ? theme.colors[7] : theme.colors[3])), borderRadius: 4 }] }}
                 options={baseOptions<'bar'>({ scales: { x: axisBase({ grid: { display: false } }), y: axisBase({ beginAtZero: true }) }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'py', value: pyList[element.index][0] } }); } })}
               />
             </div>
@@ -791,7 +766,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
               <h4>{t('Formato del archivo', 'File format')}</h4>
               <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Wheel contra código fuente', 'Wheel versus source')}>
                 <Doughnut
-                  data={{ labels: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map(typeLabel), datasets: [{ data: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map((key) => typeTotals[key]), backgroundColor: ['#22d3ee', '#fbbf24', '#a78bfa', '#94a3b8'], borderColor: theme.surface, borderWidth: 2 }] }}
+                  data={{ labels: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map(typeLabel), datasets: [{ data: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0).map((key) => typeTotals[key]), backgroundColor: [theme.colors[1], theme.colors[4], theme.colors[3], theme.colors[7]], borderColor: theme.surface, borderWidth: 2 }] }}
                   options={baseOptions<'doughnut'>({ cutout: '60%', interaction: { mode: 'nearest', intersect: true }, plugins: { legend: { display: true, position: 'bottom', labels: { color: theme.text, boxWidth: 10, boxHeight: 10, usePointStyle: true } }, tooltip: { backgroundColor: theme.surface, titleColor: theme.text, bodyColor: theme.text, borderColor: theme.grid, borderWidth: 1, callbacks: { label: (item: { label: string; parsed: number }) => `${item.label}: ${fmt.format(item.parsed)} (${typeSum ? pct(item.parsed / typeSum, 1) : '0%'})` } } }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'type', value: Object.keys(typeTotals).filter((key) => typeTotals[key] > 0)[element.index] } }); } })}
                 />
               </div>
@@ -801,7 +776,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
               <h4>{t('Instalador', 'Installer')}</h4>
               <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por instalador', 'Downloads by installer')}>
                 <Bar
-                  data={{ labels: installerRanked.map(([key]) => installerLabel(key)), datasets: [{ data: installerRanked.map(([, value]) => value), backgroundColor: installerRanked.map(([key]) => (['bandersnatch', 'Nexus', 'devpi', 'Artifactory'].includes(key) ? '#475569' : '#22d3ee')), borderRadius: 4 }] }}
+                  data={{ labels: installerRanked.map(([key]) => installerLabel(key)), datasets: [{ data: installerRanked.map(([, value]) => value), backgroundColor: installerRanked.map(([key]) => (['bandersnatch', 'Nexus', 'devpi', 'Artifactory'].includes(key) ? theme.colors[7] : theme.colors[1])), borderRadius: 4 }] }}
                   options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ beginAtZero: true }), y: axisBase({ grid: { display: false } }) }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'inst', value: installerRanked[element.index][0] } }); } })}
                 />
               </div>
@@ -812,7 +787,7 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
               {selected.length === 1 && versionRanked.length ? (
                 <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas por versión', 'Downloads by version')}>
                   <Bar
-                    data={{ labels: versionRanked.map(([key]) => `v${key}`), datasets: [{ data: versionRanked.map(([, value]) => value), backgroundColor: '#a78bfa', borderRadius: 4 }] }}
+                    data={{ labels: versionRanked.map(([key]) => `v${key}`), datasets: [{ data: versionRanked.map(([, value]) => value), backgroundColor: theme.colors[3], borderRadius: 4 }] }}
                     options={baseOptions<'bar'>({ scales: { x: axisBase({ grid: { display: false } }), y: axisBase({ beginAtZero: true }) }, onClick: (_event: unknown, elements: { index: number }[]) => { const element = elements[0]; if (element) patch({ segment: { kind: 'ver', value: versionRanked[element.index][0] } }); } })}
                   />
                 </div>
@@ -856,8 +831,8 @@ export default function PypiDashboard({ stats, lang, worldMap, target }: { stats
           <div className="signal-pd-chart signal-pd-chart--small" role="img" aria-label={t('Descargas sin y con espejos', 'Downloads without and with mirrors')}>
             <Bar
               data={{ labels: mirrors.map((row) => row.pkg.name), datasets: [
-                { label: t('Descargas contadas', 'Counted downloads'), data: mirrors.map((row) => row.clean), backgroundColor: '#22d3ee', stack: 'm' },
-                { label: t('Réplicas de espejos (no se cuentan)', 'Mirror replicas (not counted)'), data: mirrors.map((row) => Math.max(0, row.withMirrors - row.clean)), backgroundColor: '#475569', stack: 'm' },
+                { label: t('Descargas contadas', 'Counted downloads'), data: mirrors.map((row) => row.clean), backgroundColor: theme.colors[1], stack: 'm' },
+                { label: t('Réplicas de espejos (no se cuentan)', 'Mirror replicas (not counted)'), data: mirrors.map((row) => Math.max(0, row.withMirrors - row.clean)), backgroundColor: theme.colors[7], stack: 'm' },
               ] }}
               options={baseOptions<'bar'>({ indexAxis: 'y', scales: { x: axisBase({ stacked: true, beginAtZero: true }), y: axisBase({ stacked: true, grid: { display: false } }) }, plugins: { legend: { display: true, position: 'bottom', labels: { color: theme.text, boxWidth: 10, boxHeight: 10, usePointStyle: true } }, tooltip: { backgroundColor: theme.surface, titleColor: theme.text, bodyColor: theme.text, borderColor: theme.grid, borderWidth: 1 } } })}
             />

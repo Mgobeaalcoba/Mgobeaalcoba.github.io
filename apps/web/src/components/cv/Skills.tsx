@@ -21,7 +21,7 @@ export default function Skills() {
 
   return (
     <section id="skills" data-section="skills" className="signal-portfolio-chapter signal-capability-v2">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
+      <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
         <div className="signal-chapter-heading">
           <span className="signal-eyebrow">05 / {lang === 'es' ? 'Capacidades' : 'Capabilities'}</span>
           <h2>{lang === 'es' ? 'Profundidad técnica, amplitud de negocio.' : 'Technical depth, business breadth.'}</h2>

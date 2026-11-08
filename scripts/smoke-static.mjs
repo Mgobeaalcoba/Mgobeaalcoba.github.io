@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 
 const expectedOutputs = [
-  ['apps/web', ['out/index.html', 'out/portfolio/index.html', 'out/blog/index.html', 'out/recursos/poder-adquisitivo/index.html', 'out/recursos/actividad-argentina/index.html', 'out/recursos/comercio-exterior/index.html']],
+  ['apps/web', ['out/index.html', 'out/portfolio/index.html', 'out/blog/index.html', 'out/trabajos/racing/index.html', 'out/racing-propuesta/index.html', 'out/recursos/poder-adquisitivo/index.html', 'out/recursos/actividad-argentina/index.html', 'out/recursos/comercio-exterior/index.html']],
   ['apps/neil', ['out/index.html']],
   ['apps/el-portugues', ['out/index.html']],
 ];

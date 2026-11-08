@@ -73,6 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     // Client work case studies (Unicorn Academy stays out while it is in progress).
     {
+      url: `${SITE_URL}/trabajos/racing/`,
+      lastModified: new Date('2026-11-07'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${SITE_URL}/trabajos/henry/`,
       lastModified: new Date('2026-09-24'),
       changeFrequency: 'monthly',

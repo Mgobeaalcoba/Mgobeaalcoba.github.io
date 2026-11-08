@@ -1,37 +1,8 @@
-/* MGA Signal — 2026 design system */
+/* MGA layout primitives. Palette roles are defined in studio-theme.css. */
 :root {
-  --signal-bg: #05070c;
-  --signal-surface: #0b0f18;
-  --signal-surface-raised: #131d2b;
-  --signal-surface-soft: rgba(19, 29, 43, 0.72);
-  --signal-text: #eef0f4;
-  --signal-muted: #9aa8ba;
-  --signal-subtle: #68778b;
-  --signal-line: rgba(148, 163, 184, 0.16);
-  --signal-line-strong: rgba(148, 163, 184, 0.28);
-  --signal-cyan: #6fb6ff;
-  --signal-blue: #5271ff;
-  --signal-lime: #a3e635;
-  --signal-amber: #fbbf24;
-  --signal-coral: #fb7185;
-  --signal-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.18);
-  --signal-display: "Manrope", -apple-system, sans-serif;
-  --signal-heading: "Michroma", "Eurostile", "Arial Black", sans-serif;
+  --signal-display: "Geist", -apple-system, sans-serif;
+  --signal-heading: var(--signal-display);
   --signal-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-}
-
-html.light-mode {
-  --signal-cyan: #2a7bd0;
-  --signal-bg: #f6f8fc;
-  --signal-surface: #ffffff;
-  --signal-surface-raised: #eef2f8;
-  --signal-surface-soft: rgba(255, 255, 255, 0.82);
-  --signal-text: #0a1220;
-  --signal-muted: #536176;
-  --signal-subtle: #748198;
-  --signal-line: rgba(15, 23, 42, 0.12);
-  --signal-line-strong: rgba(15, 23, 42, 0.22);
-  --signal-shadow: 0 18px 48px rgba(29, 45, 75, 0.08), 0 2px 8px rgba(29, 45, 75, 0.06);
 }
 
 html,
@@ -355,7 +326,7 @@ body::before {
 }
 .signal-proof-row span { color: var(--signal-muted) !important; font-size: 14px; line-height: 1.4; }
 .signal-risk-note { display: flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--signal-muted); font-size: 13px; }
-.signal-risk-note span:first-child { color: var(--signal-lime) !important; }
+.signal-risk-note span:first-child { color: var(--signal-lime-text) !important; }
 
 .signal-trust-strip {
   border-block: 1px solid var(--signal-line);
@@ -413,12 +384,12 @@ body::before {
 .signal-case-graphic { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 24px; color: var(--signal-cyan); background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.14), transparent 42%), linear-gradient(135deg, #0b1320, #111c2c); }
 .signal-case-graphic span { color: var(--signal-text) !important; font-family: var(--signal-mono); font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 600; letter-spacing: -.06em; }
 .signal-case-graphic--2 { color: #a9b7ff; background: radial-gradient(circle at 70% 25%, rgba(82,113,255,.18), transparent 42%), linear-gradient(135deg, #0b1320, #14182b); }
-.signal-case-graphic--3 { color: var(--signal-lime); background: radial-gradient(circle at 45% 20%, rgba(163,230,53,.12), transparent 42%), linear-gradient(135deg, #0b1320, #101d20); }
+.signal-case-graphic--3 { color: var(--signal-lime-text); background: radial-gradient(circle at 45% 20%, rgba(163,230,53,.12), transparent 42%), linear-gradient(135deg, #0b1320, #101d20); }
 .signal-case__body { padding: 28px; }
 .signal-case__meta { display: flex; justify-content: space-between; gap: 16px; color: var(--signal-subtle); font-family: var(--signal-mono); font-size: 11px; text-transform: uppercase; }
 .signal-case h3 { margin: 28px 0 10px; }
 .signal-case__result { display: flex; align-items: baseline; gap: 9px; margin-top: 24px; border-top: 1px solid var(--signal-line); padding-top: 18px; }
-.signal-case__result strong { color: var(--signal-lime) !important; font-family: var(--signal-mono); font-size: 22px; }
+.signal-case__result strong { color: var(--signal-lime-text) !important; font-family: var(--signal-mono); font-size: 22px; }
 .signal-case__result span { color: var(--signal-muted) !important; font-size: 12px; }
 
 .signal-client-work { padding-top: 38px; }
@@ -518,7 +489,6 @@ main > section:not(.signal-hero):not(.signal-section) { position: relative; }
 .signal-portfolio-stats strong { color: var(--signal-text) !important; font-family: var(--signal-mono); font-size: 18px; font-variant-numeric: tabular-nums; }
 .signal-portfolio-stats span { margin-top: 6px; color: var(--signal-muted) !important; font-size: 12px; }
 
-.signal-portfolio-page > section:not(.signal-portfolio-hero) { max-width: 1280px; margin-inline: auto; padding-inline: 32px; }
 .signal-portfolio-page .section-title { font-size: clamp(2.6rem, 5vw, 4.9rem); }
 .signal-portfolio-page .text-xs { font-size: 13px !important; }
 .signal-portfolio-page .text-gray-500, .signal-portfolio-page .text-gray-600 { color: var(--signal-subtle) !important; }
@@ -738,10 +708,6 @@ html.light-mode .signal-terminal-dock__terminal {
   .signal-contact-v2__grid { grid-template-columns: 1fr; }
 }
 
-.signal-editorial-page > section:first-of-type,
-.signal-tools-page > section:first-of-type { max-width: 1280px; padding: 132px 32px 42px; }
-.signal-editorial-page > section:first-of-type h1,
-.signal-tools-page > section:first-of-type h1 { color: var(--signal-text) !important; font-size: clamp(3.2rem, 6vw, 6rem); line-height: .95; letter-spacing: -.065em; }
 .signal-editorial-page .animate-pulse:not(.bg-white\/10),
 .signal-tools-page .animate-pulse:not(.bg-white\/10) { animation: none !important; }
 .signal-editorial-page .text-xs,
@@ -1151,7 +1117,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-share:hover { border-color: var(--signal-cyan); color: var(--signal-cyan); }
 .mortgage-source-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; border: 1px solid var(--signal-line); border-radius: 12px; background: color-mix(in srgb,var(--signal-surface-raised) 82%,transparent); padding: 9px; }
 .mortgage-source-strip > span, .mortgage-source-strip > a { min-height: 32px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--signal-line); border-radius: 8px; color: var(--signal-muted); padding: 0 10px; font-family: var(--signal-mono); font-size: 10px; }
-.mortgage-source-strip > span:first-child { border-color: rgba(163,230,53,.24); color: var(--signal-lime); }
+.mortgage-source-strip > span:first-child { border-color: rgba(163,230,53,.24); color: var(--signal-lime-text); }
 .mortgage-source-strip > a { border-color: rgba(34,211,238,.22); color: var(--signal-cyan); }
 .mortgage-source-strip > a:hover { background: rgba(34,211,238,.07); }
 .mortgage-source-strip strong { color: var(--signal-text); }
@@ -1187,7 +1153,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-cost-toggle input:focus-visible + span { outline: 2px solid var(--signal-cyan); outline-offset: 2px; }
 .mortgage-cost-toggle b, .mortgage-cost-copy b { color: var(--signal-text); font-size: 10px; }
 .mortgage-cost-toggle small, .mortgage-cost-copy small { color: var(--signal-subtle); font-size: 8px; line-height: 1.35; }
-.mortgage-cost-fixed { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid rgba(163,230,53,.25); border-radius: 7px; background: rgba(163,230,53,.07); color: var(--signal-lime); }
+.mortgage-cost-fixed { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid rgba(163,230,53,.25); border-radius: 7px; background: rgba(163,230,53,.07); color: var(--signal-lime-text); }
 .mortgage-cost-copy { display: grid; gap: 2px; }
 .mortgage-percent-input { display: grid; grid-template-columns: 46px 22px; overflow: hidden; border: 1px solid var(--signal-line-strong); border-radius: 8px; background: var(--signal-surface); }
 .mortgage-percent-input input { width: 46px; min-width: 0; border: 0 !important; background: transparent !important; padding: 0 5px !important; font-family: var(--signal-mono); font-size: 10px; text-align: right; }
@@ -1222,7 +1188,7 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-upfront-costs > header > div { display: grid; gap: 2px; }
 .mortgage-upfront-costs > header > div:last-child { text-align: right; }
 .mortgage-upfront-costs > header span { color: var(--signal-muted); font-size: 10px; font-weight: 750; text-transform: uppercase; }
-.mortgage-upfront-costs > header strong { color: var(--signal-lime); font-family: var(--signal-mono); font-size: 18px; }
+.mortgage-upfront-costs > header strong { color: var(--signal-lime-text); font-family: var(--signal-mono); font-size: 18px; }
 .mortgage-upfront-costs > header small { color: var(--signal-subtle); font-size: 8px; }
 .mortgage-upfront-costs dl { display: grid; gap: 5px; padding: 11px 13px; }
 .mortgage-upfront-costs dl div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -1237,9 +1203,9 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-effort-callout > span { color: var(--signal-muted); font-size: 11px; font-weight: 700; }
 .mortgage-effort-callout > strong { grid-row: 1 / 3; grid-column: 2; font-family: var(--signal-mono); font-size: 24px; }
 .mortgage-effort-callout > small { color: var(--signal-subtle); font-size: 9px; }
-.mortgage-effort-callout.is-green strong { color: var(--signal-lime); }
+.mortgage-effort-callout.is-green strong { color: var(--signal-lime-text); }
 .mortgage-effort-callout.is-yellow strong { color: var(--signal-amber); }
-.mortgage-effort-callout.is-orange strong { color: #fb923c; }
+.mortgage-effort-callout.is-orange strong { color: var(--chart-9); }
 .mortgage-effort-callout.is-red strong { color: var(--signal-coral); }
 .mortgage-result-note, .mortgage-scenario-basis { display: flex; align-items: flex-start; gap: 9px; margin-top: 14px; border-radius: 10px; background: rgba(82,113,255,.07); color: var(--signal-muted); padding: 11px; }
 .mortgage-result-note svg, .mortgage-scenario-basis svg { flex: 0 0 auto; color: var(--signal-blue); }
@@ -1306,9 +1272,9 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-chart__line { fill: none; stroke: var(--signal-cyan); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 5px rgba(34,211,238,.3)); }
 .mortgage-risk-legend { display: flex; justify-content: center; gap: 6px; }
 .mortgage-risk-legend span { border-radius: 999px; padding: 3px 7px; font-family: var(--signal-mono); font-size: 8px; }
-.mortgage-risk-legend .is-green { background: rgba(163,230,53,.08); color: var(--signal-lime); }
+.mortgage-risk-legend .is-green { background: rgba(163,230,53,.08); color: var(--signal-lime-text); }
 .mortgage-risk-legend .is-yellow { background: rgba(251,191,36,.08); color: var(--signal-amber); }
-.mortgage-risk-legend .is-orange { background: rgba(251,146,60,.08); color: #fb923c; }
+.mortgage-risk-legend .is-orange { background: rgba(251,146,60,.08); color: var(--chart-9); }
 .mortgage-risk-legend .is-red { background: rgba(251,113,133,.08); color: var(--signal-coral); }
 .mortgage-milestones { display: grid; grid-auto-columns: minmax(150px,1fr); grid-auto-flow: column; gap: 7px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
 .mortgage-milestones article { display: grid; border: 1px solid var(--signal-line); border-radius: 11px; background: color-mix(in srgb,var(--signal-surface) 58%,transparent); padding: 12px; }
@@ -1316,9 +1282,9 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-milestones strong { margin-top: 8px; color: var(--signal-text); font-family: var(--signal-mono); font-size: 16px; }
 .mortgage-milestones small, .mortgage-milestones em { margin-top: 3px; color: var(--signal-subtle); font-size: 8px; font-style: normal; }
 .mortgage-milestones b { width: fit-content; margin-top: 8px; border-radius: 999px; padding: 3px 6px; font-family: var(--signal-mono); font-size: 8px; }
-.mortgage-milestones b.is-green { background: rgba(163,230,53,.08); color: var(--signal-lime); }
+.mortgage-milestones b.is-green { background: rgba(163,230,53,.08); color: var(--signal-lime-text); }
 .mortgage-milestones b.is-yellow { background: rgba(251,191,36,.08); color: var(--signal-amber); }
-.mortgage-milestones b.is-orange { background: rgba(251,146,60,.08); color: #fb923c; }
+.mortgage-milestones b.is-orange { background: rgba(251,146,60,.08); color: var(--chart-9); }
 .mortgage-milestones b.is-red { background: rgba(251,113,133,.08); color: var(--signal-coral); }
 .mortgage-methodology { border-top: 1px solid var(--signal-line); padding-top: 4px; }
 .mortgage-methodology summary { min-height: 45px; display: flex; cursor: pointer; align-items: center; justify-content: space-between; color: var(--signal-muted); font-size: 11px; font-weight: 700; list-style: none; }
@@ -1333,13 +1299,13 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-market-signal p { max-width: 850px; margin-top: 3px; color: var(--signal-muted); font-size: 10px; line-height: 1.5; }
 .mortgage-market-signal > span { border-radius: 999px; padding: 5px 9px; font-family: var(--signal-mono); font-size: 9px; font-weight: 750; white-space: nowrap; }
 .mortgage-market-signal.is-borrow { border-color: rgba(217,70,239,.23); background: rgba(217,70,239,.045); }
-.mortgage-market-signal.is-borrow > svg, .mortgage-market-signal.is-borrow > span { color: #e879f9; }
+.mortgage-market-signal.is-borrow > svg, .mortgage-market-signal.is-borrow > span { color: var(--chart-4); }
 .mortgage-market-signal.is-borrow > span { background: rgba(217,70,239,.1); }
 .mortgage-market-signal.is-neutral { border-color: rgba(251,191,36,.23); background: rgba(251,191,36,.04); }
 .mortgage-market-signal.is-neutral > svg, .mortgage-market-signal.is-neutral > span { color: var(--signal-amber); }
 .mortgage-market-signal.is-neutral > span { background: rgba(251,191,36,.09); }
 .mortgage-market-signal.is-repay { border-color: rgba(163,230,53,.24); background: rgba(163,230,53,.04); }
-.mortgage-market-signal.is-repay > svg, .mortgage-market-signal.is-repay > span { color: var(--signal-lime); }
+.mortgage-market-signal.is-repay > svg, .mortgage-market-signal.is-repay > span { color: var(--signal-lime-text); }
 .mortgage-market-signal.is-repay > span { background: rgba(163,230,53,.09); }
 .mortgage-market-layout { display: grid; grid-template-columns: minmax(240px,.55fr) minmax(500px,1.45fr); gap: 12px; }
 .mortgage-market-summary, .mortgage-market-visual { min-width: 0; border: 1px solid var(--signal-line); border-radius: 12px; padding: 14px; }
@@ -1371,9 +1337,9 @@ html.light-mode footer.glass { background: #e9eef6 !important; }
 .mortgage-market-chart__current { fill: var(--signal-cyan); stroke: var(--signal-bg); stroke-width: 2; }
 .mortgage-market-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
 .mortgage-market-legend span { border-radius: 999px; padding: 3px 7px; font-size: 8px; }
-.mortgage-market-legend .is-repay { background: rgba(163,230,53,.08); color: var(--signal-lime); }
+.mortgage-market-legend .is-repay { background: rgba(163,230,53,.08); color: var(--signal-lime-text); }
 .mortgage-market-legend .is-neutral { background: rgba(251,191,36,.08); color: var(--signal-amber); }
-.mortgage-market-legend .is-borrow { background: rgba(217,70,239,.08); color: #e879f9; }
+.mortgage-market-legend .is-borrow { background: rgba(217,70,239,.08); color: var(--chart-4); }
 .mortgage-market-personal { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8px; }
 .mortgage-market-personal article { border: 1px solid var(--signal-line); border-radius: 11px; background: color-mix(in srgb,var(--signal-surface) 58%,transparent); padding: 13px; }
 .mortgage-market-personal span { color: var(--signal-subtle); font-size: 8px; font-weight: 750; text-transform: uppercase; }
@@ -1979,12 +1945,12 @@ html.light-mode .signal-pd input[type='date'], html.light-mode .signal-pd input[
 .signal-pd-kpi strong { color: var(--signal-text); font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .signal-pd-kpi strong small { color: var(--signal-subtle); font-size: .5em; letter-spacing: 0; }
 .signal-pd-kpi em { color: var(--signal-subtle); font-size: 12px; font-style: normal; line-height: 1.4; }
-.is-up { color: #34d399 !important; } .is-down { color: #f87171 !important; }
+.is-up { color: var(--signal-success) !important; } .is-down { color: var(--signal-coral) !important; }
 .signal-pd-panel { border: 1px solid var(--signal-line); border-radius: 20px; background: var(--signal-surface); padding: 24px; min-width: 0; }
 .signal-pd-panel h4 { margin: 0 0 18px; color: var(--signal-text); font-size: 15px; letter-spacing: -.01em; }
 .signal-pd-panel__bar { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; margin-bottom: 22px; }
 .signal-pd-check { display: inline-flex; align-items: center; gap: 9px; color: var(--signal-muted); font-size: 13px; cursor: pointer; }
-.signal-pd-check input { accent-color: #6fb6ff; width: 16px; height: 16px; }
+.signal-pd-check input { accent-color: var(--signal-blue); width: 16px; height: 16px; }
 .signal-pd-check.is-disabled { opacity: .4; cursor: default; }
 .signal-pd-chart { position: relative; width: 100%; }
 .signal-pd-chart--main { height: 420px; }

@@ -59,7 +59,7 @@ export default function Projects() {
   return (
     <section id="projects" data-section="projects" className="signal-portfolio-chapter signal-projects-v2">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
@@ -120,7 +120,7 @@ export default function Projects() {
           {visible.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.4, delay: i * 0.05 }}

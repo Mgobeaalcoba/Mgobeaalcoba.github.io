@@ -1,219 +1,110 @@
-'use client';
+"use client";
 
-import Link from './TransitionLink';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { localizePath } from '@/lib/i18n-routes';
-import { useTheme } from '@/contexts/ThemeContext';
-import { events } from '@/lib/gtag';
-import { CONSENT_SETTINGS_EVENT } from './ConsentBanner';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight } from "lucide-react";
+import Brand from "./Brand";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizePath } from "@/lib/i18n-routes";
+import { CONSENT_SETTINGS_EVENT } from "./ConsentBanner";
 
 export default function Footer() {
-  const { lang, t } = useLanguage();
-  const { theme } = useTheme();
+  const { lang } = useLanguage();
   const pathname = usePathname();
-  const isDark = theme === 'dark';
-  const isPortfolioPage = pathname.startsWith('/portfolio');
-  const isConsultingPage = !isPortfolioPage;
-  const linkedinUrl = isPortfolioPage
-    ? 'https://www.linkedin.com/in/mariano-gobea-alcoba/'
-    : 'https://www.linkedin.com/company/mga-tech-consulting';
-  const contactEmail = isPortfolioPage ? 'mariano@mgatc.com' : 'hola@mgatc.com';
-
-  const logoSrc = isConsultingPage
-    ? (isDark ? '/images/consulting-logo-dark.png' : '/images/consulting-logo-light.png')
-    : (isDark ? '/images/portfolio-logo-dark.png' : '/images/portfolio-logo.png');
-
-  const logoAlt = isConsultingPage ? 'MGA Tech Consulting' : 'MGA Portfolio';
-  const logoHref = isPortfolioPage ? '/portfolio/' : '/';
+  const es = lang === "es";
+  const home = localizePath("/", lang);
+  const portfolio = pathname.startsWith("/portfolio");
+  const email = portfolio ? "mariano@mgatc.com" : "hola@mgatc.com";
+  const linkedin = portfolio
+    ? "https://www.linkedin.com/in/mariano-gobea-alcoba/"
+    : "https://www.linkedin.com/company/mga-tech-consulting";
 
   return (
-    <footer className="glass border-t border-white/10 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          {/* Brand with logo */}
-          <div className="md:col-span-1">
-            <Link href={logoHref} className="block mb-4">
-              <Image
-                src={logoSrc}
-                alt={logoAlt}
-                width={180}
-                height={75}
-                className="h-10 w-auto object-contain"
-              />
+    <footer className="mga-footer">
+      <div className="mga-container">
+        <div className="mga-footer__top">
+          <div>
+            <Link href={home} aria-label="MGA Tech Consulting — Home">
+              <Brand />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">
-              {isPortfolioPage ? t('footer_portfolio_desc') : t('footer_consulting_desc')}
+            <p>
+              {es
+                ? "Ideas claras. Sistemas que funcionan."
+                : "Clear ideas. Systems that work."}
+              <br />
+              Buenos Aires → {es ? "cualquier lugar" : "anywhere"}.
             </p>
           </div>
-
-          {/* Navigation */}
           <div>
-            <h4 className="text-gray-200 font-semibold mb-3">Navegación</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href={localizePath('/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  Soluciones
-                </Link>
-              </li>
-              <li>
-                <Link href={localizePath('/servicios/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  Servicios a demanda
-                </Link>
-              </li>
-              <li>
-                <Link href="/como-trabajamos/" className="text-gray-400 hover:text-sky-400 transition-colors">
-                  {lang === 'es' ? 'Cómo trabajamos' : 'How we work'}
-                </Link>
-              </li>
-              <li>
-                <Link href={localizePath('/blog/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href={localizePath('/recursos/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  {t('nav_recursos')}
-                </Link>
-              </li>
-              <li>
-                <Link href={localizePath('/agenthub/', lang)} className="text-gray-400 hover:text-sky-400 transition-colors">
-                  MGA AgentHub
-                </Link>
-              </li>
-            </ul>
+            <span>{es ? "El estudio" : "The studio"}</span>
+            <Link href={`${home}#servicios`}>
+              {es ? "Qué hacemos" : "What we do"}
+            </Link>
+            <Link href={`${home}#proyectos`}>{es ? "Proyectos" : "Work"}</Link>
+            <Link href="/como-trabajamos/">
+              {es ? "Cómo trabajamos" : "Our process"}
+            </Link>
+            <Link href="/portfolio/">
+              {es ? "Conocé al fundador" : "Meet the founder"}
+            </Link>
           </div>
-
-          {/* Founder (portfolio stays public, low prominence) */}
           <div>
-            <h4 className="text-gray-200 font-semibold mb-3">{lang === 'es' ? 'Fundador' : 'Founder'}</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href={localizePath('/portfolio/', lang)}
-                  data-analytics="footer_founder_profile"
-                  onClick={() => events.navClick('/portfolio/', 'Fundador')}
-                  className="text-gray-400 hover:text-sky-400 transition-colors"
-                >
-                  {lang === 'es' ? 'Perfil y portfolio' : 'Profile & portfolio'}
-                </Link>
-              </li>
-            </ul>
+            <span>{es ? "Para explorar" : "Explore"}</span>
+            <Link href="/blog/">
+              {es ? "Ideas y artículos" : "Ideas & articles"}
+            </Link>
+            <Link href="/recursos/">
+              {es ? "Herramientas abiertas" : "Open tools"}
+            </Link>
+            <Link href={localizePath("/agenthub/", lang)}>AgentHub</Link>
+            <Link href={localizePath("/servicios/", lang)}>
+              {es ? "Servicios a demanda" : "On-demand services"}
+            </Link>
           </div>
-
-          {/* Social Links */}
           <div>
-            <h4 className="text-gray-200 font-semibold mb-3">Contacto</h4>
-            <div className="flex flex-col gap-2">
-              <a
-                href={linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => events.outboundClick(linkedinUrl, 'LinkedIn')}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
-              >
-                <Linkedin size={14} />
-                LinkedIn
-              </a>
-              {isPortfolioPage && (
-                <>
+            <span>{es ? "Conversemos" : "Get in touch"}</span>
+            <a href={`mailto:${email}`}>
+              {email}
+              <ArrowUpRight size={14} />
+            </a>
+            <a href={linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <ArrowUpRight size={14} />
+            </a>
+            {portfolio && (
               <a
                 href="https://github.com/Mgobeaalcoba"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => events.outboundClick('https://github.com/Mgobeaalcoba', 'GitHub')}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
               >
-                <Github size={14} />
                 GitHub
+                <ArrowUpRight size={14} />
               </a>
-                </>
-              )}
-              {isPortfolioPage && (
-              <a
-                href="https://twitter.com/MGobeaAlcoba"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => events.outboundClick('https://twitter.com/MGobeaAlcoba', 'Twitter')}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
-              >
-                <Twitter size={14} />
-                Twitter/X
-              </a>
-              )}
-              <a
-                href={`mailto:${contactEmail}`}
-                onClick={() => events.outboundClick(`mailto:${contactEmail}`, 'Email')}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors"
-              >
-                <Mail size={14} />
-                {contactEmail}
-              </a>
-            </div>
-          </div>
-
-          {/* Legal / Stack */}
-          <div>
-            <h4 className="text-gray-200 font-semibold mb-3">Tecnología</h4>
-            <div className="flex flex-col gap-1 text-xs text-gray-500">
-              <span>Next.js 14 · TypeScript</span>
-              <span>Tailwind CSS · Framer Motion</span>
-              <span>Cloudflare Pages · GA4</span>
-              <span className="mt-2 text-gray-600">© 2026 MGA Tech Consulting</span>
-            </div>
+            )}
           </div>
         </div>
-
-        {/* Bottom */}
-        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm flex items-center gap-1">
-            {t('footer_design')} <Heart size={14} className="text-red-400" /> {t('footer_location')} · 2026
-          </p>
-          <div className="flex items-center gap-3 text-xs text-gray-600">
-            {isPortfolioPage && (
-                <>
-              <a
-              href="https://github.com/Mgobeaalcoba"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => events.outboundClick('https://github.com/Mgobeaalcoba', 'GitHub')}
-              className="hover:text-sky-400 transition-colors"
-            >
-              GitHub
-            </a>
-            <span>·</span></>
-)}
-            <Link href="/privacidad/" className="hover:text-sky-400 transition-colors">
-              Privacidad
-            </Link>
-            <span>·</span>
+        <div className="mga-footer__signature" aria-hidden="true">
+          Make good
+          <br />
+          <em>things happen.</em>
+          <span>↗</span>
+        </div>
+        <div className="mga-footer__bottom">
+          <span>© {new Date().getFullYear()} MGA Tech Consulting</span>
+          <span>
+            {es
+              ? "Tecnología con criterio humano."
+              : "Technology. Human judgment."}
+          </span>
+          <div>
+            <Link href="/privacidad/">{es ? "Privacidad" : "Privacy"}</Link>
             <button
-              type="button"
-              onClick={() => window.dispatchEvent(new Event(CONSENT_SETTINGS_EVENT))}
-              className="hover:text-sky-400 transition-colors"
+              onClick={() =>
+                window.dispatchEvent(new Event(CONSENT_SETTINGS_EVENT))
+              }
             >
               Cookies
             </button>
-            <span>·</span>
-            <a
-              href={linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => events.outboundClick(linkedinUrl, 'LinkedIn')}
-              className="hover:text-sky-400 transition-colors"
-            >
-              LinkedIn
-            </a>
-            <span>·</span>
-            <a
-              href={`mailto:${contactEmail}`}
-              onClick={() => events.outboundClick(`mailto:${contactEmail}`, 'Email')}
-              className="hover:text-sky-400 transition-colors"
-            >
-              Email
-            </a>
           </div>
         </div>
       </div>

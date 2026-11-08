@@ -1,24 +1,24 @@
-import type { Metadata } from 'next';
-import ConsultingPageClient from '../consulting/ConsultingPageClient';
-import JsonLd from '@/components/shared/JsonLd';
-import { buildLocalizedMetadata } from '@/lib/localizedMetadata';
-import { getConsultingSchema } from '@/lib/consultingSchema';
+import type { Metadata } from "next";
+import ConsultingPageClient from "../consulting/ConsultingPageClient";
+import JsonLd from "@/components/shared/JsonLd";
+import { buildLocalizedMetadata } from "@/lib/localizedMetadata";
+import { getConsultingSchema } from "@/lib/consultingSchema";
 
 export const metadata: Metadata = buildLocalizedMetadata({
-  path: '/',
-  locale: 'en',
-  title: 'MGA Tech Consulting | AI automation and BI for growing companies',
+  path: "/",
+  locale: "en",
+  title: "AI agents, automation and software",
   description:
-    'Technology consulting: process automation, applied AI and Business Intelligence. Up to 80% lower operating costs. First automation completely free.',
-  openGraphTitle: 'MGA Tech Consulting - Automation & AI for growing companies',
+    "AI agents, automation, software development and data for your business. An independent studio connecting strategy, design and implementation.",
+  openGraphTitle: "MGA Tech Consulting — Less busywork. More possibilities.",
   openGraphDescription:
-    'Cut operating costs by up to 80% with automation, AI chatbots and real-time dashboards. First automation free.',
+    "AI agents, automation and custom software to help your business take its next step. Explore real projects and tell us your idea.",
 });
 
 export default function EnglishHomePage() {
   return (
     <>
-      <JsonLd data={getConsultingSchema('en')} />
+      <JsonLd data={getConsultingSchema("en")} />
       <ConsultingPageClient />
     </>
   );

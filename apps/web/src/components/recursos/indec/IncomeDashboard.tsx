@@ -299,7 +299,7 @@ export default function IncomeDashboard({ data }: { data: IncomeData }) {
                 {
                   label: "Poder adquisitivo inicial",
                   data: selected.map(() => 100),
-                  color: "#94a3b8",
+                  color: "var(--chart-8)",
                 },
               ]
             : [

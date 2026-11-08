@@ -1,35 +1,48 @@
-import type { Language } from '@/contexts/LanguageContext';
-import type { Bilingual } from '@/types/content';
-import { absoluteUrl } from './localizedMetadata';
-import { SITE_AUTHOR, SITE_NAME } from './site';
+import type { Language } from "@/contexts/LanguageContext";
+import type { Bilingual } from "@/types/content";
+import { absoluteUrl } from "./localizedMetadata";
+import { SITE_AUTHOR, SITE_NAME } from "./site";
 
 const SERVICES: { name: Bilingual; description: Bilingual }[] = [
   {
-    name: { es: 'Automatización de Procesos', en: 'Process Automation' },
+    name: { es: "Automatización de Procesos", en: "Process Automation" },
     description: {
-      es: 'Automatización RPA y workflows con n8n, Python e IA para eliminar tareas manuales repetitivas.',
-      en: 'RPA and workflow automation with n8n, Python and AI to remove repetitive manual tasks.',
+      es: "Automatización RPA y workflows con n8n, Python e IA para eliminar tareas manuales repetitivas.",
+      en: "RPA and workflow automation with n8n, Python and AI to remove repetitive manual tasks.",
     },
   },
   {
-    name: { es: 'Inteligencia Artificial Aplicada', en: 'Applied Artificial Intelligence' },
+    name: {
+      es: "Inteligencia Artificial Aplicada",
+      en: "Applied Artificial Intelligence",
+    },
     description: {
-      es: 'Chatbots IA, asistentes virtuales y modelos de ML adaptados al negocio.',
-      en: 'AI chatbots, virtual assistants and ML models tailored to the business.',
+      es: "Agentes y asistentes de IA integrados con información y herramientas del negocio, con límites y revisión humana.",
+      en: "AI agents and assistants integrated with business knowledge and tools, with boundaries and human review.",
     },
   },
   {
-    name: { es: 'Business Intelligence & Datos', en: 'Business Intelligence & Data' },
+    name: {
+      es: "Business Intelligence & Datos",
+      en: "Business Intelligence & Data",
+    },
     description: {
-      es: 'Dashboards en tiempo real, pipelines de datos y reportes automatizados con BigQuery y Looker Studio.',
-      en: 'Real-time dashboards, data pipelines and automated reporting with BigQuery and Looker Studio.',
+      es: "Dashboards en tiempo real, pipelines de datos y reportes automatizados con BigQuery y Looker Studio.",
+      en: "Real-time dashboards, data pipelines and automated reporting with BigQuery and Looker Studio.",
     },
   },
   {
-    name: { es: 'Mentorías Tech Personalizadas', en: 'Custom Tech Mentoring' },
+    name: { es: "Mentorías Tech Personalizadas", en: "Custom Tech Mentoring" },
     description: {
-      es: 'Mentorías individuales para profesionales de datos, ingenieros y líderes técnicos.',
-      en: 'One-on-one mentoring for data professionals, engineers and technical leaders.',
+      es: "Mentorías individuales para profesionales de datos, ingenieros y líderes técnicos.",
+      en: "One-on-one mentoring for data professionals, engineers and technical leaders.",
+    },
+  },
+  {
+    name: { es: "Desarrollo de software", en: "Software development" },
+    description: {
+      es: "Sitios, aplicaciones, herramientas internas e integraciones a medida.",
+      en: "Custom websites, applications, internal tools and integrations.",
     },
   },
 ];
@@ -40,53 +53,62 @@ const COPY: {
   inLanguage: Record<Language, string[]>;
 } = {
   description: {
-    es: 'Consultoría tecnológica especializada en automatización de procesos, Inteligencia Artificial aplicada y Business Intelligence para PyMEs argentinas. Reducción de costos operativos hasta 80%.',
-    en: 'Technology consulting specialized in process automation, applied Artificial Intelligence and Business Intelligence for growing companies. Up to 80% lower operating costs.',
+    es: "Estudio de tecnología aplicada: agentes de IA, automatización, desarrollo de software y datos para empresas.",
+    en: "Applied technology studio: AI agents, automation, software development and data for businesses.",
   },
   catalogName: {
-    es: 'Servicios de Consultoría Tecnológica',
-    en: 'Technology Consulting Services',
+    es: "Servicios de Consultoría Tecnológica",
+    en: "Technology Consulting Services",
   },
-  inLanguage: { es: ['es', 'en'], en: ['en', 'es'] },
+  inLanguage: { es: ["es", "en"], en: ["en", "es"] },
 };
 
 /** ProfessionalService structured data for the consulting landing, per locale. */
 export function getConsultingSchema(locale: Language) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
     name: SITE_NAME,
-    url: absoluteUrl('/', locale),
+    url: absoluteUrl("/", locale),
     description: COPY.description[locale],
-    '@id': `${absoluteUrl('/', 'es')}#professional-service`,
-    email: 'hola@mgatc.com',
-    sameAs: ['https://www.linkedin.com/company/mga-tech-consulting'],
-    parentOrganization: { '@type': 'Organization', name: SITE_NAME, url: absoluteUrl('/', 'es') },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      email: 'hola@mgatc.com',
-      availableLanguage: ['es', 'en'],
+    "@id": `${absoluteUrl("/", "es")}#professional-service`,
+    email: "hola@mgatc.com",
+    sameAs: ["https://www.linkedin.com/company/mga-tech-consulting"],
+    parentOrganization: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: absoluteUrl("/", "es"),
     },
-    knowsAbout: ['automatización de procesos', 'agentes de IA', 'Business Intelligence', 'Data Engineering'],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "hola@mgatc.com",
+      availableLanguage: ["es", "en"],
+    },
+    knowsAbout: [
+      "automatización de procesos",
+      "agentes de IA",
+      "Business Intelligence",
+      "Data Engineering",
+    ],
     founder: {
-      '@type': 'Person',
+      "@type": "Person",
       name: SITE_AUTHOR,
-      url: absoluteUrl('/portfolio/', locale),
+      url: absoluteUrl("/portfolio/", locale),
     },
     areaServed: {
-      '@type': 'Country',
-      name: 'Argentina',
+      "@type": "Country",
+      name: "Argentina",
     },
-    priceRange: 'USD 80+',
+    priceRange: "USD 80+",
     inLanguage: COPY.inLanguage[locale],
     hasOfferCatalog: {
-      '@type': 'OfferCatalog',
+      "@type": "OfferCatalog",
       name: COPY.catalogName[locale],
       itemListElement: SERVICES.map((service) => ({
-        '@type': 'Offer',
+        "@type": "Offer",
         itemOffered: {
-          '@type': 'Service',
+          "@type": "Service",
           name: service.name[locale],
           description: service.description[locale],
         },

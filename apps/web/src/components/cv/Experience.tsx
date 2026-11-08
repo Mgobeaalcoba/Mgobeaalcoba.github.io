@@ -156,7 +156,7 @@ function EmployerGroupCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
@@ -185,7 +185,7 @@ function EmployerGroupCard({
           return (
             <motion.button
               key={job.id}
-              initial={{ opacity: 0, x: -10 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: groupIndex * 0.1 + roleIndex * 0.05 + 0.1 }}
@@ -243,7 +243,7 @@ export default function Experience() {
   return (
     <section id="experience" data-section="experience" className="signal-portfolio-chapter signal-career-v2">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}

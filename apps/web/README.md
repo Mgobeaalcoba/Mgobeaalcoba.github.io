@@ -15,6 +15,20 @@ npm run build
 - Configuración local: copiar `.env.example` a `.env.local`
 - `npm run build` ejecuta `prebuild` (sincroniza datos hipotecarios, PyPI e INDEC) y `postbuild` (declara `lang="en"` en el HTML exportado de `/en/...`)
 
+## Identidad MGA Studio
+
+La identidad editorial abarca portada, blog, artículos e informes, recursos y dashboards, portfolio, AgentHub, servicios, casos y pantallas auxiliares. En escritorio, Explorar agrupa blog, herramientas, AgentHub y catálogo. En móvil hay una barra inferior con Inicio, Servicios, Proyectos, Explorar y Contacto; el encabezado conserva marca, idioma y tema. Explorar abre un panel compacto de destinos y búsqueda.
+
+`src/app/studio-theme.css` centraliza las dos paletas: claro gris verdoso, oscuro carbón azulado, acciones azules y lima como acento. `studio.css` define el shell y la portada; `studio-pages.css`, las estructuras internas y sus variantes responsive. `StudioPageIntro` unifica las cabeceras; `useStudioChartTheme` y `StudioCharts` resuelven colores para canvas sin reiniciar filtros. `src/lib/studioContent.ts` concentra capacidades, método y FAQ. Ver [cobertura y mantenimiento](../../docs/product/studio-design-system.md) y [decisión de temas](../../docs/decisions/0005-studio-sitewide-themes.md).
+
+El asistente propio usa `studio-assistant.css` para formulario, conversación y controles. Conserva `useAIAssistant` y sus integraciones. La maqueta de AgentHub es ilustrativa; el widget externo en vivo se carga únicamente al pedir probarlo.
+
+`studio-mobile.css` coordina navegación inferior, safe areas, diálogos y offsets del asistente/resumen hipotecario. `studio-projects.css` presenta las tarjetas interactivas de El Portugués, Racing y Unicorn; sus ejemplos funcionan sólo en el navegador y no acceden a sistemas de clientes. Ver [ADR 0007](../../docs/decisions/0007-mobile-navigation-project-demos.md).
+
+Los casos viven en `/trabajos/`. Racing es un caso público de consultoría en `/trabajos/racing/`; la antigua URL `/racing-propuesta/` redirige allí sin contraseña ni solicitud de acceso. Su relato se basa en diagnóstico, arquitectura y roadmap, sin publicar la propuesta comercial histórica completa.
+
+Los ejemplos de flujos son ilustrativos y no ejecutan integraciones. Los precios y pagos siguen en `/servicios/`. Para regenerar íconos, portada social e imagen optimizada de Neil: `node scripts/generate-studio-assets.mjs` desde el root. Ver [benchmark](../../docs/product/reports/Rebranding%20de%20consultor%C3%ADa%20MGA.md) y [decisión de diseño](../../docs/decisions/0004-studio-rebrand.md).
+
 ## Argentina en datos
 
 Tres páginas independientes enlazadas desde Recursos: `/recursos/poder-adquisitivo/`, `/recursos/actividad-argentina/` y `/recursos/comercio-exterior/`. Comparten estilos Signal y componentes Chart.js, con filtros, tablas, CSV e informes que se recalculan en el navegador.

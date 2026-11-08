@@ -99,7 +99,7 @@ const articleSchema = {
 
 export default function AgentificacionReportPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen mga-report-page">
       <JsonLd data={articleSchema} />
       <ContentEngagementTracker contentType="special_report" contentId="agentificacion" />
       <ScrollTracker />

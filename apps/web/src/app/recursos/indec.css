@@ -1,28 +1,13 @@
 /* Argentina en datos — shared Signal tokens, isolated from the legacy tools. */
 .indec-page {
-  --indec-accent: var(--signal-cyan);
-  --indec-positive: #34d399;
-  --indec-negative: #fb7185;
+  --indec-accent: var(--signal-blue);
+  --indec-positive: var(--signal-success);
+  --indec-negative: var(--signal-coral);
   background: var(--signal-bg);
   color: var(--signal-text);
 }
-.indec-page--lime {
-  --indec-accent: var(--signal-lime);
-}
-.indec-page--blue {
-  --indec-accent: #8b9fff;
-}
-html.light-mode .indec-page {
-  --indec-accent: #00778d;
-  --indec-positive: #08794f;
-  --indec-negative: #be2347;
-}
-html.light-mode .indec-page--lime {
-  --indec-accent: #4c720b;
-}
-html.light-mode .indec-page--blue {
-  --indec-accent: #425bd0;
-}
+.indec-page--lime { --indec-accent: var(--chart-3); }
+.indec-page--blue { --indec-accent: var(--signal-blue); }
 .indec-container {
   max-width: 1344px;
   padding: 0 32px;

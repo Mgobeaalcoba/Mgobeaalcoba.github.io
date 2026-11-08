@@ -161,7 +161,7 @@ export default function AgentDashboard() {
     <div className="space-y-8 p-1">
       {/* Introduction */}
       <div className="glass p-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent">
-        <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-gray-100 mb-3 flex items-center gap-2">
           <ShieldCheck size={24} className="text-sky-400" />
           {lang === "es"
             ? "Transparency BI: Demostración de monitoreo de IA"
@@ -243,7 +243,7 @@ export default function AgentDashboard() {
                   {kpi.label}
                 </span>
               </div>
-              <div className="text-2xl font-black text-white">{kpi.value}</div>
+              <div className="text-2xl font-black text-gray-100">{kpi.value}</div>
             </motion.div>
           ))}
         </div>
@@ -302,7 +302,7 @@ export default function AgentDashboard() {
             <ShieldCheck size={24} />
           </div>
           <div>
-            <h4 className="text-white font-bold mb-1">
+            <h4 className="text-gray-100 font-bold mb-1">
               Impacto en Disponibilidad
             </h4>
             <p className="text-xs text-gray-400 leading-relaxed">
@@ -318,7 +318,7 @@ export default function AgentDashboard() {
             <MessageSquare size={24} />
           </div>
           <div>
-            <h4 className="text-white font-bold mb-1">
+            <h4 className="text-gray-100 font-bold mb-1">
               Ahorro Mensual Proyectado
             </h4>
             <p className="text-xs text-gray-400 leading-relaxed">
@@ -343,7 +343,7 @@ export default function AgentDashboard() {
       {/* Commercial CTA Section */}
       <div className="glass p-8 rounded-3xl border border-sky-500/20 bg-gradient-to-br from-sky-500/10 to-transparent flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-sky-500/5">
         <div className="flex-1 space-y-4">
-          <h3 className="text-2xl font-black text-white leading-tight">
+          <h3 className="text-2xl font-black text-gray-100 leading-tight">
             {lang === "es"
               ? "¿Buscas este nivel de transparencia para tu negocio?"
               : "Looking for this level of transparency for your business?"}

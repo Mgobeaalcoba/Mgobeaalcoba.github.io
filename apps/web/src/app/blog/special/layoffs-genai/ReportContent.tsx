@@ -16,7 +16,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
-import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import { Bar, Line, Doughnut } from '@/components/shared/StudioCharts';
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
 ChartJS.register(
@@ -28,15 +28,15 @@ const bi = (es: string, en: string): Bi => ({ es, en });
 const pick = (b: Bi, l: Language) => b[l];
 
 const C = {
-  red: '#f85149', blue: '#58a6ff', green: '#3fb950', yellow: '#d29922',
-  purple: '#bc8cff', orange: '#ffa657',
-  redA: 'rgba(248,81,73,0.15)', blueA: 'rgba(88,166,255,0.15)',
-  greenA: 'rgba(63,185,80,0.15)', yellowA: 'rgba(210,153,34,0.15)',
-  purpleA: 'rgba(188,140,255,0.15)',
+  red: 'var(--chart-6)', blue: 'var(--chart-1)', green: 'var(--chart-7)', yellow: 'var(--chart-5)',
+  purple: 'var(--chart-4)', orange: 'var(--chart-9)',
+  redA: 'var(--chart-6-soft)', blueA: 'var(--chart-1-soft)',
+  greenA: 'var(--chart-7-soft)', yellowA: 'var(--chart-5-soft)',
+  purpleA: 'var(--chart-4-soft)',
 };
 
-const GRID_COLOR = 'rgba(48,54,61,0.7)';
-const AXIS_COLOR = '#8b949e';
+const GRID_COLOR = 'var(--signal-chart-grid)';
+const AXIS_COLOR = 'var(--signal-muted)';
 
 const baseBarOpts = (yCallback: (v: number | string) => string) => ({
   responsive: true, maintainAspectRatio: false,
@@ -53,7 +53,7 @@ function Section({ num, title, subtitle, children }: { num: number; title: strin
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
+    <motion.div ref={ref} initial={false} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="mb-12">
       <div className="flex items-center gap-3 mb-6">
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/25 text-sm font-extrabold text-sky-400 shrink-0">{num}</div>
         <div>
@@ -142,7 +142,7 @@ function buildChartData(lang: Language) {
 
   const sectors = {
     labels: [w('Gobierno/DOGE', 'Government/DOGE'), w('Tecnología', 'Technology'), 'Industrial', w('Finanzas', 'Finance'), 'Telecom', 'Media', w('Otros', 'Others')],
-    datasets: [{ data: [293753, 153536, 120000, 95000, 38035, 17163, 208887], backgroundColor: [C.redA, C.purpleA, C.yellowA, C.blueA, 'rgba(255,166,87,0.15)', C.greenA, 'rgba(48,54,61,0.5)'], borderColor: [C.red, C.purple, C.yellow, C.blue, C.orange, C.green, '#30363d'], borderWidth: 2 }],
+    datasets: [{ data: [293753, 153536, 120000, 95000, 38035, 17163, 208887], backgroundColor: [C.redA, C.purpleA, C.yellowA, C.blueA, 'var(--chart-9-soft)', C.greenA, 'var(--signal-chart-grid)'], borderColor: [C.red, C.purple, C.yellow, C.blue, C.orange, C.green, 'var(--signal-chart-grid)'], borderWidth: 2 }],
   };
 
   const hiring = {
@@ -167,7 +167,7 @@ function buildChartData(lang: Language) {
       { label: w('Corrección post-pandemia', 'Post-pandemic correction'), data: [65, 45, 25, 15, 8], backgroundColor: C.yellowA, borderColor: C.yellow, borderWidth: 2, borderRadius: 4 },
       { label: w('Macro / tasas / recesión', 'Macro / rates / recession'), data: [25, 35, 30, 25, 20], backgroundColor: C.blueA, borderColor: C.blue, borderWidth: 2, borderRadius: 4 },
       { label: w('Automatización / IA', 'Automation / AI'), data: [5, 12, 28, 45, 58], backgroundColor: C.purpleA, borderColor: C.purple, borderWidth: 2, borderRadius: 4 },
-      { label: w('Otros (M&A, DOGE, etc.)', 'Others (M&A, DOGE, etc.)'), data: [5, 8, 17, 15, 14], backgroundColor: 'rgba(48,54,61,0.5)', borderColor: '#30363d', borderWidth: 2, borderRadius: 4 },
+      { label: w('Otros (M&A, DOGE, etc.)', 'Others (M&A, DOGE, etc.)'), data: [5, 8, 17, 15, 14], backgroundColor: 'var(--signal-chart-grid)', borderColor: 'var(--signal-chart-grid)', borderWidth: 2, borderRadius: 4 },
     ],
   };
 
@@ -236,9 +236,9 @@ export default function ReportContent() {
             )}
           </p>
 
-          <div className="flex justify-center flex-wrap gap-4 max-w-5xl mx-auto">
+          <div className="mga-report-kpis">
             {KPIS.map((kpi, i) => (
-              <div key={i} className="glass rounded-xl px-6 py-4 min-w-[160px] text-center glow-border">
+              <div key={i} className="mga-report-kpi glass rounded-xl px-6 py-4 min-w-[160px] text-center glow-border">
                 <div className="text-3xl font-extrabold leading-none mb-1" style={{ color: kpi.color }}>{kpi.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide">{pick(kpi.label, lang)}</div>
                 <div className="text-[11px] text-gray-600 mt-1">{typeof kpi.sub === 'string' ? kpi.sub : pick(kpi.sub, lang)}</div>
@@ -248,7 +248,7 @@ export default function ReportContent() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="mga-report-body">
         {/* S1 — Tech Layoffs */}
         <Section num={1} title={t('Layoffs en la Industria Tech (2020–2026)', 'Tech Industry Layoffs (2020–2026)')} subtitle={t('Trabajadores despedidos en empresas de tecnología a nivel global · Fuentes: layoffs.fyi, TechCrunch, Crunchbase', 'Workers laid off in global tech companies · Sources: layoffs.fyi, TechCrunch, Crunchbase')}>
           <Card title={t('Despidos anuales en el sector tecnológico', 'Annual tech sector layoffs')} subtitle={t('2026 incluye solo Q1. Múltiples trackers difieren ±15%; promedios ponderados.', '2026 includes Q1 only. Multiple trackers differ ±15%; weighted averages used.')}>
