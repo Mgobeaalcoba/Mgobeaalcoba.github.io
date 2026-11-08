@@ -2,7 +2,7 @@
 
 Updated: 2026-11-07 · Codex.
 
-MGA Studio is implemented locally across the main site's route families in `apps/web/`, with the owner's approved softer light/dark palettes. Branch: `codex/mga-studio-rebrand`. [ADR 0005](decisions/0005-studio-sitewide-themes.md) updates the palette and scope of [ADR 0004](decisions/0004-studio-rebrand.md); [coverage and maintenance](product/studio-design-system.md) records the page families. The original [benchmark](product/reports/Rebranding%20de%20consultor%C3%ADa%20MGA.md) remains available.
+MGA Studio is implemented across the main site's route families in `apps/web/`, with the owner's approved softer light/dark palettes. Branch: `codex/mga-studio-rebrand`, tracking `origin/codex/mga-studio-rebrand`. [ADR 0005](decisions/0005-studio-sitewide-themes.md) updates the palette and scope of [ADR 0004](decisions/0004-studio-rebrand.md); [coverage and maintenance](product/studio-design-system.md) records the page families. The original [benchmark](product/reports/Rebranding%20de%20consultor%C3%ADa%20MGA.md) remains available.
 
 ## Implemented
 
@@ -27,4 +27,4 @@ The compiled main-site export is served at `http://127.0.0.1:3000/` for the owne
 
 Racing is public in the local export at `/trabajos/racing/`; `/racing-propuesta/` redirects directly to it. No implementation outcomes or sales metrics were invented.
 
-No deployment or push has been performed. Pre-existing edits to `apps/web/AGENTS.md`, `apps/web/next-env.d.ts`, `infra/supabase/README.md`, migration 020 and local `.agents/`/`.codex/` entries belong to other work and remain outside this change.
+The owner authorized commit and push on 2026-11-07. Rebrand commits `d03c3e8c` and `d79e112f` were pushed successfully to `origin/codex/mga-studio-rebrand`. No merge to `main` or production deployment has been performed. Pre-existing edits to `apps/web/AGENTS.md`, `apps/web/next-env.d.ts`, `infra/supabase/README.md`, migration 020 and local `.agents/`/`.codex/` entries belong to other work and remain outside this change.
