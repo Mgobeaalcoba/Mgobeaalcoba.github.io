@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/40u39spr4vgh-.css","style"]
+:HL["/_next/static/chunks/2mx1tz84qmk-4.css","style"]
+:HL["/_next/static/chunks/0j4uz2_xxbtze.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"autokernel-article","s":["special","videos"]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"blog","h":64,"c":"$Q2"}]]
+0:{"b":"jiCS8lbYj_S6uw-YqXMMD","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

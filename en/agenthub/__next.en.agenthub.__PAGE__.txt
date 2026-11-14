@@ -1,0 +1,36 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/0iag2-8bvt6hq.js"
+4:"/_next/static/chunks/2q03hh56_xou-.js"
+5:"/_next/static/chunks/401l4x3xwesgw.js"
+6:"/_next/static/chunks/0ldjq6diwfhmm.js"
+7:"LanguageProvider"
+8:I[89190,["$3","$4","$5","$6"],"$7"]
+9:I[39756,["$3","$4","$5","$6"],"default"]
+a:I[37457,["$3","$4","$5","$6"],"default"]
+11:"/_next/static/chunks/2k_0jf67kyid0.js"
+12:I[78208,["$3","$4","$5","$6","$11"],"default"]
+13:I[22207,["$3","$4","$5","$6","$11"],"default"]
+14:I[21686,["$3","$4","$5","$6","$11"],"default"]
+15:I[97367,["$3","$4","$5","$6"],"OutletBoundary"]
+16:"$Sreact.suspense"
+19:"ViewportBoundary"
+1a:I[97367,["$3","$4","$5","$6"],"$19"]
+1b:"MetadataBoundary"
+1c:I[97367,["$3","$4","$5","$6"],"$1b"]
+1d:I[27201,["$3","$4","$5","$6"],"IconMark"]
+c:X
+f:X
+f:C
+10:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"signal-services-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"SoftwareApplication\",\"name\":\"MGA AgentHub\",\"applicationCategory\":\"BusinessApplication\",\"operatingSystem\":\"Web\",\"description\":\"Agent-as-a-Service platform to create, connect to data and embed AI agents in a website.\",\"url\":\"https://www.mgatc.com/en/agenthub/\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\"}}"}}],["$","$L12",null,{}],["$","$L13",null,{}],["$","$L14",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/2k_0jf67kyid0.js","async":true}]],["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]]}],"p":"$@18","v":null,"s":"$c"}}]]
+d:[["children",{"s":"agenthub","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]]}],"p":"$@e","v":"$f","s":"$c"},"c":"$Q10"}]]
+1:[["children",{"s":"en","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L8",null,{"initialLang":"en","authoritative":true,"children":["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]}]]}],"p":"$@b","v":null,"s":"$c"},"c":"$Qd"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#11161d","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#e9ece7","media":"(prefers-color-scheme: light)"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"MGA AgentHub | AI agents connected to your data | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"A platform to create, connect and embed AI agents with controlled inference costs. Try the MGA assistant rebuilt on the platform, live."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/en/agenthub/"}],["$","link","11",{"rel":"alternate","hrefLang":"es-AR","href":"https://www.mgatc.com/agenthub/"}],["$","link","12",{"rel":"alternate","hrefLang":"en","href":"https://www.mgatc.com/en/agenthub/"}],["$","link","13",{"rel":"alternate","hrefLang":"x-default","href":"https://www.mgatc.com/agenthub/"}],["$","meta","14",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","15",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","16",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","17",{"property":"og:title","content":"MGA AgentHub | AI agents connected to your data"}],["$","meta","18",{"property":"og:description","content":"Try a live AI agent with knowledge, tools and rules, and see how it is built."}],["$","meta","19",{"property":"og:url","content":"https://www.mgatc.com/en/agenthub/"}],["$","meta","20",{"property":"og:locale","content":"en_US"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:title","content":"MGA AgentHub | AI agents connected to your data"}],["$","meta","23",{"name":"twitter:description","content":"Try a live AI agent with knowledge, tools and rules, and see how it is built."}],["$","meta","24",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","25",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L1d","26",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$c"}},"a":"$@1f","u":"$@20","b":"jiCS8lbYj_S6uw-YqXMMD"}
+17:null
+20:true
+c:300
+c:C
+1f:0
+e:"$undefined"
+b:"$undefined"
+1e:"$undefined"
+18:"$undefined"

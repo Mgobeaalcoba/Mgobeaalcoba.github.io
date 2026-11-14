@@ -1,0 +1,296 @@
+1:"$Sreact.fragment"
+b:"/_next/static/chunks/0iag2-8bvt6hq.js"
+c:"/_next/static/chunks/2q03hh56_xou-.js"
+d:"/_next/static/chunks/401l4x3xwesgw.js"
+e:"/_next/static/chunks/0ldjq6diwfhmm.js"
+f:I[68027,["$b","$c","$d","$e"],"default",1]
+:HL["/_next/static/chunks/40u39spr4vgh-.css","style"]
+:HL["/_next/static/chunks/2mx1tz84qmk-4.css","style"]
+:HL["/_next/static/chunks/0j4uz2_xxbtze.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
+5:X
+8:[["children",{"s":"__PAGE__","h":512,"d":{"r":"$L9","p":false,"v":null}}]]
+6:[["children",{"s":{"n":"slug","t":"d","k":"chatgpt-api-trucos-avanzados","s":["special","videos"]},"h":512,"d":{"r":"$L7","p":false,"v":"$5"},"c":"$Q8"}]]
+3:[["children",{"s":"blog","h":512,"d":{"r":"$L4","p":false,"v":"$5"},"c":"$Q6"}]]
+0:{"P":null,"c":["","blog","chatgpt-api-trucos-avanzados",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/40u39spr4vgh-.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/2mx1tz84qmk-4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/chunks/0j4uz2_xxbtze.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0iag2-8bvt6hq.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2q03hh56_xou-.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/401l4x3xwesgw.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0ldjq6diwfhmm.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","data-scroll-behavior":"smooth","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var s=localStorage.getItem('theme');var l=s==='light'||(s!=='dark'&&s!=='terminal'&&window.matchMedia('(prefers-color-scheme: light)').matches);document.documentElement.classList.add(l?'light':'dark');if(l)document.documentElement.classList.add('light-mode')}catch(e){}})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"sameAs\":[\"https://www.linkedin.com/company/mga-tech-consulting\"],\"logo\":\"https://www.mgatc.com/images/favicon-192.png\",\"description\":\"Estudio de tecnología aplicada: agentes de IA, automatización, software y datos. Más de 7 años de experiencia en Data & Analytics.\",\"@id\":\"https://www.mgatc.com/#organization\",\"email\":\"hola@mgatc.com\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"sales\",\"email\":\"hola@mgatc.com\",\"availableLanguage\":[\"es\",\"en\"],\"areaServed\":[\"AR\",\"LATAM\"]},\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Buenos Aires\",\"addressCountry\":\"AR\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Argentina\"},\"founder\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/portfolio/\"},\"knowsAbout\":[\"automatización de procesos\",\"inteligencia artificial aplicada\",\"Business Intelligence\",\"Data Engineering\",\"consultoría tecnológica\"]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"description\":\"Agentes de IA, automatización, software y datos. Proyectos, ideas y herramientas abiertas.\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L2"]}]]}],"p":false,"v":null},"c":"$Q3"},"h":{"r":"$La","p":false,"v":null}},"m":"$undefined","G":["$f",["$L10","$L11","$L12"]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"jiCS8lbYj_S6uw-YqXMMD"}
+13:"DataErrorBoundary"
+14:I[7623,["$b","$c","$d","$e"],"$13"]
+15:I[627,["$b","$c","$d","$e"],"ThemeProvider"]
+16:"LanguageProvider"
+17:I[89190,["$b","$c","$d","$e"],"$16"]
+18:"SupabaseDataProvider"
+19:I[97221,["$b","$c","$d","$e"],"$18"]
+1a:I[53440,["$b","$c","$d","$e"],"default"]
+1b:I[69272,["$b","$c","$d","$e"],"default"]
+1c:I[39756,["$b","$c","$d","$e"],"default"]
+1d:I[37457,["$b","$c","$d","$e"],"default"]
+1e:"/_next/static/chunks/1q423n06i2-dh.js"
+1f:I[27943,["$b","$c","$d","$e","$1e"],"default"]
+20:I[6482,["$b","$c","$d","$e"],"default"]
+21:I[20199,["$b","$c","$d","$e"],"default"]
+22:I[79520,["$b","$c","$d","$e"],""]
+24:I[97367,["$b","$c","$d","$e"],"OutletBoundary"]
+25:"$Sreact.suspense"
+27:"ViewportBoundary"
+28:I[97367,["$b","$c","$d","$e"],"$27"]
+2a:"MetadataBoundary"
+2b:I[97367,["$b","$c","$d","$e"],"$2a"]
+2:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$L14",null,{"children":["$","$L15",null,{"children":["$","$L17",null,{"children":["$","$L19",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L1a",null,{}],["$","$L1b",null,{"children":["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L1f",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L20",null,{}],["$","$L21",null,{}]]}]}]}]}],["$","$L22",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L22",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":["$L23",[["$","script","script-0",{"src":"/_next/static/chunks/35k3pmovy9zz4.js","async":true,"nonce":"$undefined"}]],["$","$L24",null,{"children":["$","$25",null,{"name":"Next.MetadataOutlet","children":"$@26"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L28",null,{"children":"$L29"}],["$","$L2b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$25",null,{"name":"Next.Metadata","children":"$L2c"}]}],null]}],null]}]
+10:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/40u39spr4vgh-.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+11:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/2mx1tz84qmk-4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+12:["$","link","2",{"rel":"stylesheet","href":"/_next/static/chunks/0j4uz2_xxbtze.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+2e:"/_next/static/chunks/35k3pmovy9zz4.js"
+2f:I[28675,["$b","$c","$d","$e","$2e"],"default"]
+30:I[40464,["$b","$c","$d","$e","$2e"],"default"]
+31:I[78208,["$b","$c","$d","$e","$2e"],"default"]
+32:I[22016,["$b","$c","$d","$e","$2e"],""]
+5:C
+2d:T42f,{"@context":"https://schema.org","@type":"Article","headline":"1. Structured Outputs (el cambio más importante de 2025)","description":"Más allá del \"hola mundo\" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el últim...","url":"https://www.mgatc.com/blog/chatgpt-api-trucos-avanzados/","datePublished":"2025-11-16","dateModified":"2025-11-16","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/og.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/chatgpt-api-trucos-avanzados/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}23:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2d"}}],["$","$L2f",null,{"contentType":"article","contentId":"chatgpt-api-trucos-avanzados","title":"1. Structured Outputs (el cambio más importante de 2025)"}],["$","$L30",null,{"site_section":"blog"}],["$","$L31",null,{}],["$","article",null,{"className":"mga-article-shell mga-container","children":[["$","$L32",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mga-article-header mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"1. Structured Outputs (el cambio más importante de 2025)"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"Más allá del \"hola mundo\" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el últim..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"16 de noviembre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],"$L33","$undefined"]}],"4 min read"]}],"$L34"]}],"$L35"]}],"$L36","$L37","$L38"]}],"$L39"]}]
+3a:I[66158,["$b","$c","$d","$e","$2e"],"default"]
+3c:I[6265,["$b","$c","$d","$e","$2e"],"default"]
+3d:I[21686,["$b","$c","$d","$e","$2e"],"default"]
+33:["$","path","mmk7yg",{"d":"M12 6v6l4 2"}]
+34:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+35:["$","$L3a",null,{"slug":"chatgpt-api-trucos-avanzados","title":"1. Structured Outputs (el cambio más importante de 2025)"}]
+3b:T1b81,<p>Más allá del "hola mundo" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el último año.</p>
+<h2>1. Structured Outputs (el cambio más importante de 2025)</h2>
+<p>Antes, para obtener JSON del modelo, rezabas que no alucinara el formato. Ahora con Structured Outputs, el modelo garantiza el schema:</p>
+<pre><code class="language-python">from openai import OpenAI
+from pydantic import BaseModel
+from typing import Optional
+
+client = OpenAI()
+
+class ProductAnalysis(BaseModel):
+    product_name: str
+    sentiment: str  # "positive", "negative", "neutral"
+    key_features: list[str]
+    price_mentioned: Optional[float]
+    confidence_score: float
+
+def analyze_product_review(review: str) -> ProductAnalysis:
+    response = client.beta.chat.completions.parse(
+        model="gpt-4o-2024-08-06",
+        messages=[
+            {"role": "system", "content": "Analizá la reseña y extraé la información estructurada."},
+            {"role": "user", "content": review},
+        ],
+        response_format=ProductAnalysis,
+    )
+    return response.choices[0].message.parsed
+
+result = analyze_product_review("Me encantó el celular, la batería dura 2 días. Vale $800.")
+print(result.sentiment)      # "positive"
+print(result.price_mentioned)  # 800.0
+</code></pre>
+<h2>2. Function Calling para Tool Use</h2>
+<pre><code class="language-python">import json
+from openai import OpenAI
+
+client = OpenAI()
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_seller_metrics",
+            "description": "Get sales metrics for a specific seller",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "seller_id": {"type": "string"},
+                    "start_date": {"type": "string", "format": "date"},
+                    "end_date": {"type": "string", "format": "date"},
+                    "metrics": {
+                        "type": "array",
+                        "items": {"type": "string", "enum": ["gmv", "orders", "conversion"]}
+                    }
+                },
+                "required": ["seller_id"],
+            },
+        },
+    }
+]
+
+def chat_with_tools(user_message: str) -> str:
+    messages = [{"role": "user", "content": user_message}]
+    
+    while True:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",
+        )
+        
+        choice = response.choices[0]
+        
+        if choice.finish_reason == "stop":
+            return choice.message.content
+        
+        if choice.finish_reason == "tool_calls":
+            messages.append(choice.message)
+            
+            for tool_call in choice.message.tool_calls:
+                args = json.loads(tool_call.function.arguments)
+                
+                if tool_call.function.name == "get_seller_metrics":
+                    result = fetch_seller_metrics(**args)
+                
+                messages.append({
+                    "role": "tool",
+                    "tool_call_id": tool_call.id,
+                    "content": json.dumps(result),
+                })
+
+answer = chat_with_tools("¿Cuánto vendió el seller ABC123 el mes pasado?")
+</code></pre>
+<h2>3. Streaming para mejor UX</h2>
+<pre><code class="language-python">import streamlit as st
+from openai import OpenAI
+
+client = OpenAI()
+
+def stream_response(prompt: str):
+    with st.chat_message("assistant"):
+        message_placeholder = st.empty()
+        full_response = ""
+        
+        stream = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": prompt}],
+            stream=True,
+        )
+        
+        for chunk in stream:
+            if chunk.choices[0].delta.content is not None:
+                full_response += chunk.choices[0].delta.content
+                message_placeholder.markdown(full_response + "▌")
+        
+        message_placeholder.markdown(full_response)
+    
+    return full_response
+</code></pre>
+<h2>4. Embeddings para búsqueda semántica</h2>
+<pre><code class="language-python">from openai import OpenAI
+import numpy as np
+from scipy.spatial.distance import cosine
+
+client = OpenAI()
+
+def get_embedding(text: str) -> list[float]:
+    response = client.embeddings.create(
+        input=text,
+        model="text-embedding-3-small",  # 1536 dims, mucho más barato que ada-002
+    )
+    return response.data[0].embedding
+
+def find_similar_documents(
+    query: str, 
+    documents: list[str], 
+    top_k: int = 5
+) -> list[tuple[str, float]]:
+    query_embedding = get_embedding(query)
+    doc_embeddings = [get_embedding(doc) for doc in documents]
+    
+    similarities = [
+        1 - cosine(query_embedding, doc_emb)
+        for doc_emb in doc_embeddings
+    ]
+    
+    ranked = sorted(
+        zip(documents, similarities),
+        key=lambda x: x[1],
+        reverse=True
+    )
+    
+    return ranked[:top_k]
+</code></pre>
+<h2>5. Batch API para procesamiento masivo (90% más barato)</h2>
+<pre><code class="language-python">import json
+from openai import OpenAI
+
+client = OpenAI()
+
+def create_batch_job(items: list[dict]) -> str:
+    """Procesa miles de items a 50% del costo normal con 24h de SLA."""
+    
+    batch_requests = []
+    for i, item in enumerate(items):
+        batch_requests.append({
+            "custom_id": f"request-{i}",
+            "method": "POST",
+            "url": "/v1/chat/completions",
+            "body": {
+                "model": "gpt-4o-mini",
+                "messages": [
+                    {"role": "user", "content": f"Clasificá esta descripción: {item['text']}"}
+                ],
+                "max_tokens": 100,
+            }
+        })
+    
+    # Subir archivo JSONL
+    with open("/tmp/batch_input.jsonl", "w") as f:
+        for req in batch_requests:
+            f.write(json.dumps(req) + "\n")
+    
+    with open("/tmp/batch_input.jsonl", "rb") as f:
+        batch_file = client.files.create(file=f, purpose="batch")
+    
+    batch = client.batches.create(
+        input_file_id=batch_file.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h",
+    )
+    
+    return batch.id
+
+# Usar cuando tenés > 1000 items para procesar sin urgencia
+batch_id = create_batch_job(items)
+print(f"Batch creado: {batch_id}. Resultados en ~24h.")
+</code></pre>
+<h2>Costos comparados (GPT-4o)</h2>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Input</th>
+<th>Output</th>
+<th>Cuándo usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API normal</td>
+<td>$2.50/1M</td>
+<td>$10/1M</td>
+<td>Tiempo real</td>
+</tr>
+<tr>
+<td>Batch API</td>
+<td>$1.25/1M</td>
+<td>$5/1M</td>
+<td>Offline, volumen alto</td>
+</tr>
+<tr>
+<td>GPT-4o-mini</td>
+<td>$0.15/1M</td>
+<td>$0.60/1M</td>
+<td>Tareas simples</td>
+</tr>
+</tbody>
+</table>
+<p>El Batch API es el cambio más impactante para procesamiento masivo — 50% de descuento por esperar 24 horas.</p>
+36:["$","div",null,{"className":"mga-article-layout","children":[["$","aside",null,{"className":"mga-article-rail","aria-label":"Sobre esta lectura","children":[["$","strong",null,{"children":"Mariano Gobea Alcoba"}],["$","span",null,{"children":"4 min read"}],["$","span",null,{"children":"Data & Analytics"}],["$","$L32",null,{"href":"/blog/","children":"Explorar otras ideas ↗"}],["$","$L32",null,{"href":"/servicios/","children":"Llevalo a tu proyecto ↗"}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$3b"}}]]}]
+37:["$","$L3c",null,{"category":"Data & Analytics"}]
+38:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por"," ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L32",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L32",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+39:["$","$L3d",null,{}]
+29:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#11161d","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#e9ece7","media":"(prefers-color-scheme: light)"}]]
+3e:I[27201,["$b","$c","$d","$e"],"IconMark"]
+26:null
+2c:[["$","title","0",{"children":"1. Structured Outputs (el cambio más importante de 2025) | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"Más allá del \"hola mundo\" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el últim..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/chatgpt-api-trucos-avanzados/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"1. Structured Outputs (el cambio más importante de 2025)"}],["$","meta","15",{"property":"og:description","content":"Más allá del \"hola mundo\" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el últim..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/chatgpt-api-trucos-avanzados/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/og.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"1. Structured Outputs (el cambio más importante de 2025)"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2025-11-16"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"1. Structured Outputs (el cambio más importante de 2025)"}],["$","meta","26",{"name":"twitter:description","content":"Más allá del \"hola mundo\" con la API de OpenAI, hay patterns avanzados que marcan la diferencia en sistemas de producción. Estos son los que más usé en el últim..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L3e","29",{}]]

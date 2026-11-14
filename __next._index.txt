@@ -1,0 +1,34 @@
+1:"$Sreact.fragment"
+:HL["/_next/static/chunks/40u39spr4vgh-.css","style"]
+:HL["/_next/static/chunks/2mx1tz84qmk-4.css","style"]
+:HL["/_next/static/chunks/0j4uz2_xxbtze.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
+4:X
+0:{"t":{"t":{"s":"","h":16,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/40u39spr4vgh-.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/2mx1tz84qmk-4.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/chunks/0j4uz2_xxbtze.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/0iag2-8bvt6hq.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/2q03hh56_xou-.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/401l4x3xwesgw.js","async":true}],["$","script","script-3",{"src":"/_next/static/chunks/0ldjq6diwfhmm.js","async":true}]],["$","html",null,{"lang":"es","data-scroll-behavior":"smooth","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var s=localStorage.getItem('theme');var l=s==='light'||(s!=='dark'&&s!=='terminal'&&window.matchMedia('(prefers-color-scheme: light)').matches);document.documentElement.classList.add(l?'light':'dark');if(l)document.documentElement.classList.add('light-mode')}catch(e){}})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"sameAs\":[\"https://www.linkedin.com/company/mga-tech-consulting\"],\"logo\":\"https://www.mgatc.com/images/favicon-192.png\",\"description\":\"Estudio de tecnología aplicada: agentes de IA, automatización, software y datos. Más de 7 años de experiencia en Data & Analytics.\",\"@id\":\"https://www.mgatc.com/#organization\",\"email\":\"hola@mgatc.com\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"sales\",\"email\":\"hola@mgatc.com\",\"availableLanguage\":[\"es\",\"en\"],\"areaServed\":[\"AR\",\"LATAM\"]},\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Buenos Aires\",\"addressCountry\":\"AR\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Argentina\"},\"founder\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/portfolio/\"},\"knowsAbout\":[\"automatización de procesos\",\"inteligencia artificial aplicada\",\"Business Intelligence\",\"Data Engineering\",\"consultoría tecnológica\"]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"description\":\"Agentes de IA, automatización, software y datos. Proyectos, ideas y herramientas abiertas.\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L2"]}]]}],"p":"$@3","v":null,"s":"$4"}}},"a":"$@5","u":"$@6","b":"jiCS8lbYj_S6uw-YqXMMD"}
+7:"/_next/static/chunks/0iag2-8bvt6hq.js"
+8:"/_next/static/chunks/2q03hh56_xou-.js"
+9:"/_next/static/chunks/401l4x3xwesgw.js"
+a:"/_next/static/chunks/0ldjq6diwfhmm.js"
+b:"DataErrorBoundary"
+c:I[7623,["$7","$8","$9","$a"],"$b"]
+d:I[627,["$7","$8","$9","$a"],"ThemeProvider"]
+e:"/_next/static/chunks/38_6lv8g545un.js"
+f:"LanguageProvider"
+10:I[89190,["$7","$8","$9","$a","$e"],"$f"]
+11:"SupabaseDataProvider"
+12:I[97221,["$7","$8","$9","$a"],"$11"]
+13:I[53440,["$7","$8","$9","$a"],"default"]
+14:I[69272,["$7","$8","$9","$a"],"default"]
+15:I[39756,["$7","$8","$9","$a"],"default"]
+16:I[37457,["$7","$8","$9","$a"],"default"]
+17:"/_next/static/chunks/1q423n06i2-dh.js"
+18:I[27943,["$7","$8","$9","$a","$17"],"default"]
+19:I[6482,["$7","$8","$9","$a"],"default"]
+1a:I[20199,["$7","$8","$9","$a"],"default"]
+1b:I[79520,["$7","$8","$9","$a"],""]
+2:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$L10",null,{"children":["$","$L12",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L13",null,{}],["$","$L14",null,{"children":["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}],"notFound":[["$","$L18",null,{}],[]]}]}],["$","$L19",null,{}],["$","$L1a",null,{}]]}]}]}]}],["$","$L1b",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L1b",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}]
+4:300
+6:true
+4:C
+5:0
+3:"$undefined"

@@ -1,0 +1,178 @@
+1:"$Sreact.fragment"
+b:"/_next/static/chunks/0iag2-8bvt6hq.js"
+c:"/_next/static/chunks/2q03hh56_xou-.js"
+d:"/_next/static/chunks/401l4x3xwesgw.js"
+e:"/_next/static/chunks/0ldjq6diwfhmm.js"
+f:I[68027,["$b","$c","$d","$e"],"default",1]
+:HL["/_next/static/chunks/40u39spr4vgh-.css","style"]
+:HL["/_next/static/chunks/2mx1tz84qmk-4.css","style"]
+:HL["/_next/static/chunks/0j4uz2_xxbtze.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
+5:X
+8:[["children",{"s":"__PAGE__","h":512,"d":{"r":"$L9","p":false,"v":null}}]]
+6:[["children",{"s":{"n":"slug","t":"d","k":"dbt-analytics-engineering","s":["special","videos"]},"h":512,"d":{"r":"$L7","p":false,"v":"$5"},"c":"$Q8"}]]
+3:[["children",{"s":"blog","h":512,"d":{"r":"$L4","p":false,"v":"$5"},"c":"$Q6"}]]
+0:{"P":null,"c":["","blog","dbt-analytics-engineering",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/40u39spr4vgh-.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/2mx1tz84qmk-4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/chunks/0j4uz2_xxbtze.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0iag2-8bvt6hq.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2q03hh56_xou-.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/401l4x3xwesgw.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0ldjq6diwfhmm.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"es","data-scroll-behavior":"smooth","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){if(window.location.hostname!=='mgobeaalcoba.github.io')return;var p=window.location.pathname,s=window.location.search,t;if(p==='/'||p===''||p==='/index.html')t='/portfolio/';else if(/^\\/consulting(\\/|$|\\?)/.test(p))t='/';else t=p;window.location.replace('https://www.mgatc.com'+t+s);})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var s=localStorage.getItem('theme');var l=s==='light'||(s!=='dark'&&s!=='terminal'&&window.matchMedia('(prefers-color-scheme: light)').matches);document.documentElement.classList.add(l?'light':'dark');if(l)document.documentElement.classList.add('light-mode')}catch(e){}})();"}}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap","rel":"stylesheet"}],["$","meta",null,{"name":"geo.region","content":"AR-C"}],["$","meta",null,{"name":"geo.placename","content":"Buenos Aires"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"sameAs\":[\"https://www.linkedin.com/company/mga-tech-consulting\"],\"logo\":\"https://www.mgatc.com/images/favicon-192.png\",\"description\":\"Estudio de tecnología aplicada: agentes de IA, automatización, software y datos. Más de 7 años de experiencia en Data & Analytics.\",\"@id\":\"https://www.mgatc.com/#organization\",\"email\":\"hola@mgatc.com\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"sales\",\"email\":\"hola@mgatc.com\",\"availableLanguage\":[\"es\",\"en\"],\"areaServed\":[\"AR\",\"LATAM\"]},\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Buenos Aires\",\"addressCountry\":\"AR\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Argentina\"},\"founder\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/portfolio/\"},\"knowsAbout\":[\"automatización de procesos\",\"inteligencia artificial aplicada\",\"Business Intelligence\",\"Data Engineering\",\"consultoría tecnológica\"]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"MGA Tech Consulting\",\"url\":\"https://www.mgatc.com\",\"description\":\"Agentes de IA, automatización, software y datos. Proyectos, ideas y herramientas abiertas.\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"MGA Tech Consulting\"},\"inLanguage\":[\"es\",\"en\"]}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};var c=null;try{c=localStorage.getItem('mga_consent_v1')}catch(e){};var analytics=c==='analytics'||c==='all'?'granted':'denied';var ads=c==='all'?'granted':'denied';window.gtag('consent','default',{analytics_storage:analytics,ad_storage:ads,ad_user_data:ads,ad_personalization:ads,wait_for_update:500});window.gtag('set','ads_data_redaction',true);})();"}}]]}],"$L2"]}]]}],"p":false,"v":null},"c":"$Q3"},"h":{"r":"$La","p":false,"v":null}},"m":"$undefined","G":["$f",["$L10","$L11","$L12"]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"jiCS8lbYj_S6uw-YqXMMD"}
+13:"DataErrorBoundary"
+14:I[7623,["$b","$c","$d","$e"],"$13"]
+15:I[627,["$b","$c","$d","$e"],"ThemeProvider"]
+16:"LanguageProvider"
+17:I[89190,["$b","$c","$d","$e"],"$16"]
+18:"SupabaseDataProvider"
+19:I[97221,["$b","$c","$d","$e"],"$18"]
+1a:I[53440,["$b","$c","$d","$e"],"default"]
+1b:I[69272,["$b","$c","$d","$e"],"default"]
+1c:I[39756,["$b","$c","$d","$e"],"default"]
+1d:I[37457,["$b","$c","$d","$e"],"default"]
+1e:"/_next/static/chunks/1q423n06i2-dh.js"
+1f:I[27943,["$b","$c","$d","$e","$1e"],"default"]
+20:I[6482,["$b","$c","$d","$e"],"default"]
+21:I[20199,["$b","$c","$d","$e"],"default"]
+22:I[79520,["$b","$c","$d","$e"],""]
+24:I[97367,["$b","$c","$d","$e"],"OutletBoundary"]
+25:"$Sreact.suspense"
+27:"ViewportBoundary"
+28:I[97367,["$b","$c","$d","$e"],"$27"]
+2a:"MetadataBoundary"
+2b:I[97367,["$b","$c","$d","$e"],"$2a"]
+2:["$","body",null,{"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Saltar al contenido"}],["$","$L14",null,{"children":["$","$L15",null,{"children":["$","$L17",null,{"children":["$","$L19",null,{"children":[["$","div",null,{"className":"scroll-progress"}],["$","$L1a",null,{}],["$","$L1b",null,{"children":["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L1f",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L20",null,{}],["$","$L21",null,{}]]}]}]}]}],["$","$L22",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-DG0SLT5RY3","strategy":"afterInteractive"}],["$","$L22",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            window.gtag = window.gtag || function(){dataLayer.push(arguments);};\n            gtag('js', new Date());\n            gtag('config', 'G-DG0SLT5RY3', {\n              send_page_view: false,\n              site_section: 'cv',\n            });\n            window.mgaAnalyticsReady = true;\n          "}]]}]
+4:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1d",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":["$L23",[["$","script","script-0",{"src":"/_next/static/chunks/35k3pmovy9zz4.js","async":true,"nonce":"$undefined"}]],["$","$L24",null,{"children":["$","$25",null,{"name":"Next.MetadataOutlet","children":"$@26"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L28",null,{"children":"$L29"}],["$","$L2b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$25",null,{"name":"Next.Metadata","children":"$L2c"}]}],null]}],null]}]
+10:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/40u39spr4vgh-.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+11:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/2mx1tz84qmk-4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+12:["$","link","2",{"rel":"stylesheet","href":"/_next/static/chunks/0j4uz2_xxbtze.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+2d:"/_next/static/chunks/35k3pmovy9zz4.js"
+2e:I[28675,["$b","$c","$d","$e","$2d"],"default"]
+2f:I[40464,["$b","$c","$d","$e","$2d"],"default"]
+30:I[78208,["$b","$c","$d","$e","$2d"],"default"]
+31:I[22016,["$b","$c","$d","$e","$2d"],""]
+32:I[66158,["$b","$c","$d","$e","$2d"],"default"]
+5:C
+23:["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"¿Por qué dbt?\",\"description\":\"dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y ...\",\"url\":\"https://www.mgatc.com/blog/dbt-analytics-engineering/\",\"datePublished\":\"2025-12-21\",\"dateModified\":\"2025-12-21\",\"inLanguage\":\"es\",\"author\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/images/profile.png\"}},\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://www.mgatc.com/og.png\",\"width\":1200,\"height\":630},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.mgatc.com/blog/dbt-analytics-engineering/\"},\"keywords\":\"\",\"articleSection\":\"Data & Analytics\",\"isPartOf\":{\"@type\":\"Blog\",\"name\":\"Blog Técnico — Mariano Gobea Alcoba\",\"url\":\"https://www.mgatc.com/blog/\"}}"}}],["$","$L2e",null,{"contentType":"article","contentId":"dbt-analytics-engineering","title":"¿Por qué dbt?"}],["$","$L2f",null,{"site_section":"blog"}],["$","$L30",null,{}],["$","article",null,{"className":"mga-article-shell mga-container","children":[["$","$L31",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mga-article-header mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"¿Por qué dbt?"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y ..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"21 de diciembre de 2025"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"3 min read"]}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]]}],["$","$L32",null,{"slug":"dbt-analytics-engineering","title":"¿Por qué dbt?"}]]}],"$L33","$L34","$L35"]}],"$L36"]}]
+38:I[6265,["$b","$c","$d","$e","$2d"],"default"]
+39:I[21686,["$b","$c","$d","$e","$2d"],"default"]
+37:Tee6,<p>dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y qué no.</p>
+<h2>¿Por qué dbt?</h2>
+<p>Antes de dbt, nuestro SQL de transformación era un desastre:</p>
+<ul>
+<li>Scripts SQL en carpetas sin orden</li>
+<li>Sin tests para validar los datos</li>
+<li>Sin documentación sobre qué hace cada query</li>
+<li>Dependencias entre queries manejadas manualmente</li>
+</ul>
+<p>dbt resuelve esto con un enfoque de software engineering aplicado al SQL.</p>
+<h2>La estructura básica</h2>
+<pre><code>analytics/
+├── dbt_project.yml
+├── models/
+│   ├── staging/           # Datos crudos limpiados
+│   │   ├── stg_orders.sql
+│   │   └── stg_sellers.sql
+│   ├── intermediate/      # Joins y transformaciones
+│   │   └── int_seller_orders.sql
+│   └── marts/             # Tablas finales para BI
+│       └── mart_seller_metrics.sql
+├── tests/
+└── macros/
+</code></pre>
+<h2>Modelos con referencias</h2>
+<pre><code class="language-sql">-- models/staging/stg_orders.sql
+-- Limpia datos crudos de la tabla orders
+
+SELECT
+  order_id,
+  TRIM(seller_id) as seller_id,
+  CAST(gmv AS NUMERIC) as gmv,
+  PARSE_TIMESTAMP("%Y-%m-%d %H:%M:%S", created_at) as created_at,
+  LOWER(status) as status
+FROM {{ source("raw", "orders") }}
+WHERE order_id IS NOT NULL
+  AND gmv > 0
+
+-- models/marts/mart_seller_metrics.sql
+-- Métricas diarias por seller
+
+WITH orders AS (
+  SELECT * FROM {{ ref("stg_orders") }}
+),
+sellers AS (
+  SELECT * FROM {{ ref("stg_sellers") }}
+)
+SELECT
+  DATE(o.created_at) as metric_date,
+  s.seller_id,
+  s.country,
+  COUNT(*) as total_orders,
+  SUM(o.gmv) as total_gmv,
+  AVG(o.gmv) as avg_gmv
+FROM orders o
+JOIN sellers s USING (seller_id)
+WHERE o.status = "completed"
+GROUP BY 1, 2, 3
+</code></pre>
+<h2>Tests: la killer feature</h2>
+<pre><code class="language-yaml"># models/staging/schema.yml
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: gmv
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1000000
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["pending", "completed", "cancelled"]
+</code></pre>
+<pre><code class="language-bash"># Correr todos los tests
+dbt test
+
+# Output
+Found 24 models, 89 tests
+Completed successfully. Pass: 89, Warn: 0, Error: 0, Skip: 0
+</code></pre>
+<h2>Materializations</h2>
+<pre><code class="language-sql">-- Table: reconstruye la tabla completa cada run
+{{ config(materialized="table") }}
+
+-- View: no almacena datos, solo la query
+{{ config(materialized="view") }}
+
+-- Incremental: solo procesa registros nuevos
+{{ config(
+    materialized="incremental",
+    unique_key="order_id",
+    partition_by={"field": "created_at", "data_type": "timestamp"}
+) }}
+
+SELECT * FROM {{ source("raw", "orders") }}
+{% if is_incremental() %}
+  WHERE created_at > (SELECT MAX(created_at) FROM {{ this }})
+{% endif %}
+</code></pre>
+<h2>Lo que no funciona bien</h2>
+<ol>
+<li><strong>Debugging es difícil</strong>: Cuando un modelo falla, el error a veces está varios pasos upstream</li>
+<li><strong>No es para lógica compleja</strong>: dbt es SQL. Si necesitás Python, se complica (dbt Python models existen pero son limitados)</li>
+<li><strong>Compile time</strong>: Con 300+ modelos, <code>dbt compile</code> tarda. Los CI/CD se sienten lentos</li>
+</ol>
+<h2>Veredicto</h2>
+<p>dbt es casi obligatorio para equipos de analytics de 3+ personas. El valor está en los tests y la documentación automática. La curva de aprendizaje es de 1-2 semanas para alguien con SQL sólido.</p>
+33:["$","div",null,{"className":"mga-article-layout","children":[["$","aside",null,{"className":"mga-article-rail","aria-label":"Sobre esta lectura","children":[["$","strong",null,{"children":"Mariano Gobea Alcoba"}],["$","span",null,{"children":"3 min read"}],["$","span",null,{"children":"Data & Analytics"}],["$","$L31",null,{"href":"/blog/","children":"Explorar otras ideas ↗"}],["$","$L31",null,{"href":"/servicios/","children":"Llevalo a tu proyecto ↗"}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$37"}}]]}]
+34:["$","$L38",null,{"category":"Data & Analytics"}]
+35:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por"," ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L31",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L31",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+36:["$","$L39",null,{}]
+29:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#11161d","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#e9ece7","media":"(prefers-color-scheme: light)"}]]
+3a:I[27201,["$b","$c","$d","$e"],"IconMark"]
+26:null
+2c:[["$","title","0",{"children":"¿Por qué dbt? | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y ..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/dbt-analytics-engineering/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"¿Por qué dbt?"}],["$","meta","15",{"property":"og:description","content":"dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y ..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/dbt-analytics-engineering/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/og.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"¿Por qué dbt?"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2025-12-21"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"¿Por qué dbt?"}],["$","meta","26",{"name":"twitter:description","content":"dbt (data build tool) transformó cómo los equipos de datos escriben SQL. Dos años después de adoptarlo en producción, acá el análisis honesto de qué funciona y ..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L3a","29",{}]]
