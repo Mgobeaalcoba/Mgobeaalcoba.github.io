@@ -1,0 +1,89 @@
+# MGA Tech Consulting
+
+> AI, Automation & BI Consulting for SMBs | Buenos Aires, Argentina
+
+## About
+
+MGA Tech Consulting is a technology consultancy specialized in process automation, applied AI and Business Intelligence for small and medium businesses (SMBs/PyMEs) in Argentina. The firm is led by its founder, Mariano Gobea Alcoba, a Data & Analytics Technical Leader (profile: https://www.mgatc.com/portfolio/). Its expertise covers Data Engineering, Business Intelligence, Machine Learning and applied AI to solve real-world business challenges, helping companies automate processes and leverage data to grow.
+
+## Expertise
+
+- Data Engineering: BigQuery, Apache Airflow, Apache Kafka, dbt, Python (pandas, polars, asyncio)
+- Machine Learning & AI: GenAI, LLMs, LangChain, LlamaIndex, vector databases, embeddings, prompt engineering
+- Business Intelligence: Looker Studio, real-time dashboards, automated reports
+- Process Automation: n8n, RPA, Python scripts, AI chatbots
+- Cloud: Google Cloud Platform (GCP), GitHub Actions CI/CD
+
+## Services (Consulting)
+
+- [Services overview](https://www.mgatc.com/servicios/) ([English](https://www.mgatc.com/en/servicios/)): fixed-scope offers with public pricing, plus custom projects quoted to scope.
+  - [Automation Diagnostic](https://www.mgatc.com/en/servicios/diagnostico-automatizacion/): USD 99, 75-minute session, written report in 48 h with prioritized automation opportunities.
+  - [1:1 Tech Mentoring](https://www.mgatc.com/en/servicios/mentoria-uno-a-uno/): USD 80, 60-minute session, immediate action plan.
+  - [Data & AI Audit](https://www.mgatc.com/en/servicios/auditoria-data-ia/): USD 249, 90-minute session, report in 5 days.
+  - [Repository & App Agentification](https://www.mgatc.com/en/servicios/agentificacion/): custom quote, applied kit and runbook so AI agents can work safely on your codebase or app.
+  - [Custom AI Agents](https://www.mgatc.com/en/servicios/agentes-a-medida/): custom quote, agent in production plus runbook.
+- [Tech Consulting landing](https://www.mgatc.com/consulting/): process automation (n8n, Python, AI), applied AI, BI dashboards and data pipelines for SMBs.
+- [How we work](https://www.mgatc.com/como-trabajamos/): the 4-step process (free diagnosis, custom proposal, agile implementation, continuous support).
+
+## Financial Tools (Argentina)
+
+- [Recursos Financieros](https://www.mgatc.com/recursos/): Free financial calculators and tools for Argentina
+  - Income Tax Calculator (Impuesto Ganancias 2026)
+  - Net/Gross Salary Simulator
+  - Real-time USD Exchange Rates (official, blue, MEP, CCL)
+  - Investment Dashboard (fixed term vs USD comparison)
+  - Economic Indicators (CPI, UVA)
+
+## Open Source Tools
+
+- [PyPI packages in numbers](https://www.mgatc.com/en/recursos/pypi-stats/) ([Spanish](https://www.mgatc.com/recursos/pypi-stats/)): daily downloads, version and GitHub activity of the Python packages published on PyPI (ia-router, n8n-flow-manager, kaggle-downloader-package, argendolar, missing-mga). Open data from pypistats.org, refreshed daily.
+- [ia-router](https://www.mgatc.com/en/recursos/ia-router/) ([Spanish](https://www.mgatc.com/recursos/ia-router/)): free, Apache-2.0 command-line router that splits tasks across the official AI CLIs (claude, codex, agy) using objective metrics from Arena and Artificial Analysis. Python 3.9+, no dependencies; available for macOS, Linux and Windows (with WSL 2).
+  - Install with Homebrew: `brew install Mgobeaalcoba/tap/ia-router` ([tap](https://github.com/Mgobeaalcoba/homebrew-tap))
+  - Install with pip/pipx: `pipx install ia-router` ([PyPI](https://pypi.org/project/ia-router/))
+  - Browser UI: `ia-router ui` opens a local tab (127.0.0.1 only) with the same identity as the CLI and everything the CLI does: chat with streaming, attachments, compare, routing preview, scores, priorities, metrics, usage, logins, a connector manager (templates, free commands with confirmation, URLs) and saved conversations
+  - v0.6: piped input and `--json` for scripts, `ask --compare`, `ia-router usage` (quota meter), saved sessions (`--continue`), streaming answers, connectors attached per task, connector templates
+  - First-run onboarding (v0.5): the chat checks which official CLIs are installed and logged in and gives the exact step for each missing one; repeat with `/setup` or `ia-router setup`
+  - Connectors (v0.4): register MCP servers (Gmail, Calendar, Slack, GitHub…) once and any model uses them through one proxy; `ia-router connectors add NAME -- COMMAND`
+  - Source code and docs (English): https://github.com/Mgobeaalcoba/ia-suscription-router
+  - The program's interface and documentation are in English; it classifies tasks written in English or Spanish.
+
+## Technical Blog
+
+- [Blog](https://www.mgatc.com/blog/): Technical articles on Data Engineering, Python, GenAI, BigQuery, LLMs — practical, real-world experience.
+
+### Recent Articles
+
+- How to optimize BigQuery queries at scale (at scale)
+- Automating income tax calculations with Python in Argentina
+- Common errors in data pipelines and how to fix them
+- IT salary negotiation in Argentina 2026
+- BigQuery cost optimization strategies
+- GenAI in production: a practical checklist
+- Airflow vs Prefect 2026: comprehensive comparison
+- Python async for data pipelines
+- Vector databases: a practical guide
+- dbt for analytics engineering
+- LangChain vs LlamaIndex: which to choose
+- Pandas vs Polars performance comparison
+- Streamlit for rapid dashboard development
+- Kafka basics for data engineers
+- Advanced ChatGPT API tips
+- Docker for data engineers
+- SQL window functions complete guide
+- Prompt engineering for productivity
+- Data quality with Great Expectations
+- Automating reports with Python
+- Embeddings explained simply
+
+## Contact & Social
+
+- Website: https://www.mgatc.com
+- LinkedIn: https://www.linkedin.com/company/mga-tech-consulting
+- GitHub: https://github.com/Mgobeaalcoba
+- Email: hola@mgatc.com
+- Location: Buenos Aires, Argentina
+- Direct contact (WhatsApp or email): Contact form available on every page via the floating CTA
+
+## Technical Sitemap
+
+Full sitemap: https://www.mgatc.com/sitemap.xml
