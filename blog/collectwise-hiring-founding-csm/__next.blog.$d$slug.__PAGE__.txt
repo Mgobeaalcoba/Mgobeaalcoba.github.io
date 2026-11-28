@@ -1,0 +1,119 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/0iag2-8bvt6hq.js"
+4:"/_next/static/chunks/2q03hh56_xou-.js"
+5:"/_next/static/chunks/401l4x3xwesgw.js"
+6:"/_next/static/chunks/0ldjq6diwfhmm.js"
+7:I[39756,["$3","$4","$5","$6"],"default"]
+8:I[37457,["$3","$4","$5","$6"],"default"]
+10:"/_next/static/chunks/35k3pmovy9zz4.js"
+11:I[28675,["$3","$4","$5","$6","$10"],"default"]
+12:I[40464,["$3","$4","$5","$6","$10"],"default"]
+13:I[78208,["$3","$4","$5","$6","$10"],"default"]
+14:I[22016,["$3","$4","$5","$6","$10"],""]
+23:"ViewportBoundary"
+24:I[97367,["$3","$4","$5","$6"],"$23"]
+25:"MetadataBoundary"
+26:I[97367,["$3","$4","$5","$6"],"$25"]
+27:"$Sreact.suspense"
+28:I[27201,["$3","$4","$5","$6"],"IconMark"]
+a:X
+a:C
+b:X
+f:T460,{"@context":"https://schema.org","@type":"Article","headline":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise","description":"La reciente apertura de una vacante para *Founding Customer Success Manager* en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana pr...","url":"https://www.mgatc.com/blog/collectwise-hiring-founding-csm/","datePublished":"2026-11-23","dateModified":"2026-11-23","inLanguage":"es","author":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com"},"publisher":{"@type":"Person","name":"Mariano Gobea Alcoba","url":"https://www.mgatc.com","image":{"@type":"ImageObject","url":"https://www.mgatc.com/images/profile.png"}},"image":{"@type":"ImageObject","url":"https://www.mgatc.com/og.png","width":1200,"height":630},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mgatc.com/blog/collectwise-hiring-founding-csm/"},"keywords":"","articleSection":"Data & Analytics","isPartOf":{"@type":"Blog","name":"Blog Técnico — Mariano Gobea Alcoba","url":"https://www.mgatc.com/blog/"}}e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"id":"main-content","className":"min-h-screen signal-article-page","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","$L11",null,{"contentType":"article","contentId":"collectwise-hiring-founding-csm","title":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}],["$","$L12",null,{"site_section":"blog"}],["$","$L13",null,{}],["$","article",null,{"className":"mga-article-shell mga-container","children":[["$","$L14",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-400 transition-colors mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Volver al blog"]}],["$","header",null,{"className":"mga-article-header mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-3 mb-4","children":[["$","span",null,{"className":"text-xs px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full font-medium","children":"Data & Analytics"}],false]}],["$","h1",null,{"className":"signal-article-title text-3xl sm:text-4xl font-black text-gray-100 leading-tight mb-4","children":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}],["$","p",null,{"className":"text-gray-400 text-lg leading-relaxed mb-6","children":"La reciente apertura de una vacante para *Founding Customer Success Manager* en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana pr..."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-white/10","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar","aria-hidden":"true","children":["$L15","$L16","$L17","$L18","$undefined"]}],"23 de noviembre de 2026"]}],"$L19","$L1a"]}],"$L1b"]}],"$L1c","$L1d","$L1e"]}],"$L1f"]}],["$L20"],"$L21"]}],"p":"$@22","v":null,"s":"$b"}}]]
+c:[["children",{"s":{"n":"slug","t":"d","k":"collectwise-hiring-founding-csm","s":["special","videos"]},"h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L7",null,{"parallelRouterKey":"children","template":["$","$L8",null,{}]}]]}],"p":"$@d","v":"$a","s":"$b"},"c":"$Qe"}]]
+1:[["children",{"s":"blog","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L7",null,{"parallelRouterKey":"children","template":["$","$L8",null,{}]}]]}],"p":"$@9","v":"$a","s":"$b"},"c":"$Qc"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L24",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#11161d","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#e9ece7","media":"(prefers-color-scheme: light)"}]]}],["$","$L26",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$27",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise | MGA Tech Consulting"}],["$","meta","1",{"name":"description","content":"La reciente apertura de una vacante para *Founding Customer Success Manager* en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana pr..."}],["$","meta","2",{"name":"application-name","content":"MGA Tech Consulting"}],["$","link","3",{"rel":"author","href":"https://www.mgatc.com"}],["$","meta","4",{"name":"author","content":"MGA Tech Consulting"}],["$","link","5",{"rel":"manifest","href":"/manifest.webmanifest"}],["$","meta","6",{"name":"keywords","content":"data analytics,consultoría tecnológica,automatización,business intelligence,python,machine learning,data engineer,buenos aires"}],["$","meta","7",{"name":"creator","content":"MGA Tech Consulting"}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","meta","9",{"name":"googlebot","content":"index, follow"}],["$","link","10",{"rel":"canonical","href":"https://www.mgatc.com/blog/collectwise-hiring-founding-csm/"}],["$","meta","11",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","12",{"name":"apple-mobile-web-app-title","content":"MGA"}],["$","meta","13",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","14",{"property":"og:title","content":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}],["$","meta","15",{"property":"og:description","content":"La reciente apertura de una vacante para *Founding Customer Success Manager* en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana pr..."}],["$","meta","16",{"property":"og:url","content":"https://www.mgatc.com/blog/collectwise-hiring-founding-csm/"}],["$","meta","17",{"property":"og:image","content":"https://www.mgatc.com/og.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}],["$","meta","21",{"property":"og:type","content":"article"}],["$","meta","22",{"property":"article:published_time","content":"2026-11-23"}],["$","meta","23",{"property":"article:author","content":"Mariano Gobea Alcoba"}],["$","meta","24",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","25",{"name":"twitter:title","content":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}],["$","meta","26",{"name":"twitter:description","content":"La reciente apertura de una vacante para *Founding Customer Success Manager* en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana pr..."}],["$","meta","27",{"name":"twitter:image","content":"https://www.mgatc.com/og.png"}],["$","link","28",{"rel":"apple-touch-icon","href":"/images/favicon-192.png"}],["$","$L28","29",{}]]}]}],null]}],null]}],"p":"$@29","v":null,"s":"$b"}},"a":"$@2a","u":"$@2b","b":"P7sFEAnOXxzQX30a7zUAM"}
+2c:I[66158,["$3","$4","$5","$6","$10"],"default"]
+2e:I[6265,["$3","$4","$5","$6","$10"],"default"]
+2f:I[21686,["$3","$4","$5","$6","$10"],"default"]
+30:I[97367,["$3","$4","$5","$6"],"OutletBoundary"]
+15:["$","path","1cmpym",{"d":"M8 2v4"}]
+16:["$","path","4m81vk",{"d":"M16 2v4"}]
+17:["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}]
+18:["$","path","8toen8",{"d":"M3 10h18"}]
+19:["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],"$undefined"]}],"6 min read"]}]
+1a:["$","div",null,{"className":"flex gap-2 flex-wrap","children":[]}]
+1b:["$","$L2c",null,{"slug":"collectwise-hiring-founding-csm","title":"Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise"}]
+2d:T1ee7,<h2>Arquitectura de Datos y Estrategia de Operaciones en el Ecosistema de Startups de IA: El Caso de CollectWise</h2>
+<p>La reciente apertura de una vacante para <em>Founding Customer Success Manager</em> en CollectWise, una startup acelerada por Y Combinator (F24), ofrece una ventana privilegiada hacia los desafíos técnicos que enfrentan las empresas de software de IA en su etapa de escalamiento. Desde una perspectiva de ingeniería de datos y arquitectura de sistemas, la integración del éxito del cliente (Customer Success - CS) no es simplemente un proceso administrativo, sino un ciclo de retroalimentación crítica que alimenta los modelos de machine learning y la infraestructura de datos.</p>
+<h3>La Intersección entre Operaciones y el Ciclo de Vida de los Datos</h3>
+<p>En una arquitectura de datos moderna, la distinción entre un sistema de CRM y un pipeline de analítica ha desaparecido. Para una startup en fase inicial, el Customer Success es la fuente primaria de datos cualitativos y cuantitativos que determinan la calidad del entrenamiento de los modelos y la validación de los mismos en entornos de producción.</p>
+<p>Cuando un <em>Founding Customer Success Manager</em> se integra en una startup como CollectWise, el rol técnico implica la orquestación de datos entre las herramientas de interacción con el cliente y el stack tecnológico central. Los ingenieros de datos deben asegurar que estos flujos sean bidireccionales:</p>
+<ol>
+<li><strong>Ingesta (Ingestion):</strong> Captura de interacciones mediante APIs desde herramientas de comunicación.</li>
+<li><strong>Transformación (Processing):</strong> Normalización de feedback no estructurado en esquemas legibles por sistemas de IA (RAG - Retrieval Augmented Generation).</li>
+<li><strong>Activación (Activation):</strong> Retroalimentación de los insights obtenidos hacia los modelos para mejorar la inferencia o ajustar los parámetros de segmentación.</li>
+</ol>
+<h3>El Desafío del Feedback Loop en Modelos de IA</h3>
+<p>El éxito de una solución de IA depende fundamentalmente de la calidad y la velocidad del bucle de retroalimentación (Feedback Loop). En el contexto de CollectWise, la labor del personal de CS debe traducirse en telemetría de alta fidelidad. Un sistema bien diseñado debe capturar no solo el comportamiento del usuario mediante logs de eventos (usando herramientas como PostHog o Segment), sino también el sentimiento y las discrepancias operativas detectadas por el equipo de CS.</p>
+<p>A nivel técnico, esto se traduce en la implementación de una arquitectura <em>event-driven</em>. Consideremos el siguiente esquema de integración para un pipeline de feedback de usuarios:</p>
+<pre><code class="language-python"># Ejemplo de estructura de evento para feedback de usuario en un pipeline de datos
+import json
+import uuid
+from datetime import datetime
+
+def capture_user_feedback(user_id, model_response_id, feedback_score, raw_notes):
+    event = {
+        "event_id": str(uuid.uuid4()),
+        "timestamp": datetime.utcnow().isoformat(),
+        "user_id": user_id,
+        "context": {
+            "model_version": "v2.4.1",
+            "feature_set": "collectwise_engine_alpha"
+        },
+        "payload": {
+            "score": feedback_score,
+            "feedback_text": raw_notes,
+            "processed_sentiment": perform_sentiment_analysis(raw_notes)
+        }
+    }
+    # Enviar a un bus de eventos (e.g., Kafka o Amazon Kinesis)
+    send_to_event_bus(event)
+</code></pre>
+<h3>Arquitectura de Datos para el Éxito del Cliente a Escala</h3>
+<p>El escalado desde las primeras implementaciones hasta una base de clientes enterprise requiere que la ingeniería de datos priorice la observabilidad. El <em>Customer Success</em> no puede basarse en intuiciones; requiere dashboards automatizados que reflejen el <em>health score</em> del cliente basado en métricas reales de uso del producto.</p>
+<h4>1. Identificación de Churn mediante ML</h4>
+<p>La capacidad de predecir la tasa de abandono (<em>churn prediction</em>) es una aplicación directa de la ingeniería de datos. Al integrar los datos de soporte técnico, los registros de acceso a la API y el uso de las funciones principales (Core Features), se puede entrenar un modelo de clasificación:</p>
+<pre><code class="language-sql">-- Query para construir el feature set de un usuario para predicción de churn
+SELECT 
+    user_id,
+    COUNT(session_id) as total_sessions,
+    AVG(duration_seconds) as avg_session_time,
+    COUNT(CASE WHEN event_type = 'api_error' THEN 1 END) as error_count,
+    MAX(last_activity_date) as last_seen
+FROM event_logs
+WHERE activity_date > CURRENT_DATE - INTERVAL '30 days'
+GROUP BY user_id;
+</code></pre>
+<h4>2. Gestión de Datos no Estructurados</h4>
+<p>CollectWise, al trabajar en un ecosistema de IA, maneja grandes volúmenes de texto. El rol técnico requiere que el CSM se convierta en un arquitecto de "etiquetado". Los datos recolectados deben pasar por una capa de vectorización. El uso de bases de datos vectoriales (Pinecone, Weaviate o Milvus) permite que el equipo de ingeniería de datos convierta las notas de soporte en una base de conocimientos consultable por los propios LLMs de la empresa.</p>
+<h3>Consideraciones sobre el Rol en una Startup de YC F24</h3>
+<p>La posición de <em>Founding Customer Success Manager</em> es, en esencia, un rol de "Data Engineer de campo". En etapas tempranas (Seed o Serie A), este individuo no solo atiende clientes, sino que define los procesos que se convertirán en automatizaciones a gran escala.</p>
+<p>La selección de esta persona requiere habilidades en:</p>
+<ul>
+<li><strong>SQL básico:</strong> Para realizar consultas ad-hoc sobre el comportamiento de los clientes.</li>
+<li><strong>Integraciones API:</strong> Comprensión de cómo conectar herramientas SaaS (Salesforce, Zendesk, Slack) con el data warehouse (Snowflake, BigQuery).</li>
+<li><strong>Pensamiento Algorítmico:</strong> Capacidad para traducir un problema de un cliente en un ticket de ingeniería ejecutable con los detalles técnicos necesarios para reducir la ambigüedad.</li>
+</ul>
+<h3>La Infraestructura como Ventaja Competitiva</h3>
+<p>La diferencia entre una startup que sobrevive y una que escala es la calidad de su <em>Data Stack</em>. La integración del éxito del cliente dentro del stack de datos permite que el producto evolucione con base en evidencia. Cuando una empresa como CollectWise busca un perfil técnico para CS, está buscando a alguien capaz de cerrar la brecha entre la interfaz de usuario y el backend de IA.</p>
+<p>Si los datos no están fluyendo correctamente, si el feedback de los usuarios se pierde en correos electrónicos o documentos no estructurados, el modelo de IA sufrirá un <em>model drift</em> inevitable. La ingeniería de datos es el cimiento sobre el cual el Customer Success construye la retención de usuarios.</p>
+<h3>Conclusión para Líderes Técnicos</h3>
+<p>Las startups en el ecosistema de IA enfrentan una presión sin precedentes por entregar valor inmediato. La estructura de su equipo de datos debe reflejar esta necesidad. La adopción de metodologías ágiles en la gestión de datos, junto con una estrecha colaboración entre el departamento de éxito del cliente y la ingeniería, es la estrategia ganadora para cualquier organización que aspire a liderar su vertical tecnológica.</p>
+<p>Para empresas en crecimiento que necesiten optimizar sus pipelines de datos, mejorar la arquitectura de integración de sus herramientas de customer success o implementar estrategias robustas de observabilidad de datos, la consultoría experta es una inversión fundamental.</p>
+<p>Para obtener asesoría especializada en ingeniería de datos, arquitectura de IA y optimización de stacks tecnológicos, le invitamos a visitar <a href="https://www.mgatc.com">https://www.mgatc.com</a>.</p>
+1c:["$","div",null,{"className":"mga-article-layout","children":[["$","aside",null,{"className":"mga-article-rail","aria-label":"Sobre esta lectura","children":[["$","strong",null,{"children":"Mariano Gobea Alcoba"}],["$","span",null,{"children":"6 min read"}],["$","span",null,{"children":"Data & Analytics"}],["$","$L14",null,{"href":"/blog/","children":"Explorar otras ideas ↗"}],["$","$L14",null,{"href":"/servicios/","children":"Llevalo a tu proyecto ↗"}]]}],["$","div",null,{"className":"prose prose-invert prose-sky max-w-none\n            prose-headings:text-gray-100 prose-headings:font-bold\n            prose-p:text-gray-300 prose-p:leading-relaxed\n            prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline\n            prose-code:text-sky-300 prose-code:bg-sky-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none\n            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl\n            prose-blockquote:border-l-sky-500 prose-blockquote:text-gray-400\n            prose-strong:text-gray-100\n            prose-li:text-gray-300\n            prose-hr:border-white/10\n            prose-table:border-collapse\n            prose-thead:bg-gray-800/60\n            prose-th:text-gray-200 prose-th:font-semibold prose-th:border prose-th:border-white/10 prose-th:px-4 prose-th:py-2\n            prose-td:text-gray-300 prose-td:border prose-td:border-white/10 prose-td:px-4 prose-td:py-2","dangerouslySetInnerHTML":{"__html":"$2d"}}]]}]
+1d:["$","$L2e",null,{"category":"Data & Analytics"}]
+1e:["$","div",null,{"className":"mt-12 pt-8 border-t border-white/10","children":[["$","p",null,{"className":"text-gray-400 text-sm mb-4","children":["Escrito por"," ",["$","span",null,{"className":"text-sky-400 font-medium","children":"Mariano Gobea Alcoba"}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","$L14",null,{"href":"/blog/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"← Otros artículos"}],["$","$L14",null,{"href":"/servicios/","className":"text-sm text-sky-400 hover:text-sky-300 transition-colors","children":"Servicios →"}]]}]]}]
+1f:["$","$L2f",null,{}]
+20:["$","script","script-0",{"src":"/_next/static/chunks/35k3pmovy9zz4.js","async":true}]
+21:["$","$L30",null,{"children":["$","$27",null,{"name":"Next.MetadataOutlet","children":"$@31"}]}]
+2b:true
+b:300
+31:null
+b:C
+2a:0
+d:"$undefined"
+9:"$undefined"
+29:"$undefined"
+22:"$undefined"
